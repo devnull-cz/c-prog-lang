@@ -3,7 +3,7 @@
 int
 main(void)
 {
-	int i, j;
+	int i;
 	/* You can declare and assign (= initialize). */
 	int k = 13;
 
