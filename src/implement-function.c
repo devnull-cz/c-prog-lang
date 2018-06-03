@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <assert.h>
 #include <string.h>
 
@@ -28,4 +29,6 @@ main(void)
         printf("Chars copied: %zu\n", copy_s2a(a, s2));
         /* This must print the Blade Runner quote. */
         printf("%s\n", a);
+
+	return (0);
 }
