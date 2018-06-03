@@ -3,7 +3,6 @@
 int
 main(void)
 {
-	double d;
 	int a = 5;
 
 	printf("%d\n", a / 3);
