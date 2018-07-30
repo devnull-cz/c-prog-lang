@@ -7,3 +7,9 @@ Markdown styles:
   - solution: :key:
 
 section links: [Basics](01.md#basics)
+
+ASCII art (indent 4 spaces):
+
+    +---+
+    |   |
+    +---+
