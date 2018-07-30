@@ -5,3 +5,5 @@ Markdown styles:
   - task: :wrench:
   - see example: :flashlight:
   - solution: :key:
+
+section links: [Basics](01.md#basics)
