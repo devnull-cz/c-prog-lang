@@ -29,10 +29,17 @@ void
 print_2D_array(size_t width, size_t height, char array[][width])
 {
 	// Print the 2-D array to standard output.
-	for (int h = height - 1; h >= 0; --h) {
-		for (int i = 0; i < width; ++i)
+	int h = height - 1;
+
+	while (h >= 0) {
+		int i = 0;
+		while (i < width) {
 			printf("%c", array[h][i]);
+			++i;
+		}
 		printf("\n");
+
+		--h;
 	}
 }
 
@@ -62,14 +69,15 @@ get_rand(int h, int max)
 void
 mountain(size_t width, size_t height, char array[][width])
 {
-	int i, h = 0;
+	int i = 0, h = 0;
 
-	for (i = 0; i < width; ++i) {
+	while (i < width) {
 		int r;
 
 		r = get_rand(h, height);
 		h += r;
 		array[h][i] = mnt_chars[r + 1];
+		i++;
 	}
 
 	print_2D_array(width, height, array);
@@ -87,12 +95,14 @@ main(void)
 #endif
 	memset(array, ' ', HEIGHT * WIDTH);
 
-	/* Make it overlaid for a better visual effect. */
-	for (int i = 0; i < 3; i++) {
+	/* Make them overlaid for a better visual effect. */
+	int i = 0;
+	while (i < 3) {
 		mountain(
 		    sizeof (array[0]) / sizeof (array[0][0]),
 		    sizeof (array) / sizeof (array[0]),
 		    array);
+		i++;
 	}
 
 	return (0);
