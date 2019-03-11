@@ -15,7 +15,7 @@ check(long off, size_t size, size_t limit)
 }
 
 int
-main()
+main(void)
 {
 	printf("%d\n", check(-1, 1, 255));
 
