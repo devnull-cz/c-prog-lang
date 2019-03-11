@@ -12,7 +12,7 @@ main(int argc, char **argv)
 	a = atoi(argv[1]);
 	b = atoi(argv[2]);
 
-	// printf("%d %d\n", a, b);
+	printf("%d %d\n", a, b);
 
 	return (b ? a / b : 0);
 }
