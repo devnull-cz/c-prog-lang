@@ -11,7 +11,7 @@
 #define	WIDTH		31 // use 80 to fit on standard terminal
 #define	MAXITER		16
 
-int world[WIDTH] = { [16] = 1 };
+int world[WIDTH] = { [WIDTH / 2] = 1 };
 int next[WIDTH];
 
 int patterns[8][3] = { {1, 1, 1}, {1, 1, 0}, {1, 0, 1}, {1, 0, 0},
@@ -25,7 +25,7 @@ int values[8] = { 0, 0, 0, 1, 1, 1, 1, 0 };
 int
 getval(int a[3])
 {
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < sizeof (patterns) / sizeof (patterns[0]); i++) {
 		bool found = true;
 
 		for (int j = 0; j < 3; j++) {
