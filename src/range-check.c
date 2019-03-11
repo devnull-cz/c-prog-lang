@@ -10,9 +10,7 @@ check(long off, size_t size, size_t limit)
 		warnx("not valid input");
 		return (false);
 	}
-
-	/* do something */
-
+	
 	return (true);
 }
 
