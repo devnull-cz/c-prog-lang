@@ -21,7 +21,7 @@
 #include <time.h>
 
 #define	WIDTH	80
-#define	HEIGHT	50
+#define	HEIGHT	30
 
 char mnt_chars[3] = "\\-/";
 
@@ -97,7 +97,7 @@ main(void)
 
 	/* Make them overlaid for a better visual effect. */
 	int i = 0;
-	while (i < 3) {
+	while (i < 1) {
 		mountain(
 		    sizeof (array[0]) / sizeof (array[0][0]),
 		    sizeof (array) / sizeof (array[0]),
