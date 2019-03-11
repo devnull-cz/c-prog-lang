@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <string.h>	// memcpy()
 #include <stdlib.h>	// abort()
+#include <unistd.h>	// sleep()
 
 #define	WIDTH		31 // use 80 to fit on standard terminal
 #define	MAXITER		16
@@ -66,7 +67,9 @@ print_world(void)
 		else
 			printf("_");
 	}
-	printf("\n");
+	sleep(1);
+	fflush(stdout);
+	printf("\r");
 }
 
 int
