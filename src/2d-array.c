@@ -3,11 +3,12 @@
 void
 func(int array[][2], size_t size)
 {
-	int i;
-
 	printf("sizeof = %zu\n", sizeof (array[0]));
-	for (i = 0; i < size; i++) {
+
+	int i = 0;
+	while (i < size) {
 		printf("%d\n", array[i][0]);
+		i++;
 	}
 }
 
