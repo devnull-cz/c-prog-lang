@@ -1,7 +1,9 @@
+#include <stdio.h>
+
 int
 main(void)
 {
-	int i, j, max;
+	int i = 42, j = 43, max;
 
 	/*
 	 * Note: the ternary conditional ?: has higher precedence than simple
@@ -12,6 +14,8 @@ main(void)
 	// (i > j) ? max = i : max = j;
 	// (i > j) ? (max = i) : max = j;
 	(i > j) ? (max = i) : (max = j);
+
+	printf("max = %d\n", max);
 
 	return (0);
 }
