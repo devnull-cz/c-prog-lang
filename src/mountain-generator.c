@@ -84,7 +84,7 @@ mountain(size_t width, size_t height, char array[][width])
 }
 
 int
-main(void)
+main(int argc, char *argv[])
 {
 	char array[HEIGHT][WIDTH];
 
@@ -95,9 +95,13 @@ main(void)
 #endif
 	memset(array, ' ', HEIGHT * WIDTH);
 
+	int limit = 1;
+	if (argc > 1)
+		limit = atoi(argv[1]);
+
 	/* Make them overlaid for a better visual effect. */
 	int i = 0;
-	while (i < 1) {
+	while (i < limit) {
 		mountain(
 		    sizeof (array[0]) / sizeof (array[0][0]),
 		    sizeof (array) / sizeof (array[0]),
