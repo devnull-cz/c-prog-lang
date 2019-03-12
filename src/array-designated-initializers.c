@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// mixing designated array initializer with fixed initializers
 char array[80] = { [0] = 'A', 'X', [3] = 'f', [4] = 'o', [6] = 'o' };
 
 int
