@@ -15,13 +15,14 @@ main(void)
 		 * with sizeof.  Try to use int and then use "gcc -Wall -Wextra"
 		 * to see what it gives you.
 		 */
-		size_t i;
+		size_t i = 0;
 
-		for (i = 0; i < sizeof (CHARS_TO_DEL) - 1; ++i) {
+		while (i < sizeof (CHARS_TO_DEL) - 1) {
 			if (c == a[i]) {
 				found = 1;
 				break;
 			}
+			++i;
 		}
 
 		if (!found)
