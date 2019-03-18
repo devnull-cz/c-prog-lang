@@ -14,8 +14,6 @@ main(void)
 		 * This lecture 05 is also about why you should not use "int i"
 		 * with sizeof.  Try to use int and then use "gcc -Wall -Wextra"
 		 * to see what it gives you.
-		 *
-		 * See public-notes.txt for more.
 		 */
 		size_t i;
 
