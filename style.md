@@ -1,6 +1,6 @@
 Markdown styles:
 
-  - watch-out: :exclamation:
+  - watch-out: :heavy\_exclamation\_mark:
   - pro-tip: :bulb:
   - task: :wrench:
   - see example: :flashlight:
