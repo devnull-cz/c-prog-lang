@@ -1,5 +1,6 @@
 Markdown styles:
 
+  - see source code: :eyes:
   - watch-out: :heavy\_exclamation\_mark:
   - pro-tip: :bulb:
   - task: :wrench:
