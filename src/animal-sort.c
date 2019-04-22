@@ -11,7 +11,7 @@
 static int
 name_cmp(const void *a, const void *b)
 {
-	return (strcmp(((struct animal *) a)->name,
+	return (strcmp(((struct animal *)a)->name,
 	    ((struct animal *)b)->name));
 }
 
