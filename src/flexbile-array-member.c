@@ -28,7 +28,9 @@ main(void)
 {
 	struct item *p = allocate(100);
 
-	// do sth to make sure the code is not optimized away
+	// do something to make sure the code is not optimized away
+
+	free(p);
 
 	return (0);
 }
