@@ -7,11 +7,11 @@ main(void)
 		union {
 			int a;
 			int b;
-		};
+		} u;
 	} foo;
 
-	foo.a = 42;
-	printf("%d\n", foo.b);
+	foo.u.a = 42;
+	printf("%d\n", foo.u.b);
 
 	return (0);
 }
