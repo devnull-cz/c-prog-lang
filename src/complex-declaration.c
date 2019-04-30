@@ -9,8 +9,8 @@ typedef a_of_p *(**foo2[][8])();
 int
 main(void)
 {
-	foo x = { NULL};
-	foo2 y = { NULL};
+	foo x = { NULL };
+	foo2 y = { NULL };
 
 	/*
 	 * The compiler may warn that x and y may never be equal but it accepts
