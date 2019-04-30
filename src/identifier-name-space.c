@@ -1,10 +1,12 @@
 /*
- *
  * Identifiers fall into several name spaces that do not interfere with one
  * another.
  *
- * These classes are: objects, functions, typedef constants; labels; tags of
- * structures or unions, and enumerations; and structure or union individually.
+ * These classes are:
+ *   - objects, functions, typedef constants
+ *   - labels
+ *   - tags of structures or unions, and enumerations
+ *   - structure or union individually
  *
  * The "individual" part means each structure or union has its own namespace.
  *
