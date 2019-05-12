@@ -1,0 +1,421 @@
+#
+# Assignment for The C Programming Language, NPRG066, Phase 1.
+#
+# Simplified ed(1) editor.  The 2nd phase will extend phase 1.
+#
+
++-------------------------------------------------------------------+
+| Deadline for submission of the 1st phase: Sunday Jun 9, 23:59:59. |
++-------------------------------------------------------------------+
+
+PLEASE NOTE THAT THE DEADLINE IS HARD AND NO SUBMISSIONS WILL BE
+ACCEPTED AFTER SUNDAY JUN 9 MIDNIGHT.
+
+Please submit your code via emailing both of us a link to your github or
+via attaching the C file.  A github link is preferred.  You do NOT
+submit your code to the seminar email list.
+
+While we assume you may have bugs in your code and those will be
+resolved via a subsequent discussion, the submitted code is expected to
+provide implementation of all the requested functionality below and will
+not be accepted if that is not the case.  In other words, we will not
+accept a partial implementation only.
+
+Note that the exact case and wording of all error messages, and all
+behavior as specified, is very important as we will use automated tests
+to verify your implementation.  So, part of the assignment is also to
+closely follow the specification.
+
+# First
+Go read the ed(1) man page and familiarize yourself with the editor
+before you start working on this assignment.
+
+# CLI
+usage: ed <file>
+
+- invalid options result in a message to stderr + exit(1):
+
+	Example:
+
+	$ ed -l
+	ed: illegal option -- l
+	usage: ed file
+
+- for this 1st phase, the <file> argument is mandatory.
+
+- if the <file> cannot be opened, an error is printed as follows:
+
+$ ed /root
+/root: Permission denied
+q
+$
+
+	  - or:
+
+$ ed /foo
+/foo: No such file or directory
+q
+$
+
+	  - the error displayed comes from strerror(3)
+	  - even after such an error the program normally continues.
+	    Unless there is another error triggered, ed(1) still returns
+	    0 (as GNU ed does):
+
+		$ ed /root/
+		/root/: Permission denied
+		q
+		$ echo $?
+		0
+
+	- but:
+
+		$ ed /root
+		/root: Permission denied
+		1p
+		?
+		q
+		$ echo $?
+		1
+
+# Return value
+The editor returns 1 if there was any error during the session,
+otherwise returns 0.  The only exception is one noted right above.
+
+# Compilation requirements
+- you provide a single file "ed.c". i.e. no splitting into multiple
+  files, no headers allowed.
+  
+	- however, a Makefile is optional for those who know how to use
+	  it.
+
+- your code must be compilable on Linux machines in the lab at Mala
+  Strana with no warnings.  The following options are mandatory:
+
+	$ gcc -std=c99 -Wall -Wextra -Wpedantic ed.c
+
+	- that is, even if you develop on Windows or any other system,
+	  you need to pass the Linux compilation test at Mala Strana
+	  lab.
+
+- it is forbidden to use getopt().  Process the options manually.
+
+- no memory leaks.  You can use valgrind installed on the Linux lab
+  machines to verify.  See the seminar notes on how to use Valgrind.
+  Note that we may use Valgrind to verify your code for memory leaks.
+
+# Linked list implementation.
+You must support files of any size.  The only limit is system resources,
+e.g. memory size, and simply exit with return value 1 if you hit any
+problems.  You are allowed to read the whole file into memory at once.
+
+Using <sys/queue.h> is recommended for a link list implementation but
+not mandatory.  I.e. feel free to implement your own link list
+implementation if you prefer that.
+
+# Maximum line length
+You can limit the line length to 1024 bytes.  If you read a line longer
+than that, exit 1 with error.
+
+# Testing your implementation
+All the supported commands below must behave as in GNU ed(1) installed
+on Linux machines in the lab unless stated otherwise (*).  If the
+description below does not provide exact information on the expected
+behavior (e.g. the exact error message), please notify us using the
+seminar email list.
+
+* we sometimes simplified the behavior to make it easier for you
+
+# Current address
+Ed maintains a current address which is typically supplied to commands
+as the default address when none is specified.  When a file is first
+read, the current address is set to the last line of the file.  In
+general, the current address is set to the last line affected by a
+command.
+
+# Line address format
+<n>		one line address
+<n>,<m>		address range
+
+E.g. "19", "1,10", "5,6", and "1,1000" are valid addresses.  If a comma
+is present, both addresses are mandatory (that is not the case in GNU
+ed).
+
+The 1st line in the file has line address 1, not 0.
+
+A negative number denotes an address counted backwards from the current
+address.  I.e. when you open the file, "-1" represents the line before
+the last one, "-2,-1" represents the two lines immediatelly before the
+last one, etc.  However, "-1,-2" is invalid (the editor does support
+printing lines in reverse order).
+
+Aside from numbers, both <n> or <m> may be one of:
+
+.		current line set by the 'p', 'n', and "<n>\n" commands.
+$		The last line in the file
+
+That means both "$" and "$,$" represent the last line, and both "." and
+".,." represent the current line (see below "Current address").
+
+Invalid addresses (includes invalid ranges):
+
+ 1		# no leading whitespace allowed
+100,1
+100,-1
+-1,-2
+$,1
+1, 5		# no whitespace after ',' allowed
+ 1,5		# no leading whitespace allowed
+100,.		# assuming current address was set below 100
+1|,100
+1.,
+1.,2
+# note that these are accepted by GNU ed but not here, see above
+1,
+,
+
+etc...
+
+Using a line address beyond the last line in the file is also considered
+an invalid address.
+
+Note that line address arithmetics is NOT part of the assignment, e.g.
+"1,$-1" is considered invalid.  Do not implement it as it might fail our
+automated tests.
+
+Anything that does not comply to an allowed address will trigger
+"Invalid address" error message.
+
+Frankly, there are many situations that are solved in GNU ed somehow
+arbitrarily, and there is no grammar for the input.  For example, should
+the following be an uknown command, or an invalid address?
+
+x,
+
+In such situations, follow GNU ed if it's an error there as well.  If
+GNU ed accepts what we say is not supported and we do not clearly define
+the error message here, you decide what it's gonna be.  Note that our
+automated tests check mostly common situations and avoid weird corner
+cases (but we do check some of the invalid addresses listed above).
+
+The most important thing is that if the input is invalid according to
+this specification, your ed will not accept the input.
+
+# Supported commands:
+(.,.)<newline>
+	Print the addressed line(s), and sets the current address to
+	the last line printed.  E.g. typing "10,11<newline>" will print the
+	10th and 11th line.
+
+	If no address is provided, a line after the current line is
+	printed and the current line is set to it.  In other words, if
+	you start your ed and set the current line to 1 via "1", then
+	typing <enter> will always print a next line in the file.
+
+	Example:
+
+		$ cat test
+		This is ed.
+		Hello, world.
+		$
+
+		$ ed test
+		26
+		1p
+		This is ed.
+		<enter>
+		Hello, world.
+		<enter>
+		?
+		h
+		Invalid address
+
+	Given that when the file is first read and the current line is
+	set to the last line, typing <enter> right away results in an
+	error as there is no line after the last one to be printed.
+
+		$ ed test
+		26
+		<enter>
+		?
+		h
+		Invalid address
+             
+H       Toggle the printing of error explanations.  By default,
+	explanations are not printed.  It is recommended that ed scripts
+	begin with this command to aid in debugging.
+
+	Does not modify the current address.
+
+	H command itself prints the last error message, then it performs
+	the toggle.
+
+	Example:
+
+		$ ed test
+		26
+		1,$p
+		This is ed.
+		Hello, world.
+		3p
+		?
+		H
+		Invalid address
+		3p
+		?
+		Invalid address
+
+	Using an invalid address is an error and sets the error to
+	"Invalid address" as usual.  Using a valid address is an error
+	as well and sets the error to "Unexpected address".  See the
+	example with 'h' below.
+
+	Note that if H itself fails (e.g. "2H") the command does not
+	toggle.
+
+h       Print an explanation of the last error.
+
+	For error message handling, see 'H'.
+
+	Does not modify the current address.
+
+	Example:
+
+		$ ed /etc/passwd
+		4479
+		1,1000p
+		?
+		1h
+		?
+		h
+		Unexpected address
+		1000h
+		?
+		h
+		Invalid address
+     
+(.,.)n  Print the addressed lines along with their line numbers.  The
+	current address is set to the last line printed.  Use a tab
+	after the line number, not spaces.
+
+	Using invalid address sets the error to "Invalid address".
+
+	$ cat test
+	This is ed.
+	Hello, world.
+	$
+
+	$ ed test
+	26
+	1,$n
+	1	This is ed.
+	2	Hello, world.
+	.
+	Hello, world.
+	1n
+	1	This is ed.
+	.
+	This is ed.
+	$n
+	2	Hello, world.
+	.n
+	2	Hello, world.
+
+(.,.)p  Print the addressed lines.  The current address is set to the
+	last line printed.
+
+	Using invalid address sets the error to "Invalid address".
+
+	Example:
+
+	$ ed test
+	26
+	1,$p
+	This is ed.
+	Hello, world.
+	.
+	Hello, world.
+	1p
+	This is ed.
+	.
+	This is ed.
+	$
+	Hello, world.
+	$p
+	Hello, world.
+	.
+	Hello, world.
+
+q       Quit ed.
+
+	Does not modify the current address.
+
+	For error message handling, see 'H'.
+
+# Invalid commands
+Any unknown command triggers "Uknown command" error message and the
+check if performed after the address validity check.  Example:
+
+	$ ed /etc/passwd
+	4479
+	1,$Y
+	?
+	q
+
+	$ ed /etc/passwd
+	4479
+	H
+	1,$Y
+	?
+	Unknown command
+	1Y
+	?
+	Unknown command
+	1Yp
+	?
+	Unknown command
+	1,10000Y
+	?
+	Invalid address
+	0,1p
+	?
+	Invalid address
+	1,1000Y	
+	?
+	Invalid address
+	2,1Y		# note that GNU ed prints "Unknown command" but
+			# we consider it an inconsistency with the
+			# "1,1000Y" case.
+	?
+	Invalid address
+	0,1Y		# same as with "2,1Y"
+	?
+	Invalid address
+
+
+If there is any suffix after a known command, that triggers "Unknown
+command suffix" error message.  Note ed(1) first checks the command,
+then the suffix.  Example:
+
+	$ ed /etc/passwd
+	4479
+	H
+	1Yx
+	?
+	Unknown command
+	1px
+	?
+	Invalid command suffix
+
+
+If address range is specified for commands that do not need it (h, H, q),
+the "Unexpected address" error is produced. Example:
+
+	$ ed /etc/passwd
+	1q
+	?
+	h
+	Unexpected address
+
+vim:ft=conf
+vim:tw=72

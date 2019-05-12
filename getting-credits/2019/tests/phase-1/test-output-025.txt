@@ -1,0 +1,2 @@
+/totallynonexistentfile: No such file or directory
+Cannot open input file

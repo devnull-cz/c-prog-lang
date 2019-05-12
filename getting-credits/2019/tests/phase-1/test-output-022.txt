@@ -1,0 +1,12 @@
+802
+5	Since C is relatively small, it can be described in a small space, and learned quickly. A programmer can reasonable expect to know and understand and indeed regularly use the entire language."
+2	
+3	Hello, world.
+4	
+1	# Input file for tests.  Do not change without changing the tests.
+2	
+3	Hello, world.
+Hello, world.
+3	Hello, world.
+?
+3	Hello, world.

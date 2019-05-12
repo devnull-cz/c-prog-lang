@@ -1,0 +1,7 @@
+802
+Since C is relatively small, it can be described in a small space, and learned quickly. A programmer can reasonable expect to know and understand and indeed regularly use the entire language."
+
+Syllabus
+
+    C history, standards, motivation
+    coding style, basic language primitives

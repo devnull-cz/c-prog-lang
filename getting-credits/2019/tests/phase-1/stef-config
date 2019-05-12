@@ -1,0 +1,6 @@
+export STEF_TESTSUITE_NAME="NPRG099 ed tests"
+export ED=${ED:-/Volumes/crypto/hg/maied/ed}
+#export ED=/bin/ed
+# This is on u-pl machines.
+#export ED=/afs/ms/u/p/pechanec/maied/ed
+export INPUTFILE=inputfile

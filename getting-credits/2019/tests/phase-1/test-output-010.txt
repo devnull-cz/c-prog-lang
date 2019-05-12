@@ -1,0 +1,32 @@
+802
+1	# Input file for tests.  Do not change without changing the tests.
+2	
+3	Hello, world.
+4	
+5	Since C is relatively small, it can be described in a small space, and learned quickly. A programmer can reasonable expect to know and understand and indeed regularly use the entire language."
+6	
+7	Syllabus
+8	
+9	    C history, standards, motivation
+10	    coding style, basic language primitives
+11	    function declaration/definition, local variables
+12	    arrays, ternary operator
+13	    arithmetic type conversions, negative numbers representation
+14	    strings
+15	    pointers, reference/dereference, pointer arithmetics, arrays and pointers
+16	    dynamic memory allocation
+17	    storage classes
+18	    structures, unions
+19	    reading complex declarations
+20	    const, enum, typedef, bit fields
+21	    bit operations
+22	    debugging tools and techniques
+1	# Input file for tests.  Do not change without changing the tests.
+2	
+10	    coding style, basic language primitives
+3	Hello, world.
+4	
+5	Since C is relatively small, it can be described in a small space, and learned quickly. A programmer can reasonable expect to know and understand and indeed regularly use the entire language."
+6	
+7	Syllabus
+8	
