@@ -2,8 +2,9 @@ You need https://github.com/devnull-cz/stef to run the tests.
 
 Works on Linux machines at Malá Strana labs.
 
-The tests works with GNU ed as well.  See stef-config and the STEF documentation
-for more information.
+The tests work with GNU ed as well so try it out with /bin/ed first to make sure
+you get the correct environment.  See stef-config and the STEF documentation for
+more information.
 
 $ export ED=/bin/ed
 $ ~/stef/stef.sh
