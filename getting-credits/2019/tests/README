@@ -1,3 +1,41 @@
 You need https://github.com/devnull-cz/stef to run the tests.
 
 Works on Linux machines at Malá Strana labs.
+
+The tests works with GNU ed as well.  See stef-config and the STEF documentation
+for more information.
+
+$ export ED=/bin/ed
+$ ~/stef/stef.sh
+=== [ NPRG099 ed tests ] ===
+
+001	PASS
+002	PASS
+003	PASS
+004	PASS
+005	PASS
+006	PASS
+007	PASS
+008	PASS
+009	PASS
+010	PASS
+011	PASS
+012	PASS
+013	PASS
+014	PASS
+015	PASS
+016	PASS
+017	PASS
+018	PASS
+019	PASS
+020	PASS
+021	PASS
+022	PASS
+023	PASS
+024	PASS
+025	PASS
+026	PASS
+
+============
+
+TESTS PASSED
