@@ -1,10 +1,15 @@
 You need https://github.com/devnull-cz/stef to run the tests.
 
-Works on Linux machines at Malá Strana labs.
+Works on Linux machines at Malá Strana labs.  You must test it there before you
+submit your solution.  The machines are accessible via SSH, e.g.:
+
+	ssh <your-login>@u-pl3.ms.mff.cuni.cz
 
 The tests work with GNU ed as well so try it out with /bin/ed first to make sure
 you get the correct environment.  See stef-config and the STEF documentation for
 more information.
+
+Example for the Phase 1 tests:
 
 $ export ED=/bin/ed
 $ ~/stef/stef.sh
