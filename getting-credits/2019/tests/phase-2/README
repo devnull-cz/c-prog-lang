@@ -1,0 +1,8 @@
+Tests
+
+009-010, 016-017	command 'd'
+024			modified buffer error message, q+q quits
+026-029			command 'i'
+030			w <file> with empty argv1
+031			w <file> with non-empty argv1
+032			w<file> triggers correct error

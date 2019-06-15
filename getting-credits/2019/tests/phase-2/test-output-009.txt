@@ -1,0 +1,17 @@
+802
+484
+# Input file for tests.  Do not change without changing the tests.
+
+Hello, world.
+
+Since C is relatively small, it can be described in a small space, and learned quickly. A programmer can reasonable expect to know and understand and indeed regularly use the entire language."
+
+Syllabus
+
+    dynamic memory allocation
+    storage classes
+    structures, unions
+    reading complex declarations
+    const, enum, typedef, bit fields
+    bit operations
+    debugging tools and techniques

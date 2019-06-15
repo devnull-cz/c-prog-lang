@@ -1,0 +1,26 @@
+802
+?
+Warning: buffer modified
+?
+# Input file for tests.  Do not change without changing the tests.
+
+Hello, world.
+
+Since C is relatively small, it can be described in a small space, and learned quickly. A programmer can reasonable expect to know and understand and indeed regularly use the entire language."
+
+Syllabus
+
+    C history, standards, motivation
+    coding style, basic language primitives
+    function declaration/definition, local variables
+    arrays, ternary operator
+    arithmetic type conversions, negative numbers representation
+    strings
+    pointers, reference/dereference, pointer arithmetics, arrays and pointers
+    dynamic memory allocation
+    storage classes
+    structures, unions
+    reading complex declarations
+    const, enum, typedef, bit fields
+    bit operations
+    debugging tools and techniques

@@ -1,0 +1,10 @@
+export STEF_TESTSUITE_NAME="NPRG099 ed tests, Part 2"
+# You MUST set this one to your ed implementation or export ED before you run
+# the tests.
+#export ED=/bin/false
+export INPUTFILE=inputfile
+export TMPINPUTFILE=inputfile.tmp
+export OUTPUTFILE=outputfile.tmp
+# Avoid common aliases whose colored output, for example, could break a
+# subsequent grep use.
+export LS=/bin/ls
