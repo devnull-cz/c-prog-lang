@@ -41,5 +41,11 @@ w [file]
 q	- note that q warns for a modified not written into buffer.  Two
 	  consequtive q's quit though and the editor returns 1.
 
+Before you submit your solution, you must pass all the tests for the
+Phase 2.  See:
+
+https://github.com/devnull-cz/c-prog-lang/blob/master/getting-credits/2019/tests/README
+https://github.com/devnull-cz/c-prog-lang/tree/master/getting-credits/2019/tests/phase-2
+
 vim:ft=conf
 vim:tw=72
