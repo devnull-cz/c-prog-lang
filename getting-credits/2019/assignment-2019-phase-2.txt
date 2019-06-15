@@ -1,0 +1,45 @@
+# Simple ed editor phase 1
+See ./assignment-phase-1.txt.
+
+# Simple ed editor phase 2
+
+# CLI options:
+
+usage: ed [file]
+
+No options supported, use of any options result in message to stderr +
+exit(1).  For example:
+
+	ed: illegal option -- l
+	usage: ed [file]
+
+# Compilation requirements
+
+Same as for the 1st phase.
+
+# Supported commands
+
+For the "i" command, a single "." ends the input mode.  See ed(1) man
+page for details.
+
+For the phase 2, you need to implement the following three commands:
+
+(.)i
+(.,.)d
+
+	- see GNU ed man page on how it works
+
+w [file]
+
+	- range is not supported, i.e. the whole file will be always
+	  written.  Without the "file" argument, the file will be
+	  written to argv[1], and argv[1] will be overwritten if it
+	  already exists.  If argv[1] is NULL, the error message is:
+
+	  	No current filename
+
+q	- note that q warns for a modified not written into buffer.  Two
+	  consequtive q's quit though and the editor returns 1.
+
+vim:ft=conf
+vim:tw=72
