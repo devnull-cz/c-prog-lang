@@ -1,0 +1,29 @@
+# Introduction
+
+- all information on http://mff.devnull.cz/c-prog-lang
+	- see the References section for materials
+- make sure you DO SUBSCRIBE TO THE MAILING LIST (see the seminar http page
+  above)
+- getting credits - see the seminar page
+- what is C
+- C89, C99, C11 (ie. 2011) standards.  We will focus on C99.
+- why it's worth to learn C
+	- helps with deeper understanding of computers
+	- lingua franca of programming
+	- lots of important code in C (Linux, Android kernel, parts of iOS
+	  kernel, parts of Windows kernel, OpenSSH, OpenSSL, Apache, etc. etc.)
+	- C programmers will be needed virtually for ever
+	- fast, very portable
+	- cool and fun
+- objectives of the seminar
+	- you should be able to write and understand non-trivial C code (we
+	  focus on C99)
+	- you should be able to recognise whether C is appropriate for solving a
+	  specific problem
+	- why it's so easy to get burned when working in C
+- we are here to help you understand concepts, see the big picture, and learn
+  new stuff.  SO, IF YOU HAVE A QUESTION, ASK.
+	- Ideally use the mailing list so that it's beneficial for others, too.
+- please do read the C style document and DO USE the C style.  The link is on
+  the seminar page, or you can get it here: http://mff.devnull.cz/cstyle/.
+- source code files are in https://github.com/devnull-cz/c-prog-lang/tree/master/src
