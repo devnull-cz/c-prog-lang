@@ -18,7 +18,7 @@
 	- `int i; printf("%d\n", i);`
 	- see `man 3 printf` for the gory details
 	- number of conversions must match the number of arguments
-		- :eyes: [printf2.c](src/printf2.c)
+		- :eyes: [printf2.c](/src/printf2.c)
 		- the compiler will warn you but it will let you do it (use
 		  `-Werror` to treat warnings as errors)
 		- it will print garbage for conversions without a matching
