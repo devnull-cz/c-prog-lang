@@ -1,4 +1,6 @@
 # c-prog-lang
-Programming in the C language
+Programming in C
 
-See [style.md](style.md) on what styles are used for what.
+See [lecture-notes][/lecture-notes] for notes from individual classes.
+
+See [style.md](/style.md) on the style used.
