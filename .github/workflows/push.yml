@@ -1,0 +1,14 @@
+name: Refresh notes
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - modules/*
+jobs:
+  refresh_notes:
+    steps:
+    - name: Install pre-requisites
+      run: npm install markdown-include
+    - name: Expand MarkDown files
+      run: ~/node_modules/markdown-include/bin/cli.js input/2020/01.json
