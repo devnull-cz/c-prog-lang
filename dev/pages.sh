@@ -11,25 +11,27 @@ fi
 git config --global user.email "vlada@devnull.cz"
 git config --global user.name "vladak"
 
-# The workflow clones the repo (in detached HEAD state) however
+# The workflow clones the repository (in detached HEAD state) however
 # with different method. This makes it easy to just push at the end.
+repo_name=repo
 git clone --quiet \
-    https://${GH_PAGES_TOKEN}@github.com/devnull-cz/c-prog-lang repo
+    https://${GH_PAGES_TOKEN}@github.com/devnull-cz/c-prog-lang $repo_name
 
-for year in `ls -1 lecture-notes`; do
-	if [[ ! -d lecture-notes/$year ]]; then
+lecture_dir=lecture-notes
+for year in `ls -1 $lecture_dir`; do
+	if [[ ! -d $lecture_dir/$year ]]; then
 		continue
 	fi
 
 	echo "Processing year $year"
-	cp lecture-notes/$year/*.md repo/lecture-notes/$year/
-	cd repo
-	git add -f lecture-notes/$year/*.md
+	cp $lecture_dir/$year/*.md $repo_name/$lecture_dir/$year/
+	cd $repo_name
+	git add -f $lecture_dir/$year/*.md
 	cd -
 done
 
-if [[ -n $( git status -s lecture-notes ) ]]; then
-	cd repo
+if [[ -n $( git status -s $lecture_dir ) ]]; then
+	cd $repo_name
 	git commit -m "Latest update of lecture notes"
 	git push -fq origin master
 	echo "Published latest lecture notes."
