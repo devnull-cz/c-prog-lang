@@ -5,6 +5,7 @@ on:
     - master
     paths:
     - modules/*
+    - lecture-notes/*/*
     - .github/workflows/*
     - dev/*
 jobs:
