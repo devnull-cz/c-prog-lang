@@ -5,6 +5,7 @@ on:
     - master
     paths:
     - modules/*
+    - input//*/*
     - lecture-notes/*/*
     - .github/workflows/*
     - dev/*
