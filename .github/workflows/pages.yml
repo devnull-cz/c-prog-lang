@@ -6,6 +6,7 @@ on:
     paths:
     - modules/*
     - .github/workflows/*
+    - dev/*
 jobs:
   build:
     runs-on: ubuntu-latest
