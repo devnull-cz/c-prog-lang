@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -x
+
 if [[ -z $GH_PAGES_TOKEN ]]; then
 	echo "GH_PAGES_TOKEN environment variable is missing"
 	exit 1
@@ -18,6 +21,7 @@ for year in `ls -1 lecture-notes`; do
 		continue
 	fi
 
+	echo "Processing year $year"
 	cp lecture-notes/$year/*.md repo/lecture-notes/$year/
 	cd repo
 	git add -f lecture-notes/$year/*.md
