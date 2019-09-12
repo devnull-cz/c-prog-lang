@@ -1,0 +1,21 @@
+name: Refresh notes
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - modules/*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/checkout@gh-pages
+    - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10
+    - name: Install pre-requisites
+      run: npm install markdown-include
+    - name: Expand MarkDown files
+      run: ~/node_modules/markdown-include/bin/cli.js input/2020/*.json
