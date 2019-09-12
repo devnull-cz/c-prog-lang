@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -n $GH_PAGES_TOKEN ]]; then
+if [[ -z $GH_PAGES_TOKEN ]]; then
 	echo "GH_PAGES_TOKEN environment variable is missing"
 	exit 1
 fi
@@ -8,14 +8,22 @@ fi
 git config --global user.email "vlada@devnull.cz"
 git config --global user.name "vladak"
 
-# This is probably not necessary as the workflow clones the repo
-# (however in detached HEAD state)
+# The workflow clones the repo (in detached HEAD state) however
+# with different method. This makes it easy to just push at the end.
 git clone --quiet \
     https://${GH_PAGES_TOKEN}@github.com/devnull-cz/c-prog-lang repo
 
-cp lecture-notes/2020/*.md repo/lecture-notes/2020/
-cd repo
-git add -f lecture-notes/2020/*.md
+for year in `ls -1 lecture-notes`; do
+	if [[ ! -d lecture-notes/$year ]]; then
+		continue
+	fi
+
+	cp lecture-notes/$year/*.md repo/lecture-notes/$year/
+	cd repo
+	git add -f lecture-notes/$year/*.md
+	cd -
+done
+
 git commit -m "Latest update of lecture notes"
 git push -fq origin master
 
