@@ -28,7 +28,10 @@ for year in `ls -1 lecture-notes`; do
 	cd -
 done
 
-git commit -m "Latest update of lecture notes"
-git push -fq origin master
-
-echo "Published latest lecture notes."
+if [[ -n $( git status -s lecture-notes ) ]]; then
+	git commit -m "Latest update of lecture notes"
+	git push -fq origin master
+	echo "Published latest lecture notes."
+else
+	echo "Nothing to publish"
+fi
