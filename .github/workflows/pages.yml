@@ -18,5 +18,4 @@ jobs:
     - name: Install pre-requisites
       run: npm install markdown-include
     - name: Expand MarkDown files
-      # should use 'npm root -g' instead of hard-coded path
-      run: /usr/local/lib/node_modules/markdown-include/bin/cli.js input/2020/*.json
+      run: ./node_modules/markdown-include/bin/cli.js input/2020/*.json
