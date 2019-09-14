@@ -11,7 +11,7 @@
 void
 myfn(char a[20])
 {
-	/* Will print sizeof (char *) */
+	/* Will actually print sizeof (char *) */
 	printf("%zu\n", sizeof (a));
 	printf("%p\n", a);
 	/* "a" is treated as a pointer */
