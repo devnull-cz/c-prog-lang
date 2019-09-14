@@ -9,12 +9,12 @@
 	  recently run program on the foreground
 	- only the least significant byte taken as an unsigned integer (0-255)
 	  is relevant
-	- return.c
+	- [return.c](/src/return.c)
 	- if you do not use return from main() and the ending } is reached, the
-	  program returns 0 (in C99, in C89 it would be a random number).
+	  program returns 0 (in C99+, in C89 it would be a random number).
 - you must declare a variable before you can use it
 	- :eyes: [declaration.c](/src/declaration.c)
-- printf() can use conversion specifications
+- printf() can use conversion specifications, they start with `%`
 	- `int i; printf("%d\n", i);`
 	- see `man 3 printf` for the gory details
 	- number of conversions must match the number of arguments
@@ -22,16 +22,16 @@
 		- the compiler will warn you but it will let you do it (use
 		  `-Werror` to treat warnings as errors)
 		- it will print garbage for conversions without a matching
-		  argument (whatever is on the stack).
+		  argument (whatever is on the stack is printed).
 - arithmetics
 	- +, -, /, *
 	- ++, --
 		- `int i = 13; printf("%d\n", i++);` will print 13 and then
-		  increment i
-		- `int i = 13; printf("%d\n", ++i);` will first increment i and
-		  print 14
+		  increment `i`
+		- `int i = 13; printf("%d\n", ++i);` will first increment `i`
+		  then print 14
 		- `++i` is an expression, not a variable, so you cannot assign to it
-			- will not compile: `++i = 13;`
+			- this will not compile: `++i = 13;`
 	- :eyes: [arithmetics.c](/src/arithmetics.c)
 - anywhere you can use a variable, you can use an expression
 	```C
@@ -54,5 +54,9 @@
 	   ```
 - :wrench: use floats for the conversion code
 	- [inches-to-cm2.c](/src/inches-to-cm2.c)
+		- '\t' in a string will print a tab
+		- "6" is the minimum field width 
+		- ".2" is the precision
+		- see the printf(3) man page for details
 - :wrench: print fahrenheit to centigrade table.  Use floats.
 	- [fahr-to-cent.c](/src/fahr-to-cent.c)
