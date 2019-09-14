@@ -1,23 +1,14 @@
 /*
- * Implement a moving star that zick zacks on the __SAME__ line between some
+ * Implement a moving star that zick zacks on the same line between some
  * boundary (say 50 character wide).
  *
- * This was an assignment after the __first__ C language seminar class in Feb
- * 2018.  After that intro class, students knew how to:
+ * This is an assignment after the first C language seminar class.
  *
- *	- declare variables of type int and float
- *	- do basic arithmetics
- *	- do a "while" loop
- *	- use an "if" (but __NOT__ "else")
- *	- use printf()
- *	- use a character '\r' to return to the beginning of a line
- *	- to use "poll(NULL, 0, <ms>)" to sleep <ms> miliseconds
+ * See the assignment for important information that may help you in
+ * implementing this:
  *
- * One thing I forgot to tell them was that they needed "fflush(stdout)" after
- * the line was printed.  As STDOUT is buffered, the text will generally not be
- * printed until a new line is printed, which is never the case here.
+ * https://github.com/devnull-cz/c-prog-lang/blob/master/modules/moving-star.md
  */
-
 #include <stdio.h>
 #include <poll.h>
 
