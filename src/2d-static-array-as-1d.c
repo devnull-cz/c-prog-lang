@@ -21,8 +21,13 @@ main(void)
 	 * Print the consequtive memory as a one-dimensional array. Note that
 	 * "a" is just a pointer so you can re-type it to a different type
 	 * of a pointer.
+	 *
+	 * We could also do:
+	 *
+	 *	p_i = &a[0][0];
+	 *	p_i = a[0];	// no need for a cast either
 	 */
-	p_i = (int *)a;
+	p_i = (int *)a;		// you need the cast to silence a warning
 	for (i = 0; i < MYSIZE * MYSIZE; ++i) {
 		printf("%d\n", p_i[i]);
 #if 0
