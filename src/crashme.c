@@ -1,13 +1,13 @@
-#include <stdlib.h>
+#include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int
 main(int argc, char **argv)
 {
 	int a, b;
 
-	if (argc != 3)
-		return (1);
+	assert(argc == 3);
 
 	a = atoi(argv[1]);
 	b = atoi(argv[2]);
