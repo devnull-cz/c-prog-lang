@@ -1,7 +1,13 @@
 #include <stdio.h>
 
-// mixing designated array initializer with fixed initializers
+/* Mixing designated array initializer with fixed initializers */
 char array[80] = { [0] = 'A', 'X', [3] = 'f', [4] = 'o', [6] = 'o' };
+
+/*
+ * You may see a missing '=' but that is only a GNU extension.  Do not use it in
+ * your code.
+ */
+char a2[80] = { [0] 'A', [2] 'B' };
 
 int
 main(void)
@@ -17,6 +23,8 @@ main(void)
 		i++;
 	}
 	printf("\n");
+
+	printf("a2[2]: %c\n", a2[2]);
 
 	return (0);
 }
