@@ -4,7 +4,7 @@ int
 main(void)
 {
 	int i;
-	/* You can declare and assign (= initialize). */
+	/* You can declare and assign (i.e., to initialize the variable). */
 	int k = 13;
 
 	i = k;
@@ -18,7 +18,7 @@ main(void)
 	++k;
 	/* Will increment by one as well, we will see the difference later. */
 	k++;
-	printf("Double incremented k is %d\n", k);
+	printf("Twice incremented k is %d\n", k);
 
 	/*
 	 * If both arguments are integeres, the result is also an integer.  This

@@ -5,7 +5,7 @@ main(void)
 {
 	int low = 0;
 	int high = 300;
-	int flag = 0;
+	int printed72 = 0;
 	int i;
 
 	while (low < high) {
@@ -13,10 +13,10 @@ main(void)
 		int f72 = 72;
 #if 0
 		/* When we know "if", insert my favorite temperature 72 */
-		if (!flag && low > f72) {
+		if (!printed72 && low > f72) {
 			cm = 5 * (f72 - 32) / 9.0;
 			printf("%3d\t%6.2f\n", f72, cm);
-			flag = 1;
+			printed72 = 1;
 			continue;
 		}
 #endif
