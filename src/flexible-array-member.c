@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 struct item {
 	int header;
@@ -18,7 +19,7 @@ allocate(size_t payload_len)
 	p->len = payload_len;
 
 	for (size_t i = 0; i < p->len; i++)
-		p->payload[i] = 'A';
+		p->payload[i] = 'A' + i;
 
 	return (p);
 }
@@ -26,9 +27,10 @@ allocate(size_t payload_len)
 int
 main(void)
 {
-	struct item *p = allocate(100);
+	struct item *p = allocate(30);
 
-	// do something to make sure the code is not optimized away
+	for (int i = 0; i < p->len; ++i)
+		printf("%d: %c\n", i, p->payload[i]);
 
 	free(p);
 
