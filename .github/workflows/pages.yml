@@ -22,7 +22,11 @@ jobs:
       run: npm install markdown-include
     - name: Expand MarkDown files
       run: ./node_modules/markdown-include/bin/cli.js input/2020/*.json
-    - name: Push pages
+    - name: Push Markdown files
       env:
         GH_PAGES_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
       run: ./dev/pages.sh
+    - name: Generate and push HTML files
+      env:
+        GH_PAGES_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
+      run: ./dev/html.sh
