@@ -27,4 +27,5 @@ grip --pass "$GH_PAGES_TOKEN" --export *.md
 mv *.html $repodir/docs
 cd $repodir/docs
 git add -f *.html
+git commit -m "Refresh HTML pages"
 git push -fq origin master
