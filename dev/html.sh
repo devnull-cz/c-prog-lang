@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# Generate HTML pages from Markdown files in lecture-notes.
+#
+# NOTE: This depends on running ./dev/pages.sh.
+#
 
 set -e
 set -x
