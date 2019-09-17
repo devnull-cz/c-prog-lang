@@ -19,6 +19,6 @@ git config --global user.email "vlada@devnull.cz"
 git config --global user.name "vladak"
 
 lecture_dir=lecture-notes
-cd repo/$lecture_dir
+cd repo/$lecture_dir/2020
 
 grip --export
