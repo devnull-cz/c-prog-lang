@@ -15,8 +15,8 @@
 	  kernel, parts of Windows kernel, OpenSSH, OpenSSL, Apache, etc. etc.)
 	- C programmers will be needed virtually for ever
 	- fast, very portable
-		- however, now at the expense of very complex compilers (see
-		  e.g. https://queue.acm.org/detail.cfm?id=3212479)
+		- however, now at the expense of having very complex compilers
+		  (see e.g. https://queue.acm.org/detail.cfm?id=3212479)
 	- still cool and fun
 - objectives of the seminar
 	- you should be able to write and understand non-trivial C code (we
