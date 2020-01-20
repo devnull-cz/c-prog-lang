@@ -5,8 +5,8 @@ C](/modules/behavior-types.md).
 
 **Now an important note:** it is not that a small part of a program (statement,
 expression, ...) has a result that is not predictable, given that anything could
-have happened during the statement execution, **the entire execution of the
-program that experienced that undefined behavior is meaningless.**
+have happened because of that, **the entire execution of the program that
+experienced that undefined behavior is meaningless.**
 
 Not only when writing software for cars, trains, planes, nuclear power plants,
 etc., you really have to be aware of that.
