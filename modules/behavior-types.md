@@ -40,3 +40,8 @@ further requirements on which is chosen in any instance.
 
 An example of unspecified behavior is the order in which the arguments to a
 function are evaluated.
+
+## Notes
+
+See also [More Information on Undefined
+Behavior](/modules/undefined-behavior.md).
