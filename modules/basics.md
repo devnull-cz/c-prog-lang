@@ -6,7 +6,7 @@
 	  system), the name and type of the function called at program startup
 	  are *implementation-defined*.  For example, GRUB would not need
 	  `main`.  However, we do not need to worry about that here.  See [C99
-	  standard](c99-standard.md), 5.1.2.1, if interested.
+	  standard](/modules/c99-standard.md), 5.1.2.1, if interested.
 	- we will learn about different types of behavior later (like
 	  implementation-defined above).  If curious, see
 	  [here](/modules/behavior-types.md).
