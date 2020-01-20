@@ -29,4 +29,5 @@ The idea is to write small but self-contained modules so that for each year,
 based on how it goes, we can easily create notes just by including modules as
 needed.
 
-You should never put notes into the input files.
+You should never put notes into the input files unless really specific to a
+class, otherwise use modules and include those.
