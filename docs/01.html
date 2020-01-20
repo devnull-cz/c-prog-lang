@@ -161,7 +161,19 @@ parameters)</li>
 <a id="user-content-basics" class="anchor" href="#basics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basics</h1>
 <ul>
 <li>
-<p>each program must have a <code>main()</code> function</p>
+<p>each program <strong>must</strong> have a <code>main()</code> function</p>
+<ul>
+<li>well, there are exceptions: in a <em>freestanding environment</em> (in which
+C program execution may take place without any benefit of an operating
+system), the name and type of the function called at program startup
+are <em>implementation-defined</em>.  For example, GRUB.  However, we do not
+need to worry about that here.  See <a href="c99-standard.md">C99 standard</a>,
+5.1.2.1, if interested.</li>
+<li>we will learn about different types of behavior later (like
+implementation-defined above).  If curious, see
+<a href="behavior-types.md">here</a>
+</li>
+</ul>
 </li>
 <li>
 <p>string literals</p>
@@ -181,7 +193,7 @@ recently run program on the foreground</li>
 is relevant</li>
 <li><a href="/src/return.c">return.c</a></li>
 <li>if you do not use return from main() and the ending } is reached, the
-program returns 0 (in C99+, in C89 it would be a random number).</li>
+program returns 0 (in C89 it would be a random number though).</li>
 </ul>
 </li>
 <li>
@@ -193,9 +205,15 @@ program returns 0 (in C99+, in C89 it would be a random number).</li>
 </ul>
 </li>
 <li>
-<p>printf() can use conversion specifications, they start with <code>%</code></p>
+<p><code>printf()</code> can use <em>conversion specifications</em>, each starts with <code>%</code></p>
 <ul>
-<li><code>int i; printf("%d\n", i);</code></li>
+<li>
+<code>int i; printf("%d\n", i);</code>
+<ul>
+<li>a character like <code>d</code> is called a <em>conversion specifier</em>
+</li>
+</ul>
+</li>
 <li>see <code>man 3 printf</code> for the gory details</li>
 <li>number of conversions must match the number of arguments
 <ul>
@@ -227,16 +245,27 @@ argument (whatever is on the stack is printed).</li>
 <li>
 <p>arithmetics</p>
 <ul>
-<li>+, -, /, *</li>
-<li>++, --
+<li>
+<code>==</code> is for equality, <code>=</code> for an assignment
+<ul>
+<li>memory was precious in the past, and programs usually had more
+assignments than comparisons</li>
+</ul>
+</li>
+<li>
+<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>
+</li>
+<li>
+<code>++</code>, <code>--</code>
 <ul>
 <li>
-<code>int i; i = 13; printf("%d\n", i++);</code> will print 13 and then
+<code>int i; i = 13; printf("%d\n", i++);</code> will print <code>13</code> and then
 increment <code>i</code>
 </li>
 <li>
 <code>int i; i = 13; printf("%d\n", ++i);</code> will first increment <code>i</code>
-then print 14</li>
+then print <code>14</code>
+</li>
 <li>
 <code>++i</code> is an expression, not a variable, so you cannot assign to it
 <ul>
@@ -256,8 +285,12 @@ then print 14</li>
 <div class="highlight highlight-source-c"><pre> <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">100</span> * <span class="pl-c1">2</span>);</pre></div>
 </li>
 <li>
-<p>if both operands are ints, the result is an int
-<code>printf("%d\n", 9 / 5)</code> will print 1</p>
+<p>if both operands are ints, the result is an int</p>
+<ul>
+<li>
+<code>printf("%d\n", 9 / 5)</code> will print <code>1</code>
+</li>
+</ul>
 </li>
 <li>
 <p>while loop</p>
@@ -274,30 +307,31 @@ then print 14</li>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/float.c">float.c</a>
 </li>
 <li>see the optional minimum field width and precision</li>
-<li>experiment !!!</li>
+<li>experiment!!!</li>
 </ul>
 </li>
 <li>
-<p>print out a table for inch to centimeter conversion</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> print out a table for inch to centimeter conversion</p>
 <ul>
 <li>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/inches-to-cm.c">inches-to-cm.c</a>
 </li>
 <li>use "\t" escape sequence for printf to print tabelators</li>
-<li>like this:
-<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span>X<span class="pl-cce">\t</span>Y<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);</pre></div>
-</li>
+<li>like this:</li>
 </ul>
+<div class="highlight highlight-source-c"><pre> <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span>X<span class="pl-cce">\t</span>Y<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);</pre></div>
 </li>
 <li>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use floats for the conversion code</p>
 <ul>
 <li>
-<a href="/src/inches-to-cm2.c">inches-to-cm2.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/inches-to-cm2.c">inches-to-cm2.c</a>
 <ul>
 <li>'\t' in a string will print a tab</li>
-<li>"6" is the minimum field width</li>
-<li>".2" is the precision</li>
+<li>
+<code>6</code> is the minimum field width</li>
+<li>
+<code>.2</code> is the precision</li>
 <li>see the printf(3) man page for details</li>
 </ul>
 </li>
@@ -306,7 +340,9 @@ then print 14</li>
 <li>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> print fahrenheit to centigrade table.  Use floats.</p>
 <ul>
-<li><a href="/src/fahr-to-cent.c">fahr-to-cent.c</a></li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/fahr-to-cent.c">fahr-to-cent.c</a>
+</li>
 </ul>
 </li>
 </ul>
