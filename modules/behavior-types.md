@@ -4,6 +4,8 @@ From C99, Annex J.
 
 ## 3. Terms, definitions, and symbols
 
+...
+
 ### 3.4.1
 
 *implementation-defined behavior* is unspecified behavior where each
@@ -11,6 +13,8 @@ implementation documents how the choice is made.
 
 An example of implementation-defined behavior is the propagation of
 the high-order bit when a signed integer is shifted right.
+
+...
 
 ### 3.4.3
 
@@ -25,6 +29,8 @@ issuance of a diagnostic message), to terminating a translation or execution
 (with the issuance of a diagnostic message).
 
 An example of undefined behavior is the behavior on integer overflow.
+
+...
 
 ### 3.4.4
 
