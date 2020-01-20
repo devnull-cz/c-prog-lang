@@ -1,15 +1,9 @@
 # Basics
 
 - each program **must** have a `main()` function
-	- well, there are exceptions: in a *freestanding environment* (in which
-	  C program execution may take place without any benefit of an operating
-	  system), the name and type of the function called at program startup
-	  are *implementation-defined*.  For example, GRUB would not need
-	  `main`.  However, we do not need to worry about that here.  See [C99
-	  standard](/modules/c99-standard.md), 5.1.2.1, if interested.
-	- we will learn about different types of behavior later (like
-	  implementation-defined above).  If curious, see
-	  [here](/modules/behavior-types.md).
+	- well, there are exceptions: see
+	  [freestanding environment](/modules/freestanding-environment.md) if
+	  interested.  It it out of scope for this seminar though.
 
 - string literals
 	- :eyes: [printf.c](/src/printf.c)
