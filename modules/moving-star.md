@@ -15,5 +15,9 @@
    *      standard error is buffered, the text will generally not be printed by
    *      printf() until a new line is printed, which will never be the case
    *      here.  So, "fflush" makes sure all buffered text is printed out.
+   *
+   * You will something like this:
+   *
+   * |                                            *     |
    */
 ```
