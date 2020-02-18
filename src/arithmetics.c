@@ -11,7 +11,10 @@ main(void)
 	k = k + 1;
 	printf("k is %d\n", k);
 
-	/* Anywhere you can use a variable, you can use an expression. */
+	/*
+	 * Save for an assignment, anywhere you can use a variable, you can use
+	 * an expression.
+	 */
 	printf("k multiplied by 100 is %d\n", k * 100);
 
 	/* Will increment by one */
