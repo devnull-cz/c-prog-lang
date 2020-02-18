@@ -24,6 +24,8 @@
 	- you should be able to recognise whether C is appropriate for solving a
 	  specific problem
 	- why it's so easy to get burned when working in C
+		- [A Case Study of Toyota Unintended Acceleration and Software
+		  Safety](https://users.ece.cmu.edu/~koopman/pubs/koopman14_toyota_ua_slides.pdf)
 - we are here to help you understand concepts, see the big picture, and learn
   new stuff.  SO, IF YOU HAVE A QUESTION, ASK.
 	- Ideally use the mailing list so that it's beneficial for others, too.
