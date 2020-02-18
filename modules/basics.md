@@ -72,6 +72,9 @@
 - while loop
 	- :eyes: [while.c](/src/while.c)
 
+- if statement
+	- :eyes: [if.c](/src/if.c)
+
 - floating point numbers
 	- :eyes: [float.c](/src/float.c)
 	- see the optional minimum field width and precision
