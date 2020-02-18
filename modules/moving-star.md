@@ -1,4 +1,4 @@
-# assignment for the first class
+# Assignment for the first class
 
 ```
   /*
