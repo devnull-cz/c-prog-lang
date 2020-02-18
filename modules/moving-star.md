@@ -23,7 +23,7 @@
    *      never be the case here.  So, the fflush call makes sure all buffered
    *      text is printed out.
    *
-   * You will something like this:
+   * We expect something like this:
    *
    * |                                            *     |
    */
