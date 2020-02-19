@@ -8,7 +8,7 @@
    * You will only need:
    *
    *	- while loop
-   *	- if statement
+   *	- if statement (do not use else)
    *	- printf()
    *	- use a character '\r' to return to the beginning of a line
    *
