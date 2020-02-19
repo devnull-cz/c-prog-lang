@@ -11,8 +11,9 @@
 - why it's worth to learn C
 	- helps with better understanding of computers
 	- lingua franca of programming
-	- lots of important code in C (Linux, Android kernel, parts of iOS
-	  kernel, parts of Windows kernel, OpenSSH, OpenSSL, Apache, etc. etc.)
+	- lots of important code in C (Linux and Android kernel, Apple iOS
+	  kernel (Darwin), major parts of Windows kernel, OpenSSH, OpenSSL,
+	  Apache, NGINX, cURL, etc. etc.)
 	- C programmers will be needed virtually for ever
 	- fast, very portable
 		- however, now at the expense of having very complex compilers
