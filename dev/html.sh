@@ -43,5 +43,7 @@ echo "</body></html>" >> index.html
 mv *.html $repodir/docs
 cd $repodir/docs
 git add -f *.html
-git commit -m "Refresh HTML pages"
-git push -fq origin master
+if [[ -n $( git status -s . ) ]]; then
+	git commit -m "Refresh HTML pages"
+	git push -fq origin master
+fi
