@@ -182,14 +182,14 @@ the <code>-E</code> option of the compiler.</p>
 <h1>
 <a id="user-content-break-statement" class="anchor" href="#break-statement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>break statement</h1>
 <ul>
-<li>statement "break" will cause a jump out of a most inner while loop (well, any
+<li>statement <code>break</code> will cause a jump out of a most inner while loop (well, any
 loop but we only introduced while so far).</li>
 </ul>
 <pre><code>	int finished = 0;
 	while (1) {
 		if (finished)
 			break;
-		/* not finished work done here */				
+		/* not finished work done here */
 		call_a_function();
 		k = xxx;
 		...
