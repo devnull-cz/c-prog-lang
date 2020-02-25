@@ -15,7 +15,7 @@ git config --global user.name "vladak"
 # with different method. This makes it easy to just push at the end.
 repo_name=repo
 git clone --quiet \
-    https://${GH_PAGES_TOKEN}@github.com/devnull-cz/c-prog-lang $repo_name
+    https://${GH_PAGES_TOKEN}@github.com/devnull-cz/c-prog-lang "$repo_name"
 
 lecture_dir=lecture-notes
 for year in `ls -1 $lecture_dir`; do
@@ -24,14 +24,14 @@ for year in `ls -1 $lecture_dir`; do
 	fi
 
 	echo "Processing year $year"
-	cp $lecture_dir/$year/*.md $repo_name/$lecture_dir/$year/
-	cd $repo_name
-	git add -f $lecture_dir/$year/*.md
+	cp "$lecture_dir/$year/*.md" "$repo_name/$lecture_dir/$year/"
+	cd "$repo_name"
+	git add -f "$lecture_dir/$year/*.md"
 	cd -
 done
 
 if [[ -n $( git status -s $lecture_dir ) ]]; then
-	cd $repo_name
+	cd "$repo_name"
 	git commit -m "Latest update of lecture notes"
 	git push -fq origin master
 	echo "Published latest lecture notes."
