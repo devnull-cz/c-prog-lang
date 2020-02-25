@@ -25,7 +25,7 @@ jobs:
     - name: Install pre-requisites
       run: npm install markdown-include
     - name: Expand MarkDown files
-      run: ./node_modules/markdown-include/bin/cli.js input/2020/*.json
+      run: ./dev/expand.sh
     - name: Push Markdown files
       env:
         GH_PAGES_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
