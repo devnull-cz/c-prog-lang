@@ -24,7 +24,7 @@ for year in `ls -1 $lecture_dir`; do
 	fi
 
 	echo "Processing year $year"
-	cp "$lecture_dir/$year/*.md" "$repo_name/$lecture_dir/$year/"
+	cp "$lecture_dir/$year/"*.md "$repo_name/$lecture_dir/$year/"
 	cd "$repo_name"
 	git add -f "$lecture_dir/$year/*.md"
 	cd -
