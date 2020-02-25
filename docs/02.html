@@ -153,7 +153,7 @@ the <code>-E</code> option of the compiler.</p>
 <p>any expression has a value</p>
 </li>
 <li>
-<p>logical expression has value 0 or 1, and it's type is always "int"</p>
+<p>logical expression has value 0 or 1, and it's type is always <code>int</code></p>
 </li>
 </ul>
 <pre><code>	1 &gt; 10	... 0
@@ -197,26 +197,25 @@ loop but we only introduced while so far).</li>
 <h1>
 <a id="user-content-operators" class="anchor" href="#operators" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operators</h1>
 <ul>
-<li>
-<p>equality is "==" since a single "=" is an assignment operator</p>
-<p>int i = 13;
-if (i == 13) {
-// will do something here
-}</p>
-</li>
-<li>
-<p>logical AND and OR</p>
-</li>
+<li>equality is <code>==</code> since a single <code>=</code> is an assignment operator</li>
+</ul>
+<pre><code>	int i = 13;
+	if (i == 13) {
+		// will do something here
+	}
+</code></pre>
+<ul>
+<li>logical AND and OR</li>
 </ul>
 <pre><code>	if (i == 13 &amp;&amp; j &lt; 10) {
 		...
 
 	if (i == 1 || k &gt; 100) {
-		...			
+		...
 </code></pre>
-<pre><code>  - you do not need extra ()'s as || and &amp;&amp; have higher priority than ==
-    and &lt;, &gt;, &lt;=, &gt;=, and !=.  We will learn more about operator
-    priority in later lectures.
+<pre><code>  - you do not need extra ()'s as `||` and `&amp;&amp;` have lower priority
+    than `==` and `&lt;`, `&gt;`, `&lt;=`, `&gt;=`, and `!=`.  We will learn more
+    about operator priority in later lectures.
 </code></pre>
 <ul>
 <li>non-equality is !=</li>
