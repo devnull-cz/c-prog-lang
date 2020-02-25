@@ -9,7 +9,5 @@
 To see the result of running preprocessor on your code, use `cpp` or
 the `-E` option of the compiler.
 
-- Task: reimplement fahr-to-cent.c using defines instead of white numbers
+- Task: reimplement fahr-to-cent.c using defines instead of literal numbers
 	- solution: `fahr-to-cent_defines.c`
-
-
