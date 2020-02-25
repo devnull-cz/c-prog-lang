@@ -35,7 +35,7 @@
 - each integer type has a `signed` and `unsigned` variant.  By default, the
   numeric types are signed aside from char which depends on the implementation.
   If you need an unsigned type, use `unsigned` reserved word.
-```
+```C
   signed int;
   unsigned int;
   unsigned long;
