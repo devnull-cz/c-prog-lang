@@ -15,9 +15,9 @@
 	if (i == 1 || k > 100) {
 		...
 ```
-	  - you do not need extra ()'s as `||` and `&&` have lower priority
-	    than `==` and `<`, `>`, `<=`, `>=`, and `!=`.  We will learn more
-	    about operator priority in later lectures.
+  - you do not need extra ()'s as `||` and `&&` have lower priority
+    than `==` and `<`, `>`, `<=`, `>=`, and `!=`.  We will learn more
+    about operator priority in later lectures.
 
 - non-equality is !=
 ```
