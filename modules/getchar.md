@@ -8,8 +8,9 @@
 	  extra value for the `EOF`).
 	- getchar() needs `#include <stdio.h>`
 
-- Task: write code that will read characters from a terminal and prints them out.
-  It should work like this:
+## :wrench: Task: write code that will read characters from a terminal and prints them out.
+
+It should work like this:
 ```
 	$ cat /etc/passwd | ./a.out > passwd
 	$ diff passwd /etc/passwd
@@ -42,5 +43,3 @@ parentheses around the assignment.  The "=" operator has lower priority than the
 We will learn more about operator priority later in the semester.
 
 Solution: [getchar.c](/src/getchar.c)
-
-
