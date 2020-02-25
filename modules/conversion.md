@@ -1,8 +1,5 @@
 ## conversion
 
-- in general, use internet search to get information if unsure; https://stackoverflow.com
-  has lots of good discussions on C corner cases etc.
-
 - all of these are equal:
 ```C
 	printf("%c\n", 'A'); // will print an integer as a character
