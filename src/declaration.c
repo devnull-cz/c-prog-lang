@@ -15,5 +15,5 @@ main(void)
 	/* % starts a conversion specification.  'd' is for an int (decimal). */
 	printf("%d\n", i);
 
-	/* No need to use return, C will make sure 0 is returned here. */
+	/* No need to use return, C99 will make sure 0 is returned here. */
 }
