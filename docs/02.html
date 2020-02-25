@@ -313,25 +313,25 @@ convention).</p>
 <a id="user-content-modifiers-for-printf" class="anchor" href="#modifiers-for-printf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modifiers for printf</h2>
 <ul>
 <li>
-<p>"l" for long, eg. <code>long l; printf("%ld\n", l");</code></p>
+<p><code>l</code> for long, eg. <code>long l; printf("%ld\n", l);</code></p>
 </li>
 <li>
-<p>"ll" for long long, eg. <code>long long ll; printf("%lld\n", ll");</code></p>
+<p><code>ll</code> for long long, eg. <code>long long ll; printf("%lld\n", ll);</code></p>
 </li>
 <li>
-<p>"u" is unsigned, "x" is unsigned hexa, "X" is unsigned HEXA</p>
+<p><code>u</code> is unsigned, <code>x</code> is unsigned hexa, <code>X</code> is unsigned HEXA</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> u = <span class="pl-c1">13</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%u</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u); 
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%u</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
 
 	<span class="pl-k">unsigned</span> <span class="pl-k">long</span> <span class="pl-k">long</span> llu = <span class="pl-c1">13</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%llu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, llu); 
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%llu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, llu);
 
 	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> u = <span class="pl-c1">13</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%x</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u); 
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%x</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; d</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%X</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u); 
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%X</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; D</span></pre></div>
 <ul>
 <li>the following is a problem though if compiled in 32 bits as you put 4 bytes on
@@ -369,15 +369,20 @@ anyway as 13 is assigned to a 64 bit register (because of x64 ABI).</li>
 <li>
 <p>you can explicitly specify larger integers with suffices</p>
 <ul>
-<li>"13L" and "13l" is long</li>
-<li>"13LL" and "13ll" is long long ("Ll" and "lL" is illegal)</li>
-<li>"13u" and "13U" is unsigned int</li>
-<li>"13lu" and "13LU" is unsigned long</li>
-<li>"13llu" and "13LLU" is unsigned long long</li>
+<li>
+<code>13L</code> and <code>13l</code> is long</li>
+<li>
+<code>13LL</code> and <code>13ll</code> is long long (<code>Ll</code> and <code>lL</code> is illegal)</li>
+<li>
+<code>13u</code> and <code>13U</code> is unsigned int</li>
+<li>
+<code>13lu</code> and <code>13LU</code> is unsigned long</li>
+<li>
+<code>13llu</code> and <code>13LLU</code> is unsigned long long</li>
 </ul>
 </li>
 <li>
-<p>so, "0xFULL" and "0XFULL" is unsigned long long 15 :-)</p>
+<p>so, <code>0xFULL</code> and <code>0XFULL</code> is unsigned long long 15 :-)</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%llu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0xFULL</span>);
@@ -386,8 +391,9 @@ anyway as 13 is assigned to a 64 bit register (because of x64 ABI).</li>
 	<span class="pl-c"><span class="pl-c">/*</span> in general NOT OK as long may be 4 bytes while long long 8 bytes <span class="pl-c">*/</span></span>
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%ld</span><span class="pl-pds">"</span></span>, <span class="pl-c1">13LL</span>);</pre></div>
 <ul>
-<li>'\ooo' and '\xhh' are character sized bit patterns, either specified
-as octal or hexa numbers.</li>
+<li>
+<code>\ooo</code> and <code>\xhh</code> are character sized bit patterns, either specified
+as octal or hexadecimal numbers.</li>
 </ul>
 <h2>
 <a id="user-content-sizeof-operator" class="anchor" href="#sizeof-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sizeof operator</h2>
@@ -407,7 +413,7 @@ right way to do it:</li>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (<span class="pl-c1">13</span>));
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
 <ul>
-<li>the expression within the sizeof operator is <strong>never</strong> executed (the compiler
+<li>the expression within the <code>sizeof</code> operator is <strong>never</strong> executed (the compiler
 should warn you about such code).</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> i = <span class="pl-c1">1</span>;
