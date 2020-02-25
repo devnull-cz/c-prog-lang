@@ -4,7 +4,7 @@
   returns its value as a integer.
 	- when it reaches end of input (for example, by pressing `Ctrl-D` in the
 	  terminal), it returns `EOF` (which is a define, usually set as -1.
-	  That is why getchar() returns an int and not a char as it needs an
+	  That is why getchar() returns an `int` and not a `char` as it needs an
 	  extra value for the `EOF`).
 	- getchar() needs `#include <stdio.h>`
 
