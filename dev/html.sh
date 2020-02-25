@@ -8,7 +8,7 @@
 set -e
 set -x
 
-year=2020
+YEAR=2020
 
 pip install grip
 
@@ -23,7 +23,7 @@ git config --global user.name "vladak"
 lecture_dir=lecture-notes
 cd repo
 repodir=$PWD
-cd $lecture_dir/$year
+cd $lecture_dir/$YEAR
 
 # Convert Markdown to HTML.
 for mdfile in *.md; do
@@ -32,7 +32,7 @@ done
 
 # Construct index page.
 echo "<html><body>" > index.html
-echo "<head>Notes from $year</head>" >> index.html
+echo "<head>Notes from $YEAR</head>" >> index.html
 echo "<ul>" >> index.html
 for htmlfile in [0-9]*.html; do
 	echo "<a href=$htmlfile>`basename $htmlfile`</a>" >> index.html

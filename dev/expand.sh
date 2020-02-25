@@ -1,5 +1,7 @@
 #!/bin/bash
 
+YEAR=2020
+
 # Expand markdown files (particularly includes)
 
 if [[ -x ./node_modules/markdown-include/bin/cli.js ]]; then
@@ -11,6 +13,6 @@ else
 	exit 1
 fi
 
-for jsonfile in input/2020/*.json; do
+for jsonfile in input/$YEAR/*.json; do
 	$cli "$jsonfile"
 done
