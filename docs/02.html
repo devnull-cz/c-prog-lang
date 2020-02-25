@@ -450,13 +450,12 @@ as octal or hexadecimal numbers.</li>
 <h2>
 <a id="user-content-sizeof-operator" class="anchor" href="#sizeof-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sizeof operator</h2>
 <ul>
-<li>"sizeof" operator computes the size of its argument which is an expression or
-a type
+<li>the <code>sizeof</code> operator computes the size of its argument which is an expression
+or a type
 <ul>
 <li>its type is <code>size_t</code> which is an unsigned integer according to the
 standard.  However, the implementation (= compiler) can choose whether
-it's an unsigned int, an unsigned long int, or an unsigned long long
-int.</li>
+it's an <code>unsigned int</code>, an <code>unsigned long int</code>, or an <code>unsigned long long int</code>.</li>
 <li>in printf(), the <code>z</code> modifier modifies <code>u</code> to <code>size_t</code>, so this is the
 right way to do it:</li>
 </ul>
@@ -465,8 +464,8 @@ right way to do it:</li>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (<span class="pl-c1">13</span>));
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
 <ul>
-<li>the expression within the <code>sizeof</code> operator is <strong>never</strong> executed (the compiler
-should warn you about such code).</li>
+<li>the expression within the <code>sizeof</code> operator is <strong>never</strong> executed (the
+compiler should warn you about such code).</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> i = <span class="pl-c1">1</span>;
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (i = i + <span class="pl-c1">1</span>));
