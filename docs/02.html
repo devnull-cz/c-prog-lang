@@ -266,8 +266,8 @@ i.e. like printf()</p>
 or 64 bits.</p>
 </li>
 <li>
-<p>as 'X' is <code>int</code> but within 0-127, it's OK to do the following as it will fit
-even if char is signed:</p>
+<p>as <code>'X'</code> is <code>int</code> but within 0-127, it's OK to do the following as it will fit
+even if <code>char</code> is signed:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> c = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;</pre></div>
@@ -297,8 +297,8 @@ respectively.  The latter is mostly used in C.</p>
 <p><code>char</code> and <code>short int</code> is converted to <code>int</code> in variadic functions (we will
 talk more about integer conversions later in semester).  Eg.  the following is
 OK as the compiler will first convert variable <code>c</code> to <code>int</code> type, then put it
-on the stack (x32 passing argument convention) or in a register (x64
-convention).</p>
+on the stack (Intel x32 passing argument convention) or in a register
+(Intel x64 convention).</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-c"><span class="pl-c">/*</span> OK <span class="pl-c">*/</span></span>
