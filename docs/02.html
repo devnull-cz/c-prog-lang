@@ -574,7 +574,9 @@ closed.</p>
 <p>We will learn more about operator priority later in the semester.</p>
 <p>Solution: <a href="/src/getchar.c">getchar.c</a></p>
 <h1>
-<a id="user-content-home-assignment-digit-occurrence" class="anchor" href="#home-assignment-digit-occurrence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Home assignment: digit occurrence</h1>
+<a id="user-content-home-assignments" class="anchor" href="#home-assignments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Home assignments</h1>
+<h2>
+<a id="user-content-wrench-digit-occurrence" class="anchor" href="#wrench-digit-occurrence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> digit occurrence</h2>
 <p>It's voluntary but writing code is the only way to learn a programming language.</p>
 <p>If unsure about the behavior, compile our solution and run it.</p>
 <ul>
@@ -594,22 +596,19 @@ You end up with longer code than otherwise necessary but that is OK.</li>
 	9: 31
 </code></pre>
 <p>Solution: <a href="/src/count-numbers.c">count-numbers.c</a></p>
-<ul>
-<li>
-<p>convert small characters to upper chars in input.  Use the fact that a-z and
+<h2>
+<a id="user-content-wrench-to-upper" class="anchor" href="#wrench-to-upper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> to upper</h2>
+<p>Convert small characters to upper chars in input.  Use the fact that a-z and
 A-Z are in two consequtive sections of the ASCII table.</p>
-<ul>
-<li>use the else branch:</li>
-</ul>
-</li>
-</ul>
+<p>Use the else branch:</p>
 <pre><code>	if (a) {
 		...
 	} else {
 		...
 	{
-
-	$ cat /etc/passwd  | ./a.out
+</code></pre>
+<p>Expected output:</p>
+<pre><code>	$ cat /etc/passwd  | ./a.out
 	##
 	# USER DATABASE
 	#
