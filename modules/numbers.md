@@ -2,15 +2,15 @@
 
 - 1, 7, 20000 are always integers of type "int" if they fit (the range is
   [-2^31, 2^31 - 1] on 32/64 bit CPUs)
-- hexadecimal numbers start with "0x" or "0X".  Eg. "0xFF", "0Xaa", "0x13f", etc.
-- octal numbers start with "0".  Eg. "010" is 8 in decimal.  Also remember the
-  Unix file mask (umask), eg. "0644".
+- hexadecimal numbers start with `0x` or `0X`.  Eg. `0xFF`, `0Xaa`, `0x13f`, etc.
+` octal numbers start with `0`.  Eg. `010` is 8 in decimal.  Also remember the
+  Unix file mask (umask), eg. `0644`.
 
 - 'A' is int.  See `man ascii`.  The ASCII standard defines characters with
   values 0-127.
 
 - float, double
-	- man 3 printf, see %f is of type double.  You can use:
+  - man 3 printf, see `%f` is of type `double`.  You can use:
 
 ```C
 	  printf("%f\n", float)
@@ -18,13 +18,13 @@
 
 - as floats are automatically converted to doubles if used as arguments in
   functions with variable number of arguments (known as a "variadic function"),
-  ie.  like printf()
+  i.e. like printf()
 
-- char (1 byte), short (usually 2 bytes), long (4 or 8 bytes), long long
+- `char` (1 byte), `short` (usually 2 bytes), `long` (4 or 8 bytes), `long long`
   (usually 8 bytes).  It also depends on whether your binary is compiled in 32
   or 64 bits.
 
-- as 'X' is int but within 0-127, it's OK to do the following as it will fit
+- as 'X' is `int` but within 0-127, it's OK to do the following as it will fit
   even if char is signed:
 ```C
 	char c = 'A';
