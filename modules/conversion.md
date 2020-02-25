@@ -28,7 +28,7 @@
 	a = b = c = 13;
 ```
 
-### Task: print ASCII table
+### :wrench: Task: print ASCII table
 
 Print ASCII table with hexadecimal values like on in the ascii(7) man page
 https://man.openbsd.org/ascii except for non-printable characters print `NP`
