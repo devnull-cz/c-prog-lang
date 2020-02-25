@@ -52,8 +52,8 @@
 - `char` and `short int` is converted to `int` in variadic functions (we will
   talk more about integer conversions later in semester).  Eg.  the following is
   OK as the compiler will first convert variable `c` to `int` type, then put it
-  on the stack (x32 passing argument convention) or in a register (x64
-  convention).
+  on the stack (Intel x32 passing argument convention) or in a register
+  (Intel x64 convention).
 ```C
 	/* OK */
 	char c;
