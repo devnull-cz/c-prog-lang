@@ -34,8 +34,8 @@ done
 echo "<html><body>" > index.html
 echo "<head>Notes from $year</head>" >> index.html
 echo "<ul>" >> index.html
-for htmlfile in *.html; do
-	echo "<a href=01.html>01</a>" >> index.html
+for htmlfile in [0-9]*.html; do
+	echo "<a href=$htmlfile>`basename $htmlfile`</a>" >> index.html
 done
 echo "</ul>" >> index.html
 echo "</body></html>" >> index.html
