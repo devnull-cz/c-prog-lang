@@ -2,7 +2,7 @@
 
 - any expression has a value
 
-- logical expression has value 0 or 1, and it's type is always "int"
+- logical expression has value 0 or 1, and it's type is always `int`
 ```
 	1 > 10	... 0
 	10 > 1	... 1
