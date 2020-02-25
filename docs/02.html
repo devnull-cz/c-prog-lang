@@ -522,6 +522,15 @@ with 13</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> a, b, c;
 	a = b = c = <span class="pl-c1">13</span>;</pre></div>
+<h3>
+<a id="user-content-task-print-ascii-table" class="anchor" href="#task-print-ascii-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task: print ASCII table</h3>
+<p>Print ASCII table with hexadecimal values like on in the ascii(7) man page
+<a href="https://man.openbsd.org/ascii" rel="nofollow">https://man.openbsd.org/ascii</a> except for non-printable characters print <code>NP</code>
+(non-printable).</p>
+<p>To determine whether a character is printable you can use the isprint()
+function.</p>
+<p>Use just <code>while</code> and <code>if</code> (without <code>else</code>).</p>
+<p>Solution: <a href="/src/ascii-hex.c">ascii-hex.c</a></p>
 <h1>
 <a id="user-content-getchar" class="anchor" href="#getchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getchar()</h1>
 <ul>
