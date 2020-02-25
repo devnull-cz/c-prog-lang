@@ -65,21 +65,21 @@
 ```
 ## modifiers for printf
 
-- "l" for long, eg. `long l; printf("%ld\n", l");`
-- "ll" for long long, eg. `long long ll; printf("%lld\n", ll");`
+- `l` for long, eg. `long l; printf("%ld\n", l);`
+- `ll` for long long, eg. `long long ll; printf("%lld\n", ll);`
 
-- "u" is unsigned, "x" is unsigned hexa, "X" is unsigned HEXA
+- `u` is unsigned, `x` is unsigned hexa, `X` is unsigned HEXA
 ```C
 	unsigned int u = 13;
-	printf("%u\n", u); 
+	printf("%u\n", u);
 
 	unsigned long long llu = 13;
-	printf("%llu\n", llu); 
+	printf("%llu\n", llu);
 
 	unsigned int u = 13;
-	printf("%x\n", u); 
+	printf("%x\n", u);
 	// --> d
-	printf("%X\n", u); 
+	printf("%X\n", u);
 	// --> D
 ```
 - the following is a problem though if compiled in 32 bits as you put 4 bytes on
@@ -115,13 +115,13 @@
 
 - you can explicitly specify larger integers with suffices
 
-	- "13L" and "13l" is long
-	- "13LL" and "13ll" is long long ("Ll" and "lL" is illegal)
-	- "13u" and "13U" is unsigned int
-	- "13lu" and "13LU" is unsigned long
-	- "13llu" and "13LLU" is unsigned long long
+	- `13L` and `13l` is long
+	- `13LL` and `13ll` is long long (`Ll` and `lL` is illegal)
+	- `13u` and `13U` is unsigned int
+	- `13lu` and `13LU` is unsigned long
+	- `13llu` and `13LLU` is unsigned long long
 
-- so, "0xFULL" and "0XFULL" is unsigned long long 15 :-)
+- so, `0xFULL` and `0XFULL` is unsigned long long 15 :-)
 ```C
 	printf("%llu\n", 0xFULL);
 	// --> 15
@@ -130,8 +130,8 @@
 	printf("%ld", 13LL);
 ```
 
-- '\ooo' and '\xhh' are character sized bit patterns, either specified
-  as octal or hexa numbers.
+- `\ooo` and `\xhh` are character sized bit patterns, either specified
+  as octal or hexadecimal numbers.
 
 ## sizeof operator
 
@@ -148,7 +148,7 @@
 	// --> 4
 ```
 
-- the expression within the sizeof operator is **never** executed (the compiler
+- the expression within the `sizeof` operator is **never** executed (the compiler
   should warn you about such code).
 
 ```C
@@ -211,5 +211,3 @@
 	int a, b, c;
 	a = b = c = 13;
 ```
-
-
