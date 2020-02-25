@@ -22,7 +22,7 @@ like this:
 
 When you push a new changeset to the repo, the github backend will automatically
 process the input files and generates ready to use notes in Markdown in the
-`lecture-notes` directory.  In the `doc` directory, you will find HTML version
+`lecture-notes` directory.  In the `docs` directory, you will find HTML version
 of the notes.
 
 The idea is to write small but self-contained modules so that for each year,
