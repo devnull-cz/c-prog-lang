@@ -23,7 +23,16 @@ cd repo
 repodir=$PWD
 cd $lecture_dir/2020
 
+# Convert Markdown to HTML.
 grip --pass "$GH_PAGES_TOKEN" --export *.md
+
+# Construct index page.
+echo "<html><body>" > index.html
+for htmlfile in *.html; do
+	echo "<a href=01.html>01</a>" >> index.html
+done
+echo "</body></html>" >> index.html
+
 mv *.html $repodir/docs
 cd $repodir/docs
 git add -f *.html
