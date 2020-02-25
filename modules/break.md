@@ -1,13 +1,13 @@
 # break statement
 
-- statement "break" will cause a jump out of a most inner while loop (well, any
+- statement `break` will cause a jump out of a most inner while loop (well, any
   loop but we only introduced while so far).
 ```
 	int finished = 0;
 	while (1) {
 		if (finished)
 			break;
-		/* not finished work done here */				
+		/* not finished work done here */
 		call_a_function();
 		k = xxx;
 		...
