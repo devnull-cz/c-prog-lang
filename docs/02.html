@@ -534,9 +534,8 @@ function.</p>
 <h1>
 <a id="user-content-getchar" class="anchor" href="#getchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getchar()</h1>
 <ul>
-<li>
-<p>getchar() function reads one character from the process standard input and
-returns its value as a integer.</p>
+<li>getchar() function reads one character from the process standard input and
+returns its value as a integer.
 <ul>
 <li>when it reaches end of input (for example, by pressing <code>Ctrl-D</code> in the
 terminal), it returns <code>EOF</code> (which is a define, usually set as -1.
@@ -546,11 +545,10 @@ extra value for the <code>EOF</code>).</li>
 </li>
 </ul>
 </li>
-<li>
-<p>Task: write code that will read characters from a terminal and prints them out.
-It should work like this:</p>
-</li>
 </ul>
+<h2>
+<a id="user-content-wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out" class="anchor" href="#wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write code that will read characters from a terminal and prints them out.</h2>
+<p>It should work like this:</p>
 <pre><code>	$ cat /etc/passwd | ./a.out &gt; passwd
 	$ diff passwd /etc/passwd
 	$ echo $?
