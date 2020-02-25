@@ -1,7 +1,5 @@
 ## :wrench: digit occurrence
 
-It's voluntary but writing code is the only way to learn a programming language.
-
 If unsure about the behavior, compile our solution and run it.
 
 - count occurence of each 0-9 digit.  Only use what we have learned so far.
