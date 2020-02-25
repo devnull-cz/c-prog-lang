@@ -213,12 +213,15 @@ loop but we only introduced while so far).</li>
 	if (i == 1 || k &gt; 100) {
 		...
 </code></pre>
-<pre><code>  - you do not need extra ()'s as `||` and `&amp;&amp;` have lower priority
-    than `==` and `&lt;`, `&gt;`, `&lt;=`, `&gt;=`, and `!=`.  We will learn more
-    about operator priority in later lectures.
-</code></pre>
 <ul>
-<li>non-equality is !=</li>
+<li>
+<p>you do not need extra ()'s as <code>||</code> and <code>&amp;&amp;</code> have lower priority
+than <code>==</code> and <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, and <code>!=</code>.  We will learn more
+about operator priority in later lectures.</p>
+</li>
+<li>
+<p>non-equality is !=</p>
+</li>
 </ul>
 <pre><code>	if (i != 13) {
 		...
@@ -236,11 +239,8 @@ loop but we only introduced while so far).</li>
 [-2^31, 2^31 - 1] on 32/64 bit CPUs)</p>
 </li>
 <li>
-<p>hexadecimal numbers start with "0x" or "0X".  Eg. "0xFF", "0Xaa", "0x13f", etc.</p>
-</li>
-<li>
-<p>octal numbers start with "0".  Eg. "010" is 8 in decimal.  Also remember the
-Unix file mask (umask), eg. "0644".</p>
+<p>hexadecimal numbers start with <code>0x</code> or <code>0X</code>.  Eg. <code>0xFF</code>, <code>0Xaa</code>, <code>0x13f</code>, etc.
+<code>octal numbers start with</code>0<code>.  Eg. </code>010<code>is 8 in decimal.  Also remember the Unix file mask (umask), eg.</code>0644`.</p>
 </li>
 <li>
 <p>'A' is int.  See <code>man ascii</code>.  The ASCII standard defines characters with
@@ -249,7 +249,7 @@ values 0-127.</p>
 <li>
 <p>float, double</p>
 <ul>
-<li>man 3 printf, see %f is of type double.  You can use:</li>
+<li>man 3 printf, see <code>%f</code> is of type <code>double</code>.  You can use:</li>
 </ul>
 </li>
 </ul>
@@ -258,15 +258,15 @@ values 0-127.</p>
 <li>
 <p>as floats are automatically converted to doubles if used as arguments in
 functions with variable number of arguments (known as a "variadic function"),
-ie.  like printf()</p>
+i.e. like printf()</p>
 </li>
 <li>
-<p>char (1 byte), short (usually 2 bytes), long (4 or 8 bytes), long long
+<p><code>char</code> (1 byte), <code>short</code> (usually 2 bytes), <code>long</code> (4 or 8 bytes), <code>long long</code>
 (usually 8 bytes).  It also depends on whether your binary is compiled in 32
 or 64 bits.</p>
 </li>
 <li>
-<p>as 'X' is int but within 0-127, it's OK to do the following as it will fit
+<p>as 'X' is <code>int</code> but within 0-127, it's OK to do the following as it will fit
 even if char is signed:</p>
 </li>
 </ul>
