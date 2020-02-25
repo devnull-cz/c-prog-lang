@@ -6,7 +6,7 @@
 ` octal numbers start with `0`.  Eg. `010` is 8 in decimal.  Also remember the
   Unix file mask (umask), eg. `0644`.
 
-- `'A'` is int.  See `man ascii`.  The ASCII standard defines characters with
+- `'A'` is `int`.  See `man ascii`.  The ASCII standard defines characters with
   values 0-127.
 
 - float, double
