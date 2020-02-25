@@ -84,6 +84,13 @@ on how to do that).  If you miss some information posted to the mailing
 list because you are not subscribed, it is your problem :-)</p>
 </li>
 <li>
+<p>in general, use internet search to get information if unsure</p>
+<ul>
+<li>
+<a href="https://stackoverflow.com" rel="nofollow">https://stackoverflow.com</a> has lots of good discussions on C corner cases etc.</li>
+</ul>
+</li>
+<li>
 <p>assignment from the previous class: moving star on the console</p>
 <ul>
 <li>our solution (we strongly recommend you code it first by yourself) is
@@ -404,7 +411,7 @@ a type
 standard.  However, the implementation (= compiler) can choose whether
 it's an unsigned int, an unsigned long int, or an unsigned long long
 int.</li>
-<li>in printf(), "z" modifier modifies "u" to <code>size_t</code>, so this is the
+<li>in printf(), the <code>z</code> modifier modifies <code>u</code> to <code>size_t</code>, so this is the
 right way to do it:</li>
 </ul>
 </li>
@@ -445,13 +452,7 @@ why the following is gonna print <code>1 4 4</code>:</li>
 <h2>
 <a id="user-content-conversion" class="anchor" href="#conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>conversion</h2>
 <ul>
-<li>
-<p>in general, use internet search to get information if unsure; <a href="https://stackoverflow.com" rel="nofollow">https://stackoverflow.com</a>
-has lots of good discussions on C corner cases etc.</p>
-</li>
-<li>
-<p>all of these are equal:</p>
-</li>
+<li>all of these are equal:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>); <span class="pl-c"><span class="pl-c">//</span> will print an integer as a character</span>
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
