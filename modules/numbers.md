@@ -24,8 +24,8 @@
   (usually 8 bytes).  It also depends on whether your binary is compiled in 32
   or 64 bits.
 
-- as 'X' is `int` but within 0-127, it's OK to do the following as it will fit
-  even if char is signed:
+- as `'X'` is `int` but within 0-127, it's OK to do the following as it will fit
+  even if `char` is signed:
 ```C
 	char c = 'A';
 ```
