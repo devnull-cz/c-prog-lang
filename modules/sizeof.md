@@ -6,7 +6,7 @@
 	  standard.  However, the implementation (= compiler) can choose whether
 	  it's an unsigned int, an unsigned long int, or an unsigned long long
 	  int.
-	- in printf(), "z" modifier modifies "u" to `size_t`, so this is the
+	- in printf(), the `z` modifier modifies `u` to `size_t`, so this is the
 	  right way to do it:
 ```C
 	printf("%zu\n", sizeof (13));
