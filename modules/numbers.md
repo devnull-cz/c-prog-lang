@@ -23,6 +23,9 @@
 - `char` (1 byte), `short` (usually 2 bytes), `long` (4 or 8 bytes), `long long`
   (usually 8 bytes).  It also depends on whether your binary is compiled in 32
   or 64 bits.
+  - :wrench: see what code emits your compiler by default (i.e. without using
+    either `-m32` or `-m64` options)
+    - use `file` to display the information about the binary
 
 - as `'X'` is `int` but within 0-127, it's OK to do the following as it will fit
   even if `char` is signed:
