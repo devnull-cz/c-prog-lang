@@ -96,6 +96,8 @@ list because you are not subscribed, it is your problem :-)</p>
 <li>our solution (we strongly recommend you code it first by yourself) is
 in <a href="/src/moving-star.c">moving-star.c</a>
 </li>
+<li>the home assignments are not mandatory. Also, do not send the solutions to
+us.</li>
 </ul>
 </li>
 </ul>
@@ -104,11 +106,12 @@ in <a href="/src/moving-star.c">moving-star.c</a>
 <p>Print conversion table for <a href="https://en.wikipedia.org/wiki/Ell" rel="nofollow">https://en.wikipedia.org/wiki/Ell</a> (rope length
 used by Frodo and Sam in The Lord of the Rings had some 30 ells) to inches
 and centimeters, i.e. table with 3 columns separated by tabs.</p>
-<p>Print the centimeter value as float with 2 digit precision.</p>
+<p>Print the centimeter value as float with 2 digit precision. The cm value
+will be the last column.</p>
 <p>Each 10 lines print a line (sequence of <code>-</code> characters, say 20 times).
 The line will immediately follow the table header and then will appear
 each 10 lines. Use <code>while</code> cycle to print the line.</p>
-<p>Print 30 of numeric rows.</p>
+<p>Print 30 numeric rows.</p>
 <p>Sample output:</p>
 <pre><code>Ell	Inches	Centimeters
 --------------------
@@ -192,7 +195,9 @@ have to, as those are things of the past century.</li>
 <p>To see the result of running preprocessor on your code, use <code>cpp</code> or
 the <code>-E</code> option of the compiler.</p>
 <ul>
-<li>Task: reimplement fahr-to-cent.c using defines instead of literal numbers
+<li>
+<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: reimplement fahr-to-cent.c using defines instead of literal
+numbers
 <ul>
 <li>solution: <code>fahr-to-cent_defines.c</code>
 </li>
@@ -293,23 +298,25 @@ about operator priority in later lectures.</p>
 </li>
 <li>
 <p>hexadecimal numbers start with <code>0x</code> or <code>0X</code>.  Eg. <code>0xFF</code>, <code>0Xaa</code>, <code>0x13f</code>, etc.
-<code>octal numbers start with</code>0<code>.  Eg. </code>010<code>is 8 in decimal.  Also remember the Unix file mask (umask), eg.</code>0644`.</p>
+octal numbers start with <code>0</code>.  Eg. <code>010</code> is 8 in decimal.  Also remember the
+Unix file mask (umask), eg. <code>0644</code>.</p>
 </li>
 <li>
 <p><code>'A'</code> is <code>int</code>.  See <code>man ascii</code>.  The ASCII standard defines characters with
 values 0-127.</p>
 </li>
 <li>
-<p>float, double</p>
+<p><code>float</code>, <code>double</code></p>
 <ul>
-<li>man 3 printf, see <code>%f</code> is of type <code>double</code>.  You can use:</li>
+<li>
+<code>man 3 printf</code>, see <code>%f</code> is of type <code>double</code>.  You can use:</li>
 </ul>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	  <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%f</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">float</span>)</pre></div>
 <ul>
 <li>
-<p>as floats are automatically converted to doubles if used as arguments in
+<p>floats are automatically converted to doubles if used as arguments in
 functions with variable number of arguments (known as a "variadic function"),
 i.e. like printf()</p>
 </li>
@@ -317,6 +324,15 @@ i.e. like printf()</p>
 <p><code>char</code> (1 byte), <code>short</code> (usually 2 bytes), <code>long</code> (4 or 8 bytes), <code>long long</code>
 (usually 8 bytes).  It also depends on whether your binary is compiled in 32
 or 64 bits.</p>
+<ul>
+<li>
+<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> see what code emits your compiler by default (i.e. without using
+either <code>-m32</code> or <code>-m64</code> options)
+<ul>
+<li>use <code>file</code> to display the information about the binary</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>as <code>'X'</code> is <code>int</code> but within 0-127, it's OK to do the following as it will fit
@@ -362,7 +378,7 @@ on the stack (Intel x32 passing argument convention) or in a register
 	<span class="pl-k">short</span> sh;
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, sh);</pre></div>
 <h2>
-<a id="user-content-modifiers-for-printf" class="anchor" href="#modifiers-for-printf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modifiers for printf</h2>
+<a id="user-content-modifiers-for-printf" class="anchor" href="#modifiers-for-printf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modifiers for printf()</h2>
 <ul>
 <li>
 <p><code>l</code> for long, eg. <code>long l; printf("%ld\n", l);</code></p>
@@ -473,8 +489,9 @@ compiler should warn you about such code).</li>
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; 1</span></pre></div>
 <ul>
-<li>try <code>sizeof</code> on various values and types in printf(), compile with <code>-m 32</code> and
-<code>-m 64</code> and see the difference</li>
+<li>
+<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> try <code>sizeof</code> on various values and types in printf(), compile with
+<code>-m 32</code> and <code>-m 64</code> and see the difference</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">sizeof</span> (<span class="pl-c1">1</span>);
 	<span class="pl-k">sizeof</span> (<span class="pl-k">char</span>);
