@@ -20,6 +20,9 @@ like this:
 #include "modules/moving-star.md"
 ```
 
+Each of the modules is supposed to be self contained - i.e. no recursive
+includes.
+
 When you push a new changeset to the repo, the github backend will automatically
 process the input files and generates ready to use notes in Markdown in the
 `lecture-notes` directory.  In the `docs` directory, you will find HTML version
