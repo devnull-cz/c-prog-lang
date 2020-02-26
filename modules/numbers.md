@@ -63,7 +63,7 @@
 	short sh;
 	printf("%d\n", sh);
 ```
-## modifiers for printf
+## modifiers for printf()
 
 - `l` for long, eg. `long l; printf("%ld\n", l);`
 - `ll` for long long, eg. `long long ll; printf("%lld\n", ll);`
