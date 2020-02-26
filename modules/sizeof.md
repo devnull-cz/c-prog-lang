@@ -24,8 +24,8 @@
 	// --> 1
 ```
 
-- try `sizeof` on various values and types in printf(), compile with `-m 32` and
-  `-m 64` and see the difference
+- :wrench: try `sizeof` on various values and types in printf(), compile with
+  `-m 32` and `-m 64` and see the difference
 ```C
 	sizeof (1);
 	sizeof (char);
