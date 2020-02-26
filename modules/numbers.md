@@ -9,14 +9,14 @@
 - `'A'` is `int`.  See `man ascii`.  The ASCII standard defines characters with
   values 0-127.
 
-- float, double
-  - man 3 printf, see `%f` is of type `double`.  You can use:
+- `float`, `double`
+  - `man 3 printf`, see `%f` is of type `double`.  You can use:
 
 ```C
 	  printf("%f\n", float)
 ```
 
-- as floats are automatically converted to doubles if used as arguments in
+- floats are automatically converted to doubles if used as arguments in
   functions with variable number of arguments (known as a "variadic function"),
   i.e. like printf()
 
