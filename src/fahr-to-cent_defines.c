@@ -1,5 +1,5 @@
 /*
- * Reimplement fahr-to-cent.c from the lecture 01 using defines.
+ * Reimplement fahr-to-cent.c using defines.
  */
 #include <stdio.h>
 
