@@ -372,7 +372,7 @@ expression</p>
    *    - you will also need "fflush(stdout)" after each line is printed.  As
    *      standard error is buffered in the C library, the text will generally
    *      not be printed by printf() until a new line is printed, which will
-   *      never be the case here.  So, the fflush call makes sure all buffered
+   *      never be the case here. So, the fflush() call makes sure all buffered
    *      text is printed out.
    *
    * We expect something like this:
