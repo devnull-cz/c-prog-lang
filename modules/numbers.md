@@ -120,26 +120,37 @@
 			~~~~     ^~
 			%d
 	1 warning generated.
+	$ ./a.out
+	13
 ```
 
 ## Suffixes
 
 - you can explicitly specify larger integers with suffices
 
-	- `13L` and `13l` is long
-	- `13LL` and `13ll` is long long (`Ll` and `lL` is illegal)
-	- `13u` and `13U` is unsigned int
-	- `13lu` and `13LU` is unsigned long
-	- `13llu` and `13LLU` is unsigned long long
+	- `13L` and `13l` is a long
+	- `13LL` and `13ll` is a long long (`Ll` and `lL` is illegal)
+	- `13u` and `13U` is an unsigned int
+	- `13lu` and `13LU` is an unsigned long
+	- `13llu` and `13LLU` is an unsigned long long
 
 - so, `0xFULL` and `0XFULL` is unsigned long long 15 :-)
 ```C
 	printf("%llu\n", 0xFULL);
 	// --> 15
 	printf("%lld", 13LL);	/* OK */
+	// --> 13
 	/* in general NOT OK as long may be 4 bytes while long long 8 bytes */
 	printf("%ld", 13LL);
+	// --> ??
 ```
 
-- `\ooo` and `\xhh` are character sized bit patterns, either specified
-  as octal or hexadecimal numbers.
+- Escape sequences `\ooo` and `\xhh` (not `\Xhh`) are character sized bit
+  patterns, either specified as octal or hexadecimal numbers.  They can be used
+  in string constants and in character constants.
+
+```C
+	printf("\110\x6F\154\x61");
+	printf("%c\n", '\x21');
+	// -> Hola!
+```
