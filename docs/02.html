@@ -453,6 +453,8 @@ anyway as 13 is assigned to a 64 bit register (because of x64 ABI).</li>
 			~~~~     ^~
 			%d
 	1 warning generated.
+	$ ./a.out
+	13
 </code></pre>
 <h2>
 <a id="user-content-suffixes" class="anchor" href="#suffixes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Suffixes</h2>
@@ -461,15 +463,15 @@ anyway as 13 is assigned to a 64 bit register (because of x64 ABI).</li>
 <p>you can explicitly specify larger integers with suffices</p>
 <ul>
 <li>
-<code>13L</code> and <code>13l</code> is long</li>
+<code>13L</code> and <code>13l</code> is a long</li>
 <li>
-<code>13LL</code> and <code>13ll</code> is long long (<code>Ll</code> and <code>lL</code> is illegal)</li>
+<code>13LL</code> and <code>13ll</code> is a long long (<code>Ll</code> and <code>lL</code> is illegal)</li>
 <li>
-<code>13u</code> and <code>13U</code> is unsigned int</li>
+<code>13u</code> and <code>13U</code> is an unsigned int</li>
 <li>
-<code>13lu</code> and <code>13LU</code> is unsigned long</li>
+<code>13lu</code> and <code>13LU</code> is an unsigned long</li>
 <li>
-<code>13llu</code> and <code>13LLU</code> is unsigned long long</li>
+<code>13llu</code> and <code>13LLU</code> is an unsigned long long</li>
 </ul>
 </li>
 <li>
@@ -479,13 +481,18 @@ anyway as 13 is assigned to a 64 bit register (because of x64 ABI).</li>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%llu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0xFULL</span>);
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; 15</span>
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%lld</span><span class="pl-pds">"</span></span>, <span class="pl-c1">13LL</span>);	<span class="pl-c"><span class="pl-c">/*</span> OK <span class="pl-c">*/</span></span>
+	<span class="pl-c"><span class="pl-c">//</span> --&gt; 13</span>
 	<span class="pl-c"><span class="pl-c">/*</span> in general NOT OK as long may be 4 bytes while long long 8 bytes <span class="pl-c">*/</span></span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%ld</span><span class="pl-pds">"</span></span>, <span class="pl-c1">13LL</span>);</pre></div>
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%ld</span><span class="pl-pds">"</span></span>, <span class="pl-c1">13LL</span>);
+	<span class="pl-c"><span class="pl-c">//</span> --&gt; ??</span></pre></div>
 <ul>
-<li>
-<code>\ooo</code> and <code>\xhh</code> are character sized bit patterns, either specified
-as octal or hexadecimal numbers.</li>
+<li>Escape sequences <code>\ooo</code> and <code>\xhh</code> (not <code>\Xhh</code>) are character sized bit
+patterns, either specified as octal or hexadecimal numbers.  They can be used
+in string constants and in character constants.</li>
 </ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\110\x6F\154\x61</span><span class="pl-pds">"</span></span>);
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x21</span><span class="pl-pds">'</span></span>);
+	<span class="pl-c"><span class="pl-c">//</span> -&gt; Hola!</span></pre></div>
 <h1>
 <a id="user-content-the-sizeof-operator" class="anchor" href="#the-sizeof-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>sizeof</code> operator</h1>
 <ul>
