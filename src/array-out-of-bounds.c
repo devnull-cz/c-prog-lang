@@ -9,11 +9,17 @@ int
 main(void)
 {
 	int a[1024];
+	size_t asize = sizeof (a) / sizeof (a[0]);
+	size_t extraindex = asize * 4;
 
-	a[(sizeof (a) / sizeof (a[0])) + 1] = 1;
-	printf("+1\n");
-	a[(sizeof (a) / sizeof (a[0])) * 4] = 1;
-	printf("+%zu", (sizeof (a) / sizeof (a[0])) * 4);
+	printf("Number of array elements: %zu\n", asize);
 
-	return (0);
+	printf("One-off error (using index %zu)... ", asize);
+	fflush(stdout);
+	a[asize] = 1;
+	printf("OK\n");
+	printf("Assigning to index %zu... ", extraindex);
+	fflush(stdout);
+	a[extraindex] = 1;
+	printf("OK\n");
 }
