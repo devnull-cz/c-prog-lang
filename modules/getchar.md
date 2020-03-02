@@ -8,7 +8,7 @@
 	  extra value for the `EOF`).
 	- getchar() needs `#include <stdio.h>`
 
-## :wrench: Task: write code that will read characters from a terminal and prints them out.
+### :wrench: Task: write code that will read characters from a terminal and prints them out.
 
 It should work like this:
 ```
