@@ -27,9 +27,13 @@
   - :wrench: see what code emits your compiler by default (i.e. without using
     either `-m32` or `-m64` options)
     - use `file` to display the information about the binary
+
 - see also *5.2.4.2 Numerical limits* [in the C spec](/modules/c99-standard.md).
   For example, `int` must be at least 4 bytes but the C spec does not prevent it
   from being 8 bytes in the future.
+
+- `char`s and `short`s are automatically converted to `int` if used as arguments in
+  variadic functions.
 
 - as `'X'` is `int` but within 0-127, it's OK to do the following as it will fit
   even if `char` is signed:
