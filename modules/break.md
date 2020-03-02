@@ -1,4 +1,4 @@
-# break statement
+# The `break` statement
 
 - statement `break` will cause a jump out of a most inner while loop (well, any
   loop but we only introduced the `while` loop so far).
