@@ -17,8 +17,10 @@ newline.
 :eyes: [words.c](/src/words.c), it actually uses a library check for white
 space for simplicity
 
-:eyes: another solution is [words2.c](/src/words2.c) which is simpler than the
-first solution.
+:eyes: another solution is [words2.c](/src/words2.c).  It is even simpler than
+the first solution while not using the library function.
+
+Example:
 
 ```
 $ cat /etc/passwd | ./a.out
