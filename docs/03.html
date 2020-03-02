@@ -76,9 +76,37 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-recap-of-the-last-class" class="anchor" href="#recap-of-the-last-class" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>recap of the last class</h1>
+<a id="user-content-recap-of-the-last-class" class="anchor" href="#recap-of-the-last-class" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recap of the last class</h1>
+<p>Comments, preprocessor, expressions, <code>break</code>, operators, <code>_Bool</code>, integer types,
+signedness, modifiers for <code>printf</code>(), L/U suffices, <code>sizeof</code> operator, integer
+literals, <code>getchar</code>().</p>
 <h1>
-<a id="user-content-warmup" class="anchor" href="#warmup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>warmup</h1>
+<a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
+<p>Print out number of words read from the standard input.  Ideally, use your
+<code>getchar</code>() based code from your repository to start with.</p>
+<p><strong>Always try to reuse code you have already written!</strong></p>
+<p>A <em>word</em> is defined as group of any characters surrounded by whitespace
+characters.  For our case these will suffice: a tabelator, a space, and a
+newline.</p>
+<ul>
+<li>
+<p>write your own check for a whitespace character, do not use library functions
+for that</p>
+</li>
+<li>
+<p>check correctness of your implementation with <code>wc -w &lt;file&gt;</code></p>
+</li>
+<li>
+<p>what happens if the number of words exceeds the type that stores the count?</p>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/words.c">words.c</a>, it actually uses a library check for white
+space for simplicity</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> another solution is <a href="/src/words2.c">words2.c</a> which is simpler than the
+first solution.</p>
+<pre><code>$ cat /etc/passwd | ./a.out
+70
+</code></pre>
 <h1>
 <a id="user-content-home-assignments" class="anchor" href="#home-assignments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Home assignments</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
