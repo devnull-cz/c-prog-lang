@@ -292,7 +292,14 @@ about operator priority in later lectures.</p>
 </code></pre>
 <h1>
 <a id="user-content-boolean" class="anchor" href="#boolean" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>boolean</h1>
-<p>There is <code>bool</code> type as of C99. To use it, include <code>&lt;stdbool.h&gt;</code>.</p>
+<p>There is a new <code>_Bool</code> type as of C99.  Put <code>0</code> as false, and a non-zero (stick
+to <code>1</code> though) as a true value.</p>
+<p>The keyword name starts with an underscore as such keywords were always reserved
+in C while <code>bool</code>, <code>true</code>, nor <code>false</code> never were.  So, some older code might
+actually use those names so if C99 just put those in the language, it would have
+broken such older code.</p>
+<p>If you are certain that neither <code>bool</code>, <code>true</code>, nor <code>false</code> are used in the code
+on its own, you can use those macros if you include <code>&lt;stdbool.h&gt;</code>.</p>
 <p>See <a href="/src/bool.c">bool.c</a>.</p>
 <h1>
 <a id="user-content-numbers-and-types" class="anchor" href="#numbers-and-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>numbers and types</h1>
