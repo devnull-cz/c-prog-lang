@@ -354,6 +354,10 @@ For example, <code>int</code> must be at least 4 bytes but the C spec does not p
 from being 8 bytes in the future.</p>
 </li>
 <li>
+<p><code>char</code>s and <code>short</code>s are automatically converted to <code>int</code> if used as arguments in
+variadic functions.</p>
+</li>
+<li>
 <p>as <code>'X'</code> is <code>int</code> but within 0-127, it's OK to do the following as it will fit
 even if <code>char</code> is signed:</p>
 </li>
@@ -530,10 +534,15 @@ why the following is gonna print <code>1 4 4</code>:</li>
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span>
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (+c));
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
-<h2>
-<a id="user-content-conversion" class="anchor" href="#conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>conversion</h2>
+<h1>
+<a id="user-content-integer-literals" class="anchor" href="#integer-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer Literals</h1>
 <ul>
-<li>all of these are equal:</li>
+<li>
+<p>An <em>integer literal</em> can be a decimal, octal, or hexadecimal constant.</p>
+</li>
+<li>
+<p>so, all of these are equal:</p>
+</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>); <span class="pl-c"><span class="pl-c">//</span> will print an integer as a character</span>
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
@@ -546,8 +555,15 @@ why the following is gonna print <code>1 4 4</code>:</li>
 <ul>
 <li>if you use a larger number than fits within a byte as an argument for the <code>%c</code>
 conversion, the higher bits are trimmed.  The rule here is that the <code>int</code>
-argument is converted to <code>unsigned char</code>, then printed as a character.  More
-on integer conversion in upcoming lectures.</li>
+argument is converted to <code>unsigned char</code> (not just <code>char</code>!), then printed as a
+character (= letter).  More on integer conversion in upcoming lectures.  See
+also <a href="/modules/numbers.md">Numbers</a> on why you never pass a <code>char</code> nor <code>short</code>
+to a variadic function.
+<ul>
+<li>also note the existence of <code>h</code> and <code>hh</code> modifiers.  See the printf()
+man page for more information.</li>
+</ul>
+</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">65</span> + <span class="pl-c1">256</span> + <span class="pl-c1">256</span> + <span class="pl-c1">256</span> * <span class="pl-c1">100</span>);
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; still prints A</span></pre></div>
