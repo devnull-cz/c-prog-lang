@@ -297,7 +297,7 @@ to <code>1</code> though) as a true value.</p>
 <p>The keyword name starts with an underscore as such keywords were always reserved
 in C while <code>bool</code>, <code>true</code>, nor <code>false</code> never were.  So, some older code might
 actually use those names so if C99 just put those in the language, it would have
-broken such older code.</p>
+broken the code and that is generally not acceptable in C.</p>
 <p>If you are certain that neither <code>bool</code>, <code>true</code>, nor <code>false</code> are used in the code
 on its own, you can use those macros if you include <code>&lt;stdbool.h&gt;</code>.</p>
 <p>See <a href="/src/bool.c">bool.c</a>.</p>
