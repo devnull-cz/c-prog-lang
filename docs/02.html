@@ -590,14 +590,18 @@ function.</p>
 <a id="user-content-getchar" class="anchor" href="#getchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getchar()</h1>
 <ul>
 <li>getchar() function reads one character from the process standard input and
-returns its value as a integer.
+returns its value as an integer.
 <ul>
 <li>when it reaches end of input (for example, by pressing <code>Ctrl-D</code> in the
-terminal), it returns <code>EOF</code> (which is a define, usually set as -1.
-That is why getchar() returns an <code>int</code> and not a <code>char</code> as it needs an
-extra value for the <code>EOF</code>).</li>
+terminal), it returns <code>EOF</code>
+</li>
+<li>
+<code>EOF</code> is a define, usually set as -1.  That is why getchar() returns
+an <code>int</code> instead of a <code>char</code> as it needs an extra value for <code>EOF</code>.</li>
 <li>getchar() needs <code>#include &lt;stdio.h&gt;</code>
 </li>
+<li>you can verify that [<code>EOF</code> is part of <code>&lt;stdio&gt;</code>]
+(<a href="https://pubs.opengroup.org/onlinepubs/9699919799/" rel="nofollow">https://pubs.opengroup.org/onlinepubs/9699919799/</a>)</li>
 </ul>
 </li>
 </ul>
