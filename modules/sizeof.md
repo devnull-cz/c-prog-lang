@@ -1,7 +1,7 @@
-## sizeof operator
+# The `sizeof` operator
 
-- the `sizeof` operator computes the size of its argument which is an expression
-  or a type
+- the `sizeof` operator computes the byte size of its argument which is an
+  expression or a type
   - its type is `size_t` which is an unsigned integer according to the
     standard.  However, the implementation (= compiler) can choose whether
     it's an `unsigned int`, an `unsigned long int`, or an `unsigned long long
