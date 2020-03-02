@@ -291,7 +291,7 @@ about operator priority in later lectures.</p>
 	}
 </code></pre>
 <h1>
-<a id="user-content-boolean" class="anchor" href="#boolean" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>boolean</h1>
+<a id="user-content-the-boolean-type" class="anchor" href="#the-boolean-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The boolean type</h1>
 <p>There is a new <code>_Bool</code> type as of C99.  Put <code>0</code> as false, and a non-zero (stick
 to <code>1</code> though) as a true value.</p>
 <p>The keyword name starts with an underscore as such keywords were always reserved
@@ -302,20 +302,22 @@ broken the code and that is generally not acceptable in C.</p>
 on its own, you can use those macros if you include <code>&lt;stdbool.h&gt;</code>.</p>
 <p>See <a href="/src/bool.c">bool.c</a>.</p>
 <h1>
-<a id="user-content-numbers-and-types" class="anchor" href="#numbers-and-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>numbers and types</h1>
+<a id="user-content-numbers-and-types" class="anchor" href="#numbers-and-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Numbers and types</h1>
 <ul>
 <li>
-<p>1, 7, 20000 are always integers of type <code>int</code> if they fit (the range is
+<p>1, 7, 20000 are always integers of type <code>int</code> <strong>if they fit</strong> (the range is
 [-2^31, 2^31 - 1] on 32/64 bit CPUs)</p>
 </li>
 <li>
-<p>hexadecimal numbers start with <code>0x</code> or <code>0X</code>.  Eg. <code>0xFF</code>, <code>0Xaa</code>, <code>0x13f</code>, etc.
-octal numbers start with <code>0</code>.  Eg. <code>010</code> is 8 in decimal.  Also remember the
+<p>Hexadecimal numbers start with <code>0x</code> or <code>0X</code>.  Eg. <code>0xFF</code>, <code>0Xaa</code>, <code>0x13f</code>,
+etc.</p>
+</li>
+<li>
+<p>Octal numbers start with <code>0</code>.  Eg. <code>010</code> is 8 in decimal.  Also remember the
 Unix file mask (umask), eg. <code>0644</code>.</p>
 </li>
 <li>
-<p><code>'A'</code> is <code>int</code>.  See <code>man ascii</code>.  The ASCII standard defines characters with
-values 0-127.</p>
+<p><code>'A'</code> is called <em>a character constant</em> and is always of type <code>int</code>.  See <code>man ascii</code>.  The ASCII standard defines characters with values 0-127.</p>
 </li>
 <li>
 <p><code>float</code>, <code>double</code></p>
@@ -334,8 +336,8 @@ i.e. like printf()</p>
 </li>
 <li>
 <p><code>char</code> (1 byte), <code>short</code> (usually 2 bytes), <code>long</code> (4 or 8 bytes), <code>long long</code>
-(usually 8 bytes).  It also depends on whether your binary is compiled in 32
-or 64 bits.</p>
+(usually 8 bytes, and can not be less).  It also depends on whether your
+binary is compiled in 32 or 64 bits.</p>
 <ul>
 <li>
 <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> see what code emits your compiler by default (i.e. without using
@@ -347,13 +349,18 @@ either <code>-m32</code> or <code>-m64</code> options)
 </ul>
 </li>
 <li>
+<p>see also <em>5.2.4.2 Numerical limits</em> <a href="/modules/c99-standard.md">in the C spec</a>.
+For example, <code>int</code> must be at least 4 bytes but the C spec does not prevent it
+from being 8 bytes in the future.</p>
+</li>
+<li>
 <p>as <code>'X'</code> is <code>int</code> but within 0-127, it's OK to do the following as it will fit
 even if <code>char</code> is signed:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> c = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;</pre></div>
 <h2>
-<a id="user-content-signedness" class="anchor" href="#signedness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>signedness</h2>
+<a id="user-content-signedness" class="anchor" href="#signedness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Signedness</h2>
 <ul>
 <li>each integer type has a <code>signed</code> and <code>unsigned</code> variant.  By default, the
 numeric types are signed aside from char which depends on the implementation.
@@ -390,7 +397,7 @@ on the stack (Intel x32 passing argument convention) or in a register
 	<span class="pl-k">short</span> sh;
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, sh);</pre></div>
 <h2>
-<a id="user-content-modifiers-for-printf" class="anchor" href="#modifiers-for-printf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modifiers for printf()</h2>
+<a id="user-content-modifiers-for-printf" class="anchor" href="#modifiers-for-printf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modifiers for printf()</h2>
 <ul>
 <li>
 <p><code>l</code> for long, eg. <code>long l; printf("%ld\n", l);</code></p>
@@ -444,7 +451,7 @@ anyway as 13 is assigned to a 64 bit register (because of x64 ABI).</li>
 	1 warning generated.
 </code></pre>
 <h2>
-<a id="user-content-suffixes" class="anchor" href="#suffixes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>suffixes</h2>
+<a id="user-content-suffixes" class="anchor" href="#suffixes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Suffixes</h2>
 <ul>
 <li>
 <p>you can explicitly specify larger integers with suffices</p>
