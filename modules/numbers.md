@@ -1,13 +1,14 @@
-# numbers and types
+# Numbers and types
 
-- 1, 7, 20000 are always integers of type `int` if they fit (the range is
+- 1, 7, 20000 are always integers of type `int` **if they fit** (the range is
   [-2^31, 2^31 - 1] on 32/64 bit CPUs)
-- hexadecimal numbers start with `0x` or `0X`.  Eg. `0xFF`, `0Xaa`, `0x13f`, etc.
-  octal numbers start with `0`.  Eg. `010` is 8 in decimal.  Also remember the
+- Hexadecimal numbers start with `0x` or `0X`.  Eg. `0xFF`, `0Xaa`, `0x13f`,
+  etc.
+- Octal numbers start with `0`.  Eg. `010` is 8 in decimal.  Also remember the
   Unix file mask (umask), eg. `0644`.
 
-- `'A'` is `int`.  See `man ascii`.  The ASCII standard defines characters with
-  values 0-127.
+- `'A'` is called *a character constant* and is always of type `int`.  See `man
+  ascii`.  The ASCII standard defines characters with values 0-127.
 
 - `float`, `double`
   - `man 3 printf`, see `%f` is of type `double`.  You can use:
@@ -21,11 +22,14 @@
   i.e. like printf()
 
 - `char` (1 byte), `short` (usually 2 bytes), `long` (4 or 8 bytes), `long long`
-  (usually 8 bytes).  It also depends on whether your binary is compiled in 32
-  or 64 bits.
+  (usually 8 bytes, and can not be less).  It also depends on whether your
+  binary is compiled in 32 or 64 bits.
   - :wrench: see what code emits your compiler by default (i.e. without using
     either `-m32` or `-m64` options)
     - use `file` to display the information about the binary
+- see also *5.2.4.2 Numerical limits* [in the C spec](/modules/c99-standard.md).
+  For example, `int` must be at least 4 bytes but the C spec does not prevent it
+  from being 8 bytes in the future.
 
 - as `'X'` is `int` but within 0-127, it's OK to do the following as it will fit
   even if `char` is signed:
@@ -33,7 +37,7 @@
 	char c = 'A';
 ```
 
-## signedness
+## Signedness
 
 - each integer type has a `signed` and `unsigned` variant.  By default, the
   numeric types are signed aside from char which depends on the implementation.
@@ -66,7 +70,7 @@
 	short sh;
 	printf("%d\n", sh);
 ```
-## modifiers for printf()
+## Modifiers for printf()
 
 - `l` for long, eg. `long l; printf("%ld\n", l);`
 - `ll` for long long, eg. `long long ll; printf("%lld\n", ll);`
@@ -114,7 +118,7 @@
 	1 warning generated.
 ```
 
-## suffixes
+## Suffixes
 
 - you can explicitly specify larger integers with suffices
 

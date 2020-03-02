@@ -1,4 +1,4 @@
-# boolean
+# The boolean type
 
 There is a new `_Bool` type as of C99.  Put `0` as false, and a non-zero (stick
 to `1` though) as a true value.
