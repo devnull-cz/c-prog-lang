@@ -7,10 +7,13 @@
 - the output will look like this:
 
 ```
-  a: ***
-  b: *
-  c: *****************************
-  ...
+$ cat /some/file | ./a.out
+a: ***
+b: *
+c: *****************************
+...
+z: *******
+$
 ```
 
 - use a function to print a specific number of stars
