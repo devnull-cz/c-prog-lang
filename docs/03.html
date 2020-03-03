@@ -258,8 +258,111 @@ argument to determine the size.</p>
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
-<p>Do <a href="/modules/count-digit-occurence.md">digit occurence</a> but use an array for
-counting the figures.</p>
+<p>Do <a href="/modules/count-digit-occurence.md">digit occurence</a> as in the last class but
+now use an array for counting the figures.</p>
+<h1>
+<a id="user-content-function-introduction" class="anchor" href="#function-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function introduction</h1>
+<p>Functions can be used to encapsulate some work, for code re-factoring, etc.</p>
+<p>A function has a single return value and multiple input parameters.</p>
+<ul>
+<li>if you also need to extract an error code with the value or get multiple
+return values that needs to be done via passing data via reference (more on
+that when we have pointers)</li>
+<li>i.e. this is not like Go that returns the error along with the data</li>
+</ul>
+<p>A function <em>declaration</em> is only declaring the API without the function body.
+It is called a <em>function prototype</em>:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">digit</span>(<span class="pl-k">int</span> c);
+<span class="pl-k">int</span> <span class="pl-en">space</span>(<span class="pl-k">int</span> c);
+<span class="pl-k">float</span> <span class="pl-en">myfun</span>(<span class="pl-k">int</span> c, <span class="pl-k">int</span> i, <span class="pl-k">float</span> f);</pre></div>
+<p>The default return value type is an <code>int</code> but a compiler will warn if it is
+missing.  You should always specify the type in
+<a href="/modules/c99-standard.md">C99+</a>.</p>
+<p>Write your function declarations at the beginning of a C file or include those
+into a separate header file.</p>
+<p>If a compiler hits a function whose prototype is unknown, warnings are issued.
+Remember <a href="/src/src/hello-world1.c">src/hello-world1.c</a>?  See also here:</p>
+<pre><code>$ cat test.c
+int
+main(void)
+{
+	fn();
+}
+
+float
+fn(void)
+{
+	return (1.0);
+}
+$
+$ gcc test.c
+test.c:4:2: warning: implicit declaration of function 'fn' is
+invalid in C99
+      [-Wimplicit-function-declaration]
+	fn();
+	^
+test.c:8:1: error: conflicting types for 'fn'
+fn(void)
+^
+test.c:4:2: note: previous implicit declaration is here
+	fn();
+	^
+1 warning and 1 error generated.
+</code></pre>
+<p>Argument names may be omitted in prototypes, i.e.:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">myfn</span>(<span class="pl-k">int</span>, <span class="pl-k">int</span>);</pre></div>
+<p>As you can see, function arguments are separated by commas and the function body
+is inclosed in <code>{}</code> (just like the <code>main</code> function).</p>
+<p>A variable defined in function parameters or locally within the function
+overrides global variables.  Each identifier is visible (= can be used) only
+within a region of program text called its <em>scope</em>.  See
+<a href="/modules/c99-standard.md">C99</a>, section <em>6.2.1  Scopesof identifiers</em> for more
+information.</p>
+<p>You may use a function argument as any other local variable.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">myfn</span>(<span class="pl-k">int</span> i, <span class="pl-k">int</span> j)
+{
+	i = i * j;
+	<span class="pl-k">return</span> (i);
+}</pre></div>
+<p>As <strong>arguments are passed by value</strong>, the variable value is not changed in scope
+that called the function.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> myfn defined here <span class="pl-c">*/</span></span>
+
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-k">int</span> i = <span class="pl-c1">3</span>;
+
+	<span class="pl-c1">myfn</span>(i, i);
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);	<span class="pl-c"><span class="pl-c">//</span> will print 3</span>
+}</pre></div>
+<p>Local variables are on the stack.</p>
+<p>Variable passing depends on bitness and architecture. E.g. 32-bit x86 on the
+stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on the
+stack.</p>
+<p>Functions can be recursive.  <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/recursive-fn.c">recursive-fn.c</a></p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c"> * Print 0..9 recursively using a function call fn(9).</span>
+<span class="pl-c"> <span class="pl-c">*/</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">void</span>
+<span class="pl-en">myfn</span>(<span class="pl-k">int</span> depth)
+{
+	<span class="pl-k">if</span> (depth != <span class="pl-c1">0</span>)
+		<span class="pl-c1">myfn</span>(depth - <span class="pl-c1">1</span>);
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, depth);
+}
+
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c1">myfn</span>(<span class="pl-c1">9</span>);
+}
+</pre></div>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Print 9..0 using a recursive function.</p>
+<p><g-emoji class="g-emoji" alias="eye" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f441.png">👁</g-emoji> solution <a href="/src/recursive-fn2.c">recursive-fn2.c</a></p>
 
               </article>
             </div>
