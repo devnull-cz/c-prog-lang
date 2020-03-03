@@ -10,7 +10,8 @@ A function has a single return value and multiple input parameters.
 - i.e. this is not like Go that returns the error along with the data
 
 A function *declaration* is only declaring the API without the function body.
-It is called a *function prototype*:
+It is called a *function prototype* and it consists of a type, function name,
+and argument in parentheses:
 
 ```C
 int digit(int c);
@@ -18,9 +19,21 @@ int space(int c);
 float myfun(int c, int i, float f);
 ```
 
+As with the `main` function, you can use `void` instead of the argument list to
+say the function accepts no arguments.
+
+```C
+void
+hola(void)
+{
+	printf("Hola!\n");
+}
+```
+
 The default return value type is an `int` but a compiler will warn if it is
 missing.  You should always specify the type in
-[C99+](/modules/c99-standard.md).
+[C99+](/modules/c99-standard.md).  You may use `void` which means the function
+does returns no value.
 
 Write your function declarations at the beginning of a C file or include those
 into a separate header file.
