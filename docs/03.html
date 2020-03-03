@@ -270,13 +270,14 @@ return values that needs to be done via passing data via reference (more on
 that when we have pointers)</li>
 <li>i.e. this is not like Go that returns the error along with the data</li>
 </ul>
-<p>A function <em>declaration</em> is only declaring the API without the function body.
-It is called a <em>function prototype</em> and it consists of a type, function name,
-and argument in parentheses:</p>
+<p>A function <em>declaration</em> is only declaring the API without its body.  It is
+called a <em>function prototype</em> and it consists of a type, a function name, and an
+argument list in parentheses:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">digit</span>(<span class="pl-k">int</span> c);
 <span class="pl-k">int</span> <span class="pl-en">space</span>(<span class="pl-k">int</span> c);
 <span class="pl-k">float</span> <span class="pl-en">myfun</span>(<span class="pl-k">int</span> c, <span class="pl-k">int</span> i, <span class="pl-k">float</span> f);</pre></div>
-<p>A function body is inclosed in <code>{}</code> (just like the <code>main</code> function).</p>
+<p>When <em>defining</em> the function, its body is inclosed in <code>{}</code> (just like the <code>main</code>
+function).</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
 <span class="pl-en">return_a_number</span>(<span class="pl-k">void</span>)
 {
