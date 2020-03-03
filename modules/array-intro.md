@@ -1,20 +1,20 @@
 # Array Intro
 
-You define an array like this `int array[*N*]`, for example:
+You define an array like this `int array[<some-number>]`, for example:
 
 ```C
 int array[5];
 ```
 
-The integer value in `[]` specifies number of array elements.
+The integer value `n` in `[n]` specifies number of array elements.
 
 - an array *subscript* always starts from `0` and ends with `n - 1`
 - a subscript may be any integer expression
 
-So, `int array[3]` members will be accessible as `a[0]` .. `a[2]`
+So, `int array[3]` elements will be accessible as `a[0]` .. `a[2]`
 
-- the 0 is used there for better work with pointers and efficiency for array
-  access
+- `0` as the first subscript is used for better work with pointers and
+  efficiency for array access
 
 - what is not possible to do with arrays in C (limitations are important
   knowledge):
@@ -22,8 +22,9 @@ So, `int array[3]` members will be accessible as `a[0]` .. `a[2]`
 	- associative arrays
 	- array subscripts returning a sub-array (like found e.g. in Python)
 
-- as with integer and floating point variables, we may initialize an array when
-  during its definition.  The individual numbers are known as *initializers*.
+- as with integer and floating point variables, we may initialize an array
+  during its definition.  The value for the initialization is known as
+  *initializer*.
 
 ```C
 short array[3] = { 1, 2, 3 };
@@ -32,20 +33,20 @@ short array[3] = { 1, 2, 3 };
 If the array size is omitted the compiler will compute the size from the the
 number of initializers.  So, you can just do the following.
 
-Note that if you need your array to contain only those elements in the
-initialization, then omitting the array size is the way to go to avoid errors as
-in changing the initialization and forgetting to update the array size.
-
 ```C
 short array[] = { 1, 2, 3 };
 ```
 
+Note that if you need your array to contain only the elements in the
+initialization, omitting the array size is the way to go to avoid errors as in
+changing the initializer while forgetting to update the array size.
 
 - the `sizeof` operator on array always gets **the array size in bytes**.  It
   will **not** get size of the array in elements.
 
   	- to get the number of elements in an array, you must divide the array
-	  size in bytes by the size of its element.
+	  size in bytes by the size of its element.  Always use `0`, see below
+	  on why.
 
 ```C
 int a[5];
@@ -60,11 +61,11 @@ declaration (i.e. the type of elements).  Do not use the following:
     sizeof (array) / sizeof (int)
 ```
 
-- arrays defined as shown are not dynamic and **can not** be resized
+Arrays defined so far are not dynamic and **can not** be resized.
 
-	- try to perform out-of-bounds access. What is the threshold for
-	  behavior change on your system ?
-	- why is it not faulting for the one-off error?
+- try to perform out-of-bounds access. What is the threshold for
+  behavior change on your system ?
+- why is it not faulting for the one-off error?
 
 :eyes: [array-out-of-bounds.c](/src/array-out-of-bounds.c)
 
@@ -77,22 +78,21 @@ Assigning to index 4096... Segmentation Fault
 ```
 
 You do not need to initialize all elements.  With such type of an
-initialization, you always start in the beginning, and there may be no gaps:
+initialization, you always start from subscript `0`, and there are no gaps:
 
 ```C
   short array[4] = { 1, 2, 3 };
 ```
 
-- elements not explicitly initalized are set to `0` so the value of `array[3]`
-  will be initialized to `0`
+Elements not explicitly initalized are set to `0` so the value of `array[3]`
+will be initialized to `0`.
 
-	- i.e. `int array[100] = { 0 };` will have all values set to 0
+- i.e. `int array[100] = { 0 };` will have all values set to 0
 
-        - the initialization is done by a compiler
+- the initialization is done by a compiler
 
-		  - using `= {}` is not allowed by the C specification (allowed
-		    in C++) but generally accepted.  Not with `-Wpedantic`
-		    though:
+- using `= {}` is not allowed by the C specification (allowed in C++) but
+  generally accepted.  Not with `-Wpedantic` though:
 
 ```
 cc -Wpedantic test.c
@@ -105,14 +105,14 @@ int a[10] = {};
 
 Note: **global variables are always zeroized.**
 
-There is *partial array initialization* where the *initializers* are called
+There is a *partial array initialization* where the *initializers* are called
 *designated initializers* in the C spec:
 
   char array[128] = { [0] = 'A', [2] = 'f', [4] = 'o', [6] = 'o' };
 
-- index is in the square brackets
-- the `[index]` is known as a *designator*.  Inreasing ordering is not required
-  but expected.
+- a subscript is in the square brackets
+- the `[subscript]` is known as a *designator*.  Inreasing ordering is not
+  required but expected.
 - the rest of items will be initialized to zeroes
 - if you do not specify the array size, it is taken from the highest designator
   index 
@@ -142,7 +142,7 @@ Once declared, the values cannot be assigned at once.  So, you can only do
 things as follows:
 
 ```C
-int array[3];
+int array[4];
 
 array[0] = 1;
 array[1] = 2;
@@ -150,18 +150,19 @@ array[2] = array[3] = 3;
 // ...
 ```
 
-- you cannot assign array into array - has to be done item by item
-	- likewise for comparison
+You cannot assign an array into array - has to be done item by item
 
-- arrays cannot be declared as empty (`int a[0]`)
+- likewise for comparison
 
-	- this is explicitly forbidden by the standard
-	  [C99](/modules/c99-standard.md) 6.7.5.2 Array declarators)
-	- GCC accepts that though.  Do not use it like that.
+Arrays cannot be declared as empty (`int a[0]`).
+
+- this is explicitly forbidden by the standard [C99](/modules/c99-standard.md)
+  6.7.5.2 Array declarators)
+- GCC accepts that though.  Do not use it like that.
 
 :eyes: [empty-array.c](/src/empty-array.c)
 
-This does not really makes sense.
+This does not really makes sense though:
 
 ```
 $ gcc empty-array.c
