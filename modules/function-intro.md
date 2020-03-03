@@ -19,8 +19,18 @@ int space(int c);
 float myfun(int c, int i, float f);
 ```
 
-As with the `main` function, you can use `void` instead of the argument list to
-say the function accepts no arguments.
+A function body is inclosed in `{}` (just like the `main` function).
+
+```C
+int
+return_a_number(void)
+{
+	return (1000);
+}
+```
+
+Also as with the `main` function, you can use `void` instead of the argument
+list to say the function accepts no arguments.
 
 ```C
 void
@@ -28,6 +38,12 @@ hola(void)
 {
 	printf("Hola!\n");
 }
+```
+
+A function call is an expression so you can you it as such:
+
+```C
+printf("%d\n", return_a_number());
 ```
 
 The default return value type is an `int` but a compiler will warn if it is
@@ -75,9 +91,6 @@ Argument names may be omitted in prototypes, i.e.:
 ```C
 int myfn(int, int);
 ```
-
-As you can see, function arguments are separated by commas and the function body
-is inclosed in `{}` (just like the `main` function).
 
 A variable defined in function parameters or locally within the function
 overrides global variables.  Each identifier is visible (= can be used) only
