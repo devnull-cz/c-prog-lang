@@ -182,7 +182,23 @@ have to, as those are things of the past century.</li>
    */
 </code></pre>
 <ul>
-<li><code>// one line comment from C99+</code></li>
+<li>
+<p><code>// one line comment from C99+</code></p>
+</li>
+<li>
+<p>use comments sparingly</p>
+<ul>
+<li>not very useful:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> increment i <span class="pl-c">*/</span></span>
+++i;</pre></div>
+<ul>
+<li>produce meaningful comments, not like this:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> probably makes sense, but maybe not <span class="pl-c">*/</span></span>
+<span class="pl-k">if</span> (...)
+         <span class="pl-en">do_something</span>()</pre></div>
+</li>
 </ul>
 <h1>
 <a id="user-content-preprocessor" class="anchor" href="#preprocessor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preprocessor</h1>
