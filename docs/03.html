@@ -331,17 +331,17 @@ test.c:4:2: note: previous implicit declaration is here
 <p>A variable defined in function parameters or locally within the function
 overrides global variables.  Each identifier is visible (= can be used) only
 within a region of program text called its <em>scope</em>.  See
-<a href="/modules/c99-standard.md">C99</a>, section <em>6.2.1  Scopesof identifiers</em> for more
+<a href="/modules/c99-standard.md">C99</a>, section <em>6.2.1 Scopes of identifiers</em> for more
 information.</p>
-<p>You may use a function argument as any other local variable.</p>
+<p>Within a function body, you may use its arguments as any other local variables.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
 <span class="pl-en">myfn</span>(<span class="pl-k">int</span> i, <span class="pl-k">int</span> j)
 {
 	i = i * j;
 	<span class="pl-k">return</span> (i);
 }</pre></div>
-<p>As <strong>arguments are passed by value</strong>, the variable value is not changed in scope
-that called the function.</p>
+<p>As <strong>arguments are always passed by value</strong> in C, the variable value is not
+changed in scope that called the function.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> myfn defined here <span class="pl-c">*/</span></span>
 
 <span class="pl-k">int</span>
