@@ -95,10 +95,10 @@ int myfn(int, int);
 A variable defined in function parameters or locally within the function
 overrides global variables.  Each identifier is visible (= can be used) only
 within a region of program text called its *scope*.  See
-[C99](/modules/c99-standard.md), section *6.2.1  Scopesof identifiers* for more
+[C99](/modules/c99-standard.md), section *6.2.1 Scopes of identifiers* for more
 information.
 
-You may use a function argument as any other local variable.
+Within a function body, you may use its arguments as any other local variables.
 
 ```C
 int
@@ -109,8 +109,8 @@ myfn(int i, int j)
 }
 ```
 
-As **arguments are passed by value**, the variable value is not changed in scope
-that called the function.
+As **arguments are always passed by value** in C, the variable value is not
+changed in scope that called the function.
 
 ```C
 /* myfn defined here */
