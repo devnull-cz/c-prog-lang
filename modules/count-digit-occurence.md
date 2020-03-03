@@ -1,4 +1,4 @@
-## :wrench: digit occurrence
+## :wrench: Count digit occurrence
 
 If unsure about the behavior, compile our solution and run it.
 
@@ -6,17 +6,17 @@ If unsure about the behavior, compile our solution and run it.
   You end up with longer code than otherwise necessary but that is OK.
 
 ```
-	$ cat /etc/passwd | ./a.out
-	0: 27
-	1: 37
-	2: 152
-	3: 38
-	4: 39
-	5: 43
-	6: 34
-	7: 35
-	8: 29
-	9: 31
+$ cat /etc/passwd | ./a.out
+0: 27
+1: 37
+2: 152
+3: 38
+4: 39
+5: 43
+6: 34
+7: 35
+8: 29
+9: 31
 ```
 
 Solution: [count-numbers.c](/src/count-numbers.c)
