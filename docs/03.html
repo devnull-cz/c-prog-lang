@@ -271,13 +271,30 @@ that when we have pointers)</li>
 <li>i.e. this is not like Go that returns the error along with the data</li>
 </ul>
 <p>A function <em>declaration</em> is only declaring the API without the function body.
-It is called a <em>function prototype</em>:</p>
+It is called a <em>function prototype</em> and it consists of a type, function name,
+and argument in parentheses:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">digit</span>(<span class="pl-k">int</span> c);
 <span class="pl-k">int</span> <span class="pl-en">space</span>(<span class="pl-k">int</span> c);
 <span class="pl-k">float</span> <span class="pl-en">myfun</span>(<span class="pl-k">int</span> c, <span class="pl-k">int</span> i, <span class="pl-k">float</span> f);</pre></div>
+<p>A function body is inclosed in <code>{}</code> (just like the <code>main</code> function).</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">return_a_number</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-k">return</span> (<span class="pl-c1">1000</span>);
+}</pre></div>
+<p>Also as with the <code>main</code> function, you can use <code>void</code> instead of the argument
+list to say the function accepts no arguments.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span>
+<span class="pl-en">hola</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Hola!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+}</pre></div>
+<p>A function call is an expression so you can you it as such:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, return_a_number());</pre></div>
 <p>The default return value type is an <code>int</code> but a compiler will warn if it is
 missing.  You should always specify the type in
-<a href="/modules/c99-standard.md">C99+</a>.</p>
+<a href="/modules/c99-standard.md">C99+</a>.  You may use <code>void</code> which means the function
+does returns no value.</p>
 <p>Write your function declarations at the beginning of a C file or include those
 into a separate header file.</p>
 <p>If a compiler hits a function whose prototype is unknown, warnings are issued.
@@ -311,8 +328,6 @@ test.c:4:2: note: previous implicit declaration is here
 </code></pre>
 <p>Argument names may be omitted in prototypes, i.e.:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">myfn</span>(<span class="pl-k">int</span>, <span class="pl-k">int</span>);</pre></div>
-<p>As you can see, function arguments are separated by commas and the function body
-is inclosed in <code>{}</code> (just like the <code>main</code> function).</p>
 <p>A variable defined in function parameters or locally within the function
 overrides global variables.  Each identifier is visible (= can be used) only
 within a region of program text called its <em>scope</em>.  See
