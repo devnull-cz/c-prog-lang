@@ -143,7 +143,8 @@ as an <em>initializer</em>.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[<span class="pl-c1">3</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };</pre></div>
 <p>If the array size is omitted the compiler will compute the size from the the
 number of initializers.  So, you can just do the following.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
+<span class="pl-k">char</span> array[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };</pre></div>
 <p>Note that if you need your array to contain only the elements from the
 initializer, omitting the array size is the way to go to avoid errors as in
 changing the initializer while forgetting to update the array size.</p>
@@ -164,6 +165,9 @@ see below on why.</li>
 <p>The above is the correct approach that is immune to changing the array
 declaration (i.e. the type of elements).  Do not use the following:</p>
 <div class="highlight highlight-source-c"><pre>    <span class="pl-k">sizeof</span> (array) / <span class="pl-k">sizeof</span> (<span class="pl-k">int</span>)</pre></div>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Declare an array of <code>char</code>s without setting the array size, initialize
+the array during declaration (see above), then print each element of the array
+on a separate line using a <code>while</code> loop.</p>
 <p>Arrays introduced so far are not dynamic and <strong>can not</strong> be resized.</p>
 <ul>
 <li>try to perform out-of-bound access. What is the threshold for
