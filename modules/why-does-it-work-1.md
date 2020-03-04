@@ -36,8 +36,7 @@ u-pl3.ms.mff.cuni.cz which you all have access to, so that you can try and see.
 Before I begin, let me give you more information:
 
 - it depends on a system and its version, and a compiler and its version
-	- you can try `clang` compiler later on the same machine and you will
-	  see the disassembled output is different from what gcc does.
+	- you can also try the `clang` compiler later on the same machine
 - will be using gcc which default to 64 bit binaries on u-pl3.ms.mff.cuni.cz
   system
 - 64 bit binaries on x86 use [X86-64 ABI](https://en.wikipedia.org/wiki/X86-64)
@@ -216,10 +215,23 @@ Bingo!  It no longer works.  What happened?
     1169:	c3                   	retq
 ```
 
-What we should take away:
+:wrench: Try the `clang` compiler and figure out what happened there.
+
+```
+$ clang main.c
+main.c:7:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+1 warning generated.
+$ ./a.out
+0
+```
+
+What we should take away from this situation:
 
 - if looks it works does not mean it does
 - ideally, test on different architectures
-- if something magically stops working that did not work before, be ready for
-  stuff like this.  Something that worked for ages does not necessarily means
-  the code was correct.
+- using different compilers may help as well
+- if something magically stops working that did work before, be ready for stuff
+  like this.  Even something that has worked for ages does not necessarily means
+  the code must have been correct.
