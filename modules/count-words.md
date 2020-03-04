@@ -3,9 +3,9 @@ Print out number of words read from the standard input.  Ideally, use your
 
 **Always try to reuse code you have already written!**
 
-A *word* is defined as group of any characters surrounded by whitespace
-characters.  For our case these will suffice: a tabelator, a space, and a
-newline.
+A *word* is defined as a group of any characters surrounded by whitespace
+characters.  For our case these white space characters will suffice: a
+tabelator, a space, and a newline.
 
 - write your own check for a whitespace character, do not use library functions
   for that

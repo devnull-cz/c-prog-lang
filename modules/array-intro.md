@@ -6,25 +6,27 @@ You define an array like this `int array[<some-number>]`, for example:
 int array[5];
 ```
 
-The integer value `n` in `[n]` specifies number of array elements.
+The integer value `n` in `[n]` specifies the number of array *elements*.
 
 - an array *subscript* always starts from `0` and ends with `n - 1`
 - a subscript may be any integer expression
 
-So, `int array[3]` elements will be accessible as `a[0]` .. `a[2]`
+So, `int array[3]` elements will be accessible as `a[0]` .. `a[2]`, each element
+is of type `int, and therefore you can do e.g. `printf("%d\n", a[2]);`.
 
-- `0` as the first subscript is used for better work with pointers and
-  efficiency for array access
+- `0` as the first subscript so it is easier to work with *pointers* and
+  efficiency for array access - we will get to pointers later.
 
 - what is not possible to do with arrays in C (limitations are important
   knowledge):
 
 	- associative arrays
 	- array subscripts returning a sub-array (like found e.g. in Python)
+	- assigning to an array as a whole
 
 - as with integer and floating point variables, we may initialize an array
-  during its definition.  The value for the initialization is known as
-  *initializer*.
+  during its definition.  In general, the value for the initialization is known
+  as an *initializer*.
 
 ```C
 short array[3] = { 1, 2, 3 };
@@ -37,16 +39,16 @@ number of initializers.  So, you can just do the following.
 short array[] = { 1, 2, 3 };
 ```
 
-Note that if you need your array to contain only the elements in the
-initialization, omitting the array size is the way to go to avoid errors as in
+Note that if you need your array to contain only the elements from the
+initializer, omitting the array size is the way to go to avoid errors as in
 changing the initializer while forgetting to update the array size.
 
 - the `sizeof` operator on array always gets **the array size in bytes**.  It
-  will **not** get size of the array in elements.
+  will **not** get the array size in elements.
 
   	- to get the number of elements in an array, you must divide the array
-	  size in bytes by the size of its element.  Always use `0`, see below
-	  on why.
+	  size in bytes by the size of its element.  Always use `0` subscript,
+	  see below on why.
 
 ```C
 int a[5];
@@ -61,9 +63,9 @@ declaration (i.e. the type of elements).  Do not use the following:
     sizeof (array) / sizeof (int)
 ```
 
-Arrays defined so far are not dynamic and **can not** be resized.
+Arrays introduced so far are not dynamic and **can not** be resized.
 
-- try to perform out-of-bounds access. What is the threshold for
+- try to perform out-of-bound access. What is the threshold for
   behavior change on your system ?
 - why is it not faulting for the one-off error?
 
@@ -84,10 +86,10 @@ initialization, you always start from subscript `0`, and there are no gaps:
   short array[4] = { 1, 2, 3 };
 ```
 
-Elements not explicitly initalized are set to `0` so the value of `array[3]`
-will be initialized to `0`.
+In the example above, the elements not explicitly initalized are set to `0` so
+the value of `array[3]` will be initialized to `0`.
 
-- i.e. `int array[100] = { 0 };` will have all values set to 0
+- i.e. `int array[100] = { 0 };` will have all values set to `0`
 
 - the initialization is done by a compiler
 
@@ -110,10 +112,10 @@ There is a *partial array initialization* where the *initializers* are called
 
   char array[128] = { [0] = 'A', [2] = 'f', [4] = 'o', [6] = 'o' };
 
-- a subscript is in the square brackets
+- a subscript is in square brackets
 - the `[subscript]` is known as a *designator*.  Inreasing ordering is not
   required but expected.
-- the rest of items will be initialized to zeroes
+- the rest of elements will be initialized to zero
 - if you do not specify the array size, it is taken from the highest designator
   index 
 - you can combine designators with fixed order initializers, and you always
@@ -150,28 +152,29 @@ array[2] = array[3] = 3;
 // ...
 ```
 
-You cannot assign an array into array - has to be done item by item
+You cannot assign an array into array - has to be done an element by element.
 
 - likewise for comparison
 
 Arrays cannot be declared as empty (`int a[0]`).
 
-- this is explicitly forbidden by the standard [C99](/modules/c99-standard.md)
-  6.7.5.2 Array declarators)
+- this is explicitly forbidden by the standard, see
+  [C99](/modules/c99-standard.md) 6.7.5.2 Array declarators.
 - GCC accepts that though.  Do not use it like that.
 
 :eyes: [empty-array.c](/src/empty-array.c)
 
-This does not really makes sense though:
+This might be a bit confusing though:
 
 ```
 $ gcc empty-array.c
 $ ./a.out
 4
+0
 ```
 
-Not allowing empty arrays means that `sizeof() / sizeof(a[0])` construction is
-always correct to compute a number of array elements.  Plus, the compiler does
-not do any array access when computing sizeof(a[0]) as the expression is not
-evaluated (see lecture 02 on the `sizeof` operator), the compiler only uses the
-argument to determine the size.
+Even if a compiler supports an empty array declaration, `sizeof() /
+sizeof(a[0])` construction is always correct to compute a number of array
+elements.  Plus, the compiler does not do any array access when computing
+sizeof(a[0]) as the expression is not evaluated (see lecture 02 on the `sizeof`
+operator), the compiler only uses the argument to determine the size.
