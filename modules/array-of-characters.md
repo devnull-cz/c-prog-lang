@@ -1,7 +1,8 @@
 # Array of characters
 
 An array of characters (`char`s) is called a *string* or a *string constant*.
-Do not confuse it with a *character constant* as in `'A'`.
+Do not confuse it with a *character constant* as in `'A'`.  A string is put in
+double quotes `""`.
 
 So, `"hello, world"` as string.
 
@@ -9,20 +10,23 @@ Technically, a string constant is an array of characters and may be used to
 initialize a char array:
 
 ```C
-  char foo[] = "bar";
+char foo[] = "bar";
 ```
 
 A special thing is that a string is always terminated by a NUL (zero) byte.
-That is how C know where a string ends.
+That is how C knows where a string ends.
 
-That means the size of the array is one byte more than the number of characters
-in the string.  It is because of the terminating zero (`\0`) that the compiler
-adds to terminate the string.
+That means the size of the array is **one byte more than the number of
+characters in the string**.  It is because of the terminating zero (`\0`) that
+the compiler adds to terminate the string.
 
 So, you could use the initializer as introduced earlier:
 
 ```C
 char foo[] = { 'b', 'a', 'r', '\0' };
+
+printf("%zu\n", sizeof (foo));		// prints 4
+printf("%zu\n", sizeof ("bar"));	// prints 4
 ```
 
 However, that is no generally used, you would use `"bar"` to initialize such an
