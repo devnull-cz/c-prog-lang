@@ -443,6 +443,25 @@ $
 </ul>
 </li>
 </ul>
+<h1>
+<a id="user-content-arrays-and-functions" class="anchor" href="#arrays-and-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arrays and functions</h1>
+<p>Arrays in C are not a first class object, rather it is a composition of
+elements.</p>
+<p>An array <strong>cannot be returned from a function</strong>.  A pointer to an array can be
+but more on that later.</p>
+<p>No allowing to return an array is done for efficiency as copying the whole array
+(by value) would be too expensive.</p>
+<ul>
+<li>watch for size of an array as a local variable in a function</li>
+<li>arrays as local variable may significantly increase the stack size (and a
+stack size is limited in threaded environments)</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/func-large-array.c">func-large-array.c</a></p>
+<p>The following may or may not happen in your environment:</p>
+<pre><code>$ cc func-large-array.c
+$ ./a.out
+Segmentation fault: 11
+</code></pre>
 
               </article>
             </div>
