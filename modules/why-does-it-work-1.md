@@ -37,7 +37,7 @@ Before I begin, let me give you more information:
 
 - it depends on a system and its version, and a compiler and its version
 	- you can also try the `clang` compiler later on the same machine
-- will be using gcc which defaults to generate 64 bit binaries on the Linux
+- will be using `gcc` which defaults to generate 64 bit binaries on the Linux
   distro installed on u-pl3.ms.mff.cuni.cz (and other machines in the lab).
 - 64 bit binaries on x86 use [X86-64 ABI](https://en.wikipedia.org/wiki/X86-64)
 - [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) is not
