@@ -141,7 +141,7 @@ $ gcc main.c
 100
 ```
 
-Apprently not, let's see the disassembled code:
+Apparently not, let's see the disassembled code:
 
 ```
 0000000000001145 <addnum>:
