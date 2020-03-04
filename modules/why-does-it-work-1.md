@@ -233,9 +233,12 @@ $ ./a.out
 
 What we should take away from this situation:
 
-- if looks it works does not mean it does
-- ideally, test on different architectures
-- using different compilers may help as well
-- if something magically stops working that did work before, be ready for stuff
-  like this.  Even something that has worked for ages does not necessarily means
-  the code must have been correct.
+- anything looking as working does not mean it is correct
+- ideally, if possible, test on different architectures (like x86, SPARC, ARM,
+  etc).
+- using different compilers and different systems may help as well.  For
+  example, if you develop in a Linux distro, testing it also on a macOS laptop
+  would be worth it.
+- if something magically stops working that did work before, be ready for
+  breakage like this.  Even something that has worked for ages does not
+  necessarily means the code must have been correct.
