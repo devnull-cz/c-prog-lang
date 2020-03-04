@@ -389,30 +389,28 @@ stack.</p>
 <a id="user-content-wrench-home-assignment-1" class="anchor" href="#wrench-home-assignment-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Print total number of (decimal) numbers, white space (tab, space,
-newline) and anything else from the input.  I.e. it will print out three
-numbers.</p>
+<h2>
+<a id="user-content-wrench-count-digits-white-space-characters-and-the-rest" class="anchor" href="#wrench-count-digits-white-space-characters-and-the-rest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Count digits, white space characters, and the rest</h2>
+<p>Print total number of (decimal) numbers, white space (tab, space, newline) and
+anything else from the input.  <strong>I.e. the program prints out three numbers.</strong></p>
 <p>Obviously, reuse code you wrote for <a href="/src/count-digit-occurence.md">digit occurence
 counting</a>.</p>
 <ul>
-<li>write the program using direct comparisons</li>
+<li>write the program using direct comparisons like this:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>c &gt;= <span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; c &lt;= <span class="pl-s"><span class="pl-pds">'</span>9<span class="pl-pds">'</span></span>
 c == <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> || c == <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\t</span><span class="pl-pds">'</span></span> || c == <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span></pre></div>
 <ul>
-<li>move both the checks into functions</li>
-<li>then write a new version and use:
+<li>put both the checks into separate functions</li>
+<li>then write a new version of the program and use:
+- use <code>isspace</code>() from C99
 <ul>
-<li>use isspace() from C99</li>
-<li>isdigit() vs isnumber() - the latter detects digits + possibly more
-characters (depending on locale setting)</li>
+<li>
+<code>isdigit</code>() vs <code>isnumber</code>() - the latter detects digits + possibly
+more characters (depending on locale setting)</li>
 </ul>
 </li>
 </ul>
-<h1>
-<a id="user-content-wrench-home-assignment-2" class="anchor" href="#wrench-home-assignment-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
-<p>Note that home assignments are entirely voluntary but writing code is the only
-way to learn a programming language.</p>
 <h2>
 <a id="user-content-wrench-count-letter-occurrence" class="anchor" href="#wrench-count-letter-occurrence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Count letter occurrence</h2>
 <ul>
