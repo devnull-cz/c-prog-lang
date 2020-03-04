@@ -28,7 +28,7 @@ $ ./a.out
 100
 ```
 
-**What happened?**
+**So what happened???**
 
 Well, I does not really work.  It "works" by accident.  Let's look at it more
 closely.  To establish a common environment, I will be using
@@ -37,11 +37,10 @@ Before I begin, let me give you more information:
 
 - it depends on a system and its version, and a compiler and its version
 	- you can also try the `clang` compiler later on the same machine
-- will be using gcc which default to 64 bit binaries on u-pl3.ms.mff.cuni.cz
-  system
+- will be using gcc which defaults to generate 64 bit binaries on the Linux
+  distro installed on u-pl3.ms.mff.cuni.cz (and other machines in the lab).
 - 64 bit binaries on x86 use [X86-64 ABI](https://en.wikipedia.org/wiki/X86-64)
-- note that an [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)
-  is not an
+- [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) is not
   [API](https://en.wikipedia.org/wiki/Application_programming_interface)
 - by this ABI (it's law!), the first two function integer arguments are passed
   through the general purpose **edi** and **esi** registers
@@ -49,7 +48,8 @@ Before I begin, let me give you more information:
   purpose **eax** register
 - **the stack on x86 grows down**
 
-Let's compile the code and disassemble it.  See my notes inline.
+Let's compile the code and disassemble it.  All we need are the `main` and
+`addnum` function.  See my notes inline.
 
 ```
 $ cc main.c
@@ -71,12 +71,13 @@ $ objdump -d a.out
 	  variables, so they need to be on a stack.
 
 	- why we put them to -0x14 and -0x18 offsets from the base?  That's just
-	  what this gcc version does.
+	  what this gcc version does.  They are 4 bytes apart as we work with 4
+	  byte integers.
 
     114f:	8b 55 ec             	mov    -0x14(%rbp),%edx
     1152:	8b 45 e8             	mov    -0x18(%rbp),%eax
 
-	- move the values of our local variables to the registers
+	- moved the values of our local variables to general purpose registers
 
     1155:	01 d0                	add    %edx,%eax
 
@@ -84,7 +85,7 @@ $ objdump -d a.out
 
     1157:	89 45 fc             	mov    %eax,-0x4(%rbp)
 
-	- put the result to the local variable n which happens to be at offset
+	- put the result to the local variable "n" which happens to be at offset
 	  -0x4 from the frame pointer.
 
 	- now, see above, register eax is used in x86 64 ABI for the function
@@ -105,13 +106,16 @@ $ objdump -d a.out
 	  2nd argument in x86 64 bit ABI
 
     116b:	e8 d5 ff ff ff       	callq  1145 <addnum>
+
+	- called our function from main()
+
     1170:	89 c6                	mov    %eax,%esi
 
 	- x86 64 ABI expects the function return value in the register eax, so
 	  we just put it to the input register esi representing the 2nd argument
 	  for the printf() function.
-	- and, given we happen to have the right value in eax, it looks like it
-	  works
+	- and, given that we happened to have the right value in eax, the code
+	  looks like it works.
 
     1172:	48 8d 3d 8b 0e 00 00 	lea    0xe8b(%rip),%rdi        # 2004 <_IO_stdin_used+0x4>
     1179:	b8 00 00 00 00       	mov    $0x0,%eax
@@ -152,7 +156,7 @@ Apprently not, let's see the disassembled code:
     115a:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
 
     	- OK, the compiler just directly adds 1 to the memory address holding
-	  local variable n.  As it does not change the register eax, it still
+	  local variable "n".  As it does not change the register eax, it still
 	  "works".
 
     115e:	90                   	nop
