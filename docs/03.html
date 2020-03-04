@@ -465,18 +465,22 @@ Segmentation fault: 11
 <h1>
 <a id="user-content-array-of-characters" class="anchor" href="#array-of-characters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array of characters</h1>
 <p>An array of characters (<code>char</code>s) is called a <em>string</em> or a <em>string constant</em>.
-Do not confuse it with a <em>character constant</em> as in <code>'A'</code>.</p>
+Do not confuse it with a <em>character constant</em> as in <code>'A'</code>.  A string is put in
+double quotes <code>""</code>.</p>
 <p>So, <code>"hello, world"</code> as string.</p>
 <p>Technically, a string constant is an array of characters and may be used to
 initialize a char array:</p>
-<div class="highlight highlight-source-c"><pre>  <span class="pl-k">char</span> foo[] = <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>;</pre></div>
 <p>A special thing is that a string is always terminated by a NUL (zero) byte.
-That is how C know where a string ends.</p>
-<p>That means the size of the array is one byte more than the number of characters
-in the string.  It is because of the terminating zero (<code>\0</code>) that the compiler
-adds to terminate the string.</p>
+That is how C knows where a string ends.</p>
+<p>That means the size of the array is <strong>one byte more than the number of
+characters in the string</strong>.  It is because of the terminating zero (<code>\0</code>) that
+the compiler adds to terminate the string.</p>
 <p>So, you could use the initializer as introduced earlier:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };
+
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (foo));		<span class="pl-c"><span class="pl-c">//</span> prints 4</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (<span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>));	<span class="pl-c"><span class="pl-c">//</span> prints 4</span></pre></div>
 <p>However, that is no generally used, you would use <code>"bar"</code> to initialize such an
 array.</p>
 <p>Using <code>'\0'</code> suggests it is a terminating NUL character, and it is just a zero
@@ -487,6 +491,21 @@ byte.  So, you could just use <code>0</code>, like this, but it is not generally
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> What happens if you forget to specify the terminating zero in the above
 per-char init and try to print the string ?</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/array-char-nozero.c">array-char-nozero.c</a></p>
+<h1>
+<a id="user-content-string-length" class="anchor" href="#string-length" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String length</h1>
+<p>We know that we can use <code>sizeof</code> to get a length of a string including the
+terminating <code>'\0'</code> character.  There is a more general way to get a string
+length, function <code>strlen</code>().  Note that when we know what pointers are, the
+existence of the fuction will make even more sense.</p>
+<p>The function is declared in <code>&lt;string.h&gt;</code> and returns a value of type <code>size_t</code>,
+that is the same type as the operator <code>sizeof</code> uses.  So, remember to use the
+<code>z</code> modifier to the <code>%u</code> conversion specifier:</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">char</span> s[] = <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>;
+
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Length of <span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>: <span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, s, strlen(s));</pre></div>
+<p>Note that to include a literal <code>"</code> in a string, you just escape it.</p>
 
               </article>
             </div>
