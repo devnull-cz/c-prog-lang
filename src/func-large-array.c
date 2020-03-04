@@ -12,7 +12,7 @@
 int
 foo(int n)
 {
-	int a[8192] = { 0 };
+	int a[8192 * 1000] = { 0 };
 
 	// To prevent the code from being optimized away.
 	a[0] = n;
