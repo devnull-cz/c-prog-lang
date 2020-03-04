@@ -244,6 +244,6 @@ What we should take away from this situation:
   necessarily means the code must have been correct.
 
 **Do you want more information on ABI and how it really works behind the
-scene?** Search for [Crashdump Analysis Frank
-Hofmann](https://duckduckgo.com/?q=Crashdump+Analysis+Frank+Hofmann) for all the
-gory details.
+scene?** Search for [Solaris Crashdump Analysis Frank
+Hofmann](https://duckduckgo.com/?q=Solaris+Crashdump+Analysis+Frank+Hofmann) for
+all the gory details.
