@@ -12,7 +12,7 @@ The integer value `n` in `[n]` specifies the number of array *elements*.
 - a subscript may be any integer expression
 
 So, `int array[3]` elements will be accessible as `a[0]` .. `a[2]`, each element
-is of type `int, and therefore you can do e.g. `printf("%d\n", a[2]);`.
+is of type `int`, and therefore you can do e.g. `printf("%d\n", a[2]);`.
 
 - `0` as the first subscript so it is easier to work with *pointers* and
   efficiency for array access - we will get to pointers later.
