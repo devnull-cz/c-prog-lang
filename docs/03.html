@@ -493,10 +493,10 @@ per-char init and try to print the string ?</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/array-char-nozero.c">array-char-nozero.c</a></p>
 <h1>
 <a id="user-content-string-length" class="anchor" href="#string-length" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String length</h1>
-<p>We know that we can use <code>sizeof</code> to get a length of a string including the
-terminating <code>'\0'</code> character.  There is a more general way to get a string
+<p>We know that we can use <code>sizeof</code> to get a length of a character array including
+the terminating <code>'\0'</code> character.  There is a more general way to get a string
 length, function <code>strlen</code>().  Note that when we know what pointers are, the
-existence of the fuction will make even more sense.</p>
+existence of the fuction will make more sense.</p>
 <p>The function is declared in <code>&lt;string.h&gt;</code> and returns a value of type <code>size_t</code>,
 that is the same type as the operator <code>sizeof</code> uses.  So, remember to use the
 <code>z</code> modifier to the <code>%u</code> conversion specifier:</p>
