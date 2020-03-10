@@ -32,10 +32,13 @@
   - there are other means to check for correctness (static/dynamic analysis),
     more on those later
 
-------------------------------------------------------------------------------
+## :wrench: Use the options
 
-* go through the programs written so far and run the compiler using the
+Go through the programs written so far and run the compiler using the
   `-Wall -Wextra` options.
   - what kind of problems did you discover ? how to fix them ?
     - see e.g. [whole-array.c](/src/whole-array.c) example above
       (where only `-Wextra` gives some clue)
+
+Explore the compiler documentation for more helpful options.
+Over the time you will find a set of warning options that will serve you well.
