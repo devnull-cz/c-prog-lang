@@ -9,7 +9,7 @@ main(void)
 	/* Will print 1 */
 	printf("%d\n", -1 > 1U);
 
-	/* Will print 0 as expected but that's because of the overflow. */
+	/* Will print 0 as expected but that's because of overflow. */
 	printf("%u\n", -1 + 1U);
 
 	/* Will print 2^32-1 (4294967295) */
