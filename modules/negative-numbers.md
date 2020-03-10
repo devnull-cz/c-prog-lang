@@ -1,8 +1,7 @@
 # Negative numbers
 
-Negative numbers are usually stored in two's complement (however, that is
-implementation defined by the standard).  See
-https://en.wikipedia.org/wiki/Two's\_complement
+Negative numbers are usually stored in [two's complement](https://en.wikipedia.org/wiki/Two's_complement)
+(however, that is implementation defined by the standard).
 
 In short, you take an absolute value, create one's complement and add 1.  There
 are several advantages, one is that there is only 1 zero (not negative and
