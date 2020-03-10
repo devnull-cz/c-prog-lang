@@ -303,7 +303,7 @@ are several advantages of this representation, one is that there is only 1 zero
 (not negative and positive zero if we used the highest bit to track the sign).<br>
 That is why a <code>signed char</code>, for example, can hold -128 to 127,
 and not just -127 to 127.</p>
-<p>For a char:</p>
+<p>For a <code>char</code>:</p>
 <pre><code> 10000000	-128
  ........
  11111101	  -3
@@ -353,7 +353,8 @@ than the language.</p>
 	2147483647 -1
 	$
 </code></pre>
-<hr>
+<h2>
+<a id="user-content-quiz-1" class="anchor" href="#quiz-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quiz 1</h2>
 <ul>
 <li>what is the result if <code>0xff</code> <code>signed char</code> and <code>0xff</code> <code>unsigned char</code> are
 compared using the <code>==</code> operator ?
@@ -369,20 +370,18 @@ the 2 chars with <code>printf()</code>
 because it is up to the compiler to choose whether char will be signed
 or unsigned.  Usually it is signed though. There are compiler options to
 specify this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char</code></p>
-<hr>
-<ul>
-<li>
-<p>another quiz. Will the program print the whole array ?</p>
+<h2>
+<a id="user-content-quiz-2" class="anchor" href="#quiz-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quiz 2</h2>
+<p>Will the program print the whole array ?</p>
 <ul>
 <li>try to come up with reason of the expected behavior before running the
 program.</li>
 </ul>
 <p>code: <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <a href="/src/whole-array.c">whole-array.c</a></p>
-</li>
-</ul>
-<hr>
+<h2>
+<a id="user-content-function-arguments-vs-integer-promotion" class="anchor" href="#function-arguments-vs-integer-promotion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function arguments vs integer promotion</h2>
 <ul>
-<li>when passing char to a function parameter declared as int, in 32-bit mode
+<li>when passing <code>char</code> to a function parameter declared as <code>int</code>, in 32-bit mode
 (<code>-m32</code>) it will be pushed as 32-bit value on the stack. This is not integer
 promotion but x86 ABI (Application Binary Interface)</li>
 </ul>
