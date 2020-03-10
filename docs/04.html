@@ -258,8 +258,8 @@ define their own MAX/MIN macros.</li>
 <h1>
 <a id="user-content-arithmetic-type-conversions" class="anchor" href="#arithmetic-type-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arithmetic type conversions</h1>
 <p>In (very) general, if <em>binary</em> operators have operands of different types, the
-"lower" is promoted to "upper".  Eg. if one operand is a long double, the other
-operand is promoted to a long double.</p>
+"lower" is promoted to "upper".  Eg. if one operand is a <code>long double</code>, the
+other operand is promoted to a <code>long double</code>.</p>
 <p>What is more, char and short int operands are converted to ints, and to unsigned
 ints if they do not fit in an int.  That conversion is called <em>integer
 promotion</em>.  This is done to make the runtime fast (on x86 32-bit arithmetics
@@ -267,18 +267,25 @@ can be much faster than when using 16-bit operands).</p>
 <p>sizeof (1) is 4 because 1 is an int.  However, if a number does not fit to an
 int, a higher type will be used.  For example, 4294967296 (2^32) will be stored
 in 8 bytes, and "sizeof (4294967296)" is 8.</p>
-<p>Examples (assuming <code>char c;</code> declaration);</p>
+<h2>
+<a id="user-content-examples-assuming-char-c-declaration" class="anchor" href="#examples-assuming-char-c-declaration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples (assuming <code>char c;</code> declaration);</h2>
 <ul>
-<li>sizeof (999) is 4 as "999" is an integer by definition.</li>
-<li>sizeof (c) is 1</li>
-<li>sizeof (c + c) is 4 as "+" is a binary operator and the integer promotion
+<li>
+<code>sizeof (999)</code> is 4 as "999" is an integer by definition.</li>
+<li>
+<code>sizeof (c)</code> is 1</li>
+<li>
+<code>sizeof (c + c)</code> is 4 as <code>+</code> is a binary operator and the integer promotion
 kicks in</li>
-<li>sizeof (++c) is still 1 as <code>++</code> is an unary operator for which the integer
+<li>
+<code>sizeof (++c)</code> is still 1 as <code>++</code> is an unary operator for which the integer
 promotion rules do not apply.  However, they do apply for unary <code>+</code> and <code>-</code>.</li>
-<li>sizeof (1LL) will usually be 8 as "long long" is usually 8 bytes.</li>
+<li>
+<code>sizeof (1LL)</code> will usually be 8 as <code>long long</code> is usually 8 bytes.</li>
 </ul>
-<p>It gets more interesting if unsigned and signed are involved.  Eg. a signed int
-is promoted to an unsigned int if one of the operands is unsigned.</p>
+<p>It gets more interesting if unsigned and signed are involved.
+Eg. a <code>signed int</code> is promoted to an <code>unsigned int</code> if one of the operands is
+unsigned.</p>
 <p>The above is called "implicit type conversion". There is also "explicit type
 conversion" (called "casting") which we will deal with later.</p>
 <p>I suggest you try these out with <code>printf("%zu", ...)</code>.  <code>%zu</code> (see "man 3
@@ -310,7 +317,7 @@ signed char, for example, can hold -128 to 127, and not just -127 to 127.</p>
 <p>On Unix systems the shell reports the -1 return value as 255 in <code>echo $?</code>.  Even
 though the <code>main()</code> returns integer (4 bytes), the shell takes just low 8 bits
 and interprets them as unsigned quantity.</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/return-1.c">return-1.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/return-1.c">return-1.c</a></p>
 <p>If long is 8 bytes, and an int 4, then <code>-1L &lt; 1U</code> as you might expect.</p>
 <p>However, <code>-1 &gt; 1U</code> because -1 is promoted to unsigned.  Two's complement
 representation of -1 is (see the paragraph above):</p>
@@ -321,12 +328,12 @@ representation of -1 is (see the paragraph above):</p>
 <p>which is 2^32 - 1 when interpreted as unsigned quantity.</p>
 <p>Just <code>printf("%u\n", -1)</code> to see it will print 4294967295 (use the unix/linux
 <code>bc</code> command and type <code>2^32-1</code> to verify).</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/signed-plus-unsigned.c">signed-plus-unsigned.c</a>,
-<a href="src/signed-to-unsigned.c">signed-to-unsigned.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/signed-plus-unsigned.c">signed-plus-unsigned.c</a>,
+<a href="/src/signed-to-unsigned.c">signed-to-unsigned.c</a></p>
 <p>The assymetry of the negative/positive interval can lead to the program crashing
 on architectures that detect it. This is consequence of hardware handling rather
 than the language.</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/crashme.c">crashme.c</a>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/crashme.c">crashme.c</a>
 - run with <code>-INT_MIN</code> (see limits.h) and -1.  <code>INT_MIN</code> is usually
 -2147483648.
 - works in 64-bit mode as well due to int being passed in 32-bit registers</p>
@@ -355,7 +362,7 @@ the 2 chars with <code>printf()</code>
 </ul>
 </li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/int-promotion.c">int-promotion.c</a>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/int-promotion.c">int-promotion.c</a>
 - note that if the b char was defined as <code>char b</code> the result might be 1
 because it is up to the compiler to choose whether char will be signed
 or unsigned.  Usually it is signed though.</p>
@@ -367,7 +374,7 @@ or unsigned.  Usually it is signed though.</p>
 <li>try to come up with reason of the expected behavior before running the
 program.</li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <a href="src/whole-array.c">whole-array.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <a href="/src/whole-array.c">whole-array.c</a></p>
 </li>
 </ul>
 <hr>
@@ -376,7 +383,7 @@ program.</li>
 (<code>-m32</code>) it will be pushed as 32-bit value on the stack. This is not integer
 promotion but x86 ABI (Application Binary Interface)</li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/x86-ABI.c">x86-ABI.c</a>, <a href="src/x86-ABI-2.c">x86-ABI-2.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/x86-ABI.c">x86-ABI.c</a>, <a href="/src/x86-ABI-2.c">x86-ABI-2.c</a></p>
 <ul>
 <li>for those who understand assembly run this with <code>-S</code> to see the differences
 between 32-bit and 64-bit mode, and the difference between when func()
@@ -404,7 +411,7 @@ something strange and potentially harmful can happen.
 <li>
 <p><code>-Wall</code> catches things like missing return value from a function that
 should return one</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/no-return.c">no-return.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/no-return.c">no-return.c</a></p>
 </li>
 <li>
 <p>there are many places where a beginner can shoot himself into a foot
@@ -414,13 +421,13 @@ by not knowing the language intricacies.</p>
 points. The <code>-Wsequence-point</code> that is included in <code>-Wall</code> warns about
 that</li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/sequence-point-violation.c">sequence-point-violation.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/sequence-point-violation.c">sequence-point-violation.c</a></p>
 </li>
 </ul>
 </li>
 <li>
 <p>the <code>-Wshadow</code> can catch shadow variables overriding:</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/shadow.c">shadow.c</a>, <a href="src/shadow-block.c">shadow-block.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/shadow.c">shadow.c</a>, <a href="/src/shadow-block.c">shadow-block.c</a></p>
 </li>
 <li>
 <p>all or specific warnings can be turned into errors: <code>-Werrror</code> or
@@ -444,7 +451,8 @@ more on those later</p>
 <ul>
 <li>what kind of problems did you discover ? how to fix them ?
 <ul>
-<li>see e.g. whole-array.c example above (where only -Wextra gives some clue)</li>
+<li>see e.g. <a href="/src/whole-array.c">whole-array.c</a> example above
+(where only <code>-Wextra</code> gives some clue)</li>
 </ul>
 </li>
 </ul>
@@ -467,8 +475,8 @@ defined behavior.</li>
 </ul>
 </li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/int-overflow.c">int-overflow.c</a>,
-<a href="src/unsigned-overflow.c">unsigned-overflow.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/int-overflow.c">int-overflow.c</a>,
+<a href="/src/unsigned-overflow.c">unsigned-overflow.c</a></p>
 <ul>
 <li>use <code>-fstrict-overflow -Wstrict-overflow</code> (will become active only for
 higher optimization levels, i.e. <code>-O&lt;X&gt;</code> where <code>X &gt; 1</code>) to stay on the
