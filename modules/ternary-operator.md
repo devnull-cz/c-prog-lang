@@ -18,7 +18,7 @@ note that if we add a semicolon, an expression becomes a statement, e.g.:
 will increment i or j. the parens are not needed but generally
 used for better readability.
 
-code: :eyes: [ternary-assign.c](src/ternary-assign.c)
+code: :eyes: [ternary-assign.c](/src/ternary-assign.c)
 
 ---
 
@@ -27,11 +27,11 @@ ternary operator
 
   - do not use any macros
 
-solution: [3max.c](src/3max.c)
+solution: [3max.c](/src/3max.c)
 
 ## quiz
 
-see the code in :eyes: [ternary.c](src/ternary.c)
+see the code in :eyes: [ternary.c](/src/ternary.c)
 
   - is this possible to do with ternary operator ?
   - how would you fix it ?
