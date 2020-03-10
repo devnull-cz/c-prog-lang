@@ -10,7 +10,7 @@ are several advantages of this representation, one is that there is only 1 zero
 That is why a `signed char`, for example, can hold -128 to 127, 
 and not just -127 to 127.
 
-For a char:
+For a `char`:
 ```
  10000000	-128
  ........
@@ -73,7 +73,7 @@ than the language.
 	$
 ```
 
-------------------------------------------------------------------------------
+## Quiz 1
 
 - what is the result if `0xff` `signed char` and `0xff` `unsigned char` are
   compared using the `==` operator ?
@@ -86,17 +86,17 @@ code: :eyes: [int-promotion.c](/src/int-promotion.c)
 	or unsigned.  Usually it is signed though. There are compiler options to
 	specify this, e.g. GCC has `-funsigned-char` and `-fsigned-char`
 
-------------------------------------------------------------------------------
+## Quiz 2
 
-- another quiz. Will the program print the whole array ?
+Will the program print the whole array ?
   - try to come up with reason of the expected behavior before running the
     program.
 
   code: :wrench: [whole-array.c](/src/whole-array.c)
 
-------------------------------------------------------------------------------
+## Function arguments vs integer promotion
 
-- when passing char to a function parameter declared as int, in 32-bit mode
+- when passing `char` to a function parameter declared as `int`, in 32-bit mode
   (`-m32`) it will be pushed as 32-bit value on the stack. This is not integer
   promotion but x86 ABI (Application Binary Interface)
 
