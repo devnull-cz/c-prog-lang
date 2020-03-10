@@ -50,5 +50,3 @@
   - like array, function is not a first class object (i.e. no "functor" like in
     functional languages)
     - that said, there are pointers to functions (more on these later)
-
-
