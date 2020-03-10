@@ -1,7 +1,7 @@
 ## Conway 1D
 
-write a 1-D implementation of Conway's game of life
-  - use rule 30 (http://mathworld.wolfram.com/Rule30.html) to determine the next
+write a 1-D implementation of [Conway's game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+  - use [rule 30](http://mathworld.wolfram.com/Rule30.html) to determine the next
   - use two arrays (one 2-D and one 1-D) to represent the rules and its
     resulting values
     - there are 8 rules, each has 3 values to compare against and one result
