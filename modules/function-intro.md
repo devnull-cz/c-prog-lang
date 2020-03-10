@@ -56,7 +56,7 @@ Write your function declarations at the beginning of a C file or include those
 into a separate header file.
 
 If a compiler hits a function whose prototype is unknown, warnings are issued.
-Remember [src/hello-world1.c](/src/src/hello-world1.c)?  See also here:
+Remember [src/hello-world1.c](/src/hello-world1.c)?  See also here:
 
 ```
 $ cat test.c
