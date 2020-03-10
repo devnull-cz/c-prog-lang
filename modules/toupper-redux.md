@@ -1,10 +1,12 @@
 ## toupper
 
 rewrite the "convert small characters to upper case" program from last time using:
-  - a) function
-  - b) function using ternary operator (single line of code)
+  1. function
+  1. function using ternary operator (single line of code)
 
-  - there is a `toupper()` library function from C99 so use mytoupper()
+### implementation notes
+
+  - there is a `toupper()` library function from C99 so use `mytoupper()`
 
   - variant: do this via lookup table - array
      - arrays passed as function argument are in reality converted to pointers
@@ -21,8 +23,8 @@ rewrite the "convert small characters to upper case" program from last time usin
          they will be changed in the array itself (consequence of pointer
          conversion)
 
-  - what if `conv_to_upper(-1)` ?
-  - short is sufficient to store the value:
+  - what happens if `conv_to_upper(-1)` ?
+  - `short` is sufficient to store the value:
 ```C
     short uppper[] = { 'A', 'B', ... };
 ```
