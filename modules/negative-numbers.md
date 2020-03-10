@@ -28,7 +28,7 @@ On Unix systems the shell reports the -1 return value as 255 in `echo $?`.  Even
 though the `main()` returns integer (4 bytes), the shell takes just low 8 bits
 and interprets them as unsigned quantity.
 
-  code: :eyes: [return-1.c](src/return-1.c)
+  code: :eyes: [return-1.c](/src/return-1.c)
 
 If long is 8 bytes, and an int 4, then `-1L < 1U` as you might expect.
 
@@ -44,14 +44,14 @@ which is 2^32 - 1 when interpreted as unsigned quantity.
 Just `printf("%u\n", -1)` to see it will print 4294967295 (use the unix/linux
 `bc` command and type `2^32-1` to verify).
 
-  code: :eyes: [signed-plus-unsigned.c](src/signed-plus-unsigned.c),
-  [signed-to-unsigned.c](src/signed-to-unsigned.c)
+  code: :eyes: [signed-plus-unsigned.c](/src/signed-plus-unsigned.c),
+  [signed-to-unsigned.c](/src/signed-to-unsigned.c)
 
 The assymetry of the negative/positive interval can lead to the program crashing
 on architectures that detect it. This is consequence of hardware handling rather
 than the language.
 
-  code: :eyes: [crashme.c](src/crashme.c)
+  code: :eyes: [crashme.c](/src/crashme.c)
     - run with `-INT_MIN` (see limits.h) and -1.  `INT_MIN` is usually
       -2147483648.
     - works in 64-bit mode as well due to int being passed in 32-bit registers
@@ -79,7 +79,7 @@ than the language.
   - write down the hexadecimal representation of the integers corresponding to
     the 2 chars with `printf()`
 
-code: :eyes: [int-promotion.c](src/int-promotion.c)
+code: :eyes: [int-promotion.c](/src/int-promotion.c)
       - note that if the b char was defined as `char b` the result might be 1
         because it is up to the compiler to choose whether char will be signed
 	or unsigned.  Usually it is signed though.
@@ -90,7 +90,7 @@ code: :eyes: [int-promotion.c](src/int-promotion.c)
   - try to come up with reason of the expected behavior before running the
     program.
 
-  code: :wrench: [whole-array.c](src/whole-array.c)
+  code: :wrench: [whole-array.c](/src/whole-array.c)
 
 ------------------------------------------------------------------------------
 
@@ -98,7 +98,7 @@ code: :eyes: [int-promotion.c](src/int-promotion.c)
   (`-m32`) it will be pushed as 32-bit value on the stack. This is not integer
   promotion but x86 ABI (Application Binary Interface)
 
-code: :eyes: [x86-ABI.c](src/x86-ABI.c), [x86-ABI-2.c](src/x86-ABI-2.c)
+code: :eyes: [x86-ABI.c](/src/x86-ABI.c), [x86-ABI-2.c](/src/x86-ABI-2.c)
 
   - for those who understand assembly run this with `-S` to see the differences
     between 32-bit and 64-bit mode, and the difference between when func()
