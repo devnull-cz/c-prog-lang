@@ -297,10 +297,12 @@ numeric type of what <code>sizeof</code> returns may differ in different impleme
 <a id="user-content-negative-numbers" class="anchor" href="#negative-numbers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Negative numbers</h1>
 <p>Negative numbers are usually stored in <a href="https://en.wikipedia.org/wiki/Two's_complement" rel="nofollow">two's complement</a>
 (however, that is implementation defined by the standard).</p>
-<p>In short, you take an absolute value, create one's complement and add 1.  There
-are several advantages, one is that there is only 1 zero (not negative and
-positive zero if we used the highest bit to track the sign).  That is why a
-<code>signed char</code>, for example, can hold -128 to 127, and not just -127 to 127.</p>
+<p>In short, you take an absolute value, create one's complement
+(inverting the digits in binary representation) and add 1.  There
+are several advantages of this representation, one is that there is only 1 zero
+(not negative and positive zero if we used the highest bit to track the sign).<br>
+That is why a <code>signed char</code>, for example, can hold -128 to 127,
+and not just -127 to 127.</p>
 <p>For a char:</p>
 <pre><code> 10000000	-128
  ........
@@ -363,9 +365,10 @@ the 2 chars with <code>printf()</code>
 </li>
 </ul>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/int-promotion.c">int-promotion.c</a>
-- note that if the b char was defined as <code>char b</code> the result might be 1
+- note that if the <code>b</code> character was defined as <code>char b</code> the result might be 1
 because it is up to the compiler to choose whether char will be signed
-or unsigned.  Usually it is signed though.</p>
+or unsigned.  Usually it is signed though. There are compiler options to
+specify this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char</code></p>
 <hr>
 <ul>
 <li>
