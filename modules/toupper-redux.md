@@ -29,6 +29,6 @@ rewrite the "convert small characters to upper case" program from last time usin
     short uppper[] = { 'A', 'B', ... };
 ```
 
-solution: [toupper.c](src/toupper.c)
+solution: [toupper.c](/src/toupper.c)
 
 
