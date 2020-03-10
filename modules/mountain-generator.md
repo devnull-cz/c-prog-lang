@@ -61,6 +61,6 @@ The top-level function (`mountain()`) can be also called with the array (and its
 dimensions) as input and you can try calling it multiple times to see if a
 mountain range can be generated.
 
-  solution: [mountain-generator.c](src/mountain-generator.c)
+  solution: [mountain-generator.c](/src/mountain-generator.c)
 
 
