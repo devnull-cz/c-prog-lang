@@ -6,11 +6,11 @@
 same as
 ```
     if (cond) expr else expr2
-```    
+```
 e.g.
 ```
     max = (i > j) ? i : j;
-```    
+```
 note that if we add a semicolon, an expression becomes a statement, e.g.:
 ```
       (i == j) ? i++ : j++;
@@ -37,5 +37,3 @@ see the code in :eyes: [ternary.c](/src/ternary.c)
   - how would you fix it ?
   - the usual solution is to put this into macro. many libraries/programs
     define their own MAX/MIN macros.
-
-
