@@ -3,10 +3,12 @@
 Negative numbers are usually stored in [two's complement](https://en.wikipedia.org/wiki/Two's_complement)
 (however, that is implementation defined by the standard).
 
-In short, you take an absolute value, create one's complement and add 1.  There
-are several advantages, one is that there is only 1 zero (not negative and
-positive zero if we used the highest bit to track the sign).  That is why a
-`signed char`, for example, can hold -128 to 127, and not just -127 to 127.
+In short, you take an absolute value, create one's complement 
+(inverting the digits in binary representation) and add 1.  There
+are several advantages of this representation, one is that there is only 1 zero 
+(not negative and positive zero if we used the highest bit to track the sign).  
+That is why a `signed char`, for example, can hold -128 to 127, 
+and not just -127 to 127.
 
 For a char:
 ```
@@ -79,9 +81,10 @@ than the language.
     the 2 chars with `printf()`
 
 code: :eyes: [int-promotion.c](/src/int-promotion.c)
-      - note that if the b char was defined as `char b` the result might be 1
+      - note that if the `b` character was defined as `char b` the result might be 1
         because it is up to the compiler to choose whether char will be signed
-	or unsigned.  Usually it is signed though.
+	or unsigned.  Usually it is signed though. There are compiler options to
+	specify this, e.g. GCC has `-funsigned-char` and `-fsigned-char`
 
 ------------------------------------------------------------------------------
 
