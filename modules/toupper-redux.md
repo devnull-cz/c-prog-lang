@@ -1,6 +1,6 @@
 ## toupper
 
-rewrite the [convert small characters to upper case](toupper.md) program from last time using:
+rewrite the [convert small characters to upper case](/modules/toupper.md) program from last time using:
   1. function
   1. function using ternary operator (single line of code)
 
