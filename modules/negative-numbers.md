@@ -99,7 +99,7 @@ code: :eyes: [int-promotion.c](/src/int-promotion.c)
 
 code: :eyes: [x86-ABI.c](/src/x86-ABI.c), [x86-ABI-2.c](/src/x86-ABI-2.c)
 
-  - for those who understand assembly run this with `-S` to see the differences
+  - for those who understand assembly use the `-S` compiler option to see the differences
     between 32-bit and 64-bit mode, and the difference between when func()
     is defined with `int a` or `char a`
 
