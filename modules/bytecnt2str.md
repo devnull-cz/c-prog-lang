@@ -1,7 +1,7 @@
 ## byte count to human readable string
 
  write function to convert `uint64_t` to human readable count
-  (binary - see https://en.wikipedia.org/wiki/Orders\_of\_magnitude\_(data) or
+  (binary - see https://en.wikipedia.org/wiki/Orders_of_magnitude_(data) or
   https://en.wikipedia.org/wiki/Mebibyte, e.g. MiB as mebibyte, etc.) and print
   it to standard output
 
