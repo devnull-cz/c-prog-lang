@@ -9,8 +9,8 @@
     - for unsigned, an overflow always wraps around (modulo power of 2) and is a
       defined behavior.
 
-  code: :eyes: [int-overflow.c](src/int-overflow.c),
-  [unsigned-overflow.c](src/unsigned-overflow.c)
+  code: :eyes: [int-overflow.c](/src/int-overflow.c),
+  [unsigned-overflow.c](/src/unsigned-overflow.c)
 
     - use `-fstrict-overflow -Wstrict-overflow` (will become active only for
       higher optimization levels, i.e. `-O<X>` where `X > 1`) to stay on the
