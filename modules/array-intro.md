@@ -1,6 +1,6 @@
 # Array Intro
 
-You define an array like this `int array[<some-number>]`, for example:
+You define an array like this `<type> array[<some-number>]`, for example:
 
 ```C
 int array[5];
