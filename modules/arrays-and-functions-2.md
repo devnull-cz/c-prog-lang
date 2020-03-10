@@ -26,7 +26,7 @@
     soon
 
   - variable shadowing
-    - :eyes: [shadow.c](src/shadow.c), [shadow-block.c](src/shadow-block.c)
+    - :eyes: [shadow.c](/src/shadow.c), [shadow-block.c](/src/shadow-block.c)
 
   - if the function is declared `static`, it is visible only from the same
     object file
