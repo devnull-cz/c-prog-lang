@@ -2,7 +2,7 @@
 
 - count occurrences of all ASCII letters on standard input and print out
   a histogram
-- this will be case insensitive (i.e. implement mytolower(int) first)
+- this will be case insensitive (i.e. implement `mytolower(int)` first)
 
 - the output will look like this:
 
