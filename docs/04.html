@@ -294,9 +294,8 @@ numeric type of what <code>sizeof</code> returns may differ in different impleme
 <code>%zu</code> will work anywhere.</p>
 <h1>
 <a id="user-content-negative-numbers" class="anchor" href="#negative-numbers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Negative numbers</h1>
-<p>Negative numbers are usually stored in two's complement (however, that is
-implementation defined by the standard).  See
-<a href="https://en.wikipedia.org/wiki/Two's%5C_complement" rel="nofollow">https://en.wikipedia.org/wiki/Two's\_complement</a></p>
+<p>Negative numbers are usually stored in <a href="https://en.wikipedia.org/wiki/Two's_complement" rel="nofollow">two's complement</a>
+(however, that is implementation defined by the standard).</p>
 <p>In short, you take an absolute value, create one's complement and add 1.  There
 are several advantages, one is that there is only 1 zero (not negative and
 positive zero if we used the highest bit to track the sign).  That is why a
