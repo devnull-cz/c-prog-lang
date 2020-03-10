@@ -97,42 +97,40 @@ that is the same type as the operator <code>sizeof</code> uses.  So, remember to
 <p>Note that to include a literal <code>"</code> in a string, you just escape it.</p>
 <h1>
 <a id="user-content-more-on-functionsarrays" class="anchor" href="#more-on-functionsarrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More on functions/arrays</h1>
-<ul>
-<li>variable length array (VLA)
+<h2>
+<a id="user-content-variable-length-array-vla" class="anchor" href="#variable-length-array-vla" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variable length array (VLA)</h2>
 <ul>
 <li>automatically allocated based on a variable value.  Only for local
 variables, not globals. Same warning applies w.r.t. array size and stack
 growth as with fixed width arrays.</li>
 </ul>
-</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">void</span> <span class="pl-en">fn</span>(<span class="pl-k">int</span> n)
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">void</span> <span class="pl-en">fn</span>(<span class="pl-k">int</span> n, <span class="pl-k">int</span> m)
 	{
-	    <span class="pl-k">int</span> a[n];
+	    <span class="pl-k">int</span> a[n + m];
 	    ...
 	}</pre></div>
 <ul>
-<li>history: you may still see in very old code: K&amp;R definition with
-types of arguments on separate line(s):</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/array-variable-length.c">array-variable-length.c</a>
+</li>
 </ul>
+<h2>
+<a id="user-content-kr" class="anchor" href="#kr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>K&amp;R</h2>
+<p>history: you may still see in very old code: K&amp;R definition with
+types of arguments on separate line(s):</p>
 <div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span>
     <span class="pl-en">foo</span>(a, b)
     int a; <span class="pl-k">int</span> b;
     {
 	      <span class="pl-c"><span class="pl-c">/*</span> body <span class="pl-c">*/</span></span>
     }</pre></div>
-<ul>
-<li>
 <p>some compilers have dropped the support for K&amp;R definitions or will drop
 soon</p>
-</li>
-<li>
-<p>variable shadowing</p>
+<h2>
+<a id="user-content-variable-shadowing" class="anchor" href="#variable-shadowing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variable shadowing</h2>
 <ul>
 <li>
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/shadow.c">shadow.c</a>, <a href="/src/shadow-block.c">shadow-block.c</a>
-</li>
-</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/shadow.c">shadow.c</a>, <a href="/src/shadow-block.c">shadow-block.c</a></p>
 </li>
 <li>
 <p>if the function is declared <code>static</code>, it is visible only from the same
@@ -142,9 +140,12 @@ object file</p>
 <li>yes, the word <code>static</code> is overloaded in C</li>
 </ul>
 </li>
-<li>
-<p>functions can have variable number of arguments of different types (more on
-that later)</p>
+</ul>
+<h2>
+<a id="user-content-variable-number-of-arguments" class="anchor" href="#variable-number-of-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variable number of arguments</h2>
+<ul>
+<li>functions can have variable number of arguments of different types (more on
+that later)
 <ul>
 <li>the three dots is called <em>ellipsis</em>
 </li>
@@ -154,8 +155,7 @@ that later)</p>
 <pre><code>    void func(fmt, ...);
 </code></pre>
 <ul>
-<li>
-<p>the first argument describes the rest of arguments in some way</p>
+<li>the first argument usually describes the rest of arguments in some way
 <ul>
 <li>usually it is a format string.  It could possibly be an argument
 count if they were of the same type however in that case they
@@ -163,13 +163,13 @@ would probably be passed as an pointer (we will get to pointers
 in a later class).</li>
 </ul>
 </li>
-<li>
-<p>like array, function is not a first class object (i.e. no "functor" like in
+</ul>
+<h2>
+<a id="user-content-function-is-not-object" class="anchor" href="#function-is-not-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function is not object</h2>
+<p>Like array, function is not a first class object (i.e. no "functor" like in
 functional languages)</p>
 <ul>
 <li>that said, there are pointers to functions (more on these later)</li>
-</ul>
-</li>
 </ul>
 <h1>
 <a id="user-content-warmup" class="anchor" href="#warmup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>warmup</h1>
