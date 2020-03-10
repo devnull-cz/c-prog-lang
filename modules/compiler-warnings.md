@@ -5,6 +5,7 @@
   - there are differences between various compilers
   - will focus on GCC here
   - during the old days the tool producing these warnings was called 'lint'
+    that had to be run separately
 
   - the basic: `-Wall -Wextra`
     - `-Wall` catches things like missing return value from a function that
