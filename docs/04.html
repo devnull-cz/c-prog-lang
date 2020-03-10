@@ -506,15 +506,15 @@ or elegant (or both)</li>
 <h2>
 <a id="user-content-toupper" class="anchor" href="#toupper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>toupper</h2>
 <p>rewrite the "convert small characters to upper case" program from last time using:</p>
+<ol>
+<li>function</li>
+<li>function using ternary operator (single line of code)</li>
+</ol>
+<h3>
+<a id="user-content-implementation-notes" class="anchor" href="#implementation-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>implementation notes</h3>
 <ul>
 <li>
-<p>a) function</p>
-</li>
-<li>
-<p>b) function using ternary operator (single line of code)</p>
-</li>
-<li>
-<p>there is a <code>toupper()</code> library function from C99 so use mytoupper()</p>
+<p>there is a <code>toupper()</code> library function from C99 so use <code>mytoupper()</code></p>
 </li>
 <li>
 <p>variant: do this via lookup table - array</p>
@@ -540,10 +540,10 @@ they will be changed in the array itself (consequence of pointer
 conversion)</p>
 </li>
 <li>
-<p>what if <code>conv_to_upper(-1)</code> ?</p>
+<p>what happens if <code>conv_to_upper(-1)</code> ?</p>
 </li>
 <li>
-<p>short is sufficient to store the value:</p>
+<p><code>short</code> is sufficient to store the value:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>    <span class="pl-k">short</span> uppper[] = { <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>, ... };</pre></div>
