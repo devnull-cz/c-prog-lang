@@ -36,7 +36,7 @@
 
   - functions can have variable number of arguments of different types (more on
     that later)
-    - the three dots are named ellipsis
+    - the three dots is called *ellipsis*
 ```
     void func(fmt, ...);
 ```
