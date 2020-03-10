@@ -265,9 +265,9 @@ other operand is promoted to a <code>long double</code>.</p>
 ints if they do not fit in an int.  That conversion is called <em>integer
 promotion</em>.  This is done to make the runtime fast (on x86 32-bit arithmetics
 can be much faster than when using 16-bit operands).</p>
-<p>sizeof (1) is 4 because 1 is an int.  However, if a number does not fit to an
+<p><code>sizeof (1)</code> is 4 because 1 is an int.  However, if a number does not fit to an
 int, a higher type will be used.  For example, 4294967296 (2^32) will be stored
-in 8 bytes, and "sizeof (4294967296)" is 8.</p>
+in 8 bytes, and <code>sizeof (4294967296)</code> is 8.</p>
 <h2>
 <a id="user-content-examples-assuming-char-c-declaration" class="anchor" href="#examples-assuming-char-c-declaration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples (assuming <code>char c;</code> declaration);</h2>
 <ul>
