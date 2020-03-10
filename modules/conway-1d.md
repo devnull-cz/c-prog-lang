@@ -1,6 +1,6 @@
 ## Conway 1D
 
-write a 1-D implementation of Conway's life 
+write a 1-D implementation of Conway's game of life
   - use rule 30 (http://mathworld.wolfram.com/Rule30.html) to determine the next
   - use two arrays (one 2-D and one 1-D) to represent the rules and its
     resulting values
@@ -13,6 +13,4 @@ write a 1-D implementation of Conway's life
   - each life "tick" will print the line representing the world
   - use functions to refactor the code
   - once having a working solution, try to rewrite it to be more efficient
-    or elegant, send the link to your implementation on Github to the mailing
-    list
-
+    or elegant (or both)
