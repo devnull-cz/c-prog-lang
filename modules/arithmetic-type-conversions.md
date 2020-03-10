@@ -9,9 +9,9 @@ ints if they do not fit in an int.  That conversion is called *integer
 promotion*.  This is done to make the runtime fast (on x86 32-bit arithmetics
 can be much faster than when using 16-bit operands).
 
-sizeof (1) is 4 because 1 is an int.  However, if a number does not fit to an
+`sizeof (1)` is 4 because 1 is an int.  However, if a number does not fit to an
 int, a higher type will be used.  For example, 4294967296 (2^32) will be stored
-in 8 bytes, and "sizeof (4294967296)" is 8.
+in 8 bytes, and `sizeof (4294967296)` is 8.
 
 ## Examples (assuming `char c;` declaration);
 
