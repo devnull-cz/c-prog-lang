@@ -174,7 +174,7 @@ functional languages)</p>
 <h1>
 <a id="user-content-warmup" class="anchor" href="#warmup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>warmup</h1>
 <h2>
-<a id="user-content-toupper" class="anchor" href="#toupper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>toupper</h2>
+<a id="user-content-wrench-toupper" class="anchor" href="#wrench-toupper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> toupper</h2>
 <p>rewrite the <a href="/modules/toupper.md">convert small characters to upper case</a>
 program from last time using a function.</p>
 <h3>
@@ -187,6 +187,7 @@ program from last time using a function.</p>
 </li>
 <li>variant: do this via lookup table - array
 <ul>
+<li>generate array indexed by <code>a</code>..<code>z</code> (with corresponding values <code>A</code>..<code>Z</code>) in <code>main()</code> and use the array in the <code>mytoupper()</code> function</li>
 <li>arrays passed as function argument are in reality converted to pointers
 (to be introduced later)
 <ul>
