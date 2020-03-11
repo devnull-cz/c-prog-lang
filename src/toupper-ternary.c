@@ -3,10 +3,7 @@
 int
 mytoupper(int c)
 {
-    if (c >= 'a' && c <= 'z')
-        return (c - ('a' - 'A'));
-    else
-        return c;
+	return (c >= 'a' && c <= 'z' ? c - ('a' - 'A') : c);
 }
 
 int

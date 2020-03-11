@@ -20,9 +20,17 @@ used for better readability.
 
 code: :eyes: [ternary-assign.c](/src/ternary-assign.c)
 
----
+## :wrench: toupper using ternary operator
 
-:wrench: write an expression that returns maximum of 3 integers i,j,k using
+rewrite the [convert small characters to upper case](/modules/toupper.md)
+program from last time using a function that utilizes the ternary operator
+(single line of code)
+
+solution: [toupper-ternary.c](/src/toupper-ternary.c)
+
+## :wrench: min/max of 3 integer values
+
+write an expression that returns maximum of 3 integers i,j,k using
 ternary operator
 
   - do not use any macros
