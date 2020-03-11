@@ -1,4 +1,4 @@
-## toupper
+## :wrench: toupper
 
 rewrite the [convert small characters to upper case](/modules/toupper.md)
 program from last time using a function.
