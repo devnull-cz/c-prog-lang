@@ -75,8 +75,8 @@
                 </h3>
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
-                <p>Topics: strlen, ternary operator, arithmetic type conversions, negative numbers, integer
-overflows, compiler warning options</p>
+                <p>Topics: strlen, ternary operator, arithmetic type conversions, negative numbers,
+integer overflows, compiler warning options</p>
 <h1>
 <a id="user-content-recap-of-the-last-class" class="anchor" href="#recap-of-the-last-class" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recap of the last class</h1>
 <p>TODO</p>
@@ -173,58 +173,7 @@ functional languages)</p>
 </ul>
 <h1>
 <a id="user-content-warmup" class="anchor" href="#warmup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>warmup</h1>
-<h2>
-<a id="user-content-mountain-scenery-generator" class="anchor" href="#mountain-scenery-generator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mountain scenery generator</h2>
-<p>A very simple moutain generator.  At every iteration you go either straight
-(<code>-</code>), up (<code>/</code>), or down (<code>\</code>).  The program generates something like the
-following:</p>
-<pre><code>$ a.out
-               /                         /--
-            / / \- /--                  /   \                       / /-
-           / \    \   \              /--     \-                   /- \  \
-          /            \            /          \             /-- /       \
-      / /-              \-  /--   /-            \-          /   \         \
-     / \                  \-   \ /                \-  /-- /-
-    /                           \                   \-   \
- /--
--
-</code></pre>
-<p>You will need a two-dimensional array to fill, then print.  Use <code>memset()</code> to
-initialize the array with spaces.  Check the man page for <code>memset()</code>.  For
-random numbers, use <code>rand()</code> and <code>%</code> for modulo.  To initialize the random
-generator, use <code>sranddev()</code> if you have it, or <code>srand(time(NULL))</code>.  Check the
-documentation if unsure (each function is supposed to have its manual page).</p>
-<p>BTW, there is no language construct to initialize all elements of an array with
-a specific non-zero value.  You can only zero it out using an initializer <code>{ 0 }</code>, as we already know.</p>
-<p>The algorithm goes from left to the right, one character at a time. At each
-point it will decide whether the mountain will grow, descend or remain the same
-(hence the random numbers).</p>
-<p>Once you got a working program, restructure the code into small functions (one
-for printing a character based on random number, one for printing the whole 2-D
-array, etc.). Optionally you can try to avoid  global variables by passing the
-array as parameter of function - however keep in mind that arrays cannot be
-passed as value so the array dimensions will have to be passed as function
-parameters as well.</p>
-<h3>
-<a id="user-content-variant-nicer-mountain" class="anchor" href="#variant-nicer-mountain" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variant: nicer mountain</h3>
-<p>You can make it more complicated and make the ascii art smoother.  For example,
-you can define that after <code>/</code> you cannot go down with <code>\</code> but you could do <code>/\</code>,
-etc.  You would need to keep a state of the previous character.  You could
-generate something like this (use your imagination):</p>
-<pre><code>            .
-           / \
-          /   \__
-      /\_/       \__/|
-     /               |
-    /                |__/............................
-  _/
-</code></pre>
-<h3>
-<a id="user-content-variant-mountain-range" class="anchor" href="#variant-mountain-range" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variant: mountain range</h3>
-<p>The top-level function (<code>mountain()</code>) can be also called with the array (and its
-dimensions) as input and you can try calling it multiple times to see if a
-mountain range can be generated.</p>
-<p>solution: <a href="/src/mountain-generator.c">mountain-generator.c</a></p>
+<p>TODO</p>
 <h1>
 <a id="user-content-ternary-operator" class="anchor" href="#ternary-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ternary operator</h1>
 <pre><code>    cond ? expr1 : expr 2
