@@ -181,6 +181,7 @@ functional languages)</p>
 <a id="user-content-wrench-toupper" class="anchor" href="#wrench-toupper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> toupper</h2>
 <p>rewrite the <a href="/modules/toupper.md">convert small characters to upper case</a>
 program from last time using a function.</p>
+<p>solution: <a href="/src/toupper.c">toupper.c</a></p>
 <h3>
 <a id="user-content-implementation-notes" class="anchor" href="#implementation-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>implementation notes</h3>
 <ul>
@@ -189,15 +190,15 @@ program from last time using a function.</p>
 <li>what happens if the program defines <code>int toupper(int)</code> ? (the symbol in <code>libc</code> is <em>weak</em> so it works)</li>
 </ul>
 </li>
-<li>variant: do this via lookup table - array
+</ul>
+<h3>
+<a id="user-content-variant-do-this-via-lookup-table---array" class="anchor" href="#variant-do-this-via-lookup-table---array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variant: do this via lookup table - array</h3>
 <ul>
 <li>generate array indexed by <code>a</code>..<code>z</code> (with corresponding values <code>A</code>..<code>Z</code>) in <code>main()</code> and use the array in the <code>mytoupper()</code> function</li>
 <li>arrays passed as function argument are in reality converted to pointers
 (to be introduced later)
 <ul>
 <li>so it is useless to write their size like this:</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -220,7 +221,7 @@ conversion)</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>    <span class="pl-k">short</span> uppper[] = { <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>, ... };</pre></div>
-<p>solution: <a href="/src/toupper.c">toupper.c</a></p>
+<p>solution: <a href="/src/toupper-table.c">toupper-table.c</a></p>
 <h1>
 <a id="user-content-ternary-operator" class="anchor" href="#ternary-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ternary operator</h1>
 <pre><code>    cond ? expr1 : expr 2
