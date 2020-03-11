@@ -180,11 +180,12 @@ program from last time using a function.</p>
 <h3>
 <a id="user-content-implementation-notes" class="anchor" href="#implementation-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>implementation notes</h3>
 <ul>
-<li>
-<p>there is a <code>toupper()</code> library function from C99 so use <code>mytoupper()</code></p>
+<li>there is a <code>toupper()</code> library function from C99 so use <code>mytoupper()</code>
+<ul>
+<li>what happens if the program defines <code>int toupper(int)</code> ? (the symbol in <code>libc</code> is <em>weak</em> so it works)</li>
+</ul>
 </li>
-<li>
-<p>variant: do this via lookup table - array</p>
+<li>variant: do this via lookup table - array
 <ul>
 <li>arrays passed as function argument are in reality converted to pointers
 (to be introduced later)
