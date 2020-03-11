@@ -12,7 +12,7 @@ program from last time using a function.
        (to be introduced later)
        - so it is useless to write their size like this:
 ```C
-         void func(int array[3]);
+         void func(int array[3]); // see what is the value of sizeof(array) inside the func()
 ```
 - this is better:
 ```C
