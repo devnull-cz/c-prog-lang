@@ -1,3 +1,6 @@
+/*
+ * Print the first element from each line.
+ */
 #include <stdio.h>
 
 void
@@ -17,7 +20,5 @@ main(void)
 {
 	int a[4][2] = { {5, 6} , {7, 8}, {9, 10} };
 
-	func(a, 4);
-
-	return (0);
+	func(a, sizeof (a) / sizeof (a[0]));
 }
