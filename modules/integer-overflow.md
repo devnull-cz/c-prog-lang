@@ -15,5 +15,3 @@
     - use `-fstrict-overflow -Wstrict-overflow` (will become active only for
       higher optimization levels, i.e. `-O<X>` where `X > 1`) to stay on the
       safe side
-
-

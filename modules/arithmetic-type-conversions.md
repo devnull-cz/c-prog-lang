@@ -17,6 +17,8 @@ even some unary operators.
 `int`, a higher type will be used.  For example, 4294967296 (2^32) will be stored
 in 8 bytes, and `sizeof (4294967296)` is 8.
 
+Does it sound confusing?  Do not worry, we will give you specific rules later.
+
 :wrench: verify that numbers that do not fit in an `int` will have a size of 8
 bytes.
 
