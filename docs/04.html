@@ -286,13 +286,18 @@ define their own MAX/MIN macros.</li>
 <p>In (very) general, if <em>binary</em> operators have operands of different types, the
 "lower" is promoted to "upper".  Eg. if one operand is a <code>long double</code>, the
 other operand is promoted to a <code>long double</code>.</p>
-<p>What is more, char and short int operands are converted to ints, and to unsigned
-ints if they do not fit in an int.  That conversion is called <em>integer
-promotion</em>.  This is done to make the runtime fast (on x86 32-bit arithmetics
-can be much faster than when using 16-bit operands).</p>
-<p><code>sizeof (1)</code> is 4 because 1 is an int.  However, if a number does not fit to an
-int, a higher type will be used.  For example, 4294967296 (2^32) will be stored
+<p>What is more, in most operations (for every operator, the spec says what is
+done in this respect), <code>char</code> and <code>short</code> int operands are converted to <code>int</code>s,
+and to <code>unsigned int</code>s if they do not fit in an <code>int</code>.  That conversion is
+called <em>integer promotion</em>.  This is done to make the language runtime fast (on
+x86 32-bit arithmetics can be much faster than when using 16-bit operands).</p>
+<p><em>Most operations</em> means all binary operators.  A ternary operator as well.  And
+even some unary operators.</p>
+<p><code>sizeof (1)</code> is 4 because 1 is an <code>int</code>.  However, if a number does not fit to an
+<code>int</code>, a higher type will be used.  For example, 4294967296 (2^32) will be stored
 in 8 bytes, and <code>sizeof (4294967296)</code> is 8.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> verify that numbers that do not fit in an <code>int</code> will have a size of 8
+bytes.</p>
 <h2>
 <a id="user-content-examples-assuming-char-c-declaration" class="anchor" href="#examples-assuming-char-c-declaration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples (assuming <code>char c;</code> declaration);</h2>
 <ul>
@@ -305,15 +310,28 @@ in 8 bytes, and <code>sizeof (4294967296)</code> is 8.</p>
 kicks in</li>
 <li>
 <code>sizeof (++c)</code> is still 1 as <code>++</code> is an unary operator for which the integer
-promotion rules do not apply.  However, they do apply for unary <code>+</code> and <code>-</code>.</li>
+promotion rules do not apply.</li>
+<li>
+<code>sizeof (+c) is **4** as for unary </code>+<code>and</code>-`, the integer promotion is
+applied.
+<ul>
+<li>You just need to know or check the spec if you do not remember.  Most
+of the time it does not matter but do not fool yourself, if you do not
+know details like that in C, it will bite you sooner or later.</li>
+<li>remember <a href="https://users.ece.cmu.edu/~koopman/pubs/koopman14_toyota_ua_slides.pdf" rel="nofollow">A Case Study of Toyota Unintended Acceleration and Software
+Safety</a>
+from the <a href="/modules/intro.md">first class</a>
+</li>
+</ul>
+</li>
 <li>
 <code>sizeof (1LL)</code> will usually be 8 as <code>long long</code> is usually 8 bytes.</li>
 </ul>
-<p>It gets more interesting if unsigned and signed are involved.
-Eg. a <code>signed int</code> is promoted to an <code>unsigned int</code> if one of the operands is
+<p>It gets more interesting if unsigned and signed numbers are involved.  Eg. a
+<code>signed int</code> is promoted to an <code>unsigned int</code> if one of the operands is
 unsigned.</p>
-<p>The above is called "implicit type conversion". There is also "explicit type
-conversion" (called "casting") which we will deal with later.</p>
+<p>The above is called <em>implicit type conversion</em>.  There is also <em>explicit type
+conversion</em> (called <em>casting</em>) which we will deal with later.</p>
 <p>I suggest you try these out with <code>printf("%zu", ...)</code>.  <code>%zu</code> (see "man 3
 printf") matches the return type of the <code>sizeof</code> operand.  The exact unsigned
 numeric type of what <code>sizeof</code> returns may differ in different implementations so
