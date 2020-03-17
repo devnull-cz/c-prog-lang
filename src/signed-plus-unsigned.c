@@ -15,6 +15,9 @@ main(void)
 	 */
 	printf("%u\n", -1 + 1U);
 
-	/* Will print 2^32-1 (4294967295) - the wrap-around is more obvious */
+	/*
+	 * Will print 2^32-1 (4294967295) - now it is more obvious as it does
+	 * not wrap around.
+	 */
 	printf("%u\n", -2 + 1U);
 }
