@@ -590,13 +590,13 @@ the lookup based on the actual magnitude</p>
 <p>solution: <a href="src/bytecnt2str.c">bytecnt2str.c</a></p>
 <h2>
 <a id="user-content-offset-checker" class="anchor" href="#offset-checker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Offset checker</h2>
-<p>write a function that will have this prototype:</p>
+<p>write a function that has the following prototype:</p>
 <div class="highlight highlight-source-c"><pre>  <span class="pl-k">bool</span> <span class="pl-en">check</span>(<span class="pl-k">long</span> off, <span class="pl-c1">size_t</span> size, <span class="pl-c1">size_t</span> limit);</pre></div>
 <ul>
-<li>the <code>bool</code> type exists since C99, use the <code>stdbool.h</code> include</li>
-<li>that will check if the arguments are valid for accessing part of file (no
-operations will be done, just the check) of size 'size' starting from offset
-'off'. The length of the file is given by the 'limit' argument.</li>
+<li>checks if the arguments are valid for accessing part of a file (no
+operations will be done, just the check) of size 'size' starting from an
+offset 'off'. The length of the file is given by the 'limit' argument.</li>
+<li>an offset may be negative</li>
 </ul>
 <pre><code>    |           |         |              |
     0          off     off+size        limit
@@ -608,12 +608,12 @@ and return <code>false</code> on failure, <code>true</code> on success.</li>
 <p>solution: <a href="/src/range-check.c">range-check.c</a></p>
 <ul>
 <li>
-<p>on Unix systems one would use <code>ssize_t</code> for the offset which is signed
+<p>on Unix systems one would use <code>ssize_t</code> for the offset which is a signed
 integer type of the same size as <code>size_t</code> (this is not part of C99 but
 POSIX)</p>
 </li>
 <li>
-<p>also, implement set of test values in <code>main()</code> using array</p>
+<p>also, implement a set of test values in <code>main()</code> using an array</p>
 </li>
 </ul>
 
