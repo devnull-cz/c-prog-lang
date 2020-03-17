@@ -93,17 +93,3 @@ Will the program print the whole array ?
     program.
 
   code: :wrench: [whole-array.c](/src/whole-array.c)
-
-## Function arguments vs integer promotion
-
-- when passing `char` to a function parameter declared as `int`, in 32-bit mode
-  (`-m32`) it will be pushed as 32-bit value on the stack. This is not integer
-  promotion but x86 ABI (Application Binary Interface)
-
-code: :eyes: [x86-ABI.c](/src/x86-ABI.c), [x86-ABI-2.c](/src/x86-ABI-2.c)
-
-  - for those who understand assembly use the `-S` compiler option to see the differences
-    between 32-bit and 64-bit mode, and the difference between when func()
-    is defined with `int a` or `char a`
-
-
