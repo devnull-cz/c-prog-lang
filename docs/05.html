@@ -101,6 +101,34 @@ $ echo $?
 hello, world
 </code></pre>
 <h1>
+<a id="user-content-common-mistakes-i" class="anchor" href="#common-mistakes-i" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Common mistakes I.</h1>
+<p>I noticed several times already that you may end up doing the following:</p>
+<pre><code>#define MYDEF = 3
+</code></pre>
+<p>And you hit a syntax error when <code>MYDEF</code> is used later in the code.</p>
+<p>What happens?  A preprocessor replaces occurences of <code>MYDEF</code> with whatever is
+after <code>MYDEF</code>, and separated from it with a sequence of white spaces (tabs,
+spaces, newlines if escaped).</p>
+<p>In the case above, <code>MYDEF</code> will be literary replaced with "= 3".</p>
+<p>Check with <code>gcc -E</code> (or <code>cpp</code>) which stops after the preprocessor phase (ie. it
+does NOT compile anything).  The following is in <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji>
+<a href="/src/common-mistake-with-define.c">common-mistake-with-define.c</a></p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span> <span class="pl-en">MYDEF</span> = <span class="pl-c1">3</span>
+
+<span class="pl-k">if</span> (i &lt; MYDEF) {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}</pre></div>
+<p>The code above will end up in a syntax error as <code>i &lt; = 3</code> is not a correct
+expression in C (because of the space between <code>&lt;</code> and <code>=</code>).</p>
+<pre><code>$ gcc -E common-mistake-with-define.c 
+...
+...
+
+if (i &lt; = 3) {
+
+}
+</code></pre>
+<h1>
 <a id="user-content-multidimensional-arrays" class="anchor" href="#multidimensional-arrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multidimensional arrays</h1>
 <ul>
 <li>multi-dimensional arrays: it is an array of arrays</li>
