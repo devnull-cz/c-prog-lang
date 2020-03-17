@@ -9,11 +9,12 @@ main(void)
 	/* Will print 1 */
 	printf("%d\n", -1 > 1U);
 
-	/* Will print 0 as expected but that's because of overflow. */
+	/*
+	 * Will print 0 as expected but that's because of the fact that an
+	 * unsigned integer wraps around by definition.
+	 */
 	printf("%u\n", -1 + 1U);
 
-	/* Will print 2^32-1 (4294967295) - the overflow is more obvious */
+	/* Will print 2^32-1 (4294967295) - the wrap-around is more obvious */
 	printf("%u\n", -2 + 1U);
-
-	return (0);
 }
