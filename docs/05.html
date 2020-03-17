@@ -75,7 +75,31 @@
                 </h3>
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
-                <p>TODO: introduce 2D arrays</p>
+                <h1>
+<a id="user-content-topics" class="anchor" href="#topics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Topics</h1>
+<p>Multi-dimensional arrays.</p>
+<h1>
+<a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
+<p>Implement functionality provided by the following command with the specific
+options.  Just hardcode the parameter in the code, e.g.</p>
+<pre><code>#define CHAR_DO_DEL     'x'
+</code></pre>
+<p>See the tr(1) manual page if unsure.</p>
+<h2>
+<a id="user-content-variant-1-delete-a-single-char-tr--d-char" class="anchor" href="#variant-1-delete-a-single-char-tr--d-char" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variant 1: delete a single char (<code>tr -d '&lt;char&gt;'</code>)</h2>
+<p>Example:</p>
+<pre><code>$ cat /etc/passwd | tr -d r &gt; output
+$ cat /etc/passwd | ./a.out &gt; output2
+$ diff output output2
+$ echo $?
+0
+</code></pre>
+<h2>
+<a id="user-content-variant-2-squeeze-a-single-char-tr--s-char" class="anchor" href="#variant-2-squeeze-a-single-char-tr--s-char" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variant 2: squeeze a single char (<code>tr -s "&lt;char&gt;"</code>)</h2>
+<p>Squeeze multiple occurrences of the character into one.</p>
+<pre><code>$ echo "hellooooooo, wooooooorld" | tr -s o
+hello, world
+</code></pre>
 <h1>
 <a id="user-content-multidimensional-arrays" class="anchor" href="#multidimensional-arrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multidimensional arrays</h1>
 <ul>
