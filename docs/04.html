@@ -422,20 +422,14 @@ specify this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char<
 program.</li>
 </ul>
 <p>code: <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <a href="/src/whole-array.c">whole-array.c</a></p>
-<h2>
-<a id="user-content-function-arguments-vs-integer-promotion" class="anchor" href="#function-arguments-vs-integer-promotion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function arguments vs integer promotion</h2>
-<ul>
-<li>when passing <code>char</code> to a function parameter declared as <code>int</code>, in 32-bit mode
-(<code>-m32</code>) it will be pushed as 32-bit value on the stack. This is not integer
-promotion but x86 ABI (Application Binary Interface)</li>
-</ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/x86-ABI.c">x86-ABI.c</a>, <a href="/src/x86-ABI-2.c">x86-ABI-2.c</a></p>
-<ul>
-<li>for those who understand assembly use the <code>-S</code> compiler option to see the differences
-between 32-bit and 64-bit mode, and the difference between when func()
-is defined with <code>int a</code> or <code>char a</code>
-</li>
-</ul>
+<h1>
+<a id="user-content-function-arguments" class="anchor" href="#function-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function arguments</h1>
+<p>Say, what happens if you put a <code>char</code> as an argument of a function that accepts
+an <code>int</code>?  As you might expect, the byte is just assigned to an <code>int</code>.</p>
+<p>In general, the expressions passes as arguments are first evaluated, then the
+value of the resulted type is converted to the parameter type as in assignment.</p>
+<p>More on that later.  For more information, see 6.9.1 in
+<a href="/modules/c99-standard.md">C99</a></p>
 <h1>
 <a id="user-content-compiler-warnings" class="anchor" href="#compiler-warnings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compiler warnings</h1>
 <ul>
