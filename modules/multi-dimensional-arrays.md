@@ -87,3 +87,15 @@ array of maximum values in each sub-array, then prints out the new array to the
 standard output.  For the maximum value in a sub-array, write a function.
 
 :eyes: [2d-array-max.c](/src/2d-array-max.c)
+
+## VLA, multi-dimensional arrays, and function arguments
+
+You can use variable-length arrays in function arguments themselves, like this:
+
+```
+int
+myfn(int width, int a[][width])
+{
+	...
+}
+```

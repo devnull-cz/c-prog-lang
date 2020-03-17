@@ -1,11 +1,12 @@
 # Mountain scenery generator
 
-A very simple moutain generator.  At every iteration you go either straight
-(`-`), up (`/`), or down (`\`).  The program generates something like the
-following:
+:wrench: Write a simple moutain generator.  At every iteration you go either
+straight (`-`), up (`/`), or down (`\`).  The program generates something like
+the following:
 
 ```
 $ a.out
+
                /                         /--
             / / \- /--                  /   \                       / /-
            / \    \   \              /--     \-                   /- \  \
@@ -21,7 +22,7 @@ $ a.out
 can do really cool stuff with quite little code.
 
 You will need a two-dimensional array to fill, then print.  Use `memset()` to
-initialize the array with spaces.  Check the man page for `memset()`.  For the
+initialize the array with spaces.  Check the man page for `memset`.  For the
 first argument of `memset`, pass an array name.  Its dimension does not matter
 in this case as long as you use its correct size in bytes.
 
@@ -30,19 +31,19 @@ generator, use `sranddev()` if you have it, or `srand(time(NULL))`.  Check the
 documentation if unsure (each function is supposed to have its manual page).
 
 There is no language construct to initialize all elements of an array with a
-specific non-zero value.  You can only zero it out using an initializer `{ 0 }`,
-as we already know.
+specific non-zero value, that is why we need `memset`.  You can only zero it out
+using an initializer `{ 0 }`, as we already know.
 
-The algorithm goes from left to the right, one character at a time. At each
-point it will decide whether the mountain will grow, descend or remain the same
-(hence the random numbers).
+The algorithm goes from left to right, one character at a time. At each point it
+decides whether the mountain will grow, descend or remain the same (hence the
+random numbers).
 
-Once you got a working program, restructure the code into small functions (one
-for printing a character based on random number, one for printing the whole 2-D
-array, etc.).  Optionally you can try to avoid  global variables by passing the
-array as parameter of function - however keep in mind that arrays cannot be
-passed as value so the array dimensions will have to be passed as function
-parameters as well.
+Once you got a working program, refactor the code into small functions (one for
+printing a character based on random number, one for printing the whole 2-D
+array, etc.).  Optionally you can try to avoid global variables by passing the
+array as parameter of a function.  In that case, you might try to use a VLA in
+function arguments to see it works.  See [multi-dimensional
+arrays](/modules/multi-dimensional-arrays.md) for more information.
 
 :eyes: [mountain-generator.c](/src/mountain-generator.c)
 
