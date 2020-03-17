@@ -5,8 +5,8 @@ mytoupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - ('a' - 'A'));
-	else
-		return c;
+	/* No need for else here, it is implicit here. */
+	return c;
 }
 
 int
@@ -16,6 +16,4 @@ main(void)
 
 	while ((c = getchar()) != EOF)
 		printf("%c", mytoupper(c));
-
-	return (0);
 }

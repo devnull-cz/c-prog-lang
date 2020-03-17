@@ -1,5 +1,5 @@
 /*
-   compile with -Wshadow (GCC)
+ * compile with -Wshadow (GCC)
  */
 
 #include <stdio.h>
@@ -9,7 +9,7 @@ int c = 3;
 int
 foo(void)
 {
-	static int c = 4;
+	int c = 4;
 
 	return ++c;
 }
