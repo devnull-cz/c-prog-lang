@@ -5,8 +5,7 @@ mytoupper(int c, short table[])
 {
 	if (c >= 'a' && c <= 'z')
 		return table[c - 'a'];
-	else
-		return c;
+	return (c);
 }
 
 int
@@ -26,6 +25,4 @@ main(void)
 
 	while ((c = getchar()) != EOF)
 		printf("%c", mytoupper(c, table));
-
-	return (0);
 }
