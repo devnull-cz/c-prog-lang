@@ -5,7 +5,7 @@ mytoupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - ('a' - 'A'));
-	/* No need for else here, it is implicit here. */
+	/* No need for else here, it is implicit. */
 	return c;
 }
 
