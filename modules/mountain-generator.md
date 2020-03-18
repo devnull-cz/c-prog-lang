@@ -1,4 +1,4 @@
-# Mountain scenery generator
+## Mountain scenery generator
 
 :wrench: Write a simple moutain generator.  At every iteration you go either
 straight (`-`), up (`/`), or down (`\`).  The program generates something like
@@ -47,7 +47,7 @@ arrays](/modules/multi-dimensional-arrays.md) for more information.
 
 :eyes: [mountain-generator.c](/src/mountain-generator.c)
 
-## Variant: nicer mountain
+### Variant: nicer mountain
 
 You can make it more complicated and make the ascii art smoother.  For example,
 you can define that after `/` you cannot go down with `\` but you could do `/\`,
@@ -64,16 +64,16 @@ generate something like this (use your imagination):
   _/
 ```
 
-## Variant: mountain range
+### Variant: mountain range
 
 The top-level function (`mountain()`) can be also called with the array (and its
 dimensions) as input and you can try calling it multiple times to see if a
 mountain range can be generated.
 
-## Variant: add snow caps
+### Variant: add snow caps
 
 Usually, there is snow on the peaks.
 
-## Variant: ???
+### Variant: ???
 
 Come up with something else.
