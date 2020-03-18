@@ -336,7 +336,7 @@ specification.  For example:</p>
 <span class="pl-k">sizeof</span> (-c)	<span class="pl-c"><span class="pl-c">//</span> is	4</span>
 <span class="pl-k">sizeof</span> (c + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> is	4</span>
 <span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
-<p>Note that we already know that 'c' is <strong>never</strong> modified as the expression in
+<p>Note that we already know that <code>c</code> is <strong>never</strong> modified as the expression in
 <code>sizeof</code> is never evaluated.  See the <a href="/modules/sizeof.md">sizeof module</a> for to
 review the knowledge.</p>
 <h3>
@@ -366,7 +366,7 @@ argument (= <code>char</code>) is just put to a 32-bit register.</p>
 <ol>
 <li>
 <p>assigning an integer to another integer while the source value fits into
-the target -&gt; the result is specified by the standard.  It's the same value.</p>
+the target -&gt; the result is specified by the standard.  It is the same value.</p>
 </li>
 <li>
 <p>assigning any integer to an unsigned integer -&gt; result specified by the
@@ -490,15 +490,19 @@ actually assumes the following:</p>
 <div class="highlight highlight-source-c"><pre>((c + i) + u) + ll)</pre></div>
 <p>What happens:</p>
 <ol>
-<li>c is converted to int based on Integer Promotion</li>
-<li>so the result type of (c + i) is int</li>
-<li>that result is converted to unsigned int because of 'u' based on
-Integer Conversion we just introduced above.</li>
-<li>result type of (c + i + u) is then an unsigned int</li>
-<li>the result from 4) is then converted to long long because of 'll'</li>
-<li>long long is the type of the result of the whole expression</li>
+<li>
+<code>c</code> is converted to an <code>int</code> based on Integer Promotion</li>
+<li>so the result type of <code>(c + i)</code> is an <code>int</code>
+</li>
+<li>that result is converted to an <code>unsigned int</code> because of <code>u</code> based on Integer
+Conversion we just introduced above.</li>
+<li>the result type of <code>(c + i + u)</code> is then an <code>unsigned int</code>
+</li>
+<li>the result from 4) is then converted to a <code>long long</code> because of <code>ll</code>
+</li>
+<li>a <code>long long</code> is the result type of the whole expression</li>
 </ol>
-<p>Note that at every step, Integer Conversion rules are applied.</p>
+<p>Note that at every step, Integer Conversion rules were applied.</p>
 <p>Specifically, an unsigned integer type is "bigger" than the corresponding signed
 type.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
