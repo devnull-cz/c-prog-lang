@@ -386,12 +386,11 @@ See also <a href="/modules/behavior-types.md">behavior types</a>.</p>
 <a id="user-content-integer-to-an-unsigned-integer" class="anchor" href="#integer-to-an-unsigned-integer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer to an unsigned integer</h3>
 <blockquote>
 <p>6.3.1.3 Signed and unsigned integers
-...</p>
+...
+...if the new type is unsigned, the value is converted by repeatedly
+adding or subtracting one more than the maximum value that can be represented in
+the new type until the value is in the range of the new type.</p>
 </blockquote>
-<p>"...if the new type is unsigned, the value is converted by repeatedly
-adding or subtracting one more than the maximum value that can be
-represented in the new type until the value is in the range of the new
-type."</p>
 <p>Use bc(1) to work with big numbers:</p>
 <pre><code>$ bc
 2^32
