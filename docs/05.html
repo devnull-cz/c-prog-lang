@@ -442,10 +442,8 @@ it is converted to a <code>char</code> <strong>inside</strong> <code>printf</cod
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> This will print 1 if compiled with gcc. <span class="pl-c">*/</span></span>
 <span class="pl-k">int</span> i = <span class="pl-c1">257</span>;
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%hhd</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
-<p>The compiler will still warn you though to let you know that your int might be
-truncated (note that printf is a variadic function, so the argument will be
-converted to an <code>int</code> anyway, but the compiler warns you about the possible
-truncation):</p>
+<p>The compiler will probably warn you to let you know that your <code>int</code> might be
+truncated.</p>
 <pre><code>xxx.c:10:19: warning: format specifies type 'char' but the argument has
 	     type 'int' [-Wformat]
 printf("%hhd\n", i);
@@ -461,18 +459,15 @@ The below mentioned "implementation-defined signal" might be to print an error
 and exit, for example.</p>
 <pre><code>6.3.1.3 Signed and unsigned integers
 
-1 When a value with integer type is converted to another
-  integer type other than _Bool, if the value can be
-  represented by the new type, it is unchanged.
+1 When a value with integer type is converted to another integer type other than
+ \_Bool, if the value can be represented by the new type, it is unchanged.
 
-2 Otherwise, if the new type is unsigned, the value is
-  converted by repeatedly adding or subtracting one more than
-  the maximum value that can be represented in the new type
-  until the value is in the range of the new type. 49)
+2 Otherwise, if the new type is unsigned, the value is converted by repeatedly
+  adding or subtracting one more than the maximum value that can be represented in
+  the new type until the value is in the range of the new type.
 
-3 Otherwise, the new type is signed and the value cannot be
-  represented in it; either the result is
-  implementation-defined or an implementation-defined signal
+3 Otherwise, the new type is signed and the value cannot be represented in it;
+  either the result is implementation-defined or an implementation-defined signal
   is raised.
 </code></pre>
 <p>Example: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/integer-conversion.c">integer-conversion.c</a></p>
