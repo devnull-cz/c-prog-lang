@@ -519,40 +519,41 @@ right way to do it:</li>
 </ul>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (<span class="pl-c1">13</span>));
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (<span class="pl-c1">13</span>));
+<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
 <ul>
 <li>the expression within the <code>sizeof</code> operator is <strong>never</strong> executed (the
-compiler should warn you about such code).</li>
+compiler should warn you about such code).  Only the size in bytes needed to
+store the value if evaluated is returned.</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> i = <span class="pl-c1">1</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (i = i + <span class="pl-c1">1</span>));
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; 1</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">1</span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (i = i + <span class="pl-c1">1</span>));
+<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; 1</span></pre></div>
 <ul>
 <li>
 <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> try <code>sizeof</code> on various values and types in printf(), compile with
 <code>-m 32</code> and <code>-m 64</code> and see the difference</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">sizeof</span> (<span class="pl-c1">1</span>);
-	<span class="pl-k">sizeof</span> (<span class="pl-k">char</span>);
-	<span class="pl-k">sizeof</span> (<span class="pl-k">long</span>);
-	<span class="pl-k">sizeof</span> (<span class="pl-k">long</span> <span class="pl-k">long</span>);
-	<span class="pl-k">sizeof</span> (<span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>);
-	<span class="pl-k">sizeof</span> (<span class="pl-c1">1LL</span>);
-	<span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">sizeof</span> (<span class="pl-c1">1</span>);
+<span class="pl-k">sizeof</span> (<span class="pl-k">char</span>);
+<span class="pl-k">sizeof</span> (<span class="pl-k">long</span>);
+<span class="pl-k">sizeof</span> (<span class="pl-k">long</span> <span class="pl-k">long</span>);
+<span class="pl-k">sizeof</span> (<span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>);
+<span class="pl-k">sizeof</span> (<span class="pl-c1">1LL</span>);
+<span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
 <ul>
 <li>we will get there later in semester but if you are bored, try to figure out
 why the following is gonna print <code>1 4 4</code>:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> c;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (c));
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; 1</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (c + <span class="pl-c1">1</span>));
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (+c));
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> c;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (c));
+<span class="pl-c"><span class="pl-c">//</span> --&gt; 1</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (c + <span class="pl-c1">1</span>));
+<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (+c));
+<span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
 <h1>
 <a id="user-content-integer-literals" class="anchor" href="#integer-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer Literals</h1>
 <ul>

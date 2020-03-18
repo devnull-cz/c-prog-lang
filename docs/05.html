@@ -77,7 +77,7 @@
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
 <a id="user-content-topics" class="anchor" href="#topics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Topics</h1>
-<p>Multi-dimensional arrays.</p>
+<p>Warm-up, multi-dimensional arrays, common mistakes.</p>
 <h1>
 <a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
 <p>Implement functionality provided by the following command with the specific
@@ -286,6 +286,320 @@ mountain range can be generated.</p>
 <h2>
 <a id="user-content-variant-" class="anchor" href="#variant-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variant: ???</h2>
 <p>Come up with something else.</p>
+<h1>
+<a id="user-content-arithmetic-promotion-and-conversions" class="anchor" href="#arithmetic-promotion-and-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arithmetic promotion and conversions</h1>
+<p>NOTE: the following is a simplified version of what is in the standard.  You
+need to consult the specification if unsure.  See <a href="/modules/c99-standard.md">the
+standard</a> for the PDF.</p>
+<p>We already mentiond some of this in an <a href="/modules/modules/arithmetic-type-conversions.md">Arithmetic type
+conversions</a> section but now we
+will be more specific.</p>
+<h2>
+<a id="user-content-integer-promotion-vs-integer-conversion-vs-arithmetic-conversions" class="anchor" href="#integer-promotion-vs-integer-conversion-vs-arithmetic-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer promotion vs integer conversion vs arithmetic conversions</h2>
+<p>First, let's define three different actions, then we will go through those one
+by one.</p>
+<p><em>Integer promotion</em>: <code>char</code> -&gt; <code>int</code>; <code>short</code> -&gt; <code>int</code>; or both to <code>unsigned int</code>
+if the value does not fit a <code>signed int</code> (may happen if a <code>short int</code> is of the
+same size as an <code>int</code>, and <code>unsigned short</code> is used).</p>
+<p><em>Integer conversion</em>: converting integers (eg. assigning a <code>signed long</code> to an
+<code>unsigned char</code>, or assigning an <code>unsigned int</code> to a <code>signed char</code>)</p>
+<p><em>Arithmetic conversion</em>: many operators cause conversions.  The effect is to bring
+the operands into a common type <strong>before</strong> the operator is applied.  For
+example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
+<span class="pl-k">unsigned</span> <span class="pl-k">long</span> <span class="pl-k">long</span> ll;
+
+i + ll;		<span class="pl-c"><span class="pl-c">//</span> type of the result is unsigned long long and 'i'</span>
+		<span class="pl-c"><span class="pl-c">//</span> is converted to unsigned long long BEFORE '+' is</span>
+		<span class="pl-c"><span class="pl-c">//</span> applied.  See below what happens if 'i' contains a</span>
+		<span class="pl-c"><span class="pl-c">//</span> negative number.</span></pre></div>
+<h2>
+<a id="user-content-integer-promotion" class="anchor" href="#integer-promotion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer Promotion</h2>
+<p>Integer promotion (we promote <code>char</code>s and <code>short</code>s <strong>only</strong> here) usually
+happens with binary and ternary operators before arithmetic conversion happens.
+It sometimes happens with unary operators as well.  You need to consult the
+specification.  For example:</p>
+<pre><code>++ and --	*NO* integer promotion
+! (negation)	*NO* integer promotion
++ and -		integer promotion happens
+</code></pre>
+<p>That means for <code>char c</code>:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">sizeof</span> (c)	<span class="pl-c"><span class="pl-c">//</span> is	1</span>
+<span class="pl-k">sizeof</span> (++c)	<span class="pl-c"><span class="pl-c">//</span> is	1</span>
+<span class="pl-k">sizeof</span> (--c)	<span class="pl-c"><span class="pl-c">//</span> is	1</span>
+<span class="pl-k">sizeof</span> (!c)	<span class="pl-c"><span class="pl-c">//</span> is	1</span>
+<span class="pl-k">sizeof</span> (+c)	<span class="pl-c"><span class="pl-c">//</span> is	4</span>
+<span class="pl-k">sizeof</span> (-c)	<span class="pl-c"><span class="pl-c">//</span> is	4</span>
+<span class="pl-k">sizeof</span> (c + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> is	4</span>
+<span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
+<p>Note that we already know that 'c' is <strong>never</strong> modified as the expression in
+<code>sizeof</code> is never evaluated.  See the <a href="/modules/sizeof.md">sizeof module</a> for to
+review the knowledge.</p>
+<h3>
+<a id="user-content-printing-sizeof-value" class="anchor" href="#printing-sizeof-value" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Printing <code>sizeof</code> value</h3>
+<p>Remember, to <code>printf</code> a value of <code>sizeof</code>, use it like the following (the
+<code>sizeof</code> result is always unsigned, and the <code>z</code> modifier makes sure its size
+(usually 4 or 8 bytes) matches the implementation, ie. whatever <code>size_t</code> is):</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (c));</pre></div>
+<p>Consult the <code>printf</code> man page if unsure about printf conversions and modifiers.</p>
+<p>Integer promotion also happens in arguments of variadic functions (eg.
+<code>printf</code>).  That is why the following works as expected:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> c = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-pds">"</span></span>, c);</pre></div>
+<p>printf(3) man page says:</p>
+<pre><code>        c	The int argument is converted to an unsigned char, and the
+		resulting character is written.
+</code></pre>
+<p>So it means that <code>%c</code> expects an <code>int</code> but we put a <code>char</code> there.  However,
+since an integer promotion is applied arguments of variadic functions, <code>c</code> is
+converted to an <code>int</code> <strong>before</strong> it is used as an argument to <code>printf</code>.  Note
+that on a 64-bit x86 platform, this conversion means no extra code as the
+argument (= <code>char</code>) is just put to a 32-bit register.</p>
+<h2>
+<a id="user-content-integer-conversion" class="anchor" href="#integer-conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer conversion</h2>
+<p>This is about <strong>converting integers only</strong>.</p>
+<p>There are three parts when converting integers:</p>
+<ol>
+<li>
+<p>assigning an integer to another integer while the source value fits into
+the target -&gt; the result is specified by the standard.  It's the same value.</p>
+</li>
+<li>
+<p>assigning any integer to an unsigned integer -&gt; result specified by the
+standard, see below.</p>
+</li>
+<li>
+<p>assigning an integer to a signed integer and the value does <strong>not</strong> fit.  The
+standard says the result is <em>implementation-defined</em>.</p>
+</li>
+</ol>
+<p><em>Implementation-defined</em> means the implementation (ie. the compiler) must choose
+how to behave in such a situation and <strong>must</strong> document it.  See <a href="/modules/c99-standard.md">the
+standard</a>, section 3.4.1, for the precise definition.
+See also <a href="/modules/behavior-types.md">behavior types</a>.</p>
+<p>The first rule is simple and needs no more discussion.</p>
+<h3>
+<a id="user-content-integer-to-an-unsigned-integer" class="anchor" href="#integer-to-an-unsigned-integer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer to an unsigned integer</h3>
+<blockquote>
+<p>6.3.1.3 Signed and unsigned integers
+...</p>
+</blockquote>
+<p>"...if the new type is unsigned, the value is converted by repeatedly
+adding or subtracting one more than the maximum value that can be
+represented in the new type until the value is in the range of the new
+type."</p>
+<p>Use bc(1) to work with big numbers:</p>
+<pre><code>$ bc
+2^32
+4294967296
+(2^32 + 17) % 2^16
+17
+...
+...
+</code></pre>
+<p>So, the following are congruent, assigning the following numbers in an <code>unsigned char</code> will result in:</p>
+<pre><code>257 -&gt; 1 (257 - 256)
+258 -&gt; 2 (258 - 256)
+1000 -&gt; 232 (1000 - 3*256)
+4294967279 -&gt; 239 (4294967279 - 2^32 + 256)
+</code></pre>
+<p>Examples in C:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> 'c' will be 24 <span class="pl-c">*/</span></span>
+<span class="pl-k">unsigned</span> <span class="pl-k">char</span> c;
+c = -<span class="pl-c1">1000</span>;		<span class="pl-c"><span class="pl-c">//</span> 24 + 4 * 256</span>
+
+<span class="pl-c"><span class="pl-c">/*</span> 'i' will be 4294967286 <span class="pl-c">*/</span></span>
+<span class="pl-k">unsigned</span> <span class="pl-k">int</span> i;
+i = -<span class="pl-c1">10</span>;		<span class="pl-c"><span class="pl-c">//</span> -10 + 2^32</span></pre></div>
+<h3>
+<a id="user-content-assign-to-a-signed-type-when-the-value-does-not-fit" class="anchor" href="#assign-to-a-signed-type-when-the-value-does-not-fit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Assign to a signed type when the value does not fit</h3>
+<p>When any integer is converted to a signed type, the value is unchanged if it can
+be represented in the new type and <strong>is implementation-defined otherwise.</strong></p>
+<p>For gcc, that <em>implementation-defined</em> behavior is documented in
+<a href="https://gcc.gnu.org/onlinedocs/gcc/Integers-implementation.html" rel="nofollow">Integers
+implementation</a></p>
+<pre><code>  The result of, or the signal raised by, converting an
+  integer to a signed integer type when the value cannot be
+  represented in an object of that type (C99 6.3.1.3):
+
+	For conversion to a type of width N, the value is
+	reduced modulo 2^N to be within range of the type; no
+	signal is raised.
+</code></pre>
+<p>So, with gcc (and probably any other compilers you might meet today), this means
+the wrap-around rule is applied for signed integers as well.  However, let us
+repeat that the following is an example of implementation-defined behavior in
+this case tied to the gcc compiler.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">signed</span> <span class="pl-k">char</span> c = <span class="pl-c1">129</span>; <span class="pl-c"><span class="pl-c">//</span> 129 - 256, ie. -127 will be in 'c'</span></pre></div>
+<p><code>printf</code>'s <code>hh</code> modifier is for printing a <code>char</code>, <code>h</code> for a <code>short</code>.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> This will print 1 if compiled with gcc. <span class="pl-c">*/</span></span>
+<span class="pl-k">int</span> i = <span class="pl-c1">257</span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%hhd</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
+<p>The compiler will still warn you though to let you know that your int might be
+truncated (note that printf is a variadic function, so the argument will be
+converted to an <code>int</code> anyway, but the compiler warns you about the possible
+truncation):</p>
+<pre><code>xxx.c:10:19: warning: format specifies type 'char' but the argument has
+	     type 'int' [-Wformat]
+printf("%hhd\n", i);
+	~~~~     ^
+	%d
+</code></pre>
+<h3>
+<a id="user-content-generic-integer-conversion-algorithm" class="anchor" href="#generic-integer-conversion-algorithm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Generic integer conversion algorithm</h3>
+<p>BTW, when mentioning above those three parts when converting integers, it does
+not hurt to cite the <a href="/modules/c99-standard.md">C99 standard</a> in full on this.
+The following section covers all the integer conversions we went through above.
+The below mentioned "implementation-defined signal" might be to print an error
+and exit, for example.</p>
+<pre><code>6.3.1.3 Signed and unsigned integers
+
+1 When a value with integer type is converted to another
+  integer type other than _Bool, if the value can be
+  represented by the new type, it is unchanged.
+
+2 Otherwise, if the new type is unsigned, the value is
+  converted by repeatedly adding or subtracting one more than
+  the maximum value that can be represented in the new type
+  until the value is in the range of the new type. 49)
+
+3 Otherwise, the new type is signed and the value cannot be
+  represented in it; either the result is
+  implementation-defined or an implementation-defined signal
+  is raised.
+</code></pre>
+<p>Example: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/integer-conversion.c">integer-conversion.c</a></p>
+<h2>
+<a id="user-content-arithmetic-conversion" class="anchor" href="#arithmetic-conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arithmetic conversion</h2>
+<p>Simply put, arithmetic conversion is about converting all arguments of an
+operator to the smallest common type <strong>before</strong> the operator is applied.  That
+includes arithmetic operators as well as logical operators (&gt;, &lt;, &lt;=, ==, &gt;=)</p>
+<p>Example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> c;
+<span class="pl-k">signed</span> <span class="pl-k">int</span> i;
+<span class="pl-k">unsigned</span> <span class="pl-k">int</span> u;
+<span class="pl-k">long</span> <span class="pl-k">long</span> ll;
+
+c + i + u + ll;</pre></div>
+<p>We will learn about associativity later, but accept that the compiler
+actually assumes the following:</p>
+<div class="highlight highlight-source-c"><pre>((c + i) + u) + ll)</pre></div>
+<p>What happens:</p>
+<ol>
+<li>c is converted to int based on Integer Promotion</li>
+<li>so the result type of (c + i) is int</li>
+<li>that result is converted to unsigned int because of 'u' based on
+Integer Conversion we just introduced above.</li>
+<li>result type of (c + i + u) is then an unsigned int</li>
+<li>the result from 4) is then converted to long long because of 'll'</li>
+<li>long long is the type of the result of the whole expression</li>
+</ol>
+<p>Note that at every step, Integer Conversion rules are applied.</p>
+<p>Specifically, an unsigned integer type is "bigger" than the corresponding signed
+type.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
+<span class="pl-k">unsigned</span> <span class="pl-k">int</span> u;
+
+i + u;		<span class="pl-c"><span class="pl-c">//</span> 'i' is first converted to unsigned int</span></pre></div>
+<p>That is why <code>-1 &gt; 1U</code> is <strong>TRUE</strong> since <code>-1</code> is first converted to an unsigned
+int, ie.  <code>-1</code> is converted into <code>2^32-1</code>, ie. <code>4294967295</code>, and the expression
+is then evaluated as:</p>
+<div class="highlight highlight-source-c"><pre>(<span class="pl-c1">4294967295U</span> &gt; <span class="pl-c1">1U</span>)</pre></div>
+<p>A ternary operator also first converts its arguments to a common type no matter
+which branch will be returned.  For example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">unsigned</span> <span class="pl-k">int</span> i = <span class="pl-c1">0</span> ? <span class="pl-c1">1U</span> : -<span class="pl-c1">1</span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%u</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);		<span class="pl-c"><span class="pl-c">//</span> will print 2^32-1 (ie. 4294967295)</span></pre></div>
+<p>However, if you do this:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">0</span> ? <span class="pl-c1">1U</span> : -<span class="pl-c1">1</span>;</pre></div>
+<p>Then the result of the ternary expression is <code>4294967295</code> but then it is
+converted to a <code>signed int</code>.  And <code>4294967295</code> does not fit an <code>int</code> whose range
+in two's complement (gcc) is [-2^31, 2^31-1].  So, if we rely on gcc
+implementation-defined behavior, there is a modulo operation to the rescue and
+we get <code>-1</code>:</p>
+<pre><code>// (-1 + 4294967295) == 2^32
+int
+main(void)
+{
+	int i = 0 ? 1U : -1;
+	printf("%d\n", i);
+}
+</code></pre>
+<p>The compiler will warn you though as you are triggering something that
+is implementation-defined:</p>
+<pre><code>$ cc main.c
+"main.c", line 6: warning: initializer does not fit or is out of
+range: 0xffffffff
+$ ./a.out
+-1
+</code></pre>
+<h2>
+<a id="user-content-signed-numbers" class="anchor" href="#signed-numbers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Signed numbers</h2>
+<p>The spec does <strong>not</strong> say how signed numbers are internally stored.  That is
+just an implementation detail.  There are other ways to do it than via the two's
+complement.  See <a href="https://en.wikipedia.org/wiki/Signed_number_representations" rel="nofollow">Signed number
+representations</a>.</p>
+<p>However, gcc, clang, and all other compilers you probably ever meet use two's
+complement, as documented on <a href="https://gcc.gnu.org/onlinedocs/gcc/Integers-implementation.html" rel="nofollow">Integers
+implementation</a></p>
+<pre><code>-  Whether signed integer types are represented using sign and
+   magnitude, two's complement, or one's complement, and
+   whether the extraordinary value is a trap representation or
+   an ordinary value (C99 and C11 6.2.6.2).
+
+	GCC supports only two's complement integer types, and
+	all bit patterns are ordinary values.
+</code></pre>
+<h1>
+<a id="user-content-wrench-assignment-to-practice-your-knowledge" class="anchor" href="#wrench-assignment-to-practice-your-knowledge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Assignment to practice your knowledge</h1>
+<p>Try to figure out using bc(1) and what you have just learned what will be in the
+variables:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c"> * Let's assume that:</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> *      short int is 2 bytes</span>
+<span class="pl-c"> *      int is 4 bytes</span>
+<span class="pl-c"> *      long is 8 bytes</span>
+<span class="pl-c"> *      long long is 8 bytes</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> * Compile with "gcc -m64" to match the above.</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> * Let's assume that we use gcc that uses modulo to fit when assigning to a</span>
+<span class="pl-c"> * signed integer.</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> * Include &lt;limits.h&gt; for INT_MIN (-2^31) and INT_MAX (2^31 - 1).</span>
+<span class="pl-c"> <span class="pl-c">*/</span></span>
+
+<span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c"> * Use bc(1) to manually compute the values of the left sides.  When done,</span>
+<span class="pl-c"> * incorporate into the C code, compile, and verify you got it right.</span>
+<span class="pl-c"> <span class="pl-c">*/</span></span>
+
+<span class="pl-k">unsigned</span> <span class="pl-k">long</span> <span class="pl-k">long</span> ll = -<span class="pl-c1">13</span>;            <span class="pl-c"><span class="pl-c">//</span> Use %llu in printf() to verify.</span>
+<span class="pl-k">signed</span> <span class="pl-k">char</span> c = <span class="pl-c1">999</span>;                    <span class="pl-c"><span class="pl-c">//</span> %d</span>
+<span class="pl-k">short</span> <span class="pl-k">int</span> si = -<span class="pl-c1">1</span>;                      <span class="pl-c"><span class="pl-c">//</span> %hd</span>
+<span class="pl-k">unsigned</span> <span class="pl-k">int</span> = -<span class="pl-c1">1</span>;                      <span class="pl-c"><span class="pl-c">//</span> %u</span>
+<span class="pl-k">unsigned</span> <span class="pl-k">short</span> <span class="pl-k">int</span> usi = <span class="pl-c1">999999</span>;        <span class="pl-c"><span class="pl-c">//</span> %hu</span>
+<span class="pl-k">signed</span> <span class="pl-k">char</span> c = <span class="pl-c1">0</span> ? -<span class="pl-c1">10</span> : <span class="pl-c1">0U</span>;           <span class="pl-c"><span class="pl-c">//</span> %d</span>
+<span class="pl-k">signed</span> <span class="pl-k">char</span> c = -<span class="pl-c1">1</span> ? -<span class="pl-c1">10</span> : <span class="pl-c1">0U</span>;          <span class="pl-c"><span class="pl-c">//</span> %d</span>
+<span class="pl-k">long</span> <span class="pl-k">long</span> ll = <span class="pl-c1">1U</span> + -<span class="pl-c1">10</span>;                <span class="pl-c"><span class="pl-c">//</span> %lld</span>
+<span class="pl-k">unsigned</span> <span class="pl-k">long</span> <span class="pl-k">long</span> ull = <span class="pl-c1">1U</span> + -<span class="pl-c1">10</span>;      <span class="pl-c"><span class="pl-c">//</span> %llu</span>
+<span class="pl-k">unsigned</span> <span class="pl-k">short</span> <span class="pl-k">int</span> si = INT_MIN + 13LU; <span class="pl-c"><span class="pl-c">//</span> %hu</span>
+<span class="pl-k">unsigned</span> <span class="pl-k">short</span> <span class="pl-k">int</span> si = -INT_MAX + <span class="pl-c1">13U</span>; <span class="pl-c"><span class="pl-c">//</span> %hu</span>
+<span class="pl-k">signed</span> <span class="pl-k">char</span> c = <span class="pl-c1">129</span>;                    <span class="pl-c"><span class="pl-c">//</span> %d</span>
+
+<span class="pl-c"><span class="pl-c">/*</span> What is printed? <span class="pl-c">*/</span></span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%hhu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, -<span class="pl-c1">3</span>);
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>0x<span class="pl-c1">%hhx</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, -<span class="pl-c1">3</span>);
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">321</span>);
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, -<span class="pl-c1">191</span>);</pre></div>
+<p>Also check the following code and try to figure out what is gonna be printed
+before actually building and executing the code:</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/int-promotion.c">int-promotion.c</a></p>
+<p>Now you also know everything you need to know to figure out what happens in the
+following code.  Hint, not all elements are printed as it seems from the first
+look.  Another hint -- <code>sizeof</code>'s type is unsigned, and the logical operator
+triggers the Arithmetic Conversion, see above.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/whole-array.c">whole-array.c</a></p>
 
               </article>
             </div>
