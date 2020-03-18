@@ -77,3 +77,5 @@ Usually, there is snow on the peaks.
 ### Variant: ???
 
 Come up with something else.
+
+**If you have something cool and simple, send us the code, please!**
