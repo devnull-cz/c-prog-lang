@@ -121,8 +121,8 @@ The first rule is simple and needs no more discussion.
 ### Integer to an unsigned integer
 
 > 6.3.1.3 Signed and unsigned integers
->...
->...if the new type is unsigned, the value is converted by repeatedly
+...
+...if the new type is unsigned, the value is converted by repeatedly
 adding or subtracting one more than the maximum value that can be represented in
 the new type until the value is in the range of the new type.
 
@@ -179,16 +179,20 @@ implementation](https://gcc.gnu.org/onlinedocs/gcc/Integers-implementation.html)
 	signal is raised.
 ```
 
-So, with gcc (and probably any other compilers you might meet today), this means
-the wrap-around rule is applied for signed integers as well.  However, let us
-repeat that the following is an example of implementation-defined behavior in
+So, with `gcc` (and probably any other compilers you might meet today), this
+means the wrap-around rule is applied for signed integers as well.  However, let
+us repeat that the following is an example of implementation-defined behavior in
 this case tied to the gcc compiler.
 
 ```C
-signed char c = 129; // 129 - 256, ie. -127 will be in 'c'
+signed char c = 128;	// 128 - 256, ie. -128 will be in 'c'.  Might surprise
+			// one, right?
 ```
 
-`printf`'s `hh` modifier is for printing a `char`, `h` for a `short`.
+`printf`'s `hh` modifier is for printing a `char`, `h` for a `short`.  Note that
+`i` is first converted to an `int` if it is not already, as arguments of
+variadic functions goes through *integer promotion*, as we already know.  Then,
+it is converted to a `char` **inside** `printf`.
 
 ```C
 /* This will print 1 if compiled with gcc. */
