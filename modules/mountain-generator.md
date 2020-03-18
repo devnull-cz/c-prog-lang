@@ -50,9 +50,10 @@ arrays](/modules/multi-dimensional-arrays.md) for more information.
 ### Variant: nicer mountain
 
 You can make it more complicated and make the ascii art smoother.  For example,
-you can define that after `/` you cannot go down with `\` but you could do `/\`,
-etc.  You would need to keep a state of the previous character.  You could
-generate something like this (use your imagination):
+you can define that after `/` you cannot go one character down with `\` (see
+above what we mean) but you could do `/\`, etc.  You would need to keep a state
+of the previous character.  You could generate something like this (use your
+imagination):
 
 ```
             .
