@@ -200,10 +200,8 @@ int i = 257;
 printf("%hhd\n", i);
 ```
 
-The compiler will still warn you though to let you know that your int might be
-truncated (note that printf is a variadic function, so the argument will be
-converted to an `int` anyway, but the compiler warns you about the possible
-truncation):
+The compiler will probably warn you to let you know that your `int` might be
+truncated.
 
 ```
 xxx.c:10:19: warning: format specifies type 'char' but the argument has
@@ -224,18 +222,15 @@ and exit, for example.
 ```
 6.3.1.3 Signed and unsigned integers
 
-1 When a value with integer type is converted to another
-  integer type other than _Bool, if the value can be
-  represented by the new type, it is unchanged.
+1 When a value with integer type is converted to another integer type other than
+ \_Bool, if the value can be represented by the new type, it is unchanged.
 
-2 Otherwise, if the new type is unsigned, the value is
-  converted by repeatedly adding or subtracting one more than
-  the maximum value that can be represented in the new type
-  until the value is in the range of the new type. 49)
+2 Otherwise, if the new type is unsigned, the value is converted by repeatedly
+  adding or subtracting one more than the maximum value that can be represented in
+  the new type until the value is in the range of the new type.
 
-3 Otherwise, the new type is signed and the value cannot be
-  represented in it; either the result is
-  implementation-defined or an implementation-defined signal
+3 Otherwise, the new type is signed and the value cannot be represented in it;
+  either the result is implementation-defined or an implementation-defined signal
   is raised.
 ```
 
