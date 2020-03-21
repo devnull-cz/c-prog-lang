@@ -13,9 +13,9 @@
 ```
   - :eyes: [array-variable-length.c](/src/array-variable-length.c)
 
-  - also note that it generates more code which might be avoided with a
-    choosing a reasonable constant, if possible.  Also see [a rant from
-    Linus](https://lkml.org/lkml/2018/3/7/621)
+  - :heavy\_exclamation\_mark: note that it generates more code which might be
+    avoided with a choosing a reasonable constant, if possible.  Also see [a
+    rant from Linus](https://lkml.org/lkml/2018/3/7/621)
   
 ## K&R
 
