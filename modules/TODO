@@ -2,3 +2,7 @@
 
 # not used from original 05.md from 2019
 variable-argument-functions.md
+
+# I removed this from 04 lecture 2020 and put it into a separate module.  I
+# think it's better to do it when talking about storage classes.
+static-functions-and-variables.md
