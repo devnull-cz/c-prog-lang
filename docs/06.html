@@ -309,7 +309,12 @@ option in order to reveal the problem</p>
 <a id="user-content-openingclosing" class="anchor" href="#openingclosing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opening/closing</h1>
 <ul>
 <li>
-<code>fopen</code> opens the file and returns opaque handle</li>
+<code>fopen</code> opens the file and returns opaque handle (pointer)
+<ul>
+<li>the <code>mode</code> argument controls the behavior: read, write, append</li>
+<li>write mode creates the file</li>
+</ul>
+</li>
 <li>
 <code>fclose</code> closes the handle.</li>
 </ul>
