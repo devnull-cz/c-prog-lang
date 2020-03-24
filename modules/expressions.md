@@ -13,11 +13,9 @@
 	printf("%d\n", 100 == 101);
 	--> 0
 ```
-- neverending while loop is then:
+- neverending `while` loop is then:
 ```
 	while (1) {
 		...
 	}
 ```
-
-
