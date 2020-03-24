@@ -30,7 +30,8 @@ probably generate a warning about an unused result.
 	"hello";
 ```
 
-code: null-statement.c, compound-statement.c
+:eyes: code: [null-statement.c](/src/null-statement.c),
+[compound-statement.c](/src/compound-statement.c)
 
 ## w.r.t. compound statement vs. expression:
 
@@ -48,6 +49,4 @@ code: null-statement.c, compound-statement.c
 
   - our recommendation is to always use these options
 
-code: compound-statement-invalid.c
-
-
+:eyes: code: [compound-statement-invalid.c](/src/compound-statement-invalid.c)

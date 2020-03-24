@@ -28,7 +28,7 @@
 
   Anyway, you would probably never do it this way.  Just use `= "hello"`.
 
-  code: array-fill.c
+  :eyes: code: [array-fill.c](/src/array-fill.c)
 
 - string is printed via printf as `%s`
 
@@ -38,7 +38,7 @@
 
 - experiment with what `%5s` and `%.5s` do (use any reasonable number)
 
-code: string-format.c
+eyes: code: [string-format.c](/src/string-format.c)
 
 # warmup
 
@@ -46,17 +46,17 @@ task:
 
   - extend the program tr-d-chars.c from last time to translate character input
     e.g.
-
+```
     tail /etc/passwd | tr 'abcdefgh' '123#'
-
+```
   - use character arrays defined with string literals to represent the 2 strings
     - see the tr(1) man page on what needs to happen if the 1st string is longer
       than the 2nd
       - do not store the expanded 2nd string as literal in your program !
 
-  code: tr.c
+  :eyes: code: [tr.c](/src/tr.c)
 
 task (bonus): refactor the code into function
-		- remember that arrays are passed into function as a pointer (to
-		  be explained soon, not needed now) that can be used inside the
-		  function with array subscript
+- remember that arrays are passed into function as a pointer (to
+  be explained soon, not needed now) that can be used inside the
+  function with array subscript

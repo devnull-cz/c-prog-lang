@@ -1,6 +1,6 @@
 # Expressions
 
-"In mathematics, an expression or mathematical expression is a finite
+> "In mathematics, an expression or mathematical expression is a finite
 combination of symbols that is well-formed according to rules that depend on
 the context."
 
@@ -13,7 +13,7 @@ expressions, function calls, sizeof, assignments, and ternary expressions.
 In C99, expression can produce results (2+2 gets 4) or generate side effects
 (printf("foo") sends string literal to standard output).
 
-:eyes: code: expression-statement.c
+:eyes: code: [expression-statement.c](/src/expression-statement.c)
 
 :wrench: task: make the warning an error with your choice of compiler (would be a variant
       of `-W` in GCC)

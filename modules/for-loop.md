@@ -38,11 +38,11 @@ formally defined:
     `while` loop.
   - both break and continue relate to the loop they are executed in
 
-code: for.c
+:eyes: code: [for.c](/src/for.c)
 
 task: compute minimum of averages of lines in 2-D integer array (of arbitrary
       dimensions) that have positive values.
 
-      code: 2darray-min-avg.c
+      :eyes: code: [2darray-min-avg.c](/src/2darray-min-avg.c)
 
 
