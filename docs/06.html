@@ -354,9 +354,26 @@ option in order to reveal the problem</p>
 </ul>
 <h1>
 <a id="user-content-seeking" class="anchor" href="#seeking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Seeking</h1>
+<p>When reading/writing to a file using the above function, the current position changes accordingly.
+The position can be manipulated without performing any I/O.</p>
 <ul>
-<li><code>fseek</code></li>
-<li><code>ftell</code></li>
+<li>
+<code>fseek</code> - moves the position
+<ul>
+<li>the <code>whence</code> parameter has 3 possible values and makes the <code>offset</code> parameter relative to:
+<ul>
+<li>
+<code>SEEK_SET</code> - the beginning of the file</li>
+<li>
+<code>SEEK_END</code> - the end of the file</li>
+<li>
+<code>SEEK_CUR</code> - the current location of the cursor in the file</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<code>ftell</code> - get current position in the file</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> get a file size using the standard IO API (that is, <code>lseek(2)</code> is
 prohibited even if you know it).</p>
