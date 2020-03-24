@@ -36,8 +36,8 @@ The position can be manipulated without performing any I/O.
 - `fseek` - moves the position
   - the `whence` parameter has 3 possible values and makes the `offset` parameter relative to:
     - `SEEK_SET` - the beginning of the file
-	  - `SEEK_END` - the end of the file
-		- `SEEK_CUR` - the current location of the cursor in the file
+    - `SEEK_END` - the end of the file
+    - `SEEK_CUR` - the current location of the cursor in the file
 - `ftell` - get current position in the file
 
 :wrench: get a file size using the standard IO API (that is, `lseek(2)` is
