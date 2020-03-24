@@ -43,6 +43,6 @@ The position can be manipulated without performing any I/O.
 :wrench: get a file size using the standard IO API (that is, `lseek(2)` is
 prohibited even if you know it).
 
-:wrench: write array of 3 `int` values to a file and read the values into another array and print them to standard error output without closing the file in between the writing and reading. :eyes: code [fopen-binary.c](/src/fopen-binary.c)
+:wrench: write array of `int` values (use arbitrary positive count with values ranging from `INT_MAX` to `0`) to a file and read the values into another array and print them to standard error output without closing the file in between the writing and reading. Use `od(1)` to verify the content of the file (thus it is handy to start with `INT_MAX` and e.g. divide by 2 for each successive value). :eyes: code [fopen-binary.c](/src/fopen-binary.c)
 
 :wrench: use the file created by the previous program. read the values from the end of the file to the beginning of the file one by one without knowing their count and print them to standard error output.
