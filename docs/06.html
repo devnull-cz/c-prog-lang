@@ -76,9 +76,6 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h1>
-<p>TODO</p>
-<h1>
 <a id="user-content-array-of-characters" class="anchor" href="#array-of-characters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array of characters</h1>
 <p>An array of characters (<code>char</code>s) is called a <em>string</em> or a <em>string constant</em>.
 Do not confuse it with a <em>character constant</em> as in <code>'A'</code>.  A string is put in
@@ -107,6 +104,386 @@ byte.  So, you could just use <code>0</code>, like this, but it is not generally
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> What happens if you forget to specify the terminating zero in the above
 per-char init and try to print the string ?</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/array-char-nozero.c">array-char-nozero.c</a></p>
+<h1>
+<a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h1>
+<ul>
+<li>
+<p>"xxx" is called a <em>string literal</em> or a <em>string constant</em></p>
+</li>
+<li>
+<p>in memory it is a consecutive piece of memory: <code>'x' 'x' 'x' '\0'</code></p>
+</li>
+<li>
+<p><code>'\0'</code> terminates the string.  That's the C convention.</p>
+</li>
+<li>
+<p><code>'\0'</code> is called a <code>NUL</code> character.  It's just a 0 byte but the convention is
+to use <code>'\0'</code> if it represents a string element.  <code>'\0'</code> is just a special
+case of octal representation <code>'\0ooo'</code> where 'o' is an octal figure (0-7).</p>
+</li>
+<li>
+<p>aside from the <code>{ 'x', ... }</code> initializer, character array initialization may
+be done also with a string literal:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-c"><span class="pl-c">/*</span> sizeof (a) is 6 as the terminating 0 is counted in <span class="pl-c">*/</span></span>
+	<span class="pl-k">char</span> a[] = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
+<ul>
+<li>if {} is used, you must add the terminating zero yourself unless you use the
+size of the array and the string was shorter (in which case the rest would be
+initialized to zero):</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
+<p>Anyway, you would probably never do it this way.  Just use <code>= "hello"</code>.</p>
+<p>code: array-fill.c</p>
+<ul>
+<li>string is printed via printf as <code>%s</code>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>);</pre></div>
+<ul>
+<li>experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
+</ul>
+<p>code: string-format.c</p>
+<h1>
+<a id="user-content-warmup" class="anchor" href="#warmup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>warmup</h1>
+<p>task:</p>
+<ul>
+<li>
+<p>extend the program tr-d-chars.c from last time to translate character input
+e.g.</p>
+<p>tail /etc/passwd | tr 'abcdefgh' '123#'</p>
+</li>
+<li>
+<p>use character arrays defined with string literals to represent the 2 strings</p>
+<ul>
+<li>see the tr(1) man page on what needs to happen if the 1st string is longer
+than the 2nd
+<ul>
+<li>do not store the expanded 2nd string as literal in your program !</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>code: tr.c</p>
+<p>task (bonus): refactor the code into function
+- remember that arrays are passed into function as a pointer (to
+be explained soon, not needed now) that can be used inside the
+function with array subscript</p>
+<h1>
+<a id="user-content-the-for-loop" class="anchor" href="#the-for-loop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>the "for" loop</h1>
+<p>formally defined:</p>
+<pre><code>	for (&lt;init&gt;; &lt;predicate&gt;; &lt;update&gt;)
+		&lt;body&gt;
+</code></pre>
+<ul>
+<li>it is the same as:</li>
+</ul>
+<pre><code>	&lt;init&gt;
+	while (&lt;predicate&gt;) {
+		&lt;body&gt;
+		&lt;update&gt;
+	}
+</code></pre>
+<ul>
+<li>Using the for loop is very often easier and more readable.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> i;
+	<span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i)
+		<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
+<ul>
+<li>or in C99:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i)
+		<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
+<ul>
+<li>if 'break' jump statement happens in the body, the control is transferred to
+the end of the loop without executing the <code>&lt;update&gt;</code> part.</li>
+<li>with 'continue' jump statement, the rest of the body is skipped.
+The <code>&lt;update&gt;</code> part is then performed for the <code>for</code> loop but not for the
+<code>while</code> loop.</li>
+<li>both break and continue relate to the loop they are executed in</li>
+</ul>
+<p>code: for.c</p>
+<p>task: compute minimum of averages of lines in 2-D integer array (of arbitrary
+dimensions) that have positive values.</p>
+<pre><code>  code: 2darray-min-avg.c
+</code></pre>
+<h1>
+<a id="user-content-expressions" class="anchor" href="#expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expressions</h1>
+<p>"In mathematics, an expression or mathematical expression is a finite
+combination of symbols that is well-formed according to rules that depend on
+the context."</p>
+<p>In C, expressions are, amongst others, variables, constants, strings, and
+expressions in parentheses.  Also arithmetic expressions, relational
+expressions, function calls, sizeof, assignments, and ternary expressions.</p>
+<p><a href="http://en.cppreference.com/w/c/language/expressions" rel="nofollow">http://en.cppreference.com/w/c/language/expressions</a></p>
+<p>In C99, expression can produce results (2+2 gets 4) or generate side effects
+(printf("foo") sends string literal to standard output).</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: expression-statement.c</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: make the warning an error with your choice of compiler (would be a variant
+of <code>-W</code> in GCC)</p>
+<h1>
+<a id="user-content-statements" class="anchor" href="#statements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Statements</h1>
+<p>Statements are (only from what we already learned), expressions, selections
+("if", "switch" (not introduced yet)), {} blocks (known as <em>compounds</em>),
+iterations, and jumps ("goto" (not introduced yet), "continue", "break",
+"return").</p>
+<p><a href="http://en.cppreference.com/w/c/language/statements" rel="nofollow">http://en.cppreference.com/w/c/language/statements</a></p>
+<p>Basically, statements are pieces of code executed in sequence. The function body
+is a compound statement. The compound statement (a.k.a. <em>block</em>) is a sequence
+of statements and declarations. Blocks can be nested. Blocks inside function
+body are good for variable reuse.</p>
+<p>Semicolon is not used after a compound but it is allowed.</p>
+<p><strong>A declaration is not a statement</strong> (there are subtle consequences, we can show
+them later).</p>
+<p>Some statements must end with <code>;</code>.  For example, expression statements.  The
+following are all valid statements.  They do not make much sense though and will
+probably generate a warning about an unused result.</p>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> c;
+
+	c;
+	<span class="pl-c1">1</span> + <span class="pl-c1">1</span>;
+	<span class="pl-c1">1000</span>;
+	<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
+<p>code: null-statement.c, compound-statement.c</p>
+<h2>
+<a id="user-content-wrt-compound-statement-vs-expression" class="anchor" href="#wrt-compound-statement-vs-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>w.r.t. compound statement vs. expression:</h2>
+<ul>
+<li>
+<p>it is not allowed to have compound statement within expression</p>
+<ul>
+<li>that said, GCC has a language extension (gcc99) that can be used to allow
+this - the reason is for protecting multiple evaluation within macros</li>
+<li>the C99 standard does not define this, therefore it's not there</li>
+</ul>
+</li>
+<li>
+<p>gotcha: the code has to be compiled with gcc with the -pedantic-errors
+option in order to reveal the problem</p>
+</li>
+</ul>
+<pre><code>  gcc -std=c99 -Wall -Wextra -pedantic-errors compound-statement-invalid.c
+</code></pre>
+<ul>
+<li>our recommendation is to always use these options</li>
+</ul>
+<p>code: compound-statement-invalid.c</p>
+<h1>
+<a id="user-content-err-family-of-functions" class="anchor" href="#err-family-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>err() family of functions</h1>
+<ul>
+<li>not defined by any standard however handy</li>
+<li>present in BSD, glibc (= Linux distros), Solaris, macOS, etc.</li>
+<li>use &lt;err.h&gt; include, see the err(3) man page</li>
+<li>this is especially handy when working with I/O</li>
+<li>instead of writing:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">if</span> (error) {
+		<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">strerror</span>(errno));
+		<span class="pl-c1">exit</span>(<span class="pl-c1">1</span>);
+	}</pre></div>
+<ul>
+<li>write the following</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>      <span class="pl-k">if</span> (error)
+             <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-pds">"</span></span>);</pre></div>
+<ul>
+<li>notice it is not necessary to use newline</li>
+<li>or for functions that do not modify the <code>errno</code> value, use the <em>x</em> variant:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">if</span> (some_error)
+		<span class="pl-en">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>ERROR: <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, some_error);</pre></div>
+<ul>
+<li>there's also <code>warn()</code>/<code>warnx()</code> that do not exit the program</li>
+</ul>
+<h1>
+<a id="user-content-pointers" class="anchor" href="#pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointers</h1>
+<p>Motivation:</p>
+<ul>
+<li>
+<p>memory allocation / shared memory</p>
+</li>
+<li>
+<p>protocol buffer parsing</p>
+</li>
+<li>
+<p>pointer arithmetics</p>
+</li>
+<li>
+<p>the value stored in "pointer" variable is the address of the memory
+storing given type</p>
+</li>
+<li>
+<p>declared like this, e.g.</p>
+<p><code>int *p; // pointer to an int</code></p>
+<ul>
+<li>note on style:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>      <span class="pl-k">int</span> * p;
+      <span class="pl-k">int</span> *p;  <span class="pl-c"><span class="pl-c">//</span> preferred in this lecture</span></pre></div>
+<ul>
+<li>
+<p>good practice is to prefix pointers with the 'p' letter</p>
+</li>
+<li>
+<p>a pointer is always associated with a type</p>
+</li>
+<li>
+<p>to access the object the pointer points to, use a de-reference operator <code>*</code>:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, *p);</pre></div>
+<ul>
+<li>the de-reference is also used to write value to the variable pointed:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	*p = <span class="pl-c1">5</span>;</pre></div>
+<ul>
+<li>in a declaration, you may assign like this:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> i = <span class="pl-c1">5</span>;
+	<span class="pl-k">int</span> *p = &amp;i;</pre></div>
+<ul>
+<li>
+<p>the <code>&amp;</code> is an <em>address-of</em> operator and gets the address of the variable.</p>
+</li>
+<li>
+<p>the pointer itself is obviously stored in memory too</p>
+</li>
+</ul>
+<pre><code>     +---------------+
+     |     addr2     |
+     +---------------+
+     ^                        +-------+
+     |                        | value |
+   addr1                      +-------+
+                              ^
+                              |
+                            addr2
+</code></pre>
+<ul>
+<li>
+<p>the size of the pointer depends on architecture and the way the program
+was compiled (see <code>-m32</code> / <code>-m64</code> command line switches of gcc)</p>
+<ul>
+<li>
+<code>sizeof (p)</code> will return the amount of memory to store the address of the
+object the pointer points to</li>
+<li>
+<code>sizeof (*p)</code> will return the amount needed to store the object the
+pointer points to</li>
+</ul>
+</li>
+</ul>
+<p>Task: write a program to print:
+- address of the pointer
+- the address where it points to
+- the value of the pointed to variable</p>
+<p>Use the %p formatting for the first two.</p>
+<p>Code: ptr-basics.c</p>
+<h2>
+<a id="user-content-null-pointer" class="anchor" href="#null-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NULL pointer</h2>
+<ul>
+<li>
+<p>the real danger with pointers is that invalid access results in a crash (the
+program is terminated by kernel)</p>
+<ul>
+<li>this is because <code>NULL</code> address is left unmapped on purpose, or a page that
+cannot be accessed maps to the address.  Note that C guarantees that zero
+is never a valid address for data.</li>
+</ul>
+</li>
+<li>
+<p>can assign a number directly to a pointer (that should trigger a warning
+though.  We will get to casting and how to fix that later).</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> *p = <span class="pl-c1">0x1234</span>;</pre></div>
+<ul>
+<li>special pointer value, <code>NULL</code>, is defined and it is called <em>a null pointer
+constant</em> <a href="/modules/c99-standard.md">in the C spec</a>.</li>
+</ul>
+<p>Task: create NULL pointer and try to read from it / write to it</p>
+<p>Code: null-ptr.c</p>
+<h2>
+<a id="user-content-basic-operations" class="anchor" href="#basic-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic operations</h2>
+<ul>
+<li>notice the difference:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span> i;
+    <span class="pl-k">int</span> *p = &amp;i;</pre></div>
+<p>vs.</p>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span> i;
+    <span class="pl-k">int</span> *p;
+
+    <span class="pl-c"><span class="pl-c">//</span> set value of the pointer (i.e. the address where it points to).</span>
+    p = &amp;i;</pre></div>
+<ul>
+<li>
+<p>operator precedence gotcha:</p>
+<p>*p		// value of the pointed to variable
+*p + 1		// the value + 1
+*(p + 1)	// the value on the address + 1 (see below for what it
+// means)</p>
+</li>
+<li>
+<p>note that the &amp; reference operator is possible to use only on variables</p>
+<ul>
+<li>thus this is invalid:</li>
+</ul>
+</li>
+</ul>
+<pre><code>p = &amp;(i + 1);
+</code></pre>
+<ul>
+<li>
+<p>store value to the address pointed to by the pointer:</p>
+<p>*p = 1;</p>
+</li>
+</ul>
+<h2>
+<a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers:</h2>
+<ul>
+<li>
+<p>pointers can be moved forward and backward</p>
+<p>p = p + 1;
+p++;
+p--;</p>
+</li>
+</ul>
+<h2>
+<a id="user-content-operator-gotchas" class="anchor" href="#operator-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>operator gotchas</h2>
+<ul>
+<li>
+<p><code>*</code> has bigger precedence than <code>+</code> so:</p>
+<p>i = *p + 1;</p>
+</li>
+</ul>
+<p>is equal to</p>
+<pre><code>i = (*p) + 1;
+</code></pre>
+<ul>
+<li>
+<p>postfix <code>++</code> has higher precedence than <code>*</code>:</p>
+<p>i = *p++;</p>
+</li>
+</ul>
+<p>is evaluated as <code>*(p++)</code> but it still does the following because <code>++</code> is used in
+postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</p>
+<pre><code>    i = *p; p++;
+</code></pre>
+<ul>
+<li>the pointer is moved by the amount of underlying (domain) data type when using
+arithmetics</li>
+</ul>
+<h1>
+<a id="user-content-home-assignment" class="anchor" href="#home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Home assignment</h1>
+<p>Task: create pointer to int, print it, create new pointer that points to
+p + 1. See what is the difference between the 2 pointers.</p>
+<p>Code: ptr-diff.c</p>
 <h1>
 <a id="user-content-file-api" class="anchor" href="#file-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File API</h1>
 <p>TODO</p>
