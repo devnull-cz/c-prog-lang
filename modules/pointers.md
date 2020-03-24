@@ -164,7 +164,7 @@ postfix mode, ie. the value of expression `p++` is `p`:
 
 # Home assignment
 
-Task: create pointer to int, print it, create new pointer that points to
+:wrench: Task: create pointer to int, print it, create new pointer that points to
       `p + 1`. See what is the difference between the 2 pointers.
 
 :eyes: Code: [ptr-diff.c](/src/ptr-diff.c)
