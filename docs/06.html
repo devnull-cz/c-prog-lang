@@ -303,39 +303,6 @@ option in order to reveal the problem</p>
 <li>there's also <code>warn()</code>/<code>warnx()</code> that do not exit the program</li>
 </ul>
 <h1>
-<a id="user-content-file-api" class="anchor" href="#file-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File API</h1>
-<p>part of the standard since C90</p>
-<h1>
-<a id="user-content-openingclosing" class="anchor" href="#openingclosing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opening/closing</h1>
-<ul>
-<li>
-<code>fopen</code> opens the file and returns opaque handle (pointer)
-<ul>
-<li>the <code>mode</code> argument controls the behavior: read, write, append</li>
-<li>write mode creates the file</li>
-</ul>
-</li>
-<li>
-<code>fclose</code> closes the handle.</li>
-</ul>
-<h1>
-<a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h1>
-<ul>
-<li><code>fprintf</code></li>
-<li><code>fputs</code></li>
-<li><code>fputc</code></li>
-<li><code>fread</code></li>
-<li><code>fwrite</code></li>
-</ul>
-<h1>
-<a id="user-content-seeking" class="anchor" href="#seeking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Seeking</h1>
-<ul>
-<li><code>fseek</code></li>
-<li><code>ftell</code></li>
-</ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> get a file size using the standard IO API (that is, <code>lseek(2)</code> is
-prohibited even if you know it).</p>
-<h1>
 <a id="user-content-pointers" class="anchor" href="#pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointers</h1>
 <p>Motivation:</p>
 <ul>
@@ -520,6 +487,39 @@ arithmetics</li>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: create pointer to int, print it, create new pointer that points to
 <code>p + 1</code>. See what is the difference between the 2 pointers.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> Code: <a href="/src/ptr-diff.c">ptr-diff.c</a></p>
+<h1>
+<a id="user-content-file-api" class="anchor" href="#file-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File API</h1>
+<p>part of the standard since C90</p>
+<h1>
+<a id="user-content-openingclosing" class="anchor" href="#openingclosing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opening/closing</h1>
+<ul>
+<li>
+<code>fopen</code> opens the file and returns opaque handle (pointer)
+<ul>
+<li>the <code>mode</code> argument controls the behavior: read, write, append</li>
+<li>write mode creates the file</li>
+</ul>
+</li>
+<li>
+<code>fclose</code> closes the handle.</li>
+</ul>
+<h1>
+<a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h1>
+<ul>
+<li><code>fprintf</code></li>
+<li><code>fputs</code></li>
+<li><code>fputc</code></li>
+<li><code>fread</code></li>
+<li><code>fwrite</code></li>
+</ul>
+<h1>
+<a id="user-content-seeking" class="anchor" href="#seeking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Seeking</h1>
+<ul>
+<li><code>fseek</code></li>
+<li><code>ftell</code></li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> get a file size using the standard IO API (that is, <code>lseek(2)</code> is
+prohibited even if you know it).</p>
 
               </article>
             </div>
