@@ -44,3 +44,5 @@ The position can be manipulated without performing any I/O.
 prohibited even if you know it).
 
 :wrench: write array of 3 `int` values to a file and read the values into another array and print them to standard error output without closing the file in between the writing and reading. :eyes: code [fopen-binary.c](/src/fopen-binary.c)
+
+:wrench: create a binary file of arbitrary (positive) number of `int` values. read the values from the end of the file to the beginning of the file one by one without knowing their count and print them to standard error output.
