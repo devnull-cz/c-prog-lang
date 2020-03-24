@@ -313,7 +313,11 @@ option in order to reveal the problem</p>
 <ul>
 <li>
 <code>NULL</code> pointer means error</li>
-<li>the <code>mode</code> argument controls the behavior: read, write, append</li>
+<li>the <code>mode</code> argument controls the behavior: read, write, append
+<ul>
+<li>the <code>+</code> adds the other mode (write for read and vice versa, read for append)</li>
+</ul>
+</li>
 <li>write mode creates the file</li>
 </ul>
 </li>
@@ -331,6 +335,13 @@ option in order to reveal the problem</p>
 <ul>
 <li>
 <code>fprintf</code> - <code>printf</code> to a stream</li>
+<li>
+<code>fscanf</code>
+<ul>
+<li>basically parses text input from a stream according to format string</li>
+<li>except the format string all the parameters must be pointers</li>
+</ul>
+</li>
 <li>
 <code>fputs</code> - send string to a stream</li>
 <li>
