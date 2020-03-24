@@ -42,3 +42,5 @@ The position can be manipulated without performing any I/O.
 
 :wrench: get a file size using the standard IO API (that is, `lseek(2)` is
 prohibited even if you know it).
+
+:wrench: write array of 3 `int` values to a file and read the values into another array and print them to standard error output without closing the file in between the writing and reading. :eyes: code [fopen-binary.c](/src/fopen-binary.c)
