@@ -135,7 +135,7 @@ initialized to zero):</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
 <p>Anyway, you would probably never do it this way.  Just use <code>= "hello"</code>.</p>
-<p>code: array-fill.c</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/array-fill.c">array-fill.c</a></p>
 <ul>
 <li>string is printed via printf as <code>%s</code>
 </li>
@@ -144,18 +144,18 @@ initialized to zero):</li>
 <ul>
 <li>experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
 </ul>
-<p>code: string-format.c</p>
+<p>eyes: code: <a href="/src/string-format.c">string-format.c</a></p>
 <h1>
 <a id="user-content-warmup" class="anchor" href="#warmup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>warmup</h1>
 <p>task:</p>
 <ul>
-<li>
-<p>extend the program tr-d-chars.c from last time to translate character input
-e.g.</p>
-<p>tail /etc/passwd | tr 'abcdefgh' '123#'</p>
-</li>
-<li>
-<p>use character arrays defined with string literals to represent the 2 strings</p>
+<li>extend the program tr-d-chars.c from last time to translate character input
+e.g.</li>
+</ul>
+<pre><code>    tail /etc/passwd | tr 'abcdefgh' '123#'
+</code></pre>
+<ul>
+<li>use character arrays defined with string literals to represent the 2 strings
 <ul>
 <li>see the tr(1) man page on what needs to happen if the 1st string is longer
 than the 2nd
@@ -166,11 +166,13 @@ than the 2nd
 </ul>
 </li>
 </ul>
-<p>code: tr.c</p>
-<p>task (bonus): refactor the code into function
-- remember that arrays are passed into function as a pointer (to
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/tr.c">tr.c</a></p>
+<p>task (bonus): refactor the code into function</p>
+<ul>
+<li>remember that arrays are passed into function as a pointer (to
 be explained soon, not needed now) that can be used inside the
-function with array subscript</p>
+function with array subscript</li>
+</ul>
 <h1>
 <a id="user-content-the-for-loop" class="anchor" href="#the-for-loop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>the "for" loop</h1>
 <p>formally defined:</p>
@@ -206,23 +208,25 @@ The <code>&lt;update&gt;</code> part is then performed for the <code>for</code> 
 <code>while</code> loop.</li>
 <li>both break and continue relate to the loop they are executed in</li>
 </ul>
-<p>code: for.c</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/for.c">for.c</a></p>
 <p>task: compute minimum of averages of lines in 2-D integer array (of arbitrary
 dimensions) that have positive values.</p>
-<pre><code>  code: 2darray-min-avg.c
+<pre><code>  :eyes: code: [2darray-min-avg.c](/src/2darray-min-avg.c)
 </code></pre>
 <h1>
 <a id="user-content-expressions" class="anchor" href="#expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expressions</h1>
+<blockquote>
 <p>"In mathematics, an expression or mathematical expression is a finite
 combination of symbols that is well-formed according to rules that depend on
 the context."</p>
+</blockquote>
 <p>In C, expressions are, amongst others, variables, constants, strings, and
 expressions in parentheses.  Also arithmetic expressions, relational
 expressions, function calls, sizeof, assignments, and ternary expressions.</p>
 <p><a href="http://en.cppreference.com/w/c/language/expressions" rel="nofollow">http://en.cppreference.com/w/c/language/expressions</a></p>
 <p>In C99, expression can produce results (2+2 gets 4) or generate side effects
 (printf("foo") sends string literal to standard output).</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: expression-statement.c</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/expression-statement.c">expression-statement.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: make the warning an error with your choice of compiler (would be a variant
 of <code>-W</code> in GCC)</p>
 <h1>
@@ -248,7 +252,8 @@ probably generate a warning about an unused result.</p>
 	<span class="pl-c1">1</span> + <span class="pl-c1">1</span>;
 	<span class="pl-c1">1000</span>;
 	<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
-<p>code: null-statement.c, compound-statement.c</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/null-statement.c">null-statement.c</a>,
+<a href="/src/compound-statement.c">compound-statement.c</a></p>
 <h2>
 <a id="user-content-wrt-compound-statement-vs-expression" class="anchor" href="#wrt-compound-statement-vs-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>w.r.t. compound statement vs. expression:</h2>
 <ul>
@@ -270,13 +275,13 @@ option in order to reveal the problem</p>
 <ul>
 <li>our recommendation is to always use these options</li>
 </ul>
-<p>code: compound-statement-invalid.c</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/compound-statement-invalid.c">compound-statement-invalid.c</a></p>
 <h1>
 <a id="user-content-err-family-of-functions" class="anchor" href="#err-family-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>err() family of functions</h1>
 <ul>
 <li>not defined by any standard however handy</li>
 <li>present in BSD, glibc (= Linux distros), Solaris, macOS, etc.</li>
-<li>use &lt;err.h&gt; include, see the err(3) man page</li>
+<li>use the <code>&lt;err.h&gt;</code> include, see the err(3) man page</li>
 <li>this is especially handy when working with I/O</li>
 <li>instead of writing:</li>
 </ul>
@@ -483,7 +488,7 @@ arithmetics</li>
 <a id="user-content-home-assignment" class="anchor" href="#home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Home assignment</h1>
 <p>Task: create pointer to int, print it, create new pointer that points to
 p + 1. See what is the difference between the 2 pointers.</p>
-<p>Code: ptr-diff.c</p>
+<p>Code: <a href="/src/ptr-diff.c">ptr-diff.c</a></p>
 <h1>
 <a id="user-content-file-api" class="anchor" href="#file-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File API</h1>
 <p>TODO</p>
