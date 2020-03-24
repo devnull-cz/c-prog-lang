@@ -319,6 +319,7 @@ option in order to reveal the problem</p>
 </ul>
 </li>
 <li>write mode creates the file</li>
+<li>the <code>b</code> binary mode does not usually have any effect (see the standard)</li>
 </ul>
 </li>
 <li>
@@ -327,6 +328,8 @@ option in order to reveal the problem</p>
 <li>important to avoid resource leak (it can allocate both memory and file descriptor)</li>
 </ul>
 </li>
+<li>
+<code>freopen</code> can be used to associate the standard streams (<code>stderr</code>, <code>stdin</code>, or <code>stdout</code>) with a file</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a code that opens the same file in an cycle (until <code>fopen()</code> fails) without calling <code>fclose()</code> on the handle. After how many iterations does it fail on your system ?</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/fopen-leak.c">fopen-leak.c</a></p>
