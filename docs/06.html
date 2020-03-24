@@ -311,19 +311,30 @@ option in order to reveal the problem</p>
 <li>
 <code>fopen</code> opens the file and returns opaque handle (pointer)
 <ul>
+<li>
+<code>NULL</code> pointer means error</li>
 <li>the <code>mode</code> argument controls the behavior: read, write, append</li>
 <li>write mode creates the file</li>
 </ul>
 </li>
 <li>
-<code>fclose</code> closes the handle.</li>
+<code>fclose</code> closes the handle
+<ul>
+<li>important to avoid resource leak (it can allocate both memory and file descriptor)</li>
 </ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a code that opens the same file in an cycle (until <code>fopen()</code> fails) without calling <code>fclose()</code> on the handle. After how many iterations does it fail on your system ?</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/fopen-leak.c">fopen-leak.c</a></p>
 <h1>
 <a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h1>
 <ul>
-<li><code>fprintf</code></li>
-<li><code>fputs</code></li>
-<li><code>fputc</code></li>
+<li>
+<code>fprintf</code> - <code>printf</code> to a stream</li>
+<li>
+<code>fputs</code> - send string to a stream</li>
+<li>
+<code>fputc</code> - send <code>char</code> to a stream</li>
 <li><code>fread</code></li>
 <li><code>fwrite</code></li>
 </ul>
