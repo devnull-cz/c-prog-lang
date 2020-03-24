@@ -70,9 +70,9 @@ Task: write a program to print:
       - the address where it points to
       - the value of the pointed to variable
 
-Use the %p formatting for the first two.
+Use the `%p` formatting for the first two.
 
-Code: ptr-basics.c
+:eyes: Code: [ptr-basics.c](/src/ptr-basics.c)
 
 ## NULL pointer
 
@@ -95,7 +95,7 @@ Code: ptr-basics.c
 
 Task: create NULL pointer and try to read from it / write to it
 
-Code: null-ptr.c
+:eyes: Code: [null-ptr.c](/src/null-ptr.c)
 
 ## Basic operations
 
@@ -165,6 +165,6 @@ postfix mode, ie. the value of expression `p++` is `p`:
 # Home assignment
 
 Task: create pointer to int, print it, create new pointer that points to
-      p + 1. See what is the difference between the 2 pointers.
+      `p + 1`. See what is the difference between the 2 pointers.
 
 Code: [ptr-diff.c](/src/ptr-diff.c)
