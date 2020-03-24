@@ -455,58 +455,55 @@ constant</em> <a href="/modules/c99-standard.md">in the C spec</a>.</li>
     <span class="pl-c"><span class="pl-c">//</span> set value of the pointer (i.e. the address where it points to).</span>
     p = &amp;i;</pre></div>
 <ul>
-<li>
-<p>operator precedence gotcha:</p>
-<p>*p		// value of the pointed to variable
-*p + 1		// the value + 1
-*(p + 1)	// the value on the address + 1 (see below for what it
-// means)</p>
-</li>
-<li>
-<p>note that the &amp; reference operator is possible to use only on variables</p>
+<li>operator precedence gotcha:</li>
+</ul>
+<pre><code>	*p		// value of the pointed to variable
+	*p + 1		// the value + 1
+	*(p + 1)	// the value on the address + 1 (see below for what it
+			// means)
+</code></pre>
+<ul>
+<li>note that the &amp; reference operator is possible to use only on variables
 <ul>
 <li>thus this is invalid:</li>
 </ul>
 </li>
 </ul>
-<pre><code>p = &amp;(i + 1);
+<pre><code>	p = &amp;(i + 1);
 </code></pre>
 <ul>
-<li>
-<p>store value to the address pointed to by the pointer:</p>
-<p>*p = 1;</p>
-</li>
+<li>store value to the address pointed to by the pointer:</li>
 </ul>
+<pre><code>	*p = 1;
+</code></pre>
 <h2>
 <a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers:</h2>
 <ul>
-<li>
-<p>pointers can be moved forward and backward</p>
-<p>p = p + 1;
-p++;
-p--;</p>
-</li>
+<li>pointers can be moved forward and backward</li>
 </ul>
+<pre><code>	p = p + 1;
+	p++;
+	p--;
+</code></pre>
 <h2>
 <a id="user-content-operator-gotchas" class="anchor" href="#operator-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>operator gotchas</h2>
 <ul>
 <li>
-<p><code>*</code> has bigger precedence than <code>+</code> so:</p>
-<p>i = *p + 1;</p>
-</li>
+<code>*</code> has bigger precedence than <code>+</code> so:</li>
 </ul>
+<pre><code>	i = *p + 1;
+</code></pre>
 <p>is equal to</p>
-<pre><code>i = (*p) + 1;
+<pre><code>	i = (*p) + 1;
 </code></pre>
 <ul>
-<li>
-<p>postfix <code>++</code> has higher precedence than <code>*</code>:</p>
-<p>i = *p++;</p>
-</li>
+<li>postfix <code>++</code> has higher precedence than <code>*</code>:</li>
 </ul>
+<pre><code>	i = *p++;
+</code></pre>
 <p>is evaluated as <code>*(p++)</code> but it still does the following because <code>++</code> is used in
 postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</p>
-<pre><code>    i = *p; p++;
+<pre><code>        i = *p; p++;
 </code></pre>
 <ul>
 <li>the pointer is moved by the amount of underlying (domain) data type when using
