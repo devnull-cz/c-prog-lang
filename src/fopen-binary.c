@@ -20,7 +20,8 @@ main(int argc, char *argv[])
 	rewind(fp);
 	fread(in, sizeof (in[0]), sizeof (in) / sizeof (in[0]), fp);
 	for (int i = 0; i < sizeof (in) / sizeof (in[0]); i++)
-		printf("%d\n", in[i]);
+		fprintf(stderr, "%d\n", in[i]);
 
+	fclose(fp);
 	return (0);
 }
