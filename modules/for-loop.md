@@ -41,6 +41,7 @@ formally defined:
 :eyes: code: [for.c](/src/for.c)
 
 :wrench: task: compute minimum of averages of lines in 2-D integer array (of
-arbitrary dimensions) that have positive values.
+arbitrary dimensions) that have positive values (if there is negative value in given
+line, do not use the line for computation).
 
    :eyes: code: [2darray-min-avg.c](/src/2darray-min-avg.c)
