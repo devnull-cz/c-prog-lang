@@ -1,8 +1,8 @@
 # Array of characters
 
 An array of characters (`char`s) is called a *string* or a *string constant*.
-Do not confuse it with a *character constant* as in `'A'`.  A string is put in
-double quotes `""`.
+Do not confuse it with a *character constant* as in `'A'` (single quotes) that is actually `int`. 
+A string is put in double quotes `""`.
 
 So, `"hello, world"` as string.
 
