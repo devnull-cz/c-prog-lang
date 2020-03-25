@@ -108,7 +108,7 @@ per-char init and try to print the string ?</p>
 <a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h1>
 <ul>
 <li>
-<p>"xxx" is called a <em>string literal</em> or a <em>string constant</em></p>
+<p><code>"xxx"</code> is called a <em>string literal</em> or a <em>string constant</em></p>
 </li>
 <li>
 <p>in memory it is a consecutive piece of memory: <code>'x' 'x' 'x' '\0'</code></p>
@@ -129,7 +129,7 @@ be done also with a string literal:</p>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-c"><span class="pl-c">/*</span> sizeof (a) is 6 as the terminating 0 is counted in <span class="pl-c">*/</span></span>
 	<span class="pl-k">char</span> a[] = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
 <ul>
-<li>if {} is used, you must add the terminating zero yourself unless you use the
+<li>if <code>{}</code> is used for initialization, you must add the terminating zero yourself unless you use the
 size of the array and the string was shorter (in which case the rest would be
 initialized to zero):</li>
 </ul>
@@ -137,7 +137,7 @@ initialized to zero):</li>
 <p>Anyway, you would probably never do it this way.  Just use <code>= "hello"</code>.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/array-fill.c">array-fill.c</a></p>
 <ul>
-<li>string is printed via printf as <code>%s</code>
+<li>string is printed via <code>printf()</code> as <code>%s</code>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>);</pre></div>
