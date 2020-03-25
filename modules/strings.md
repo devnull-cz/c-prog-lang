@@ -38,7 +38,7 @@
 
 - experiment with what `%5s` and `%.5s` do (use any reasonable number)
 
-eyes: code: [string-format.c](/src/string-format.c)
+:eyes: code: [string-format.c](/src/string-format.c)
 
 # warmup
 
