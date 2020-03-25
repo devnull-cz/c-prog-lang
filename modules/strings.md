@@ -1,6 +1,6 @@
 # Strings
 
-- "xxx" is called a *string literal* or a *string constant*
+- `"xxx"` is called a *string literal* or a *string constant*
 
 - in memory it is a consecutive piece of memory: `'x' 'x' 'x' '\0'`
 
@@ -18,7 +18,7 @@
 	char a[] = "hello";
 ```
 
-- if {} is used, you must add the terminating zero yourself unless you use the
+- if `{}` is used for initialization, you must add the terminating zero yourself unless you use the
   size of the array and the string was shorter (in which case the rest would be
   initialized to zero):
 
@@ -30,7 +30,7 @@
 
   :eyes: code: [array-fill.c](/src/array-fill.c)
 
-- string is printed via printf as `%s`
+- string is printed via `printf()` as `%s`
 
 ```C
 	printf("%s\n", "hello, world");
