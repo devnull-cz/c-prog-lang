@@ -1,5 +1,7 @@
-NPRG066 Assignment - GNU tar compatible tar archiver
-====================================================
+# MFF UK NPRG066 (The C Programming Language) Assignment For Credits
+
+Tar: A GNU tar compatible tape archiver
+=======================================
 
 See http://mff.devnull.cz/c-prog-lang/ for general information on deadlines.
 
