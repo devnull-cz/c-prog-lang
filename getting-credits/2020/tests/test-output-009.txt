@@ -1,0 +1,2 @@
+mytar: nonexistent1: Not found in archive
+mytar: Exiting with failure status due to previous errors

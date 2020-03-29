@@ -1,0 +1,146 @@
+NPRG066 Assignment - GNU tar compatible tar archiver
+====================================================
+
+See http://mff.devnull.cz/c-prog-lang/ for general information on deadlines.
+
+Testing
+-------
+You must pass all the tests provided for either the first or both phases,
+depending on what phase implementation you are handing over.  To get started
+with testing, start with the following file:
+
+https://github.com/devnull-cz/c-prog-lang/tree/master/getting-credits/2020/tests/README
+
+Always use the latest version of the tests.
+
+Assignment submission
+---------------------
+
+To hand over your implementation, you must email us a link to an online
+repository (either git or mercurial) before the deadline.  For example, a
+repository on github.com.  We do not accept source code sent via email.
+
+While we assume you may have bugs in your code and those will be
+resolved via a subsequent discussion, the submitted code is expected to
+provide implementation of all the requested functionality below and will not be
+accepted if that is not the case.  The code will not be accepted if it does not
+fully pass the tests provided.  In other words, we will not accept partial
+implementations.
+
+General rules
+-------------
+You may not use code written by someone else.  No exceptions.
+
+Tar Specification
+-----------------
+The tar header is defined in the standard:
+
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html#tag_20_92_13_06
+
+You may also check out the GNU tar documentation:
+
+https://www.gnu.org/software/tar/manual/html_node/Standard.html
+https://www.gnu.org/software/tar/manual/html_section/tar_67.html
+
+Phase 1 Implementation
+----------------------
+Implement the -t and -f options.  The tar implementation must be able to list
+GNU tar archives created via the following invocation:
+
+	$ tar -f archive.tar -c <files>
+
+If unsure what is the correct behavior, check how GNU tar behaves.
+
+- Your implementation must be in one file only, called "mytar.c".  Do not create
+  C header files.  We plan to use software for detecting duplicates so having just
+  one file will make our life easier.
+
+- No warnings allowed with "gcc -Wall -Wextra".
+
+- C stdio file API must be used (it is part of the seminar classes) for
+  manipulating the files.  System calls for processing files is not accepted
+  (e.g. open(), read(), write(), ...).
+
+- The processing of command line arguments must be done manually.  Use of
+  getopt(3) is not allowed.
+
+- Invalid invocation prints some error message and fails (you may use your
+  wording for the messages).  Examples:
+
+	$ ./mytar
+	mytar: need at least one option
+	$ echo $?
+	2
+
+	$ ./mytar -f archive.tar -X
+	mytar: Unknown option: -X
+	$ echo $?
+	2
+
+  For all other error messages and warnings, you must follow the exact wording
+  (as we followed the wording from GNU tar).
+
+- You may assume files under 2Gb.  That is, no extended headers are used.
+
+- Assume only archives exclusively containing regular files.  That is, if you
+  hit any header aside from one for regular files, you report the wrong header
+  (you need to list any previous archived files if there are any) and exit:
+
+	$ ./mytar -f archive.tar -t
+	mytar: Unsupported header type: 53
+	$ echo $?
+	2
+
+- See the manual page for GNU tar regarding proper exit values.
+
+- Listing works as usual.
+
+	$ touch file1 file2 file3 file4
+	$ gnutar -f archive.tar -c file*
+	$ ./mytar -f archive.tar -t
+	file1
+	file2
+	file3
+	file4
+
+- You must support file arguments and only list those in the archive.  Note
+  that ordering of the arguments is not relevant and the listing follows
+  ordering in the archive.
+
+	$ ./mytar -f archive.tar -t file4 file1
+	file1
+	file4
+
+- Files not present in the archive are reported to stderr at the end:
+
+	$ ./mytar -f archive.tar -t file6 file4 file1 file5
+	file1
+	file4
+	mytar: file6: Not found in archive
+	mytar: file5: Not found in archive
+	mytar: Exiting with failure status due to previous errors
+	$ echo $?
+	2
+
+- Listing truncated archive (that is, there is not enough data for the listed
+  archived file size in the archive) reports an error.
+
+	$ ../../maitar -f partial.tar -t
+	aaa-file
+	maitar: Unexpected EOF in archive
+	maitar: Error is not recoverable: exiting now
+
+- A tar archive finishes with two zero blocks.  Missing both is silently
+  accepted but missing just one emits a warning (but the command still returns
+  0):
+
+	$ ../../maitar -f one-zero-block-missing.tar -t
+	aaa-file
+	maitar: A lone zero block at 4
+	$ echo $?
+	0
+
+Phase 2
+-------
+TBD yet.  Most probably it will cover the -x option, and possibly -c as well.
+Will be specified by the end of Apr.

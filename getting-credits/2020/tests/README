@@ -1,0 +1,157 @@
+# First, we assume you run the tests in a Unix/Linux environment.  If you do not
+# have such an environment, either figure it out or log in to a Linux machine at
+# the Mala Strana lab.  See http://mff.devnull.cz/c-prog-lang/ for more details.
+
+# Before running the tests via "./run-tests.sh", you need to set the "STEF"
+# variable in stef-config to the location of "stef.sh".  Get it here:
+# https://github.com/devnull-cz/stef
+#
+# For example:
+export STEF="/Volumes/repos/stef/stef.sh"
+
+# Then, you need to set the following two variables to the right values either
+# in "test-config.local" or just export them in the same shell before executing
+# "./run-tests.sh".  The test suite will build mytar itself using the MYTAR_C
+# variable value.
+#
+# On Linux distros, GNU tar is just /bin/tar.
+#
+# On macOS, /bin/tar is NOT a GNU tar.  With the MacPorts collection, GNUTAR
+# should be set to /opt/local/bin/gnutar.
+#
+# Example:
+export GNUTAR="$(which gnutar)"
+export MYTAR_C="/Volumes/repos/mytar/mytar.c"
+
+# In order to verify your testing environment is set up correctly, set MYGNUTAR
+# to the system GNU tar.  See the example output below for more information.
+export MYGNUTAR="$(which gnutar)"
+
+# Phase 1
+./run-tests.sh $(cat phase-1.tests)
+# Phase 2
+./run-tests.sh
+
+# Example output to verify the testing environment with GNU tar.  You still need
+# to set both GNUTAR.  However, you also need to set STEF_REGFILE_LOCAL_VARS to
+# a value of " " as otherwise the test would require an existing file in the
+# MYTAR_C variable.
+#
+# == 8< ==
+$ export STEF="/Volumes/repos/stef/stef.sh"
+$ export GNUTAR="$(which gnutar)"
+$ export STEF_REGFILE_LOCAL_VARS=" "
+$ export MYGNUTAR="$(which gnutar)"
+$ ./run-tests.sh $(cat phase-1.tests)
+=== [ NPRG099 Tar Unit Tests ] ===
+Checking configuration sanity.
+Checking existence of executables provided by the following variables: GCC GNUTAR
+Checking existence of regular files provided by the following variables: MYTAR_C
+
+--- [ Configuration Start ] ---
+WARNING: Using '/opt/local/bin/gnutar' as the GNU tar testing binary.
+Created temporary directory 'dir.24X7F'.
+Creating files:
+  aaa-file
+  file1.random
+  empty.data
+  file.zero
+  hello-world
+  small-file
+  file2.zero
+  file3.zero
+  another-file2
+Creating a GNU tar archive 'archive.tar'.
+Creating 'partial.tar' truncated in the middle of an archived file.
+Creating archives with missing ending zero block(s):
+  one-zero-block-missing.tar
+  two-zero-blocks-missing.tar
+--- [ Configuration End ] ---
+
+---[ Running tests ] ---
+  001	PASS
+  002	PASS
+  003	PASS
+  004	PASS
+  005	PASS
+  006	PASS
+  007	PASS
+  008	PASS
+  011	PASS
+  012	PASS
+  013	PASS
+  014	PASS
+  015	PASS
+  016	PASS
+---[ Tests finished ] ---
+
+--- [ Unconfiguration Start ] ---
+Skipping unconfiguration (STEF_UNCONFIGURE_NEVER).
+--- [ Unconfiguration End ] ---
+
+=== [ NPRG099 Tar Unit Tests Results ] ===
+All tests passed.
+# == 8< ==
+
+# After, you can start testing your implementation.  If you do it right after
+# running the tests with the GNU tar binary, you need to unset some of those
+# variables.  You must see the "Building the 'mytar' binary" output.
+
+# == 8< ==
+$ unset STEF_REGFILE_LOCAL_VARS
+$ unset MYGNUTAR
+$ export STEF="/Volumes/repos/stef/stef.sh"
+$ export MYTAR_C="/Volumes/repos/mytar/mytar.c"
+$ export GNUTAR="$(which gnutar)"
+$ ./run-tests.sh $(cat phase-1.tests)
+=== [ NPRG099 Tar Unit Tests ] ===
+Checking configuration sanity.
+Checking existence of executables provided by the following variables: GCC GNUTAR
+Checking existence of regular files provided by the following variables: MYTAR_C
+
+--- [ Configuration Start ] ---
+Checking 'mytar.c' existence.
+Removing old '/Volumes/repos/mytar/tests/mytar' binary.
+Building the 'mytar' binary (/Volumes/repos/mytar/tests/mytar).
+Created temporary directory 'dir.ZE95a'.
+Creating files:
+  aaa-file
+  file1.random
+  empty.data
+  file.zero
+  hello-world
+  small-file
+  file2.zero
+  file3.zero
+  another-file2
+Creating a GNU tar archive 'archive.tar'.
+Creating 'partial.tar' truncated in the middle of an archived file.
+Creating archives with missing ending zero block(s):
+  one-zero-block-missing.tar
+  two-zero-blocks-missing.tar
+--- [ Configuration End ] ---
+
+---[ Running tests ] ---
+  001	PASS
+  002	PASS
+  003	PASS
+  004	PASS
+  005	PASS
+  006	PASS
+  007	PASS
+  008	PASS
+  011	PASS
+  012	PASS
+  013	PASS
+  014	PASS
+  015	PASS
+  016	PASS
+---[ Tests finished ] ---
+
+--- [ Unconfiguration Start ] ---
+Skipping unconfiguration (STEF_UNCONFIGURE_NEVER).
+--- [ Unconfiguration End ] ---
+
+=== [ NPRG099 Tar Unit Tests Results ] ===
+All tests passed.
+# == 8< ==
