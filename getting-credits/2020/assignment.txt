@@ -7,7 +7,7 @@ Testing
 -------
 You must pass all the tests provided for either the first or both phases,
 depending on what phase implementation you are handing over.  To get started
-with testing, start with the following file:
+with testing, see the following file:
 
 https://github.com/devnull-cz/c-prog-lang/tree/master/getting-credits/2020/tests/README
 
@@ -15,7 +15,6 @@ Always use the latest version of the tests.
 
 Assignment submission
 ---------------------
-
 To hand over your implementation, you must email us a link to an online
 repository (either git or mercurial) before the deadline.  For example, a
 repository on github.com.  We do not accept source code sent via email.
