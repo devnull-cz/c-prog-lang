@@ -13,8 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Git identity setup
-      run: ./master/dev/gitconfig.sh
     - name: Checkout master branch
       uses: actions/checkout@v2
       with:
@@ -41,6 +39,8 @@ jobs:
       run: npm install markdown-include
     - name: Install grip
       run: pip install grip
+    - name: Git identity setup
+      run: ./master/dev/gitconfig.sh
     - name: Expand MarkDown files
       run: ./master/dev/expand.sh
     - name: Push Markdown files
