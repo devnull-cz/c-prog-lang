@@ -105,7 +105,7 @@ byte.  So, you could just use <code>0</code>, like this, but it is not generally
 per-char init and try to print the string ?</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/array-char-nozero.c">array-char-nozero.c</a></p>
 <h1>
-<a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h1>
+<a id="user-content-strings-and-string-literals" class="anchor" href="#strings-and-string-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings and String Literals</h1>
 <ul>
 <li>
 <p><code>"xxx"</code> is called a <em>string literal</em> or a <em>string constant</em></p>
@@ -114,45 +114,72 @@ per-char init and try to print the string ?</p>
 <p>in lays in a consecutive piece of memory: <code>'x' 'x' 'x' '\0'</code></p>
 </li>
 <li>
-<p><code>'\0'</code> terminates the string.  That's the C convention.</p>
+<p><code>'\0'</code> terminates the string literal.  That's the C convention.</p>
 </li>
 <li>
-<p><code>'\0'</code> is called a <code>NUL</code> character.  It's just a 0 byte but the convention is
-to use <code>'\0'</code> if it represents a string element.  <code>'\0'</code> is just a special
-case of octal representation <code>'\0ooo'</code> where 'o' is an octal figure (0-7).</p>
+<p>a string literal internally initializes an array of characters from the
+string, with a <code>NUL</code> character appended.</p>
+</li>
+<li>
+<p>a <em>string</em> is a contiguous sequence of characters terminated by and including
+the first <code>NUL</code> character</p>
+<ul>
+<li>so, a string literal may include multiple <code>NUL</code> characters, thus defining
+multiple strings.  In other words, a <em>string literal</em> and a <em>string</em> are two
+different things.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-k">char</span> s[] = <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-cce">\0</span>, I arrived.<span class="pl-pds">"</span></span>;
+
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, s);
+}</pre></div>
+<pre><code>$ gcc -Wall -Wextra main.c
+$ ./a.out
+hello, world
+</code></pre>
+<ul>
+<li>
+<p><code>'\0'</code> is called a <code>NUL</code> character.  It's just a zero value byte but the
+convention is to use <code>'\0'</code> if it represents a string element.  <code>'\0'</code> is just
+a special case of octal representation <code>'\0ooo'</code> where 'o' is an octal figure
+(0-7).</p>
 </li>
 <li>
 <p>aside from the <code>{ 'x', ... }</code> initializer, character array initialization may
 be done also with a string literal:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-c"><span class="pl-c">/*</span> sizeof (a) is 6 as the terminating 0 is counted in <span class="pl-c">*/</span></span>
-	<span class="pl-k">char</span> a[] = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> sizeof (a) is 6 as the terminating 0 is counted in <span class="pl-c">*/</span></span>
+<span class="pl-k">char</span> a[] = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
 <ul>
 <li>if <code>{}</code> is used for the initialization, you must add the terminating zero
 yourself unless you use the size of the array and the string was shorter (in
 which case the rest would be initialized to zero as usual):</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
 <p>Anyway, you would probably never do it this way.  Just use <code>= "hello"</code>.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/array-fill.c">array-fill.c</a></p>
 <ul>
 <li>string is printed via <code>printf()</code> as <code>%s</code>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>);</pre></div>
 <ul>
 <li>experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/string-format.c">string-format.c</a></p>
 <h1>
-<a id="user-content-warmup" class="anchor" href="#warmup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>warmup</h1>
+<a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task:</p>
 <ul>
 <li>extend the program <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/tr-d-chars.c">tr-d-chars.c</a> from last time to
 translate character input, e.g.</li>
 </ul>
-<pre><code>    tail /etc/passwd | tr 'abcdefgh' '123#'
+<pre><code>tail /etc/passwd | tr 'abcdefgh' '123#'
 </code></pre>
 <ul>
 <li>use character arrays defined with string literals to represent the 2 strings
