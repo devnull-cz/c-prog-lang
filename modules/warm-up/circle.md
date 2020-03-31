@@ -89,4 +89,5 @@ $ ./a.out
             *
 ```
 
-:eyes: [circle.c](/src/circle.c)
+:eyes:
+[circle.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/circle.c)
