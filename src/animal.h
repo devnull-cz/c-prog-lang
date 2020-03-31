@@ -4,6 +4,10 @@
 #include <stddef.h>	// for size_t
 #include <limits.h>
 
+#ifndef NAME_MAX
+#define	NAME_MAX	PATH_MAX
+#endif
+
 struct animal {
 	char name[NAME_MAX]; // filename should be sufficient even
                                 // for these long Latin names
