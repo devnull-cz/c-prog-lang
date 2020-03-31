@@ -12,7 +12,7 @@ git add -f *.md
 
 if [[ -n $( git status -s . ) ]]; then
 	git commit -m "Latest update of lecture notes"
-	git push -fq
+	git push
 	echo "Published latest lecture notes."
 else
 	echo "Nothing to publish"
