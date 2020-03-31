@@ -3,7 +3,7 @@
 We already went through [basics on strings and string
 literals](/modules/strings.md).
 
-So, given that a string constant is internally used to initialize an array of
+Given that a string constant is internally used to initialize an array of
 `char`s, and an array name represents its first element memory address, the
 value of a string is an adress of its first character.
 
