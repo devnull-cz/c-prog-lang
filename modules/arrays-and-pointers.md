@@ -28,7 +28,7 @@ int *p = a;
 printf("%d\n", *(p + 2));       // will print 2
 ```
 
-[ptr-inc.c](/src/ptr-inc.c)
+:eyes: [ptr-inc.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-inc.c)
 
 heavy\_exclamation\_mark: While you can work with arrays and pointers together,
 **arrays are not pointers** and **pointers are not arrays**.  To work with a
@@ -67,4 +67,4 @@ not fit the way C works with arrays.
 100000fa6:      c7 45 fc 0f 00 00 00    movl    $15, -4(%rbp)
 ```
 
-[arrays-are-not-vars.c](/src/array-var-not-modifiable.c)
+:eyes: [arrays-are-not-vars.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-var-not-modifiable.c)

@@ -12,10 +12,12 @@ char *s = "hello"
 s[0] = 'H';
 ```
 
-Take [implement-function.c](/src/implement-function.c) and implement the
-function, see the comment inside.
+Take
+[implement-function.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/implement-function.c)
+and implement the function, see the comment inside.
 
 Verify the code prints exactly what it says in the comments.  `gcc -Wall -Wextra
 implement-function.c` **must** be clear of any warnings.
 
-Solution: [implement-function-solution.c](/src/implement-function-solution.c)
+Solution:
+[implement-function-solution.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/implement-function-solution.c)
