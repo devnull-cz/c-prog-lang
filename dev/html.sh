@@ -1,8 +1,6 @@
 #!/bin/bash
 #
-# Generate HTML pages from Markdown files in lecture-notes.
-#
-# NOTE: This depends on running ./dev/pages.sh.
+# Generate HTML pages from Markdown files in the lecture notes branch.
 #
 
 set -e
@@ -20,14 +18,20 @@ fi
 git config --global user.email "vlada@devnull.cz"
 git config --global user.name "vladak"
 
-lecture_dir=lecture-notes
-cd repo
-repodir=$PWD
-cd $lecture_dir/$YEAR
+lecture_dirname=lecture-notes
+cd ssh_repo	# created in dev/pages.sh
+git checkout notes
 
 # Convert Markdown to HTML.
 for mdfile in *.md; do
 	grip --pass "$GH_PAGES_TOKEN" --export "$mdfile"
+done
+
+# Fix links to /src
+SRCLINK="https://github.com/devnull-cz/c-prog-lang/tree/master/src/"
+srclink_escaped=$( echo -n $SRCLINK | sed 's/\//\\\//g' )
+for htmlfile in [0-9]*.html; do
+	sed -i -e "s/\/src\//$srclink_escaped/g" "$htmlfile"
 done
 
 # Construct index page.
@@ -40,15 +44,13 @@ done
 echo "</ul>" >> index.html
 echo "</body></html>" >> index.html
 
-# Fix links to /src
-SRCLINK="https://github.com/devnull-cz/c-prog-lang/tree/master/src/"
-srclink_escaped=$( echo -n $SRCLINK | sed 's/\//\\\//g' )
-for htmlfile in [0-9]*.html; do
-	sed -i -e "s/\/src\//$srclink_escaped/g" "$htmlfile"
-done
+# Move generated files to temporary directory.
+HTML_TMP_DIR="/tmp/html"
+mkdir "$HTML_TMP_DIR"
+mv *.html "$HTML_TMP_DIR"
 
-mv *.html $repodir/docs
-cd $repodir/docs
+git checkout docs
+mv "$HTML_TMP_DIR"/*.html .
 git add -f *.html
 if [[ -n $( git status -s . ) ]]; then
 	git commit -m "Refresh HTML pages"

@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Add Markdown files expanded by expand.sh into the lecture notes branch.
+#
 
 set -e
 set -x
@@ -11,29 +14,28 @@ fi
 git config --global user.email "vlada@devnull.cz"
 git config --global user.name "vladak"
 
+#
 # The workflow clones the repository (in detached HEAD state) however
 # with different method. This makes it easy to just push at the end.
-repo_name=repo
+#
+src_repo=$GITHUB_WORKSPACE/repo # configured in the Github checkout action
+dst_repo=ssh_repo
 git clone --quiet \
-    https://${GH_PAGES_TOKEN}@github.com/devnull-cz/c-prog-lang "$repo_name"
+    https://${GH_PAGES_TOKEN}@github.com/devnull-cz/c-prog-lang "$dst_repo"
+cd "$dst_repo"
+git checkout notes
 
-lecture_dir=lecture-notes
-for year in `ls -1 $lecture_dir`; do
-	if [[ ! -d $lecture_dir/$year ]]; then
-		continue
-	fi
+lecture_dirname=lecture-notes # where the Markdown files are generated
+if [[ ! -d $lecture_dirname ]]; then
+	mkdir "$lecture_dirname"
+fi
+cp "$src_repo/$lecture_dirname/"*.md "$dst_repo"
+git add -f *.md
 
-	echo "Processing year $year"
-	cp "$lecture_dir/$year/"*.md "$repo_name/$lecture_dir/$year/"
-	cd "$repo_name"
-	git add -f "$lecture_dir/$year/"*.md
-	cd -
-done
-
-if [[ -n $( git status -s $lecture_dir ) ]]; then
+if [[ -n $( git status -s . ) ]]; then
 	cd "$repo_name"
 	git commit -m "Latest update of lecture notes"
-	git push -fq origin master
+	git push -fq
 	echo "Published latest lecture notes."
 else
 	echo "Nothing to publish"
