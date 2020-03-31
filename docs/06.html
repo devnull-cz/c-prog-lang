@@ -401,19 +401,19 @@ size and print the numbers to the standard error output.</p>
 <p>pointer arithmetics</p>
 </li>
 <li>
-<p>the value stored in "pointer" variable is the address of the memory
-storing given type</p>
+<p>the value stored in "pointer" variable is the address of the memory storing
+given type</p>
 </li>
 <li>
 <p>declared like this, e.g.</p>
+</li>
+</ul>
 <p><code>int *p; // pointer to an int</code></p>
 <ul>
 <li>note on style:</li>
 </ul>
-</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>      <span class="pl-k">int</span> * p;
-      <span class="pl-k">int</span> *p;  <span class="pl-c"><span class="pl-c">//</span> preferred in this lecture</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> * p;
+<span class="pl-k">int</span> *p;  <span class="pl-c"><span class="pl-c">//</span> preferred in this lecture</span></pre></div>
 <ul>
 <li>
 <p>good practice is to prefix pointers with the 'p' letter</p>
@@ -425,16 +425,16 @@ storing given type</p>
 <p>to access the object the pointer points to, use a de-reference operator <code>*</code>:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, *p);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, *p);</pre></div>
 <ul>
 <li>the de-reference is also used to write value to the variable pointed:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	*p = <span class="pl-c1">5</span>;</pre></div>
+<div class="highlight highlight-source-c"><pre>*p = <span class="pl-c1">5</span>;</pre></div>
 <ul>
 <li>in a declaration, you may assign like this:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> i = <span class="pl-c1">5</span>;
-	<span class="pl-k">int</span> *p = &amp;i;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">5</span>;
+<span class="pl-k">int</span> *p = &amp;i;</pre></div>
 <ul>
 <li>
 <p>the <code>&amp;</code> is an <em>address-of</em> operator and gets the address of the variable.</p>
@@ -455,16 +455,16 @@ storing given type</p>
 </code></pre>
 <ul>
 <li>
-<p>the size of the pointer depends on architecture and the way the program
-was compiled (see <code>-m32</code> / <code>-m64</code> command line switches of gcc)</p>
-<ul>
+<p>the size of the pointer depends on architecture and the way the program was
+compiled (see <code>-m32</code> / <code>-m64</code> command line switches of gcc)</p>
+</li>
 <li>
-<code>sizeof (p)</code> will return the amount of memory to store the address of the
-object the pointer points to</li>
+<p><code>sizeof (p)</code> will return the amount of memory to store the address of the
+object the pointer points to</p>
+</li>
 <li>
-<code>sizeof (*p)</code> will return the amount needed to store the object the
-pointer points to</li>
-</ul>
+<p><code>sizeof (*p)</code> will return the amount needed to store the object the pointer
+points to</p>
 </li>
 </ul>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write a program to print:</p>
@@ -478,21 +478,18 @@ pointer points to</li>
 <h2>
 <a id="user-content-null-pointer" class="anchor" href="#null-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NULL pointer</h2>
 <ul>
-<li>
-<p>the real danger with pointers is that invalid access results in a crash (the
-program is terminated by kernel)</p>
+<li>the real danger with pointers is that invalid access results in a crash (the
+program is terminated by kernel)
 <ul>
 <li>this is because <code>NULL</code> address is left unmapped on purpose, or a page that
-cannot be accessed maps to the address.  Note that C guarantees that zero
-is never a valid address for data.</li>
+cannot be accessed maps to the address.  Note that C guarantees that zero is
+never a valid address for data.</li>
 </ul>
 </li>
-<li>
-<p>can assign a number directly to a pointer (that should trigger a warning
-though.  We will get to casting and how to fix that later).</p>
-</li>
+<li>can assign a number directly to a pointer (that should trigger a warning
+though.  We will get to casting and how to fix that later).</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> *p = <span class="pl-c1">0x1234</span>;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">0x1234</span>;</pre></div>
 <ul>
 <li>special pointer value, <code>NULL</code>, is defined and it is called <em>a null pointer
 constant</em> <a href="/modules/c99-standard.md">in the C spec</a>.</li>
@@ -504,21 +501,21 @@ constant</em> <a href="/modules/c99-standard.md">in the C spec</a>.</li>
 <ul>
 <li>notice the difference:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span> i;
-    <span class="pl-k">int</span> *p = &amp;i;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
+<span class="pl-k">int</span> *p = &amp;i;</pre></div>
 <p>vs.</p>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span> i;
-    <span class="pl-k">int</span> *p;
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
+<span class="pl-k">int</span> *p;
 
-    <span class="pl-c"><span class="pl-c">//</span> set value of the pointer (i.e. the address where it points to).</span>
-    p = &amp;i;</pre></div>
+<span class="pl-c"><span class="pl-c">//</span> set value of the pointer (i.e. the address where it points to).</span>
+p = &amp;i;</pre></div>
 <ul>
 <li>operator precedence gotcha:</li>
 </ul>
-<pre><code>	*p		// value of the pointed to variable
-	*p + 1		// the value + 1
-	*(p + 1)	// the value on the address + 1 (see below for what it
-			// means)
+<pre><code>*p		// value of the pointed to variable
+*p + 1		// the value + 1
+*(p + 1)	// the value on the address + 1 (see below for what it
+		// means)
 </code></pre>
 <ul>
 <li>note that the &amp; reference operator is possible to use only on variables
@@ -527,21 +524,21 @@ constant</em> <a href="/modules/c99-standard.md">in the C spec</a>.</li>
 </ul>
 </li>
 </ul>
-<pre><code>	p = &amp;(i + 1);
+<pre><code>p = &amp;(i + 1);
 </code></pre>
 <ul>
 <li>store value to the address pointed to by the pointer:</li>
 </ul>
-<pre><code>	*p = 1;
+<pre><code>*p = 1;
 </code></pre>
 <h2>
 <a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers:</h2>
 <ul>
 <li>pointers can be moved forward and backward</li>
 </ul>
-<pre><code>	p = p + 1;
-	p++;
-	p--;
+<pre><code>p = p + 1;
+p++;
+p--;
 </code></pre>
 <h2>
 <a id="user-content-operator-gotchas" class="anchor" href="#operator-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>operator gotchas</h2>
@@ -549,29 +546,33 @@ constant</em> <a href="/modules/c99-standard.md">in the C spec</a>.</li>
 <li>
 <code>*</code> has bigger precedence than <code>+</code> so:</li>
 </ul>
-<pre><code>	i = *p + 1;
+<pre><code>i = *p + 1;
 </code></pre>
 <p>is equal to</p>
-<pre><code>	i = (*p) + 1;
+<pre><code>i = (*p) + 1;
 </code></pre>
 <ul>
 <li>postfix <code>++</code> has higher precedence than <code>*</code>:</li>
 </ul>
-<pre><code>	i = *p++;
+<pre><code>i = *p++;
 </code></pre>
 <p>is evaluated as <code>*(p++)</code> but it still does the following because <code>++</code> is used in
 postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</p>
-<pre><code>        i = *p; p++;
+<pre><code>i = *p; p++;
 </code></pre>
 <ul>
 <li>the pointer is moved by the amount of underlying (domain) data type when using
 arithmetics</li>
 </ul>
 <h1>
-<a id="user-content-home-assignment" class="anchor" href="#home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Home assignment</h1>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: create pointer to <code>int</code>, print it, create new pointer that points
-to <code>p + 1</code>. See what is the difference between the 2 pointers.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> Code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-diff.c">ptr-diff.c</a></p>
+<a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
+<p>Note that home assignments are entirely voluntary but writing code is the only
+way to learn a programming language.</p>
+<h2>
+<a id="user-content-pointer-difference" class="anchor" href="#pointer-difference" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer difference</h2>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: create a pointer to an <code>int</code>, print it out, create a new pointer
+that points to <code>p + 1</code>. See what is the difference between the 2 pointers.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-diff.c">ptr-diff.c</a></p>
 
               </article>
             </div>
