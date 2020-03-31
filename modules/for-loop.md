@@ -1,4 +1,4 @@
-# The "for" loop
+# The `for` loop
 
 Formally defined as:
 
