@@ -54,5 +54,5 @@ mv "$HTML_TMP_DIR"/*.html .
 git add -f *.html
 if [[ -n $( git status -s . ) ]]; then
 	git commit -m "Refresh HTML pages"
-	git push -fq origin master
+	git push -fq
 fi
