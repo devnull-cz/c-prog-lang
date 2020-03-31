@@ -174,45 +174,39 @@ soon, not needed now) which can be used inside the function with an array
 subscript.</li>
 </ul>
 <h1>
-<a id="user-content-the-for-loop" class="anchor" href="#the-for-loop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>the "for" loop</h1>
-<p>formally defined:</p>
-<pre><code>	for (&lt;init&gt;; &lt;predicate&gt;; &lt;update&gt;)
-		&lt;body&gt;
+<a id="user-content-the-for-loop" class="anchor" href="#the-for-loop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The "for" loop</h1>
+<p>Formally defined as:</p>
+<pre><code>for (&lt;init&gt;; &lt;predicate&gt;; &lt;update&gt;)
+	&lt;body&gt;
 </code></pre>
-<ul>
-<li>it is the same as:</li>
-</ul>
-<pre><code>	&lt;init&gt;
-	while (&lt;predicate&gt;) {
-		&lt;body&gt;
-		&lt;update&gt;
-	}
+<p>It is the same as:</p>
+<pre><code>&lt;init&gt;
+while (&lt;predicate&gt;) {
+	&lt;body&gt;
+	&lt;update&gt;
+}
 </code></pre>
-<ul>
-<li>Using the for loop is very often easier and more readable.</li>
-</ul>
+<p>Using the for loop is very often easier and more readable.</p>
 <p>Example:</p>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> i;
-	<span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i)
-		<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
+<span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i)
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
+<p>Or in C99:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i)
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
 <ul>
-<li>or in C99:</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i)
-		<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
-<ul>
-<li>if <code>break</code> jump statement happens in the body, the control is transferred to
-the end of the loop without executing the <code>&lt;update&gt;</code> part.</li>
-<li>with <code>continue</code> jump statement, the rest of the body is skipped.
-The <code>&lt;update&gt;</code> part is then performed for the <code>for</code> loop but not for the
-<code>while</code> loop.</li>
+<li>if the <code>break</code> jump statement happens in the body, the control is transferred
+to the end of the loop without executing the <code>&lt;update&gt;</code> part.</li>
+<li>with <code>continue</code> jump statement, the rest of the body is skipped.  The
+<code>&lt;update&gt;</code> part is then performed for the <code>for</code> loop but not for the <code>while</code>
+loop.</li>
 <li>both <code>break</code> and <code>continue</code> statements relate to the loop they are executed in</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/for.c">for.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/for.c">for.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: compute minimum of averages of lines in 2-D integer array (of
-arbitrary dimensions) that have positive values (if there is negative value in given
-line, do not use the line for computation).</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/2darray-min-avg.c">2darray-min-avg.c</a></p>
+arbitrary dimensions) that have positive values (if there is negative value in
+given line, do not use the line for computation).</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/2darray-min-avg.c">2darray-min-avg.c</a></p>
 <h1>
 <a id="user-content-expressions" class="anchor" href="#expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expressions</h1>
 <blockquote>
