@@ -40,8 +40,8 @@ jobs:
     - name: Install grip
       run: pip install grip
     - name: Expand MarkDown files
-      run: ./repo/dev/expand.sh
+      run: ./master/dev/expand.sh
     - name: Push Markdown files
-      run: ./repo/dev/pages.sh
+      run: ./master/dev/pages.sh
     - name: Generate and push HTML files
-      run: ./repo/dev/html.sh
+      run: ./master/dev/html.sh

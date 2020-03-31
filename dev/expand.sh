@@ -19,7 +19,7 @@ else
 	exit 1
 fi
 
-cd repo
+cd master
 for jsonfile in input/$YEAR/*.json; do
 	$cli "$jsonfile"
 done

@@ -6,8 +6,7 @@
 set -e
 set -x
 
-cd repo
-git checkout gh-pages
+cd gh-pages
 
 # Convert Markdown to HTML.
 cd /tmp/notes	# created in expand.sh

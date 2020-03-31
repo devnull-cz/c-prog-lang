@@ -9,8 +9,7 @@ set -x
 git config --global user.email "vlada@devnull.cz"
 git config --global user.name "Vladimir Kotal"
 
-cd repo
-git checkout notes
+cd notes
 cp /tmp/notes/*.md .
 git add -f *.md
 
