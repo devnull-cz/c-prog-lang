@@ -40,6 +40,13 @@ done
 echo "</ul>" >> index.html
 echo "</body></html>" >> index.html
 
+# Fix links to /src
+SRCLINK="https://github.com/devnull-cz/c-prog-lang/tree/master/src/"
+srclink_escaped=$( echo -n $SRCLINK | sed 's/\//\\\//g' )
+for htmlfile in [0-9]*.html; do
+	sed -i -e "s/\/src\//$srclink_escaped/g" "$htmlfile"
+done
+
 mv *.html $repodir/docs
 cd $repodir/docs
 git add -f *.html
