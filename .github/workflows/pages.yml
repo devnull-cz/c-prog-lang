@@ -28,12 +28,12 @@ jobs:
     - name: Install pre-requisites
       run: npm install markdown-include
     - name: Expand MarkDown files
-      run: ./dev/expand.sh
+      run: ./repo/dev/expand.sh
     - name: Push Markdown files
       env:
         GH_PAGES_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
-      run: ./dev/pages.sh
+      run: ./repo/dev/pages.sh
     - name: Generate and push HTML files
       env:
         GH_PAGES_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
-      run: ./dev/html.sh
+      run: ./repo/dev/html.sh
