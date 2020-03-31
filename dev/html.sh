@@ -36,5 +36,5 @@ mv /tmp/notes/*.html .
 git add -f *.html
 if [[ -n $( git status -s . ) ]]; then
 	git commit -m "Refresh HTML pages"
-	git push -fq
+	git push
 fi
