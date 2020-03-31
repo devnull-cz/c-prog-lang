@@ -111,7 +111,7 @@ per-char init and try to print the string ?</p>
 <p><code>"xxx"</code> is called a <em>string literal</em> or a <em>string constant</em></p>
 </li>
 <li>
-<p>in memory it is a consecutive piece of memory: <code>'x' 'x' 'x' '\0'</code></p>
+<p>in lays in a consecutive piece of memory: <code>'x' 'x' 'x' '\0'</code></p>
 </li>
 <li>
 <p><code>'\0'</code> terminates the string.  That's the C convention.</p>
@@ -129,9 +129,9 @@ be done also with a string literal:</p>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-c"><span class="pl-c">/*</span> sizeof (a) is 6 as the terminating 0 is counted in <span class="pl-c">*/</span></span>
 	<span class="pl-k">char</span> a[] = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
 <ul>
-<li>if <code>{}</code> is used for initialization, you must add the terminating zero yourself unless you use the
-size of the array and the string was shorter (in which case the rest would be
-initialized to zero):</li>
+<li>if <code>{}</code> is used for the initialization, you must add the terminating zero
+yourself unless you use the size of the array and the string was shorter (in
+which case the rest would be initialized to zero as usual):</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
 <p>Anyway, you would probably never do it this way.  Just use <code>= "hello"</code>.</p>
@@ -167,11 +167,11 @@ than the 2nd
 </li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/tr.c">tr.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task (bonus): refactor the code into function</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task (bonus): refactor the code into a function(s)</p>
 <ul>
-<li>remember that arrays are passed into function as a pointer (to
-be explained soon, not needed now) that can be used inside the
-function with array subscript</li>
+<li>remember that arrays are passed into a function as a pointer (to be explained
+soon, not needed now) which can be used inside the function with an array
+subscript.</li>
 </ul>
 <h1>
 <a id="user-content-the-for-loop" class="anchor" href="#the-for-loop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>the "for" loop</h1>
