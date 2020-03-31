@@ -7,7 +7,7 @@ on:
     - modules/*
     - input/*/*
     - lecture-notes/*/*
-    - .github/workflows/*
+    - .github/workflows/pages.yml
     - dev/*
 jobs:
   build:
