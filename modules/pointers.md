@@ -47,11 +47,12 @@ int *p = &i;
 - the pointer itself is obviously stored in memory too
 
 ```
+     p
      +---------------+
      |     addr2     |
-     +---------------+
+     +---------------+        i
      ^                        +-------+
-     |                        | value |
+     |                        | 5     |
    addr1                      +-------+
                               ^
                               |
