@@ -20,6 +20,7 @@ if [[ ! -d $lecture_dirname ]]; then
 fi
 
 year=$( ls -1 input | sort -n | tail -1 )
+echo "Expanding files for year $year"
 for jsonfile in input/$year/*.json; do
 	$cli "$jsonfile"
 done
