@@ -1,17 +1,25 @@
 # Arrays and pointers
 
-In C, there is a strong relationship between arrays and pointers.
+In C, there is a strong relationship between arrays and pointers.  Most of the
+time, you can use array notation with pointers, and pointer notation with
+arrays.
 
 By definition, the value of a variable or an expression of type array is the
 address of an element zero of the array.
 
 ```
+int *pa;
+int a[4] = { 1, 2, 3, 4 };
+
 pa = &a[0];     // [] is of higher precedence than &
 pa = a;         // this gets the same result as above
+
+p[0] = 3;	// the array is now { 3, 2, 3, 4 }
+*(a + 1) = 5;	// the array is now { 3, 5, 3, 4 }
 ```
 
-heavy\_exclamation\_mark: Incrementing a pointer increments the value **by the
-size of the object the pointer points to**.  Ie.
+heavy\_exclamation\_mark: As you can see, incrementing a pointer increments the
+value **by the size of the object the pointer points to**.  Another example:
 
 ```
 int a[] = { 0, 1, 2 };
@@ -22,7 +30,13 @@ printf("%d\n", *(p + 2));       // will print 2
 
 [ptr-inc.c](/src/ptr-inc.c)
 
-## Arrays are not variables though
+heavy\_exclamation\_mark: While you can work with arrays and pointers together,
+**arrays are not pointers** and **pointers are not arrays**.  To work with a
+pointer, the generated code must first get the value of the pointer variable,
+then work with it.  With arrays, the generated code directly works with the
+memory address the array starts at.  See below.
+
+## Array variables are not modifiable
 
 You cannot do the following:
 
@@ -53,4 +67,4 @@ not fit the way C works with arrays.
 100000fa6:      c7 45 fc 0f 00 00 00    movl    $15, -4(%rbp)
 ```
 
-[arrays-are-not-vars.c](/src/array-var-not-modifieable.c)
+[arrays-are-not-vars.c](/src/array-var-not-modifiable.c)
