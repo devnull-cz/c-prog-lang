@@ -157,6 +157,28 @@ function code, ie:</p>
             *
 </code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/circle.c">circle.c</a></p>
+<h1>
+<a id="user-content-pointer-size" class="anchor" href="#pointer-size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer size</h1>
+<pre><code>int *p;
+</code></pre>
+<p><code>sizeof (p)</code> is an <strong>address size</strong>, in our case either 32 or 64 bits depending
+on how your code was compiled.</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-k">int</span> *p;
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (p));
+}</pre></div>
+<pre><code>$ cc main.c
+$ file a.out
+a.out: Mach-O 64-bit executable x86_64
+$ ./a.out
+8
+</code></pre>
+<p>The <code>sizeof (*p)</code> is equivalent to <code>sizeof (int)</code> (as that is what the type of
+<code>*p</code> is).</p>
 
               </article>
             </div>
