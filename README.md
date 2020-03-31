@@ -1,2 +1,3 @@
 # c-prog-lang
-Programming in the C language
+
+Github pages
