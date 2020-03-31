@@ -4,6 +4,7 @@ YEAR=2020
 
 # Expand markdown files (particularly includes)
 
+cd repo
 if [[ -x ./node_modules/markdown-include/bin/cli.js ]]; then
 	cli=./node_modules/markdown-include/bin/cli.js
 elif [[ -x ~/node_modules/markdown-include/bin/cli.js ]]; then
