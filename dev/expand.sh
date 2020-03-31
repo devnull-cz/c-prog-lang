@@ -3,8 +3,6 @@
 # Expand markdown files (particularly includes)
 #
 
-YEAR=2020
-
 if [[ -x ./node_modules/markdown-include/bin/cli.js ]]; then
 	cli=$PWD/node_modules/markdown-include/bin/cli.js
 elif [[ -x ~/node_modules/markdown-include/bin/cli.js ]]; then
@@ -21,7 +19,8 @@ if [[ ! -d $lecture_dirname ]]; then
 	mkdir "$lecture_dirname"
 fi
 
-for jsonfile in input/$YEAR/*.json; do
+year=$( ls -1 input | sort -n | tail -1 )
+for jsonfile in input/$year/*.json; do
 	$cli "$jsonfile"
 done
 
