@@ -104,9 +104,9 @@ that is the same type as the operator <code>sizeof</code> uses.  So, remember to
 <h2>
 <a id="user-content-variable-length-array-vla" class="anchor" href="#variable-length-array-vla" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variable length array (VLA)</h2>
 <ul>
-<li>automatically allocated based on a variable value.  Only for local
-variables, not globals. Same warning applies w.r.t. array size and stack
-growth as with fixed width arrays.</li>
+<li>automatically allocated based on a variable value.  Only for local variables,
+not globals. Same warning applies w.r.t. array size and stack growth as with
+fixed width arrays.</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">void</span> <span class="pl-en">fn</span>(<span class="pl-k">int</span> n, <span class="pl-k">int</span> m)
 	{
@@ -119,24 +119,23 @@ growth as with fixed width arrays.</li>
 </li>
 <li>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji> note that it generates more code which might be
-avoided with a choosing a reasonable constant, if possible.  Also see <a href="https://lkml.org/lkml/2018/3/7/621" rel="nofollow">a
-rant from Linus</a>.</p>
+avoided with a choosing a reasonable constant, if possible.  Also see <a href="https://lkml.org/lkml/2018/3/7/621" rel="nofollow">a rant
+from Linus</a>.</p>
 </li>
 </ul>
 <h2>
 <a id="user-content-kr" class="anchor" href="#kr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>K&amp;R</h2>
-<p>history: you may still see in very old code: K&amp;R definition with
-types of arguments on separate line(s):</p>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span>
-    <span class="pl-en">foo</span>(a, b)
-    int a; <span class="pl-k">int</span> b;
-    {
-	      <span class="pl-c"><span class="pl-c">/*</span> body <span class="pl-c">*/</span></span>
-    }</pre></div>
-<p>some compilers have dropped the support for K&amp;R definitions or will drop
-soon</p>
+<p>history: you may still see in very old code: K&amp;R definition with types of
+arguments on separate line(s):</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">foo</span>(a, b)
+int a; <span class="pl-k">int</span> b;
+{
+      <span class="pl-c"><span class="pl-c">/*</span> body <span class="pl-c">*/</span></span>
+}</pre></div>
+<p>Some compilers have dropped the support for K&amp;R definitions or will drop soon.</p>
 <h2>
-<a id="user-content-variable-shadowing" class="anchor" href="#variable-shadowing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variable shadowing</h2>
+<a id="user-content-variable-shadowing" class="anchor" href="#variable-shadowing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variable shadowing</h2>
 <ul>
 <li>
 <p>every identifier has its <em>scope</em></p>
@@ -146,16 +145,15 @@ soon</p>
 used.</p>
 </li>
 <li>
-<p>for example, we can declare a variable <code>int i</code> in the <code>main</code> function, and
-as well as in another function.  Those two variables reference different
-storage.</p>
+<p>for example, we can declare a variable <code>int i</code> in the <code>main</code> function, and as
+well as in another function.  Those two variables reference different storage.</p>
 </li>
 <li>
 <p>for now, we only care about two types of scope - a file, and a block.</p>
 </li>
 <li>
-<p>when declaring a variable within the outer block of the function, its scope
-is from the variable declaration to the end of the function block.</p>
+<p>when declaring a variable within the outer block of the function, its scope is
+from the variable declaration to the end of the function block.</p>
 </li>
 <li>
 <p>note that a block is used in multiple constructs in C, e.g. <code>while</code>, <code>for</code>,
@@ -166,7 +164,7 @@ etc.</p>
 </li>
 </ul>
 <h2>
-<a id="user-content-variable-number-of-arguments" class="anchor" href="#variable-number-of-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variable number of arguments</h2>
+<a id="user-content-variable-number-of-arguments" class="anchor" href="#variable-number-of-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variable number of arguments</h2>
 <ul>
 <li>functions can have variable number of arguments of different types (more on
 that later)
@@ -176,22 +174,21 @@ that later)
 </ul>
 </li>
 </ul>
-<pre><code>    void func(fmt, ...);
+<pre><code>void func(fmt, ...);
 </code></pre>
 <ul>
 <li>the first argument usually describes the rest of arguments in some way
 <ul>
-<li>usually it is a format string.  It could possibly be an argument
-count if they were of the same type however in that case they
-would probably be passed as an pointer (we will get to pointers
-in a later class).</li>
+<li>usually it is a format string.  It could possibly be an argument count if
+they were of the same type however in that case they would probably be
+passed as an pointer (we will get to pointers in a later class).</li>
 </ul>
 </li>
 </ul>
 <h2>
 <a id="user-content-function-is-not-object" class="anchor" href="#function-is-not-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function is not object</h2>
 <p>Like an array, function is not a first class object (i.e. no "functor" like in
-functional languages)</p>
+functional languages).</p>
 <ul>
 <li>that said, there are pointers to functions (more on these later)</li>
 </ul>
