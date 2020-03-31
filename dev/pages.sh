@@ -7,6 +7,7 @@ set -e
 set -x
 
 cd notes
+git checkout notes
 cp /tmp/notes/*.md .
 git add -f *.md
 
