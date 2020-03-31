@@ -113,10 +113,15 @@ test other sizes.  This is for 12, for example:</p>
 <ul>
 <li>the easiest way is to use a two-dimensional array and go through the <code>x</code> axis
 and fill the corresponding <code>y</code> value before printing out the array line by
-line.</li>
-<li>you could do it line by line, that is, figure out what to print on each line.
-You do not need a two-dimensional array then, and speaking of which, not even
-an array at all.</li>
+line.
+<ul>
+<li>to print the array, instead of printing it a character by character, we can
+also use array lines as strings if we terminate each line first with a <code>\0</code>.</li>
+</ul>
+</li>
+<li>you could print the output line by line, that is, figure out what to print on
+each line.  You do not need a two-dimensional array then, and speaking of
+which, not even an array at all.</li>
 </ul>
 <p>You can find the <code>sqrt()</code> function declaration in <code>&lt;math.h&gt;</code>.</p>
 <p>On Linux, you will need to link with the math library to get the <code>sqrt()</code>
