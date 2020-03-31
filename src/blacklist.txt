@@ -51,3 +51,4 @@ wrong-modifier.c
 ptr-cast.c
 animal_maxlegs.c
 maxlegs.c
+printf.c
