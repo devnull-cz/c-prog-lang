@@ -11,7 +11,6 @@ cp /tmp/notes/*.md .
 git add -f *.md
 
 if [[ -n $( git status -s . ) ]]; then
-	cd "$repo_name"
 	git commit -m "Latest update of lecture notes"
 	git push -fq
 	echo "Published latest lecture notes."
