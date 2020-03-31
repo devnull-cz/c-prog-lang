@@ -1,6 +1,7 @@
 # Array Intro
 
-You define an array like this `<type> array[<some-number>]`, for example:
+You define an array like this `<element-type> array[<some-number>]`, for
+example:
 
 ```C
 int array[5];
@@ -10,6 +11,7 @@ The integer value `n` in `[n]` specifies the number of array *elements*.
 
 - an array *subscript* always starts from `0` and ends with `n - 1`
 - a subscript may be any integer expression
+- the type of array elements is called an *element type*
 
 So, `int array[3]` elements will be accessible as `a[0]` .. `a[2]`, each element
 is of type `int`, and therefore you can do e.g. `printf("%d\n", a[2]);`.
