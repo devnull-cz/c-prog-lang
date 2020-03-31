@@ -5,6 +5,7 @@ on:
     - master
     paths:
     - src/*
+    - dev/compile_src.sh
     - .github/workflows/src.yml
 jobs:
   build:
