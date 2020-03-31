@@ -6,9 +6,21 @@ representing the argument within the function is of a type of **pointer to the
 array element**.  So, you can just declare the argument as an pointer to an
 element type and pass in an array name.
 
-Even if you declare a function argument as an array, **the argument is always a
-pointer**.  The optional array size is accepted is ignored.  Do not use it as it
-is only confusing.
+Even if you declare a function argument as an array, **the argument is always
+treated as a pointer**.  The optional array size is accepted but ignored.  Do
+not use it as it is only confusing.
+
+```C
+void
+myfn(int a[])
+{
+	/*
+	 * 'a' is of a pointer to int type, not an array of ints.  So, you can
+	 * assign to it, for example (which you cannot do with an array.
+	 */
+	a = NULL;
+}
+```
 
 :eyes: [array-as-argument.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-as-argument.c)
 
@@ -56,7 +68,7 @@ main(void)
 ```
 
 ```
-janp:mini::/Volumes/crypto/repos/c-prog-lang$ cc src/passing-arrays.c
+$ cc src/passing-arrays.c
 src/passing-arrays.c:14:14: warning: incompatible pointer types passing 'int (*)[3]' to parameter of
       type 'int (*)[2]' [-Wincompatible-pointer-types]
         myfn(p2);       // will trigger a warning
