@@ -44,6 +44,6 @@ jobs:
     - name: Expand MarkDown files
       run: ./master/dev/expand.sh
     - name: Push Markdown files
-      run: ./master/dev/pages.sh
+      run: ./master/dev/push_md.sh
     - name: Generate and push HTML files
       run: ./master/dev/html.sh
