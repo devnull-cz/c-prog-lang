@@ -266,7 +266,7 @@ option in order to reveal the problem</li>
 <p>Our recommendation is to always use these options.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/compound-statement-invalid.c">compound-statement-invalid.c</a></p>
 <h1>
-<a id="user-content-err-family-of-functions" class="anchor" href="#err-family-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>err() family of functions</h1>
+<a id="user-content-err-family-of-functions" class="anchor" href="#err-family-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>err</code>() family of functions</h1>
 <ul>
 <li>not defined by any standard however handy</li>
 <li>present in BSD, glibc (= Linux distros), Solaris, macOS, etc.</li>
@@ -274,21 +274,21 @@ option in order to reveal the problem</li>
 <li>this is especially handy when working with I/O</li>
 <li>instead of writing:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">if</span> (error) {
-		<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">strerror</span>(errno));
-		<span class="pl-c1">exit</span>(<span class="pl-c1">1</span>);
-	}</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error) {
+	<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">strerror</span>(errno));
+	<span class="pl-c1">exit</span>(<span class="pl-c1">1</span>);
+}</pre></div>
 <ul>
 <li>write the following</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>      <span class="pl-k">if</span> (error)
-             <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-pds">"</span></span>);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error)
+     <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-pds">"</span></span>);</pre></div>
 <ul>
 <li>notice it is not necessary to use newline</li>
 <li>or for functions that do not modify the <code>errno</code> value, use the <em>x</em> variant:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">if</span> (some_error)
-		<span class="pl-en">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>ERROR: <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, some_error);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (some_error)
+	<span class="pl-en">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>ERROR: <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, some_error);</pre></div>
 <ul>
 <li>there's also <code>warn()</code>/<code>warnx()</code> that do not exit the program</li>
 </ul>
