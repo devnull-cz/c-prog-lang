@@ -2,7 +2,7 @@
 
 - `"xxx"` is called a *string literal* or a *string constant*
 
-- in memory it is a consecutive piece of memory: `'x' 'x' 'x' '\0'`
+- in lays in a consecutive piece of memory: `'x' 'x' 'x' '\0'`
 
 - `'\0'` terminates the string.  That's the C convention.
 
@@ -18,9 +18,9 @@
 	char a[] = "hello";
 ```
 
-- if `{}` is used for initialization, you must add the terminating zero yourself unless you use the
-  size of the array and the string was shorter (in which case the rest would be
-  initialized to zero):
+- if `{}` is used for the initialization, you must add the terminating zero
+  yourself unless you use the size of the array and the string was shorter (in
+  which case the rest would be initialized to zero as usual):
 
 ```C
 	char s[] = { 'h', 'e', 'l', 'l', 'o', '\0' };
@@ -56,7 +56,8 @@
 
   :eyes: code: [tr.c](/src/tr.c)
 
-:wrench: task (bonus): refactor the code into function
-- remember that arrays are passed into function as a pointer (to
-  be explained soon, not needed now) that can be used inside the
-  function with array subscript
+:wrench: task (bonus): refactor the code into a function(s)
+
+- remember that arrays are passed into a function as a pointer (to be explained
+  soon, not needed now) which can be used inside the function with an array
+  subscript.
