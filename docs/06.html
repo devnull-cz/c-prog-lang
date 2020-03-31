@@ -284,7 +284,8 @@ option in order to reveal the problem</li>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error)
      <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-pds">"</span></span>);</pre></div>
 <ul>
-<li>notice it is not necessary to use newline</li>
+<li>notice that a newline is inserted automatically at the end of the error
+message.</li>
 <li>or for functions that do not modify the <code>errno</code> value, use the <em>x</em> variant:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (some_error)
