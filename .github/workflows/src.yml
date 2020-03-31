@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Checkout master branch
       uses: actions/checkout@v2
-    - name: Install xmllint
+    - name: Install gcc
       run: sudo apt-get install gcc
     - name: Compile source code
       run: ./dev/compile_src.sh
