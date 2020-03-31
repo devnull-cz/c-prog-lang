@@ -24,12 +24,8 @@ git clone --quiet \
     https://${GH_PAGES_TOKEN}@github.com/devnull-cz/c-prog-lang "$dst_repo"
 cd "$dst_repo"
 git checkout notes
-
 lecture_dirname=lecture-notes # where the Markdown files are generated
-if [[ ! -d $lecture_dirname ]]; then
-	mkdir "$lecture_dirname"
-fi
-cp "$src_repo/$lecture_dirname/"*.md "$dst_repo"
+cp "$src_repo/$lecture_dirname/"*.md .
 git add -f *.md
 
 if [[ -n $( git status -s . ) ]]; then
