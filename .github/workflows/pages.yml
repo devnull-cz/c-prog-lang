@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Git identity setup
-      run: ./dev/gitconfig.sh
+      run: ./master/dev/gitconfig.sh
     - name: Checkout master branch
       uses: actions/checkout@v2
       with:
