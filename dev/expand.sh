@@ -23,3 +23,7 @@ cd repo
 for jsonfile in input/$YEAR/*.json; do
 	$cli "$jsonfile"
 done
+
+# copy the generated files to temporary area
+mkdir /tmp/notes
+cp $lecture_dirname/*.md /tmp/notes
