@@ -179,6 +179,22 @@ $ ./a.out
 </code></pre>
 <p>The <code>sizeof (*p)</code> is equivalent to <code>sizeof (int)</code> (as that is what the type of
 <code>*p</code> is).</p>
+<h1>
+<a id="user-content-arrays-and-pointers" class="anchor" href="#arrays-and-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arrays and pointers</h1>
+<p>In C, there is a strong relationship between arrays and pointers.</p>
+<p>By definition, the value of a variable or an expression of type array is the
+address of an element zero of the array.</p>
+<pre><code>pa = &amp;a[0];     // [] is of higher precedence than &amp;
+pa = a;         // this gets the same result as above
+</code></pre>
+<p>heavy_exclamation_mark: Incrementing a pointer increments the value <strong>by the
+size of the object the pointer points to</strong>.  Ie.</p>
+<pre><code>int a[] = { 0, 1, 2 };
+int *p = a;
+
+printf("%d\n", *(p + 2));       // will print 2
+</code></pre>
+<p><a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-inc.c">ptr-inc.c</a></p>
 
               </article>
             </div>
