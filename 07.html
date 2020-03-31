@@ -230,6 +230,38 @@ not fit the way C works with arrays.</p>
 <pre><code>100000fa6:      c7 45 fc 0f 00 00 00    movl    $15, -4(%rbp)
 </code></pre>
 <p><a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/array-var-not-modifiable.c">arrays-are-not-vars.c</a></p>
+<h1>
+<a id="user-content-strings-arrays-and-pointers" class="anchor" href="#strings-arrays-and-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings, arrays, and pointers</h1>
+<p>We already went through <a href="/modules/strings.md">basics on strings and string
+literals</a>.</p>
+<p>So, given that a string constant is internally used to initialize an array of
+<code>char</code>s, and an array name represents its first element memory address, the
+value of a string is an adress of its first character.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/string-const-address.c">string-const-address.c</a></p>
+<p>You can use an array notation with pointers.  So, if you <strong>really</strong> wanted, you
+could do something like this:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>[<span class="pl-c1">1</span>]);	<span class="pl-c"><span class="pl-c">//</span> will print `e`</span></pre></div>
+<h2>
+<a id="user-content-strings-and-pointers" class="anchor" href="#strings-and-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings and pointers</h2>
+<p>Given that a string constant is a pointer to its first character, we can use it
+like this:</p>
+<pre><code>char *p = "hello";
+
+printf("%c\n", p[1]);   // will print 'e'
+</code></pre>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/array-notation-with-ptr.c">array-notation-with-ptr.c</a></p>
+<p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji> Pointer initialized with a string literal <strong>may not</strong>
+be changed in the same way as array.  Whether the internal array created and
+initialized from the string literal lays in read-write or read-only memory is
+implementation defined.  For <code>gcc</code> and <code>clang</code>, it is read-only memory.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/string-literal-write.c">string-literal-write.c</a></p>
+<p>And as you can use a pointer notation with arrays (we already mentioned that the
+array name is a synonym for the address of its first element), you can do this:</p>
+<pre><code>char a[] = "hello, world";
+
+printf("%c\n", *(a + 1));       // will print 'e'
+</code></pre>
+<p><a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-with-array-notation.c">ptr-with-array-notation.c</a></p>
 
               </article>
             </div>
