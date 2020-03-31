@@ -1,9 +1,10 @@
 [![Github Actions status](https://github.com/devnull-cz/c-prog-lang/workflows/Refresh%20notes/badge.svg)](https://github.com/devnull-cz/c-prog-lang)
 
 # c-prog-lang
-Programming in C
 
-See [lecture-notes](https://github.com/devnull-cz/c-prog-lang/tree/notes) for notes from individual classes.
+This repository hosts the materials for teaching the [Programming in C class](http://mff.devnull.cz/c-prog-lang/) at [MFF-UK](http://www.mff.cuni.cz) 
+
+See [lecture-notes](https://github.com/devnull-cz/c-prog-lang/tree/notes) for notes from individual classes in Markdown format and https://devnull-cz.github.io/c-prog-lang/ for HTML format.
 
 See [style.md](/style.md) on the style used.
 
