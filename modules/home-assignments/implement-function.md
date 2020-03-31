@@ -1,6 +1,6 @@
-# Home assignment
+## Implement a function
 
-Task: write a function that copies a string to a string array.  It returns
+Write a function that copies a string to a string array.  It returns
 the number of characters copied.
 
 Note that **a string constant is read-only by definition**, and writing to it is

@@ -30,9 +30,13 @@ printf("%c\n", p[1]);   // will print 'e'
 :eyes: [array-notation-with-ptr.c](/src/array-notation-with-ptr.c)
 
 :heavy\_exclamation\_mark: Pointer initialized with a string literal **may not**
-be changed in the same way as array.  Whether the internal array created and
-initialized from the string literal lays in read-write or read-only memory is
-implementation defined.  For `gcc` and `clang`, it is read-only memory.
+be changed in the same way as array.  The internal array created and
+initialized from the string literal is in read-only by the specification.
+Writing to it is an undefined behavior.  Writing to it with `gcc` and `clang`
+will crash the program.  However, for example, [Oracle Developer
+Studio](https://www.oracle.com/application-development/technologies/developerstudio.html)
+puts such arrays into read-write memory.  So, working code complied with that
+compiler and modifying string literals will crash if compiled those other two.
 
 :eyes: [string-literal-write.c](/src/string-literal-write.c)
 
