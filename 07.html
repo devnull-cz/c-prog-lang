@@ -195,6 +195,28 @@ int *p = a;
 printf("%d\n", *(p + 2));       // will print 2
 </code></pre>
 <p><a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-inc.c">ptr-inc.c</a></p>
+<h2>
+<a id="user-content-arrays-are-not-variables-though" class="anchor" href="#arrays-are-not-variables-though" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arrays are not variables though</h2>
+<p>You cannot do the following:</p>
+<pre><code>int a[1];
+int aa[1];
+++a;            // error
+a = aa;         // error
+</code></pre>
+<p>When assigning to an array element, the compiler generates code that assigns to
+a piece of memory representing the element using an offset from the beginning
+of the array.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">1</span>];
+
+a[<span class="pl-c1">0</span>] = <span class="pl-c1">15</span>;</pre></div>
+<p>The generated assembler code (e.g. <code>objdump -d</code> from LLVM) for the above assigns
+15 directly to the piece of memory on the stack (started by the base pointer
+<code>rbp</code>) that represents the first array element.  That also hints that one cannot
+assign to an array variable in C as it would need a special semantics that would
+not fit the way C works with arrays.</p>
+<pre><code>100000fa6:      c7 45 fc 0f 00 00 00    movl    $15, -4(%rbp)
+</code></pre>
+<p><a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/array-var-not-modifieable.c">arrays-are-not-vars.c</a></p>
 
               </article>
             </div>

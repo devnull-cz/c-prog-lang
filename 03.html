@@ -110,13 +110,16 @@ the first solution while not using the library function.</p>
 </code></pre>
 <h1>
 <a id="user-content-array-intro" class="anchor" href="#array-intro" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Intro</h1>
-<p>You define an array like this <code>&lt;type&gt; array[&lt;some-number&gt;]</code>, for example:</p>
+<p>You define an array like this <code>&lt;element-type&gt; array[&lt;some-number&gt;]</code>, for
+example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> array[<span class="pl-c1">5</span>];</pre></div>
 <p>The integer value <code>n</code> in <code>[n]</code> specifies the number of array <em>elements</em>.</p>
 <ul>
 <li>an array <em>subscript</em> always starts from <code>0</code> and ends with <code>n - 1</code>
 </li>
 <li>a subscript may be any integer expression</li>
+<li>the type of array elements is called an <em>element type</em>
+</li>
 </ul>
 <p>So, <code>int array[3]</code> elements will be accessible as <code>a[0]</code> .. <code>a[2]</code>, each element
 is of type <code>int</code>, and therefore you can do e.g. <code>printf("%d\n", a[2]);</code>.</p>
