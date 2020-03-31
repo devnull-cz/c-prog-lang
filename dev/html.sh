@@ -49,7 +49,7 @@ HTML_TMP_DIR="/tmp/html"
 mkdir "$HTML_TMP_DIR"
 mv *.html "$HTML_TMP_DIR"
 
-git checkout docs
+git checkout gh-pages
 mv "$HTML_TMP_DIR"/*.html .
 git add -f *.html
 if [[ -n $( git status -s . ) ]]; then
