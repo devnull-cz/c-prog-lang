@@ -5,7 +5,7 @@
 #include <limits.h>
 
 #ifndef NAME_MAX
-#define	NAME_MAX	PATH_MAX
+#define	NAME_MAX	128
 #endif
 
 struct animal {
