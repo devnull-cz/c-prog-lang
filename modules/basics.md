@@ -24,7 +24,7 @@
 	  is relevant
 	- 
 #source return.c
-	- if you do not use return from main() and the ending } is reached, the
+	- if you do not use return from main() and the ending `}` is reached, the
 	  program returns 0 (in C89 it would be a random number though).
 
 - you must declare a variable before you can use it
