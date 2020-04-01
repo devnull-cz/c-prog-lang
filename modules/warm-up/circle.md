@@ -89,5 +89,4 @@ $ ./a.out
             *
 ```
 
-:eyes:
-[circle.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/circle.c)
+Solution: #source circle.c
