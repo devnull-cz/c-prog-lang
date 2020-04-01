@@ -362,7 +362,7 @@ and not just -127 to 127.</p>
 <p>On Unix systems the shell reports the -1 return value as 255 in <code>echo $?</code>.  Even
 though the <code>main()</code> returns integer (4 bytes), the shell takes just low 8 bits
 and interprets them as unsigned quantity.</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/return-1.c">return-1.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/return-1.c">return-1.c</a></p>
 <p>If long is 8 bytes, and an int 4, then <code>-1L &lt; 1U</code> as you might expect.</p>
 <p>However, <code>-1 &gt; 1U</code> because -1 is promoted to unsigned.  Two's complement
 representation of -1 is (see the paragraph above):</p>
@@ -373,12 +373,12 @@ representation of -1 is (see the paragraph above):</p>
 <p>which is 2^32 - 1 when interpreted as unsigned quantity.</p>
 <p>Just <code>printf("%u\n", -1)</code> to see it will print 4294967295 (use the unix/linux
 <code>bc</code> command and type <code>2^32-1</code> to verify).</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/signed-plus-unsigned.c">signed-plus-unsigned.c</a>,
-<a href="/src/signed-to-unsigned.c">signed-to-unsigned.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/signed-plus-unsigned.c">signed-plus-unsigned.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/signed-to-unsigned.c">signed-to-unsigned.c</a></p>
 <p>The assymetry of the negative/positive interval can lead to the program crashing
 on architectures that detect it. This is consequence of hardware handling rather
 than the language.</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/crashme.c">crashme.c</a>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/crashme.c">crashme.c</a>
 - run with <code>-INT_MIN</code> (see limits.h) and -1.  <code>INT_MIN</code> is usually
 -2147483648.
 - works in 64-bit mode as well due to int being passed in 32-bit registers</p>
@@ -408,7 +408,7 @@ the 2 chars with <code>printf()</code>
 </ul>
 </li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/int-promotion.c">int-promotion.c</a>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-promotion.c">int-promotion.c</a>
 - note that if the <code>b</code> character was defined as <code>char b</code> the result might be 1
 because it is up to the compiler to choose whether char will be signed
 or unsigned.  Usually it is signed though. There are compiler options to
@@ -420,7 +420,7 @@ specify this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char<
 <li>try to come up with reason of the expected behavior before running the
 program.</li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <a href="/src/whole-array.c">whole-array.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/whole-array.c">whole-array.c</a></p>
 <h1>
 <a id="user-content-function-arguments" class="anchor" href="#function-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function arguments</h1>
 <p>Say, what happens if you put a <code>char</code> as an argument of a function that accepts
