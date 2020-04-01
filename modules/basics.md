@@ -13,8 +13,8 @@
 	  [freestanding environment](/modules/freestanding-environment.md) if
 	  interested.  It it out of scope for this seminar though.
 
-- string literals
-	- :eyes: [printf.c](/src/printf.c)
+- string literals:
+#source printf.c
 
 - use the `return` operator to return a function value
 	- in the `main()` funtion, return exits the program
