@@ -14,13 +14,6 @@ for mdfile in *.md; do
 	grip --pass "$GH_PAGES_TOKEN" --export "$mdfile"
 done
 
-# Fix links to /src
-SRCLINK="https://github.com/devnull-cz/c-prog-lang/tree/master/src/"
-srclink_escaped=$( echo -n $SRCLINK | sed 's/\//\\\//g' )
-for htmlfile in [0-9]*.html; do
-	sed -i -e "s/\/src\//$srclink_escaped/g" "$htmlfile"
-done
-
 # Construct index page.
 echo "<html><body>" > index.html
 echo "<head>Notes for C programming class</head>" >> index.html
