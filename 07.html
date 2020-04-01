@@ -157,7 +157,7 @@ function code, ie:</p>
             *
 </code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/circle.c">circle.c</a></p>
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/circle.c">circle.c</a></p>
 <h1>
 <a id="user-content-pointer-size" class="anchor" href="#pointer-size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer size</h1>
 <pre><code>int *p;
@@ -203,7 +203,7 @@ int *p = a;
 
 printf("%d\n", *(p + 2));       // will print 2
 </code></pre>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-inc.c">ptr-inc.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-inc.c">ptr-inc.c</a></p>
 <p>heavy_exclamation_mark: While you can work with arrays and pointers together,
 <strong>arrays are not pointers</strong> and <strong>pointers are not arrays</strong>.  To work with a
 pointer, the generated code must first get the value of the pointer variable,
@@ -230,7 +230,7 @@ assign to an array variable in C as it would need a special semantics that would
 not fit the way C works with arrays.</p>
 <pre><code>100000fa6:      c7 45 fc 0f 00 00 00    movl    $15, -4(%rbp)
 </code></pre>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/array-var-not-modifiable.c">array-var-not-modifiable.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-var-not-modifiable.c">array-var-not-modifiable.c</a></p>
 <h1>
 <a id="user-content-strings-arrays-and-pointers" class="anchor" href="#strings-arrays-and-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings, arrays, and pointers</h1>
 <p>We already went through <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/strings.md">basics on strings and string
@@ -239,7 +239,7 @@ literals</a>.</p>
 <code>char</code>s, and an array name represents its first element memory address, the
 value of a string is an adress of its first character.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/string-const-address.c">string-const-address.c</a></p>
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-const-address.c">string-const-address.c</a></p>
 <p>You can use an array notation with pointers.  So, if you <strong>really</strong> wanted, you
 could do something like this:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>[<span class="pl-c1">1</span>]);	<span class="pl-c"><span class="pl-c">//</span> will print `e`</span></pre></div>
@@ -251,7 +251,7 @@ like this:</p>
 
 printf("%c\n", p[1]);   // will print 'e'
 </code></pre>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/array-notation-with-ptr.c">array-notation-with-ptr.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-notation-with-ptr.c">array-notation-with-ptr.c</a></p>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji> Pointer initialized with a string literal <strong>may not</strong>
 be changed in the same way as array.  The internal array created and
 initialized from the string literal is in read-only by the specification.
@@ -260,14 +260,14 @@ will crash the program.  However, for example, <a href="https://www.oracle.com/a
 Studio</a>
 puts such arrays into read-write memory.  So, working code complied with that
 compiler and modifying string literals will crash if compiled those other two.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/string-literal-write.c">string-literal-write.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-literal-write.c">string-literal-write.c</a></p>
 <p>And as you can use a pointer notation with arrays (we already mentioned that the
 array name is a synonym for the address of its first element), you can do this:</p>
 <pre><code>char a[] = "hello, world";
 
 printf("%c\n", *(a + 1));       // will print 'e'
 </code></pre>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-with-array-notation.c">ptr-with-array-notation.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-with-array-notation.c">ptr-with-array-notation.c</a></p>
 <h1>
 <a id="user-content-valid-pointer-operations" class="anchor" href="#valid-pointer-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Valid pointer operations</h1>
 <p>Valid pointer operations are:</p>
@@ -293,7 +293,7 @@ int-to-ptr.c:4:7: warning: incompatible integer to pointer conversion initializi
              ^   ~~~~~~
 1 warning generated.
 </code></pre>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/int-to-ptr.c">int-to-ptr.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-to-ptr.c">int-to-ptr.c</a></p>
 <h1>
 <a id="user-content-arrays-as-function-arguments" class="anchor" href="#arrays-as-function-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arrays as function arguments</h1>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji> When an array name is passed to a function, what is
@@ -313,7 +313,7 @@ not use it as it is only confusing.</p>
 <span class="pl-c">	 <span class="pl-c">*/</span></span>
 	a = <span class="pl-c1">NULL</span>;
 }</pre></div>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/array-as-argument.c">array-as-argument.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-as-argument.c">array-as-argument.c</a></p>
 <p>Some compilers even notice that the <code>sizeof</code> operator is applied on array passed
 into a function and produce a warning about it (clang with
 <code>-Wsizeof-array-argument</code>).</p>
@@ -374,11 +374,11 @@ swap(int a, int b)
 	b = n;
 }
 </code></pre>
-<p><a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/swap-by-value.c">swap-by-value.c</a></p>
+<p><a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/swap-by-value.c">swap-by-value.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> modify the code above so that <code>swap</code>() that actually swaps the values
 of the two <code>int</code>s.  Hint: aside from the <em>dererence</em> operator <code>*</code>, you will also
 need the <em>address-of</em> operator <code>&amp;</code> (see <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/pointers.md">pointer basics</a>.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/swap-by-reference.c">swap-by-reference.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/swap-by-reference.c">swap-by-reference.c</a></p>
 <h1>
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
@@ -394,11 +394,11 @@ an undefined behavior.  That is:</p>
 s[0] = 'H';
 </code></pre>
 <p>Take
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/implement-function.c">implement-function.c</a>
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/implement-function.c">implement-function.c</a>
 and implement the function, see the comment inside.</p>
 <p>Verify the code prints exactly what it says in the comments.  <code>gcc -Wall -Wextra implement-function.c</code> <strong>must</strong> be clear of any warnings.</p>
 <p>Solution:
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/implement-function-solution.c">implement-function-solution.c</a></p>
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/implement-function-solution.c">implement-function-solution.c</a></p>
 
               </article>
             </div>

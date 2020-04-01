@@ -103,8 +103,8 @@ byte.  So, you could just use <code>0</code>, like this, but it is not generally
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, foo);</pre></div>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> What happens if you forget to specify the terminating zero in the above
 per-char init and try to print the string ?</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/array-char-nozero.c">array-char-nozero.c</a>
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/masterhttps://github.com/devnull-cz/c-prog-lang/tree/master/src/array-char-nozero.c">array-char-nozero.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/array-char-nozero.c">array-char-nozero.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-char-nozero.c">array-char-nozero.c</a></p>
 <h1>
 <a id="user-content-strings-and-string-literals" class="anchor" href="#strings-and-string-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings and String Literals</h1>
 <ul>
@@ -163,7 +163,7 @@ which case the rest would be initialized to zero as usual):</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
 <p>Anyway, you would probably never do it this way.  Just use <code>= "hello"</code>.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/array-fill.c">array-fill.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-fill.c">array-fill.c</a></p>
 <ul>
 <li>string is printed via <code>printf()</code> as <code>%s</code>
 </li>
@@ -172,13 +172,13 @@ which case the rest would be initialized to zero as usual):</li>
 <ul>
 <li>experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/string-format.c">string-format.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-format.c">string-format.c</a></p>
 <h1>
 <a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task:</p>
 <ul>
-<li>extend the program <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/tr-d-chars.c">tr-d-chars.c</a> from last time to
-translate character input, e.g.</li>
+<li>extend the program <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tr-d-chars.c">tr-d-chars.c</a>
+from last time to translate character input, e.g.</li>
 </ul>
 <pre><code>tail /etc/passwd | tr 'abcdefgh' '123#'
 </code></pre>
@@ -194,7 +194,7 @@ than the 2nd
 </ul>
 </li>
 </ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/tr.c">tr.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tr.c">tr.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task (bonus): refactor the code into a function(s)</p>
 <ul>
 <li>remember that arrays are passed into a function as a pointer (to be explained
@@ -230,11 +230,11 @@ to the end of the loop without executing the <code>&lt;update&gt;</code> part.</
 loop.</li>
 <li>both <code>break</code> and <code>continue</code> statements relate to the loop they are executed in</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/for.c">for.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/for.c">for.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: compute minimum of averages of lines in 2-D integer array (of
 arbitrary dimensions) that have positive values (if there is negative value in
 given line, do not use the line for computation).</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/2darray-min-avg.c">2darray-min-avg.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/2darray-min-avg.c">2darray-min-avg.c</a></p>
 <h1>
 <a id="user-content-expressions" class="anchor" href="#expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expressions</h1>
 <blockquote>
@@ -248,7 +248,7 @@ expressions, function calls, sizeof, assignments, and ternary expressions.</p>
 <p><a href="http://en.cppreference.com/w/c/language/expressions" rel="nofollow">http://en.cppreference.com/w/c/language/expressions</a></p>
 <p>In C99, an expression can produce results (2+2 gets 4) or generate side effects
 (printf("foo") sends a string literal to the standard output).</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/expression-statement.c">expression-statement.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/expression-statement.c">expression-statement.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: make the warning an error with your choice of compiler (would be
 a variant of <code>-W</code> in GCC)</p>
 <h1>
@@ -274,8 +274,8 @@ c;
 <span class="pl-c1">1</span> + <span class="pl-c1">1</span>;
 <span class="pl-c1">1000</span>;
 <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/null-statement.c">null-statement.c</a>,
-<a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/compound-statement.c">compound-statement.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/null-statement.c">null-statement.c</a>,
+<a href="/src/compound-statement.c">compound-statement.c</a></p>
 <h2>
 <a id="user-content-wrt-compound-statement-vs-expression" class="anchor" href="#wrt-compound-statement-vs-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>w.r.t. compound statement vs. expression:</h2>
 <ul>
@@ -292,7 +292,7 @@ option in order to reveal the problem</li>
 <pre><code>gcc -std=c99 -Wall -Wextra -pedantic-errors compound-statement-invalid.c
 </code></pre>
 <p>Our recommendation is to always use these options.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/compound-statement-invalid.c">compound-statement-invalid.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/compound-statement-invalid.c">compound-statement-invalid.c</a></p>
 <h1>
 <a id="user-content-err-family-of-functions" class="anchor" href="#err-family-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>err</code>() family of functions</h1>
 <ul>
@@ -355,7 +355,7 @@ descriptor)</li>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a code that opens the same file in an cycle (until <code>fopen()</code>
 fails) without calling <code>fclose()</code> on the handle. After how many iterations does
 it fail on your system?</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/fopen-leak.c">fopen-leak.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/fopen-leak.c">fopen-leak.c</a></p>
 <h2>
 <a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h2>
 <ul>
@@ -412,7 +412,7 @@ ranging from <code>INT_MAX</code> to <code>0</code>) to a file and read the valu
 and print them to the standard error output without closing the file in between
 the writing and reading. Use <code>od(1)</code> to verify the content of the file (thus it
 is handy to start with <code>INT_MAX</code> and e.g. divide by 2 for each successive
-value).  <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/fopen-binary.c">fopen-binary.c</a></p>
+value).  <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/fopen-binary.c">fopen-binary.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use the file created by the previous program. Read the values from the
 end of the file to the beginning of the file one by one without knowing the file
 size and print the numbers to the standard error output.</p>
@@ -504,7 +504,7 @@ points to</p>
 <li>the value of the pointed to variable</li>
 </ul>
 <p>Use the <code>%p</code> formatting for the first two.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> Code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-basics.c">ptr-basics.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> Code: <a href="/src/ptr-basics.c">ptr-basics.c</a></p>
 <h2>
 <a id="user-content-null-pointer" class="anchor" href="#null-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NULL pointer</h2>
 <ul>
@@ -525,7 +525,7 @@ though.  We will get to casting and how to fix that later).</li>
 constant</em> <a href="/modules/c99-standard.md">in the C spec</a>.</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: create NULL pointer and try to read from it / write to it</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> Code: <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/null-ptr.c">null-ptr.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> Code: <a href="/src/null-ptr.c">null-ptr.c</a></p>
 <h2>
 <a id="user-content-basic-operations" class="anchor" href="#basic-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic operations</h2>
 <ul>
@@ -602,7 +602,7 @@ way to learn a programming language.</p>
 <a id="user-content-pointer-difference" class="anchor" href="#pointer-difference" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer difference</h2>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: create a pointer to an <code>int</code>, print it out, create a new pointer
 that points to <code>p + 1</code>. See what is the difference between the 2 pointers.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/src/ptr-diff.c">ptr-diff.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/ptr-diff.c">ptr-diff.c</a></p>
 
               </article>
             </div>
