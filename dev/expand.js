@@ -17,11 +17,11 @@ var BASE_SRC_LINK = "https://github.com/devnull-cz/c-prog-lang/blob/master/src/"
 var BASE_MODULE_LINK = "https://github.com/devnull-cz/c-prog-lang/blob/master/modules/";
 
 markdownInclude.registerPlugin({
-	pattern: /^#source .+/gm,
+	pattern: /#source .+/gm,
 	replace: function (tag) {
 		var res = tag.split("#source ");
 		var file = res[1];
-		return ':eyes: [' + file + "](" + BASE_SRC_LINK + file + ")";
+		return res[0] + ':eyes: [' + file + "](" + BASE_SRC_LINK + file + ")";
 	}
 });
 

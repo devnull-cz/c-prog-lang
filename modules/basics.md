@@ -13,8 +13,7 @@
 #module freestanding-environment.md freestanding environment
           if interested.  It is out of scope for this seminar though.
 
-- string literals:
-#source printf.c
+- string literals: #source printf.c
 
 - use the `return` operator to return a function value
 	- in the `main()` funtion, return exits the program
@@ -22,8 +21,7 @@
 	  recently run program on the foreground
 	- only the least significant byte taken as an unsigned integer (0-255)
 	  is relevant
-	- 
-#source return.c
+	- #source return.c
 	- if you do not use return from main() and the ending `}` is reached, the
 	  program returns 0 (in C89 it would be a random number though).
 

@@ -8,7 +8,9 @@ use the `#source` tag e.g. like this:
 
 and it will be expanded into proper link.
 
-There must be only one directive on each line.
+There must be at most one directive on each line. The line can start with
+anything however after `#source` is encountered there can be only the file
+name.
 
 # Module links
 
@@ -21,7 +23,7 @@ To link to files under the `modules` directory use the `#module` tag like so:
 that will get turned into link to `modules/file.md` with the description
 `foo bar`.
 
-Like with `#source` the tag has to be on separate line.
+The tag has to be on separate line.
 
 # Markdown styles
 
