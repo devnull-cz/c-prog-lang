@@ -29,4 +29,4 @@ Expected output:
 	...
 ```
 
-Solution: [to-upper.c](/src/to-upper.c)
+Solution: #source to-upper.c

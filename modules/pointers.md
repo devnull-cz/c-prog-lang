@@ -75,7 +75,7 @@ int *p = &i;
 
 Use the `%p` formatting for the first two.
 
-:eyes: Code: [ptr-basics.c](/src/ptr-basics.c)
+Code: #source ptr-basics.c
 
 ## NULL pointer
 
@@ -92,11 +92,12 @@ int *p = 0x1234;
 ```
 
 - special pointer value, `NULL`, is defined and it is called *a null pointer
-  constant* [in the C spec](/modules/c99-standard.md).
+  constant*
+#module c99-standard.md in the C specification.
 
 :wrench: Task: create NULL pointer and try to read from it / write to it
 
-:eyes: Code: [null-ptr.c](/src/null-ptr.c)
+Code: #source null-ptr.c
 
 ## Basic operations
 

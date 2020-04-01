@@ -48,5 +48,4 @@ printf("%s\n", foo);
 :wrench: What happens if you forget to specify the terminating zero in the above
 per-char init and try to print the string ?
 
-:eyes: [array-char-nozero.c](/src/array-char-nozero.c)
 #source array-char-nozero.c

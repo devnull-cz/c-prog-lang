@@ -30,8 +30,8 @@ c;
 "hello";
 ```
 
-:eyes: [null-statement.c](/src/null-statement.c),
-[compound-statement.c](/src/compound-statement.c)
+#source null-statement.c
+#source compound-statement.c
 
 ## w.r.t. compound statement vs. expression:
 
@@ -48,4 +48,4 @@ gcc -std=c99 -Wall -Wextra -pedantic-errors compound-statement-invalid.c
 
 Our recommendation is to always use these options.
 
-:eyes: [compound-statement-invalid.c](/src/compound-statement-invalid.c)
+#source compound-statement-invalid.c

@@ -1,14 +1,13 @@
 # Strings, arrays, and pointers
 
-We already went through [basics on strings and string
-literals](https://github.com/devnull-cz/c-prog-lang/blob/master/modules/strings.md).
+We already went through
+#module strings.md basics on strings and string literals.
 
 Given that a string constant is internally used to initialize an array of
 `char`s, and an array name represents its first element memory address, the
 value of a string is an adress of its first character.
 
-:eyes:
-[string-const-address.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-const-address.c)
+#source string-const-address.c
 
 You can use an array notation with pointers.  So, if you **really** wanted, you
 could do something like this:
@@ -28,7 +27,7 @@ char *p = "hello";
 printf("%c\n", p[1]);   // will print 'e'
 ```
 
-:eyes: [array-notation-with-ptr.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-notation-with-ptr.c)
+#source array-notation-with-ptr.c
 
 :heavy\_exclamation\_mark: Pointer initialized with a string literal **may not**
 be changed in the same way as array.  The internal array created and
@@ -39,7 +38,7 @@ Studio](https://www.oracle.com/application-development/technologies/developerstu
 puts such arrays into read-write memory.  So, working code complied with that
 compiler and modifying string literals will crash if compiled those other two.
 
-:eyes: [string-literal-write.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-literal-write.c)
+#source string-literal-write.c
 
 And as you can use a pointer notation with arrays (we already mentioned that the
 array name is a synonym for the address of its first element), you can do this:
@@ -50,4 +49,4 @@ char a[] = "hello, world";
 printf("%c\n", *(a + 1));       // will print 'e'
 ```
 
-:eyes: [ptr-with-array-notation.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-with-array-notation.c)
+#source ptr-with-array-notation.c
