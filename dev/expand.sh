@@ -3,9 +3,8 @@
 # Expand markdown files (particularly includes)
 #
 
-cli=$PWD/dev/expand.js
-
 cd master
+cli=$PWD/dev/expand.js
 
 lecture_dirname=lecture-notes # where the Markdown files are generated
 if [[ ! -d $lecture_dirname ]]; then

@@ -49,3 +49,4 @@ printf("%s\n", foo);
 per-char init and try to print the string ?
 
 :eyes: [array-char-nozero.c](/src/array-char-nozero.c)
+#source array-char-nozero.c
