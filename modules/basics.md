@@ -10,8 +10,8 @@
 
 - each program **must** have a `main()` function
 	- well, there are exceptions: see
-	  [freestanding environment](/modules/freestanding-environment.md) if
-	  interested.  It is out of scope for this seminar though.
+#module freestanding-environment.md freestanding environment
+          if interested.  It is out of scope for this seminar though.
 
 - string literals:
 #source printf.c
