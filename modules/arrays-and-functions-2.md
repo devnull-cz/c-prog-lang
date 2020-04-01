@@ -12,12 +12,12 @@
 	    ...
 	}
 ```
-- :eyes: [array-variable-length.c](/src/array-variable-length.c)
+- #source array-variable-length.c
 
 - :heavy\_exclamation\_mark: note that it generates more code which might be
   avoided with a choosing a reasonable constant, if possible.  Also see [a rant
   from Linus](https://lkml.org/lkml/2018/3/7/621).
-  
+
 ## K&R
 
 history: you may still see in very old code: K&R definition with types of
@@ -52,7 +52,8 @@ Some compilers have dropped the support for K&R definitions or will drop soon.
 - note that a block is used in multiple constructs in C, e.g. `while`, `for`,
   etc.
 
-- :eyes: [shadow.c](/src/shadow.c), [shadow-block.c](/src/shadow-block.c)
+- #source shadow.c
+#source shadow-block.c
 
 ## Variable number of arguments
 

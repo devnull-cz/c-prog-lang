@@ -15,7 +15,7 @@ In the case above, `MYDEF` will be literary replaced with "= 3".
 
 Check with `gcc -E` (or `cpp`) which stops after the preprocessor phase (ie. it
 does NOT compile anything).  The following is in :eyes:
-[common-mistake-with-define.c](/src/common-mistake-with-define.c)
+#source common-mistake-with-define.c
 
 ```C
 #define MYDEF = 3
@@ -29,7 +29,7 @@ The code above will end up in a syntax error as `i < = 3` is not a correct
 expression in C (because of the space between `<` and `=`).
 
 ```
-$ gcc -E common-mistake-with-define.c 
+$ gcc -E common-mistake-with-define.c
 ...
 ...
 

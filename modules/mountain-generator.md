@@ -42,10 +42,11 @@ Once you got a working program, refactor the code into small functions (one for
 printing a character based on random number, one for printing the whole 2-D
 array, etc.).  Optionally you can try to avoid global variables by passing the
 array as parameter of a function.  In that case, you might try to use a VLA in
-function arguments to see it works.  See [multi-dimensional
-arrays](/modules/multi-dimensional-arrays.md) for more information.
+function arguments to see it works.  See
+#module multi-dimensional-arrays.md multi-dimensional arrays
+for more information.
 
-:eyes: [mountain-generator.c](/src/mountain-generator.c)
+#source mountain-generator.c
 
 ### Variant: nicer mountain
 

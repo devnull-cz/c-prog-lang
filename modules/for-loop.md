@@ -40,10 +40,10 @@ for (int i = 0; i < 10; ++i)
   loop.
 - both `break` and `continue` statements relate to the loop they are executed in
 
-:eyes: [for.c](/src/for.c)
+#source for.c
 
 :wrench: task: compute minimum of averages of lines in 2-D integer array (of
 arbitrary dimensions) that have positive values (if there is negative value in
 given line, do not use the line for computation).
 
-:eyes: [2darray-min-avg.c](/src/2darray-min-avg.c)
+#source 2darray-min-avg.c

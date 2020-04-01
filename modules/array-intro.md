@@ -76,7 +76,7 @@ Arrays introduced so far are not dynamic and **can not** be resized.
   behavior change on your system ?
 - why is it not faulting for the one-off error?
 
-:eyes: [array-out-of-bounds.c](/src/array-out-of-bounds.c)
+#source array-out-of-bounds.c
 
 
 ```
@@ -124,7 +124,7 @@ There is a *partial array initialization* where the *initializers* are called
   required but expected.
 - the rest of elements will be initialized to zero
 - if you do not specify the array size, it is taken from the highest designator
-  index 
+  index
 - you can combine designators with fixed order initializers, and you always
   start with the next index.  For example:
 
@@ -136,7 +136,7 @@ There is a *partial array initialization* where the *initializers* are called
 - you cannot specify a repetition or setting multiple elements to the same value
   (there is a gcc extension for that but let's not go there).
 
-:eyes: [array-designated-initializers.c](/src/array-designated-initializers.c)
+#source array-designated-initializers.c
 
 Note the code above mentions a missing `=` as a GCC extension.  With a non-GCC
 compiler it does not compile:
@@ -166,10 +166,11 @@ You cannot assign an array into array - has to be done an element by element.
 Arrays cannot be declared as empty (`int a[0]`).
 
 - this is explicitly forbidden by the standard, see
-  [C99](/modules/c99-standard.md) 6.7.5.2 Array declarators.
+#module c99-standard.md C99
+6.7.5.2 Array declarators.
 - GCC accepts that though.  Do not use it like that.
 
-:eyes: [empty-array.c](/src/empty-array.c)
+#source empty-array.c
 
 This might be a bit confusing though:
 

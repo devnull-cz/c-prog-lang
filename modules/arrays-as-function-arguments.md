@@ -22,7 +22,7 @@ myfn(int a[])
 }
 ```
 
-:eyes: [array-as-argument.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-as-argument.c)
+#source array-as-argument.c
 
 Some compilers even notice that the `sizeof` operator is applied on array passed
 into a function and produce a warning about it (clang with

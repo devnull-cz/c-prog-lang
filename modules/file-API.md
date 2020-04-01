@@ -9,7 +9,8 @@ Part of the standard since C90.
   - the `mode` argument controls the behavior: read, write, append
     - the `+` adds the other mode (write for read and vice versa, read for append)
   - write mode creates the file if it does not exist
-  - the `b` binary mode usually does not have any effect (see [the standard](/modules/c99-standard.md))
+  - the `b` binary mode usually does not have any effect (see
+#module c99-standard.md the standard)
 - `fclose` closes the handle
   - important to avoid resource leak (it can allocate both memory and file
     descriptor)
@@ -20,12 +21,12 @@ Part of the standard since C90.
 fails) without calling `fclose()` on the handle. After how many iterations does
 it fail on your system?
 
-:eyes: [fopen-leak.c](/src/fopen-leak.c)
+#source fopen-leak.c
 
 ## I/O
 
 - `fprintf` - `printf` to a stream
-- `fscanf` 
+- `fscanf`
   - basically parses text input from a stream according to format string
   - except the format string all the parameters must be pointers
 - `fputs`/`fgets` - send/read string to/from a stream
@@ -60,7 +61,8 @@ ranging from `INT_MAX` to `0`) to a file and read the values into another array
 and print them to the standard error output without closing the file in between
 the writing and reading. Use `od(1)` to verify the content of the file (thus it
 is handy to start with `INT_MAX` and e.g. divide by 2 for each successive
-value).  :eyes: [fopen-binary.c](/src/fopen-binary.c)
+value).
+#source fopen-binary.c
 
 :wrench: use the file created by the previous program. Read the values from the
 end of the file to the beginning of the file one by one without knowing the file

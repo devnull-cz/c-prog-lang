@@ -16,10 +16,11 @@ swap(int a, int b)
 }
 ```
 
-[swap-by-value.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/swap-by-value.c)
+#source swap-by-value.c
 
 :wrench: modify the code above so that `swap`() that actually swaps the values
 of the two `int`s.  Hint: aside from the *dererence* operator `*`, you will also
-need the *address-of* operator `&` (see [pointer basics](https://github.com/devnull-cz/c-prog-lang/blob/master/modules/pointers.md).
+need the *address-of* operator `&` - see
+#module pointers.md pointer basics
 
-:eyes: [swap-by-reference.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/swap-by-reference.c)
+#source swap-by-reference.c

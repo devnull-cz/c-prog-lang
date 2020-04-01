@@ -49,14 +49,15 @@ printf("%d\n", return_a_number());
 
 The default return value type is an `int` but a compiler will warn if it is
 missing.  You should always specify the type in
-[C99+](/modules/c99-standard.md).  You may use `void` which means the function
-does returns no value.
+#module c99-standard.md C99+
+. You may use `void` which means the function does returns no value.
 
 Write your function declarations at the beginning of a C file or include those
 into a separate header file.
 
 If a compiler hits a function whose prototype is unknown, warnings are issued.
-Remember [src/hello-world1.c](/src/hello-world1.c)?  See also here:
+Remember #source hello-world1.c
+? See also here:
 
 ```
 $ cat test.c
@@ -132,7 +133,7 @@ Variable passing depends on bitness and architecture. E.g. 32-bit x86 on the
 stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on the
 stack.
 
-Functions can be recursive.  :eyes: [recursive-fn.c](/src/recursive-fn.c)
+Functions can be recursive. #source recursive-fn.c
 
 ```C
 /*
@@ -158,4 +159,4 @@ main(void)
 
 :wrench: Print 9..0 using a recursive function.
 
-:eye: solution [recursive-fn2.c](/src/recursive-fn2.c)
+solution #source recursive-fn2.c

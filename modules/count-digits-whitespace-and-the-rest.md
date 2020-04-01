@@ -3,8 +3,8 @@
 Print total number of (decimal) numbers, white space (tab, space, newline) and
 anything else from the input.  **I.e. the program prints out three numbers.**
 
-Obviously, reuse code you wrote for [digit occurence
-counting](/src/count-digit-occurence.md).
+Obviously, reuse code you wrote for digit occurence counting:
+#source count-digit-occurence.md
 
 - write the program using direct comparisons like this:
 

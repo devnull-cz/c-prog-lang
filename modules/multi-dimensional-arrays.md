@@ -34,7 +34,7 @@ int a[2][4][3] = {
 | 0 0 0 | 1 1 1 | 2 2 3 | 4 4 5 |
 ```
 
-:eyes: [3d-array.c](/src/3d-array.c)
+#source 3d-array.c
 
 - as with the 1-dimensional array, the most "significant" dimension of the array
   may be omitted **if statically initialized**, but nothing below, i.e.
@@ -80,13 +80,13 @@ printf("sizeof = %zu\n", sizeof (array[0]));
 function that accepts such an array and prints the first element from each `[2]`
 subarray.
 
-:eyes: [2d-array.c](/src/2d-array.c)
+#source 2d-array.c
 
 :wrench: write a program that takes a 2-D array of integers and constructs a 1-D
 array of maximum values in each sub-array, then prints out the new array to the
 standard output.  For the maximum value in a sub-array, write a function.
 
-:eyes: [2d-array-max.c](/src/2d-array-max.c)
+#source 2d-array-max.c
 
 ## VLA, multi-dimensional arrays, and function arguments
 

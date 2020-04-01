@@ -214,7 +214,9 @@ printf("%hhd\n", i);
 ### Generic integer conversion algorithm
 
 BTW, when mentioning above those three parts when converting integers, it does
-not hurt to cite the [C99 standard](/modules/c99-standard.md) in full on this.
+not hurt to cite the
+#module c99-standard.md C99 standard
+in full on this.
 The following section covers all the integer conversions we went through above.
 The below mentioned "implementation-defined signal" might be to print an error
 and exit, for example.
@@ -234,7 +236,7 @@ and exit, for example.
   is raised.
 ```
 
-Example: :eyes: [integer-conversion.c](/src/integer-conversion.c)
+Example: #source integer-conversion.c
 
 ## Arithmetic conversion
 
@@ -402,11 +404,11 @@ printf("%c\n", -191);
 Also check the following code and try to figure out what is gonna be printed
 before actually building and executing the code:
 
-:eyes: [int-promotion.c](/src/int-promotion.c)
+#source int-promotion.c
 
 Now you also know everything you need to know to figure out what happens in the
 following code.  Hint, not all elements are printed as it seems from the first
 look.  Another hint -- `sizeof`'s type is unsigned, and the logical operator
 triggers the Arithmetic Conversion, see above.
 
-:eyes: [whole-array.c](/src/whole-array.c)
+#source whole-array.c

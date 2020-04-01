@@ -13,7 +13,7 @@ No allowing to return an array is done for efficiency as copying the whole array
 - arrays as local variable may significantly increase the stack size (and a
   stack size is limited in threaded environments)
 
-:eyes: [func-large-array.c](/src/func-large-array.c)
+#source func-large-array.c
 
 The following may or may not happen in your environment:
 

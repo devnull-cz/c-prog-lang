@@ -18,7 +18,7 @@ write a function that has the following prototype:
   - try to capture all corner cases of what could go wrong with the values
     and return `false` on failure, `true` on success.
 
-  solution: [range-check.c](/src/range-check.c)
+  solution: #source range-check.c
 
   - on Unix systems one would use `ssize_t` for the offset which is a signed
     integer type of the same size as `size_t` (this is not part of C99 but

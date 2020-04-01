@@ -18,8 +18,9 @@
   conversion, the higher bits are trimmed.  The rule here is that the `int`
   argument is converted to `unsigned char` (not just `char`!), then printed as a
   character (= letter).  More on integer conversion in upcoming lectures.  See
-  also [Numbers](/modules/numbers.md) on why you never pass a `char` nor `short`
-  to a variadic function.
+  also
+#module numbers.md Numbers
+  on why you never pass a `char` nor `short` to a variadic function.
 	- also note the existence of `h` and `hh` modifiers.  See the printf()
 	  man page for more information.
 
@@ -47,4 +48,4 @@ function.
 
 Use just `while` and `if` (without `else`).
 
-Solution: [ascii-hex.c](/src/ascii-hex.c)
+Solution: #source ascii-hex.c

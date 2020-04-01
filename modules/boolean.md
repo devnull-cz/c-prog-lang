@@ -11,5 +11,4 @@ broken the code and that is generally not acceptable in C.
 If you are certain that neither `bool`, `true`, nor `false` are used in the code
 on its own, you can use those macros if you include `<stdbool.h>`.
 
-See [bool.c](/src/bool.c).
-
+See #source bool.c
