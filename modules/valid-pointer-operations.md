@@ -30,4 +30,4 @@ int-to-ptr.c:4:7: warning: incompatible integer to pointer conversion initializi
 1 warning generated.
 ```
 
-:eyes: [int-to-ptr.c](https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-to-ptr.c)
+:eyes: #source int-to-ptr.c

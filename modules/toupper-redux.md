@@ -1,9 +1,10 @@
 ## :wrench: toupper
 
-rewrite the [convert small characters to upper case](/modules/toupper.md)
+rewrite the
+#module toupper.md convert small characters to upper case
 program from last time using a function.
 
-solution: [toupper.c](/src/toupper.c)
+solution: #source toupper.c
 
 ### implementation notes
 
@@ -33,4 +34,4 @@ solution: [toupper.c](/src/toupper.c)
     short uppper[] = { 'A', 'B', ... };
 ```
 
-solution: [toupper-table.c](/src/toupper-table.c)
+solution: #source toupper-table.c

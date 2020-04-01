@@ -26,14 +26,14 @@
 	  program returns 0 (in C89 it would be a random number though).
 
 - you must declare a variable before you can use it
-	- :eyes: [declaration.c](/src/declaration.c)
+	- :eyes: #source declaration.c
 
 - `printf()` can use *conversion specifications*, each starts with `%`
 	- `int i; printf("%d\n", i);`
 		- a character like `d` is called a *conversion specifier*
 	- see `man 3 printf` for the gory details
 	- number of conversions must match the number of arguments
-		- :eyes: [printf2.c](/src/printf2.c)
+		- :eyes: #source printf2.c
 		- the compiler will warn you but it will let you do it (use
 		  `-Werror` to treat warnings as errors)
 		- it will print garbage for conversions without a matching
@@ -57,7 +57,7 @@
 		  then print `14`
 		- `++i` is an expression, not a variable, so you cannot assign to it
 			- this will not compile: `++i = 13;`
-	- :eyes: [arithmetics.c](/src/arithmetics.c)
+	- :eyes: #source arithmetics.c
 
 - save for an assignment, anywhere you can use a variable, you can use an
   expression
@@ -69,18 +69,18 @@
 	- `printf("%d\n", 9 / 5)` will print `1`
 
 - while loop
-	- :eyes: [while.c](/src/while.c)
+	- :eyes: #source while.c
 
 - if statement
-	- :eyes: [if.c](/src/if.c)
+	- :eyes: #source if.c
 
 - floating point numbers
-	- :eyes: [float.c](/src/float.c)
+	- :eyes: #source float.c
 	- see the optional minimum field width and precision
 	- experiment!!!
 
 - :wrench: print out a table for inch to centimeter conversion
-	- :eyes: [inches-to-cm.c](/src/inches-to-cm.c)
+	- :eyes: #source inches-to-cm.c
 	- use "\t" escape sequence for printf to print tabelators
 	- like this:
 	```C
@@ -88,11 +88,11 @@
 	```
 
 - :wrench: use floats for the conversion code
-	- :eyes: [inches-to-cm2.c](/src/inches-to-cm2.c)
+	- :eyes: #source inches-to-cm2.c
 		- '\t' in a string will print a tab
 		- `6` is the minimum field width 
 		- `.2` is the precision
 		- see the printf(3) man page for details
 
 - :wrench: print fahrenheit to centigrade table.  Use floats.
-	- :eyes: [fahr-to-cent.c](/src/fahr-to-cent.c)
+	- :eyes: #source fahr-to-cent.c

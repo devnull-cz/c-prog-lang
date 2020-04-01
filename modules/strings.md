@@ -54,7 +54,7 @@ char s[] = { 'h', 'e', 'l', 'l', 'o', '\0' };
 
 Anyway, you would probably never do it this way.  Just use `= "hello"`.
 
-:eyes: code: [array-fill.c](/src/array-fill.c)
+code: #source array-fill.c
 
 - string is printed via `printf()` as `%s`
 
@@ -64,14 +64,14 @@ printf("%s\n", "hello, world");
 
 - experiment with what `%5s` and `%.5s` do (use any reasonable number)
 
-:eyes: code: [string-format.c](/src/string-format.c)
+code: #source string-format.c
 
 # Warm-up
 
 :wrench: task:
 
-  - extend the program [tr-d-chars.c](/src/tr-d-chars.c) from last time to
-    translate character input, e.g.
+  - extend the program #source tr-d-chars.c
+  from last time to translate character input, e.g.
 ```
 tail /etc/passwd | tr 'abcdefgh' '123#'
 ```
@@ -80,7 +80,7 @@ tail /etc/passwd | tr 'abcdefgh' '123#'
       than the 2nd
       - do not store the expanded 2nd string as literal in your program !
 
-  :eyes: code: [tr.c](/src/tr.c)
+  code: #source tr.c
 
 :wrench: task (bonus): refactor the code into a function(s)
 

@@ -18,15 +18,16 @@ note that if we add a semicolon, an expression becomes a statement, e.g.:
 will increment i or j. the parens are not needed but generally
 used for better readability.
 
-code: :eyes: [ternary-assign.c](/src/ternary-assign.c)
+code: #source ternary-assign.c
 
 ## :wrench: toupper using ternary operator
 
-rewrite the [convert small characters to upper case](/modules/toupper.md)
+rewrite the
+#module toupper.md convert small characters to upper case
 program from last time using a function that utilizes the ternary operator
 (single line of code)
 
-solution: [toupper-ternary.c](/src/toupper-ternary.c)
+solution: #source toupper-ternary.c
 
 ## :wrench: min/max of 3 integer values
 
@@ -35,11 +36,11 @@ ternary operator
 
   - do not use any macros
 
-solution: [3max.c](/src/3max.c)
+solution: #source 3max.c
 
 ## quiz
 
-see the code in :eyes: [ternary.c](/src/ternary.c)
+see the code in #source ternary.c
 
   - is this possible to do with ternary operator ?
   - how would you fix it ?
