@@ -229,11 +229,11 @@ to the end of the loop without executing the <code>&lt;update&gt;</code> part.</
 loop.</li>
 <li>both <code>break</code> and <code>continue</code> statements relate to the loop they are executed in</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/for.c">for.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/for.c">for.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: compute minimum of averages of lines in 2-D integer array (of
 arbitrary dimensions) that have positive values (if there is negative value in
 given line, do not use the line for computation).</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/2darray-min-avg.c">2darray-min-avg.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2darray-min-avg.c">2darray-min-avg.c</a></p>
 <h1>
 <a id="user-content-expressions" class="anchor" href="#expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expressions</h1>
 <blockquote>
@@ -247,7 +247,7 @@ expressions, function calls, sizeof, assignments, and ternary expressions.</p>
 <p><a href="http://en.cppreference.com/w/c/language/expressions" rel="nofollow">http://en.cppreference.com/w/c/language/expressions</a></p>
 <p>In C99, an expression can produce results (2+2 gets 4) or generate side effects
 (printf("foo") sends a string literal to the standard output).</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="/src/expression-statement.c">expression-statement.c</a></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/expression-statement.c">expression-statement.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: make the warning an error with your choice of compiler (would be
 a variant of <code>-W</code> in GCC)</p>
 <h1>
@@ -337,7 +337,9 @@ message.</li>
 </ul>
 </li>
 <li>write mode creates the file if it does not exist</li>
-<li>the <code>b</code> binary mode usually does not have any effect (see <a href="/modules/c99-standard.md">the standard</a>)</li>
+<li>the <code>b</code> binary mode usually does not have any effect (see
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">the standard)</a>
+</li>
 </ul>
 </li>
 <li>
@@ -354,7 +356,7 @@ descriptor)</li>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a code that opens the same file in an cycle (until <code>fopen()</code>
 fails) without calling <code>fclose()</code> on the handle. After how many iterations does
 it fail on your system?</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/fopen-leak.c">fopen-leak.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fopen-leak.c">fopen-leak.c</a></p>
 <h2>
 <a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h2>
 <ul>
@@ -411,7 +413,8 @@ ranging from <code>INT_MAX</code> to <code>0</code>) to a file and read the valu
 and print them to the standard error output without closing the file in between
 the writing and reading. Use <code>od(1)</code> to verify the content of the file (thus it
 is handy to start with <code>INT_MAX</code> and e.g. divide by 2 for each successive
-value).  <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="/src/fopen-binary.c">fopen-binary.c</a></p>
+value).
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fopen-binary.c">fopen-binary.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use the file created by the previous program. Read the values from the
 end of the file to the beginning of the file one by one without knowing the file
 size and print the numbers to the standard error output.</p>
