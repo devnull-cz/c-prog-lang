@@ -120,3 +120,41 @@ Task: write a program that takes 1 or 2 arguments, if run with any other count,
       print usage and exit.
 
 Code: #source usage.c
+
+-------------------------------------------------------------------------------
+
+:wrench: Task: what do these programs do when run with 2 arguments (that are
+sufficiently long enough):
+
+```C
+	int
+	main(int argc, char **argv)
+	{
+		printf("%s\n", ++*++argv);
+	}
+
+	int
+	main(int argc, char **argv)
+	{
+		printf("%s\n", argv[1]);
+		printf("%s\n", ++*++argv);
+		printf("%s\n", argv[0]);
+		printf("%s\n", ++*++argv);
+		printf("%s\n", argv[0]);
+	}
+
+	int
+	main(int argc, char **argv)
+	{
+		printf("%s\n", *++*++argv);
+	}
+```
+
+Note: the last function might not compile with smarter compilers (such as LLVM)
+that include format string checks.  What is expected to happen if it the last
+piece of code does compile and is run with one argument?
+
+Code:
+  - #source plus-deref-plus-argv.c
+  - #source plus-deref-plus-deref-argv.c
+
