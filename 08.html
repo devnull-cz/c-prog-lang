@@ -287,6 +287,18 @@ piece of code does compile and is run with one argument?</p>
 </li>
 </ul>
 <h1>
+<a id="user-content-operator-precedence" class="anchor" href="#operator-precedence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator precedence</h1>
+<p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value of the expression
+is still <code>*p</code> though as <code>p</code> is incremented after the expression is evaluated.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: determine the outcome of these expressions/declarations:</p>
+<ul>
+<li><code>*p++</code></li>
+<li><code>++*p</code></li>
+<li><code>int *p[2]</code></li>
+<li><code>int (*p)[3]</code></li>
+</ul>
+<p>See the table on <a href="http://en.cppreference.com/w/c/language/operator_precedence" rel="nofollow">http://en.cppreference.com/w/c/language/operator_precedence</a></p>
+<h1>
 <a id="user-content-structures" class="anchor" href="#structures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structures</h1>
 <h2>
 <a id="user-content-basics" class="anchor" href="#basics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basics</h2>
@@ -772,18 +784,6 @@ this. Since C99 this can be done properly using this technique.</li>
 of the structure if you want to maintain alignment</li>
 </ul>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/flexible-array-member.c">flexible-array-member.c</a></p>
-<h1>
-<a id="user-content-operator-precedence" class="anchor" href="#operator-precedence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator precedence</h1>
-<p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value of the expression
-is still <code>*p</code> though as <code>p</code> is incremented after the expression is evaluated.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: determine the outcome of these expressions/declarations:</p>
-<ul>
-<li><code>*p++</code></li>
-<li><code>++*p</code></li>
-<li><code>int *p[2]</code></li>
-<li><code>int (*p)[3]</code></li>
-</ul>
-<p>See the table on <a href="http://en.cppreference.com/w/c/language/operator_precedence" rel="nofollow">http://en.cppreference.com/w/c/language/operator_precedence</a></p>
 
               </article>
             </div>
