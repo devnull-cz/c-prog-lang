@@ -145,9 +145,86 @@ terminated by a <code>NULL</code> pointer. (quote from the execve(2) man page)</
                                                 | b | a | r | \0 |
 						+---+---+---+----+
 </code></pre>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: find a distance between the first occurence of character <code>&lt;a&gt;</code> and <code>&lt;b&gt;</code> in a
+string <code>&lt;string&gt;</code>.  If either of the character is not found in the string, print
+an error.</p>
+<pre><code>./a.out a x "ahello xworld"
+7
+</code></pre>
+<p>Note: do not use <code>strchr()</code> or the like.</p>
+<p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-char-dist.c">argv-char-dist.c</a></p>
+<hr>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task:</p>
+<ul>
+<li>print all command line arguments using <code>argc</code>
+</li>
+<li>print all command line arguments using just <code>argv</code>
+</li>
+<li>print all command line arguments not starting with <code>-</code>
+</li>
+<li>print all command line arguments using a recursive function (that accepts pointer to pointer to char)</li>
+</ul>
+<p>Note: for all arguments print their address as well
+Note: do not print the terminating <code>NULL</code> entry
+- some <code>printf()</code> implementations barf on NULL pointer when printing
+via the <code>%s</code> format string</p>
+<p>Code:</p>
+<ul>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-while.c">argv-while.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-for.c">argv-for.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-nodash.c">argv-nodash.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/print-argv-recursively.c">print-argv-recursively.c</a>
+</li>
+</ul>
+<hr>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-rd argument (count from 0), do not
+count <code>argv[0..2]</code>.  If not enough arguments or the argument is not long enough,
+print a helpful message.  Only use pointers, do NOT use square brackets (ie.
+<code>argv[i][j]</code> is NOT allowed).</p>
+<pre><code>./a.out 2 3 hey hi world
+l
+</code></pre>
+<p>Note: use atoi() to convert the first 2 arguments to integers</p>
+<p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-nr.c">argv-nr.c</a></p>
+<hr>
+<ul>
+<li>usage: semi-formal specification of program arguments
+<ul>
+<li>usually used to print when invalid option or arguments are specified</li>
+<li>can be handled via errx()</li>
+<li>the usage usually contains program name followed by the argument schema
+<ul>
+<li>see e.g. the nc(1) man page</li>
+</ul>
+</li>
+<li>optional arguments are enclosed in square brackets, mandatory arguments
+are enclosed in <code>&lt;&gt;</code> or left without brackets</li>
+</ul>
+</li>
+</ul>
+<p>Task: write a program that takes 1 or 2 arguments, if run with any other count,
+print usage and exit.</p>
+<p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
 <p>TODO: structures (for tar as well)</p>
-<p>TODO: Operator priority with examples
-e.g. *p++, ++*p, int *p[2], int (*p)[3], etc.</p>
+<h1>
+<a id="user-content-operator-precedence" class="anchor" href="#operator-precedence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator precedence</h1>
+<p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value of the expression
+is still <code>*p</code> though as <code>p</code> is incremented after the expression is evaluated.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: determine the outcome of these expressions/declarations:</p>
+<ul>
+<li><code>*p++</code></li>
+<li><code>++*p</code></li>
+<li><code>int *p[2]</code></li>
+<li><code>int (*p)[3]</code></li>
+</ul>
+<p>See the table on <a href="http://en.cppreference.com/w/c/language/operator_precedence" rel="nofollow">http://en.cppreference.com/w/c/language/operator_precedence</a></p>
 
               </article>
             </div>
