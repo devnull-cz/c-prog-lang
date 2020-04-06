@@ -286,7 +286,492 @@ piece of code does compile and is run with one argument?</p>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/plus-deref-plus-deref-argv.c">plus-deref-plus-deref-argv.c</a>
 </li>
 </ul>
-<p>TODO: structures (for tar as well)</p>
+<h1>
+<a id="user-content-structures" class="anchor" href="#structures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structures</h1>
+<h2>
+<a id="user-content-basics" class="anchor" href="#basics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basics</h2>
+<ul>
+<li>
+<p>collection of one or more variables, possibly of different types, grouped
+together under a single name</p>
+</li>
+<li>
+<p>structures permit group of related variables to be treated as a unit
+(precursor to a class in Object Oriented Programming)</p>
+</li>
+<li>
+<p>structures can contain other structures</p>
+</li>
+<li>
+<p>structure is specified as:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo {
+       ... <span class="pl-c"><span class="pl-c">//</span> members</span>
+    };</pre></div>
+<p>e.g.</p>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo {
+    	<span class="pl-k">int</span> a;
+    	<span class="pl-k">char</span> b;
+    };</pre></div>
+<ul>
+<li>
+<p>any type can be a member of a structure except the structure itself
+- however: a pointer to its own type is possible (remember, a pointer
+is just a number referencing a piece of memory)
+- unlike in C++, structure cannot contain functions. It may contain
+pointers to functions, though.</p>
+</li>
+<li>
+<p>structure does not have to have a name, <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-unnamed.c">struct-unnamed.c</a>
+- however then its use is limited to variable declaration
+- one can even have an "anonymous structure", however that is a C11
+extension, <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-anon.c">struct-anon.c</a></p>
+</li>
+<li>
+<p>struct declaration cannot contain initializers.  However, the structure can be
+initialized with a list of initializers in the same way as arrays.</p>
+</li>
+<li>
+<p>define a variable:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo foo;</pre></div>
+<ul>
+<li>usually the <code>_s</code> postfix is used to denote a structure name</li>
+</ul>
+<p>Note: the <code>struct</code> keyword has to be used for its definition and declaration:</p>
+<p><code>foo foo;</code> is not valid.</p>
+<ul>
+<li>can declare structure and its variables at the same time:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s {
+       ...
+    } foo;</pre></div>
+<ul>
+<li>
+<p>however usually this is not done because structures are normally saved to
+header files (and including such a header file would mean a variable
+definition which is usually not desirable)</p>
+</li>
+<li>
+<p>for better code readability, members are sometimes prefixed with a letter to
+denote their structure type, e.g.:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-c"><span class="pl-c">//</span> 'sin' is a shortcut for 'Sockaddr_IN', the Internet socket</span>
+    <span class="pl-c"><span class="pl-c">//</span> address</span>
+    <span class="pl-k">struct</span> sockaddr_in {
+	<span class="pl-k">short</span>   sin_family;
+        <span class="pl-c1">u_short</span> sin_port;
+    };</pre></div>
+<ul>
+<li>another reason is when looking for variable names in a big source code
+repository (using tags or cstyle), there would be large amount of generally
+named variables like "port", "size", etc in various source code files.
+However, with the prefix, like "sin_port", very often you find just one, the
+one you are looking for.</li>
+</ul>
+<h2>
+<a id="user-content-struct-layout-in-memory" class="anchor" href="#struct-layout-in-memory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Struct layout in memory</h2>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> X { <span class="pl-k">int</span> a; <span class="pl-k">char</span> b; <span class="pl-k">int</span> c; };</pre></div>
+<ul>
+<li>
+<p>the offset of the first member will be always 0</p>
+</li>
+<li>
+<p>other members can be padded to preserve self-alignment (i.e. member is always
+aligned in memory to multiple of its own size)</p>
+<ul>
+<li>the value of the padding bits is undefined</li>
+</ul>
+</li>
+<li>
+<p>what will be the result of <code>sizeof (struct X)</code> ?</p>
+<ul>
+<li>why ? (think about efficiency of accessing members that cross
+a word in memory)</li>
+</ul>
+</li>
+<li>
+<p>what if <code>char d</code> is added at the end of the data structure ?</p>
+<ul>
+<li>why is that ? (think about arrays and memory access again)</li>
+</ul>
+</li>
+<li>
+<p>what if <code>char *d</code> is added at the end of the data structure ?  (i.e.  it will
+have 4 members)</p>
+<ul>
+<li>assume this is being compiled on 64-bit machine</li>
+<li>for efficiency the access to the pointer should be aligned to its size</li>
+<li>if in doubt, draw a picture</li>
+</ul>
+</li>
+</ul>
+<pre><code>	+-----------+----+--------+------------+
+	|     a     | b  |   pad  |      c     |
+	+-----------+----+--------+------------+
+</code></pre>
+<ul>
+<li>does the compiler reorder struct members ? no, C is designed to trust the
+programmer.</li>
+</ul>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-X.c">struct-X.c</a></p>
+<p>note: gcc/Clang has the <code>-fpack-struct</code> option that will condense the members at
+the expense of speed when accessing them.  Use only when you know what you are
+doing as it may not be safe on all architectures.</p>
+<p>link: <a href="http://www.catb.org/esr/structure-packing/" rel="nofollow">http://www.catb.org/esr/structure-packing/</a></p>
+<h2>
+<a id="user-content-struct-members" class="anchor" href="#struct-members" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Struct members</h2>
+<ul>
+<li>
+<p>members are accessed via 2 operators: <code>.</code> and <code>-&gt;</code></p>
+<ul>
+<li>infix, in the group of operators with the highest precedence</li>
+<li>
+<code>-&gt;</code> is used if the variable is a pointer, <code>.</code> otherwise</li>
+</ul>
+</li>
+<li>
+<p>e.g.:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>  <span class="pl-k">struct</span> foo_s {
+	<span class="pl-k">int</span> a;
+	<span class="pl-k">char</span> b;
+  } foo;
+
+  foo.a = <span class="pl-c1">42</span>;
+  foo.b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
+<ul>
+<li>
+<p>the <code>.</code> and <code>-&gt;</code> operators have higher precedence than <code>*</code> and <code>&amp;</code>, so:</p>
+<p><code>&amp;foo.b</code> gets the address of the member <code>b</code></p>
+</li>
+</ul>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-reference.c">struct-reference.c</a></p>
+<ul>
+<li>structure assignment</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s one, two;
+
+    one = two;</pre></div>
+<ul>
+<li>
+<p>is done byte by byte (shallow copy - does not follow pointers)</p>
+<ul>
+<li>handy for members that are pointers</li>
+<li>on the other hand for large structures (say hundreds of bytes) this
+can be quite an expensive operation</li>
+</ul>
+</li>
+<li>
+<p>pointers to structures:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s *foo;
+
+    foo-&gt;a = <span class="pl-c1">42</span>;
+    foo-&gt;b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
+<p>Task: write the above assignments using a de-reference operator on 'foo'</p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-access.c">struct-access.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> now if <code>a</code> was a pointer to integer, how would the code change ?</p>
+<h2>
+<a id="user-content-struct-initialization" class="anchor" href="#struct-initialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Struct initialization</h2>
+<ul>
+<li>can initialize in definition using the initiator list of <strong>constant</strong> values</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s {
+       <span class="pl-k">int</span> a;
+       <span class="pl-k">char</span> b;
+    };
+
+    <span class="pl-k">struct</span> foo_s foo = { <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span> };</pre></div>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-init.c">struct-init.c</a></p>
+<ul>
+<li>or using 'designated initializers' from C99:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s foo = {
+            .<span class="pl-smi">b</span> = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>,
+            .<span class="pl-smi">a</span> = <span class="pl-c1">1</span>
+    };</pre></div>
+<ul>
+<li>
+<p>the ordering in the struct declaration does not have to be preserved</p>
+</li>
+<li>
+<p>omitted field members are implicitly initialized the same as objects that have
+static storage duration (ie. will be initialized to 0).</p>
+</li>
+</ul>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-designated-init.c">struct-designated-init.c</a></p>
+<h2>
+<a id="user-content-operations-on-structures" class="anchor" href="#operations-on-structures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operations on structures</h2>
+<p>You can only:</p>
+<ul>
+<li>copy a structure</li>
+<li>assign to it as a unit</li>
+<li>taking its address with &amp;</li>
+<li>access its members</li>
+</ul>
+<p>So, structures cannot be:</p>
+<ul>
+<li>compared</li>
+<li>incremented (obviously)</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: define array of structures of this type:</p>
+<div class="highlight highlight-source-c"><pre>        <span class="pl-k">struct</span> animal {
+           <span class="pl-k">char</span> name[NAME_MAX]; <span class="pl-c"><span class="pl-c">//</span> max filename length should be sufficient</span>
+				<span class="pl-c"><span class="pl-c">//</span> even for these long Latin names</span>
+           <span class="pl-c1">size_t</span> legs;		<span class="pl-c"><span class="pl-c">//</span> can have many legs</span>
+        };</pre></div>
+<p>and initialize it with some samples (can store the array in animals.h) and
+implement a function:</p>
+<div class="highlight highlight-source-c"><pre>      <span class="pl-c1">size_t</span> <span class="pl-en">count_minlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len, <span class="pl-c1">size_t</span> min);</pre></div>
+<p>that will return number of animals in the array (of 'len' items) that have at
+least 'min' legs.</p>
+<p>Notice that the function returns <code>size_t</code>. This way it is ready for future
+expansion. If it returned unsigned int and 32-bits was not found enough later
+on, the prototype would have to be changed which would cause problems for the
+consumers of this API.</p>
+<p>The function will be implemented in a separate file.  (Do not forget to create a
+header file(s).)</p>
+<p>In the main() program pass (first arg will specify the 'min' parameter of the
+functoin) the array of struct to the function and report result.</p>
+<p>Note: will need:</p>
+<ul>
+<li>
+<code>limits.h</code> for the <code>NAME_MAX</code> definition</li>
+<li>
+<code>stddef.h</code> for <code>size_t</code> (as per C99, §7.17)</li>
+</ul>
+<p>code:</p>
+<ul>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-animals.c">struct-animals.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal_minlegs.c">animal_minlegs.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animals.h">animals.h</a>
+</li>
+</ul>
+<p>Note: for compilation it is only necessary to compile the <code>*.c</code> files and then
+link them together.</p>
+<p>It can be done e.g. like this:</p>
+<pre><code>  cc struct-animals.c animal_minlegs.c
+</code></pre>
+<p>where the compiler will do the compilation of the individual object files and
+then call the linker to contruct the binary (named 'a.out').</p>
+<p>Or like this:</p>
+<pre><code>  cc -c struct-animals.c animal_minlegs.c
+  cc -o animals struct-animals.o animal_minlegs.o
+</code></pre>
+<p>which is closer to what would be done using Makfile.</p>
+<p>Technically, <code>animals.h</code> contains code, however, given it is included in a <code>.c</code>
+file it is not necessary to compile it individually.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: use the code from previous task and implement (in separate .c
+file)</p>
+<pre><code>  static size_t getlegs(struct animal *);
+</code></pre>
+<p>that will return number of legs for a given animal.</p>
+<p>Then implement:</p>
+<pre><code>  struct animal *maxlegs(struct animal *, size_t len);
+</code></pre>
+<p>that will use the getlegs() function and will return an animal with highest leg
+count. Return pointer to the structure (= array element) from the function.</p>
+<p>The main() function (in separate file) will define an array of animals and will
+call maxlegs().  The name of the animal with maximum number of legs will be
+printed to standard output.</p>
+<p>Note: does the original structure change if the structure returned from the
+function was modified within the function? How to fix this?</p>
+<p>code:</p>
+<ul>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal_maxlegs.c">animal_maxlegs.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/maxlegs.c">maxlegs.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animals.h">animals.h</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> (home) Task: sort the array by number of legs, print it out to standard
+output.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: sort the array by the animal name. Print it out to standard
+output.  Use strcmp() to do the comparison of names.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: add a function that will sort according to the number of legs</p>
+<p>Make the comparison functions static.</p>
+<p>Use the standard libc sort function qsort(3).  Check the manual page on how it's
+used.  You will need to define a callback function that the qsort() function
+will use to compare two array elements.</p>
+<p>Make the program to accept an argument (0 or 1) and run the sorting function
+based on that.</p>
+<p>code:</p>
+<ul>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal-sort.c">animal-sort.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animals.h">animals.h</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a>
+</li>
+</ul>
+<h2>
+<a id="user-content-pointer-to-a-structure-and-type-casting" class="anchor" href="#pointer-to-a-structure-and-type-casting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer to a structure and type casting</h2>
+<ul>
+<li>
+<p>pointers to structures are often used to achieve common interface for
+different types</p>
+<ul>
+<li>e.g.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> Common { <span class="pl-k">int</span> type; };
+    <span class="pl-k">struct</span> A      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">8</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 1</span>
+    <span class="pl-k">struct</span> B      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">16</span>]; }; <span class="pl-c"><span class="pl-c">//</span> type == 2</span></pre></div>
+<ul>
+<li>then a function can be declared like so:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span> <span class="pl-en">func</span>(<span class="pl-k">struct</span> Common *c);</pre></div>
+<ul>
+<li>internally it can do e.g.:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">1</span>) {
+    	<span class="pl-k">struct</span> A *ap = (<span class="pl-k">struct</span> A *)c;
+	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">7</span>] = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;
+    } <span class="pl-k">else</span> <span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">2</span>) {
+    	<span class="pl-k">struct</span> B *bp = (<span class="pl-k">struct</span> B *)c;
+	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">15</span>] = <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>;
+    }</pre></div>
+<ul>
+<li>this is possible since all the structures have the same member
+on the same offset (that is offset 0)</li>
+</ul>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-common.c">struct-common.c</a></p>
+<p>Or, more commonly, a function will allocate a A or B structure and return its
+address as pointer to the Common struct. This pointer then needs to be casted
+according to its first member.</p>
+<p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
+definitions for example on how this is done in practice.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: write a macro (or start with a function with hardcoded values)
+that will print the offset of the specified member of a given structure.</p>
+<pre><code>  offsetof(struct X, a)
+</code></pre>
+<p>hint: exploit the fact that pointer can be assigned an integer (0) + use pointer
+arithmetics</p>
+<p>note: <code>offsetof()</code> is standard macro available since ANSI C via stddef.h</p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/offsetof.c">offsetof.c</a></p>
+<h2>
+<a id="user-content-bit-fields" class="anchor" href="#bit-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>bit fields</h2>
+<ul>
+<li>sometimes memory in struct is scarce (imagine having to keep thousands of big
+structures in memory) and there are members holding integers than occupy just
+a couple of bytes
+<ul>
+<li>bit fields can be used to shrink the memory needed</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo {
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> a : <span class="pl-c1">3</span>;
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> b : <span class="pl-c1">1</span>;
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span>   : <span class="pl-c1">4</span>;
+};</pre></div>
+<ul>
+<li>
+<p>the number after the colon specifies the number of bits for given bit field</p>
+<ul>
+<li>cannot exceed the size of the underlying data type (<code>unsigned int</code> in the
+above example)</li>
+</ul>
+</li>
+<li>
+<p>this is good for implementing network protocol headers or HW registers,
+however the layout of bit fields in C structure is implementation dependent</p>
+<ul>
+<li>if it needs to match a concrete layout, additional non-standard compiler
+features have to be used (<code>#pragma</code>'s etc.)</li>
+<li>there is no <code>offsetof()</code> for bit fields</li>
+</ul>
+</li>
+</ul>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitfield.c">bitfield.c</a></p>
+<ul>
+<li>the integer values will behave as expected, e.g.</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>  <span class="pl-k">unsigned</span> <span class="pl-k">int</span> a : <span class="pl-c1">3</span>;
+
+  a = <span class="pl-c1">7</span>;
+  a++; <span class="pl-c"><span class="pl-c">//</span> will wraparound to 0 since this is unsigned</span></pre></div>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: declare a structure that will form a simple linked list and will
+hold an integer as a value. The program will be run with a single argument
+specifying how many items the list will have.</p>
+<p>Allocate a new structure and insert into the head (global variable).  Each new
+item will have its value incremented by one.</p>
+<p>Once the list is complete, print its value by traversing its items from head to
+end.</p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linked-list-free.c">linked-list-free.c</a></p>
+<h2>
+<a id="user-content-flexible-array-member" class="anchor" href="#flexible-array-member" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>flexible array member</h2>
+<ul>
+<li>
+<p>since C99 (§6.7.2.1, item 16, page 103)</p>
+</li>
+<li>
+<p>it is an array without a dimension specified that is the last member of the
+structure</p>
+<ul>
+<li>this is handy for structures with a fixed header and "padding" data of
+flexible length that is allocated dynamically</li>
+<li>why not to use a pointer instead ? this is good when passing data over
+boundaries such as network, kernel/userland, etc. since no deep
+structure copy is required</li>
+</ul>
+</li>
+<li>
+<p>e.g.:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>  <span class="pl-k">struct</span> item {
+      <span class="pl-k">int</span> value;
+      <span class="pl-c"><span class="pl-c">//</span> possible other members</span>
+      <span class="pl-k">char</span> payload[];
+      <span class="pl-c"><span class="pl-c">//</span> nothing can follow</span>
+  };</pre></div>
+<ul>
+<li>
+<code>sizeof (struct item)</code> will give the size without the last member computed</li>
+</ul>
+<pre><code>	+-------------+-----------------------+
+	| struct item |      payload ...      |
+	+-------------+-----------------------+
+</code></pre>
+<ul>
+<li>previously, this was hacked around using array with 0 members and GCC accepted
+this. Since C99 this can be done properly using this technique.</li>
+<li>the data is allocated like so:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> item *p = malloc(<span class="pl-k">sizeof</span> (<span class="pl-k">struct</span> item) +
+        payload_len * <span class="pl-k">sizeof</span> (p-&gt;payload[<span class="pl-c1">0</span>]));</pre></div>
+<ul>
+<li>with this approach the overall structure alignment might be lost
+- i.e. it is necessary to set the payload length according to the size
+of the structure if you want to maintain alignment</li>
+</ul>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/flexible-array-member.c">flexible-array-member.c</a></p>
 <h1>
 <a id="user-content-operator-precedence" class="anchor" href="#operator-precedence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator precedence</h1>
 <p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value of the expression
