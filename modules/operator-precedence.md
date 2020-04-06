@@ -1,6 +1,12 @@
 # Operator precedence
 
-TBD
+`*p++` is `*(p++)` as `++` is of higher priority than `*`.  However, the value of the expression
+is still `*p` though as `p` is incremented after the expression is evaluated.
 
-[Table of all
-operators.](https://en.cppreference.com/w/c/language/operator_precedence)
+:wrench: Task: determine the outcome of these expressions/declarations:
+  - `*p++`
+  - `++*p`
+  - `int *p[2]`
+  - `int (*p)[3]`
+
+See the table on http://en.cppreference.com/w/c/language/operator_precedence
