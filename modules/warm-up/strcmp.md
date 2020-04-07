@@ -9,3 +9,6 @@ returns
 > string s1 is greater than, equal to, or less than the string s2.
 
 #source strcmp.c
+
+:wrench: task: compare your solution with the above. Try to reimplement
+it so that it is as smallest (in terms of Lines Of Code) as possible.

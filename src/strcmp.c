@@ -1,3 +1,8 @@
+/*
+ * Naive implementation of strcmp().
+ * Compile with -DTEST to see the behavior of strcmp() in libc.
+ */
+
 #ifdef TEST
 #include <stdio.h>
 #include <string.h>	// for testing
