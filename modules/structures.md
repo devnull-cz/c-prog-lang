@@ -75,10 +75,10 @@ e.g.
 ```
 
 - another reason is when looking for variable names in a big source code
-  repository (using `ctags` or `cstyle`), there would be large amount of generally
-  named variables like `port`, `size`, etc in various source code files.
-  However, with the prefix, like `sin_port`, very often you find just one, the
-  one you are looking for.
+  repository (using `ctags` or `cstyle`), there would be large amount of
+  generally named variables like `port`, `size`, etc in various source code
+  files. However, with the prefix, like `sin_port`, very often you find just
+  one, the one you are looking for.
 
 ## Struct layout in memory
 
@@ -232,8 +232,8 @@ implement a function:
       size_t count_minlegs(struct animal *, size_t len, size_t min);
 ```
 
-that will return number of animals in the array (of 'len' items) that have at
-least 'min' legs.
+that will return number of animals in the array (of `len` items) that have at
+least `min` legs.
 
 Notice that the function returns `size_t`. This way it is ready for future
 expansion. If it returned unsigned int and 32-bits was not found enough later
@@ -288,11 +288,11 @@ Then implement:
 
       struct animal *maxlegs(struct animal *, size_t len);
 
-that will use the `getlegs()` function and will return an animal with highest leg
-count. Return pointer to the structure (= array element) from the function.
+that will use the `getlegs()` function and will return an animal with highest
+leg count. Return pointer to the structure (= array element) from the function.
 
-The `main()` function (in separate file) will define an array of animals and will
-call maxlegs().  The name of the animal with maximum number of legs will be
+The `main()` function (in separate file) will define an array of animals and
+will call maxlegs().  The name of the animal with maximum number of legs will be
 printed to standard output.
 
 Note: does the original structure change if the structure returned from the
