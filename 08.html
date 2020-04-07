@@ -540,7 +540,9 @@ static storage duration (ie. will be initialized to 0).</p>
 <li>compared</li>
 <li>incremented (obviously)</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: define array of structures of this type:</p>
+<h2>
+<a id="user-content-wrench-task-animals-as-structures" class="anchor" href="#wrench-task-animals-as-structures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: animals as structures</h2>
+<p>define array of structures of this type:</p>
 <div class="highlight highlight-source-c"><pre>        <span class="pl-k">struct</span> animal {
            <span class="pl-k">char</span> name[NAME_MAX]; <span class="pl-c"><span class="pl-c">//</span> max filename length should be sufficient</span>
 				<span class="pl-c"><span class="pl-c">//</span> even for these long Latin names</span>
@@ -600,7 +602,9 @@ file)</p>
 <pre><code>  static size_t getlegs(struct animal *);
 </code></pre>
 <p>that will return number of legs for a given animal.</p>
-<p>Then implement:</p>
+<h3>
+<a id="user-content-animals-maximum-number-of-legs" class="anchor" href="#animals-maximum-number-of-legs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animals: maximum number of legs</h3>
+<p>implement:</p>
 <pre><code>  struct animal *maxlegs(struct animal *, size_t len);
 </code></pre>
 <p>that will use the <code>getlegs()</code> function and will return an animal with highest
@@ -625,6 +629,8 @@ function was modified within the function? How to fix this ?</p>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a>
 </li>
 </ul>
+<h3>
+<a id="user-content-wrench-animal-sorting" class="anchor" href="#wrench-animal-sorting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> animal sorting</h3>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> (home) Task: sort the array by number of legs, print it out to standard
 output.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: sort the array by the animal name. Print it out to standard
