@@ -140,7 +140,9 @@ numbers there on the command line.</p>
 <p><code>argv[argc]</code> is NULL by definition.</p>
 </li>
 </ul>
-<p>Note: remember (see lecture 07 notes) that in a function argument, an array is
+<p>Note: remember (see
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/arrays-as-function-arguments.md">notes about array passed to function</a>
+) that in a function argument, an array is
 always treated as a pointer so the above effectively becomes:</p>
 <div class="highlight highlight-source-c"><pre>        <span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv);</pre></div>
 <p>i.e. in this context, char <code>*argv[]</code> and char <code>**argv</code> are the same.</p>
