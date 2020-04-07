@@ -27,14 +27,14 @@ e.g.
     };
 ```
 - any type can be a member of a structure except the structure itself
-	  - however: a pointer to its own type is possible (remember, a pointer
-	    is just a number referencing a piece of memory)
-	  - unlike in C++, structure cannot contain functions. It may contain
-	    pointers to functions, though.
+  - however: a pointer to its own type is possible (remember, a pointer
+    is just a number referencing a piece of memory)
+  - unlike in C++, structure cannot contain functions. It may contain
+    pointers to functions, though.
 - structure does not have to have a name, #source struct-unnamed.c
-	  - however then its use is limited to variable declaration
-	  - one can even have an "anonymous structure", however that is a C11
-	    extension, #source struct-anon.c
+  - however then its use is limited to variable declaration
+  - one can even have an "anonymous structure", however that is a C11
+    extension, #source struct-anon.c
 
 - struct declaration cannot contain initializers.  However, the structure can be
   initialized with a list of initializers in the same way as arrays.
@@ -460,7 +460,7 @@ code: #source linked-list-free.c
 ```
 
 - with this approach the overall structure alignment might be lost
-	  - i.e. it is necessary to set the payload length according to the size
-	    of the structure if you want to maintain alignment
+  - i.e. it is necessary to set the payload length according to the size
+    of the structure if you want to maintain alignment
 
 code: #source flexible-array-member.c
