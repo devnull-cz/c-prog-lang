@@ -851,20 +851,35 @@ in which <code>foo()</code> and <code>bar()</code> will be called is still undef
 <p><code>-&gt;</code> and <code>.</code> (structure member access) have higher precedence than <code>&amp;</code> (address
 of) or <code>*</code> (dereference)</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> condsider structure</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> {
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> bar {
+	<span class="pl-k">int</span> val;
+} bar;
+
+<span class="pl-k">struct</span> {
 	<span class="pl-k">int</span> a[<span class="pl-c1">42</span>];
 	<span class="pl-k">char</span> *b;
+	<span class="pl-k">struct</span> bar *c;
 } foo;</pre></div>
-<p>initialize it with <code>1, 2, 3</code> and <code>"BBB"</code>, respectively.</p>
-<p>write these expressions:</p>
+<p>initialize members of <code>foo</code> with <code>1, 2, 3</code> and <code>"BBB"</code>, respectively and
+<code>bar</code> with <code>42</code>. Use designated initializers.</p>
+<p>write these expressions to get:</p>
 <ul>
-<li>get the address of the second item of <code>a</code>
+<li>the address of <code>a</code>
 </li>
-<li>get the 3rd character from string <code>b</code>
+<li>the address of <code>b</code>
 </li>
-<li>get the address of the 3rd character from string <code>b</code>
+<li>the address of the second item of <code>a</code>
+</li>
+<li>the address of the 3rd character from string <code>b</code>
+</li>
+<li>the 3rd character from string <code>b</code>
+</li>
+<li>value of <code>val</code> in <code>bar</code> using <code>foo</code>
+</li>
+<li>address of <code>val</code> in <code>bar</code> using <code>foo</code>
 </li>
 </ul>
+<p>Use as few brackets as possible.</p>
 <p>solution: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-op-precedence.c">struct-op-precedence.c</a></p>
 
               </article>
