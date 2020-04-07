@@ -122,8 +122,9 @@ Note: use `atoi()` to convert the first 2 arguments to integers
 
 Code: #source argv-nr.c
 
-## :wrench: Task: what do these programs do when run with 2 arguments (that are
-sufficiently long enough):
+## :wrench: Task: what do these programs do when run with 2 arguments
+
+Assume that the arguments are sufficiently long enough.
 
 ```C
 	int
