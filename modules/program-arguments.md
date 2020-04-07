@@ -63,7 +63,8 @@ Code: #source argv-as-2d-array.c
 						+---+---+---+----+
 ```
 
-:wrench: Task: find a distance between the first occurence of character `<a>` and `<b>` in a
+:wrench: Task: write a program with usage `./a.out <a> <b> <string>` to
+find a distance between the first occurence of character `<a>` and `<b>` in a
 string `<string>`.  If either of the character is not found in the string, print
 an error.
 ```
