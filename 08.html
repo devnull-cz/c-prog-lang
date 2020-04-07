@@ -562,7 +562,8 @@ consumes it:</p>
 <p>Then any <code>.c</code> file that includes <code>foo.h</code> can work with the structure
 (by passing it to <code>doStuff()</code>) however cannot access its members directly.
 The structure is usable only via pointer. Thus, the library has to provide
-a functions to allocate a structure and return the pointer to it.</p>
+a function to allocate a structure and return the pointer to it
+(and possibly also to initialize it).</p>
 <p>This is handy for libraries so they are free to change the layout of structures
 without breaking the consumers.</p>
 <p>code:</p>
@@ -596,8 +597,8 @@ on, the prototype would have to be changed which would cause problems for the
 consumers of this API.</p>
 <p>The function will be implemented in a separate file.  (Do not forget to create a
 header file(s).)</p>
-<p>In the <code>main()</code> program pass (first arg will specify the <code>min</code> parameter of the
-functoin) the array of struct to the function and report result.</p>
+<p>In the <code>main()</code> program (first arg will specify the <code>min</code> parameter of the
+function) pass the array of structs to the function and report the result.</p>
 <p>Note: will need:</p>
 <ul>
 <li>
