@@ -52,3 +52,4 @@ ptr-cast.c
 animal_maxlegs.c
 maxlegs.c
 printf.c
+passing-arrays.c
