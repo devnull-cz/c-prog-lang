@@ -73,16 +73,28 @@ of) or `*` (dereference)
 
 :wrench: condsider structure
 ```C
+struct bar {
+	int val;
+} bar;
+
 struct {
 	int a[42];
 	char *b;
+	struct bar *c;
 } foo;
 ```
-initialize it with `1, 2, 3` and `"BBB"`, respectively.
+initialize members of `foo` with `1, 2, 3` and `"BBB"`, respectively and
+`bar` with `42`. Use designated initializers.
 
-write these expressions:
-  - get the address of the second item of `a`
-  - get the 3rd character from string `b`
-  - get the address of the 3rd character from string `b`
+write these expressions to get:
+  - the address of `a`
+  - the address of `b`
+  - the address of the second item of `a`
+  - the address of the 3rd character from string `b`
+  - the 3rd character from string `b`
+  - value of `val` in `bar` using `foo`
+  - address of `val` in `bar` using `foo`
+
+Use as few brackets as possible.
 
 solution: #source struct-op-precedence.c
