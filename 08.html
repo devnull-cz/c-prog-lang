@@ -384,10 +384,10 @@ denote their structure type, e.g.:</p>
     };</pre></div>
 <ul>
 <li>another reason is when looking for variable names in a big source code
-repository (using <code>ctags</code> or <code>cstyle</code>), there would be large amount of generally
-named variables like <code>port</code>, <code>size</code>, etc in various source code files.
-However, with the prefix, like <code>sin_port</code>, very often you find just one, the
-one you are looking for.</li>
+repository (using <code>ctags</code> or <code>cstyle</code>), there would be large amount of
+generally named variables like <code>port</code>, <code>size</code>, etc in various source code
+files. However, with the prefix, like <code>sin_port</code>, very often you find just
+one, the one you are looking for.</li>
 </ul>
 <h2>
 <a id="user-content-struct-layout-in-memory" class="anchor" href="#struct-layout-in-memory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Struct layout in memory</h2>
@@ -547,8 +547,8 @@ static storage duration (ie. will be initialized to 0).</p>
 <p>and initialize it with some samples (can store the array in animals.h) and
 implement a function:</p>
 <div class="highlight highlight-source-c"><pre>      <span class="pl-c1">size_t</span> <span class="pl-en">count_minlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len, <span class="pl-c1">size_t</span> min);</pre></div>
-<p>that will return number of animals in the array (of 'len' items) that have at
-least 'min' legs.</p>
+<p>that will return number of animals in the array (of <code>len</code> items) that have at
+least <code>min</code> legs.</p>
 <p>Notice that the function returns <code>size_t</code>. This way it is ready for future
 expansion. If it returned unsigned int and 32-bits was not found enough later
 on, the prototype would have to be changed which would cause problems for the
@@ -601,10 +601,10 @@ file)</p>
 <p>Then implement:</p>
 <pre><code>  struct animal *maxlegs(struct animal *, size_t len);
 </code></pre>
-<p>that will use the <code>getlegs()</code> function and will return an animal with highest leg
-count. Return pointer to the structure (= array element) from the function.</p>
-<p>The <code>main()</code> function (in separate file) will define an array of animals and will
-call maxlegs().  The name of the animal with maximum number of legs will be
+<p>that will use the <code>getlegs()</code> function and will return an animal with highest
+leg count. Return pointer to the structure (= array element) from the function.</p>
+<p>The <code>main()</code> function (in separate file) will define an array of animals and
+will call maxlegs().  The name of the animal with maximum number of legs will be
 printed to standard output.</p>
 <p>Note: does the original structure change if the structure returned from the
 function was modified within the function? How to fix this?</p>
