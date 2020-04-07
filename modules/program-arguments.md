@@ -107,11 +107,13 @@ Task: write a program that takes 1 or 2 arguments, if run with any other count,
 
 Code: #source usage.c
 
+## :wrench: Task: print the n-th character of the r-rd argument (count from 0)
 
-:wrench: Task: print the n-th character of the r-rd argument (count from 0), do not
-count `argv[0..2]`.  If not enough arguments or the argument is not long enough,
-print a helpful message.  Only use pointer arithmetics, do NOT use square
-brackets (ie.  `argv[i][j]` is **not** allowed).
+usage: `./a.out <r> <n> [args]`
+
+do not count `argv[0..2]`.  If not enough arguments or the argument is not long
+enough, print a helpful message.  Only use pointer arithmetics, do **not** use
+square brackets (ie.  `argv[i][j]` is **not** allowed).
 ```
 ./a.out 2 3 hey hi world
 l
