@@ -303,6 +303,10 @@ piece of code does compile and is run with one argument?</p>
 </ul>
 <h1>
 <a id="user-content-operator-precedence" class="anchor" href="#operator-precedence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator precedence</h1>
+<p>There are 15 levels of operator precedence,
+see the table on <a href="http://en.cppreference.com/w/c/language/operator_precedence" rel="nofollow">http://en.cppreference.com/w/c/language/operator_precedence</a></p>
+<h2>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 <p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value of the expression
 is still <code>*p</code> though as <code>p</code> is incremented after the expression is evaluated.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: determine the outcome of these expressions/declarations:</p>
@@ -312,7 +316,15 @@ is still <code>*p</code> though as <code>p</code> is incremented after the expre
 <li><code>int *p[2]</code></li>
 <li><code>int (*p)[3]</code></li>
 </ul>
-<p>See the table on <a href="http://en.cppreference.com/w/c/language/operator_precedence" rel="nofollow">http://en.cppreference.com/w/c/language/operator_precedence</a></p>
+<h2>
+<a id="user-content-associativity" class="anchor" href="#associativity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Associativity</h2>
+<p>If there are multiple operators with the same precedence in an expression,
+the evaluation is decided based on associativity.</p>
+<p>For example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c1">8</span> / <span class="pl-c1">2</span> % <span class="pl-c1">3</span></pre></div>
+<p>has 2 operators with precedence level of 3 that have left-to-right
+associativity. Therefore, they will be evaluated as</p>
+<div class="highlight highlight-source-c"><pre>(<span class="pl-c1">8</span> / <span class="pl-c1">2</span>) % <span class="pl-c1">3</span></pre></div>
 <h2>
 <a id="user-content-gotcha--versus-" class="anchor" href="#gotcha--versus-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>gotcha: <code>==</code> versus <code>=</code>/<code>!=</code>
 </h2>
