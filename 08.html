@@ -326,6 +326,22 @@ the evaluation is decided based on associativity.</p>
 associativity. Therefore, they will be evaluated as</p>
 <div class="highlight highlight-source-c"><pre>(<span class="pl-c1">8</span> / <span class="pl-c1">2</span>) % <span class="pl-c1">3</span></pre></div>
 <h2>
+<a id="user-content-operand-evaluation-order" class="anchor" href="#operand-evaluation-order" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operand evaluation order</h2>
+<p>Consider the following:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">foo</span>(<span class="pl-k">void</span>);
+<span class="pl-k">int</span> <span class="pl-en">bar</span>(<span class="pl-k">void</span>);
+
+<span class="pl-k">int</span> x = foo() + bar();</pre></div>
+<p>The standard does not say how the evaluation will be done. <code>foo()</code> can be called
+before or after <code>bar()</code>. If we add another function:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">foo</span>(<span class="pl-k">void</span>);
+<span class="pl-k">int</span> <span class="pl-en">bar</span>(<span class="pl-k">void</span>);
+<span class="pl-k">int</span> <span class="pl-en">another</span>(<span class="pl-k">void</span>);
+
+<span class="pl-k">int</span> x = foo() + bar() + another();</pre></div>
+<p>then the expression will become <code>(foo() + bar()) + another()</code> however the order
+in which <code>foo()</code> and <code>bar()</code> will be called is still undefined.</p>
+<h2>
 <a id="user-content-gotcha--versus-" class="anchor" href="#gotcha--versus-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>gotcha: <code>==</code> versus <code>=</code>/<code>!=</code>
 </h2>
 <p>the condition in the statement:</p>
