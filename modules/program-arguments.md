@@ -75,9 +75,7 @@ Note: do not use `strchr()` or the like.
 
 Code: #source argv-char-dist.c
 
--------------------------------------------------------------------------------
-
-:wrench: Task:
+## :wrench: Task: print command line arguments
 
   - print all command line arguments using `argc`
   - print all command line arguments using just `argv`
@@ -95,23 +93,8 @@ Code:
   - #source argv-nodash.c
   - #source print-argv-recursively.c
 
--------------------------------------------------------------------------------
+## usage: semi-formal specification of program arguments
 
-:wrench: Task: print the n-th character of the r-rd argument (count from 0), do not
-count `argv[0..2]`.  If not enough arguments or the argument is not long enough,
-print a helpful message.  Only use pointers, do NOT use square brackets (ie.
-`argv[i][j]` is NOT allowed).
-```
-./a.out 2 3 hey hi world
-l
-```
-Note: use atoi() to convert the first 2 arguments to integers
-
-Code: #source argv-nr.c
-
--------------------------------------------------------------------------------
-
-- usage: semi-formal specification of program arguments
   - usually used to print when invalid option or arguments are specified
   - can be handled via errx()
   - the usage usually contains program name followed by the argument schema
@@ -124,9 +107,20 @@ Task: write a program that takes 1 or 2 arguments, if run with any other count,
 
 Code: #source usage.c
 
--------------------------------------------------------------------------------
 
-:wrench: Task: what do these programs do when run with 2 arguments (that are
+:wrench: Task: print the n-th character of the r-rd argument (count from 0), do not
+count `argv[0..2]`.  If not enough arguments or the argument is not long enough,
+print a helpful message.  Only use pointer arithmetics, do NOT use square
+brackets (ie.  `argv[i][j]` is **not** allowed).
+```
+./a.out 2 3 hey hi world
+l
+```
+Note: use `atoi()` to convert the first 2 arguments to integers
+
+Code: #source argv-nr.c
+
+## :wrench: Task: what do these programs do when run with 2 arguments (that are
 sufficiently long enough):
 
 ```C
