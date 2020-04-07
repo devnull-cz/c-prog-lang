@@ -216,7 +216,10 @@ So, structures cannot be:
 - compared
 - incremented (obviously)
 
-:wrench: Task: define array of structures of this type:
+## :wrench: Task: animals as structures
+
+define array of structures of this type:
+
 ```C
         struct animal {
            char name[NAME_MAX]; // max filename length should be sufficient
@@ -284,7 +287,9 @@ file)
 
 that will return number of legs for a given animal.
 
-Then implement:
+### animals: maximum number of legs
+
+implement:
 
       struct animal *maxlegs(struct animal *, size_t len);
 
@@ -303,6 +308,8 @@ code:
   - #source maxlegs.c
   - #source animals.h
   - #source animal.h
+
+### :wrench: animal sorting
 
 :wrench: (home) Task: sort the array by number of legs, print it out to standard
 output.
