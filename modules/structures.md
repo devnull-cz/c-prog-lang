@@ -413,7 +413,9 @@ casted according to its first member.
 See `struct sockaddr`, `struct sockaddr_in` and `struct sockaddr_in6`
 definitions for example on how this is done in practice.
 
-:wrench: task: write a macro (or start with a function with hardcoded values)
+## :wrench: task: offsetof
+
+write a macro (or start with a function with hardcoded values)
 that will print the offset of the specified member of a given structure.
 
       offsetof(struct X, a)
@@ -458,7 +460,9 @@ code: #source bitfield.c
   a++; // will wraparound to 0 since this is unsigned
 ```
 
-:wrench: task: declare a structure that will form a simple linked list and will
+## :wrench: task: linked list
+
+declare a structure that will form a simple linked list and will
 hold an integer as a value. The program will be run with a single argument
 specifying how many items the list will have.
 
