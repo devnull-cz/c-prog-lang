@@ -56,7 +56,7 @@ in which `foo()` and `bar()` will be called is still undefined.
 
 ## Common gotchas
 
-### `==` versus `=`/`!=`
+### `==` or `!=` versus `=`
 
 the condition in the statement:
 ```C
