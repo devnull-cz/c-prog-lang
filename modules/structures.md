@@ -164,7 +164,8 @@ code: #source struct-reference.c
     foo->a = 42;
     foo->b = 'C';
 ```
-Task: write the above assignments using a de-reference operator on `foo`
+:wrench: Task: write the above assignments using a de-reference operator on
+`foo`
 
 code: #source struct-access.c
 
