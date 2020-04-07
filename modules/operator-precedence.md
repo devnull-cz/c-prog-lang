@@ -54,7 +54,9 @@ int x = foo() + bar() + another();
 then the expression will become `(foo() + bar()) + another()` however the order
 in which `foo()` and `bar()` will be called is still undefined.
 
-## gotcha: `==` versus `=`/`!=`
+## Common gotchas
+
+### `==` versus `=`/`!=`
 
 the condition in the statement:
 ```C
@@ -63,3 +65,24 @@ if ((c = getchar()) != 0)
 ```
 
 needs to be bracketed this way because `=`/`!=` has higher precedence than `=`.
+
+### `&` or `*` versus `->` or `.`
+
+`->` and `.` (structure member access) have higher precedence than `&` (address
+of) or `*` (dereference)
+
+:wrench: condsider structure
+```C
+struct {
+	int a[42];
+	char *b;
+} foo;
+```
+initialize it with `1, 2, 3` and `"BBB"`, respectively.
+
+write these expressions:
+  - get the address of the second item of `a`
+  - get the 3rd character from string `b`
+  - get the address of the 3rd character from string `b`
+
+solution: #source struct-op-precedence.c
