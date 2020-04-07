@@ -563,7 +563,8 @@ consumes it:</p>
 (by passing it to <code>doStuff()</code>) however cannot access its members directly.
 The structure is usable only via pointer. Thus, the library has to provide
 a function to allocate a structure and return the pointer to it
-(and possibly also to initialize it).</p>
+(and possibly also to initialize it) and functions to get/set the data
+inside the structure.</p>
 <p>This is handy for libraries so they are free to change the layout of structures
 without breaking the consumers.</p>
 <p>code:</p>
