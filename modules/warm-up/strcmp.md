@@ -1,4 +1,4 @@
-:task: # warm-up: implement strcmp()
+:task: #warm-up: implement strcmp()
 
 Implement
 
