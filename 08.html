@@ -253,18 +253,20 @@ are enclosed in <code>&lt;&gt;</code> or left without brackets</li>
 <p>Task: write a program that takes 1 or 2 arguments, if run with any other count,
 print usage and exit.</p>
 <p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-rd argument (count from 0), do not
-count <code>argv[0..2]</code>.  If not enough arguments or the argument is not long enough,
-print a helpful message.  Only use pointer arithmetics, do NOT use square
-brackets (ie.  <code>argv[i][j]</code> is <strong>not</strong> allowed).</p>
+<h2>
+<a id="user-content-wrench-task-print-the-n-th-character-of-the-r-rd-argument-count-from-0" class="anchor" href="#wrench-task-print-the-n-th-character-of-the-r-rd-argument-count-from-0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-rd argument (count from 0)</h2>
+<p>usage: <code>./a.out &lt;r&gt; &lt;n&gt; [args]</code></p>
+<p>do not count <code>argv[0..2]</code>.  If not enough arguments or the argument is not long
+enough, print a helpful message.  Only use pointer arithmetics, do <strong>not</strong> use
+square brackets (ie.  <code>argv[i][j]</code> is <strong>not</strong> allowed).</p>
 <pre><code>./a.out 2 3 hey hi world
 l
 </code></pre>
 <p>Note: use <code>atoi()</code> to convert the first 2 arguments to integers</p>
 <p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-nr.c">argv-nr.c</a></p>
 <h2>
-<a id="user-content-wrench-task-what-do-these-programs-do-when-run-with-2-arguments-that-are" class="anchor" href="#wrench-task-what-do-these-programs-do-when-run-with-2-arguments-that-are" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: what do these programs do when run with 2 arguments (that are</h2>
-<p>sufficiently long enough):</p>
+<a id="user-content-wrench-task-what-do-these-programs-do-when-run-with-2-arguments" class="anchor" href="#wrench-task-what-do-these-programs-do-when-run-with-2-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: what do these programs do when run with 2 arguments</h2>
+<p>Assume that the arguments are sufficiently long enough.</p>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span>
 	<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
 	{
