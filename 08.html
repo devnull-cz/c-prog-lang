@@ -198,7 +198,8 @@ terminated by a <code>NULL</code> pointer. (quote from the execve(2) man page)</
                                                 | b | a | r | \0 |
 						+---+---+---+----+
 </code></pre>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: find a distance between the first occurence of character <code>&lt;a&gt;</code> and <code>&lt;b&gt;</code> in a
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write a program with usage <code>./a.out &lt;a&gt; &lt;b&gt; &lt;string&gt;</code> to
+find a distance between the first occurence of character <code>&lt;a&gt;</code> and <code>&lt;b&gt;</code> in a
 string <code>&lt;string&gt;</code>.  If either of the character is not found in the string, print
 an error.</p>
 <pre><code>./a.out a x "ahello xworld"
@@ -206,8 +207,8 @@ an error.</p>
 </code></pre>
 <p>Note: do not use <code>strchr()</code> or the like.</p>
 <p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-char-dist.c">argv-char-dist.c</a></p>
-<hr>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task:</p>
+<h2>
+<a id="user-content-wrench-task-print-command-line-arguments" class="anchor" href="#wrench-task-print-command-line-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print command line arguments</h2>
 <ul>
 <li>print all command line arguments using <code>argc</code>
 </li>
@@ -236,19 +237,8 @@ via the <code>%s</code> format string</p>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/print-argv-recursively.c">print-argv-recursively.c</a>
 </li>
 </ul>
-<hr>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-rd argument (count from 0), do not
-count <code>argv[0..2]</code>.  If not enough arguments or the argument is not long enough,
-print a helpful message.  Only use pointers, do NOT use square brackets (ie.
-<code>argv[i][j]</code> is NOT allowed).</p>
-<pre><code>./a.out 2 3 hey hi world
-l
-</code></pre>
-<p>Note: use atoi() to convert the first 2 arguments to integers</p>
-<p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-nr.c">argv-nr.c</a></p>
-<hr>
-<ul>
-<li>usage: semi-formal specification of program arguments
+<h2>
+<a id="user-content-usage-semi-formal-specification-of-program-arguments" class="anchor" href="#usage-semi-formal-specification-of-program-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>usage: semi-formal specification of program arguments</h2>
 <ul>
 <li>usually used to print when invalid option or arguments are specified</li>
 <li>can be handled via errx()</li>
@@ -260,14 +250,21 @@ l
 <li>optional arguments are enclosed in square brackets, mandatory arguments
 are enclosed in <code>&lt;&gt;</code> or left without brackets</li>
 </ul>
-</li>
-</ul>
 <p>Task: write a program that takes 1 or 2 arguments, if run with any other count,
 print usage and exit.</p>
 <p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
-<hr>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: what do these programs do when run with 2 arguments (that are
-sufficiently long enough):</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-rd argument (count from 0), do not
+count <code>argv[0..2]</code>.  If not enough arguments or the argument is not long enough,
+print a helpful message.  Only use pointer arithmetics, do NOT use square
+brackets (ie.  <code>argv[i][j]</code> is <strong>not</strong> allowed).</p>
+<pre><code>./a.out 2 3 hey hi world
+l
+</code></pre>
+<p>Note: use <code>atoi()</code> to convert the first 2 arguments to integers</p>
+<p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-nr.c">argv-nr.c</a></p>
+<h2>
+<a id="user-content-wrench-task-what-do-these-programs-do-when-run-with-2-arguments-that-are" class="anchor" href="#wrench-task-what-do-these-programs-do-when-run-with-2-arguments-that-are" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: what do these programs do when run with 2 arguments (that are</h2>
+<p>sufficiently long enough):</p>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span>
 	<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
 	{
@@ -839,7 +836,7 @@ in which <code>foo()</code> and <code>bar()</code> will be called is still undef
 <h2>
 <a id="user-content-common-gotchas" class="anchor" href="#common-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Common gotchas</h2>
 <h3>
-<a id="user-content--versus-" class="anchor" href="#-versus-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>==</code> versus <code>=</code>/<code>!=</code>
+<a id="user-content--or--versus-" class="anchor" href="#-or--versus-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>==</code> or <code>!=</code> versus <code>=</code>
 </h3>
 <p>the condition in the statement:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> ((c = getchar()) != <span class="pl-c1">0</span>)
