@@ -18,7 +18,9 @@ int main(int argc, char *argv[]);
 
   - `argv[argc]` is NULL by definition.
 
-Note: remember (see lecture 07 notes) that in a function argument, an array is
+Note: remember (see
+#module arrays-as-function-arguments.md notes about array passed to function
+) that in a function argument, an array is
       always treated as a pointer so the above effectively becomes:
 ```C
         int main(int argc, char **argv);
