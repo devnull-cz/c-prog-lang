@@ -1,4 +1,4 @@
-:task: #warm-up: implement strcmp()
+# :wrench: warm-up: implement strcmp()
 
 Implement
 
