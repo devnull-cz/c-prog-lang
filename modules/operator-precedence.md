@@ -29,6 +29,31 @@ associativity. Therefore, they will be evaluated as
 (8 / 2) % 3
 ```
 
+## Operand evaluation order
+
+Consider the following:
+
+```C
+int foo(void);
+int bar(void);
+
+int x = foo() + bar();
+```
+
+The standard does not say how the evaluation will be done. `foo()` can be called
+before or after `bar()`. If we add another function:
+
+```C
+int foo(void);
+int bar(void);
+int another(void);
+
+int x = foo() + bar() + another();
+```
+
+then the expression will become `(foo() + bar()) + another()` however the order
+in which `foo()` and `bar()` will be called is still undefined.
+
 ## gotcha: `==` versus `=`/`!=`
 
 the condition in the statement:
