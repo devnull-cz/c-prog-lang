@@ -731,7 +731,9 @@ its address as pointer to the <code>Common</code> struct. This pointer then need
 casted according to its first member.</p>
 <p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
 definitions for example on how this is done in practice.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: write a macro (or start with a function with hardcoded values)
+<h2>
+<a id="user-content-wrench-task-offsetof" class="anchor" href="#wrench-task-offsetof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: offsetof</h2>
+<p>write a macro (or start with a function with hardcoded values)
 that will print the offset of the specified member of a given structure.</p>
 <pre><code>  offsetof(struct X, a)
 </code></pre>
@@ -781,7 +783,9 @@ features have to be used (<code>#pragma</code>'s etc.)</li>
 
   a = <span class="pl-c1">7</span>;
   a++; <span class="pl-c"><span class="pl-c">//</span> will wraparound to 0 since this is unsigned</span></pre></div>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: declare a structure that will form a simple linked list and will
+<h2>
+<a id="user-content-wrench-task-linked-list" class="anchor" href="#wrench-task-linked-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: linked list</h2>
+<p>declare a structure that will form a simple linked list and will
 hold an integer as a value. The program will be run with a single argument
 specifying how many items the list will have.</p>
 <p>Allocate a new structure and insert into the head (global variable).  Each new
