@@ -246,7 +246,8 @@ doStuff(struct foo *f)
 Then any `.c` file that includes `foo.h` can work with the structure
 (by passing it to `doStuff()`) however cannot access its members directly.
 The structure is usable only via pointer. Thus, the library has to provide
-a functions to allocate a structure and return the pointer to it.
+a function to allocate a structure and return the pointer to it
+(and possibly also to initialize it).
 
 This is handy for libraries so they are free to change the layout of structures
 without breaking the consumers.
@@ -286,8 +287,8 @@ consumers of this API.
 The function will be implemented in a separate file.  (Do not forget to create a
 header file(s).)
 
-In the `main()` program pass (first arg will specify the `min` parameter of the
-functoin) the array of struct to the function and report result.
+In the `main()` program (first arg will specify the `min` parameter of the
+function) pass the array of structs to the function and report the result.
 
 Note: will need:
 
