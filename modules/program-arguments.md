@@ -87,7 +87,7 @@ Note: do not print the terminating `NULL` entry
       - some `printf()` implementations barf on NULL pointer when printing
         via the `%s` format string
 
-Code:
+:key: Code:
   - #source argv-while.c
   - #source argv-for.c
   - #source argv-nodash.c
@@ -105,7 +105,7 @@ Code:
 Task: write a program that takes 1 or 2 arguments, if run with any other count,
       print usage and exit.
 
-Code: #source usage.c
+:key: Code: #source usage.c
 
 ## :wrench: Task: print the n-th character of the r-rd argument (count from 0)
 
@@ -120,7 +120,7 @@ l
 ```
 Note: use `atoi()` to convert the first 2 arguments to integers
 
-Code: #source argv-nr.c
+:key: Code: #source argv-nr.c
 
 ## :wrench: Task: what do these programs do when run with 2 arguments
 
@@ -160,4 +160,3 @@ piece of code does compile and is run with one argument?
 Code:
   - #source plus-deref-plus-argv.c
   - #source plus-deref-plus-deref-argv.c
-
