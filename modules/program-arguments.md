@@ -126,6 +126,9 @@ Code: #source argv-nr.c
 
 Assume that the arguments are sufficiently long enough.
 
+Skipping ahead: prefix `++` and dereference operator have the same precedence
+so they are evaluated based on associativity which is right-to-left.
+
 ```C
 	int
 	main(int argc, char **argv)
