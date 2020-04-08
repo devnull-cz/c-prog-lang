@@ -206,10 +206,12 @@ terminated by a <code>NULL</code> pointer. (quote from the execve(2) man page)</
 </li>
 <li>print all command line arguments using a recursive function (that accepts pointer to pointer to char)</li>
 </ul>
-<p>Note: for all arguments print their address as well
-Note: do not print the terminating <code>NULL</code> entry
-- some <code>printf()</code> implementations barf on NULL pointer when printing
-via the <code>%s</code> format string</p>
+<p>Note: for all arguments print their address as well</p>
+<p>Note: do not print the terminating <code>NULL</code> entry</p>
+<ul>
+<li>some <code>printf()</code> implementations barf on NULL pointer when printing via the
+<code>%s</code> format string</li>
+</ul>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> Code:</p>
 <ul>
 <li>
