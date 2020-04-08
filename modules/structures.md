@@ -446,6 +446,7 @@ struct foo {
  - the number after the colon specifies the number of bits for given bit field
    - cannot exceed the size of the underlying data type (`unsigned int` in the
      above example)
+ - cannot use `sizeof` on bitfield
 
  - this is good for implementing network protocol headers or HW registers,
    however the layout of bit fields in C structure is implementation dependent
