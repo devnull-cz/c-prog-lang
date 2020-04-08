@@ -172,6 +172,8 @@ code: #source struct-access.c
 
 :wrench: now if `a` was a pointer to integer, how would the code change ?
 
+code: #source struct-access-ptr.c
+
 ## Struct initialization
 
 - can initialize in definition using the initiator list of **constant** values
