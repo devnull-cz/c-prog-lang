@@ -299,7 +299,7 @@ Note: will need:
 - `limits.h` for the `NAME_MAX` definition
 - `stddef.h` for `size_t` (as per C99, §7.17)
 
-code:
+:key: code:
   - #source struct-animals.c
   - #source animal\_minlegs.c
   - #source animal.h
@@ -348,7 +348,7 @@ be printed to standard output.
 Note: does the original structure change if the structure returned from the
 function was modified within the function? How to fix this ?
 
-code:
+:key: code:
   - #source animal\_maxlegs.c
   - #source maxlegs.c
   - #source animals.h
@@ -373,7 +373,7 @@ will use to compare two array elements.
 Make the program to accept an argument (0 or 1) and run the sorting function
 based on that.
 
-code:
+:key: code:
   - #source animal-sort.c
   - #source animals.h
   - #source animal.h
