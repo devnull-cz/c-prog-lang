@@ -428,7 +428,7 @@ arithmetics
 
 note: `offsetof()` is standard macro available since ANSI C via stddef.h
 
-code: #source offsetof.c
+:key: code: #source offsetof.c
 
 ## bit fields
 
@@ -476,7 +476,7 @@ item will have its value incremented by one.
 Once the list is complete, print its value by traversing its items from head to
 end.
 
-code: #source linked-list-free.c
+:key: code: #source linked-list-free.c
 
 ## flexible array member
 
