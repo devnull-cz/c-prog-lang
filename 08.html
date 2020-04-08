@@ -854,6 +854,15 @@ of the structure if you want to maintain alignment</li>
 <p>There are 15 levels of operator precedence,
 see the table on <a href="http://en.cppreference.com/w/c/language/operator_precedence" rel="nofollow">http://en.cppreference.com/w/c/language/operator_precedence</a></p>
 <h2>
+<a id="user-content-associativity" class="anchor" href="#associativity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Associativity</h2>
+<p>If there are multiple operators with the same precedence in an expression,
+the evaluation is decided based on associativity.</p>
+<p>For example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c1">8</span> / <span class="pl-c1">2</span> % <span class="pl-c1">3</span></pre></div>
+<p>has 2 operators with precedence level of 3 that have left-to-right
+associativity. Therefore, they will be evaluated as</p>
+<div class="highlight highlight-source-c"><pre>(<span class="pl-c1">8</span> / <span class="pl-c1">2</span>) % <span class="pl-c1">3</span></pre></div>
+<h2>
 <a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 <p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value of the expression
 is still <code>*p</code> though as <code>p</code> is incremented after the expression is evaluated.</p>
@@ -864,15 +873,6 @@ is still <code>*p</code> though as <code>p</code> is incremented after the expre
 <li><code>int *p[2]</code></li>
 <li><code>int (*p)[3]</code></li>
 </ul>
-<h2>
-<a id="user-content-associativity" class="anchor" href="#associativity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Associativity</h2>
-<p>If there are multiple operators with the same precedence in an expression,
-the evaluation is decided based on associativity.</p>
-<p>For example:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-c1">8</span> / <span class="pl-c1">2</span> % <span class="pl-c1">3</span></pre></div>
-<p>has 2 operators with precedence level of 3 that have left-to-right
-associativity. Therefore, they will be evaluated as</p>
-<div class="highlight highlight-source-c"><pre>(<span class="pl-c1">8</span> / <span class="pl-c1">2</span>) % <span class="pl-c1">3</span></pre></div>
 <h2>
 <a id="user-content-operand-evaluation-order" class="anchor" href="#operand-evaluation-order" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operand evaluation order</h2>
 <p>Consider the following:</p>
