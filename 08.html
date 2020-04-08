@@ -79,10 +79,15 @@
 <a id="user-content-recap" class="anchor" href="#recap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recap</h1>
 <ul>
 <li>pointer is just a variable, stores an address of another object</li>
-<li>to get the value, use dereference operator</li>
-<li>sizeof() applied to pointer will get the size of its storage</li>
-<li>ptrs are handy for passing by reference</li>
-<li>NULL by definition unmapped</li>
+<li>NULL by definition unmapped (modulo stuff like the <code>0@0.so</code> library on
+Solaris - for the curious see the <code>ld.so.1</code> manual page there)</li>
+<li>to get the value of the underlying data, use the dereference operator (<code>*</code>)</li>
+<li>sizeof() applied to pointer will get the size of its storage
+<ul>
+<li>sizeof() applied on dereferenced pointer will get the size of the underlying
+data type</li>
+</ul>
+</li>
 <li>array "name" is pointer to the 1st elem
 <ul>
 <li>not a variable =&gt; cannot be modified</li>
@@ -91,25 +96,19 @@
 <li>subscripting arrays vs. pointer arith <code>a[i] = *(a + i)</code>
 </li>
 <li>using the pointer variable is using its value, i.e. the address</li>
-<li>ptr dec/increment advances by the size of the underlying type</li>
+<li>pointer decrement/increment advances by the size of the underlying type</li>
 <li>addr operator <code>&amp;</code> can only be used on variables</li>
 <li>pointers can be subtracted, not added (no sense)</li>
 <li>
 <code>void</code> pointer can be used to assign back and forth</li>
-<li>postfix has higher precedence than deref op however will be evaluated in the
-next sequence</li>
-<li>
-<code>errno</code> variable (of type <code>int</code>) signifies the last error of a syscall
+<li>postfix operator has higher precedence than deref op however will be evaluated
+in the next sequence</li>
+<li>array passed as argument to a function is converted to the address of its
+first element</li>
+<li>function arguments are always passed by value
 <ul>
-<li>on Unix see the <code>errno(3)</code> man page for possible error codes</li>
-<li>handy <code>err()</code> family of functions (non in the C standard though)</li>
-</ul>
-</li>
-<li>I/O ops done with file handle
-<ul>
-<li>fopen/fgets/fclose</li>
-<li>watch out for resource leaks: <a href="src/fopen-leak.c">fopen-leak.c</a>
-</li>
+<li>corollary: to change argument of a function, it is necessary to use a
+pointer</li>
 </ul>
 </li>
 </ul>
