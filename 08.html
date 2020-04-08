@@ -807,7 +807,12 @@ structure</p>
 flexible length that is allocated dynamically</li>
 <li>why not to use a pointer instead ? this is good when passing data over
 boundaries such as network, kernel/userland, etc. since no deep
-structure copy is required</li>
+structure copy is required
+<ul>
+<li>just copy the structure as whole (it is just necessary to know how
+large it is) because it is all contiguous memory</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
