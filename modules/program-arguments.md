@@ -71,9 +71,10 @@ Code: #source argv-as-2d-array.c
   - print all command line arguments using a recursive function (that accepts pointer to pointer to char)
 
 Note: for all arguments print their address as well
+
 Note: do not print the terminating `NULL` entry
-      - some `printf()` implementations barf on NULL pointer when printing
-        via the `%s` format string
+  - some `printf()` implementations barf on NULL pointer when printing via the
+    `%s` format string
 
 :key: Code:
   - #source argv-while.c
