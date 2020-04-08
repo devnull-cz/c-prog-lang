@@ -433,7 +433,7 @@ code: #source offsetof.c
 ## bit fields
 
 - sometimes memory in is scarce (imagine having to keep millions of big
-  structures in memory) and there are members holding integer values than occupy
+  structures in memory) and there are members holding integer values that occupy
   just a couple of bytes
   - bit fields can be used to shrink the memory needed
 ```C
