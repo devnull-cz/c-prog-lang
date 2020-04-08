@@ -487,6 +487,8 @@ code: #source linked-list-free.c
   - why not to use a pointer instead ? this is good when passing data over
     boundaries such as network, kernel/userland, etc. since no deep
     structure copy is required
+    - just copy the structure as whole (it is just necessary to know how
+      large it is) because it is all contiguous memory
 
 - e.g.:
 ```C
