@@ -467,10 +467,9 @@ doing as it may not be safe on all architectures.</p>
 <p>the <code>.</code> and <code>-&gt;</code> operators have higher precedence than <code>*</code> and <code>&amp;</code>, so:</p>
 <p><code>&amp;foo.b</code> gets the address of the member <code>b</code></p>
 </li>
-</ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-reference.c">struct-reference.c</a></p>
-<ul>
-<li>structure assignment</li>
+<li>
+<p>structure assignment</p>
+</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s one, two;
 
@@ -492,8 +491,9 @@ can be quite an expensive operation</li>
 
     foo-&gt;a = <span class="pl-c1">42</span>;
     foo-&gt;b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write the above assignments using a de-reference operator on
-<code>foo</code></p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-reference.c">struct-reference.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write the above assignments to the members <code>a</code> and <code>b</code> using a
+de-reference operator on <code>foo</code></p>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-access.c">struct-access.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> now if <code>a</code> was a pointer to integer, how would the code change ?</p>
 <h2>
