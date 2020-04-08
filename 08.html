@@ -934,6 +934,8 @@ of) or <code>*</code> (dereference)</p>
 <p>Bit operators have lower precedence than comparison. As a consequence
 the evaluation of expressions such as <code>(a &amp; b == c &amp; d)</code> is counter intuitive.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitwise-vs-logical.c">bitwise-vs-logical.c</a></p>
+<p>In this case modern compilers (clang) will actually warn about missing
+parentheses.</p>
 <p>You can read the explaination by Dennis Ritchie here:
 <a href="http://www.lysator.liu.se/c/dmr-on-or.html" rel="nofollow">http://www.lysator.liu.se/c/dmr-on-or.html</a></p>
 
