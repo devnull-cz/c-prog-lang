@@ -143,8 +143,6 @@ link: http://www.catb.org/esr/structure-packing/
 
     `&foo.b` gets the address of the member `b`
 
-code: #source struct-reference.c
-
 - structure assignment
 
 ```C
@@ -164,8 +162,11 @@ code: #source struct-reference.c
     foo->a = 42;
     foo->b = 'C';
 ```
-:wrench: Task: write the above assignments using a de-reference operator on
-`foo`
+
+code: #source struct-reference.c
+
+:wrench: Task: write the above assignments to the members `a` and `b` using a
+de-reference operator on `foo`
 
 code: #source struct-access.c
 
