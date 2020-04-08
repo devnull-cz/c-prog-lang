@@ -168,11 +168,11 @@ code: #source struct-reference.c
 :wrench: Task: write the above assignments to the members `a` and `b` using a
 de-reference operator on `foo`
 
-code: #source struct-access.c
+code: :key: #source struct-access.c
 
 :wrench: now if `a` was a pointer to integer, how would the code change ?
 
-code: #source struct-access-ptr.c
+code: :key: #source struct-access-ptr.c
 
 ## Struct initialization
 
