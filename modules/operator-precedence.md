@@ -3,17 +3,6 @@
 There are 15 levels of operator precedence,
 see the table on http://en.cppreference.com/w/c/language/operator_precedence
 
-## Examples
-
-`*p++` is `*(p++)` as `++` is of higher priority than `*`.  However, the value of the expression
-is still `*p` though as `p` is incremented after the expression is evaluated.
-
-:wrench: Task: determine the outcome of these expressions/declarations:
-  - `*p++`
-  - `++*p`
-  - `int *p[2]`
-  - `int (*p)[3]`
-
 ## Associativity
 
 If there are multiple operators with the same precedence in an expression,
@@ -28,6 +17,16 @@ associativity. Therefore, they will be evaluated as
 ```C
 (8 / 2) % 3
 ```
+## Examples
+
+`*p++` is `*(p++)` as `++` is of higher priority than `*`.  However, the value of the expression
+is still `*p` though as `p` is incremented after the expression is evaluated.
+
+:wrench: Task: determine the outcome of these expressions/declarations:
+  - `*p++`
+  - `++*p`
+  - `int *p[2]`
+  - `int (*p)[3]`
 
 ## Operand evaluation order
 
