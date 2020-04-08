@@ -63,18 +63,6 @@ Code: #source argv-as-2d-array.c
 						+---+---+---+----+
 ```
 
-:wrench: Task: write a program with usage `./a.out <a> <b> <string>` to
-find a distance between the first occurence of character `<a>` and `<b>` in a
-string `<string>`.  If either of the character is not found in the string, print
-an error.
-```
-./a.out a x "ahello xworld"
-7
-```
-Note: do not use `strchr()` or the like.
-
-Code: #source argv-char-dist.c
-
 ## :wrench: Task: print command line arguments
 
   - print all command line arguments using `argc`
@@ -92,6 +80,20 @@ Note: do not print the terminating `NULL` entry
   - #source argv-for.c
   - #source argv-nodash.c
   - #source print-argv-recursively.c
+
+## :wrench: Task: get char distance in specific argument
+
+write a program with usage `./a.out <a> <b> <string>` to
+find a distance between the first occurence of character `<a>` and `<b>` in a
+string `<string>`.  If either of the character is not found in the string, print
+an error.
+```
+./a.out a x "ahello xworld"
+7
+```
+Note: do not use `strchr()` or the like.
+
+:key: Code: #source argv-char-dist.c
 
 ## usage: semi-formal specification of program arguments
 
