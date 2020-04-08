@@ -745,7 +745,7 @@ arithmetics</p>
 <a id="user-content-bit-fields" class="anchor" href="#bit-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>bit fields</h2>
 <ul>
 <li>sometimes memory in is scarce (imagine having to keep millions of big
-structures in memory) and there are members holding integer values than occupy
+structures in memory) and there are members holding integer values that occupy
 just a couple of bytes
 <ul>
 <li>bit fields can be used to shrink the memory needed</li>
@@ -764,6 +764,9 @@ just a couple of bytes
 <li>cannot exceed the size of the underlying data type (<code>unsigned int</code> in the
 above example)</li>
 </ul>
+</li>
+<li>
+<p>cannot use <code>sizeof</code> on bitfield</p>
 </li>
 <li>
 <p>this is good for implementing network protocol headers or HW registers,
