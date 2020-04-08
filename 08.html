@@ -101,8 +101,6 @@ data type</li>
 <li>pointers can be subtracted, not added (no sense)</li>
 <li>
 <code>void</code> pointer can be used to assign back and forth</li>
-<li>postfix operator has higher precedence than deref op however will be evaluated
-in the next sequence</li>
 <li>array passed as argument to a function is converted to the address of its
 first element</li>
 <li>function arguments are always passed by value
@@ -266,6 +264,8 @@ l
 <h2>
 <a id="user-content-wrench-task-what-do-these-programs-do-when-run-with-2-arguments" class="anchor" href="#wrench-task-what-do-these-programs-do-when-run-with-2-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: what do these programs do when run with 2 arguments</h2>
 <p>Assume that the arguments are sufficiently long enough.</p>
+<p>Skipping ahead: prefix <code>++</code> and dereference operator have the same precedence
+so they are evaluated based on associativity which is right-to-left.</p>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span>
 	<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
 	{
@@ -744,7 +744,7 @@ arithmetics</p>
 <h2>
 <a id="user-content-bit-fields" class="anchor" href="#bit-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>bit fields</h2>
 <ul>
-<li>sometimes memory in is scarce (imagine having to keep millions of big
+<li>sometimes memory is scarce (imagine having to keep millions of big
 structures in memory) and there are members holding integer values that occupy
 just a couple of bytes
 <ul>
