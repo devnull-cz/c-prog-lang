@@ -2,6 +2,8 @@
 
 Notes about how automation works.
 
+This is all governed using Github actions; the configuration is in the `.github/workflows` directory.
+
 ## Auto generate
 
 The content under the `modules` directory is expanded into set of Markdown files in the `notes` branch and set of HTML pages in the `gh-pages` branch.
