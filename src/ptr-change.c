@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void
-change(int **p, int *val)
+change_ptr(int **p, int *val)
 {
 	*p = val;
 }
@@ -12,11 +12,11 @@ main(void)
 	int i, j;
 	int *p = &i;
 
-	printf("%p %p\n", &i, &j);
+	printf("&i = %p, &j = %p\n", &i, &j);
 
-	printf("%p\n", p);
-	change(&p, &j);
-	printf("%p\n", p);
+	printf("p = %p\n", p);
+	change_ptr(&p, &j);
+	printf("p = %p\n", p);
 
 	return (0);
 }
