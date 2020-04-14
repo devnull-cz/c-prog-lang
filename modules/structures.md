@@ -278,7 +278,7 @@ Or like this:
       cc -c struct-animals.c animal_minlegs.c
       cc -o animals struct-animals.o animal_minlegs.o
 
-which is closer to what would be done using Makfile.
+which is closer to what would be done using a Makefile.
 
 Technically, `animals.h` contains code, however, given it is included in a `.c`
 file it is not necessary to compile it individually.

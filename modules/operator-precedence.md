@@ -70,7 +70,7 @@ needs to be bracketed this way because `=`/`!=` has higher precedence than `=`.
 `->` and `.` (structure member access) have higher precedence than `&` (address
 of) or `*` (dereference)
 
-:wrench: condsider structure
+:wrench: consider structure
 ```C
 struct bar {
 	int val;
