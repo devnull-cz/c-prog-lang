@@ -3,6 +3,9 @@
 # Expand markdown files (particularly includes)
 #
 
+set -e
+set -x
+
 cd master
 cli=$PWD/dev/expand.js
 
