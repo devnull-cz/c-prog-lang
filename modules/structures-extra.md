@@ -185,4 +185,3 @@ end.
     of the structure if you want to maintain alignment
 
 code: #source flexible-array-member.c
-
