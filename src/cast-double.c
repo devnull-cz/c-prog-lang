@@ -24,6 +24,4 @@ main(void)
 	 * converted.
 	 */
 	printf("%f\n", (double)a / 3);
-
-	return (0);
 }

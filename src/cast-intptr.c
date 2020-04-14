@@ -19,9 +19,7 @@ main(void)
 	size_t i = 0xaabbccdd;
 
 	printf("%p\n", &i);
-	printf("%x\n", (int) i);
+	printf("%x\n", (int)i);
 	xor((int *) &i);
-	printf("%x\n", (int) i);
-
-	return (0);
+	printf("%x\n", (int)i);
 }

@@ -19,8 +19,8 @@ main(void)
 
 	/*
 	 * Print the consequtive memory as a one-dimensional array. Note that
-	 * "a" is just a pointer so you can re-type it to a different type
-	 * of a pointer.
+	 * "a" is just a pointer so you can re-type it to a different pointer
+	 * type.
 	 *
 	 * We could also do:
 	 *
@@ -32,12 +32,10 @@ main(void)
 		printf("%d\n", p_i[i]);
 #if 0
 		/*
-		 * This is wrong, a[i] is a pointer to the i-th line.  Will not
-		 * compile.
+		 * This would be wrong, a[i] is a pointer to the i-th
+		 * one-dimensional array.  May not compile.
 		 */
 		printf("%d\n", a[i]);
 #endif
 	}
-
-	return (0);
 }

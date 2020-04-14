@@ -5,10 +5,8 @@ main(void)
 	int *pi = &a;
 	char *s = "foo";
 
-	/* generates a warning, assigning a pointer to an incompatible type */
+	/* Generates a warning, assigning a pointer to an incompatible type. */
 	s = pi;
-	/* no warning */
+	/* No warning (doing this makes no sense though). */
 	s = (char *)pi;
-
-	return (0);
 }
