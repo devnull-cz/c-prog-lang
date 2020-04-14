@@ -30,7 +30,6 @@ main(int argc, char *argv[])
 	*str = '\0';
 
 	printf("'%s'\n", origstr);
-
 	free(origstr);
 
 	return (0);
