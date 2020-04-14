@@ -110,7 +110,7 @@ Task: write a program that takes 1 or 2 arguments, if run with any other count,
 
 :key: Code: #source usage.c
 
-## :wrench: Task: print the n-th character of the r-rd argument (count from 0)
+## :wrench: Task: print the n-th character of the r-th argument (count from 0)
 
 usage: `./a.out <r> <n> [args]`
 
@@ -133,27 +133,27 @@ Skipping ahead: prefix `++` and dereference operator have the same precedence
 so they are evaluated based on associativity which is right-to-left.
 
 ```C
-	int
-	main(int argc, char **argv)
-	{
-		printf("%s\n", ++*++argv);
-	}
+int
+main(int argc, char **argv)
+{
+	printf("%s\n", ++*++argv);
+}
 
-	int
-	main(int argc, char **argv)
-	{
-		printf("%s\n", argv[1]);
-		printf("%s\n", ++*++argv);
-		printf("%s\n", argv[0]);
-		printf("%s\n", ++*++argv);
-		printf("%s\n", argv[0]);
-	}
+int
+main(int argc, char **argv)
+{
+	printf("%s\n", argv[1]);
+	printf("%s\n", ++*++argv);
+	printf("%s\n", argv[0]);
+	printf("%s\n", ++*++argv);
+	printf("%s\n", argv[0]);
+}
 
-	int
-	main(int argc, char **argv)
-	{
-		printf("%s\n", *++*++argv);
-	}
+int
+main(int argc, char **argv)
+{
+	printf("%s\n", *++*++argv);
+}
 ```
 
 Note: the last function might not compile with smarter compilers (such as LLVM)
