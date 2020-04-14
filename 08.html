@@ -255,7 +255,7 @@ are enclosed in <code>&lt;&gt;</code> or left without brackets</li>
 print usage and exit.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
 <h2>
-<a id="user-content-wrench-task-print-the-n-th-character-of-the-r-rd-argument-count-from-0" class="anchor" href="#wrench-task-print-the-n-th-character-of-the-r-rd-argument-count-from-0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-rd argument (count from 0)</h2>
+<a id="user-content-wrench-task-print-the-n-th-character-of-the-r-th-argument-count-from-0" class="anchor" href="#wrench-task-print-the-n-th-character-of-the-r-th-argument-count-from-0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-th argument (count from 0)</h2>
 <p>usage: <code>./a.out &lt;r&gt; &lt;n&gt; [args]</code></p>
 <p>do not count <code>argv[0..2]</code>.  If not enough arguments or the argument is not long
 enough, print a helpful message.  Only use pointer arithmetics, do <strong>not</strong> use
@@ -270,27 +270,27 @@ l
 <p>Assume that the arguments are sufficiently long enough.</p>
 <p>Skipping ahead: prefix <code>++</code> and dereference operator have the same precedence
 so they are evaluated based on associativity which is right-to-left.</p>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span>
-	<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
-	{
-		<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, ++*++argv);
-	}
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
+{
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, ++*++argv);
+}
 
-	<span class="pl-k">int</span>
-	<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
-	{
-		<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, argv[<span class="pl-c1">1</span>]);
-		<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, ++*++argv);
-		<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, argv[<span class="pl-c1">0</span>]);
-		<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, ++*++argv);
-		<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, argv[<span class="pl-c1">0</span>]);
-	}
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
+{
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, argv[<span class="pl-c1">1</span>]);
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, ++*++argv);
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, argv[<span class="pl-c1">0</span>]);
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, ++*++argv);
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, argv[<span class="pl-c1">0</span>]);
+}
 
-	<span class="pl-k">int</span>
-	<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
-	{
-		<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *++*++argv);
-	}</pre></div>
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
+{
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *++*++argv);
+}</pre></div>
 <p>Note: the last function might not compile with smarter compilers (such as LLVM)
 that include format string checks.  What is expected to happen if it the last
 piece of code does compile and is run with one argument?</p>
