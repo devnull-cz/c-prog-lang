@@ -248,6 +248,48 @@ output.</p>
 <p>You can then put the string processing in a loop and comment out the <code>free</code>()
 call on the allocated memory.  Then check out with <code>top</code> that the memory size of
 the running program quickly increases.</p>
+<h1>
+<a id="user-content-explicit-type-conversion" class="anchor" href="#explicit-type-conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Explicit type conversion</h1>
+<p>We already saw an implicit conversion when working with integer types.</p>
+<p>Casting is an explicit type conversion:</p>
+<div class="highlight highlight-source-c"><pre>(type_name)expression;
+
+<span class="pl-k">int</span> i = <span class="pl-c1">13</span>;
+<span class="pl-k">long</span> l = (<span class="pl-k">long</span>)i;		<span class="pl-c"><span class="pl-c">//</span> Just an example.  The casting not needed in this</span>
+				<span class="pl-c"><span class="pl-c">//</span> case, the implicit integer conversion would</span>
+				<span class="pl-c"><span class="pl-c">//</span> work fine.</span></pre></div>
+<p>Casting is used to avoid compiler warnings as a sort of a hint to the compiler
+that you know what you are doing.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/cast-double.c">cast-double.c</a></p>
+<p>Explicit cast for pointers of different types works:</p>
+<p>(C2011, 6.3.2.3/7)</p>
+<blockquote>
+<p>A pointer to an object type may be converted to a pointer to a different
+object type.  If the resulting pointer is not correctly aligned for the
+referenced type, the behavior is undefined.  Otherwise, when converted back
+again, the result shall compare equal to the original pointer.</p>
+</blockquote>
+<p>This will be esp. handy for pointers to structures.</p>
+<p>The cast itself is not a problem, it depends on what will be done with the
+result.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-cast.c">ptr-cast.c</a></p>
+<p><code>void *</code> is a special pointer that cannot be dereferenced.  You can always
+assign any pointer to a <code>(void *)</code> pointer without any need for casting, and you
+can also assign any <code>(void *)</code> pointer to any other pointer without any need for
+casting.  These assignments are <strong>guaranteed to not lose any information</strong>.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">99</span>;
+<span class="pl-k">void</span> *p = &amp;i;
+<span class="pl-k">int</span> *pi = p;
+
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *pi);	<span class="pl-c"><span class="pl-c">//</span> will print 99</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *p);	<span class="pl-c"><span class="pl-c">//</span> will error out when compiled</span></pre></div>
+<p>Verify that a staticly allocated 2D array is stored in one piece of memory, row
+by row.  Hint: you need to recast a 2D array to a 1D array, then print it as a
+single row.  There are a few different ways to do it.  Do not look at the
+solution until you write your own code.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">5</span>][<span class="pl-c1">5</span>] = { ... };
+<span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-static-array-as-1d.c">2d-static-array-as-1d.c</a></p>
 
               </article>
             </div>
