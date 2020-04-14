@@ -309,12 +309,12 @@ piece of code does compile and is run with one argument?</p>
 <a id="user-content-basics" class="anchor" href="#basics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basics</h2>
 <ul>
 <li>
-<p>collection of one or more variables, possibly of different types, grouped
+<p>collection of one or more objects, possibly of different types, grouped
 together under a single name</p>
 </li>
 <li>
-<p>structures permit group of related variables to be treated as a unit
-(precursor to a class in Object Oriented Programming)</p>
+<p>structures permit group of related objects to be treated as a unit (precursor
+to a class in Object Oriented Programming)</p>
 </li>
 <li>
 <p>structures can contain other structures</p>
@@ -323,14 +323,14 @@ together under a single name</p>
 <p>structure is specified as:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo {
-       ... <span class="pl-c"><span class="pl-c">//</span> members</span>
-    };</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo {
+	... <span class="pl-c"><span class="pl-c">//</span> members</span>
+};</pre></div>
 <p>e.g.</p>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo {
-    	<span class="pl-k">int</span> a;
-    	<span class="pl-k">char</span> b;
-    };</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo {
+	<span class="pl-k">int</span> a;
+	<span class="pl-k">char</span> b;
+};</pre></div>
 <ul>
 <li>
 <p>any type can be a member of a structure except the structure itself</p>
@@ -358,7 +358,7 @@ initialized with a list of initializers in the same way as arrays.</p>
 <p>define a variable:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo foo;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo foo;</pre></div>
 <ul>
 <li>usually the <code>_s</code> postfix is used to denote a structure name</li>
 </ul>
@@ -367,9 +367,9 @@ initialized with a list of initializers in the same way as arrays.</p>
 <ul>
 <li>can declare structure and its variables at the same time:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s {
-       ...
-    } foo;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
+	...
+} foo;</pre></div>
 <ul>
 <li>
 <p>however usually this is not done because structures are normally saved to
@@ -381,12 +381,12 @@ definition which is usually not desirable)</p>
 denote their structure type, e.g.:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-c"><span class="pl-c">//</span> 'sin' is a shortcut for 'Sockaddr_IN', the Internet socket</span>
-    <span class="pl-c"><span class="pl-c">//</span> address</span>
-    <span class="pl-k">struct</span> sockaddr_in {
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span> 'sin' is a shortcut for 'Sockaddr_IN', the Internet socket</span>
+<span class="pl-c"><span class="pl-c">//</span> address</span>
+<span class="pl-k">struct</span> sockaddr_in {
 	<span class="pl-k">short</span>   sin_family;
-        <span class="pl-c1">u_short</span> sin_port;
-    };</pre></div>
+	<span class="pl-c1">u_short</span> sin_port;
+};</pre></div>
 <ul>
 <li>another reason is when looking for variable names in a big source code
 repository (using <code>ctags</code> or <code>cstyle</code>), there would be large amount of
@@ -431,9 +431,9 @@ have 4 members)</p>
 </ul>
 </li>
 </ul>
-<pre><code>	+-----------+----+--------+------------+
-	|     a     | b  |   pad  |      c     |
-	+-----------+----+--------+------------+
+<pre><code>+-----------+----+--------+------------+
+|     a     | b  |   pad  |      c     |
++-----------+----+--------+------------+
 </code></pre>
 <ul>
 <li>does the compiler reorder struct members ? no, C is designed to trust the
@@ -459,13 +459,13 @@ doing as it may not be safe on all architectures.</p>
 <p>e.g.:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>  <span class="pl-k">struct</span> foo_s {
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
 	<span class="pl-k">int</span> a;
 	<span class="pl-k">char</span> b;
-  } foo;
+} foo;
 
-  foo.a = <span class="pl-c1">42</span>;
-  foo.b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
+foo.a = <span class="pl-c1">42</span>;
+foo.b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
 <ul>
 <li>
 <p>the <code>.</code> and <code>-&gt;</code> operators have higher precedence than <code>*</code> and <code>&amp;</code>, so:</p>
@@ -475,9 +475,9 @@ doing as it may not be safe on all architectures.</p>
 <p>structure assignment</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s one, two;
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s one, two;
 
-    one = two;</pre></div>
+one = two;</pre></div>
 <ul>
 <li>
 <p>is done byte by byte (shallow copy - does not follow pointers)</p>
@@ -491,10 +491,10 @@ can be quite an expensive operation</li>
 <p>pointers to structures:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s *foo;
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s *foo;
 
-    foo-&gt;a = <span class="pl-c1">42</span>;
-    foo-&gt;b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
+foo-&gt;a = <span class="pl-c1">42</span>;
+foo-&gt;b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-reference.c">struct-reference.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write the above assignments to the members <code>a</code> and <code>b</code> using a
 de-reference operator on <code>foo</code></p>
@@ -506,20 +506,20 @@ de-reference operator on <code>foo</code></p>
 <ul>
 <li>can initialize in definition using the initiator list of <strong>constant</strong> values</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s {
-       <span class="pl-k">int</span> a;
-       <span class="pl-k">char</span> b;
-    };
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
+	<span class="pl-k">int</span> a;
+	<span class="pl-k">char</span> b;
+};
 
-    <span class="pl-k">struct</span> foo_s foo = { <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span> };</pre></div>
+<span class="pl-k">struct</span> foo_s foo = { <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span> };</pre></div>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-init.c">struct-init.c</a></p>
 <ul>
 <li>or using 'designated initializers' from C99:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">struct</span> foo_s foo = {
-            .<span class="pl-smi">b</span> = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>,
-            .<span class="pl-smi">a</span> = <span class="pl-c1">1</span>
-    };</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s foo = {
+	.<span class="pl-smi">b</span> = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>,
+	.<span class="pl-smi">a</span> = <span class="pl-c1">1</span>,
+};</pre></div>
 <ul>
 <li>
 <p>the ordering in the struct declaration does not have to be preserved</p>
@@ -547,14 +547,14 @@ static storage duration (ie. will be initialized to 0).</p>
 <h2>
 <a id="user-content-wrench-task-animals-as-structures" class="anchor" href="#wrench-task-animals-as-structures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: animals as structures</h2>
 <p>define array of structures of this type:</p>
-<div class="highlight highlight-source-c"><pre>        <span class="pl-k">struct</span> animal {
-           <span class="pl-k">char</span> name[NAME_MAX]; <span class="pl-c"><span class="pl-c">//</span> max filename length should be sufficient</span>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> animal {
+	<span class="pl-k">char</span> name[NAME_MAX];	<span class="pl-c"><span class="pl-c">//</span> max filename length should be sufficient</span>
 				<span class="pl-c"><span class="pl-c">//</span> even for these long Latin names</span>
-           <span class="pl-c1">size_t</span> legs;		<span class="pl-c"><span class="pl-c">//</span> can have many legs</span>
-        };</pre></div>
+	<span class="pl-c1">size_t</span> legs;		<span class="pl-c"><span class="pl-c">//</span> can have many legs</span>
+};</pre></div>
 <p>and initialize it with some samples (can store the array in animals.h) and
 implement a function:</p>
-<div class="highlight highlight-source-c"><pre>      <span class="pl-c1">size_t</span> <span class="pl-en">count_minlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len, <span class="pl-c1">size_t</span> min);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-c1">size_t</span> <span class="pl-en">count_minlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len, <span class="pl-c1">size_t</span> min);</pre></div>
 <p>that will return number of animals in the array (of <code>len</code> items) that have at
 least <code>min</code> legs.</p>
 <p>Notice that the function returns <code>size_t</code>. This way it is ready for future
