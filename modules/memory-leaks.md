@@ -16,8 +16,8 @@ output.
   - the concatenation can be done either by hand (try that first) or strncat()
     (try that afterwards)
 
+#source argv-concat.c
+
 You can then put the string processing in a loop and comment out the `free`()
 call on the allocated memory.  Then check out with `top` that the memory size of
 the running program quickly increases.
-
-#source argv-concat.c
