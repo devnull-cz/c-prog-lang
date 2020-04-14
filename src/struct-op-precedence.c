@@ -2,13 +2,19 @@
 
 struct bar {
 	int val;
-} bar = { .val = 42 };
+} bar = {
+	.val = 42,
+};
 
 struct {
 	int a[42];
 	char *b;
 	struct bar *c;
-} foo = { .a = { 1, 2, 3 }, .b = "ABC", .c = &bar };
+} foo = {
+	.a = { 1, 2, 3 },
+	.b = "ABC",
+	.c = &bar,
+};
 
 int
 main(void)
