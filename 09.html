@@ -192,6 +192,62 @@ first structure is addressable as <code>**msg</code>. However, accessing subsequ
 elements is different. In Linux-PAM and OpenPAM, the second element is at
 <code>*(msg[2])</code>, while in Solaris it is at <code>(*msg)[2]</code>.</p>
 </blockquote>
+<h1>
+<a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers</h1>
+<ul>
+<li>in order to change the value of a pointer in a function, it has to be passed
+as a pointer to a pointer
+<ul>
+<li>this makes sense, because the storage address of a plain pointer is not
+known to the function, and therefore we must pass in its address so that we
+can change the object the address points to by dereferencing the address.</li>
+</ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-change.c">ptr-change.c</a></p>
+<h1>
+<a id="user-content-heapdynamic-allocation-mallocfree" class="anchor" href="#heapdynamic-allocation-mallocfree" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>heap/dynamic allocation: malloc()/free()</h1>
+<p>The memory automatically allocated for local variables and function parameters
+is allocated in an area called a <em>stack</em>. There is an area called a <em>heap</em> to
+allocate memory that lasts after the function returns. This is also called
+<em>dynamic allocation</em>.</p>
+<p>The allocator in the standard library offers the
+<code>malloc</code>()/<code>calloc</code>()/<code>free</code>()/...  APIs for heap allocation.</p>
+<p>The <code>malloc</code>/<code>calloc</code> functions return a pointer to a memory area of a specified
+size or a <code>NULL</code> pointer if the allocation failed - always check that!  (even on
+Linux where it seems it can never fail - to be prepared for change in a
+configuration and also for portability to systems with more conservative memory
+allocation).</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span>	<span class="pl-en">ARRLEN</span>	<span class="pl-c1">20</span>
+<span class="pl-k">int</span> *p;
+
+<span class="pl-k">if</span> ((p = malloc(ARRLEN * <span class="pl-k">sizeof</span> (<span class="pl-k">int</span>))) == <span class="pl-c1">NULL</span>)
+	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>malloc<span class="pl-pds">"</span></span>);
+p[<span class="pl-c1">0</span>] = <span class="pl-c1">99</span>;
+p[ARRLEN - <span class="pl-c1">1</span>] = <span class="pl-c1">77</span>;</pre></div>
+<p>The prototype for <code>malloc</code> is as follows:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> *<span class="pl-en">malloc</span>(<span class="pl-c1">size_t</span> size);</pre></div>
+<p>See <code>man malloc</code> for more related functions.</p>
+<h1>
+<a id="user-content-memory-leaks" class="anchor" href="#memory-leaks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Memory leaks</h1>
+<p>The C runtime does not have a garbage collector so all heap allocated memory has
+to be explicitly freed via <code>free</code>() after it is no longer needed.  If not freed,
+that creates a resource leak called a <em>memory leak</em>.  Depending on the problem
+this might cause the problem of running out of memory later on (and then
+<code>malloc</code>/<code>calloc</code> can start returning <code>NULL</code>).</p>
+<p>The leaks can be checked using static or dynamic analyzers.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes all arguments that follow <code>argv[0]</code>,
+concatenates them (without the terminating <code>NUL</code> character) into one string
+dynamically allocated via <code>malloc</code>() and prints this string to the standard
+output.</p>
+<ul>
+<li>the concatenation can be done either by hand (try that first) or strncat()
+(try that afterwards)</li>
+</ul>
+<p>You can then put the string processing in a loop and comment out the <code>free</code>()
+call on the allocated memory.  Then check out with <code>top</code> that the memory size of
+the running program quickly increases.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-concat.c">argv-concat.c</a></p>
 
               </article>
             </div>
