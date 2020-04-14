@@ -2,29 +2,29 @@
 
 ## Basics
 
-- collection of one or more variables, possibly of different types, grouped
+- collection of one or more objects, possibly of different types, grouped
   together under a single name
 
-- structures permit group of related variables to be treated as a unit
-  (precursor to a class in Object Oriented Programming)
+- structures permit group of related objects to be treated as a unit (precursor
+  to a class in Object Oriented Programming)
 
 - structures can contain other structures
 
 - structure is specified as:
 
 ```C
-    struct foo {
-       ... // members
-    };
+struct foo {
+	... // members
+};
 ```
 
 e.g.
 
 ```C
-    struct foo {
-    	int a;
-    	char b;
-    };
+struct foo {
+	int a;
+	char b;
+};
 ```
 - any type can be a member of a structure except the structure itself
   - however: a pointer to its own type is possible (remember, a pointer
@@ -41,7 +41,7 @@ e.g.
 
 - define a variable:
 ```C
-    struct foo foo;
+struct foo foo;
 ```
 
 - usually the `_s` postfix is used to denote a structure name
@@ -53,9 +53,9 @@ e.g.
 - can declare structure and its variables at the same time:
 
 ```C
-    struct foo_s {
-       ...
-    } foo;
+struct foo_s {
+	...
+} foo;
 ```
 
 - however usually this is not done because structures are normally saved to
@@ -66,12 +66,12 @@ e.g.
   denote their structure type, e.g.:
 
 ```C
-    // 'sin' is a shortcut for 'Sockaddr_IN', the Internet socket
-    // address
-    struct sockaddr_in {
+// 'sin' is a shortcut for 'Sockaddr_IN', the Internet socket
+// address
+struct sockaddr_in {
 	short   sin_family;
-        u_short sin_port;
-    };
+	u_short sin_port;
+};
 ```
 
 - another reason is when looking for variable names in a big source code
@@ -106,9 +106,9 @@ struct X { int a; char b; int c; };
 	- if in doubt, draw a picture
 
 ```
-	+-----------+----+--------+------------+
-	|     a     | b  |   pad  |      c     |
-	+-----------+----+--------+------------+
++-----------+----+--------+------------+
+|     a     | b  |   pad  |      c     |
++-----------+----+--------+------------+
 ```
 
 - does the compiler reorder struct members ? no, C is designed to trust the
@@ -131,13 +131,13 @@ link: http://www.catb.org/esr/structure-packing/
 - e.g.:
 
 ```C
-  struct foo_s {
+struct foo_s {
 	int a;
 	char b;
-  } foo;
+} foo;
 
-  foo.a = 42;
-  foo.b = 'C';
+foo.a = 42;
+foo.b = 'C';
 ```
 - the `.` and `->` operators have higher precedence than `*` and `&`, so:
 
@@ -146,9 +146,9 @@ link: http://www.catb.org/esr/structure-packing/
 - structure assignment
 
 ```C
-    struct foo_s one, two;
+struct foo_s one, two;
 
-    one = two;
+one = two;
 ```
 - is done byte by byte (shallow copy - does not follow pointers)
 	- handy for members that are pointers
@@ -157,10 +157,10 @@ link: http://www.catb.org/esr/structure-packing/
 
 - pointers to structures:
 ```C
-    struct foo_s *foo;
+struct foo_s *foo;
 
-    foo->a = 42;
-    foo->b = 'C';
+foo->a = 42;
+foo->b = 'C';
 ```
 
 code: #source struct-reference.c
@@ -179,12 +179,12 @@ code: :key: #source struct-access-ptr.c
 - can initialize in definition using the initiator list of **constant** values
 
 ```C
-    struct foo_s {
-       int a;
-       char b;
-    };
+struct foo_s {
+	int a;
+	char b;
+};
 
-    struct foo_s foo = { 1, 'C' };
+struct foo_s foo = { 1, 'C' };
 ```
 
 code: #source struct-init.c
@@ -192,10 +192,10 @@ code: #source struct-init.c
 - or using 'designated initializers' from C99:
 
 ```C
-    struct foo_s foo = {
-            .b = 'C',
-            .a = 1
-    };
+struct foo_s foo = {
+	.b = 'C',
+	.a = 1,
+};
 ```
 
 - the ordering in the struct declaration does not have to be preserved
@@ -224,18 +224,18 @@ So, structures cannot be:
 define array of structures of this type:
 
 ```C
-        struct animal {
-           char name[NAME_MAX]; // max filename length should be sufficient
+struct animal {
+	char name[NAME_MAX];	// max filename length should be sufficient
 				// even for these long Latin names
-           size_t legs;		// can have many legs
-        };
+	size_t legs;		// can have many legs
+};
 ```
 
 and initialize it with some samples (can store the array in animals.h) and
 implement a function:
 
 ```C
-      size_t count_minlegs(struct animal *, size_t len, size_t min);
+size_t count_minlegs(struct animal *, size_t len, size_t min);
 ```
 
 that will return number of animals in the array (of `len` items) that have at
