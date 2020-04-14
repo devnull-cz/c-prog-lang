@@ -28,4 +28,10 @@ and then run e.g.:
 
 ### HTML expansion
 
-TBD
+HTML files are constructed from the Markdown files using https://github.com/joeyespo/grip
+
+## Code compile
+
+For quick sanity check the source code files under the `src` directory are compiled. Files listed in `src/blacklist.txt` are avoided since they contain errors on purpose.
+
+This is done using the `dev/compile_src.sh` script.
