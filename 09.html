@@ -180,27 +180,27 @@ array of integer pointers (left).  Now what if someone passes a pointer to a
 pointer to an integer array (right)?</p>
 <p>Note that in both situations, <code>ppa</code> and <code>ppb</code> <strong>properly fit the declaration</strong>
 <code>int **p</code>.  That is, both arrays in the chart below are 2-dimensional and both
-have one of the dimensions set as 1.  <strong>The difference is which of the two
-dimensions is it.</strong>  And that is a piece of information that must be provided
+have one of the dimensions set as <code>1</code>.  <strong>The difference is which of the two
+dimensions is <code>1</code>.</strong>  And that is a piece of information that must be provided
 upfront.</p>
-<pre><code>       +-------+     +-------+     +-------+
-     i |   42  |   j |   7   |   k |   99  |
-       +-------+     +-------+     +-------+
-           ^           /      _______/
-           |         /       /
-       +-------+-------+-------+           +------+------+------+
-     a |   &amp;i  |   &amp;j  |   &amp;k  |         b |  42  |   7  |  99  |
-       +-------+-------+-------+           +------+------+------+
-           ^                                   ^
-           |                                   |
-       +-------+                           +------+.......
-   ppa |   a   |                        pb |   b  |   ?  :
-       +-------+                           +------+.......
-                                               ^
-                                               |
-                                           +------+
-                                       ppb |  pb  |
-                                           +------+
+<pre><code>    +-------+     +-------+     +-------+
+ i  |   42  |   j |   7   |   k |   99  |
+    +-------+     +-------+     +-------+
+        ^           /      _______/
+        |         /       /
+    +-------+-------+-------+           +------+------+------+
+ a  |   &amp;i  |   &amp;j  |   &amp;k  |         b |  42  |   7  |  99  |
+    +-------+-------+-------+           +------+------+------+
+        ^                                   ^
+        |                                   |
+    +-------+                           +------+.......
+ppa |   a   |                        pb |   b  |   ?  :
+    +-------+                           +------+.......
+                                           ^
+                                           |
+                                        +------+
+                                    ppb |  pb  |
+                                        +------+
 </code></pre>
 <ul>
 <li>What is the difference in accessing the values?  I.e. what will <code>**(x + 1)</code>
