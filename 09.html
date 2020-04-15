@@ -199,9 +199,30 @@ pointer to an integer array (right)?</p>
                                        ppb |  pb  |
                                            +------+
 </code></pre>
-<p>What is the difference in accessing the values?  I.e. what will <code>**(x + 1)</code> and
-<code>*(*x + 1)</code> do when <code>x</code> is <code>ppa</code> or <code>ppb</code>?</p>
+<ul>
+<li>What is the difference in accessing the values?  I.e. what will <code>**(x + 1)</code>
+and <code>*(*x + 1)</code> do when <code>x</code> is <code>ppa</code> or <code>ppb</code>?</li>
+<li>The following source code closely follows the ASCII art schema above.  Please
+study the code and make sure you understand the output completely.  Which
+address from the program output corresponds to the value of <code>?</code> above?</li>
+</ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-ptr-array.c">ptr-ptr-array.c</a></p>
+<p>Example output:</p>
+<pre><code>$ ./a.out
+ &amp;i = 0x7ffee68b1880 (42)
+ &amp;j = 0x7ffee68b187c (7)
+ &amp;k = 0x7ffee68b1878 (99)
+  a = 0x7ffee68b1890
+  b = 0x7ffee68b1884
+ pb = 0x7ffee68b1884 [*pb = 42]
+ppb = 0x7ffee68b1868 [*ppb = 0x7ffee68b1884]
+first:
+0x7ffee68b1880 = 42
+0x7ffee68b1884 = 42
+second:
+0x7ffee68b187c -&gt; 7 (in hex 0x7)
+0x7ffee68b1890 -&gt; -427091840 (in hex 0xe68b1880)
+</code></pre>
 <p>This is from a real-life problem, quoting from <a href="https://unixpapa.com/incnote/pam.html" rel="nofollow">https://unixpapa.com/incnote/pam.html</a>:</p>
 <blockquote>
 <p>When the conversation function is called, it is passed an array of prompts.
@@ -214,6 +235,8 @@ first structure is addressable as <code>**msg</code>. However, accessing subsequ
 elements is different. In Linux-PAM and OpenPAM, the second element is at
 <code>*(msg[2])</code>, while in Solaris it is at <code>(*msg)[2]</code>.</p>
 </blockquote>
+<p>The situation when one prompt is passed only is similar to what happens when the
+function <code>first</code>() in <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> [ptr-ptr-array.c is called for <code>ppa</code> and <code>ppb</code>.](<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-ptr-array.c">https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-ptr-array.c</a> is called for <code>ppa</code> and <code>ppb</code>.)</p>
 <h1>
 <a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers</h1>
 <ul>
