@@ -25,6 +25,9 @@ main(void)
 	 */
 	printf("%f\n", (double)a / 3);
 
+	/* Also works but that's not the point we are making here. */
+	printf("%f\n", a / 3.0);
+
 	/*
 	 * This is fine as well but note that first we do 5/3 in integer
 	 * arithmetics, and the result is casted to double.  So, the result will

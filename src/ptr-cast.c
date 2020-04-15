@@ -21,3 +21,11 @@ main(void)
 	 */
 	printf("'%s'\n", s);
 }
+
+#if 0
+If unsure, think about how the 4 byte integer with a value of 5 is stored in
+memory (beware of endianness).
+
+0x0	0x1	0x2	0x3
+?	?	?	?
+#endif
