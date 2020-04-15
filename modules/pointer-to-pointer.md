@@ -39,7 +39,10 @@ array of integer pointers (left).  Now what if someone passes a pointer to a
 pointer to an integer array (right)?
 
 Note that in both situations, `ppa` and `ppb` **properly fit the declaration**
-`int **p`.
+`int **p`.  That is, both arrays in the chart below are 2-dimensional and both
+have one of the dimensions set as 1.  **The difference is which of the two
+dimensions is it.**  And that is a piece of information that must be provided
+upfront.
 
            +-------+     +-------+     +-------+
          i |   42  |   j |   7   |   k |   99  |
@@ -87,7 +90,8 @@ second:
 0x7ffee68b1890 -> -427091840 (in hex 0xe68b1880)
 ```
 
-This is from a real-life problem, quoting from https://unixpapa.com/incnote/pam.html:
+The situation above is taken from a real-life problem.  Quoting from
+https://unixpapa.com/incnote/pam.html:
 
 > When the conversation function is called, it is passed an array of prompts.
 > This is always passed in as struct pam\_message `**mesg`. However, the
@@ -102,4 +106,6 @@ This is from a real-life problem, quoting from https://unixpapa.com/incnote/pam.
 The situation when one prompt is passed only is similar to what happens when the
 function `first`() in
 #source ptr-ptr-array.c
-is called for `ppa` and `ppb`.
+is called for `ppa` and `ppb` - we see `42` in both cases (element `[0][0]`).
+The problem manifests itself when we have and need to reference more than one
+number (or more than one, in the PAM situation above, `msg` structures).
