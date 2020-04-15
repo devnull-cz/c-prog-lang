@@ -24,4 +24,11 @@ main(void)
 	 * converted.
 	 */
 	printf("%f\n", (double)a / 3);
+
+	/*
+	 * This is fine as well but note that first we do 5/3 in integer
+	 * arithmetics, and the result is casted to double.  So, the result will
+	 * be 1.
+	 */
+	printf("%f\n", (double)(a / 3));
 }
