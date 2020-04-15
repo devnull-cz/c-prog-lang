@@ -179,7 +179,10 @@ converts it to a pointer.   So, <code>int *p[]</code> can be written as <code>in
 array of integer pointers (left).  Now what if someone passes a pointer to a
 pointer to an integer array (right)?</p>
 <p>Note that in both situations, <code>ppa</code> and <code>ppb</code> <strong>properly fit the declaration</strong>
-<code>int **p</code>.</p>
+<code>int **p</code>.  That is, both arrays in the chart below are 2-dimensional and both
+have one of the dimensions set as 1.  <strong>The difference is which of the two
+dimensions is it.</strong>  And that is a piece of information that must be provided
+upfront.</p>
 <pre><code>       +-------+     +-------+     +-------+
      i |   42  |   j |   7   |   k |   99  |
        +-------+     +-------+     +-------+
@@ -223,7 +226,8 @@ second:
 0x7ffee68b187c -&gt; 7 (in hex 0x7)
 0x7ffee68b1890 -&gt; -427091840 (in hex 0xe68b1880)
 </code></pre>
-<p>This is from a real-life problem, quoting from <a href="https://unixpapa.com/incnote/pam.html" rel="nofollow">https://unixpapa.com/incnote/pam.html</a>:</p>
+<p>The situation above is taken from a real-life problem.  Quoting from
+<a href="https://unixpapa.com/incnote/pam.html" rel="nofollow">https://unixpapa.com/incnote/pam.html</a>:</p>
 <blockquote>
 <p>When the conversation function is called, it is passed an array of prompts.
 This is always passed in as struct pam_message <code>**mesg</code>. However, the
@@ -238,7 +242,9 @@ elements is different. In Linux-PAM and OpenPAM, the second element is at
 <p>The situation when one prompt is passed only is similar to what happens when the
 function <code>first</code>() in
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-ptr-array.c">ptr-ptr-array.c</a>
-is called for <code>ppa</code> and <code>ppb</code>.</p>
+is called for <code>ppa</code> and <code>ppb</code> - we see <code>42</code> in both cases (element <code>[0][0]</code>).
+The problem manifests itself when we have and need to reference more than one
+number (or more than one, in the PAM situation above, <code>msg</code> structures).</p>
 <h1>
 <a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers</h1>
 <ul>
