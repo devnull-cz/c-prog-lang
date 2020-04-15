@@ -407,8 +407,10 @@ output.</p>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-concat.c">argv-concat.c</a></p>
 <p>You can then put the string processing in a loop and comment out the <code>free</code>()
-call on the allocated memory.  Then check out with <code>top</code> that the memory size of
-the running program quickly increases.</p>
+call on the allocated memory.  Then check with <code>top -s 1</code> on Linux, macOS, or
+any other Unix-like system (or use any other suitable system monitoring tool)
+that the memory size of the running program quickly increases.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/src/argv-concat-nofree.c">src/argv-concat-nofree.c</a></p>
 
               </article>
             </div>
