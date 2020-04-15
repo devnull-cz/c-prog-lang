@@ -30,4 +30,13 @@ The prototype for `malloc` is as follows:
 void *malloc(size_t size);
 ```
 
-See `man malloc` for more related functions.
+Note that as `malloc` returns `void *`, there is no need to explicitly type its
+result when assigned to a pointer.  That is, do not use:
+
+```C
+int *p;
+
+p = (int *)malloc(16);
+```
+
+See `man malloc` for more memory allocation related functions.
