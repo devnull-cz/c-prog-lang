@@ -12,10 +12,12 @@ char *s = "hello"
 s[0] = 'H';
 ```
 
-Take #source implement-function.c
+Take
+#source implement-function.c
 and implement the function, see the comment inside.
 
 Verify the code prints exactly what it says in the comments.  `gcc -Wall -Wextra
 implement-function.c` **must** be clear of any warnings.
 
-Solution: #source implement-function-solution.c
+Solution:
+#source implement-function-solution.c
