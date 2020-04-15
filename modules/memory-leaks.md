@@ -19,5 +19,8 @@ output.
 #source argv-concat.c
 
 You can then put the string processing in a loop and comment out the `free`()
-call on the allocated memory.  Then check out with `top` that the memory size of
-the running program quickly increases.
+call on the allocated memory.  Then check with `top -s 1` on Linux, macOS, or
+any other Unix-like system (or use any other suitable system monitoring tool)
+that the memory size of the running program quickly increases.
+
+#source src/argv-concat-nofree.c
