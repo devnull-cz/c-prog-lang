@@ -11,4 +11,4 @@
 - You can assume the command will have the arguments above, i.e. it's OK to
   crash if you run it without any arguments, for example.
 - It is still good to verify you have at least 3 arguments.
-- Remember #module program-arguments.md
+- Remember #module program-arguments.md program arguments
