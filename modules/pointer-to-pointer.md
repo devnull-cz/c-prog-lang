@@ -60,10 +60,32 @@ Note that in both situations, `ppa` and `ppb` **properly fit the declaration**
                                            ppb |  pb  |
                                                +------+
 
-What is the difference in accessing the values?  I.e. what will `**(x + 1)` and
-`*(*x + 1)` do when `x` is `ppa` or `ppb`?
+- What is the difference in accessing the values?  I.e. what will `**(x + 1)`
+  and `*(*x + 1)` do when `x` is `ppa` or `ppb`?
+- The following source code closely follows the ASCII art schema above.  Please
+  study the code and make sure you understand the output completely.  Which
+  address from the program output corresponds to the value of `?` above?
 
 #source ptr-ptr-array.c
+
+Example output: 
+
+```
+$ ./a.out
+ &i = 0x7ffee68b1880 (42)
+ &j = 0x7ffee68b187c (7)
+ &k = 0x7ffee68b1878 (99)
+  a = 0x7ffee68b1890
+  b = 0x7ffee68b1884
+ pb = 0x7ffee68b1884 [*pb = 42]
+ppb = 0x7ffee68b1868 [*ppb = 0x7ffee68b1884]
+first:
+0x7ffee68b1880 = 42
+0x7ffee68b1884 = 42
+second:
+0x7ffee68b187c -> 7 (in hex 0x7)
+0x7ffee68b1890 -> -427091840 (in hex 0xe68b1880)
+```
 
 This is from a real-life problem, quoting from https://unixpapa.com/incnote/pam.html:
 
@@ -76,3 +98,6 @@ This is from a real-life problem, quoting from https://unixpapa.com/incnote/pam.
 > first structure is addressable as `**msg`. However, accessing subsequent
 > elements is different. In Linux-PAM and OpenPAM, the second element is at
 > `*(msg[2])`, while in Solaris it is at `(*msg)[2]`.
+
+The situation when one prompt is passed only is similar to what happens when the
+function `first`() in #source ptr-ptr-array.c is called for `ppa` and `ppb`.
