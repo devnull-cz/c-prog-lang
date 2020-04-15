@@ -100,4 +100,6 @@ This is from a real-life problem, quoting from https://unixpapa.com/incnote/pam.
 > `*(msg[2])`, while in Solaris it is at `(*msg)[2]`.
 
 The situation when one prompt is passed only is similar to what happens when the
-function `first`() in #source ptr-ptr-array.c is called for `ppa` and `ppb`.
+function `first`() in
+#source ptr-ptr-array.c
+is called for `ppa` and `ppb`.
