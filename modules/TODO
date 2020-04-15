@@ -7,5 +7,11 @@ variable-argument-functions.md
 # think it's better to do it when talking about storage classes.
 static-functions-and-variables.md
 
-Did not use cast-intptr.c.  Moved it out of explicit-type-conversion.md as we
-did not do bit arithmetics yet.
+# Put these at the end of the seminar, these are not essential.
+opaque-structures.md
+flexible-array-member.md
+# When bit fields are introduced, use cast-intptr.c as it uses ^
+structure-bit-fields.md
+
+# Before usin this, add the C99 paragraph that allows that.
+home-assignments/offsetof.md
