@@ -298,6 +298,47 @@ result when assigned to a pointer.  That is, do not use:</p>
 p = (<span class="pl-k">int</span> *)malloc(<span class="pl-c1">16</span>);</pre></div>
 <p>See <code>man malloc</code> for more memory allocation related functions.</p>
 <h1>
+<a id="user-content-pointer-to-a-structure-and-type-casting" class="anchor" href="#pointer-to-a-structure-and-type-casting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer to a structure and type casting</h1>
+<ul>
+<li>
+<p>pointers to structures are often used to achieve common interface for
+different types</p>
+<ul>
+<li>e.g.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> Common { <span class="pl-k">int</span> type; };
+<span class="pl-k">struct</span> A      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">8</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 1</span>
+<span class="pl-k">struct</span> B      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">16</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 2</span></pre></div>
+<ul>
+<li>then a function can be declared like so:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">func</span>(<span class="pl-k">struct</span> Common *c);</pre></div>
+<ul>
+<li>internally it can do e.g.:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">1</span>) {
+	<span class="pl-k">struct</span> A *ap = (<span class="pl-k">struct</span> A *)c;
+	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">7</span>] = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;
+} <span class="pl-k">else</span> <span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">2</span>) {
+	<span class="pl-k">struct</span> B *bp = (<span class="pl-k">struct</span> B *)c;
+	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">15</span>] = <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>;
+}</pre></div>
+<p>This is possible since all the structures have the same member on the same
+offset (that is offset 0).</p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-common.c">struct-common.c</a></p>
+<p>Or, more commonly, a function will allocate a <code>A</code> or <code>B</code> structure and return
+its address as a pointer to the <code>Common</code> struct.  This pointer then needs to be
+casted according to its first member.</p>
+<p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
+definitions for example on how this is done in practice.</p>
+<h1>
+<a id="user-content-wrench-home-assignment-1" class="anchor" href="#wrench-home-assignment-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
+<p>Note that home assignments are entirely voluntary but writing code is the only
+way to learn a programming language.</p>
+<p>#include "modules/home-assignments/linked-list.md.md"</p>
+<h1>
 <a id="user-content-memory-leaks" class="anchor" href="#memory-leaks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Memory leaks</h1>
 <p>The C runtime does not have a garbage collector so all heap allocated memory has
 to be explicitly freed via <code>free</code>() after it is no longer needed.  If not freed,
