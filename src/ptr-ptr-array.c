@@ -9,7 +9,7 @@ first(int **p)
 void
 second(int **p)
 {
-	printf("%p = %d (0x%x)\n", *(p + 1), **(p + 1), **(p + 1));
+	printf("%p -> %d (in hex 0x%x)\n", *(p + 1), **(p + 1), **(p + 1));
 }
 
 int
