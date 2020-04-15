@@ -57,7 +57,7 @@ $ ./a.out
 Bus Error (core dumped)
 ```
 
-:eyes: #source bus-error.c
+#source bus-error.c
 
 Now see the following code and figure out what is gonna happen.
 :wrench: #source ptr-cast.c
