@@ -10,7 +10,7 @@ int *pi = &i;
 int **ppi = &pi;        // ppi is a pointer to a pointer to an int
 
 // *pi is a pointer to an int, so another dereference is needed to get the value
-printf("%d\n", **pi);   // prints 13
+printf("%d\n", **ppi);   // prints 13
 ```
 
 ## A pointer to a pointer to an array vs. a pointer to an array of pointers
