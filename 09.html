@@ -90,22 +90,6 @@ increments of the element type size.</p>
 <span class="pl-c"><span class="pl-c">/*</span> Will print 222. <span class="pl-c">*/</span></span>
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *(a + <span class="pl-c1">1</span>));</pre></div>
 <h1>
-<a id="user-content-10-minute-warm-up" class="anchor" href="#10-minute-warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10 minute warm-up</h1>
-<pre><code>./a.out dragon firefly jupiter
-</code></pre>
-<ul>
-<li>Using the pointer arithmetics and the dereference operator <code>*</code> only , given
-the exact command line above, print 'g' from the first argument, 'r' from the
-2nd, and 't' from the last one.</li>
-<li>That is, you must not use brackets <code>[]</code> at all.</li>
-<li>You can assume the command will have the arguments above, i.e. it's OK to
-crash if you run it without any arguments, for example.</li>
-<li>It is still good to verify you have at least 3 arguments.</li>
-<li>Remember
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/program-arguments.md">program arguments</a>
-</li>
-</ul>
-<h1>
 <a id="user-content-array-of-pointers" class="anchor" href="#array-of-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array of pointers</h1>
 <p>See also what we already know about
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/program-arguments.md">program arguments.</a></p>
@@ -122,6 +106,22 @@ literal is internally an array of <code>char</code>s, so we can use it to initia
 following array of <code>char</code> pointers (it is the same as <code>char *p = a</code>).</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *a[] = { <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>!<span class="pl-pds">"</span></span> };</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-of-ptrs.c">array-of-ptrs.c</a></p>
+<h1>
+<a id="user-content-10-minute-warm-up" class="anchor" href="#10-minute-warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10 minute warm-up</h1>
+<pre><code>./a.out dragon firefly jupiter
+</code></pre>
+<ul>
+<li>Using the pointer arithmetics and the dereference operator <code>*</code> only , given
+the exact command line above, print 'g' from the first argument, 'r' from the
+2nd, and 't' from the last one.</li>
+<li>That is, you must not use brackets <code>[]</code> at all.</li>
+<li>You can assume the command will have the arguments above, i.e. it's OK to
+crash if you run it without any arguments, for example.</li>
+<li>It is still good to verify you have at least 3 arguments.</li>
+<li>Remember
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/program-arguments.md">program arguments</a>
+</li>
+</ul>
 <h1>
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
