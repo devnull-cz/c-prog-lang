@@ -108,6 +108,6 @@ https://unixpapa.com/incnote/pam.html:
 The situation when one prompt is passed only is similar to what happens when the
 function `first`() in
 #source ptr-ptr-array.c
-is called for `ppa` and `ppb` - we see `42` in both cases (element `[0][0]`).
+is called for `ppa` and `ppb`: we see `42` in both cases (element `[0][0]`).
 The problem manifests itself when we have and need to reference more than one
-number (or more than one, in the PAM situation above, `msg` structures).
+number (or more than one, as in the PAM situation above, `msg` structures).
