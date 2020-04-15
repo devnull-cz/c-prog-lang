@@ -20,24 +20,53 @@ that you know what you are doing.
 
 Explicit cast for pointers of different types works:
 
-(C2011, 6.3.2.3/7)
+(C99, 6.3.2.3, 7)
 
-> A pointer to an object type may be converted to a pointer to a different
-> object type.  If the resulting pointer is not correctly aligned for the
-> referenced type, the behavior is undefined.  Otherwise, when converted back
-> again, the result shall compare equal to the original pointer.
+> A pointer to an object or incomplete type may be converted to a pointer to a
+> different object or incomplete type.  If the resulting pointer is not
+> correctly aligned for the pointed-to type, the behavior is undefined.
+> Otherwise, when converted back again, the result shall compare equal to the
+> original pointer.
 
-This will be esp. handy for pointers to structures.
+This will be especially handy for pointers to structures.  See
+#module structure-casting.md structure casting
+for more information.
 
-The cast itself is not a problem, it depends on what will be done with the
-result.
+You can always cast explicitly but it depends on what will be done with the
+result.  For example, on some architectures, you cannot access improperly
+unaligned objects.  The following example is from a SPARC machine.
 
-#source ptr-cast.c
+```
+$ isainfo
+sparcv9 sparc
 
-`void *` is a special pointer that cannot be dereferenced.  You can always
-assign any pointer to a `(void *)` pointer without any need for casting, and you
-can also assign any `(void *)` pointer to any other pointer without any need for
-casting.  These assignments are **guaranteed to not lose any information**.
+$ cat main.c
+#include <stdio.h>
+
+int
+main(void)
+{
+        char *s = "hello, world, hello, world";
+        long long int *p = (long long int *)(s + 1);
+
+        printf("%lld\n", *p);
+}
+
+$ gcc main.c
+$ ./a.out
+Bus Error (core dumped)
+```
+
+:eyes: #source bus-error.c
+
+Now see the following code and figure out what is gonna happen.
+:wrench: #source ptr-cast.c
+
+Note that `void *` is a special pointer that cannot be dereferenced.  You can
+always assign any pointer to a `(void *)` pointer without any need for casting,
+and you can also assign any `(void *)` pointer to any other pointer without any
+need for casting.  These assignments are **guaranteed to not lose any
+information**.
 
 ```C
 int i = 99;
@@ -45,7 +74,7 @@ void *p = &i;
 int *pi = p;
 
 printf("%d\n", *pi);	// will print 99
-printf("%d\n", *p);	// will error out when compiled
+printf("%d\n", *p);	// dereferencing (void *), will error out when compiled
 ```
 
 Verify that a staticly allocated 2D array is stored in one piece of memory, row

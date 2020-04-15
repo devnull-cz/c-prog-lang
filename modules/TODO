@@ -15,3 +15,6 @@ structure-bit-fields.md
 
 # Before usin this, add the C99 paragraph that allows that.
 home-assignments/offsetof.md
+
+# Explain "incomplete type"
+Make a module for that, cite C99 when needed.
