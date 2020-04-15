@@ -161,7 +161,7 @@ a pointer may point to another pointer.</p>
 <span class="pl-k">int</span> **ppi = &amp;pi;        <span class="pl-c"><span class="pl-c">//</span> ppi is a pointer to a pointer to an int</span>
 
 <span class="pl-c"><span class="pl-c">//</span> *pi is a pointer to an int, so another dereference is needed to get the value</span>
-<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, **pi);   <span class="pl-c"><span class="pl-c">//</span> prints 13</span></pre></div>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, **ppi);   <span class="pl-c"><span class="pl-c">//</span> prints 13</span></pre></div>
 <h2>
 <a id="user-content-a-pointer-to-a-pointer-to-an-array-vs-a-pointer-to-an-array-of-pointers" class="anchor" href="#a-pointer-to-a-pointer-to-an-array-vs-a-pointer-to-an-array-of-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A pointer to a pointer to an array vs. a pointer to an array of pointers</h2>
 <p>Imagine this: let's assume we have an array of pointers to an integer, like
