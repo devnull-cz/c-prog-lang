@@ -40,28 +40,30 @@ pointer to an integer array (right)?
 
 Note that in both situations, `ppa` and `ppb` **properly fit the declaration**
 `int **p`.  That is, both arrays in the chart below are 2-dimensional and both
-have one of the dimensions set as 1.  **The difference is which of the two
-dimensions is it.**  And that is a piece of information that must be provided
+have one of the dimensions set as `1`.  **The difference is which of the two
+dimensions is `1`.**  And that is a piece of information that must be provided
 upfront.
 
-           +-------+     +-------+     +-------+
-         i |   42  |   j |   7   |   k |   99  |
-           +-------+     +-------+     +-------+
-               ^           /      _______/
-               |         /       /
-           +-------+-------+-------+           +------+------+------+
-         a |   &i  |   &j  |   &k  |         b |  42  |   7  |  99  |
-           +-------+-------+-------+           +------+------+------+
-               ^                                   ^
-               |                                   |
-           +-------+                           +------+.......
-       ppa |   a   |                        pb |   b  |   ?  :
-           +-------+                           +------+.......
-                                                   ^
-                                                   |
-                                               +------+
-                                           ppb |  pb  |
-                                               +------+
+```
+    +-------+     +-------+     +-------+
+ i  |   42  |   j |   7   |   k |   99  |
+    +-------+     +-------+     +-------+
+        ^           /      _______/
+        |         /       /
+    +-------+-------+-------+           +------+------+------+
+ a  |   &i  |   &j  |   &k  |         b |  42  |   7  |  99  |
+    +-------+-------+-------+           +------+------+------+
+        ^                                   ^
+        |                                   |
+    +-------+                           +------+.......
+ppa |   a   |                        pb |   b  |   ?  :
+    +-------+                           +------+.......
+                                           ^
+                                           |
+                                        +------+
+                                    ppb |  pb  |
+                                        +------+
+```
 
 - What is the difference in accessing the values?  I.e. what will `**(x + 1)`
   and `*(*x + 1)` do when `x` is `ppa` or `ppb`?
