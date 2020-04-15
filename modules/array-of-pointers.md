@@ -1,6 +1,7 @@
 # Array of pointers
 
-See also #module program-arguments.md
+See also what we already know about
+#module program-arguments.md program arguments.
 
 ```C
 /*
