@@ -2,10 +2,10 @@
 
 ## Basics
 
-- collection of one or more objects, possibly of different types, grouped
+- collection of one or more members, possibly of different types, grouped
   together under a single name
 
-- structures permit group of related objects to be treated as a unit (precursor
+- structures permit group of related members to be treated as a unit (precursor
   to a class in Object Oriented Programming)
 
 - structures can contain other structures
