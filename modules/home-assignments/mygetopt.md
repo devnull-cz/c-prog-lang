@@ -14,15 +14,3 @@ See the following code on how to use getopt(3):
 
 https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c
 
-# :wrench: Home assignment: strsepc
-
-implement
-
-```C
-      char *strsepc(char **stringp, int c);
-```
-
-which behaves like strsep(3) except that it searches only for the first
-occurence of single character.
-
-:eyes: code: [strsepc.c](src/strsepc.c)
