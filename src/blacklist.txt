@@ -53,3 +53,5 @@ animal_maxlegs.c
 maxlegs.c
 printf.c
 passing-arrays.c
+bitwise-vs-logical.c
+arithmetics.c
