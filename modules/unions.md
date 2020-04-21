@@ -29,8 +29,8 @@ union foo {
                 +-------------+
 ```
 
-- union can be part of a structure, see :eyes:
-  [union-in-struct.c](src/union-in-struct.c)
+- union can be part of a structure, #source union-in-struct.c
+  and vice versa #source struct-in-union.c
 - union can be "anonymous" (e.g. no name inside of a structure), however this is
   non-standard just like for structures
 
@@ -39,5 +39,4 @@ on big or little endian system (least significant byte is stored on lowest
 address). The program will print either "big endian" or "little endian" to
 standard output.
 
-:eyes: code: [union-lowhigh.c](src/union-lowhigh.c)
-
+:key: code: #source union-lowhigh.c
