@@ -77,7 +77,17 @@
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
 <a id="user-content-recap" class="anchor" href="#recap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recap</h1>
-<p>XXX</p>
+<ul>
+<li>a string literal is an expression whose value is an address of the 1st
+character of the string</li>
+<li>a pointer to a string literal can be changed, however the value of the string
+is read-only</li>
+<li>an address of a character array initialized with a string cannot be changed,
+the contents can be</li>
+<li>explicit casting works however beware of alignment issues</li>
+<li>no need to cast when working with <code>void *</code>
+</li>
+</ul>
 <p>Leftover:
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-static-array-as-1d.c">2d-static-array-as-1d.c</a></p>
 <h1>
@@ -187,6 +197,50 @@ CPU cannot physically address: an invalid address for the address bus, hence
 the name.</p>
 </blockquote>
 <h1>
+<a id="user-content-unions" class="anchor" href="#unions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unions</h1>
+<ul>
+<li>similar to structures however have different semantics
+<ul>
+<li>stores its members in the same memory location</li>
+<li>allows for different "views" of the same data</li>
+</ul>
+</li>
+<li>usually combined with structures</li>
+<li>handy for efficient data storage or HW programming</li>
+</ul>
+<p>consider this declaration:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">union</span> foo {
+	<span class="pl-k">unsigned</span> <span class="pl-k">short</span> i; <span class="pl-c"><span class="pl-c">//</span> 2 bytes</span>
+	<span class="pl-k">struct</span> {
+		<span class="pl-k">unsigned</span> <span class="pl-k">char</span> low;
+		<span class="pl-k">unsigned</span> <span class="pl-k">char</span> high;
+	} bytes;
+};</pre></div>
+<ul>
+<li>the <code>sizeof(union foo)</code> will be that of its largest member</li>
+<li>modify a value of <code>i</code> and it will be reflected in the low/high values
+because <code>i</code> and <code>bytes</code> share the same location</li>
+</ul>
+<pre><code>		0             high memory addresses
+		+-------------+
+		|      i      |
+		+-------------+
+		| low  | high |
+                +-------------+
+</code></pre>
+<ul>
+<li>union can be part of a structure, see <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji>
+<a href="src/union-in-struct.c">union-in-struct.c</a>
+</li>
+<li>union can be "anonymous" (e.g. no name inside of a structure), however this is
+non-standard just like for structures</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: use the above declaration to find out if the program is running
+on big or little endian system (least significant byte is stored on lowest
+address). The program will print either "big endian" or "little endian" to
+standard output.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="src/union-lowhigh.c">union-lowhigh.c</a></p>
+<h1>
 <a id="user-content-storage-classes" class="anchor" href="#storage-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Storage classes</h1>
 <ul>
 <li>two classes - <em>automatic</em> and <em>static</em>
@@ -263,6 +317,22 @@ sort them numerically.</p>
 function for it as well.</p>
 <p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-sort.c">argv-sort.c</a>
 (for alphabetical sorting only)</p>
+<h1>
+<a id="user-content-strsepc" class="anchor" href="#strsepc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>strsepc</h1>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> implement a command line parser ala getopt(3). The global variable
+'myoptarg' will be set if an option has an argument.</p>
+<p>Note: call the function <code>mygetopt()</code> not to intermingle with the standard
+library's <code>getopt()</code>.  Implement the "POSIXly correct solution", i.e. stop once
+non-option argument is encountered (i.e. one not starting with <code>-</code>) or after the
+<code>--</code> option is reached.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> bonus task: implement myoptind/myopterr/myoptopt</p>
+<p>See the following code on how to use getopt(3):</p>
+<p><a href="https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c">https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> implement</p>
+<div class="highlight highlight-source-c"><pre>      <span class="pl-k">char</span> *<span class="pl-en">strsepc</span>(<span class="pl-k">char</span> **stringp, <span class="pl-k">int</span> c);</pre></div>
+<p>which behaves like strsep(3) except that it searches only for the first
+occurence of single character.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> code: <a href="src/strsepc.c">strsepc.c</a></p>
 
               </article>
             </div>
