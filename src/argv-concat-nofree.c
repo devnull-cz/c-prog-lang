@@ -26,7 +26,6 @@ main(int argc, char *argv[])
 		char *str = malloc(len + 1);
 		if (str == NULL)
 			err(1, "malloc");
-		char *origstr = str;
 
 		for (int i = 1; i < argc; i++) {
 			for (size_t j = 0; j < strlen(argv[i]); j++) {
