@@ -28,5 +28,5 @@ sort them numerically.
 After that, come up with another way of sorting the arguments and write a
 function for it as well.
 
-Code: #source argv-sort.c
+:key: Code: #source argv-sort.c
 (for alphabetical sorting only)
