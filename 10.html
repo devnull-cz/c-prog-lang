@@ -204,6 +204,20 @@ identified object</li>
 <p>This one also shows how to use <code>goto</code>.  More on that later.</p>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/block-static-object.c">block-static-object.c</a></p>
 <h1>
+<a id="user-content-static-variables-and-functions" class="anchor" href="#static-variables-and-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static variables and functions</h1>
+<ul>
+<li>
+<p>if the function is declared <code>static</code>, it is visible only from the same
+object file</p>
+</li>
+<li>
+<p>static variables: retain value across function calls</p>
+</li>
+<li>
+<p>yes, the word <code>static</code> is overloaded in C</p>
+</li>
+</ul>
+<h1>
 <a id="user-content-internal-vs-external-linkage" class="anchor" href="#internal-vs-external-linkage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Internal vs external linkage</h1>
 <p>Static objects with the keyword <code>static</code> are of internal linkage, meaning they
 are not seen from other compilation units.  Static objects without the keyword
