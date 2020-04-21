@@ -13,7 +13,7 @@ main(void)
 	s = (char *)pi;
 
 	/*
-	 * 's' points to a piece of memore where number 5 is stored.  Say what
+	 * 's' points to a piece of memory where number 5 is stored.  Say what
 	 * happens before running the code.
 	 *
 	 * Then, redirect the output to a file and run 'od -tx1' on that file.
