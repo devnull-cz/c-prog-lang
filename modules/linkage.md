@@ -17,6 +17,9 @@ Example:
 	clang: error: linker command failed with exit code 1 (use -v to see
 	invocation)
 
+#source linkage.c
+#source ext.c
+
 Also note that each object must have exactly one definition.  For objects with
 internal linkage, this rule applies separately to each translation unit, because
 internally-linked objects are unique to a translation unit.
