@@ -5,9 +5,11 @@
 int
 main(void)
 {
-	struct foo *foo;
+	struct foo *foo; // has to be a pointer
 
+	// will not compile:
 	// printf("%zu\n", sizeof (struct foo));
 
+	foo = getFoo();
 	doStuff(foo);
 }
