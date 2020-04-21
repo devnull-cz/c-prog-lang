@@ -9,7 +9,7 @@ int *p = a;
 p[0]...
 ```
 
-This just goes directly fromt the standard: `p[x]` is equivalent to `*(p + x)`.
+This just goes directly from the standard: `p[x]` is equivalent to `*(p + x)`.
 And remember that incrementing a pointer or an array expression goes by
 increments of the element type size.
 
