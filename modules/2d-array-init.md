@@ -112,81 +112,9 @@ With gcc, all such strings are read only:
 	$ ./a.out
 	Bus error: 10
 
-> Wikipedia: In computing, a bus error is a fault raised by hardware, notifying
+Wikipedia:
+
+> In computing, a bus error is a fault raised by hardware, notifying
 > an operating system (OS) that a process is trying to access memory that the
 > CPU cannot physically address: an invalid address for the address bus, hence
 > the name.
-
-# Storage classes
-
-- two classes - *automatic* and *static*
-- declaration within a block creates an automatic object
-- the storage class determines the lifetime of the storage associated with the
-  identified object
-- only one storage class specifier may be given in a declaration
-- objects declared outside of any block is always of the static storage class
-  (e.g. global variables).
-- static objects retain their value upon reentry to functions and blocks.
-- you can initialize a static object.  The initialization happens just once.
-
-code: #source fn-static-object.c
-
-This one also shows how to use `goto`.  More on that later.
-
-code: #source block-static-object.c
-
-# Internal vs external linkage
-
-Static objects with the keyword `static` are of internal linkage, meaning they
-are not seen from other compilation units.  Static objects without the keyword
-`static` are implicitly external.
-
-Use `extern` keyword for objects that are defined in a different compilation
-unit.
-
-Example:
-
-	$ cc linkage.c ext.c
-	Undefined symbols for architecture x86_64:
-	  "_si", referenced from:
-	      _main in linkage-917564.o
-	ld: symbol(s) not found for architecture x86_64
-	clang: error: linker command failed with exit code 1 (use -v to see
-	invocation)
-
-Also note that each object must have exactly one definition.  For objects with
-internal linkage, this rule applies separately to each translation unit, because
-internally-linked objects are unique to a translation unit.
-
-# Function pointers.
-
-A function name is a pointer to the function.  You can pass it as an argument.
-
-	int
-	myadd(int a, int b)
-	{
-		return (a + b);
-	}
-
-	int
-	process_numbers(int a, int b, int (*f)(int, int))
-	{
-		return ((*f)(a, b));
-	}
-
-Code: #source fn-ptr.c
-
-# Home assignment
-
-Use `qsort(3)` function to sort `argv`, and print it sorted then.  Check the man
-page, you will need to write a function that can compare two elements of the
-array you provide to the `qsort()` function.
-
-First use `strcmp()` to sort the argument alphabetically, then use `atoi()` to
-sort them numerically.
-
-After that, come up with another way of sorting the arguments and write a
-function for it as well.
-
-Code: #source argv-sort.c
-(for alphabetical sorting only)
