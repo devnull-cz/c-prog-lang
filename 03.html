@@ -112,7 +112,8 @@ It is even simpler than the first solution while not using the library function.
 <a id="user-content-array-intro" class="anchor" href="#array-intro" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Intro</h1>
 <p>You define an array like this <code>&lt;element-type&gt; array[&lt;some-number&gt;]</code>, for
 example:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> array[<span class="pl-c1">5</span>];</pre></div>
+<pre lang="C"><code>int array[5];
+</code></pre>
 <p>The integer value <code>n</code> in <code>[n]</code> specifies the number of array <em>elements</em>.</p>
 <ul>
 <li>an array <em>subscript</em> always starts from <code>0</code> and ends with <code>n - 1</code>
@@ -492,7 +493,8 @@ initialize such an array.</p>
 byte.  So, you could just use <code>0</code>, like this, but it is not generally used:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
 <p>To print a string via <code>printf</code>(), you use the <code>%s</code> conversion specifier:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, foo);</pre></div>
+<pre lang="C"><code>printf("%s\n", foo);
+</code></pre>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> What happens if you forget to specify the terminating zero in the above
 per-char init and try to print the string ?</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-char-nozero.c">array-char-nozero.c</a></p>
@@ -501,19 +503,20 @@ per-char init and try to print the string ?</p>
 <p>Let's look at the following code.  Obviously, the function does not return its
 value while it definitely should have.  What happens if we use the function
 return value anyway?</p>
-<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+<pre lang="C"><code>#include &lt;stdio.h&gt;
 
-<span class="pl-k">int</span>
-<span class="pl-en">addnum</span>(<span class="pl-k">int</span> n1, <span class="pl-k">int</span> n2)
+int
+addnum(int n1, int n2)
 {
-        <span class="pl-k">int</span> n = n1 + n2;
+        int n = n1 + n2;
 }
 
-<span class="pl-k">int</span>
-<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int
+main(void)
 {
-        <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">addnum</span>(<span class="pl-c1">1</span>, <span class="pl-c1">99</span>));
-}</pre></div>
+        printf("%d\n", addnum(1, 99));
+}
+</code></pre>
 <p>It simply cannot work, right?  <strong>Oh, wait..., it does!?!</strong></p>
 <pre><code>$ cc main.c
 $ ./a.out 

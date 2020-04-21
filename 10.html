@@ -126,7 +126,7 @@ That means that all but the last dimension must be known.  So you could do:</p>
 	     ^
 </code></pre>
 <p>Note that in C99, you may or may not use a comma (<code>,</code>) after the last
-initializer.  In C89, it was prohibited to use the comman after the last one.</p>
+initializer.  In C89, it was prohibited to use the comma after the last one.</p>
 <p>Remember that we do not have to set all elements of the row when initializing an
 array, the C compiler will zero out the rest.</p>
 <pre><code>int a[10] = { 1, 2 }; // from a[2] to a[9], elements are 0
@@ -287,6 +287,8 @@ ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see
 invocation)
 </code></pre>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linkage.c">linkage.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ext.c">ext.c</a></p>
 <p>Also note that each object must have exactly one definition.  For objects with
 internal linkage, this rule applies separately to each translation unit, because
 internally-linked objects are unique to a translation unit.</p>
