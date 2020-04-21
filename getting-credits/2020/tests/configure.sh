@@ -55,15 +55,15 @@ printf "export tmpdir=$tmpdir\n\n" > $configvar
 printf "export tarfile=$tarfile\n\n" >> $configvar
 
 # Do not change aaa-file size, see below.
-typeset input="aaa-file	/dev/random	512	2
+typeset input="aaa-file	/dev/urandom	512	2
 file1.random	/dev/urandom	512	100
 empty.data	/dev/zero	512	0
 file.zero	/dev/zero	512	2
-hello-world	/dev/random	1024	10
-small-file	/dev/random	512	1
+hello-world	/dev/urandom	1024	10
+small-file	/dev/urandom	512	1
 file2.zero	/dev/zero	512	0
 file3.zero	/dev/zero	512	0
-another-file2	/dev/random	512	50"
+another-file2	/dev/urandom	512	50"
 
 echo "Creating files:"
 echo "$input" | while read fname source bs count; do
