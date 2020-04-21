@@ -75,7 +75,7 @@ echo "$input" | while read fname source bs count; do
 	fi
 done
 
-inputfiles=$(echo "$input" | awk '{ print $1 }' | sort)
+inputfiles=$(LC_ALL=C echo "$input" | awk '{ print $1 }' | sort)
 printf "export inputfiles=\"$inputfiles\"\n\n" >> $configvar
 
 echo "Creating a GNU tar archive '$tarfile'."
