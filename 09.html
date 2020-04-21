@@ -320,8 +320,9 @@ information</strong>.</p>
 
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *pi);	<span class="pl-c"><span class="pl-c">//</span> will print 99</span>
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *p);	<span class="pl-c"><span class="pl-c">//</span> dereferencing (void *), will error out when compiled</span></pre></div>
-<p>Verify that a staticly allocated 2D array is stored in one piece of memory, row
-by row.  Hint: you need to recast a 2D array to a 1D array, then print it as a
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Verify that a staticly allocated 2D array is stored in one piece of
+memory, row by row.</p>
+<p>Hint: you need to recast a 2D array to a 1D array, then print it as a
 single row.  There are a few different ways to do it.  Do not look at the
 solution until you write your own code.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">5</span>][<span class="pl-c1">5</span>] = { ... };
