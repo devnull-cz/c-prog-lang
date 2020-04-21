@@ -40,7 +40,7 @@ xxx.c:12:7: error: array has incomplete element type 'int []'
 ```
 
 Note that in C99, you may or may not use a comma (`,`) after the last
-initializer.  In C89, it was prohibited to use the comman after the last one.
+initializer.  In C89, it was prohibited to use the comma after the last one.
 
 Remember that we do not have to set all elements of the row when initializing an
 array, the C compiler will zero out the rest.
