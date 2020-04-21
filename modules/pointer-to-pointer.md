@@ -22,9 +22,10 @@ this:
 int *p[10];     // note it is equivalent to "int *(p[10])"
 ```
 
-Now, let's have a function takes an array of `int` pointers and prints the
-array's n-th element.  We know that when passing an array as an argument, C
-converts it to a pointer.   So, `int *p[]` can be written as `int **p`.
+Now, let's have a function that takes an array of `int` pointers and prints the
+value pointed to by array's n-th element.  We know that when passing an array
+as an argument, C converts it to a pointer.
+So, `int *p[]` can be written as `int **p`.
 
 ```C
 void
