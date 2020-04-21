@@ -21,6 +21,9 @@ To hand over your implementation, you must email us a link to an online
 repository (either git or mercurial) before the deadline.  For example, a
 repository on github.com.  We do not accept source code sent via email.
 
+Send all email regarding submission of your code to both of us, that is jp at
+devnull.cz and vlada at devnull.cz
+
 While we assume you may have bugs in your code and those will be
 resolved via a subsequent discussion, the submitted code is expected to
 provide implementation of all the requested functionality below and will not be
