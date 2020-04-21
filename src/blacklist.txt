@@ -55,3 +55,5 @@ printf.c
 passing-arrays.c
 bitwise-vs-logical.c
 arithmetics.c
+signed-plus-unsigned.c
+typedef.c
