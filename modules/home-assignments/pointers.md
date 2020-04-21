@@ -24,8 +24,8 @@ int *q = &a[0];
 printf("%td\n", p - q);
 ```
 
-What is a reasonable value of the 1st argument (`i`)?
-
 Usage: `./a.out <i>`
 
-:eyes: #source ptr-to-array-of-ptrs.c
+What is a reasonable value of the 1st argument (`i`) of the program ?
+
+#source ptr-to-array-of-ptrs.c
