@@ -78,18 +78,37 @@
                 <h1>
 <a id="user-content-recap" class="anchor" href="#recap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recap</h1>
 <ul>
-<li>a string literal is an expression whose value is an address of the 1st
-character of the string</li>
-<li>a pointer to a string literal can be changed, however the value of the string
-is read-only</li>
-<li>an address of a character array initialized with a string cannot be changed,
-the contents can be</li>
-<li>explicit casting works however beware of alignment issues</li>
+<li>pointer to pointer is useful when we need to change the address
+of where the pointer points to (in a function)</li>
+<li>pointer to pointer is not the same as pointer to array of pointers
+<ul>
+<li>esp. in a function</li>
+</ul>
+</li>
+<li>explicit casting
+<ul>
+<li>needless for integer types</li>
+<li>handy for pointers to structures</li>
+<li>when casting pointers beware of alignment issues</li>
+</ul>
+</li>
+<li>heap allocation
+<ul>
+<li>always check return values of functions that allocate memory !</li>
+</ul>
+</li>
 <li>no need to cast when working with <code>void *</code>
 </li>
 </ul>
 <p>Leftover:
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-static-array-as-1d.c">2d-static-array-as-1d.c</a></p>
+<h1>
+<a id="user-content-wrench-warm-up-strsepc" class="anchor" href="#wrench-warm-up-strsepc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> warm-up strsepc</h1>
+<p>implement</p>
+<div class="highlight highlight-source-c"><pre>      <span class="pl-k">char</span> *<span class="pl-en">strsepc</span>(<span class="pl-k">char</span> **stringp, <span class="pl-k">int</span> c);</pre></div>
+<p>which behaves like strsep(3) except that it searches only for the first
+occurence of single character.</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/strsepc.c">strsepc.c</a></p>
 <h1>
 <a id="user-content-2d-array-initialization" class="anchor" href="#2d-array-initialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2D array initialization</h1>
 <p>Static array initialization is just an extension of 1D array initialization.  It
@@ -196,13 +215,6 @@ an operating system (OS) that a process is trying to access memory that the
 CPU cannot physically address: an invalid address for the address bus, hence
 the name.</p>
 </blockquote>
-<h1>
-<a id="user-content-wrench-strsepc" class="anchor" href="#wrench-strsepc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> strsepc</h1>
-<p>implement</p>
-<div class="highlight highlight-source-c"><pre>      <span class="pl-k">char</span> *<span class="pl-en">strsepc</span>(<span class="pl-k">char</span> **stringp, <span class="pl-k">int</span> c);</pre></div>
-<p>which behaves like strsep(3) except that it searches only for the first
-occurence of single character.</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/strsepc.c">strsepc.c</a></p>
 <h1>
 <a id="user-content-unions" class="anchor" href="#unions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unions</h1>
 <ul>
