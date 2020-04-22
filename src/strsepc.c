@@ -11,7 +11,7 @@ strsepc(char **stringp, int c)
 {
 	char *orig = *stringp;
 	char *s = *stringp;
-	
+
 	if (s == NULL)
 		return (NULL);
 
