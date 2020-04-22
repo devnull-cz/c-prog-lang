@@ -1,4 +1,4 @@
-# :wrench: Home assignment: strsepc
+# :wrench: strsepc
 
 implement
 
