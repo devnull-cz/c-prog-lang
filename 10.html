@@ -197,6 +197,13 @@ CPU cannot physically address: an invalid address for the address bus, hence
 the name.</p>
 </blockquote>
 <h1>
+<a id="user-content-wrench-strsepc" class="anchor" href="#wrench-strsepc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> strsepc</h1>
+<p>implement</p>
+<div class="highlight highlight-source-c"><pre>      <span class="pl-k">char</span> *<span class="pl-en">strsepc</span>(<span class="pl-k">char</span> **stringp, <span class="pl-k">int</span> c);</pre></div>
+<p>which behaves like strsep(3) except that it searches only for the first
+occurence of single character.</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/strsepc.c">strsepc.c</a></p>
+<h1>
 <a id="user-content-unions" class="anchor" href="#unions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unions</h1>
 <ul>
 <li>similar to structures however have different semantics
@@ -330,13 +337,6 @@ non-option argument is encountered (i.e. one not starting with <code>-</code>) o
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> bonus task: implement myoptind/myopterr/myoptopt variables</p>
 <p>See the following code on how to use getopt(3):</p>
 <p><a href="https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c">https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c</a></p>
-<h1>
-<a id="user-content-wrench-home-assignment-strsepc" class="anchor" href="#wrench-home-assignment-strsepc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment: strsepc</h1>
-<p>implement</p>
-<div class="highlight highlight-source-c"><pre>      <span class="pl-k">char</span> *<span class="pl-en">strsepc</span>(<span class="pl-k">char</span> **stringp, <span class="pl-k">int</span> c);</pre></div>
-<p>which behaves like strsep(3) except that it searches only for the first
-occurence of single character.</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/strsepc.c">strsepc.c</a></p>
 
               </article>
             </div>
