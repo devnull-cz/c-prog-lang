@@ -9,4 +9,6 @@ implement
 which behaves like strsep(3) except that it searches only for the first
 occurence of single character.
 
+Try to use strsep() first #source strsep.c
+
 :key: code: #source strsepc.c
