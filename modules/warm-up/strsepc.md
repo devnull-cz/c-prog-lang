@@ -1,4 +1,4 @@
-# :wrench: strsepc
+# :wrench: warm-up strsepc
 
 implement
 
