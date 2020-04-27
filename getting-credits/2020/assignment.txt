@@ -129,18 +129,18 @@ If unsure what is the correct behavior, check how GNU tar behaves.
 - Listing truncated archive (that is, there is not enough data for the listed
   archived file size in the archive) reports an error.
 
-	$ ../../maitar -f partial.tar -t
+	$ ../../mytar -f partial.tar -t
 	aaa-file
-	maitar: Unexpected EOF in archive
-	maitar: Error is not recoverable: exiting now
+	mytar: Unexpected EOF in archive
+	mytar: Error is not recoverable: exiting now
 
 - A tar archive finishes with two zero blocks.  Missing both is silently
   accepted but missing just one emits a warning (but the command still returns
   0):
 
-	$ ../../maitar -f one-zero-block-missing.tar -t
+	$ ../../mytar -f one-zero-block-missing.tar -t
 	aaa-file
-	maitar: A lone zero block at 4
+	mytar: A lone zero block at 4
 	$ echo $?
 	0
 
