@@ -39,6 +39,9 @@ xxx.c:12:7: error: array has incomplete element type 'int []'
 	     ^
 ```
 
+The word *incomplete* here means the storage size of the array element (which is
+an array itself) is unknown.
+
 Note that in C99, you may or may not use a comma (`,`) after the last
 initializer.  In C89, it was prohibited to use the comma after the last one.
 
