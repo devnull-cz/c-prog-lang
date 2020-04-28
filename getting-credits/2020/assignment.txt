@@ -147,4 +147,11 @@ If unsure what is the correct behavior, check how GNU tar behaves.
 Phase 2
 -------
 TBD yet.  Most probably it will cover the -x option, and possibly -c as well.
-Will be specified by the end of Apr.
+Will be specified during the first week of May.
+
+Notes (internal TODO):
+- support option -x
+- support the GNU size format (256-base big endian number)
+	- add a unit test?
+- recognize and report if a file is not a tar file
+	- add a unit test
