@@ -1,4 +1,4 @@
-# :wrench: task: offsetof
+# offsetof
 
 Write a macro (or start with a function with hardcoded values) that will print
 the offset of the specified member of a given structure.

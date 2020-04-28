@@ -1,4 +1,4 @@
-# :wrench: Linked list
+# Linked list
 
 Declare a structure that will form a simple linked list and will hold an integer
 as a value.  The program will be run with a single argument specifying how many

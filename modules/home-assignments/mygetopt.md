@@ -1,4 +1,4 @@
-# :wrench: `mygetopt`()
+# `mygetopt`()
 
 Implement a command line parser ala getopt(3). The global variable `myoptarg`
 will be set if an option has an argument.
