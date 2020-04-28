@@ -88,7 +88,7 @@ n = n & 01777;			// zero out some lowest bits
 #define	LIGHT_YELLOW	0x0008
 #define	LIGHT_VIOLET	0x0010
 #define	LIGHT_WHITE	0x0020
-...
+// ...
 
 lights = lights | LIGHT_YELLOW;	// turn on yellow light
 lights = lights & ~LIGHT_RED;	// turn off red light
