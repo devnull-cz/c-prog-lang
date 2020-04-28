@@ -1,4 +1,4 @@
-# Variable name space & scope
+# Variable name space and scope
 
 Identifiers fall into several name spaces that do not interfere with one
 another.
