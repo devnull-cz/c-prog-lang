@@ -274,34 +274,31 @@ loop but we only introduced the <code>while</code> loop so far).</li>
 <ul>
 <li>equality is <code>==</code> since a single <code>=</code> is an assignment operator</li>
 </ul>
-<pre><code>	int i = 13;
-	if (i == 13) {
-		// will do something here
-	}
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">13</span>;
+<span class="pl-k">if</span> (i == <span class="pl-c1">13</span>) {
+	<span class="pl-c"><span class="pl-c">//</span> will do something here</span>
+}</pre></div>
 <ul>
 <li>logical AND and OR</li>
 </ul>
-<pre><code>	if (i == 13 &amp;&amp; j &lt; 10) {
-		...
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (i == <span class="pl-c1">13</span> &amp;&amp; j &lt; <span class="pl-c1">10</span>) {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
 
-	if (i == 1 || k &gt; 100) {
-		...
-</code></pre>
+<span class="pl-k">if</span> (i == <span class="pl-c1">1</span> || k &gt; <span class="pl-c1">100</span>) {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
 <ul>
 <li>
-<p>you do not need extra ()'s as <code>||</code> and <code>&amp;&amp;</code> have lower priority
-than <code>==</code> and <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, and <code>!=</code>.  We will learn more
-about operator priority in later lectures.</p>
+<p>you do not need extra ()'s as <code>||</code> and <code>&amp;&amp;</code> have lower priority than <code>==</code> and
+<code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, and <code>!=</code>.  We will learn more about operator priority in
+later lectures.</p>
 </li>
 <li>
-<p>non-equality is !=</p>
+<p>non-equality is <code>!=</code></p>
 </li>
 </ul>
-<pre><code>	if (i != 13) {
-		...
-	}
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (i != <span class="pl-c1">13</span>) {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}</pre></div>
 <h1>
 <a id="user-content-the-boolean-type" class="anchor" href="#the-boolean-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The boolean type</h1>
 <p>There is a new <code>_Bool</code> type as of C99.  Put <code>0</code> as false, and a non-zero (stick

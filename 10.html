@@ -116,35 +116,32 @@ occurence of a single character.</p>
 <p>Static array initialization is just an extension of 1D array initialization.  It
 is an array of arrays, so each element of the array (of arrays) is an array
 initializer.  You initialize by rows.</p>
-<pre><code>    int a[MYSIZE][MYSIZE] = {
-            {  0,  1,  2,  3 },	// a[0]
-            {  4,  5,  6,  7 },	// a[1]
-            {  8,  9, 10, 11 },	// a[2]
-            { 12, 13, 14, 15 },	// a[3]
-    };
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[MYSIZE][MYSIZE] = {
+        {  <span class="pl-c1">0</span>,  <span class="pl-c1">1</span>,  <span class="pl-c1">2</span>,  <span class="pl-c1">3</span> },     <span class="pl-c"><span class="pl-c">//</span> a[0]</span>
+        {  <span class="pl-c1">4</span>,  <span class="pl-c1">5</span>,  <span class="pl-c1">6</span>,  <span class="pl-c1">7</span> },     <span class="pl-c"><span class="pl-c">//</span> a[1]</span>
+        {  <span class="pl-c1">8</span>,  <span class="pl-c1">9</span>, <span class="pl-c1">10</span>, <span class="pl-c1">11</span> },     <span class="pl-c"><span class="pl-c">//</span> a[2]</span>
+        { <span class="pl-c1">12</span>, <span class="pl-c1">13</span>, <span class="pl-c1">14</span>, <span class="pl-c1">15</span> },     <span class="pl-c"><span class="pl-c">//</span> a[3]</span>
+};</pre></div>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-static-array-initialization.c">2d-static-array-initialization.c</a></p>
 <p>C stores the array in a single piece of memory, consequtively, row after row.
 That means that all but the last dimension must be known.  So you could do:</p>
-<pre><code>int a[][3] = {
-            {  0,  1,  2 },
-            {  4,  5,  6 },
-            {  8 },		// a[2][1], a[2][2] implicitly initialized to 0
-            { 12, 13, 14 },
-}
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[][<span class="pl-c1">3</span>] = {
+        {  <span class="pl-c1">0</span>,  <span class="pl-c1">1</span>,  <span class="pl-c1">2</span> },
+        {  <span class="pl-c1">4</span>,  <span class="pl-c1">5</span>,  <span class="pl-c1">6</span> },
+        {  <span class="pl-c1">8</span> },         <span class="pl-c"><span class="pl-c">//</span> a[2][1], a[2][2] implicitly initialized to 0</span>
+        { <span class="pl-c1">12</span>, <span class="pl-c1">13</span>, <span class="pl-c1">14</span> },
+}</pre></div>
 <p>However, you cannot do:</p>
-<pre><code>int a[][] = {
-            {  0,  1,  2 },
-            {  4,  5,  6 },
-            {  8,  9, 10 },
-            { 12, 13, 14 }	// no comma here, that's OK, but it's
-			// recommended to use it to make it consistent
-}
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[][] = {
+        {  <span class="pl-c1">0</span>,  <span class="pl-c1">1</span>,  <span class="pl-c1">2</span> },
+        {  <span class="pl-c1">4</span>,  <span class="pl-c1">5</span>,  <span class="pl-c1">6</span> },
+        {  <span class="pl-c1">8</span>,  <span class="pl-c1">9</span>, <span class="pl-c1">10</span> },
+        { <span class="pl-c1">12</span>, <span class="pl-c1">13</span>, <span class="pl-c1">14</span> }  <span class="pl-c"><span class="pl-c">//</span> no comma here, that's OK, but it's</span>
+                        <span class="pl-c"><span class="pl-c">//</span> recommended to use it to make it consistent</span>
+}</pre></div>
 <pre><code>xxx.c:12:7: error: array has incomplete element type 'int []'
         int a[][] = {
-	     ^
+             ^
 </code></pre>
 <p>The word <em>incomplete</em> here means the storage size of the array element (which is
 an array itself) is unknown.</p>
@@ -152,66 +149,66 @@ an array itself) is unknown.</p>
 initializer.  In C89, it was prohibited to use the comma after the last one.</p>
 <p>Remember that we do not have to set all elements of the row when initializing an
 array, the C compiler will zero out the rest.</p>
-<pre><code>int a[10] = { 1, 2 }; // from a[2] to a[9], elements are 0
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">10</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span> }; <span class="pl-c"><span class="pl-c">//</span> from a[2] to a[9], elements are 0</span></pre></div>
 <p>Neither you can do the following (same compiler error as above).  As the
 compiler stores the array data in rows, if it does not know how long is the row,
 it cannot proceed.</p>
-<pre><code>int a[4][] = {
-            {  0,  1,  2 },
-            {  4,  5,  6 },
-            {  8,  9, 10 },
-            { 12, 13, 14 }
-}
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">4</span>][] = {
+        {  <span class="pl-c1">0</span>,  <span class="pl-c1">1</span>,  <span class="pl-c1">2</span> },
+        {  <span class="pl-c1">4</span>,  <span class="pl-c1">5</span>,  <span class="pl-c1">6</span> },
+        {  <span class="pl-c1">8</span>,  <span class="pl-c1">9</span>, <span class="pl-c1">10</span> },
+        { <span class="pl-c1">12</span>, <span class="pl-c1">13</span>, <span class="pl-c1">14</span> }
+}</pre></div>
 <p>You already know that you can initialize a character array using a string
 instead of <code>{ 'a', 'b', ... }</code>:</p>
-<pre><code>char s[] = "hello, world";
-</code></pre>
-<p>Same way you can initialize an array of strings:</p>
-<pre><code>char *s[] = {
-	"hello",
-	"hi",
-	"good day",
-	"what's up"
-};
-</code></pre>
-<p>However, while string is technically an array of characters, it's an expression
-whose value is the address of the 1st element of the array, i.e. the 1st char.
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> s[] = <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>;</pre></div>
+<p>Same way you can initialize an array of strings.  We already know from the
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/operator-precedence.md">operator priority</a>
+that <code>[]</code> is of higher priority than <code>*</code>, so the following is an array of
+pointers to <code>char</code>.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *s[] = {
+        <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>hi<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>good day<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>what's up<span class="pl-pds">"</span></span>
+};</pre></div>
+<p>Note that if you wanted a pointer to an array of <code>char</code>s, it would be <code>char (*s)[]</code>.  More on that later.</p>
+<p>However, while string is technically an array of characters, it's technically an
+array whose value is the address of its 1st element, i.e. the 1st character.
 However, <code>{ 'a', 'b', ... }</code> is an initializer for a static array, it is not a
 pointer.  So, the following will not compile:</p>
-<pre><code>char *s[] = {
-	{ 'h', 'e', 'l', 'l', 'o', '\0' },
-	{ 'h', 'i', '\0' }
-};
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *s[] = {
+        { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> },
+        { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>i<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> }
+};</pre></div>
+<p>Same as the following is incorrect:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *s = { <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span> };</pre></div>
 <p>Also note that the following two lines mean something quite different:</p>
-<pre><code>char a[] = "hello, world";
-char *p = "hello, world";
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> a[] = <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>;
+<span class="pl-k">char</span> *p = <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>;</pre></div>
 <p>In the first case, the string is only used to initialize a static array.  You
 cannot assign anything to <code>a</code> after that but you can change the array's
 elements.</p>
 <p>In the second case, a static string is created and stored in the binary (i.e.
 the program file), and <code>p</code> contains its address, i.e. the address of character
 <code>'h'</code>.  One can change the <code>p</code> variable to point to something else but it is
-undefined what happens when one tries to change the characters of the string.
-With gcc, all such strings are read only:</p>
-<pre><code>$ cat main.c
-#include &lt;sys/types.h&gt;
+undefined what happens when one tries to change the characters of the string
+(which is internally an array of <code>char</code>s).  With <code>gcc</code>, all such strings are
+read-only:</p>
+<div class="highlight highlight-source-c"><pre>$ cat main.c
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>sys/types.h<span class="pl-pds">&gt;</span></span>
 
-int
-main(void)
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-	char *p = "hello, world";
+        <span class="pl-k">char</span> *p = <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>;
 
-	*p = 'H';
-	return (0);
+        *p = <span class="pl-s"><span class="pl-pds">'</span>H<span class="pl-pds">'</span></span>;
+        <span class="pl-k">return</span> (<span class="pl-c1">0</span>);
 }
 $ gcc main.c
 $ ./a.out
-Bus error: 10
-</code></pre>
+Bus error: <span class="pl-c1">10</span></pre></div>
 <p>Wikipedia:</p>
 <blockquote>
 <p>In computing, a bus error is a fault raised by hardware, notifying
