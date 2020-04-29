@@ -2,7 +2,7 @@
 
 To read a complex declaration, you use
 #module operator-precedence.md operator priorities
-and watch for parenthess.
+and watch for parentheses.
 
 ```C
 char **argv
