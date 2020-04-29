@@ -9,3 +9,6 @@ struct s {
 	int b;
 } s = { 1, 2, };	// ',' after 2 is optional
 ```
+
+See why keeping the last comma always there might be a very good idea:
+#source missing-comma-in-initializer.c
