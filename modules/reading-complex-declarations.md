@@ -1,6 +1,7 @@
 # Reading complex declarations
 
-To read a complex declaration, you use operator priorities.
+To read a complex declaration, you use operator priorities and watch for
+parenthess.
 
 ```C
 char **argv
