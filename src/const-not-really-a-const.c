@@ -4,11 +4,11 @@ int
 main(void)
 {
 	int i = 'c';
-	int *i1 = &i;
-	int const *i2 = &i;
+	int *p1 = &i;
+	int const *p2 = &i;
 
-	// Illegal.  I cannot change 'i' through *i2.
-	*i2 = 'x';
-	// However, I can change it through *i1.
-	*i1 = 'x';
+	// Illegal.  I cannot change 'i' through *p2.
+	*p2 = 'x';
+	// However, I can change it through *p1.
+	*p1 = 'x';
 }

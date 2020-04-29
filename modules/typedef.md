@@ -19,7 +19,7 @@ definition in `/usr/include/sys/types.h`.
 typedef int myint;
 typedef *char mycharptr;
 
-mycharptr *p = "my string";
+mycharptr p = "my string";
 ```
 
 `typedef` is also great to create complex type names in small steps.  As we will

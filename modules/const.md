@@ -13,10 +13,10 @@ that variable for an assignment to the storage.
 
 ```C
 int i = 'c';
-int const *i2 = &i;
+int const *p2 = &i;
 
 // illegal
-*i2 = 'x';
+*p2 = 'x';
 // ok
 i = 'x';
 ```
@@ -26,9 +26,9 @@ i = 'x';
 It also depends where you apply the `const` keyword.
 
 ```C
-char const *s1;		// s is a pointer to const char
+char const *s1;		// s1 is a pointer to const char
 const char *s1;		// same as above
-char *const s2;		// s is a const pointer to a char
+char *const s2;		// s2 is a const pointer to a char
 
 *s1 = 'c';		// illegal
 s1 = NULL;		// legal
