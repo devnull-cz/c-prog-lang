@@ -31,6 +31,6 @@ char *s[] = {
 int
 main(void)
 {
-	for (int i = 0; i < sizeof (s) / sizeof (char *); ++i)
+	for (size_t i = 0; i < sizeof (s) / sizeof (char *); ++i)
 		printf("%s\n", s[i]);
 }
