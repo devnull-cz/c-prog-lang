@@ -22,7 +22,7 @@ char *s[] = {
  * previously last initializer.  So, change 0 to 1, compiler, and run.  What
  * happened?
  */
-#if 1
+#if 0
 	"in",
 	"rain.",
 #endif
