@@ -1,17 +1,21 @@
 #/bin/bash
 #
-# Another extract test.  Now check the contents of the files.
+# Extract test with specific file arguments.  Follow the same ordering in argv
+# as in the archive.  Check the contents now.
 
 source $configvar
 cd $tmpdir
+
+first=$(echo "$inputfiles" | head -1)
+third=$(echo "$inputfiles" | head -3 | tail -1)
+seventh=$(echo "$inputfiles" | head -7 | tail -1)
+last=$(echo "$inputfiles" | tail -1)
 
 tmp2=tmp-$(basename $0)
 mkdir $tmp2 || { echo "mkdir failed" && exit 1; }
 cd $tmp2
 
-typeset -i belated=0
-
-$MYTAR -x -f ../$tarfile
+$MYTAR -x -v -f ../$tarfile $first $third $seventh $last
 (($? == 0)) || exit 1
 
 for i in $(/bin/ls -1 *); do
