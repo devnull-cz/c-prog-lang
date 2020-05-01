@@ -160,3 +160,74 @@ Skipping unconfiguration (STEF_UNCONFIGURE_NEVER).
 === [ NPRG099 Tar Unit Tests Results ] ===
 All tests passed.
 # == 8< ==
+
+For the phase 2 tests, example output (number of tests may increase):
+
+# == 8< ==
+$ ./run-tests.sh 
+=== [ NPRG099 Tar Unit Tests ] ===
+Checking configuration sanity.
+Checking existence of executables provided by the following variables: GCC GNUTAR
+Checking existence of regular files provided by the following variables:  
+
+--- [ Configuration Start ] ---
+WARNING: Using '/opt/local/bin/gnutar' as the GNU tar testing binary.
+Created temporary directory 'dir.1seMP'.
+Creating files:
+  aaa-file
+  file1.random
+  empty.data
+  file.zero
+  hello-world
+  small-file
+  file2.zero
+  file3.zero
+  another-file2
+Creating a GNU tar archive 'archive.tar'.
+Creating 'partial.tar' truncated in the middle of an archived file.
+Creating a truncated file from aaa-file.
+1+0 records in
+1+0 records out
+512 bytes transferred in 0.000034 secs (15123124 bytes/sec)
+Creating archives with missing ending zero block(s):
+  one-zero-block-missing.tar
+  two-zero-blocks-missing.tar
+--- [ Configuration End ] ---
+
+---[ Running tests ] ---
+  001	PASS
+  002	PASS
+  003	PASS
+  004	PASS
+  005	PASS
+  006	PASS
+  007	PASS
+  008	PASS
+  011	PASS
+  012	PASS
+  013	PASS
+  014	PASS
+  015	PASS
+  016	PASS
+  017	PASS
+  018	PASS
+  019	PASS
+  020	PASS
+  021	PASS
+  022	PASS
+  023	PASS
+  024	PASS
+  025	PASS
+  026	PASS
+  027	PASS
+  028	PASS
+  029	PASS
+---[ Tests finished ] ---
+
+--- [ Unconfiguration Start ] ---
+Skipping unconfiguration (STEF_UNCONFIGURE_NEVER).
+--- [ Unconfiguration End ] ---
+
+=== [ NPRG099 Tar Unit Tests Results ] ===
+All tests passed.
+# == 8< ==
