@@ -2,10 +2,11 @@
 #
 # Simple listing test, -v is ignored
 
-# When verifying the testing environment, we need to exit right now.
-[[ -n $MYGNUTAR ]] && exit 0
-
 source $configvar
+# The -tv options with GNU tar prints long file listing which we do not support
+# so just emulate the simple listing and exit.
+[[ -n $MYGNUTAR ]] && echo "$inputfiles" && exit 0
+
 cd $tmpdir
 
 $MYTAR -t -v -f $tarfile
