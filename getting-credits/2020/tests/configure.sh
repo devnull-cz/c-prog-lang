@@ -55,7 +55,8 @@ printf "export tmpdir=$tmpdir\n\n" > $configvar
 printf "export tarfile=$tarfile\n\n" >> $configvar
 
 # Do not change aaa-file size, see below.
-typeset input="aaa-file	/dev/urandom	512	2
+aaafile=aaa-file
+typeset input="$aaafile	/dev/urandom	512	2
 file1.random	/dev/urandom	512	100
 empty.data	/dev/zero	512	0
 file.zero	/dev/zero	512	2
@@ -87,6 +88,13 @@ $GNUTAR -c -f $tarfile $inputfiles
 echo "Creating '$partial' truncated in the middle of an archived file."
 dd if=$tarfile of=$partial count=2 >/dev/null 2>&1
 (($? != 0)) && echo "dd failed." && exit 1
+
+echo "Creating a truncated file from $aaafile."
+aaa1stblock=$aaafile-1st-block
+dd if=$aaafile of=$aaa1stblock count=1
+(($? != 0)) && echo "dd failed." && exit 1
+printf "export aaafile=$aaafile\n\n" >> $configvar
+printf "export aaa1stblock=$aaa1stblock\n\n" >> $configvar
 
 # We assume that aaa-file (see above) is 2 block long.
 echo "Creating archives with missing ending zero block(s):"
