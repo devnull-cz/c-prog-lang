@@ -13,6 +13,8 @@ echo "Removing temporary directory '$tmpdir'."
 [[ -z $tmpdir ]] && echo "Internal error: tmpdir empty.  Exiting" && exit 1
 
 rmdir ./$tmpdir/$emptydir
+# Temp files unit tests may create.
+rm -rf ./$tmpdir/tmp-test-*
 rm -f ./$tmpdir/*
 rmdir ./$tmpdir
 (($? != 0)) && echo "Failed to rmdir '$tmpdir'." && exit 1
