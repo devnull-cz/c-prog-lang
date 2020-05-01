@@ -3,7 +3,7 @@
 # the Mala Strana lab.  See http://mff.devnull.cz/c-prog-lang/ for more details.
 
 # Before running the tests via "./run-tests.sh", you need to set the "STEF"
-# variable in stef-config to the location of "stef.sh".  Get it here:
+# variable in your shell to the "stef.sh" script.  Get it here:
 # https://github.com/devnull-cz/stef
 #
 # For example:
@@ -25,8 +25,13 @@ export MYTAR_C="/Volumes/repos/mytar/mytar.c"
 
 # In order to verify your testing environment is set up correctly, set MYGNUTAR
 # to the system GNU tar.  See the example output below for more information.
-export MYGNUTAR="$(which gnutar)"
+#
+# Example:
+###export MYGNUTAR="$(which gnutar)"
 
+# When you have set STEF, GNUTAR, and MYTAR_C (or MYGNUTAR instead, see below),
+# you are ready to run the tests:
+#
 # Phase 1
 ./run-tests.sh $(cat phase-1.tests)
 # Phase 2
