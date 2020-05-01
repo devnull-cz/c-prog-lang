@@ -56,8 +56,8 @@ GNU tar archives created via the following invocation:
 If unsure what is the correct behavior, check how GNU tar behaves.
 
 - Your implementation must be in one file only, called "mytar.c".  Do not create
-  C header files.  We plan to use software for detecting duplicates so having just
-  one file will make our life easier.
+  C header files.  We plan to use software for detecting duplicates so having
+  just one file will make our life easier.
 
 - No warnings allowed with "gcc -Wall -Wextra".
 
@@ -100,7 +100,7 @@ If unsure what is the correct behavior, check how GNU tar behaves.
 - Listing works as usual.
 
 	$ touch file1 file2 file3 file4
-	$ gnutar -f archive.tar -c file*
+	$ mytar -f archive.tar -c file*
 	$ ./mytar -f archive.tar -t
 	file1
 	file2
@@ -144,14 +144,73 @@ If unsure what is the correct behavior, check how GNU tar behaves.
 	$ echo $?
 	0
 
+- no need to collate the options, as showen below.  We will not test it.
+
+	$ ./mytar -tf archive.tar
+
 Phase 2
 -------
-TBD yet.  Most probably it will cover the -x option, and possibly -c as well.
-Will be specified during the first week of May.
+Implement the -x and -v options.  The tar implementation must be able to extract
+GNU tar archives created via the following invocation:
 
-Notes (internal TODO):
-- support option -x
-- support the GNU size format (256-base big endian number)
-	- add a unit test?
-- recognize and report if a file is not a tar file
-	- add a unit test
+	$ tar -f archive.tar -c <files>
+
+The -v option only takes effect with the -t option, and is silently ignored with
+the -x option.
+
+If unsure what is the correct behavior, check how GNU tar behaves.
+
+- No need to collate the options, as showen below.  We will not test it.
+
+	$ ./mytar -tf archive.tar
+	$ ./mytar -tvf archive.tar
+	$ ...
+
+  Regarding the cases above, we are testing:
+
+  	$ ./mytar -t -f archive.tar
+  	$ ./mytar -t -v -f archive.tar
+	$ ...
+
+- Recognize and report if a file is not a tar file (use the 'magic' field for
+  that).
+
+	$ ./mytar -x -f mytar.c
+	mytar: This does not look like a tar archive
+	mytar: Exiting with failure status due to previous errors
+	$ echo $?
+	2
+
+- Extract works silently.
+
+	$ ./mytar -x -f archive.tar
+	$ echo $?
+	$ 0
+
+- Extract works verbosely with -v.
+
+	$ ./mytar -v -x -f archive.tar
+	file1
+	file2
+	file3
+	file4
+	$ echo $?
+	$ 0
+
+- Working with truncated archives is the same as with the listing:
+
+	$ ./mytar -x -f partial.tar
+	mytar: Unexpected EOF in archive
+	mytar: Error is not recoverable: exiting now
+
+- Listing a truncated archive will list each file with -v (file2 is truncated):
+
+	$ ./mytar -v -x -f partial.tar
+	file1
+	file2
+	mytar: Unexpected EOF in archive
+	mytar: Error is not recoverable: exiting now
+
+	- note that the file2 is created and all the data from the archive is
+	  written there.  That is, the tar does as much as it is possible before
+	  bailing out.
