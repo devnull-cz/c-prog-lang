@@ -11,4 +11,4 @@ mkdir $tmp2 || { echo "mkdir failed" && exit 1; }
 cd $tmp2
 
 $MYTAR -x -f ../$tarfile
-/bin/ls -1 *
+LC_ALL=C /bin/ls -1 *
