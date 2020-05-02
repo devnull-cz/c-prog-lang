@@ -13,8 +13,8 @@ output=$($MYTAR -x -f ../$partial 2>&1)
 typeset -i ret=$?
 ((ret == 2)) || { echo "Wrong tar return value $ret." >&2 && exit 1; }
 
-if ! diff $aaafile ../$aaa1stblock; then
-	echo "Truncated $aaafile does not match ../$aaa1stblock." >&2
+if ! diff $aaafile ../$aaa1stblocks; then
+	echo "Truncated $aaafile does not match ../$aaa1stblocks." >&2
 	exit 1
 fi
 

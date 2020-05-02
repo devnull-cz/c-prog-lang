@@ -1,2 +1,2 @@
 aaa-file
-mytar: A lone zero block at 4
+mytar: A lone zero block at 22
