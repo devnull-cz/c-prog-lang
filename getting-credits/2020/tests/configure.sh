@@ -36,6 +36,7 @@ if [[ -z $MYGNUTAR ]]; then
 	fi
 else
 	echo "WARNING: Using '$MYGNUTAR' as the GNU tar testing binary."
+	echo "WARNING: This is only for verifying the test setup."
 fi
 
 tmpdir=$(mktemp -d dir.XXXXX)

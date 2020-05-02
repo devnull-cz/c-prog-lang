@@ -38,14 +38,11 @@ export MYTAR_C="/Volumes/repos/mytar/mytar.c"
 ./run-tests.sh
 
 # Example output to verify the testing environment with GNU tar.  You still need
-# to set both GNUTAR.  However, you also need to set STEF_REGFILE_LOCAL_VARS to
-# a value of " " as otherwise the test would require an existing file in the
-# MYTAR_C variable.
+# to set both GNUTAR.
 #
 # == 8< ==
 $ export STEF="/Volumes/repos/stef/stef.sh"
 $ export GNUTAR="$(which gnutar)"
-$ export STEF_REGFILE_LOCAL_VARS=" "
 $ export MYGNUTAR="$(which gnutar)"
 $ ./run-tests.sh $(cat phase-1.tests)
 === [ NPRG099 Tar Unit Tests ] ===
@@ -103,7 +100,6 @@ All tests passed.
 # variables.  You must see the "Building the 'mytar' binary" output.
 
 # == 8< ==
-$ unset STEF_REGFILE_LOCAL_VARS
 $ unset MYGNUTAR
 $ export STEF="/Volumes/repos/stef/stef.sh"
 $ export MYTAR_C="/Volumes/repos/mytar/mytar.c"
