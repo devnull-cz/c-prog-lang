@@ -207,6 +207,14 @@ to cope with them.
 	mytar: Unexpected EOF in archive
 	mytar: Error is not recoverable: exiting now
 
+- Selective extraction of files works similarly to the listing.
+
+	$ ./mytar -v -x -f archive.tar file2 file4
+	file2
+	file4
+	$ echo $?
+	0
+
 - Listing a truncated archive still lists each file with -v (file2 is
   truncated in our example, file1 is not):
 
@@ -217,7 +225,13 @@ to cope with them.
 	mytar: Error is not recoverable: exiting now
 
 	- also note that the file2 is created and all the data from the archive
-	  pertaining to fil2 is still written there.  That is, the tar does as
+	  pertaining to file2 is still written there.  That is, the tar does as
 	  much as it is possible before bailing out.
+
+- Do not worry about ownership and permissions when extracting files, just
+  create them with fopen().
+
+- If you hit an uknown header type, bail out the same way as with listing the
+  archive.
 
 Please ask questions on the seminar alias if anything is not clear.
