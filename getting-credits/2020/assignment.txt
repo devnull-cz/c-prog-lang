@@ -3,7 +3,8 @@
 Tar: A GNU tar compatible tape archiver
 =======================================
 
-See http://mff.devnull.cz/c-prog-lang/ for general information on deadlines.
+See http://mff.devnull.cz/c-prog-lang/ for general information on deadlines and
+the seminar mailing list.
 
 Testing
 -------
@@ -155,19 +156,21 @@ GNU tar archives created via the following invocation:
 
 	$ tar -f archive.tar -c <files>
 
-The -v option only takes effect with the -t option, and is silently ignored with
-the -x option.
+The -v option only takes effect with the -x option, and is silently ignored with
+the -t option.
 
-If unsure what is the correct behavior, check how GNU tar behaves.
+If unsure what is the correct behavior, check how GNU tar behaves and/or ask on
+our seminar alias.  There might be slight differences but the tests are written
+to cope with them.
 
-- No need to collate the options, as showen below.  We will not test it.
+- No need to collate the options, as shown below.  We will not test it.
 
+	# No need to support these:
 	$ ./mytar -tf archive.tar
 	$ ./mytar -tvf archive.tar
 	$ ...
 
-  Regarding the cases above, we are testing:
-
+	# We are only testing instead these:
   	$ ./mytar -t -f archive.tar
   	$ ./mytar -t -v -f archive.tar
 	$ ...
@@ -181,11 +184,11 @@ If unsure what is the correct behavior, check how GNU tar behaves.
 	$ echo $?
 	2
 
-- Extract works silently.
+- Extract works silently as usual.
 
 	$ ./mytar -x -f archive.tar
 	$ echo $?
-	$ 0
+	0
 
 - Extract works verbosely with -v.
 
@@ -195,15 +198,17 @@ If unsure what is the correct behavior, check how GNU tar behaves.
 	file3
 	file4
 	$ echo $?
-	$ 0
+	0
 
-- Working with truncated archives is the same as with the listing:
+- Working with truncated archives results in the similar behavior as when
+  listing them but the extract will do as much as possible:
 
 	$ ./mytar -x -f partial.tar
 	mytar: Unexpected EOF in archive
 	mytar: Error is not recoverable: exiting now
 
-- Listing a truncated archive will list each file with -v (file2 is truncated):
+- Listing a truncated archive still lists each file with -v (file2 is
+  truncated in our example, file1 is not):
 
 	$ ./mytar -v -x -f partial.tar
 	file1
@@ -211,6 +216,8 @@ If unsure what is the correct behavior, check how GNU tar behaves.
 	mytar: Unexpected EOF in archive
 	mytar: Error is not recoverable: exiting now
 
-	- note that the file2 is created and all the data from the archive is
-	  written there.  That is, the tar does as much as it is possible before
-	  bailing out.
+	- also note that the file2 is created and all the data from the archive
+	  pertaining to fil2 is still written there.  That is, the tar does as
+	  much as it is possible before bailing out.
+
+Please ask questions on the seminar alias if anything is not clear.
