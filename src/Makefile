@@ -11,6 +11,7 @@ BLACKLIST=./const-not-really-a-const.c \
 	./const.c \
 	./common-mistake-with-define.c \
 	./const-and-pointers.c
+	./hello-world1.c
 SRCS_ORIG=$(shell find . -type f -name '*.c')
 SRCS=$(filter-out $(BLACKLIST),$(SRCS_ORIG))
 OBJS=$(SRCS:c=o)
@@ -53,7 +54,6 @@ $(OBJDIR)/random.o: CFLAGS_EXTRA = -Wno-sign-compare
 $(OBJDIR)/plus-deref-plus-argv.o: CFLAGS_EXTRA = -Wno-unused-parameter
 $(OBJDIR)/struct-op-precedence.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/empty-array.o: CFLAGS_EXTRA = -Wno-zero-length-array
-$(OBJDIR)/hello-world1.o: CFLAGS_EXTRA = -Wno-implicit-function-declaration
 $(OBJDIR)/assert.o: CFLAGS_EXTRA = -Wno-unused-parameter
 $(OBJDIR)/argv-for.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/buf-overflow.o: CFLAGS_EXTRA = -Wno-builtin-memcpy-chk-size
