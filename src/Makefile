@@ -10,7 +10,7 @@ BLACKLIST=./const-not-really-a-const.c \
 	./array-var-not-modifiable.c \
 	./const.c \
 	./common-mistake-with-define.c \
-	./const-and-pointers.c
+	./const-and-pointers.c \
 	./hello-world1.c
 SRCS_ORIG=$(shell find . -type f -name '*.c')
 SRCS=$(filter-out $(BLACKLIST),$(SRCS_ORIG))
