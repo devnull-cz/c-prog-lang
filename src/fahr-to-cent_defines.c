@@ -16,7 +16,6 @@ main(void)
 	int low = LOW;
 	int high = HIGH;
 	int flag = 0;
-	int i;
 
 	while (low < high) {
 		float cm;
