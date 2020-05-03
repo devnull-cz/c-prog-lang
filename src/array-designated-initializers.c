@@ -17,7 +17,7 @@ char a2[ASIZE] = { [0] 'A', [2] 'B' };
 int
 main(void)
 {
-	int i = 0;
+	size_t i = 0;
 
 	/* Print an underscore instead of a NUL byte. */
 	while (i < sizeof (array) / sizeof (array[0])) {
