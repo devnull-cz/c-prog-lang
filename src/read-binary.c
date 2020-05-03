@@ -19,7 +19,7 @@ main(int argc, char *argv[])
 
 	int val;
 	fseek(fp, -sizeof (val), SEEK_END);
-	for (int i = 0; i < filesize / sizeof (val); i++) {
+	for (size_t i = 0; i < filesize / sizeof (val); i++) {
 		fread(&val, sizeof (val), 1, fp);
 		fprintf(stderr, "%d\n", val);
 		fseek(fp, - 2 * sizeof (val), SEEK_CUR);
