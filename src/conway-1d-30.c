@@ -25,7 +25,7 @@ int values[8] = { 0, 0, 0, 1, 1, 1, 1, 0 };
 int
 getval(int a[3])
 {
-	for (int i = 0; i < sizeof (patterns) / sizeof (patterns[0]); i++) {
+	for (size_t i = 0; i < sizeof (patterns) / sizeof (patterns[0]); i++) {
 		bool found = true;
 
 		for (int j = 0; j < 3; j++) {
