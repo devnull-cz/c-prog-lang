@@ -19,7 +19,7 @@ main(int argc, char *argv[])
 	int in[3] = { 0 };
 	rewind(fp);
 	fread(in, sizeof (in[0]), sizeof (in) / sizeof (in[0]), fp);
-	for (int i = 0; i < sizeof (in) / sizeof (in[0]); i++)
+	for (size_t i = 0; i < sizeof (in) / sizeof (in[0]); i++)
 		fprintf(stderr, "%d\n", in[i]);
 
 	fclose(fp);
