@@ -13,7 +13,7 @@ main(void)
 {
 	int a[3] = { func(), func(), func() };
 
-	for (int i = 0; i < sizeof (a) / sizeof (a[0]); i++)
+	for (size_t i = 0; i < sizeof (a) / sizeof (a[0]); i++)
 		printf("%d\n", a[i]);
 
 	return (0);
