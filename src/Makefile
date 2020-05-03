@@ -22,7 +22,7 @@ DIROBJS=$(addprefix $(OBJDIR)/,$(OBJNAMES))
 $(OBJDIR)/ext.o: CFLAGS_EXTRA = -Wno-unused-variable
 $(OBJDIR)/int-to-ptr.o: CFLAGS_EXTRA = -Wno-int-conversion -Wno-unused-variable
 $(OBJDIR)/cast-double.o: CFLAGS_EXTRA = -Wno-format
-$(OBJDIR)/struct-anon.o: CFLAGS_EXTRA = -Wno-c11-extensions
+$(OBJDIR)/struct-anon.o: CFLAGS_EXTRA = -Wno-c11-extensions -Wno-pedantic
 $(OBJDIR)/array-literal.o: CFLAGS_EXTRA = -Wno-sign-compare
 $(OBJDIR)/plus-deref-plus-deref-argv.o: CFLAGS_EXTRA = -Wno-format \
 	-Wno-unused-parameter
