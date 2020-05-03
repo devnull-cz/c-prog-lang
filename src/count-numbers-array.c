@@ -11,7 +11,8 @@
 int
 main(void)
 {
-	int c, i;
+	int c;
+	size_t i;
 	int counts[10] = { 0 };
 
 	while (1) {
@@ -25,7 +26,7 @@ main(void)
 	}
 
 	for (i = 0; i < sizeof (counts) / sizeof (counts[0]); i++)
-		printf("%d: %d\n", i, counts[i]);
+		printf("%zu: %d\n", i, counts[i]);
 
 	return (0);
 }
