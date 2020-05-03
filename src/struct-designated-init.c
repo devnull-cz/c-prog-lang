@@ -10,7 +10,7 @@ struct foo_s {
 int
 main(void)
 {
-	/* define structure using 'designated initializers' from C99 */
+	/* define a structure using 'designated initializers' from C99 */
 	struct foo_s foo = {
 	    .b = 'C',
 	    .a = 1
@@ -21,6 +21,4 @@ main(void)
 	printf("%d\n", foo.c);
 	/* Will be implicitly NULL (0) */
 	printf("%p\n", foo.p);
-
-	return (0);
 }
