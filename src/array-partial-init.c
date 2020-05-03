@@ -5,7 +5,7 @@ char array[80] = { [0] = 'A', [2] = 'f', [4] = 'o', [6] = 'o' };
 int
 main(void)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < sizeof (array) / sizeof (array[0]); i++) {
 		if (array[i] != 0)
