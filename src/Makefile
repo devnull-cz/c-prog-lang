@@ -63,15 +63,16 @@ $(OBJDIR)/ptr_plus_plus.o: CFLAGS_EXTRA = -Wno-format-pedantic \
 	-Wno-unused-value -Wno-format
 $(OBJDIR)/arithmetics2.o: CFLAGS_EXTRA = -Wno-format
 $(OBJDIR)/arithmetics.o: CFLAGS_EXTRA = -Wno-unused-but-set-variable
-$(OBJDIR)/struct-reference.o: CFLAGS_EXTRA = -Wno-format-pedantic
-$(OBJDIR)/null-ptr.o: CFLAGS_EXTRA = -Wno-format-pedantic
-$(OBJDIR)/ptr-basics.o: CFLAGS_EXTRA = -Wno-format-pedantic
-$(OBJDIR)/string-const-address.o: CFLAGS_EXTRA = -Wno-format-pedantic
+$(OBJDIR)/struct-reference.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
+$(OBJDIR)/null-ptr.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
+$(OBJDIR)/ptr-basics.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
+$(OBJDIR)/string-const-address.o: CFLAGS_EXTRA = -Wno-format-pedantic \
+	-Wno-format
 $(OBJDIR)/prefix-ptr-inc.o: CFLAGS_EXTRA = -Wno-format-pedantic \
 	-Wno-format
-$(OBJDIR)/uintptr.o: CFLAGS_EXTRA = -Wno-format-pedantic
-$(OBJDIR)/ptr-change.o: CFLAGS_EXTRA = -Wno-format-pedantic
-$(OBJDIR)/ptr-diff.o: CFLAGS_EXTRA = -Wno-format-pedantic
+$(OBJDIR)/uintptr.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
+$(OBJDIR)/ptr-change.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
+$(OBJDIR)/ptr-diff.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
 $(OBJDIR)/printf-format.o: CFLAGS_EXTRA = -Wno-format
 $(OBJDIR)/wrong-modifier.o: CFLAGS_EXTRA = -Wno-format
 $(OBJDIR)/fmt-string-invalid.o: CFLAGS_EXTRA = -Wno-format
