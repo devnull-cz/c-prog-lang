@@ -67,7 +67,8 @@ $(OBJDIR)/struct-reference.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/null-ptr.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/ptr-basics.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/string-const-address.o: CFLAGS_EXTRA = -Wno-format-pedantic
-$(OBJDIR)/prefix-ptr-inc.o: CFLAGS_EXTRA = -Wno-format-pedantic
+$(OBJDIR)/prefix-ptr-inc.o: CFLAGS_EXTRA = -Wno-format-pedantic \
+	-Wno-format
 $(OBJDIR)/uintptr.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/ptr-change.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/ptr-diff.o: CFLAGS_EXTRA = -Wno-format-pedantic
