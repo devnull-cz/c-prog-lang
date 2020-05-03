@@ -58,7 +58,8 @@ $(OBJDIR)/assert.o: CFLAGS_EXTRA = -Wno-unused-parameter
 $(OBJDIR)/argv-for.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/buf-overflow.o: CFLAGS_EXTRA = -Wno-builtin-memcpy-chk-size
 $(OBJDIR)/derived-types.o: CFLAGS_EXTRA = -Wno-incompatible-pointer-types
-$(OBJDIR)/ptr_plus_plus.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-unused-value
+$(OBJDIR)/ptr_plus_plus.o: CFLAGS_EXTRA = -Wno-format-pedantic \
+	-Wno-unused-value -Wno-format
 $(OBJDIR)/arithmetics2.o: CFLAGS_EXTRA = -Wno-format
 $(OBJDIR)/struct-reference.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/null-ptr.o: CFLAGS_EXTRA = -Wno-format-pedantic
