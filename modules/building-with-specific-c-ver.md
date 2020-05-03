@@ -51,3 +51,27 @@ still defines `c99`.  I expect the future SUS versions with require `c11` binary
 to support C11 standard.
 
 TODO: c89 on macOS, gcc -std=c99, c89 on macOS with `_Bool`
+
+Might be difficult to get the exact compiler version.  The following will
+compiler while `//` are not part of C89, and moreover, `_Bool` is not either and
+it does not issue even a warning.
+
+```
+janp:air:~$ cat main.c
+int
+main(void)
+{
+	// not in C89
+	_Bool b;
+}
+janp:air:~$ c89 main.c
+main.c:4:2: warning: // comments are not allowed in this language [-Wcomment]
+        // not in C89
+        ^
+1 warning generated.
+janp:air:~$ gcc -std=c89 -pedantic main.c
+main.c:4:2: warning: // comments are not allowed in this language [-Wcomment]
+        // not in C89
+        ^
+1 warning generated.
+```
