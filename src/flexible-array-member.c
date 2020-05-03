@@ -3,7 +3,7 @@
 
 struct item {
 	int header;
-	int len;
+	size_t len;
 	char payload[]; // must be last member
 };
 
@@ -29,8 +29,8 @@ main(void)
 {
 	struct item *p = allocate(30);
 
-	for (int i = 0; i < p->len; ++i)
-		printf("%d: %c\n", i, p->payload[i]);
+	for (size_t i = 0; i < p->len; ++i)
+		printf("%zu: %c\n", i, p->payload[i]);
 
 	free(p);
 
