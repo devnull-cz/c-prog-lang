@@ -14,7 +14,7 @@ main(void)
 	int c;
 	short table['z' - 'a' + 1];
 
-	int i = 0;
+	size_t i = 0;
 	c = 'a';
 	while (i < sizeof (table) / sizeof (table[0])) {
 		table[i] = c - ('a' - 'A');
