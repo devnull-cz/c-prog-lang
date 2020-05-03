@@ -29,10 +29,10 @@ void
 print_2D_array(size_t width, size_t height, char array[][width])
 {
 	// Print the 2-D array to standard output.
-	int h = height - 1;
+	size_t h = height - 1;
 
 	while (h >= 0) {
-		int i = 0;
+		size_t i = 0;
 		while (i < width) {
 			printf("%c", array[h][i]);
 			++i;
@@ -69,7 +69,7 @@ get_rand(int h, int max)
 void
 mountain(size_t width, size_t height, char array[][width])
 {
-	int i = 0, h = 0;
+	size_t i = 0, h = 0;
 
 	while (i < width) {
 		int r;
