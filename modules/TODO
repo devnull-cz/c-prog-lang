@@ -14,3 +14,6 @@ home-assignments/offsetof.md
 
 # Explain "incomplete type"
 Make a module for that, cite C99 when needed.
+
+# On building with a specific C version in mind 
+building-with-specific-c-ver.md
