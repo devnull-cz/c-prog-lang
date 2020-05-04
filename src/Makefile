@@ -34,7 +34,7 @@ $(OBJDIR)/static_assert.o: CFLAGS_EXTRA = -Wno-int-to-void-pointer-cast \
 	-Wno-unused-local-typedef -Wno-int-to-pointer-cast \
 	-Wno-unused-local-typedefs
 $(OBJDIR)/compound-statement-invalid.o: CFLAGS_EXTRA = \
-	-Wno-gnu-statement-expression
+	-Wno-gnu-statement-expression -Wno-pedantic
 $(OBJDIR)/ptr-inc.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
 $(OBJDIR)/no-return.o: CFLAGS_EXTRA = -Wno-return-type
 $(OBJDIR)/array-designated-initializers.o: CFLAGS_EXTRA = -Wno-gnu-designator \
