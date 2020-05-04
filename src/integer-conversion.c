@@ -6,7 +6,7 @@ main(void)
 	unsigned char c;
 	unsigned int u;
 
-	/* 'c' will be 3 */
+	/* 'c' will be 3.  With -Wconstant-conversion you may get a warning. */
 	c = 1027;
 	printf("%hhu\n", c);
 
@@ -17,7 +17,8 @@ main(void)
 	 *
 	 * So 24 will be assigned to 'c'.
 	 *
-	 * The compiler will warn you though as the value changes.
+	 * The compiler will warn you though as the value changes
+	 * (see above for -Wconstant-conversion).
 	 */
 	c = -1000;
 	printf("%hhu\n", c);
