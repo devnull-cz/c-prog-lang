@@ -20,7 +20,7 @@ jobs:
       run: ./dev/compile_src.sh
       env:
         CC: gcc
-	OS: linux
+        OS: linux
   job2:
     name: Clang on macOS
     runs-on: macos-latest
@@ -31,4 +31,4 @@ jobs:
       run: ./dev/compile_src.sh
       env:
         CC: clang
-	OS: macos
+        OS: macos
