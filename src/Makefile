@@ -90,7 +90,7 @@ $(OBJDIR)/integer-conversion.o: CFLAGS_EXTRA = -Wno-overflow
 $(OBJDIR)/array-as-argument.o: CFLAGS_EXTRA = -Wno-sizeof-array-argument \
 	-Wno-format-pedantic
 $(OBJDIR)/sequence-point-violation.o: CFLAGS_EXTRA = -Wno-unsequenced \
-	-Wno-uninitialized
+	-Wno-uninitialized -Wno-sequence-point
 $(OBJDIR)/ptr-cast.o: CFLAGS_EXTRA = -Wno-incompatible-pointer-types
 $(OBJDIR)/complex-declaration.o: CFLAGS_EXTRA = -Wno-missing-braces \
 	-Wno-tautological-compare
