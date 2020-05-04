@@ -29,7 +29,7 @@ void
 print_2D_array(size_t width, size_t height, char array[][width])
 {
 	// Print the 2-D array to standard output.
-	size_t h = height - 1;
+	int h = height - 1;
 
 	while (h >= 0) {
 		size_t i = 0;
