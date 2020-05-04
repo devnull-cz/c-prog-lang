@@ -102,6 +102,7 @@ $(OBJDIR)/signed-plus-unsigned.o: CFLAGS_EXTRA = -Wno-sign-compare
 $(OBJDIR)/strsep.o: CFLAGS_EXTRA = -D_DEFAULT_SOURCE
 # ditto
 $(OBJDIR)/random.o: CFLAGS_EXTRA = -D_DEFAULT_SOURCE -Wno-sign-compare
+$(OBJDIR)/typedef.o: CFLAGS_EXTRA = -Wno-unused-but-set-variable
 
 all: $(DIROBJS)
 
