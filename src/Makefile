@@ -68,7 +68,9 @@ $(OBJDIR)/derived-types.o: CFLAGS_EXTRA = -Wno-incompatible-pointer-types
 $(OBJDIR)/ptr_plus_plus.o: CFLAGS_EXTRA = -Wno-format-pedantic \
 	-Wno-unused-value -Wno-format
 $(OBJDIR)/arithmetics2.o: CFLAGS_EXTRA = -Wno-format
+ifeq ($(CC), gcc)
 $(OBJDIR)/arithmetics.o: CFLAGS_EXTRA = -Wno-unused-but-set-variable
+endif
 $(OBJDIR)/struct-reference.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
 $(OBJDIR)/null-ptr.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
 $(OBJDIR)/ptr-basics.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
