@@ -12,7 +12,7 @@ bytecnt2str(uint64_t num)
 		num /= 1024;
 		idx++;
 	}
-                                                                                
+
   	// access string literal as array
 	char u = " KMGTPE"[idx];
 
