@@ -41,7 +41,7 @@ $(OBJDIR)/ptr-to-array-of-ptrs.o: CFLAGS_EXTRA = -Wno-format-pedantic \
 $(OBJDIR)/implement-function.o: CFLAGS_EXTRA = \
 	-Wno-implicit-function-declaration -Wno-format
 $(OBJDIR)/static-func.o: CFLAGS_EXTRA = -Wno-unused-function
-$(OBJDIR)/cast-intptr.o: CFLAGS_EXTRA = -Wno-format-pedantic
+$(OBJDIR)/cast-intptr.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
 $(OBJDIR)/print-argv-recursively.o: CFLAGS_EXTRA = -Wno-unused-parameter
 $(OBJDIR)/3d-array.o: CFLAGS_EXTRA = -Wno-format-pedantic
 $(OBJDIR)/2d-array.o: CFLAGS_EXTRA = -Wno-sign-compare
