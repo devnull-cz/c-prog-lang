@@ -63,7 +63,8 @@ $(OBJDIR)/struct-op-precedence.o: CFLAGS_EXTRA = -Wno-format-pedantic \
 $(OBJDIR)/empty-array.o: CFLAGS_EXTRA = -Wno-zero-length-array
 $(OBJDIR)/assert.o: CFLAGS_EXTRA = -Wno-unused-parameter
 $(OBJDIR)/argv-for.o: CFLAGS_EXTRA = -Wno-format-pedantic
-$(OBJDIR)/buf-overflow.o: CFLAGS_EXTRA = -Wno-builtin-memcpy-chk-size
+$(OBJDIR)/buf-overflow.o: CFLAGS_EXTRA = -Wno-builtin-memcpy-chk-size \
+	-Wno-sizeof-pointer-memaccess
 $(OBJDIR)/derived-types.o: CFLAGS_EXTRA = -Wno-incompatible-pointer-types
 $(OBJDIR)/ptr_plus_plus.o: CFLAGS_EXTRA = -Wno-format-pedantic \
 	-Wno-unused-value -Wno-format
