@@ -9,7 +9,7 @@ main(void)
 
 	i = k;
 	k = k + 1;
-	printf("k is %d\n", k);
+	printf("i is %d, k is %d\n", i, k);
 
 	/*
 	 * Save for an assignment, anywhere you can use a variable, you can use
