@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <inttypes.h>
 
 void
 bytecnt2str(uint64_t num)
@@ -19,7 +20,7 @@ bytecnt2str(uint64_t num)
 
 	// printf("%llu\n", rest);
 
-	printf("%llu%s %ciB\n", num, rest > 0 ? "+" : "", u);
+	printf("%" PRIu64 "%s %ciB\n", num, rest > 0 ? "+" : "", u);
 #if 0
 	if (rest < 1000)
 		printf(".%llu", rest / 100);
