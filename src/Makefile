@@ -1,8 +1,16 @@
 # compile all source files.
 # Requires GNU make. Supports Linux and macOS.
 
-CC ?= gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=c99
+
+ifeq ($(CC),cc)
+CC_VERSION=$(shell cc --version | head -1 | cut -d" " -f1 )
+ifeq ($(CC_VERSION),clang)
+CC=clang
+else
+CC=gcc
+endif
+endif
 
 UNAME_S=$(shell uname -s)
 ifeq ($(UNAME_S),Linux)
