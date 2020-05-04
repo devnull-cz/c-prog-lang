@@ -91,6 +91,7 @@ $(OBJDIR)/passing-arrays.o: CFLAGS_EXTRA = -Wno-incompatible-pointer-types \
 	-Wno-uninitialized -Wno-unused-parameter
 $(OBJDIR)/whole-array.o: CFLAGS_EXTRA = -Wno-sign-compare
 $(OBJDIR)/signed-plus-unsigned.o: CFLAGS_EXTRA = -Wno-sign-compare
+$(OBJDIR)/strsep.o: CFLAGS_EXTRA = -D_DEFAULT_SOURCE
 
 all: $(DIROBJS)
 
