@@ -21,7 +21,7 @@ jobs:
       env:
         CC: gcc
   job2:
-    name: Clang on mcOS
+    name: Clang on macOS
     runs-on: macos-latest
     steps:
     - name: Checkout master branch
