@@ -1,7 +1,7 @@
 # compile all source files.
 # Requires GNU make.
 
-CC=gcc
+CC ?= gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=c99
 
 OBJDIR=objs

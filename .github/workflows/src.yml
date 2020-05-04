@@ -17,3 +17,5 @@ jobs:
       run: sudo apt-get install gcc
     - name: Compile source code
       run: ./dev/compile_src.sh
+      env:
+        CC: gcc
