@@ -1,4 +1,5 @@
 [![Github Actions status](https://github.com/devnull-cz/c-prog-lang/workflows/Refresh%20notes/badge.svg)](https://github.com/devnull-cz/c-prog-lang/actions?query=workflow%3A%22Refresh+notes%22)
+[![Github Actions status](https://github.com/devnull-cz/c-prog-lang/workflows/Compile%20source%20code/badge.svg)](https://github.com/devnull-cz/c-prog-lang/actions?query=workflow%3A%22Compile+source+code%22)
 
 # Programming in C
 
