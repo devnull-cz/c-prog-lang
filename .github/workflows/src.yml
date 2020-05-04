@@ -9,6 +9,7 @@ on:
     - .github/workflows/src.yml
 jobs:
   build:
+    name: GCC on Ubuntu
     runs-on: ubuntu-latest
     steps:
     - name: Checkout master branch
