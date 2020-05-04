@@ -1,8 +1,9 @@
 # compile all source files.
-# Requires GNU make.
+# Requires GNU make. Supports Linux and macOS.
 
 CC ?= gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=c99
+
 UNAME_S=$(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 OS=linux
