@@ -31,7 +31,8 @@ $(OBJDIR)/plus-deref-plus-deref-argv.o: CFLAGS_EXTRA = -Wno-format \
 $(OBJDIR)/range-check.o: CFLAGS_EXTRA = -Wno-sign-compare
 $(OBJDIR)/fahr-to-cent.o: CFLAGS_EXTRA = -Wno-unused-variable
 $(OBJDIR)/static_assert.o: CFLAGS_EXTRA = -Wno-int-to-void-pointer-cast \
-	-Wno-unused-local-typedef
+	-Wno-unused-local-typedef -Wno-int-to-pointer-cast \
+	-Wno-unused-local-typedefs
 $(OBJDIR)/compound-statement-invalid.o: CFLAGS_EXTRA = \
 	-Wno-gnu-statement-expression
 $(OBJDIR)/ptr-inc.o: CFLAGS_EXTRA = -Wno-format-pedantic -Wno-format
