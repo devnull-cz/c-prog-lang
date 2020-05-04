@@ -3,6 +3,12 @@
 
 CC ?= gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=c99
+UNAME_S=$(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+OS=linux
+else ifeq ($(UNAME_S),Darwin)
+OS=macos
+endif
 
 OBJDIR=objs
 BLACKLIST=./const-not-really-a-const.c \
