@@ -6,7 +6,10 @@ main(void)
 	unsigned char c;
 	unsigned int u;
 
-	/* 'c' will be 3.  With -Wconstant-conversion you may get a warning. */
+	/*
+	 * 'c' will be 3.  With -Wconstant-conversion or -Woverflow (possibly
+	 * included in -Wall) you may get a warning.
+	 */
 	c = 1027;
 	printf("%hhu\n", c);
 
