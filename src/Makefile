@@ -54,7 +54,8 @@ $(OBJDIR)/argv-while.o: CFLAGS_EXTRA = -Wno-format-pedantic \
 	-Wno-unused-parameter
 $(OBJDIR)/random.o: CFLAGS_EXTRA = -Wno-sign-compare
 $(OBJDIR)/plus-deref-plus-argv.o: CFLAGS_EXTRA = -Wno-unused-parameter
-$(OBJDIR)/struct-op-precedence.o: CFLAGS_EXTRA = -Wno-format-pedantic
+$(OBJDIR)/struct-op-precedence.o: CFLAGS_EXTRA = -Wno-format-pedantic \
+	-Wno-format
 $(OBJDIR)/empty-array.o: CFLAGS_EXTRA = -Wno-zero-length-array
 $(OBJDIR)/assert.o: CFLAGS_EXTRA = -Wno-unused-parameter
 $(OBJDIR)/argv-for.o: CFLAGS_EXTRA = -Wno-format-pedantic
