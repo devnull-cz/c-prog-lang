@@ -8,7 +8,7 @@ on:
     - dev/compile_src.sh
     - .github/workflows/src.yml
 jobs:
-  build:
+  job1:
     name: GCC on Ubuntu
     runs-on: ubuntu-latest
     steps:
@@ -20,3 +20,13 @@ jobs:
       run: ./dev/compile_src.sh
       env:
         CC: gcc
+  job2:
+    name: Clang on mcOS
+    runs-on: macos-latest
+    steps:
+    - name: Checkout master branch
+      uses: actions/checkout@v2
+    - name: Compile source code
+      run: ./dev/compile_src.sh
+      env:
+        CC: clang
