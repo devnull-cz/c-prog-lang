@@ -85,8 +85,11 @@ $(OBJDIR)/fmt-string-invalid.o: CFLAGS_EXTRA = -Wno-format
 $(OBJDIR)/printf2.o: CFLAGS_EXTRA = -Wno-format
 $(OBJDIR)/bytecnt2str.o: CFLAGS_EXTRA = -Wno-unused-parameter
 $(OBJDIR)/conway-1d-30.o: CFLAGS_EXTRA = -Wno-sign-compare
-# TODO: -Wno-constant-conversion only for clang
+ifeq ($(CC), clang)
+$(OBJDIR)/integer-conversion.o: CFLAGS_EXTRA = -Wno-constant-conversion
+else ifeq ($(CC), gcc)
 $(OBJDIR)/integer-conversion.o: CFLAGS_EXTRA = -Wno-overflow
+endif
 $(OBJDIR)/array-as-argument.o: CFLAGS_EXTRA = -Wno-sizeof-array-argument \
 	-Wno-format-pedantic
 $(OBJDIR)/sequence-point-violation.o: CFLAGS_EXTRA = -Wno-unsequenced \
