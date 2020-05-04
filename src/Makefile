@@ -101,10 +101,13 @@ $(OBJDIR)/passing-arrays.o: CFLAGS_EXTRA = -Wno-incompatible-pointer-types \
 	-Wno-uninitialized -Wno-unused-parameter
 $(OBJDIR)/whole-array.o: CFLAGS_EXTRA = -Wno-sign-compare
 $(OBJDIR)/signed-plus-unsigned.o: CFLAGS_EXTRA = -Wno-sign-compare
-# TODO: _DEFAULT_SOURCE should be Linux only (use if)
+# DEFAULT_SOURCE is Linux only
+ifeq ($(OS), linux)
 $(OBJDIR)/strsep.o: CFLAGS_EXTRA = -D_DEFAULT_SOURCE
-# ditto
+endif
+ifeq ($(OS), linux)
 $(OBJDIR)/random.o: CFLAGS_EXTRA = -D_DEFAULT_SOURCE -Wno-sign-compare
+endif
 ifeq ($(CC), gcc)
 $(OBJDIR)/typedef.o: CFLAGS_EXTRA = -Wno-unused-but-set-variable
 endif
