@@ -98,7 +98,7 @@ $(OBJDIR)/signed-plus-unsigned.o: CFLAGS_EXTRA = -Wno-sign-compare
 # TODO: _DEFAULT_SOURCE should be Linux only (use if)
 $(OBJDIR)/strsep.o: CFLAGS_EXTRA = -D_DEFAULT_SOURCE
 # ditto
-$(OBJDIR)/random.o: CFLAGS_EXTRA = -D_BSD_SOURCE
+$(OBJDIR)/random.o: CFLAGS_EXTRA = -D_DEFAULT_SOURCE
 
 all: $(DIROBJS)
 
