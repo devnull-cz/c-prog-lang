@@ -3,8 +3,9 @@
 # Put these at the end of the seminar, these are not essential.
 opaque-structures.md
 flexible-array-member.md
-# When bit fields are introduced, use cast-intptr.c as it uses ^
 structure-bit-fields.md
+
+# When bit operations are introduced, use src/cast-intptr.c as it uses ^
 
 # Before using this, add the C99 specification paragraph number that allows
 # that.
