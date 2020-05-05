@@ -303,15 +303,17 @@ most frequently executed stack traces, ...</li>
 <li>assert(3)
 <ul>
 <li>basic implementation of assert, provides run-time condition checking</li>
-<li>"#define NDEBUG" disables it normally (ie. in the real life the assert
+<li>
+<code>#define NDEBUG</code> disables it normally (ie. in the real life the assert
 macro is more complicated.</li>
-<li>you need &lt;assert.h&gt;</li>
+<li>you need <code>&lt;assert.h&gt;</code>
+</li>
 <li>assert(0) is of common use to bail out and to know where it did</li>
 </ul>
 </li>
 </ul>
 <p>Task: write custom assert() macro that prints the line and file information
-(using <strong>LINE</strong>, <strong>FILE</strong> pre-defined macros) and exits
+(using <code>__LINE__</code>, <code>__FILE__</code> pre-defined macros) and exits
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/assert.c">assert.c</a></p>
 <ul>
 <li>
@@ -322,17 +324,16 @@ compilation phase</p>
 <p>there is static_assert() that is evaluated during compile time however this is
 available only in C++0x</p>
 <ul>
-<li>
-<p>it can be handy for things (this is rather a hack) like:</p>
-<p>int i;</p>
-<p>static_assert(sizeof(void *) &gt;= sizeof i);
-foo((void *) i);</p>
-</li>
-<li>
-<p>in C99 we can use a array indexing with ternary operator as a check</p>
-</li>
+<li>it can be handy for things (this is rather a hack) like:</li>
 </ul>
 </li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span> i;
+
+    <span class="pl-en">static_assert</span>(<span class="pl-k">sizeof</span>(<span class="pl-k">void</span> *) &gt;= sizeof i);
+    <span class="pl-en">foo</span>((<span class="pl-k">void</span> *) i);</pre></div>
+<ul>
+<li>in C99 we can use a array indexing with ternary operator as a check</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/static_assert.c">static_assert.c</a></p>
 <h2>
