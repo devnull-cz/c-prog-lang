@@ -95,28 +95,24 @@ integers.</p>
 <a id="user-content-debug-prints" class="anchor" href="#debug-prints" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debug prints</h2>
 <ul>
 <li>the most primitive debugging technique is to insert debug prints</li>
-<li>fprintf()
-<ul>
 <li>
-<p>do not use printf() for debugging unless you know what you are doing</p>
-</li>
-<li>
-<p>use a unique text for each debug text, for example:</p>
-<p>/* some code <em>/
-fprintf(stderr, "DBG 1\n");
-/</em> some code <em>/
-fprintf(stderr, "DBG 2\n"); ...
-/</em> some code */
-fprintf(stderr, "DBG 3\n"); ...
-...</p>
+<code>fprintf()</code>
 <ul>
-<li>if you need to put another debug message in between 1 and 2, "1.5"
-seems like an easy way to do it.</li>
+<li>do not use <code>printf()</code> for debugging unless you know what you are doing</li>
+<li>use a unique text for each debug text, for example:</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-c"><span class="pl-c">/*</span> some code <span class="pl-c">*/</span></span>
+	<span class="pl-en">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>DBG 1<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+	<span class="pl-c"><span class="pl-c">/*</span> some code <span class="pl-c">*/</span></span>
+	<span class="pl-en">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>DBG 2<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>); ...
+	<span class="pl-c"><span class="pl-c">/*</span> some code <span class="pl-c">*/</span></span>
+	<span class="pl-en">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>DBG 3<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>); ...
+	...</pre></div>
+<pre><code>- if you need to put another debug message in between 1 and 2, "1.5"
+  seems like an easy way to do it.
+</code></pre>
 <h2>
 <a id="user-content-system-call-tracing" class="anchor" href="#system-call-tracing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System call tracing</h2>
 <ul>
@@ -187,7 +183,7 @@ because it does not understand enough context and program internals</li>
 </ul>
 </li>
 <li>
-<p>Clang: the scan-build script is front-end to the library performing checks,
+<p>Clang: the <code>scan-build</code> script is front-end to the library performing checks,
 accepts compilation line as argument
 - the compilation line can be simple compiler invocation and also make</p>
 </li>
