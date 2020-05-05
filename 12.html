@@ -163,18 +163,18 @@ b) the function can be called arbitrary number of times (in sequence)
 <h2>
 <a id="user-content-static-analysis" class="anchor" href="#static-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static analysis</h2>
 <ul>
-<li>
-<p>compile time warnings are inherently limited</p>
+<li>compile time warnings are inherently limited
 <ul>
-<li>
-<p>they can detect wide range of errors (format strings, offer missing include
-files, detect simple buffer overflows, ...)</p>
-<p>code: fmt-string-invalid.c, buf-overflow.c</p>
-</li>
-<li>
-<p>however fail to cover all corner cases</p>
+<li>they can detect wide range of errors (format strings, offer missing include
+files, detect simple buffer overflows, ...)</li>
+</ul>
 </li>
 </ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fmt-string-invalid.c">fmt-string-invalid.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/buf-overflow.c">buf-overflow.c</a></p>
+<ul>
+<li>
+<p>however fail to cover all corner cases</p>
 </li>
 <li>
 <p>static analysis tools hook into compiler and can follow all code paths</p>
@@ -195,23 +195,23 @@ accepts compilation line as argument
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/buf-overflow-func.c">buf-overflow-func.c</a></p>
 <ul>
-<li>when compiled with -Wall -Wextra no warnings/errors are reported</li>
+<li>when compiled with <code>-Wall -Wextra</code> no warnings/errors are reported</li>
 <li>when run, it usually does (depends on compiler/system) not produce any
 warnings and happily prints the corrupted array
 <ul>
-<li>try to compile with -DBUFFER_SIZE=128 and the result might be different
+<li>try to compile with <code>-DBUFFER_SIZE=128</code> and the result might be different
 due to stack smashing detection supplied by the compiler
 <ul>
-<li>if the program is compiled with -fno-stack-protector , the stack canary
-is not added and the program normally (sic!) exits with segmentation
-fault</li>
+<li>if the program is compiled with <code>-fno-stack-protector</code> , the stack
+canary is not added and the program normally (sic!) exits with
+segmentation fault</li>
 <li>try with different compilers (gcc, clang)</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p>Run: scan-build clang buf-overflow.c
+<p>Run: <code>scan-build clang buf-overflow.c</code>
 Note: works with gcc too</p>
 <p>Task: write a program that accesses memory allocated on the heap after it is
 freed. See if scan-build static analyzer can detect it.
