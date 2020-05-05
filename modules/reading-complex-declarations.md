@@ -58,9 +58,9 @@ array of 5 `char`s
   - `[]` => array
   - `;`  => reverse the direction
   - when reading from right to left, we can hit:
-  - `(`   => reverse the direction
-  - `*`   => pointer
-  - type identifier => starts the whole definition
+    - `(`   => reverse the direction
+    - `*`   => pointer
+    - type identifier => starts the whole definition
 
 Example:
 ```C
