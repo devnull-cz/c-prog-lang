@@ -358,9 +358,9 @@ produced by the program)</p>
 </ul>
 </li>
 <li>
-<p>compiling for debugging: the -g compiler option adds debugging information to
-the resulting binary, in particular mapping of assembly instructions to source
-code lines</p>
+<p>compiling for debugging: the <code>-g</code> compiler option adds debugging information
+to the resulting binary, in particular mapping of assembly instructions to
+source code lines</p>
 <ul>
 <li>one can debug without this data, just some assembly knowledge is required</li>
 </ul>
@@ -370,121 +370,104 @@ code lines</p>
 </li>
 <li>
 <p>compile and run the program from gdb:</p>
-<p>cc -Wall -g random.c
-gdb ./a.out</p>
-<blockquote>
-<p>r</p>
-</blockquote>
 </li>
-<li>
-<p>exiting the debugger:</p>
-<blockquote>
-<p>quit</p>
-</blockquote>
-<ul>
-<li>or Ctrl-D</li>
 </ul>
-</li>
-<li>
-<p>to get the core file, the system limit for core file may need to be bumped</p>
-<p>ulimit -c 1000000</p>
+<pre><code>  cc -Wall -g random.c
+  gdb ./a.out
+  &gt; r
+</code></pre>
 <ul>
-<li>and re-run the program again</li>
+<li>exiting the debugger:</li>
 </ul>
+<pre><code>  &gt; quit
+</code></pre>
+<pre><code>- or Ctrl-D
+</code></pre>
+<ul>
+<li>to get the core file, the system limit for core file may need to be bumped</li>
+</ul>
+<pre><code>  ulimit -c 1000000
+</code></pre>
+<ul>
+<li>
+<p>and re-run the program again</p>
 </li>
 <li>
 <p>display the stack trace at the moment of breakpoint stop/crash:</p>
-<blockquote>
-<p>backtrace</p>
-</blockquote>
 </li>
-<li>
-<p>see where exactly it crashed:</p>
-<blockquote>
-<p>disassembly
-info reg
-list</p>
-</blockquote>
-</li>
-<li>
-<p>insert breakpoint</p>
-<blockquote>
-<p>b main
-b run</p>
-</blockquote>
+</ul>
+<pre><code>  &gt; backtrace
+</code></pre>
+<ul>
+<li>see where exactly it crashed:</li>
+</ul>
+<pre><code>  &gt; disassembly
+  &gt; info reg
+  &gt; list
+</code></pre>
+<ul>
+<li>insert breakpoint</li>
+</ul>
+<pre><code>  &gt; b main
+  &gt; b run
+</code></pre>
 <ul>
 <li>can also insert breakpoint to particular line (if the program was compiled
 with line information):</li>
 </ul>
-<blockquote>
-<p>b 8</p>
-</blockquote>
+<pre><code>  &gt; b 8
+</code></pre>
 <ul>
-<li>
-<p>print breakpoints:</p>
-<blockquote>
-<p>info breakpoints</p>
-</blockquote>
-</li>
+<li>print breakpoints:</li>
+</ul>
+<pre><code>    &gt; info breakpoints
+</code></pre>
+<ul>
+<li>stepping
+<ul>
+<li>single line (assembly instruction) stepping:</li>
 </ul>
 </li>
-<li>
-<p>stepping</p>
-<ul>
-<li>
-<p>single line (assembly instruction) stepping:</p>
-<blockquote>
-<p>next</p>
-</blockquote>
-</li>
-<li>
-<p>step through:</p>
-<blockquote>
-<p>step</p>
-</blockquote>
-</li>
 </ul>
-</li>
+<pre><code>    &gt; next
+</code></pre>
+<ul>
+<li>step through:</li>
+</ul>
+<pre><code>    &gt; step
+</code></pre>
+<ul>
 <li>
 <p>printing memory</p>
 <ul>
-<li>
-<p>print variable value:</p>
-<blockquote>
-<p>print idx
-print p</p>
-</blockquote>
-</li>
-<li>
-<p>can use the usual dereference/ref operators:
-(once inside run())</p>
-<blockquote>
-<p>print *p[idx]</p>
-</blockquote>
-</li>
+<li>print variable value:</li>
 </ul>
 </li>
-<li>
-<p>print a variable in each step:</p>
-<blockquote>
-<p>display i</p>
-</blockquote>
+</ul>
+<pre><code>    &gt; print idx
+    &gt; print p
+</code></pre>
 <ul>
-<li>
-<p>to disable the printing:</p>
-<blockquote>
-<p>delete display i</p>
-</blockquote>
-</li>
+<li>can use the usual dereference/ref operators:
+(once inside run())</li>
 </ul>
-</li>
-<li>
-<p>breakpoints can be conditional:</p>
-<blockquote>
-<p>break 14 if i == idx</p>
-</blockquote>
-</li>
+<pre><code>    &gt; print *p[idx]
+</code></pre>
+<ul>
+<li>print a variable in each step:</li>
 </ul>
+<pre><code>  &gt; display i
+</code></pre>
+<ul>
+<li>to disable the printing:</li>
+</ul>
+<pre><code>    &gt; delete display i
+</code></pre>
+<ul>
+<li>breakpoints can be conditional:</li>
+</ul>
+<pre><code>  &gt; break 14 if i == idx
+</code></pre>
 
               </article>
             </div>
