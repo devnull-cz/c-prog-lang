@@ -275,17 +275,25 @@ array of 5 <code>char</code>s</p>
 <a id="user-content-how-to-read-it" class="anchor" href="#how-to-read-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to read it</h2>
 <ol>
 <li>find the identifier (non keyword or custom type) of a variable or function</li>
-<li>start decoding:
-- left to right
-- <code>)</code>  =&gt; reverse decoding direction
-- <code>()</code> =&gt; denotes function
-- <code>[]</code> =&gt; array
-- <code>;</code>  =&gt; reverse the direction
-- when reading from right to left, we can hit:
-- <code>(</code>   =&gt; reverse the direction
-- <code>*</code>   =&gt; pointer
-- type identifier =&gt; starts the whole definition</li>
+<li>start decoding:</li>
 </ol>
+<ul>
+<li>left to right</li>
+<li>
+<code>)</code>  =&gt; reverse decoding direction</li>
+<li>
+<code>()</code> =&gt; denotes function</li>
+<li>
+<code>[]</code> =&gt; array</li>
+<li>
+<code>;</code>  =&gt; reverse the direction</li>
+<li>when reading from right to left, we can hit:</li>
+<li>
+<code>(</code>   =&gt; reverse the direction</li>
+<li>
+<code>*</code>   =&gt; pointer</li>
+<li>type identifier =&gt; starts the whole definition</li>
+</ul>
 <p>Example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *(*(**foo[][<span class="pl-c1">8</span>])())[];</pre></div>
 <p>You can mentally simplify as:</p>
