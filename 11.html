@@ -287,12 +287,15 @@ array of 5 <code>char</code>s</p>
 <code>[]</code> =&gt; array</li>
 <li>
 <code>;</code>  =&gt; reverse the direction</li>
-<li>when reading from right to left, we can hit:</li>
+<li>when reading from right to left, we can hit:
+<ul>
 <li>
 <code>(</code>   =&gt; reverse the direction</li>
 <li>
 <code>*</code>   =&gt; pointer</li>
 <li>type identifier =&gt; starts the whole definition</li>
+</ul>
+</li>
 </ul>
 <p>Example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *(*(**foo[][<span class="pl-c1">8</span>])())[];</pre></div>
