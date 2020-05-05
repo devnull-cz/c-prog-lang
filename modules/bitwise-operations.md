@@ -97,7 +97,9 @@ lights = lights & ~LIGHT_RED;	// turn off red light
 ## Binary operators and integer promotion
 
 When working with bitwise operators, operands are promoted the same way
-as we learned in lecture 05 (see "Various conversions and promotions").
+as we learned in
+#module arithmetic-promotion-and-conversions.md
+
 That means:
 
 ```
