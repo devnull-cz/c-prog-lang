@@ -52,15 +52,15 @@ array of 5 `char`s
 
 1. find the identifier (non keyword or custom type) of a variable or function
 2. start decoding:
-        - left to right
-        - `)`  => reverse decoding direction
-        - `()` => denotes function
-        - `[]` => array
-        - `;`  => reverse the direction
-        - when reading from right to left, we can hit:
-        - `(`   => reverse the direction
-        - `*`   => pointer
-        - type identifier => starts the whole definition
+  - left to right
+  - `)`  => reverse decoding direction
+  - `()` => denotes function
+  - `[]` => array
+  - `;`  => reverse the direction
+  - when reading from right to left, we can hit:
+  - `(`   => reverse the direction
+  - `*`   => pointer
+  - type identifier => starts the whole definition
 
 Example:
 ```C
