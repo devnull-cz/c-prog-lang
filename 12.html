@@ -256,29 +256,28 @@ much higher than the one of syscall/library tracing</li>
 </ul>
 </li>
 </ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shell.c">shell.c</a>
-Task: Take a look at the code and try to find as many bugs as possible.
-Then compile the program with as many checks as possible and run the
+<p>Task: Take a look at the code and try to find as many bugs as possible:
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shell.c">shell.c</a></p>
+<p>Then compile the program with as many checks as possible and run the
 program through static analysis.</p>
-<pre><code>  Then run it through Valgrind, perform couple of operations and exit the
-  program, i.e.
-
-    1) valgrind ./a.out
-2) echo couple of "commands"
-3) hit Ctrl-C
-
-  Also run it automatically, e.g.:
-
-  $ cat &lt;&lt; EOF &gt;/tmp/input
-</code></pre>
-<p>foo
+<p>Then run it through Valgrind, perform couple of operations and exit the
+program, i.e.</p>
+<ol>
+<li><code>valgrind ./a.out</code></li>
+<li>echo couple of "commands"</li>
+<li>hit Ctrl-C</li>
+</ol>
+<p>Also run it automatically, e.g.:</p>
+<pre><code>      $ cat &lt;&lt; EOF &gt;/tmp/input
+foo
 bar
 foo bar
 EOF
-$ valgrind ./a.out &lt; /tmp/input</p>
+      $ valgrind ./a.out &lt; /tmp/input
+</code></pre>
 <ul>
-<li>try to compile the program with debug info (-g) and re-run valgrind with
---leak-check=full and see the difference in the output.</li>
+<li>try to compile the program with debug info (<code>-g</code>) and re-run valgrind with
+<code>--leak-check=full</code> and see the difference in the output.</li>
 <li>fix the program and re-run the test(s) again</li>
 </ul>
 <h2>
