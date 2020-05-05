@@ -1,8 +1,5 @@
 # Modules we still need to use in 2020
 
-# not used from original 05.md from 2019
-variable-argument-functions.md
-
 # Put these at the end of the seminar, these are not essential.
 opaque-structures.md
 flexible-array-member.md
