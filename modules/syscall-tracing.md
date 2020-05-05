@@ -8,9 +8,8 @@
     than what is allowed in production
 
 - basic tools:
-  - strace
-  - truss
-  - dtrace
+  - `strace`/`truss`/`ltrace`
+  - `dtrace` (dynamic tracing)
 
 :wrench: Task: write a program that opens a file specified by the first argument
   of the program and reads number of bytes specified by the second argument and
