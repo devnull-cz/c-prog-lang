@@ -5,13 +5,13 @@
   - `#define NDEBUG` disables it normally (ie. in the real life the assert
     macro is more complicated.
   - you need `<assert.h>`
-  - assert(0) is of common use to bail out and to know where it did
+  - `assert(0)` is of common use to bail out and to know where it did
 
 Task: write custom assert() macro that prints the line and file information
       (using `__LINE__`, `__FILE__` pre-defined macros) and exits
 #source assert.c
 
-- there is also #error pre-processor pragma that can be used to fail during
+- there is also `#error` pre-processor pragma that can be used to fail during
   compilation phase
 
 - there is static_assert() that is evaluated during compile time however this is
