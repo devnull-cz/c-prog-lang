@@ -11,3 +11,5 @@ Note: consider only positive integers
 
 #source xor.c
 #source binprint.c
+
+Sub-task: flip those bits and verify that the numbers are the same.
