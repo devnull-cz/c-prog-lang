@@ -17,7 +17,7 @@
   - the method has its drawbacks - false positives, can be foiled somethimes
     because it does not understand enough context and program internals
 
-- Clang: the scan-build script is front-end to the library performing checks,
+- Clang: the `scan-build` script is front-end to the library performing checks,
          accepts compilation line as argument
          - the compilation line can be simple compiler invocation and also make
 
