@@ -97,6 +97,27 @@ arguments ?</li>
 </ul>
 <p>solution: <a href="src/stdarg.c">stdarg.c</a></p>
 <h1>
+<a id="user-content-linking-objects" class="anchor" href="#linking-objects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linking objects</h1>
+<p>Larger programs are often split into many source code files. One can create the
+binary like so:</p>
+<pre><code>  cc -o binary foo.c bar.c ...
+</code></pre>
+<p>and it will work however the files will be compiled every time even though they
+were not changed.</p>
+<p>To save time the files are usually compiled individually and then linked
+into the binary using <em>runtime linker</em> (sometimes called <em>link editor</em>),
+a program usually called <code>ld</code>. This program also takes care of adding
+dependencies on dynamic libraries to the resulting binary.</p>
+<p>It works like this (assuming all source code files changed):</p>
+<pre><code>  cc -c foo.c
+  cc -c bar.c
+  ...
+  cc -o binary foo.o bar.o ...
+</code></pre>
+<p>Note that the program <code>ld</code> was not invoked directly, it is the compiler that
+serves as a <code>ld</code> wrapper as it needs to add more object files with C runtime
+under the hood.</p>
+<h1>
 <a id="user-content-debugging" class="anchor" href="#debugging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debugging</h1>
 <h2>
 <a id="user-content-debug-prints" class="anchor" href="#debug-prints" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debug prints</h2>
