@@ -4,7 +4,8 @@
   - they can detect wide range of errors (format strings, offer missing include
     files, detect simple buffer overflows, ...)
 
-    code: fmt-string-invalid.c, buf-overflow.c
+#source fmt-string-invalid.c
+#source buf-overflow.c
 
   - however fail to cover all corner cases
 
@@ -22,17 +23,17 @@
 
 #source buf-overflow-func.c
 
-  - when compiled with -Wall -Wextra no warnings/errors are reported
+  - when compiled with `-Wall -Wextra` no warnings/errors are reported
   - when run, it usually does (depends on compiler/system) not produce any
     warnings and happily prints the corrupted array
-    - try to compile with -DBUFFER_SIZE=128 and the result might be different
+    - try to compile with `-DBUFFER_SIZE=128` and the result might be different
       due to stack smashing detection supplied by the compiler
-      - if the program is compiled with -fno-stack-protector , the stack canary
-	is not added and the program normally (sic!) exits with segmentation
-	fault
+      - if the program is compiled with `-fno-stack-protector` , the stack
+	canary is not added and the program normally (sic!) exits with
+	segmentation fault
       - try with different compilers (gcc, clang)
 
-Run: scan-build clang buf-overflow.c
+Run: `scan-build clang buf-overflow.c`
 Note: works with gcc too
 
 Task: write a program that accesses memory allocated on the heap after it is
