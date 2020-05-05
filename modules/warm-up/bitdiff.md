@@ -12,4 +12,4 @@ Note: consider only positive integers, assume `int`.
 #source bitdiff.c
 #source binprint.c
 
-Sub-task: flip those bits and verify that the numbers are the same.
+Sub-task for home: flip those bits and verify that the numbers are the same.
