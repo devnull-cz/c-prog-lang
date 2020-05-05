@@ -1,10 +1,5 @@
 # Modules we still need to use in 2020
 
-# Put these at the end of the seminar, these are not essential.
-opaque-structures.md
-flexible-array-member.md
-structure-bit-fields.md
-
 # When bit operations are introduced, use src/cast-intptr.c as it uses ^
 
 # Before using this, add the C99 specification paragraph number that allows
@@ -14,7 +9,7 @@ home-assignments/offsetof.md
 # Explain "incomplete type"
 Make a module for that, cite C99 when needed.
 
-# On building with a specific C version in mind 
+# On building with a specific C version in mind
 building-with-specific-c-ver.md
 
 # Add a module on when to use size_t and when other integer types.
