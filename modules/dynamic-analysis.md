@@ -1,0 +1,37 @@
+## Dynamic analysis
+
+- run-time analysis performed by running the program in an emulation layer
+  (virtual machine), intercepting calls to memory allocator etc.
+- can provide more detailed detection at the cost of performance and coverage -
+  can detect only in the code paths actually executed (compared to static
+  analysis)
+  - the performance degradation incurred by dynamic analysis is usually
+    much higher than the one of syscall/library tracing
+
+#source shell.c
+Task: Take a look at the code and try to find as many bugs as possible.
+      Then compile the program with as many checks as possible and run the
+      program through static analysis.
+
+      Then run it through Valgrind, perform couple of operations and exit the
+      program, i.e.
+
+        1) valgrind ./a.out
+	2) echo couple of "commands"
+	3) hit Ctrl-C
+
+      Also run it automatically, e.g.:
+
+      $ cat << EOF >/tmp/input
+foo
+bar
+foo bar
+EOF
+      $ valgrind ./a.out < /tmp/input
+
+
+- try to compile the program with debug info (-g) and re-run valgrind with
+  --leak-check=full and see the difference in the output.
+- fix the program and re-run the test(s) again
+
+
