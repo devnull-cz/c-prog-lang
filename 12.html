@@ -76,7 +76,7 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-wrench-warm-up" class="anchor" href="#wrench-warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Warm-up</h1>
+<a id="user-content-wrench-warm-up-bit-difference" class="anchor" href="#wrench-warm-up-bit-difference" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Warm-up: bit difference</h1>
 <p>Task: write a program that counts the number of bits that need to be flipped so
 that number A becomes number B.</p>
 <p>Note: use the character representation only for debug prints. The actual
@@ -86,19 +86,403 @@ integers.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/xor.c">xor.c</a>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/binprint.c">binprint.c</a></p>
 <h1>
-<a id="user-content-wrench-warm-uphome-task" class="anchor" href="#wrench-warm-uphome-task" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Warm-up/home task</h1>
-<p>Task: detect if an integer has alternating bits, e.g. 10101</p>
+<a id="user-content-wrench-warm-uphome-task-alternating-bits-detection" class="anchor" href="#wrench-warm-uphome-task-alternating-bits-detection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Warm-up/home task: alternating bits detection</h1>
+<p>Task: detect if an integer has alternating bits, e.g. <code>10101</code></p>
 <p>Note: this can be done in O(1) using bit operations + arithmetics</p>
 <h1>
 <a id="user-content-debugging" class="anchor" href="#debugging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debugging</h1>
-<p><a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">debug-prints.md</a>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">syscall-tracing.md</a>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">static-analysis.md</a>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">library-tracing.md</a>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">dynamic-analysis.md</a>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">dynamic-tracing.md</a>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">assert.md</a>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">debugger.md</a></p>
+<h2>
+<a id="user-content-debug-prints" class="anchor" href="#debug-prints" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debug prints</h2>
+<ul>
+<li>the most primitive debugging technique is to insert debug prints</li>
+<li>fprintf()
+<ul>
+<li>
+<p>do not use printf() for debugging unless you know what you are doing</p>
+</li>
+<li>
+<p>use a unique text for each debug text, for example:</p>
+<p>/* some code <em>/
+fprintf(stderr, "DBG 1\n");
+/</em> some code <em>/
+fprintf(stderr, "DBG 2\n"); ...
+/</em> some code */
+fprintf(stderr, "DBG 3\n"); ...
+...</p>
+<ul>
+<li>if you need to put another debug message in between 1 and 2, "1.5"
+seems like an easy way to do it.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>
+<a id="user-content-system-call-tracing" class="anchor" href="#system-call-tracing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System call tracing</h2>
+<ul>
+<li>
+<p>system calls: interface to the kernel to provide services like memory
+allocation, I/O, ...</p>
+</li>
+<li>
+<p>prints system call arguments, return values, timing information etc.</p>
+</li>
+<li>
+<p>this works by inserting break points</p>
+<ul>
+<li>the break points make the program slower, this overhead could be much larger
+than what is allowed in production</li>
+</ul>
+</li>
+<li>
+<p>basic tools:</p>
+<ul>
+<li>strace</li>
+<li>truss</li>
+<li>dtrace</li>
+</ul>
+</li>
+</ul>
+<p>Task: write a program that opens a file specified by the first argument of the
+program and reads number of bytes specified by the second argument and
+writes them to standard output. Use fopen()/fread() without checking error
+conditions.
+What happens if the program tries to read files like /etc/shadow on Unix ?
+Run the program under strace to see possible clues.
+Refactor the program so that the I/O is performed in a function</p>
+<pre><code>    static void file_read(char *file, size_t len);
+
+  so that the function is performed in a cycle with 16k iterations and run
+  the program with /etc/passwd.
+  Again run the program under strace to see possible clues.
+  Now fix the program so that:
+    a) it properly detects all errors
+b) the function can be called arbitrary number of times (in sequence)
+</code></pre>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/file-open.c">file-open.c</a></p>
+<h2>
+<a id="user-content-static-analysis" class="anchor" href="#static-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static analysis</h2>
+<ul>
+<li>
+<p>compile time warnings are inherently limited</p>
+<ul>
+<li>
+<p>they can detect wide range of errors (format strings, offer missing include
+files, detect simple buffer overflows, ...)</p>
+<p>code: fmt-string-invalid.c, buf-overflow.c</p>
+</li>
+<li>
+<p>however fail to cover all corner cases</p>
+</li>
+</ul>
+</li>
+<li>
+<p>static analysis tools hook into compiler and can follow all code paths</p>
+<ul>
+<li>by constructing graph of code blocks</li>
+<li>this is useful also for "taint analysis" - following potentially
+unsanitized data input across all code paths to determine if it can be used
+to exploit code deficiencies</li>
+<li>the method has its drawbacks - false positives, can be foiled somethimes
+because it does not understand enough context and program internals</li>
+</ul>
+</li>
+<li>
+<p>Clang: the scan-build script is front-end to the library performing checks,
+accepts compilation line as argument
+- the compilation line can be simple compiler invocation and also make</p>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/buf-overflow-func.c">buf-overflow-func.c</a></p>
+<ul>
+<li>when compiled with -Wall -Wextra no warnings/errors are reported</li>
+<li>when run, it usually does (depends on compiler/system) not produce any
+warnings and happily prints the corrupted array
+<ul>
+<li>try to compile with -DBUFFER_SIZE=128 and the result might be different
+due to stack smashing detection supplied by the compiler
+<ul>
+<li>if the program is compiled with -fno-stack-protector , the stack canary
+is not added and the program normally (sic!) exits with segmentation
+fault</li>
+<li>try with different compilers (gcc, clang)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Run: scan-build clang buf-overflow.c
+Note: works with gcc too</p>
+<p>Task: write a program that accesses memory allocated on the heap after it is
+freed. See if scan-build static analyzer can detect it.
+Modify the program to return the allocated memory from a function
+and then free + modify it in main. Does scan-build still detect this
+use-after-free bug ?</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/use-after-free.c">use-after-free.c</a></p>
+<h2>
+<a id="user-content-library-call-tracing" class="anchor" href="#library-call-tracing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Library call tracing</h2>
+<ul>
+<li>ltrace is most widely used tool to print calls to library functions
+<ul>
+<li>it can provide indentation (-n)</li>
+<li>can be used to do simple profiling (with -tt)</li>
+</ul>
+</li>
+<li>however, it cannot print calls within the program itself
+<ul>
+<li>this is unlike 'truss' that can do it with '-u a.out'</li>
+</ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/recurs.c">recurs.c</a>
+- run with: 'ltrace -n4 -L ./a.out 5'</p>
+<p>Note: ltrace can trace system calls as well with the -S option</p>
+<p>Links:</p>
+<ul>
+<li><a href="http://techblog.rosedu.org/ltrace.html" rel="nofollow">http://techblog.rosedu.org/ltrace.html</a></li>
+<li><a href="https://blog.packagecloud.io/eng/2016/03/14/how-does-ltrace-work/" rel="nofollow">https://blog.packagecloud.io/eng/2016/03/14/how-does-ltrace-work/</a></li>
+</ul>
+<h2>
+<a id="user-content-dynamic-analysis" class="anchor" href="#dynamic-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dynamic analysis</h2>
+<ul>
+<li>run-time analysis performed by running the program in an emulation layer
+(virtual machine), intercepting calls to memory allocator etc.</li>
+<li>can provide more detailed detection at the cost of performance and coverage -
+can detect only in the code paths actually executed (compared to static
+analysis)
+<ul>
+<li>the performance degradation incurred by dynamic analysis is usually
+much higher than the one of syscall/library tracing</li>
+</ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shell.c">shell.c</a>
+Task: Take a look at the code and try to find as many bugs as possible.
+Then compile the program with as many checks as possible and run the
+program through static analysis.</p>
+<pre><code>  Then run it through Valgrind, perform couple of operations and exit the
+  program, i.e.
+
+    1) valgrind ./a.out
+2) echo couple of "commands"
+3) hit Ctrl-C
+
+  Also run it automatically, e.g.:
+
+  $ cat &lt;&lt; EOF &gt;/tmp/input
+</code></pre>
+<p>foo
+bar
+foo bar
+EOF
+$ valgrind ./a.out &lt; /tmp/input</p>
+<ul>
+<li>try to compile the program with debug info (-g) and re-run valgrind with
+--leak-check=full and see the difference in the output.</li>
+<li>fix the program and re-run the test(s) again</li>
+</ul>
+<h2>
+<a id="user-content-dynamic-tracing" class="anchor" href="#dynamic-tracing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dynamic tracing</h2>
+<ul>
+<li>dtrace / SystemTap</li>
+<li>should have minimal overhead, mostly can be run on production systems</li>
+<li>provides syscall/library tracing as well as variety of other insights into
+the system (neworking abstractions, CPU performance counters/cache analysis,
+...)</li>
+<li>allows to ask (before unheard of) questions that could not be answered before
+<ul>
+<li>e.g. what process is stressing particular disk with I/O, what are the most
+contributing processes that send TCP traffic to port X and what are their
+most frequently executed stack traces, ...</li>
+</ul>
+</li>
+</ul>
+<h2>
+<a id="user-content-asserts" class="anchor" href="#asserts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserts</h2>
+<ul>
+<li>assert(3)
+<ul>
+<li>basic implementation of assert, provides run-time condition checking</li>
+<li>"#define NDEBUG" disables it normally (ie. in the real life the assert
+macro is more complicated.</li>
+<li>you need &lt;assert.h&gt;</li>
+<li>assert(0) is of common use to bail out and to know where it did</li>
+</ul>
+</li>
+</ul>
+<p>Task: write custom assert() macro that prints the line and file information
+(using <strong>LINE</strong>, <strong>FILE</strong> pre-defined macros) and exits
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/assert.c">assert.c</a></p>
+<ul>
+<li>
+<p>there is also #error pre-processor pragma that can be used to fail during
+compilation phase</p>
+</li>
+<li>
+<p>there is static_assert() that is evaluated during compile time however this is
+available only in C++0x</p>
+<ul>
+<li>
+<p>it can be handy for things (this is rather a hack) like:</p>
+<p>int i;</p>
+<p>static_assert(sizeof(void *) &gt;= sizeof i);
+foo((void *) i);</p>
+</li>
+<li>
+<p>in C99 we can use a array indexing with ternary operator as a check</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/static_assert.c">static_assert.c</a></p>
+<h2>
+<a id="user-content-debugger" class="anchor" href="#debugger" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debugger</h2>
+<ul>
+<li>
+<p>can be used for both live debugging and post-mortem analysis (from core file
+produced by the program)</p>
+<ul>
+<li>works by inserting breakpoints and displaying memory of the process
+<ul>
+<li>this is usually done using the ptrace(2) syscall</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>most common debuggers: gdb, lldb, dbx, mdb</p>
+<ul>
+<li>some of them have the concept of plug-ins</li>
+</ul>
+</li>
+<li>
+<p>compiling for debugging: the -g compiler option adds debugging information to
+the resulting binary, in particular mapping of assembly instructions to source
+code lines</p>
+<ul>
+<li>one can debug without this data, just some assembly knowledge is required</li>
+</ul>
+</li>
+<li>
+<p>will describe gdb here</p>
+</li>
+<li>
+<p>compile and run the program from gdb:</p>
+<p>cc -Wall -g random.c
+gdb ./a.out</p>
+<blockquote>
+<p>r</p>
+</blockquote>
+</li>
+<li>
+<p>exiting the debugger:</p>
+<blockquote>
+<p>quit</p>
+</blockquote>
+<ul>
+<li>or Ctrl-D</li>
+</ul>
+</li>
+<li>
+<p>to get the core file, the system limit for core file may need to be bumped</p>
+<p>ulimit -c 1000000</p>
+<ul>
+<li>and re-run the program again</li>
+</ul>
+</li>
+<li>
+<p>display the stack trace at the moment of breakpoint stop/crash:</p>
+<blockquote>
+<p>backtrace</p>
+</blockquote>
+</li>
+<li>
+<p>see where exactly it crashed:</p>
+<blockquote>
+<p>disassembly
+info reg
+list</p>
+</blockquote>
+</li>
+<li>
+<p>insert breakpoint</p>
+<blockquote>
+<p>b main
+b run</p>
+</blockquote>
+<ul>
+<li>can also insert breakpoint to particular line (if the program was compiled
+with line information):</li>
+</ul>
+<blockquote>
+<p>b 8</p>
+</blockquote>
+<ul>
+<li>
+<p>print breakpoints:</p>
+<blockquote>
+<p>info breakpoints</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>stepping</p>
+<ul>
+<li>
+<p>single line (assembly instruction) stepping:</p>
+<blockquote>
+<p>next</p>
+</blockquote>
+</li>
+<li>
+<p>step through:</p>
+<blockquote>
+<p>step</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>printing memory</p>
+<ul>
+<li>
+<p>print variable value:</p>
+<blockquote>
+<p>print idx
+print p</p>
+</blockquote>
+</li>
+<li>
+<p>can use the usual dereference/ref operators:
+(once inside run())</p>
+<blockquote>
+<p>print *p[idx]</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>print a variable in each step:</p>
+<blockquote>
+<p>display i</p>
+</blockquote>
+<ul>
+<li>
+<p>to disable the printing:</p>
+<blockquote>
+<p>delete display i</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>breakpoints can be conditional:</p>
+<blockquote>
+<p>break 14 if i == idx</p>
+</blockquote>
+</li>
+</ul>
 
               </article>
             </div>
