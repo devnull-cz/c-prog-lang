@@ -34,6 +34,7 @@
       - try with different compilers (gcc, clang)
 
 Run: `scan-build clang buf-overflow.c`
+
 Note: works with gcc too
 
 Task: write a program that accesses memory allocated on the heap after it is
