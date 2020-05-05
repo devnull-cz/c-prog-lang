@@ -1,4 +1,4 @@
-## Opaque structures
+# Opaque structures
 
 It is possible to declare structure in a header file along with API that
 consumes it:
