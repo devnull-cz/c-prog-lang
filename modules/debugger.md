@@ -24,7 +24,7 @@
 ```
   > quit
 ```
-    - or Ctrl-D
+  - or Ctrl-D
 
 - to get the core file, the system limit for core file may need to be bumped
 ```
