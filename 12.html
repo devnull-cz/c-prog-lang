@@ -156,7 +156,7 @@ allocation, I/O, ...</p>
 <p>prints system call arguments, return values, timing information etc.</p>
 </li>
 <li>
-<p>this works by inserting break points</p>
+<p>this works by inserting break points or via dynamic instrumentation</p>
 <ul>
 <li>the break points make the program slower, this overhead could be much larger
 than what is allowed in production</li>
@@ -179,11 +179,11 @@ writes them to standard output. Use fopen()/fread() without checking return
 values or error conditions.  What happens if the program tries to read files
 like <code>/etc/shadow</code> on Unix ?  Run the program under strace to see possible
 clues. Refactor the program so that the I/O is performed in a function:</p>
-<div class="highlight highlight-source-c"><pre>        <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">file_read</span>(<span class="pl-k">char</span> *file, <span class="pl-c1">size_t</span> len);</pre></div>
+<div class="highlight highlight-source-c"><pre>   <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">file_read</span>(<span class="pl-k">char</span> *file, <span class="pl-c1">size_t</span> len);</pre></div>
 <p>so that the function is performed in a cycle with 16k iterations and run
 the program with <code>/etc/passwd</code>.</p>
 <p>Again run the program under strace to see possible clues.</p>
-<p>Now fix the program so that:</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Now fix the program so that:</p>
 <ul>
 <li>it properly detects all errors</li>
 <li>the function can be called arbitrary number of times (in sequence)</li>
