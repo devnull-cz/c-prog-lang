@@ -27,3 +27,6 @@ Task: write custom assert() macro that prints the line and file information
   - in C99 we can use a array indexing with ternary operator as a check
 
 #source static_assert.c
+
+  - to see how it works, run it through the pre-processor (use the `-E` compiler
+    option or run `cpp` on the source file)
