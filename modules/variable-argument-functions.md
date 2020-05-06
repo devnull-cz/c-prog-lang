@@ -7,4 +7,4 @@
   - what happens if there is a one `int` value passed in between the `ULL`
     arguments ?
 
-:key: solution: [stdarg.c](src/stdarg.c)
+:key: solution: #source stdarg.c
