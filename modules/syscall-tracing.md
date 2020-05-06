@@ -3,7 +3,7 @@
 - system calls: interface to the kernel to provide services like memory
   allocation, I/O, ...
 - prints system call arguments, return values, timing information etc.
-- this works by inserting break points
+- this works by inserting break points or via dynamic instrumentation
   - the break points make the program slower, this overhead could be much larger
     than what is allowed in production
 
@@ -19,14 +19,14 @@
   clues. Refactor the program so that the I/O is performed in a function:
 
 ```C
-        static void file_read(char *file, size_t len);
+   static void file_read(char *file, size_t len);
 ```
  so that the function is performed in a cycle with 16k iterations and run
  the program with `/etc/passwd`.
 
  Again run the program under strace to see possible clues.
 
- Now fix the program so that:
+:wrench: Now fix the program so that:
    - it properly detects all errors
    - the function can be called arbitrary number of times (in sequence)
 
