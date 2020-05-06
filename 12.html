@@ -146,6 +146,46 @@ compilation.</p>
 seems like an easy way to do it.</li>
 </ul>
 <h2>
+<a id="user-content-asserts" class="anchor" href="#asserts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserts</h2>
+<ul>
+<li>assert(3)
+<ul>
+<li>basic implementation of assert, provides run-time condition checking</li>
+<li>
+<code>#define NDEBUG</code> disables it normally (ie. in the real life the assert
+macro is more complicated.</li>
+<li>you need <code>&lt;assert.h&gt;</code>
+</li>
+<li>
+<code>assert(0)</code> is of common use to bail out and to know where it did</li>
+</ul>
+</li>
+</ul>
+<p>Task: write custom assert() macro that prints the line and file information
+(using <code>__LINE__</code>, <code>__FILE__</code> pre-defined macros) and exits
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/assert.c">assert.c</a></p>
+<ul>
+<li>
+<p>there is also <code>#error</code> pre-processor pragma that can be used to fail during
+compilation phase</p>
+</li>
+<li>
+<p>there is static_assert() that is evaluated during compile time however this is
+available only in C++0x</p>
+<ul>
+<li>it can be handy for things (this is rather a hack) like:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span> i;
+
+    <span class="pl-en">static_assert</span>(<span class="pl-k">sizeof</span>(<span class="pl-k">void</span> *) &gt;= sizeof i);
+    <span class="pl-en">foo</span>((<span class="pl-k">void</span> *) i);</pre></div>
+<ul>
+<li>in C99 we can use a array indexing with ternary operator as a check</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/static_assert.c">static_assert.c</a></p>
+<h2>
 <a id="user-content-system-call-tracing" class="anchor" href="#system-call-tracing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System call tracing</h2>
 <ul>
 <li>
@@ -330,46 +370,6 @@ most frequently executed stack traces, ...</li>
 </ul>
 </li>
 </ul>
-<h2>
-<a id="user-content-asserts" class="anchor" href="#asserts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserts</h2>
-<ul>
-<li>assert(3)
-<ul>
-<li>basic implementation of assert, provides run-time condition checking</li>
-<li>
-<code>#define NDEBUG</code> disables it normally (ie. in the real life the assert
-macro is more complicated.</li>
-<li>you need <code>&lt;assert.h&gt;</code>
-</li>
-<li>
-<code>assert(0)</code> is of common use to bail out and to know where it did</li>
-</ul>
-</li>
-</ul>
-<p>Task: write custom assert() macro that prints the line and file information
-(using <code>__LINE__</code>, <code>__FILE__</code> pre-defined macros) and exits
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/assert.c">assert.c</a></p>
-<ul>
-<li>
-<p>there is also <code>#error</code> pre-processor pragma that can be used to fail during
-compilation phase</p>
-</li>
-<li>
-<p>there is static_assert() that is evaluated during compile time however this is
-available only in C++0x</p>
-<ul>
-<li>it can be handy for things (this is rather a hack) like:</li>
-</ul>
-</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">int</span> i;
-
-    <span class="pl-en">static_assert</span>(<span class="pl-k">sizeof</span>(<span class="pl-k">void</span> *) &gt;= sizeof i);
-    <span class="pl-en">foo</span>((<span class="pl-k">void</span> *) i);</pre></div>
-<ul>
-<li>in C99 we can use a array indexing with ternary operator as a check</li>
-</ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/static_assert.c">static_assert.c</a></p>
 <h2>
 <a id="user-content-debugger" class="anchor" href="#debugger" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debugger</h2>
 <ul>
