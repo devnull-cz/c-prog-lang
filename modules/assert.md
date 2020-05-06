@@ -9,13 +9,14 @@
 
 Task: write custom assert() macro that prints the line and file information
       (using `__LINE__`, `__FILE__` pre-defined macros) and exits
+
 #source assert.c
 
 - there is also `#error` pre-processor pragma that can be used to fail during
   compilation phase
 
-- there is static_assert() that is evaluated during compile time however this is
-  available only in C++0x
+- there is `static_assert()` that is evaluated during compile time however this
+  is available only in the C++0x standard
   - it can be handy for things (this is rather a hack) like:
 ```C
     int i;
