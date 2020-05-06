@@ -8,7 +8,7 @@
   - the performance degradation incurred by dynamic analysis is usually
     much higher than the one of syscall/library tracing
 
-Task: Take a look at the code and try to find as many bugs as possible:
+:wrench: Task: Take a look at the code and try to find as many bugs as possible:
 #source shell.c
 
 Then compile the program with as many checks as possible and run the
