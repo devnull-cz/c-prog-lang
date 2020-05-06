@@ -37,10 +37,10 @@ Run: `scan-build clang buf-overflow.c`
 
 Note: works with gcc too
 
-Task: write a program that accesses memory allocated on the heap after it is
-      freed. See if scan-build static analyzer can detect it.
+:wrench: Task: write a program that accesses memory allocated on the heap after
+      it is freed. See if scan-build static analyzer can detect it.
       Modify the program to return the allocated memory from a function
-      and then free + modify it in main. Does scan-build still detect this
+      and then free + modify it in main. Does `scan-build` still detect this
       use-after-free bug ?
 
 #source use-after-free.c
