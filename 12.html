@@ -116,7 +116,10 @@ dependencies on dynamic libraries to the resulting binary.</p>
 </code></pre>
 <p>Note that the program <code>ld</code> was not invoked directly, it is the compiler that
 serves as a <code>ld</code> wrapper as it needs to add more object files with C runtime
-under the hood.</p>
+under the hood. So in reality the compiler accepts some linker options
+(and passes them through) to make it easier for the programmer.</p>
+<p>For GCC you can use the <code>-###</code> option to see what commands are executed during
+compilation.</p>
 <h1>
 <a id="user-content-debugging" class="anchor" href="#debugging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debugging</h1>
 <h2>
