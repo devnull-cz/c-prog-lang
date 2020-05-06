@@ -212,7 +212,7 @@ files, detect simple buffer overflows, ...)</li>
 <li>this is useful also for "taint analysis" - following potentially
 unsanitized data input across all code paths to determine if it can be used
 to exploit code deficiencies</li>
-<li>the method has its drawbacks - false positives, can be foiled somethimes
+<li>the method has its drawbacks - false positives, can be foiled sometimes
 because it does not understand enough context and program internals</li>
 </ul>
 </li>
@@ -242,10 +242,10 @@ segmentation fault</li>
 </ul>
 <p>Run: <code>scan-build clang buf-overflow.c</code></p>
 <p>Note: works with gcc too</p>
-<p>Task: write a program that accesses memory allocated on the heap after it is
-freed. See if scan-build static analyzer can detect it.
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write a program that accesses memory allocated on the heap after
+it is freed. See if scan-build static analyzer can detect it.
 Modify the program to return the allocated memory from a function
-and then free + modify it in main. Does scan-build still detect this
+and then free + modify it in main. Does <code>scan-build</code> still detect this
 use-after-free bug ?</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/use-after-free.c">use-after-free.c</a></p>
 <h2>
