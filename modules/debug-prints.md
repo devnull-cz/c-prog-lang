@@ -13,5 +13,5 @@
 	fprintf(stderr, "DBG 3\n"); ...
 	...
 ```
-    - if you need to put another debug message in between 1 and 2, "1.5"
-      seems like an easy way to do it.
+  - if you need to put another debug message in between 1 and 2, "1.5"
+    seems like an easy way to do it.
