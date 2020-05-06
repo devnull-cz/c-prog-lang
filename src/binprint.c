@@ -6,7 +6,7 @@
 void
 binprint(int n)
 {
-	char a[sizeof (int) * 8];
+	char a[sizeof (int) * 8 + 1];
 	int i = 1;
 
 	assert(n >= 0);
