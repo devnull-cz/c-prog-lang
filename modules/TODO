@@ -21,3 +21,7 @@ The size_t type is the unsigned integer type that is the result of the sizeof
 operator (and the offsetof operator), so it is guaranteed to be big enough to
 contain the size of the biggest object your system can handle (e.g., a static
 array of 8Gb).
+
+#include "modules/opaque-structures.md"
+#include "modules/flexible-array-member.md"
+#include "modules/structure-bit-fields.md"
