@@ -14,7 +14,7 @@
   - this is useful also for "taint analysis" - following potentially
     unsanitized data input across all code paths to determine if it can be used
     to exploit code deficiencies
-  - the method has its drawbacks - false positives, can be foiled somethimes
+  - the method has its drawbacks - false positives, can be foiled sometimes
     because it does not understand enough context and program internals
 
 - Clang: the `scan-build` script is front-end to the library performing checks,
