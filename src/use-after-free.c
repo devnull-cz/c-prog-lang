@@ -9,7 +9,7 @@ foo(size_t len)
 int
 main(void)
 {
-	char *p = (char *)malloc(128);
+	char *p = malloc(128);
 
 	*p = 'A';
 	free(p);
