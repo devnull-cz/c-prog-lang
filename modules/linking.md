@@ -23,4 +23,8 @@ It works like this (assuming all source code files changed):
 
 Note that the program `ld` was not invoked directly, it is the compiler that
 serves as a `ld` wrapper as it needs to add more object files with C runtime
-under the hood.
+under the hood. So in reality the compiler accepts some linker options
+(and passes them through) to make it easier for the programmer.
+
+For GCC you can use the `-###` option to see what commands are executed during
+compilation.
