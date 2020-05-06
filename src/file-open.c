@@ -8,7 +8,7 @@ file_read(char *file, size_t len)
 	// No error check or error reporting, grr.
 	FILE *fp = fopen(file, "r");
 
-	char *mem = (char *)calloc(len, sizeof (char));
+	char *mem = calloc(len, sizeof (char));
 	fread(mem, sizeof (char), len, fp);
 	printf("%s\n", mem);
 }
