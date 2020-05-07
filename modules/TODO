@@ -22,6 +22,18 @@ operator (and the offsetof operator), so it is guaranteed to be big enough to
 contain the size of the biggest object your system can handle (e.g., a static
 array of 8Gb).
 
+# Related to the int/size_t discussion above, make a new module for uint32_t et
+# al.  It is in the spec as part of stdint.h.
+7.18.1.1  Exact-widthinteger types1The  typedef  nameintN_tdesignates  a  signed
+integer  type  with  widthN,nopaddingbits,  and  a  two’scomplement
+representation.Thus,int8_tdenotes  a  signed  integertype with a width of
+exactly 8 bits.2The  typedef  nameuintN_tdesignates  an  unsigned  integer  type
+with  widthN.Thus,uint24_tdenotes an unsigned integer type with a width of
+exactly 24 bits.3These  types  are  optional.However,  ifanimplementation
+provides  integer  types  withwidths  of  8,  16,  32,  or  64  bits,  no
+padding  bits,  and  (for  the  signed  types)  that  have  atwo’scomplement
+representation, it shall define the corresponding typedef names
+
 #include "modules/opaque-structures.md"
 #include "modules/flexible-array-member.md"
 #include "modules/structure-bit-fields.md"
