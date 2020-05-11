@@ -25,11 +25,27 @@ struct x a;
 
 The `x` structure could be completed, for all declarations of that type, by
 declaring the same structure tag with its defining content later in the same
-scope.
+scope.  We could only *forward declare* the structure though (that is, no
+defining any object of that structure type).
+
+```
+$ cat main.c
+struct x;
+
+int
+main(void)
+{
+}
+
+$ cc main.c
+$ echo $?
+0
+```
 
 BTW, the `void` type is an incomplete type that can be never completed.
 
-Now, you can always work with pointers to an incomplete type.  The following
+However, you can always declare and work with a pointer to an incomplete type
+(all structures are always aligned to the same byte boundary).  The following
 will compile and run fine.
 
 ```C
