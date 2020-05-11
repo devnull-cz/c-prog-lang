@@ -99,9 +99,23 @@ struct x a;
 </code></pre>
 <p>The <code>x</code> structure could be completed, for all declarations of that type, by
 declaring the same structure tag with its defining content later in the same
-scope.</p>
+scope.  We could only <em>forward declare</em> the structure though (that is, no
+defining any object of that structure type).</p>
+<pre><code>$ cat main.c
+struct x;
+
+int
+main(void)
+{
+}
+
+$ cc main.c
+$ echo $?
+0
+</code></pre>
 <p>BTW, the <code>void</code> type is an incomplete type that can be never completed.</p>
-<p>Now, you can always work with pointers to an incomplete type.  The following
+<p>However, you can always declare and work with a pointer to an incomplete type
+(all structures are always aligned to the same byte boundary).  The following
 will compile and run fine.</p>
 <div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
 
@@ -118,26 +132,33 @@ will compile and run fine.</p>
 }</pre></div>
 <p>This feature of the C language is used to represent opaque handles.</p>
 <h1>
-<a id="user-content-opaque-structures" class="anchor" href="#opaque-structures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opaque structures</h1>
-<p>It is possible to declare structure in a header file along with API that
-consumes it:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span> foo.h</span>
+<a id="user-content-opaque-structures-handles" class="anchor" href="#opaque-structures-handles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opaque structures (handles)</h1>
+<p>With the help of incomplete types, it is possible to declare a structure in a
+header file along with API that consumes it without revealing what the structure
+actually contains.  The reason to do that is not to allow a programmer to depend
+(= use) on the structure members, thus allowing to change the structure innards
+anytime.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> Forward declaration in foo.h <span class="pl-c">*/</span></span>
 <span class="pl-k">struct</span> foo;
-<span class="pl-k">void</span> <span class="pl-en">doStuff</span>(<span class="pl-k">struct</span> foo *f);</pre></div>
-<p>the file implementing <code>doStuff()</code> will contain:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo {
+
+<span class="pl-k">void</span>
+<span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> foo *f);</pre></div>
+<p>The file implementing <code>do_stuff()</code> will contain:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_impl {
     <span class="pl-k">int</span> x;
     <span class="pl-k">int</span> y;
 };
 
 <span class="pl-k">void</span>
-<span class="pl-en">doStuff</span>(<span class="pl-k">struct</span> foo *f)
+<span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> foo *f)
 {
-	f-&gt;<span class="pl-smi">x</span> = ...
-	f-&gt;<span class="pl-smi">x</span> = ...
+	<span class="pl-k">struct</span> foo_impl *fi = (<span class="pl-k">struct</span> foo_impl *)f;
+
+	fi-&gt;<span class="pl-smi">x</span> = ...
+	fi-&gt;<span class="pl-smi">x</span> = ...
 }</pre></div>
 <p>Then any <code>.c</code> file that includes <code>foo.h</code> can work with the structure
-(by passing it to <code>doStuff()</code>) however cannot access its members directly.
+(by passing it to <code>do_stuff()</code>) however cannot access its members directly.
 The structure is usable only via pointer. Thus, the library has to provide
 a function to allocate a structure and return the pointer to it
 (and possibly also to initialize it) and functions to get/set the data
