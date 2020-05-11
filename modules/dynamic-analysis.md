@@ -12,7 +12,7 @@
 #source shell.c
 
 Then compile the program with as many checks as possible and run the
-program through static analysis.
+program through the static analysis.
 
 Then run it through Valgrind, perform couple of operations and exit the
 program, i.e.
@@ -24,12 +24,12 @@ program, i.e.
 Also run it automatically, e.g.:
 
 ```
-      $ cat << EOF >/tmp/input
+$ cat << EOF >/tmp/input
 foo
 bar
 foo bar
 EOF
-      $ valgrind ./a.out < /tmp/input
+$ valgrind ./a.out < /tmp/input
 ```
 
 - try to compile the program with debug info (`-g`) and re-run valgrind with

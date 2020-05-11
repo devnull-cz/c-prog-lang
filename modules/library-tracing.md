@@ -1,10 +1,11 @@
 ## Library call tracing
 
-- `ltrace` is most widely used tool to print calls to library functions
+- `ltrace` is the most widely used tool to print calls to library functions
   - it can provide indentation (`-n`)
   - can be used to do simple profiling (with `-tt`)
 - to print calls within the program itself use `-e @MAIN`
-  - in `truss` one can do it with `-u a.out`
+  - in a different tool, `truss` (Solaris, \*BSD), one can do that with `-u
+    a.out`
 
 #source recurs.c
   - run with: `ltrace -n4 -L ./a.out 5`

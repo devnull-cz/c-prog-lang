@@ -1,6 +1,6 @@
 ## Dynamic tracing
 
-- dtrace / SystemTap
+- `dtrace` / SystemTap
 - should have minimal overhead, mostly can be run on production systems
 - provides syscall/library tracing as well as variety of other insights into
   the system (neworking abstractions, CPU performance counters/cache analysis,
