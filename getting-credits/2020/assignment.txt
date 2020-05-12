@@ -34,7 +34,8 @@ implementations.
 
 General rules
 -------------
-You may not use code written by someone else.  No exceptions.
+You may not use code written by someone else except of getting the POSIX tar
+structure.  No other exceptions.
 
 Tar Specification
 -----------------
