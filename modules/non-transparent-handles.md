@@ -90,5 +90,11 @@ it could be some 3rd party software bought by the customer years ago, the debug
 print is now incorrect as it only prints the first 4 bytes of the structure, not
 8.
 
-To mitigate this, the library provider could use something called *incomplete
-types* and use them to provide an opaque (transparent) handle.
+There are ways to mitigate that:
+
+- use something non-revealing as a handle, like in index to the internal array
+  of structures that keep the states.  That is possible but you now need to
+  manage the internal structure that keeps the state structures.  You also
+  cannot change the index type unless you recompile all the consumers as well.
+- the library provider could use something called *incomplete types* and use
+  them to provide an opaque (transparent) handle.

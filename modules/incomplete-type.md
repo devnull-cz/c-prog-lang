@@ -1,11 +1,12 @@
 # Incomplete types
 
 An *incomplete type* is a type that describes an object but lacks information
-needed to determine its size.
+needed to determine its size.  You cannot declare objects using such types as
+the lack of the size prevents to allocated memory for them on the stack or heap.
 
 ```
 $ cat main.c
-struct x a;
+struct x a;	/* declaring a variable using a structure of an unknown size */
 
 int
 main(void)
@@ -28,9 +29,12 @@ declaring the same structure tag with its defining content later in the same
 scope.  We could only *forward declare* the structure though (that is, no
 defining any object of that structure type).
 
+As we do not need to know the size of the `x` structure, the following code
+compiles.
+
 ```
 $ cat main.c
-struct x;
+struct x;	/* this is called forward declaration */
 
 int
 main(void)
@@ -42,7 +46,23 @@ $ echo $?
 0
 ```
 
-BTW, the `void` type is an incomplete type that can be never completed.
+BTW, the `void` type is an incomplete type that can be never completed.  So, you
+cannot declare a variable of type `void`.
+
+```C
+$ cat main.c
+int
+main(void)
+{
+	void x;
+}
+
+$ cc main.c
+main.c:4:7: error: variable has incomplete type 'void'
+        void x;
+             ^
+1 error generated.
+```
 
 However, you can always declare and work with a pointer to an incomplete type
 (all structures are always aligned to the same byte boundary).  The following
@@ -64,4 +84,7 @@ main(void)
 }
 ```
 
-This feature of the C language is used to represent opaque handles.
+This feature of the C language can be used to represent opaque handles, and
+those can be used to solve the
+#module non-transparent-handles.md problem with non-transparent handles
+.
