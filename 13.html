@@ -76,6 +76,83 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
+<a id="user-content-non-transparent-handles-may-cause-issues" class="anchor" href="#non-transparent-handles-may-cause-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Non-transparent handles may cause issues</h1>
+<p>If your library is statelful, the state is often managed by a handle
+used as an argument in the library function calls.  Let's say internally in the
+library we need to track some ID and a position.  Those members are expected to
+be used only by the library itself so the consumers of the library should use
+the handle in a transparent way.   That is, they should not care nor use
+whatever is inside the handle.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> mylib.h <span class="pl-c">*/</span></span>
+<span class="pl-k">struct</span> ml_hndl {
+	<span class="pl-k">int</span> ml_id;
+	<span class="pl-k">int</span> ml_pos;
+};
+
+<span class="pl-c"><span class="pl-c">/*</span> mylib.c <span class="pl-c">*/</span></span>
+<span class="pl-k">struct</span> handle *
+<span class="pl-en">ml_init</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c"><span class="pl-c">/*</span> allocate and init the handle first <span class="pl-c">*/</span></span>
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+
+	<span class="pl-k">return</span> (h);
+}
+
+<span class="pl-c"><span class="pl-c">/*</span> mylib.c continues <span class="pl-c">*/</span></span>
+<span class="pl-k">enum</span> ml_err
+<span class="pl-en">ml_parse</span>(<span class="pl-k">char</span> *url)
+{
+	<span class="pl-k">enum</span> ml_err e = ML_OK;
+
+	<span class="pl-c"><span class="pl-c">/*</span> parse the URI <span class="pl-c">*/</span></span>
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+
+	<span class="pl-k">return</span> (e);
+}
+
+<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span></pre></div>
+<p>And the consumer would use it as follows:</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>mylib.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	ml_err ret;
+	<span class="pl-k">struct</span> ml_hndl *h;
+
+	h = <span class="pl-c1">ml_init</span>(<span class="pl-k">void</span>);
+	<span class="pl-k">if</span> ((ret = <span class="pl-c1">ml_parse</span>(<span class="pl-s"><span class="pl-pds">"</span>some URI<span class="pl-pds">"</span></span>)) != ML_OK)
+		<span class="pl-c1">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>);
+
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+}</pre></div>
+<p>So far, so good.  However, what if the consumer code delves into the handle and
+uses the information in there (because the header file is part of the library
+and available to the consumer)?</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+
+	<span class="pl-c1">print_debug</span>(<span class="pl-s"><span class="pl-pds">"</span>[Debug] handle ID: <span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, h-&gt;<span class="pl-smi">md_id</span>);
+
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+}</pre></div>
+<p>This will work fine until the library provider changes the handle (believed to
+be internal to the library):</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> mylib.h <span class="pl-c">*/</span></span>
+<span class="pl-k">struct</span> ml_hndl {
+	<span class="pl-k">long</span> <span class="pl-k">long</span> ml_id;	<span class="pl-c"><span class="pl-c">/*</span> used to be an int <span class="pl-c">*/</span></span>
+	<span class="pl-k">int</span> ml_pos;
+};</pre></div>
+<p>Unless the consumer code is recompiled after the change, which may not happen as
+it could be some 3rd party software bought by the customer years ago, the debug
+print is now incorrect as it only prints the first 4 bytes of the structure, not
+8.</p>
+<p>To mitigate this, the library provider could use something called <em>incomplete
+types</em> and use them to provide an opaque (transparent) handle.</p>
+<h1>
 <a id="user-content-incomplete-types" class="anchor" href="#incomplete-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Incomplete types</h1>
 <p>An <em>incomplete type</em> is a type that describes an object but lacks information
 needed to determine its size.</p>
