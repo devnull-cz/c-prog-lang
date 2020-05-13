@@ -27,5 +27,3 @@ exactly 24 bits.3These  types  are  optional.However,  ifanimplementation
 provides  integer  types  withwidths  of  8,  16,  32,  or  64  bits,  no
 padding  bits,  and  (for  the  signed  types)  that  have  atwo’scomplement
 representation, it shall define the corresponding typedef names
-
-#include "modules/structure-bit-fields.md"
