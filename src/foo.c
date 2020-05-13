@@ -1,9 +1,6 @@
 #include <stdlib.h>
 
-struct foo {
-    int x;
-    int y;
-};
+#include "foo_impl.h"
 
 struct foo *
 getFoo(void)
