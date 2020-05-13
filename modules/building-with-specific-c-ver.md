@@ -1,4 +1,4 @@
-# Building with a specific C specification version
+# Building with a concrete C specification version
 
 If you want to make sure your code is built following a concrete C version, it
 has two parts:
