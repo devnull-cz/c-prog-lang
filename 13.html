@@ -247,11 +247,13 @@ anytime.</p>
 <span class="pl-k">void</span>
 <span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> foo *f);</pre></div>
 <p>The file implementing <code>do_stuff()</code> will contain:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_impl {
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> in foo_impl.h not provided to the consumers <span class="pl-c">*/</span></span>
+<span class="pl-k">struct</span> foo_impl {
     <span class="pl-k">int</span> x;
     <span class="pl-k">int</span> y;
 };
 
+<span class="pl-c"><span class="pl-c">/*</span> library implementation code <span class="pl-c">*/</span></span>
 <span class="pl-k">void</span>
 <span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> foo *f)
 {
@@ -262,22 +264,39 @@ anytime.</p>
 }</pre></div>
 <p>Then any <code>.c</code> file that includes <code>foo.h</code> can work with the structure
 (by passing it to <code>do_stuff()</code>) however cannot access its members directly.
-The structure is usable only via pointer. Thus, the library has to provide
+The structure is usable only via a pointer. Thus, the library has to provide
 a function to allocate a structure and return the pointer to it
 (and possibly also to initialize it) and functions to get/set the data
 inside the structure.</p>
 <p>This is handy for libraries so they are free to change the layout of structures
 without breaking the consumers.</p>
-<p>code:</p>
+<p>The consumer of the library then <code>#include</code>s only <code>foo.h</code> but it does not have
+access to <code>foo_impl.h</code>.</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>foo.h<span class="pl-pds">"</span></span>
+
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-k">struct</span> foo *h;
+
+	h = <span class="pl-c1">getFoo</span>();
+	<span class="pl-c1">doStuff</span>(h);
+}</pre></div>
+<p><g-emoji class="g-emoji" alias="eye" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f441.png">👁️</g-emoji></p>
 <ul>
 <li>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo.h">foo.h</a>
 </li>
 <li>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo_impl.h">foo_impl.h</a>
+</li>
+<li>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo.c">foo.c</a>
 </li>
 <li>
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo-user.c">foo-user.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo-consumer.c">foo-consumer.c</a>
 </li>
 </ul>
 
