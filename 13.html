@@ -80,12 +80,12 @@
 <p>If you want to make sure your code is built following a concrete C version, it
 has two parts:</p>
 <ul>
-<li>you must request the version in your C code</li>
+<li>you must request the C specification version in your C code</li>
 <li>you need an implementation (compiler, linker, ...) that supports the version
 you want</li>
 </ul>
 <h2>
-<a id="user-content-limiting-your-code-to-specific-c-spec-version" class="anchor" href="#limiting-your-code-to-specific-c-spec-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Limiting your code to specific C spec version</h2>
+<a id="user-content-limiting-your-code-to-the-specific-c-spec-version" class="anchor" href="#limiting-your-code-to-the-specific-c-spec-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Limiting your code to the specific C spec version</h2>
 <p>In <a href="http://port70.net/~nsz/c/c89/c89-draft.html" rel="nofollow">C89</a>, there was no
 <code>__STDC_VERSION__</code> macro (note there are two underscores both leading and
 terminating the macro).  In the <a href="http://port70.net/~nsz/c/c89/c94_na1.html" rel="nofollow">Normative Addendum
@@ -103,8 +103,8 @@ with the macro and <code>#ifdef</code> and <code>#error</code> preprocessor dire
 #<span class="pl-k">error</span> "C99 compiler or greater required."
 #<span class="pl-k">endif</span>
 #<span class="pl-k">endif</span></pre></div>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/check-c-version.c">check-c-version.c</a>
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/request-c99.c">request-c99.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/check-c-version.c">check-c-version.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/request-c99.c">request-c99.c</a></p>
 <h2>
 <a id="user-content-compiler-version" class="anchor" href="#compiler-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compiler version</h2>
 <p>In the <a href="https://en.wikipedia.org/wiki/Single_UNIX_Specification#1997:_Single_UNIX_Specification_version_2" rel="nofollow">1997: Single UNIX Specification (SUS) version
@@ -120,9 +120,9 @@ version</a> (as of May, 2020)
 still defines <code>c99</code>.  I expect the future SUS versions with require <code>c11</code> binary
 to support C11 standard.</p>
 <p>TODO: c89 on macOS, gcc -std=c99, c89 on macOS with <code>_Bool</code></p>
-<p>Might be difficult to get the exact compiler version.  The following will
-compiler while <code>//</code> are not part of C89, and moreover, <code>_Bool</code> is not either and
-it does not issue even a warning.</p>
+<p>Might be difficult to get the compiler work as the exact specification version.
+For example, the following will compile while <code>//</code> are not part of C89, and
+moreover, <code>_Bool</code> is not either and it does not issue even a warning.</p>
 <pre><code>janp:air:~$ cat main.c
 int
 main(void)
@@ -130,12 +130,12 @@ main(void)
 	// not in C89
 	_Bool b;
 }
-janp:air:~$ c89 main.c
+$ c89 main.c
 main.c:4:2: warning: // comments are not allowed in this language [-Wcomment]
         // not in C89
         ^
 1 warning generated.
-janp:air:~$ gcc -std=c89 -pedantic main.c
+$ gcc -std=c89 -pedantic main.c
 main.c:4:2: warning: // comments are not allowed in this language [-Wcomment]
         // not in C89
         ^
