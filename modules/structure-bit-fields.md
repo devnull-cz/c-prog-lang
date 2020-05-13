@@ -1,9 +1,9 @@
 # Structure bit fields
 
-- sometimes memory is scarce (imagine having to keep millions of big
-  structures in memory) and there are members holding integer values that occupy
-  just a couple of bytes
-  - bit fields can be used to shrink the memory needed
+- sometimes memory is scarce (imagine having to keep millions of big structures
+  in memory) and there are members holding integer values that occupy just a
+  couple of bytes
+  - *bit fields* can be used to shrink the memory needed
 
 ```C
 struct foo {
@@ -13,24 +13,28 @@ struct foo {
 };
 ```
 
-- the number after the colon specifies the number of bits for given bit field
+- the number after the colon specifies the number of bits for a given bit field
   - cannot exceed the size of the underlying data type (`unsigned int` in the
     above example)
-- cannot use `sizeof` on bitfield
+- you cannot use `sizeof` on a bit field
 
 - this is good for implementing network protocol headers or HW registers,
-  however the layout of bit fields in C structure is implementation dependent
+  however the layout of bit fields in a C structure is implementation dependant
   - if it needs to match a concrete layout, additional non-standard compiler
     features have to be used (`#pragma`'s etc.)
   - there is no `offsetof()` for bit fields
 
-code: #source bitfield.c
+#source bitfield.c
 
 - the integer values will behave as expected, e.g.
 
 ```C
-unsigned int a : 3;
+struct foo_s {
+	unsigned int a : 3;
+} foo;
 
-a = 7;
-a++; // will wraparound to 0 since this is unsigned
+foo.a = 7;
+foo.a++; // will wrap around to 0 since this is unsigned
 ```
+
+#source bitfield-wraparound.c

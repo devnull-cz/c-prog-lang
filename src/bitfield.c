@@ -20,6 +20,4 @@ main(void)
 
 	printf("%x -> %x (%d)\n", a, foo.a, foo.a);
 	printf("%x -> %x (%d)\n", b, foo.b, foo.b);
-
-	return (0);
 }
