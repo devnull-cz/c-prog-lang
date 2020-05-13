@@ -76,6 +76,127 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
+<a id="user-content-building-with-a-specific-c-specification-version" class="anchor" href="#building-with-a-specific-c-specification-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building with a specific C specification version</h1>
+<p>If you want to make sure your code is built following a concrete C version, it
+has two parts:</p>
+<ul>
+<li>you must request the version in your C code</li>
+<li>you need an implementation (compiler, linker, ...) that supports the version
+you want</li>
+</ul>
+<h2>
+<a id="user-content-limiting-your-code-to-specific-c-spec-version" class="anchor" href="#limiting-your-code-to-specific-c-spec-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Limiting your code to specific C spec version</h2>
+<p>In <a href="http://port70.net/~nsz/c/c89/c89-draft.html" rel="nofollow">C89</a>, there was no
+<code>__STDC_VERSION__</code> macro (note there are two underscores both leading and
+terminating the macro).  In the <a href="http://port70.net/~nsz/c/c89/c94_na1.html" rel="nofollow">Normative Addendum
+1</a> for C89 from 1994, the macro was
+defined with a value of <code>199409L</code>.  In the <a href="http://port70.net/~nsz/c/c99/n1256.pdf" rel="nofollow">C99
+specification</a> (there is also a <a href="http://port70.net/~nsz/c/c99/n1256.txt" rel="nofollow">handy
+txt only version</a>, the macro has a value
+of <code>199901L</code>.</p>
+<p>So, if you want your compiler to use a minimal or a specific C version, work
+with the macro and <code>#ifdef</code> and <code>#error</code> preprocessor directives.</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">ifndef</span> __STDC_VERSION__
+#<span class="pl-k">error</span> "__STDC_VERSION__ not defined.  C99 compiler or greater required."
+#<span class="pl-k">else</span>
+#<span class="pl-k">if</span> __STDC_VERSION__ &lt; 199901L
+#<span class="pl-k">error</span> "C99 compiler or greater required."
+#<span class="pl-k">endif</span>
+#<span class="pl-k">endif</span></pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/check-c-version.c">check-c-version.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/request-c99.c">request-c99.c</a></p>
+<h2>
+<a id="user-content-compiler-version" class="anchor" href="#compiler-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compiler version</h2>
+<p>In the <a href="https://en.wikipedia.org/wiki/Single_UNIX_Specification#1997:_Single_UNIX_Specification_version_2" rel="nofollow">1997: Single UNIX Specification (SUS) version
+2</a>,
+with systems supporting that version as UNIX98, the compiler binary supporting
+C89 had to be named <code>c89</code>.  You can <a href="https://pubs.opengroup.org/onlinepubs/7990989775/" rel="nofollow">search SUS ver 2
+here</a>, and type <code>c89</code>.</p>
+<p>In
+<a href="https://en.wikipedia.org/wiki/Single_UNIX_Specification#2004:_POSIX:2004" rel="nofollow">POSIX:2004</a>,
+which is SUS ver 3 with updates, the C compiler binary supporting C99 standard
+had to be named <code>c99</code>.  The <a href="https://pubs.opengroup.org/onlinepubs/9699919799/" rel="nofollow">latest SUS
+version</a> (as of May, 2020)
+still defines <code>c99</code>.  I expect the future SUS versions with require <code>c11</code> binary
+to support C11 standard.</p>
+<p>TODO: c89 on macOS, gcc -std=c99, c89 on macOS with <code>_Bool</code></p>
+<p>Might be difficult to get the exact compiler version.  The following will
+compiler while <code>//</code> are not part of C89, and moreover, <code>_Bool</code> is not either and
+it does not issue even a warning.</p>
+<pre><code>janp:air:~$ cat main.c
+int
+main(void)
+{
+	// not in C89
+	_Bool b;
+}
+janp:air:~$ c89 main.c
+main.c:4:2: warning: // comments are not allowed in this language [-Wcomment]
+        // not in C89
+        ^
+1 warning generated.
+janp:air:~$ gcc -std=c89 -pedantic main.c
+main.c:4:2: warning: // comments are not allowed in this language [-Wcomment]
+        // not in C89
+        ^
+1 warning generated.
+</code></pre>
+<h1>
+<a id="user-content-flexible-array-member" class="anchor" href="#flexible-array-member" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Flexible array member</h1>
+<ul>
+<li>
+<p>since C99 (§6.7.2.1, item 16, page 103)</p>
+</li>
+<li>
+<p>it is an array without a dimension specified that is the last member of the
+structure</p>
+<ul>
+<li>this is handy for structures with a fixed header and "padding" data of
+flexible length that is allocated dynamically</li>
+<li>why not to use a pointer instead ? this is good when passing data over
+boundaries such as network, kernel/userland, etc. since no deep
+structure copy is required
+<ul>
+<li>just copy the structure as whole (it is just necessary to know how
+large it is) because it is all contiguous memory</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>e.g.:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> item {
+	<span class="pl-k">int</span> value;
+	<span class="pl-c"><span class="pl-c">//</span> possible other members</span>
+	<span class="pl-k">char</span> payload[];
+	<span class="pl-c"><span class="pl-c">//</span> nothing can follow</span>
+};</pre></div>
+<ul>
+<li>
+<code>sizeof (struct item)</code> will give the size without the last member computed</li>
+</ul>
+<pre><code>+-------------+-----------------------+
+| struct item |      payload ...      |
++-------------+-----------------------+
+</code></pre>
+<ul>
+<li>previously, this was hacked around using array with 0 members and GCC accepted
+this. Since C99 this can be done properly using this technique.</li>
+<li>the data is allocated like so:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> item *p = malloc(<span class="pl-k">sizeof</span> (<span class="pl-k">struct</span> item) + payload_len * <span class="pl-k">sizeof</span> (p-&gt;payload[<span class="pl-c1">0</span>]));</pre></div>
+<ul>
+<li>with this approach the overall structure alignment might be lost
+<ul>
+<li>i.e. it is necessary to set the payload length according to the size
+of the structure if you want to maintain alignment</li>
+</ul>
+</li>
+</ul>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/flexible-array-member.c">flexible-array-member.c</a></p>
+<h1>
 <a id="user-content-non-transparent-handles-may-cause-issues" class="anchor" href="#non-transparent-handles-may-cause-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Non-transparent handles may cause issues</h1>
 <p>If your library is statelful, the state is often managed by a handle
 used as an argument in the library function calls.  Let's say internally in the
