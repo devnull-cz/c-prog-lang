@@ -150,14 +150,22 @@ be internal to the library):</p>
 it could be some 3rd party software bought by the customer years ago, the debug
 print is now incorrect as it only prints the first 4 bytes of the structure, not
 8.</p>
-<p>To mitigate this, the library provider could use something called <em>incomplete
-types</em> and use them to provide an opaque (transparent) handle.</p>
+<p>There are ways to mitigate that:</p>
+<ul>
+<li>use something non-revealing as a handle, like in index to the internal array
+of structures that keep the states.  That is possible but you now need to
+manage the internal structure that keeps the state structures.  You also
+cannot change the index type unless you recompile all the consumers as well.</li>
+<li>the library provider could use something called <em>incomplete types</em> and use
+them to provide an opaque (transparent) handle.</li>
+</ul>
 <h1>
 <a id="user-content-incomplete-types" class="anchor" href="#incomplete-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Incomplete types</h1>
 <p>An <em>incomplete type</em> is a type that describes an object but lacks information
-needed to determine its size.</p>
+needed to determine its size.  You cannot declare objects using such types as
+the lack of the size prevents to allocated memory for them on the stack or heap.</p>
 <pre><code>$ cat main.c
-struct x a;
+struct x a;	/* declaring a variable using a structure of an unknown size */
 
 int
 main(void)
@@ -178,8 +186,10 @@ struct x a;
 declaring the same structure tag with its defining content later in the same
 scope.  We could only <em>forward declare</em> the structure though (that is, no
 defining any object of that structure type).</p>
+<p>As we do not need to know the size of the <code>x</code> structure, the following code
+compiles.</p>
 <pre><code>$ cat main.c
-struct x;
+struct x;	/* this is called forward declaration */
 
 int
 main(void)
@@ -190,7 +200,20 @@ $ cc main.c
 $ echo $?
 0
 </code></pre>
-<p>BTW, the <code>void</code> type is an incomplete type that can be never completed.</p>
+<p>BTW, the <code>void</code> type is an incomplete type that can be never completed.  So, you
+cannot declare a variable of type <code>void</code>.</p>
+<div class="highlight highlight-source-c"><pre>$ cat main.c
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-k">void</span> x;
+}
+
+$ cc main.c
+main.c:<span class="pl-c1">4</span>:<span class="pl-c1">7</span>: error: variable has incomplete type <span class="pl-s"><span class="pl-pds">'</span>void<span class="pl-pds">'</span></span>
+        <span class="pl-k">void</span> x;
+             ^
+<span class="pl-c1">1</span> error generated.</pre></div>
 <p>However, you can always declare and work with a pointer to an incomplete type
 (all structures are always aligned to the same byte boundary).  The following
 will compile and run fine.</p>
@@ -207,7 +230,10 @@ will compile and run fine.</p>
 {
         <span class="pl-c1">myfn</span>(<span class="pl-c1">NULL</span>);
 }</pre></div>
-<p>This feature of the C language is used to represent opaque handles.</p>
+<p>This feature of the C language can be used to represent opaque handles, and
+those can be used to solve the
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/non-transparent-handles.md">problem with non-transparent handles</a>
+.</p>
 <h1>
 <a id="user-content-opaque-structures-handles" class="anchor" href="#opaque-structures-handles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opaque structures (handles)</h1>
 <p>With the help of incomplete types, it is possible to declare a structure in a
