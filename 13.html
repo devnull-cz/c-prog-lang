@@ -144,58 +144,51 @@ main.c:4:2: warning: // comments are not allowed in this language [-Wcomment]
 <h1>
 <a id="user-content-flexible-array-member" class="anchor" href="#flexible-array-member" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Flexible array member</h1>
 <ul>
-<li>
-<p>since C99 (§6.7.2.1, item 16, page 103)</p>
-</li>
-<li>
-<p>it is an array without a dimension specified that is the last member of the
-structure</p>
+<li>since C99 (§6.7.2.1, item 16, page 103)</li>
+<li>it is an array without a dimension specified as the <strong>last member</strong> of the
+structure
 <ul>
-<li>this is handy for structures with a fixed header and "padding" data of
-flexible length that is allocated dynamically</li>
-<li>why not to use a pointer instead ? this is good when passing data over
-boundaries such as network, kernel/userland, etc. since no deep
-structure copy is required
+<li>handy for structures with a fixed header and some "padding" data of flexible
+length that is allocated dynamically</li>
+<li>why not to use a pointer instead?  It is good when passing data over
+boundaries such as network, kernel/userland, etc. since no structure
+copy is required.
 <ul>
-<li>just copy the structure as whole (it is just necessary to know how
-large it is) because it is all contiguous memory</li>
+<li>just copy the structure as a whole (however, it is necessary to know how
+large is the padding) because it is all contiguous memory</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p>e.g.:</p>
-</li>
+<code>sizeof (the_structure)</code> gives you the size of the structure <strong>as if
+the flexible array was empty</strong>.</li>
 </ul>
+<p>Example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> item {
 	<span class="pl-k">int</span> value;
 	<span class="pl-c"><span class="pl-c">//</span> possible other members</span>
 	<span class="pl-k">char</span> payload[];
 	<span class="pl-c"><span class="pl-c">//</span> nothing can follow</span>
 };</pre></div>
-<ul>
-<li>
-<code>sizeof (struct item)</code> will give the size without the last member computed</li>
-</ul>
+<p><code>sizeof (struct item)</code> will give the size <strong>without the last member computed</strong></p>
 <pre><code>+-------------+-----------------------+
 | struct item |      payload ...      |
 +-------------+-----------------------+
 </code></pre>
-<ul>
-<li>previously, this was hacked around using array with 0 members and GCC accepted
-this. Since C99 this can be done properly using this technique.</li>
-<li>the data is allocated like so:</li>
-</ul>
+<p>Previously, this was hacked around using array with 0 members and GCC accepted
+this.  Since C99 this can be done properly using this technique.</p>
+<p>The extra data is allocated as follows:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> item *p = malloc(<span class="pl-k">sizeof</span> (<span class="pl-k">struct</span> item) + payload_len * <span class="pl-k">sizeof</span> (p-&gt;payload[<span class="pl-c1">0</span>]));</pre></div>
 <ul>
 <li>with this approach the overall structure alignment might be lost
 <ul>
 <li>i.e. it is necessary to set the payload length according to the size
-of the structure if you want to maintain alignment</li>
+of the structure if you want to maintain the alignment</li>
 </ul>
 </li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/flexible-array-member.c">flexible-array-member.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/flexible-array-member.c">flexible-array-member.c</a></p>
 <h1>
 <a id="user-content-non-transparent-handles-may-cause-issues" class="anchor" href="#non-transparent-handles-may-cause-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Non-transparent handles may cause issues</h1>
 <p>If your library is statelful, the state is often managed by a handle
