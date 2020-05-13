@@ -264,7 +264,7 @@ whatever is inside the handle.</p>
 
 <span class="pl-c"><span class="pl-c">/*</span> mylib.c continues <span class="pl-c">*/</span></span>
 <span class="pl-k">enum</span> ml_err
-<span class="pl-en">ml_parse</span>(<span class="pl-k">char</span> *url)
+<span class="pl-en">ml_parse</span>(<span class="pl-k">struct</span> handle *h, <span class="pl-k">char</span> *url)
 {
 	<span class="pl-k">enum</span> ml_err e = ML_OK;
 
@@ -285,7 +285,7 @@ whatever is inside the handle.</p>
 	<span class="pl-k">struct</span> ml_hndl *h;
 
 	h = <span class="pl-c1">ml_init</span>(<span class="pl-k">void</span>);
-	<span class="pl-k">if</span> ((ret = <span class="pl-c1">ml_parse</span>(<span class="pl-s"><span class="pl-pds">"</span>some URI<span class="pl-pds">"</span></span>)) != ML_OK)
+	<span class="pl-k">if</span> ((ret = <span class="pl-c1">ml_parse</span>(h, <span class="pl-s"><span class="pl-pds">"</span>some URI<span class="pl-pds">"</span></span>)) != ML_OK)
 		<span class="pl-c1">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>);
 
 	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
