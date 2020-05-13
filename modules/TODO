@@ -6,9 +6,6 @@
 # that.
 home-assignments/offsetof.md
 
-# On building with a specific C version in mind
-building-with-specific-c-ver.md
-
 # Add a module on when to use size_t and when other integer types.
 #
 # E.g. https://stackoverflow.com/questions/131803/unsigned-int-vs-size-t
@@ -31,5 +28,4 @@ provides  integer  types  withwidths  of  8,  16,  32,  or  64  bits,  no
 padding  bits,  and  (for  the  signed  types)  that  have  atwo’scomplement
 representation, it shall define the corresponding typedef names
 
-#include "modules/flexible-array-member.md"
 #include "modules/structure-bit-fields.md"
