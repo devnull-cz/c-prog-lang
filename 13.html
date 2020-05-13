@@ -190,6 +190,55 @@ of the structure if you want to maintain the alignment</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/flexible-array-member.c">flexible-array-member.c</a></p>
 <h1>
+<a id="user-content-structure-bit-fields" class="anchor" href="#structure-bit-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure bit fields</h1>
+<ul>
+<li>sometimes memory is scarce (imagine having to keep millions of big structures
+in memory) and there are members holding integer values that occupy just a
+couple of bytes
+<ul>
+<li>
+<em>bit fields</em> can be used to shrink the memory needed</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo {
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> a : <span class="pl-c1">3</span>;
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> b : <span class="pl-c1">1</span>;
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span>   : <span class="pl-c1">4</span>;
+};</pre></div>
+<ul>
+<li>
+<p>the number after the colon specifies the number of bits for a given bit field</p>
+<ul>
+<li>cannot exceed the size of the underlying data type (<code>unsigned int</code> in the
+above example)</li>
+</ul>
+</li>
+<li>
+<p>you cannot use <code>sizeof</code> on a bit field</p>
+</li>
+<li>
+<p>this is good for implementing network protocol headers or HW registers,
+however the layout of bit fields in a C structure is implementation dependant</p>
+<ul>
+<li>if it needs to match a concrete layout, additional non-standard compiler
+features have to be used (<code>#pragma</code>'s etc.)</li>
+<li>there is no <code>offsetof()</code> for bit fields</li>
+</ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitfield.c">bitfield.c</a></p>
+<ul>
+<li>the integer values will behave as expected, e.g.</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> a : <span class="pl-c1">3</span>;
+} foo;
+
+foo.a = <span class="pl-c1">7</span>;
+foo.a++; <span class="pl-c"><span class="pl-c">//</span> will wrap around to 0 since this is unsigned</span></pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitfield-wraparound.c">bitfield-wraparound.c</a></p>
+<h1>
 <a id="user-content-non-transparent-handles-may-cause-issues" class="anchor" href="#non-transparent-handles-may-cause-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Non-transparent handles may cause issues</h1>
 <p>If your library is statelful, the state is often managed by a handle
 used as an argument in the library function calls.  Let's say internally in the
