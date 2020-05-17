@@ -19,8 +19,11 @@ err:
 }
 ```
 
-In general, use of goto is generally frown upon unless it is used to jump to an
-error/clean-up section.  Consider the following code:
+In general, use of `goto` in C is generally frown upon unless it is used to jump
+to an error/clean-up section.  Even that is questioned by many but large number
+of major projects (Linux kernel code, OpenSSH, OpenSSL, etc.) use it that way.
+Consider the following code **with conditionals that do not nest**.  It leads to
+code duplication (or large amount of indentation to fix that):
 
 ```C
 int
@@ -93,6 +96,11 @@ The good thing is that you clean-up at one common place.  If there is something
 new that needs to be cleaned up after the code is enhanced, you add it to the
 clean-up section.  In the former example, you would have to check all error
 paths and add it there one by one.
+
+We definitely support reasonable use of `goto` for the clean-up.  If used
+wisely it leads to cleaner code and saves lots of intentation.  Also note that
+the `break` statement is a jump as well, and imagine how to structure your code
+without it.
 
 Also note that "any statement may be **preceded** by... a label".  As `case` is
 a label as well (only valid within the `switch` statement though), you cannot
