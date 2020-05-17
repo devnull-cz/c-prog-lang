@@ -1,7 +1,7 @@
 # `goto` statement
 
 Any statement may be preceded by a prefix that declares an identifier as a label
-name.  Labels by themself do not alter the flow of control.
+name.  Labels by themselves do not alter the flow of control.
 
 Within the same function, you can jump to a label via the *goto* statement.
 
