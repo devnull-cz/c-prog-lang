@@ -30,7 +30,7 @@ of indentation to fix that):
 int
 myfn(void)
 {
-	/* declarations */
+	/* declarations ommited */
 
 	if ((p = malloc(16)) == NULL)
 		return (1);
@@ -67,7 +67,8 @@ With the conservative use of `goto`, we can simplify the code as follows:
 int
 myfn(void)
 {
-	/* declarations */
+	/* declarations ommited */
+
 	int ret = 1;
 
 	if ((p = malloc(16)) == NULL)
