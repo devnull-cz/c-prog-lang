@@ -92,10 +92,10 @@ err:
 	return (ret);
 }
 
-The good thing is that you clean-up at one common place.  If there is something
-new that needs to be cleaned up after the code is enhanced, you add it to the
-clean-up section.  In the former example, you would have to check all error
-paths and add it there one by one.
+The good thing is that you clean up at one common place, at the end of the
+function.  If there is something new that needs to be cleaned up after the code
+is enhanced, you just add it to the clean-up section.  In the former example,
+you would have to check all error paths and modify those one by one.
 
 We definitely support reasonable use of `goto` for the clean-up.  If used
 wisely it leads to cleaner code and saves lots of intentation.  Also note that
