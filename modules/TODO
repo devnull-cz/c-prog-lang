@@ -1,5 +1,8 @@
 # Modules we still need to use in 2020
 
+# Looks like we did not do a section on goto.  Here it is for the next year.
+goto.md
+
 # When bit operations are introduced, use src/cast-intptr.c as it uses ^
 
 # Before using this, add the C99 specification paragraph number that allows
