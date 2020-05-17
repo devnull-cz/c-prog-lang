@@ -58,6 +58,7 @@ myfn(void)
 	/* ... */
 	return (0);
 }
+```
 
 With the conservative use of `goto`, we can simplify the code as follows:
 
@@ -91,6 +92,7 @@ err:
 	free(p);
 	return (ret);
 }
+```
 
 The good thing is that you clean up at one common place, at the end of the
 function.  If there is something new that needs to be cleaned up after the code
