@@ -3,6 +3,13 @@
 # Looks like we did not do a section on goto.  Here it is for the next year.
 goto.md
 
+# Need to say more on std functions for string operations
+# - mention inherently insecure gets()
+# - limitations of strncpy()/strncat() - cause of strlcpy()/strlcat()
+# - off-by one errors
+# - CERT C coding standard
+# ...
+
 # When bit operations are introduced, use src/cast-intptr.c as it uses ^
 
 # Before using this, add the C99 specification paragraph number that allows
