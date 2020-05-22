@@ -10,6 +10,10 @@ goto.md
 # - CERT C coding standard
 # ...
 
+# task: find out efficiently if array of unsigned chars is all 0s
+#       - cast to uint64_t, use XOR, go in multiplies of sizeof (uint64_t)
+#	  until the end, check the rest of bytes
+
 # When bit operations are introduced, use src/cast-intptr.c as it uses ^
 
 # Before using this, add the C99 specification paragraph number that allows
