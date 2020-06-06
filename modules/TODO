@@ -29,6 +29,7 @@ The size_t type is the unsigned integer type that is the result of the sizeof
 operator (and the offsetof operator), so it is guaranteed to be big enough to
 contain the size of the biggest object your system can handle (e.g., a static
 array of 8Gb).
+# also add an idea to use 'u' for an unsigned integer in for
 
 # Related to the int/size_t discussion above, make a new module for uint32_t et
 # al.  It is in the spec as part of stdint.h.
@@ -45,3 +46,20 @@ representation, it shall define the corresponding typedef names
 # Tohle nemáme, ale měli bychom mít
 strncmp
 snprintf
+
+# go through the chapter 2 of the Expert C programming
+#
+# sins of commision
+- add a module on what to watch when using a switch
+	- adding labels allowed
+	- default != defau1t
+- in an existing switch module, say that the break should have been the default
+  behavior in the C design, and why
+- add a note to an existing module on concatenating string literals where this
+  feature may get you in trouble (the Crayon example)
+- add to a module on static/extern functions that static should have been the
+  default (and why)
+# sins of omission
+TBD
+# sins of mission
+TBD
