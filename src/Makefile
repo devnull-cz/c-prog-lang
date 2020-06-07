@@ -4,8 +4,8 @@
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=c99
 
 ifeq ($(CC),cc)
-CC_VERSION=$(shell cc --version | head -1 | cut -d" " -f1 )
-ifeq ($(CC_VERSION),clang)
+CC_VERSION=$(shell cc --version | head -1)
+ifeq (clang,$(findstring clang,$(CC_VERSION)))
 CC=clang
 else
 CC=gcc
