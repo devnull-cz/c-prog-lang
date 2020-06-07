@@ -2,6 +2,9 @@
 # have such an environment, either figure it out or log in to a Linux machine at
 # the Mala Strana lab.  See http://mff.devnull.cz/c-prog-lang/ for more details.
 
+# At least 2 GiB space in temporary directory used by the tests is needed to run
+# the tests.
+
 # Before running the tests via "./run-tests.sh", you need to set the "STEF"
 # variable in your shell to the "stef.sh" script.  Get it here:
 # https://github.com/devnull-cz/stef
