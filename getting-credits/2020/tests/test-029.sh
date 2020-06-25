@@ -43,3 +43,5 @@ echo "$output" | sed -e "s/^[a-zA-Z0-9/.]*$base: /mytar: /"
 typeset -i act_size=$(ls -sk $big_name | cut -f1 -d " ")
 ((exp_size != act_size)) && \
     { echo "File sizes differ: $exp_size $act_size" >&2 && exit 1; }
+
+exit 0
