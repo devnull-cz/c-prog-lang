@@ -1,0 +1,22 @@
+name: Run mytar tests
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - getting-credits/2020/**
+    - .github/workflows/mytar.yml
+jobs:
+  job1:
+    name: GNU tar on Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout master branch
+      uses: actions/checkout@v2
+    - name: Checkout stef
+      uses: actions/checkout@v2
+      with:
+        repository: devnull-cz/stef
+	path: stef
+    - name: Run the tests
+      run: ./dev/mytar.sh
