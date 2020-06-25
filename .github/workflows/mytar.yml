@@ -17,6 +17,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: devnull-cz/stef
-	path: stef
+        path: stef
     - name: Run the tests
       run: ./dev/mytar.sh
