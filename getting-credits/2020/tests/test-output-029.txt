@@ -1,4 +1,2 @@
-./
-./gig-file
-./
-./gig-file
+gig-file
+gig-file
