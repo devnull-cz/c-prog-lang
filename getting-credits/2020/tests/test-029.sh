@@ -21,7 +21,7 @@ dd if=/dev/urandom of=$bigfile bs=1024 count=$count >/dev/null 2>&1
 
 # create
 outfile=$tmp_path/big.tar
-output=$($GNUTAR -c -v -f $outfile . 2>&1)
+output=$($GNUTAR -c -v -f $outfile * 2>&1)
 typeset -i ret=$?
 ((ret == 0)) || { echo "Wrong GNU tar return value $ret." >&2 && exit 1; }
 echo "$output" | sed -e "s/^[a-zA-Z0-9/.]*$base: /mytar: /"

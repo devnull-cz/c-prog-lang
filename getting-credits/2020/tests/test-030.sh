@@ -23,7 +23,7 @@ done
 
 # Create the archive.
 outfile=$tmp_path/out.tar
-output=$($GNUTAR -c -v -f $outfile . 2>&1)
+output=$($GNUTAR -c -v -f $outfile * 2>&1)
 typeset -i ret=$?
 ((ret == 0)) || { echo "Wrong GNU tar return value $ret." >&2 && exit 1; }
 echo "$output" | sed -e "s/^[a-zA-Z0-9/.]*$base: /mytar: /"
