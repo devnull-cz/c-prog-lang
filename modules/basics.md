@@ -13,7 +13,7 @@
 #module freestanding-environment.md freestanding environment
           if interested.  It is out of scope for this seminar though.
 
-- string literals: #source printf.c
+- string literals (AKA string constants): #source printf.c
 
 - use the `return` operator to return a function value
 	- in the `main()` funtion, return exits the program
