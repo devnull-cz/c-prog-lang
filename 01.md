@@ -18,6 +18,8 @@
 	- fast, very portable
 		- however, now at the expense of having very complex compilers
 		  (see e.g. https://queue.acm.org/detail.cfm?id=3212479)
+	- battle proven
+	- great cost/benefit ratio wrt spent time learning the language
 	- still cool and fun
 - objectives of the seminar
 	- you should be able to write and understand non-trivial C code (we
