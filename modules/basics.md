@@ -22,8 +22,8 @@
 	- only the least significant byte taken as an unsigned integer (0-255)
 	  is relevant
 	- #source return.c
-	- if you do not use return from main() and the ending `}` is reached, the
-	  program returns 0 (in C89 it would be a random number though).
+	- if you do not use return from main() and the ending `}` is reached,
+	  the program returns 0 (in C89 it would be a random number though).
 
 - you must declare a variable before you can use it
 	- :eyes: #source declaration.c
@@ -34,16 +34,18 @@
 	- see `man 3 printf` for the gory details
 	- number of conversions must match the number of arguments
 		- :eyes: #source printf2.c
-		- the compiler will warn you but it will let you do it (use
-		  `-Werror` to treat warnings as errors)
+		- the compiler may or may not warn you but it will let you do it
+		  (use `-Werror` to treat warnings as errors).  With `gcc`, use
+		  the `-Wall` option to show all warnings.
 		- it will print garbage for conversions without a matching
-		  argument (whatever is on the stack is printed).
+		  argument -- whatever is on the stack (x86 32 bit) or in a
+		  specific register (x86 64 bit) is printed.
 
 - you can declare and initialize a variable at the same time
 	- `int i = 13;`
 	- `13` is called an *initializer*
-	- you can initialize a variable with an expression as well
-		- `int i = 13; int j = i;`
+	- you can initialize a variable with another variable, and so on
+		- `int i = 13; int j = i; int k = i + j;`
 
 - arithmetics
 	- `==` is for equality, `=` for an assignment
@@ -95,4 +97,5 @@
 		- see the printf(3) man page for details
 
 - :wrench: print fahrenheit to centigrade table.  Use floats.
+	- the formula to convert F to C is: (F - 32) × 5/9.  E.g. 72F is 22.22C.
 	- :eyes: #source fahr-to-cent.c

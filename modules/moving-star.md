@@ -12,10 +12,13 @@
    *	- printf()
    *	- use a character '\r' to return to the beginning of a line
    *
-   *	- use "poll(NULL, 0, <ms>)" to sleep <ms> miliseconds, do not worry
+   *	- use "poll(NULL, 0, <ms>);" to sleep <ms> miliseconds, do not worry
    *	  about not understanding what exactly it does.  To make the compiler
    *	  not complain, use "#include <poll.h>".  Alternatively, you can use
-   *	  "sleep(1)" (#include <unistd.h>) but it is too slow then.
+   *	  "sleep(1)" (#include <unistd.h>) but it is too slow then.  For
+   *	  example:
+   *
+   *		poll(NULL, 0, 50);
    *
    *    - you will also need "fflush(stdout)" after each line is printed.  As
    *      standard error is buffered in the C library, the text will generally
@@ -23,7 +26,8 @@
    *      never be the case here. So, the fflush() call makes sure all buffered
    *      text is printed out.
    *
-   * We expect something like this:
+   * We expect something like this, with the star moving between those two
+   * column-like barriers:
    *
    * |                                            *     |
    */
