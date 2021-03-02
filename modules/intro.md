@@ -1,13 +1,13 @@
 # Introduction
 
 - all information on http://mff.devnull.cz/c-prog-lang
-	- see the References section for materials
+	- see the References section for recommended materials
 - make sure you DO SUBSCRIBE TO THE MAILING LIST (see the seminar http page
   above)
-- getting credits - see the seminar page
+- getting credits - see the seminar web page above
 - what is C
-- C89, C99, C11 (ie. 2011) standards.  Due to time constraints, we will focus on
-  C99.
+- C89, C99, C11 (ie. 2011), C17 (only fixes issues found in C11) standards.  Due
+  to time constraints, we will focus on C99.
 - why it's worth to learn C
 	- helps with better understanding of computers
 	- lingua franca of programming
