@@ -4,16 +4,17 @@
 int
 main(void)
 {
-	int i = 1, n = 10;
+	int i = 1;
+	int cm;
 
 	printf("Inches\tCentimeters\n");
-	while (i < n) {
-		int cm;
-
+	while (i < 10) {
 		cm = i * 2.54;
+		/*
+		 * You can try to place "i * 2.54" instead of cm to see what
+		 * happens.
+		 */
 		printf("%d\t%d\n", i, cm);
 		++i;
 	}
-
-	return (0);
 }
