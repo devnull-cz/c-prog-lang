@@ -195,8 +195,8 @@ is relevant</li>
 <li>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/return.c">return.c</a>
 </li>
-<li>if you do not use return from main() and the ending <code>}</code> is reached, the
-program returns 0 (in C89 it would be a random number though).</li>
+<li>if you do not use return from main() and the ending <code>}</code> is reached,
+the program returns 0 (in C89 it would be a random number though).</li>
 </ul>
 </li>
 <li>
@@ -223,10 +223,12 @@ program returns 0 (in C89 it would be a random number though).</li>
 <li>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/printf2.c">printf2.c</a>
 </li>
-<li>the compiler will warn you but it will let you do it (use
-<code>-Werror</code> to treat warnings as errors)</li>
+<li>the compiler may or may not warn you but it will let you do it
+(use <code>-Werror</code> to treat warnings as errors).  With <code>gcc</code>, use
+the <code>-Wall</code> option to show all warnings.</li>
 <li>it will print garbage for conversions without a matching
-argument (whatever is on the stack is printed).</li>
+argument -- whatever is on the stack (x86 32 bit) or in a
+specific register (x86 64 bit) is printed.</li>
 </ul>
 </li>
 </ul>
@@ -238,9 +240,9 @@ argument (whatever is on the stack is printed).</li>
 <li>
 <code>13</code> is called an <em>initializer</em>
 </li>
-<li>you can initialize a variable with an expression as well
+<li>you can initialize a variable with another variable, and so on
 <ul>
-<li><code>int i = 13; int j = i;</code></li>
+<li><code>int i = 13; int j = i; int k = i + j;</code></li>
 </ul>
 </li>
 </ul>
@@ -352,6 +354,7 @@ expression</p>
 <li>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> print fahrenheit to centigrade table.  Use floats.</p>
 <ul>
+<li>the formula to convert F to C is: (F - 32) × 5/9.  E.g. 72F is 22.22C.</li>
 <li>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fahr-to-cent.c">fahr-to-cent.c</a>
 </li>
@@ -371,10 +374,13 @@ expression</p>
    *	- printf()
    *	- use a character '\r' to return to the beginning of a line
    *
-   *	- use "poll(NULL, 0, &lt;ms&gt;)" to sleep &lt;ms&gt; miliseconds, do not worry
+   *	- use "poll(NULL, 0, &lt;ms&gt;);" to sleep &lt;ms&gt; miliseconds, do not worry
    *	  about not understanding what exactly it does.  To make the compiler
    *	  not complain, use "#include &lt;poll.h&gt;".  Alternatively, you can use
-   *	  "sleep(1)" (#include &lt;unistd.h&gt;) but it is too slow then.
+   *	  "sleep(1)" (#include &lt;unistd.h&gt;) but it is too slow then.  For
+   *	  example:
+   *
+   *		poll(NULL, 0, 50);
    *
    *    - you will also need "fflush(stdout)" after each line is printed.  As
    *      standard error is buffered in the C library, the text will generally
@@ -382,7 +388,8 @@ expression</p>
    *      never be the case here. So, the fflush() call makes sure all buffered
    *      text is printed out.
    *
-   * We expect something like this:
+   * We expect something like this, with the star moving between those two
+   * column-like barriers:
    *
    * |                                            *     |
    */
