@@ -2,6 +2,9 @@
 #
 # Expand markdown files (particularly includes)
 #
+# Assumes:
+#   - the 'master' branch checkout out in directory 'master'
+#
 
 set -e
 set -x
@@ -22,5 +25,5 @@ for jsonfile in input/$year/*.json; do
 done
 
 # copy the generated files to temporary area
-mkdir /tmp/notes
-cp $lecture_dirname/*.md /tmp/notes
+mkdir -p /tmp/notes/$year
+cp $lecture_dirname/*.md /tmp/notes/$year
