@@ -11,7 +11,7 @@ set -e
 set -x
 
 cd notes
-year=$( ls -1 | sort -n | tail -1 )
+year=$( ls -1 /tmp/notes | sort -n | tail -1 )
 cp /tmp/notes/$year/*.md .
 git add -f *.md
 
