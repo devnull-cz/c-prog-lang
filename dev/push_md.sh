@@ -12,7 +12,7 @@ set -x
 
 cd notes
 year=$( ls -1 /tmp/notes | sort -n | tail -1 )
-mkdir $year
+mkdir -p $year
 cd $year
 cp /tmp/notes/$year/*.md .
 git add -f *.md
