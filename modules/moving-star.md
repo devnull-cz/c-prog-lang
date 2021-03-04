@@ -32,3 +32,6 @@
    * |                                            *     |
    */
 ```
+
+When you have a working solution, you can check out our code at
+`src/moving-star.c`.
