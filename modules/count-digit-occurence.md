@@ -2,7 +2,8 @@
 
 If unsure about the behavior, compile our solution and run it.
 
-- count occurence of each 0-9 digit.  Only use what we have learned so far.
+- read characters until EOF. count occurence of each 0-9 digit.
+  Only use what we have learned so far.
   You end up with longer code than otherwise necessary but that is OK.
 
 ```
