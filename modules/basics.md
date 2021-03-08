@@ -26,14 +26,14 @@
 	  the program returns 0 (in C89 it would be a random number though).
 
 - you must declare a variable before you can use it
-	- :eyes: #source declaration.c
+	- #source declaration.c
 
 - `printf()` can use *conversion specifications*, each starts with `%`
 	- `int i; printf("%d\n", i);`
 		- a character like `d` is called a *conversion specifier*
 	- see `man 3 printf` for the gory details
 	- number of conversions must match the number of arguments
-		- :eyes: #source printf2.c
+		- #source printf2.c
 		- the compiler may or may not warn you but it will let you do it
 		  (use `-Werror` to treat warnings as errors).  With `gcc`, use
 		  the `-Wall` option to show all warnings.
@@ -59,7 +59,7 @@
 		  then print `14`
 		- `++i` is an expression, not a variable, so you cannot assign to it
 			- this will not compile: `++i = 13;`
-	- :eyes: #source arithmetics.c
+	- #source arithmetics.c
 
 - save for an assignment, anywhere you can use a variable, you can use an
   expression
@@ -71,18 +71,18 @@
 	- `printf("%d\n", 9 / 5)` will print `1`
 
 - while loop
-	- :eyes: #source while.c
+	- #source while.c
 
 - if statement
-	- :eyes: #source if.c
+	- #source if.c
 
 - floating point numbers
-	- :eyes: #source float.c
+	- #source float.c
 	- see the optional minimum field width and precision
 	- experiment!!!
 
 - :wrench: print out a table for inch to centimeter conversion
-	- :eyes: #source inches-to-cm.c
+	- #source inches-to-cm.c
 	- use "\t" escape sequence for printf to print tabelators
 	- like this:
 	```C
@@ -90,7 +90,7 @@
 	```
 
 - :wrench: use floats for the conversion code
-	- :eyes: #source inches-to-cm2.c
+	- #source inches-to-cm2.c
 		- '\t' in a string will print a tab
 		- `6` is the minimum field width 
 		- `.2` is the precision
@@ -98,4 +98,4 @@
 
 - :wrench: print fahrenheit to centigrade table.  Use floats.
 	- the formula to convert F to C is: (F - 32) × 5/9.  E.g. 72F is 22.22C.
-	- :eyes: #source fahr-to-cent.c
+	- #source fahr-to-cent.c
