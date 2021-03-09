@@ -11,7 +11,7 @@ expressions, function calls, sizeof, assignments, and ternary expressions.
 http://en.cppreference.com/w/c/language/expressions
 
 In C99, an expression can produce results (2+2 gets 4) or generate side effects
-(printf("foo") sends a string literal to the standard output).
+(`printf("foo")` sends a string literal to the standard output).
 
 code: #source expression-statement.c
 
