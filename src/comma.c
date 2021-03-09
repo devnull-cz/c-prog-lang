@@ -7,5 +7,5 @@ main(void)
 		i++;
 	}
 
-	return (++i, i);
+	return (++i, i);  // the parens are there just for style
 }
