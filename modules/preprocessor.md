@@ -23,7 +23,8 @@
     - can be used e.g. for debug code:
       ```C
       #ifdef DEBUG
-      ... // here can be anything: statements, variable declarations/definitions, function definitions, ... (where valid)
+      ... // here can be anything (where valid):
+          // statements, variable declarations/definitions, function definitions, ...
       #endif
       ```
       - then the compiler can be run with `-DDEBUG` to enable the code
