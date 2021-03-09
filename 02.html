@@ -198,7 +198,12 @@ have to, as those are things of the past century.</li>
 <code>#if</code>, <code>#ifdef</code>, <code>#ifndef</code>, <code>#else</code>, <code>#endif</code>
 </li>
 <li>also useful for header guards (to avoid including same header file
-multiple times)</li>
+multiple times)
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">ifndef</span> FOO_H
+#<span class="pl-k">define</span> <span class="pl-en">FOO_H</span>
+...
+#<span class="pl-k">endif</span></pre></div>
+</li>
 </ul>
 </li>
 <li>use parens for <code>#define</code> to prevent problems with macro expansion
