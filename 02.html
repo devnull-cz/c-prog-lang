@@ -204,11 +204,22 @@ multiple times)
 ...
 #<span class="pl-k">endif</span></pre></div>
 </li>
+<li>can be used e.g. for debug code:
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">ifdef</span> DEBUG
+... <span class="pl-c"><span class="pl-c">//</span> here can be anything: statements, function definitions, ...</span>
+#<span class="pl-k">endif</span></pre></div>
+<ul>
+<li>then the compiler can be run with <code>-DDEBUG</code> to enable the code</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>use parens for <code>#define</code> to prevent problems with macro expansion
 <ul>
 <li><code>#define	X	(1 + 1)</code></li>
+<li>same for more complicated macros:
+<code>#define MUL(a, b)  ((a) * (b))</code>
+</li>
 </ul>
 </li>
 </ul>
