@@ -179,9 +179,28 @@ have to, as those are things of the past century.</li>
 <h1>
 <a id="user-content-preprocessor" class="anchor" href="#preprocessor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preprocessor</h1>
 <ul>
-<li>defines</li>
-<li>includes</li>
-<li>conditional compilation</li>
+<li>defines:
+<ul>
+<li>basic defines: <code>#define FOO</code> or <code>#define FOO 1</code>
+</li>
+</ul>
+</li>
+<li>includes:
+<ul>
+<li>
+<code>#include &lt;foo/bar.h&gt;</code> or <code>#include "foo.h"</code>
+</li>
+</ul>
+</li>
+<li>conditional compilation:
+<ul>
+<li>
+<code>#if</code>, <code>#ifdef</code>, <code>#ifndef</code>, <code>#else</code>, <code>#endif</code>
+</li>
+<li>also useful for header guards (to avoid including same header file
+multiple times)</li>
+</ul>
+</li>
 <li>use parens for <code>#define</code> to prevent problems with macro expansion
 <ul>
 <li><code>#define	X	(1 + 1)</code></li>
