@@ -196,6 +196,14 @@ have to, as those are things of the past century.</li>
 <ul>
 <li>
 <code>#if</code>, <code>#ifdef</code>, <code>#ifndef</code>, <code>#else</code>, <code>#endif</code>
+<ul>
+<li>
+<code>#if</code> can be used with expressions:
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">if</span> MY_VERS &gt;= 42
+...
+#<span class="pl-k">endif</span></pre></div>
+</li>
+</ul>
 </li>
 <li>also useful for header guards (to avoid including same header file
 multiple times)
