@@ -8,6 +8,12 @@
     - `#if`, `#ifdef`, `#ifndef`, `#else`, `#endif`
     - also useful for header guards (to avoid including same header file
       multiple times)
+      ```C
+      #ifndef FOO_H
+      #define FOO_H
+      ...
+      #endif
+      ```
   - use parens for `#define` to prevent problems with macro expansion
     - `#define	X	(1 + 1)`
 
