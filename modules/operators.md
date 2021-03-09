@@ -1,4 +1,4 @@
-# Operators
+# Basic operators
 
 - equality is `==` since a single `=` is an assignment operator
 
