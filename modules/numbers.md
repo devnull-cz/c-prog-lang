@@ -1,7 +1,7 @@
 # Numbers and types
 
-- 1, 7, 20000 are always integers of type `int` **if they fit** (the range is
-  [-2^31, 2^31 - 1] on 32/64 bit CPUs)
+- for example, the 1, 7, 20000 integer literals are always integers of type `int`
+  **if they fit** (the range is [-2^31, 2^31 - 1] on 32/64 bit CPUs)
 - Hexadecimal numbers start with `0x` or `0X`.  Eg. `0xFF`, `0Xaa`, `0x13f`,
   etc.
 - Octal numbers start with `0`.  Eg. `010` is 8 in decimal.  Also remember the
