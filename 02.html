@@ -241,20 +241,6 @@ the <code>-E</code> option of the compiler.</p>
 </li>
 </ul>
 <h1>
-<a id="user-content-comma-operator" class="anchor" href="#comma-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>comma operator</h1>
-<p>Useful to perform expression evaluations in one place. The first part is evaluated, then the second part.
-The result of the expression is the result of the second part, e.g.:</p>
-<pre><code>while (a = 3, b &lt; 10) {
-...
-}
-</code></pre>
-<p>The cycle will be controlled by the boolean result of the second expression.</p>
-<p>This is not limited just to 2 expressions.</p>
-<p>Note that the comma used in variable declaration (<code>int a, b = 3;</code>) or function
-call is not comma operator.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> what will be returned ? <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/comma.c">comma.c</a></p>
-<p>This is handy for cycle control expressions.</p>
-<h1>
 <a id="user-content-expressions" class="anchor" href="#expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expressions</h1>
 <ul>
 <li>
@@ -280,6 +266,20 @@ printf("%d\n", 100 == 101);
 	...
 }
 </code></pre>
+<h1>
+<a id="user-content-comma-operator" class="anchor" href="#comma-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>comma operator</h1>
+<p>Useful to perform expression evaluations in one place. The first part is evaluated, then the second part.
+The result of the expression is the result of the second part, e.g.:</p>
+<pre><code>while (a = 3, b &lt; 10) {
+...
+}
+</code></pre>
+<p>The cycle will be controlled by the boolean result of the second expression.</p>
+<p>This is not limited just to 2 expressions.</p>
+<p>Note that the comma used in variable declaration (<code>int a, b = 3;</code>) or function
+call is not comma operator.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> what will be returned ? <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/comma.c">comma.c</a></p>
+<p>This is handy for cycle control expressions.</p>
 <h1>
 <a id="user-content-the-break-statement" class="anchor" href="#the-break-statement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>break</code> statement</h1>
 <ul>
