@@ -6,6 +6,12 @@
     - `#include <foo/bar.h>` or `#include "foo.h"`
   - conditional compilation:
     - `#if`, `#ifdef`, `#ifndef`, `#else`, `#endif`
+      - `#if` can be used with expressions:
+        ```C
+        #if MY_VERS >= 42
+        ...
+        #endif
+        ```
     - also useful for header guards (to avoid including same header file
       multiple times)
       ```C
