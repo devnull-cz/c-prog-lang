@@ -14,8 +14,17 @@
       ...
       #endif
       ```
+    - can be used e.g. for debug code:
+      ```C
+      #ifdef DEBUG
+      ... // here can be anything: statements, function definitions, ...
+      #endif
+      ```
+      - then the compiler can be run with `-DDEBUG` to enable the code
   - use parens for `#define` to prevent problems with macro expansion
     - `#define	X	(1 + 1)`
+    - same for more complicated macros:
+      `#define MUL(a, b)  ((a) * (b))`
 
 To see the result of running preprocessor on your code, use `cpp` or
 the `-E` option of the compiler.
