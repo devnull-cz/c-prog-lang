@@ -49,3 +49,5 @@ Ell	Inches	Centimeters
 29	1305	3314.70
 30	1350	3429.00
 ```
+
+solution: #source ell-in-cm.c
