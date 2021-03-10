@@ -3,12 +3,13 @@
 int
 main(void)
 {
-	int x, i = 4;  // not comma operator !
+	int x = 1, i = 4;  // not comma operator !
 
 	while (x = 10, printf("foo\n"), i < 6) {
-		i++;
+		i += x;
 	}
 
 	return (++i, i);	// the parens are there just for style
 				// what if you change ++i to i++ ?
+				// what if you change this to (x, ++i, i) ?
 }
