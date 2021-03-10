@@ -51,3 +51,7 @@ printf("%zu\n", sizeof (c + 1));
 printf("%zu\n", sizeof (+c));
 // --> 4
 ```
+
+The `sizeof` operator is usually evaluated during compilation time however
+this is not universally true (for Variable Length Arrays (VLAs) it has to
+happen during runtime. The VLAs will be explained later).
