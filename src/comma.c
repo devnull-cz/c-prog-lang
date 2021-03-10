@@ -3,9 +3,9 @@
 int
 main(void)
 {
-	int x = 1, i = 4;  // not comma operator !
+	int x, i = 4;  // not comma operator !
 
-	while (x = 10, printf("foo\n"), i < 6) {
+	while (x = 1, printf("foo\n"), i < 6) {
 		i += x;
 	}
 
