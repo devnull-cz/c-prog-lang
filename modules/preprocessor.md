@@ -33,6 +33,8 @@
     - same for more complicated macros:
       `#define MUL(a, b)  ((a) * (b))`
 
+#source mul.c
+
 To see the result of running preprocessor on your code, use `cpp` or
 the `-E` option of the compiler.
 
