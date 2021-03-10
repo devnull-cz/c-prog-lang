@@ -2,6 +2,7 @@
 
 - the `sizeof` operator computes the byte size of its argument which is an
   expression or a type
+  - this is not a function so you can use it without parens: `sizeof foo`
   - its type is `size_t` which is an unsigned integer according to the
     standard.  However, the implementation (= compiler) can choose whether
     it's an `unsigned int`, an `unsigned long int`, or an `unsigned long long
