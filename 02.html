@@ -542,6 +542,8 @@ in string constants and in character constants.</li>
 <li>the <code>sizeof</code> operator computes the byte size of its argument which is an
 expression or a type
 <ul>
+<li>this is not a function so you can use it without parens: <code>sizeof foo</code>
+</li>
 <li>its type is <code>size_t</code> which is an unsigned integer according to the
 standard.  However, the implementation (= compiler) can choose whether
 it's an <code>unsigned int</code>, an <code>unsigned long int</code>, or an <code>unsigned long long int</code>.</li>
@@ -585,6 +587,9 @@ why the following is gonna print <code>1 4 4</code>:</li>
 <span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span>
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (+c));
 <span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
+<p>The <code>sizeof</code> operator is usually evaluated during compilation time however
+this is not universally true (for Variable Length Arrays (VLAs) it has to
+happen during runtime. The VLAs will be explained later).</p>
 <h1>
 <a id="user-content-integer-literals" class="anchor" href="#integer-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer Literals</h1>
 <ul>
