@@ -1,4 +1,4 @@
-Print conversion table for https://en.wikipedia.org/wiki/Ell (rope length
+Print conversion table for [Ell](https://en.wikipedia.org/wiki/Ell) (rope length
 used by Frodo and Sam in The Lord of the Rings had some 30 ells) to inches
 and centimeters, i.e. table with 3 columns separated by tabs.
 
