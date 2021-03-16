@@ -29,7 +29,9 @@ gdb ./a.out
 
   - or Ctrl-D
 
-- to get the core file, the system limit for core file may need to be bumped
+- to get the core file, the system limit for core file may need to be bumped.
+  Also note that different systems have different ways of how they process core
+  files.
 
 ```
 ulimit -c 1000000
