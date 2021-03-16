@@ -16,8 +16,8 @@ printf("%zu\n", sizeof (13));
 ```
 
 - the expression within the `sizeof` operator is **never** executed (the
-  compiler should warn you about such code).  Only the size in bytes needed to
-  store the value if evaluated is returned.
+  compiler should warn you about such code).  **Only the size in bytes needed to
+  store the value if evaluated is returned.**
 
 ```C
 int i = 1;
