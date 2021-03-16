@@ -16,9 +16,9 @@
 
 - if you use a larger number than fits within a byte as an argument for the `%c`
   conversion, the higher bits are trimmed.  The rule here is that the `int`
-  argument is converted to `unsigned char` (not just `char`!), then printed as a
-  character (= letter).  More on integer conversion in upcoming lectures.  See
-  also
+  argument is converted within `printf` to `unsigned char` (not just `char`!),
+  then printed as a character (= letter).  More on integer conversion in
+  upcoming lectures.  See also
 #module numbers.md Numbers
   on why you never pass a `char` nor `short` to a variadic function.
 	- also note the existence of `h` and `hh` modifiers.  See the printf()
