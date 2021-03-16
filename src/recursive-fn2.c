@@ -8,8 +8,8 @@ myfn(int depth)
 {
 	printf("%d\n", depth);
 	/*
-	 * Also try to remove ';' after return, compile, and explain what you
-	 * see.
+	 * Also try to remove ';' after the return operator (do not change
+	 * anything else), then compile, execute, and explain what you see.
 	 */
 	if (depth == 0)
 		return;
