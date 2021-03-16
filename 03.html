@@ -264,13 +264,6 @@ computing <code>sizeof(a[0])</code> as the expression is not evaluated (see
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/sizeof.md">the sizeof operator</a>
 ), the compiler only uses the argument to determine the size.</p>
 <h1>
-<a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
-<p>Note that home assignments are entirely voluntary but writing code is the only
-way to learn a programming language.</p>
-<p>Write a simple program on counting
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/count-digit-occurence.md">the digit occurence</a>
-as in the last class but now use an array for counting the figures.</p>
-<h1>
 <a id="user-content-function-introduction" class="anchor" href="#function-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function introduction</h1>
 <p>Functions can be used to encapsulate some work, for code re-factoring, etc.</p>
 <p>A function has a single return value and multiple input parameters.</p>
@@ -394,64 +387,6 @@ stack.</p>
 </pre></div>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Print 9..0 using a recursive function.</p>
 <p>solution <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/recursive-fn2.c">recursive-fn2.c</a></p>
-<h1>
-<a id="user-content-wrench-home-assignment-1" class="anchor" href="#wrench-home-assignment-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
-<p>Note that home assignments are entirely voluntary but writing code is the only
-way to learn a programming language.</p>
-<h2>
-<a id="user-content-wrench-count-digits-white-space-characters-and-the-rest" class="anchor" href="#wrench-count-digits-white-space-characters-and-the-rest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Count digits, white space characters, and the rest</h2>
-<p>Print total number of (decimal) numbers, white space (tab, space, newline) and
-anything else from the input.  <strong>I.e. the program prints out three numbers.</strong></p>
-<p>Obviously, reuse code you wrote for digit occurence counting:
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/count-digit-occurence.md">count-digit-occurence.md</a></p>
-<ul>
-<li>write the program using direct comparisons like this:</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>c &gt;= <span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; c &lt;= <span class="pl-s"><span class="pl-pds">'</span>9<span class="pl-pds">'</span></span>
-c == <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> || c == <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\t</span><span class="pl-pds">'</span></span> || c == <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span></pre></div>
-<ul>
-<li>put both the checks into separate functions</li>
-<li>then write a new version of the program and use:
-- use <code>isspace</code>() from C99
-<ul>
-<li>
-<code>isdigit</code>() vs <code>isnumber</code>() - the latter detects digits + possibly
-more characters (depending on locale setting)</li>
-</ul>
-</li>
-</ul>
-<h2>
-<a id="user-content-wrench-count-letter-occurrence" class="anchor" href="#wrench-count-letter-occurrence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Count letter occurrence</h2>
-<ul>
-<li>
-<p>count occurrences of all ASCII letters on standard input and print out
-a histogram</p>
-</li>
-<li>
-<p>this will be case insensitive (i.e. implement <code>mytolower(int)</code> first)</p>
-</li>
-<li>
-<p>the output will look like this:</p>
-</li>
-</ul>
-<pre><code>$ cat /some/file | ./a.out
-a: ***
-b: *
-c: *****************************
-...
-z: *******
-$
-</code></pre>
-<ul>
-<li>use a function to print a specific number of stars</li>
-<li>use a function to do all the printing</li>
-<li>declare array(s) to be as efficient as possible
-<ul>
-<li>that is, having the lowest possible size</li>
-<li>only use global variables if necessary</li>
-</ul>
-</li>
-</ul>
 <h1>
 <a id="user-content-arrays-and-functions" class="anchor" href="#arrays-and-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arrays and functions</h1>
 <p>Arrays in C are not a first class object, rather it is a composition of
@@ -736,6 +671,69 @@ more details.</p>
 <p>You probably do not want <a href="https://upload.wikimedia.org/wikipedia/commons/3/30/AMD_x86-64_Architecture_Programmers_Manuals.jpg" rel="nofollow">all the gory
 details</a>
 though...</p>
+<h1>
+<a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
+<p>Note that home assignments are entirely voluntary but writing code is the only
+way to learn a programming language.</p>
+<h2>
+<a id="user-content-wrench-count-digit-occurrence-use-arrays" class="anchor" href="#wrench-count-digit-occurrence-use-arrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Count digit occurrence (use arrays)</h2>
+<p>Write a simple program on counting
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/count-digit-occurence.md">the digit occurence</a>
+as in one of the previous classes but now use an array for counting the figures.</p>
+<h2>
+<a id="user-content-wrench-count-digits-white-space-characters-and-the-rest" class="anchor" href="#wrench-count-digits-white-space-characters-and-the-rest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Count digits, white space characters, and the rest</h2>
+<p>Print total number of (decimal) numbers, white space (tab, space, newline) and
+anything else from the input.  <strong>I.e. the program prints out three numbers.</strong></p>
+<p>Obviously, reuse code you wrote for digit occurence counting:
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/count-digit-occurence.md">count-digit-occurence.md</a></p>
+<ul>
+<li>write the program using direct comparisons like this:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>c &gt;= <span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; c &lt;= <span class="pl-s"><span class="pl-pds">'</span>9<span class="pl-pds">'</span></span>
+c == <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> || c == <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\t</span><span class="pl-pds">'</span></span> || c == <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span></pre></div>
+<ul>
+<li>put both the checks into separate functions</li>
+<li>then write a new version of the program and use:
+- use <code>isspace</code>() from C99
+<ul>
+<li>
+<code>isdigit</code>() vs <code>isnumber</code>() - the latter detects digits + possibly
+more characters (depending on locale setting)</li>
+</ul>
+</li>
+</ul>
+<h2>
+<a id="user-content-wrench-count-letter-occurrence" class="anchor" href="#wrench-count-letter-occurrence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Count letter occurrence</h2>
+<ul>
+<li>
+<p>count occurrences of all ASCII letters on standard input and print out
+a histogram</p>
+</li>
+<li>
+<p>this will be case insensitive (i.e. implement <code>mytolower(int)</code> first)</p>
+</li>
+<li>
+<p>the output will look like this:</p>
+</li>
+</ul>
+<pre><code>$ cat /some/file | ./a.out
+a: ***
+b: *
+c: *****************************
+...
+z: *******
+$
+</code></pre>
+<ul>
+<li>use a function to print a specific number of stars</li>
+<li>use a function to do all the printing</li>
+<li>declare array(s) to be as efficient as possible
+<ul>
+<li>that is, having the lowest possible size</li>
+<li>only use global variables if necessary</li>
+</ul>
+</li>
+</ul>
 
               </article>
             </div>
