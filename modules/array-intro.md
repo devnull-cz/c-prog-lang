@@ -86,6 +86,9 @@ One-off error (using index 1024)... OK
 Assigning to index 4096... Segmentation Fault
 ```
 
+You can also try to locate where it crashed.  For more information, see
+#module debugger.md some info on debugging.
+
 You do not need to initialize all elements.  With such type of an
 initialization, you always start from subscript `0`, and there are no gaps:
 
