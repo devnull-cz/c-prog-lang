@@ -660,16 +660,18 @@ function.</p>
 <h1>
 <a id="user-content-getchar" class="anchor" href="#getchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getchar()</h1>
 <ul>
-<li>getchar() function reads one character from the process standard input and
-returns its value as an integer.
+<li>
+<code>getchar</code> function reads one character from the process standard input and
+returns its value as an <code>int</code>.
 <ul>
 <li>when it reaches end of input (for example, by pressing <code>Ctrl-D</code> in the
 terminal), it returns <code>EOF</code>
 </li>
 <li>
-<code>EOF</code> is a define, usually set as -1.  That is why getchar() returns
+<code>EOF</code> is a define, usually set as <code>-1</code>.  That is why <code>getchar</code> returns
 an <code>int</code> instead of a <code>char</code> as it needs an extra value for <code>EOF</code>.</li>
-<li>getchar() needs <code>#include &lt;stdio.h&gt;</code>
+<li>
+<code>getchar</code> needs <code>#include &lt;stdio.h&gt;</code>
 </li>
 <li>you can verify that [<code>EOF</code> is part of <code>&lt;stdio&gt;</code>]
 (<a href="https://pubs.opengroup.org/onlinepubs/9699919799/" rel="nofollow">https://pubs.opengroup.org/onlinepubs/9699919799/</a>)</li>
@@ -694,9 +696,9 @@ value.  So, you can do this:</li>
 <div class="highlight highlight-source-c"><pre>	c = getchar();
 	<span class="pl-k">if</span> (c == EOF)
 		<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
-<p>However, do NOT abuse it as you may create a hard to read code.  Note the
-parentheses around the assignment.  The "=" operator has lower priority than the
-"==" operator.  If the parens are not used, the following would happen:</p>
+<p>However, do <strong>not</strong> abuse it as you may create a hard to read code.  Note the
+parentheses around the assignment.  The <code>=</code> operator has lower priority than the
+<code>==</code> operator.  If the parens are not used, the following would happen:</p>
 <p><code>if (c = getchar() == EOF)</code> would be evaluated as:</p>
 <p><code>if (c = (getchar() == EOF))</code>, meaning that "c" would be either 0 or 1
 based on whether we read a character or the terminal input is
