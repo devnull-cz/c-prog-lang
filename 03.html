@@ -276,13 +276,13 @@ as in the last class but now use an array for counting the figures.</p>
 <p>A function has a single return value and multiple input parameters.</p>
 <ul>
 <li>if you also need to extract an error code with the value or get multiple
-return values that needs to be done via passing data via reference (more on
+return values, that needs to be done via passing data via reference (more on
 that when we have pointers)</li>
-<li>i.e. this is not like Go that returns the error along with the data</li>
+<li>i.e. this is not like Go that returns an error along with the data</li>
 </ul>
-<p>A function <em>declaration</em> is only declaring the API without its body.  It is
-called a <em>function prototype</em> and it consists of a type, a function name, and an
-argument list in parentheses:</p>
+<p>A function <em>declaration</em> is only declaring the API without its body.  In C, it
+is called a <em>function prototype</em> and it consists of a type, a function name, and
+an argument list in parentheses.  For example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">digit</span>(<span class="pl-k">int</span> c);
 <span class="pl-k">int</span> <span class="pl-en">space</span>(<span class="pl-k">int</span> c);
 <span class="pl-k">float</span> <span class="pl-en">myfun</span>(<span class="pl-k">int</span> c, <span class="pl-k">int</span> i, <span class="pl-k">float</span> f);</pre></div>
@@ -294,7 +294,11 @@ function).</p>
 	<span class="pl-k">return</span> (<span class="pl-c1">1000</span>);
 }</pre></div>
 <p>Also as with the <code>main</code> function, you can use <code>void</code> instead of the argument
-list to say the function accepts no arguments.</p>
+list to say the function accepts no arguments.  You could just use <code>()</code> to
+indicate the function has no arguments but that is an old way of doing things
+and in that case the compiler will not verify the number of arguments when
+calling the function (you can check it out for yourself).  So, always use
+<code>(void)</code> if the function has no arguments.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">void</span>
 <span class="pl-en">hola</span>(<span class="pl-k">void</span>)
 {
