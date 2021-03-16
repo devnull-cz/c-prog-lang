@@ -179,6 +179,8 @@ Number of array elements: 1024
 One-off error (using index 1024)... OK
 Assigning to index 4096... Segmentation Fault
 </code></pre>
+<p>You can also try to locate where it crashed.  For more information, see
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/debugger.md">some info on debugging.</a></p>
 <p>You do not need to initialize all elements.  With such type of an
 initialization, you always start from subscript <code>0</code>, and there are no gaps:</p>
 <div class="highlight highlight-source-c"><pre>  <span class="pl-k">short</span> array[<span class="pl-c1">4</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };</pre></div>
