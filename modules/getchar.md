@@ -1,12 +1,12 @@
 # getchar()
 
-- getchar() function reads one character from the process standard input and
+- `getchar` function reads one character from the process standard input and
   returns its value as an integer.
 	- when it reaches end of input (for example, by pressing `Ctrl-D` in the
 	  terminal), it returns `EOF`
-	- `EOF` is a define, usually set as -1.  That is why getchar() returns
+	- `EOF` is a define, usually set as -1.  That is why `getchar` returns
 	  an `int` instead of a `char` as it needs an extra value for `EOF`.
-	- getchar() needs `#include <stdio.h>`
+	- `getchar` needs `#include <stdio.h>`
 	- you can verify that [`EOF` is part of `<stdio>`]
 	(https://pubs.opengroup.org/onlinepubs/9699919799/)
 
