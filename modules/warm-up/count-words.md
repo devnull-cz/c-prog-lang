@@ -1,3 +1,5 @@
+# Warm-up: count words
+
 Print out number of words read from the standard input.  Ideally, use your
 `getchar`() based code from your repository to start with.
 
