@@ -184,8 +184,9 @@ $ ./a.out
 0
 ```
 
-Even if a compiler supports an empty array declaration, `sizeof() /
+Even if a compiler supports an empty array declaration, `sizeof(a) /
 sizeof(a[0])` construction is always correct to compute a number of array
-elements.  Plus, the compiler does not do any array access when computing
-sizeof(a[0]) as the expression is not evaluated (see lecture 02 on the `sizeof`
-operator), the compiler only uses the argument to determine the size.
+elements.  Plus, remember the compiler does not do any array access when
+computing `sizeof(a[0])` as the expression is not evaluated (see
+#module sizeof.md the sizeof operator
+), the compiler only uses the argument to determine the size.
