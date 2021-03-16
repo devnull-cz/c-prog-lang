@@ -505,6 +505,7 @@ per-char init and try to print the string ?</p>
 <p>Let's look at the following code.  Obviously, the function does not return its
 value while it definitely should have.  What happens if we use the function
 return value anyway?</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/why-does-it-work.c">why-does-it-work.c</a></p>
 <div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
 
 <span class="pl-k">int</span>
@@ -519,7 +520,7 @@ return value anyway?</p>
         <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">addnum</span>(<span class="pl-c1">1</span>, <span class="pl-c1">99</span>));
 }</pre></div>
 <p>It simply cannot work, right?  <strong>Oh, wait..., it does!?!</strong></p>
-<pre><code>$ cc main.c
+<pre><code>$ cc why-does-it-work.c
 $ ./a.out 
 100
 </code></pre>
@@ -550,7 +551,7 @@ purpose <strong>eax</strong> register</li>
 </ul>
 <p>Let's compile the code and disassemble it.  All we need are the <code>main</code> and
 <code>addnum</code> function.  See my notes inline.</p>
-<pre><code>$ cc main.c
+<pre><code>$ cc why-does-it-work.c
 $ objdump -d a.out
 ...
 &lt;removed non-relevant stuff&gt;
