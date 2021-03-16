@@ -13,7 +13,12 @@ main(void)
 
 	a[0] = 1;	// this is undefined behavior
 
-	/* Note that the compiler does not access the element at all. */
+	/*
+	 * Note that the compiler does not access the element at all as the
+	 * expression of the sizeof operator is never evaluated, the only thing
+	 * computed is how many bytes does the expression value occupy if
+	 * evaluated.
+	 */
 	printf("%zu\n", sizeof (a[0]));
 	/* This should correctly return 0 */
 	printf("%zu\n", sizeof (a));
