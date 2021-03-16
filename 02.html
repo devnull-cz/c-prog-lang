@@ -388,7 +388,7 @@ either <code>-m32</code> or <code>-m64</code> options)
 </li>
 <li>
 <p>see also <em>5.2.4.2 Numerical limits</em>
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C spec</a>
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C spec.</a>
 For example, <code>int</code> must be at least 4 bytes but the C spec does not prevent it
 from being 8 bytes in the future.</p>
 </li>
@@ -406,8 +406,9 @@ even if <code>char</code> is signed:</p>
 <a id="user-content-signedness" class="anchor" href="#signedness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Signedness</h2>
 <ul>
 <li>each integer type has a <code>signed</code> and <code>unsigned</code> variant.  By default, the
-numeric types are signed aside from char which depends on the implementation.
-If you need an unsigned type, use <code>unsigned</code> reserved word.</li>
+numeric types are signed aside from char which depends on the implementation
+(of the C compiler).  If you need an unsigned type, use <code>unsigned</code> reserved
+word.</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>  <span class="pl-k">signed</span> <span class="pl-k">int</span>;
   <span class="pl-k">unsigned</span> <span class="pl-k">int</span>;
@@ -575,7 +576,7 @@ store the value if evaluated is returned.</li>
 <span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
 <ul>
 <li>we will get there later in semester but if you are bored, try to figure out
-why the following is gonna print <code>1 4 4</code>:</li>
+why the following is going to print <code>1 4 4</code>:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> c;
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (c));
@@ -608,9 +609,9 @@ happen during runtime. The VLAs will be explained later).</p>
 <ul>
 <li>if you use a larger number than fits within a byte as an argument for the <code>%c</code>
 conversion, the higher bits are trimmed.  The rule here is that the <code>int</code>
-argument is converted to <code>unsigned char</code> (not just <code>char</code>!), then printed as a
-character (= letter).  More on integer conversion in upcoming lectures.  See
-also
+argument is converted within <code>printf</code> to <code>unsigned char</code> (not just <code>char</code>!),
+then printed as a character (= letter).  More on integer conversion in
+upcoming lectures.  See also
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/numbers.md">Numbers</a>
 on why you never pass a <code>char</code> nor <code>short</code> to a variadic function.
 <ul>
