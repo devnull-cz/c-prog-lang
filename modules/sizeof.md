@@ -41,7 +41,7 @@ sizeof (1LL);
 ```
 
 - we will get there later in semester but if you are bored, try to figure out
-  why the following is gonna print `1 4 4`:
+  why the following is going to print `1 4 4`:
 
 ```C
 char c;

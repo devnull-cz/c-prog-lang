@@ -59,7 +59,7 @@ Bus Error (core dumped)
 
 #source bus-error.c
 
-Now see the following code and figure out what is gonna happen.
+Now see the following code and figure out what is going to happen.
 :wrench: #source ptr-cast.c
 
 Note that `void *` is a special pointer that cannot be dereferenced.  You can

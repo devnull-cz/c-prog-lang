@@ -401,7 +401,7 @@ printf("%c\n", 321);
 printf("%c\n", -191);
 ```
 
-Also check the following code and try to figure out what is gonna be printed
+Also check the following code and try to figure out what is goingto be printed
 before actually building and executing the code:
 
 #source int-promotion.c
