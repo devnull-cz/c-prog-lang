@@ -28,7 +28,8 @@
     either `-m32` or `-m64` options)
     - use `file` to display the information about the binary
 
-- see also *5.2.4.2 Numerical limits* [in the C spec](/modules/c99-standard.md).
+- see also *5.2.4.2 Numerical limits*
+#module c99-standard.md in the C spec
   For example, `int` must be at least 4 bytes but the C spec does not prevent it
   from being 8 bytes in the future.
 
