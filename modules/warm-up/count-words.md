@@ -3,7 +3,9 @@
 Print out number of words read from the standard input.  Ideally, use your
 `getchar` based code from your repository to start with.
 
-**Always try to reuse code you have already written!**
+**Always try to reuse code you have already written!**  Then do not forget to
+upload it to your
+#module scm.md source code management repository.
 
 A *word* is defined as a group of any characters surrounded by whitespace
 characters.  For our case these white space characters will suffice: a
