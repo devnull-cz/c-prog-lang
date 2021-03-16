@@ -23,9 +23,5 @@ foo(int n)
 int
 main(void)
 {
-	int n = 4;
-
-	foo(n);
-
-	return (0);
+	foo(4);
 }
