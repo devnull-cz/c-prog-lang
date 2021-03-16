@@ -554,8 +554,9 @@ right way to do it:</li>
 <span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
 <ul>
 <li>the expression within the <code>sizeof</code> operator is <strong>never</strong> executed (the
-compiler should warn you about such code).  Only the size in bytes needed to
-store the value if evaluated is returned.</li>
+compiler should warn you about such code).  <strong>Only the size in bytes needed to
+store the value if evaluated is returned.</strong>
+</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">1</span>;
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (i = i + <span class="pl-c1">1</span>));

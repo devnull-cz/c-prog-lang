@@ -258,10 +258,11 @@ $ ./a.out
 4
 0
 </code></pre>
-<p>Even if a compiler supports an empty array declaration, <code>sizeof() / sizeof(a[0])</code> construction is always correct to compute a number of array
-elements.  Plus, the compiler does not do any array access when computing
-sizeof(a[0]) as the expression is not evaluated (see lecture 02 on the <code>sizeof</code>
-operator), the compiler only uses the argument to determine the size.</p>
+<p>Even if a compiler supports an empty array declaration, <code>sizeof(a) / sizeof(a[0])</code> construction is always correct to compute a number of array
+elements.  Plus, remember the compiler does not do any array access when
+computing <code>sizeof(a[0])</code> as the expression is not evaluated (see
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/sizeof.md">the sizeof operator</a>
+), the compiler only uses the argument to determine the size.</p>
 <h1>
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
