@@ -1,4 +1,4 @@
-# Why does it work?
+# Why it works?
 
 Let's look at the following code.  Obviously, the function does not return its
 value while it definitely should have.  What happens if we use the function
