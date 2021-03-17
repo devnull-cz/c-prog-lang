@@ -52,6 +52,7 @@ $(OBJDIR)/compound-statement-invalid.o: CFLAGS_EXTRA=\
 	-Wno-gnu-statement-expression -Wno-pedantic
 $(OBJDIR)/ptr-inc.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
 $(OBJDIR)/no-return.o: CFLAGS_EXTRA=-Wno-return-type
+$(OBJDIR)/why-it-works.o: CFLAGS_EXTRA=-Wno-return-type -Wno-unused-variable
 $(OBJDIR)/array-designated-initializers.o: CFLAGS_EXTRA=-Wno-gnu-designator \
 	-Wno-pedantic
 $(OBJDIR)/ptr-to-array-of-ptrs.o: CFLAGS_EXTRA=-Wno-format-pedantic \
