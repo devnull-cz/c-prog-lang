@@ -4,7 +4,7 @@ Let's look at the following code.  Obviously, the function does not return its
 value while it definitely should have.  What happens if we use the function
 return value anyway?
 
-#source why-does-it-work.c
+#source why-it-works.c
 
 ```C	
 #include <stdio.h>
@@ -25,7 +25,7 @@ main(void)
 It simply cannot work, right?  **Oh, wait..., it does!?!**
 
 ```
-$ cc why-does-it-work.c
+$ cc why-it-works.c
 $ ./a.out 
 100
 ```
@@ -54,7 +54,7 @@ Let's compile the code and disassemble it.  All we need are the `main` and
 `addnum` function.  See my notes inline.
 
 ```
-$ cc why-does-it-work.c
+$ cc why-it-works.c
 $ objdump -d a.out
 ...
 <removed non-relevant stuff>
