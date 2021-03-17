@@ -4,9 +4,9 @@
 int
 main(void)
 {
-	int word = 0;
-	int cnt = 0;
 	int c;
+	int cnt = 0;
+	int word = 0;
 
 	while ((c = getchar()) != EOF) {
 		/* Use library function (hence the ctype.h include above) */
@@ -21,6 +21,4 @@ main(void)
 	}
 
 	printf("cnt = %d\n", cnt);
-
-	return (0);
 }
