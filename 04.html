@@ -79,6 +79,52 @@
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <p>Topics: strlen, ternary operator, arithmetic type conversions, negative numbers,
 integer overflows, compiler warning options</p>
+<h2>
+<a id="user-content-wrench-toupper" class="anchor" href="#wrench-toupper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> toupper</h2>
+<p>rewrite the
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/toupper.md">convert small characters to upper case</a>
+program from last time using a function.</p>
+<p>solution: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper.c">toupper.c</a></p>
+<h3>
+<a id="user-content-implementation-notes" class="anchor" href="#implementation-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>implementation notes</h3>
+<ul>
+<li>there is a <code>toupper()</code> library function from C99 so use <code>mytoupper()</code>
+<ul>
+<li>what happens if the program defines <code>int toupper(int)</code> ? (the symbol in <code>libc</code> is <em>weak</em> so it works)</li>
+</ul>
+</li>
+</ul>
+<h3>
+<a id="user-content-variant-do-this-via-lookup-table---array" class="anchor" href="#variant-do-this-via-lookup-table---array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variant: do this via lookup table - array</h3>
+<ul>
+<li>generate array indexed by <code>a</code>..<code>z</code> (with corresponding values <code>A</code>..<code>Z</code>) in <code>main()</code> and use the array in the <code>mytoupper()</code> function</li>
+<li>arrays passed as function argument are in reality converted to pointers
+(to be introduced later)
+<ul>
+<li>so it is useless to write their size like this:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>         <span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> array[<span class="pl-c1">3</span>]); <span class="pl-c"><span class="pl-c">//</span> see what is the value of sizeof(array) inside the func()</span></pre></div>
+<ul>
+<li>this is better:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>         <span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> array[], <span class="pl-c1">size_t</span> size);</pre></div>
+<ul>
+<li>
+<p>also, if the items in the array are changed in the function,
+they will be changed in the array itself (consequence of pointer
+conversion)</p>
+</li>
+<li>
+<p>what happens if <code>mytoupper(-1)</code> ?</p>
+</li>
+<li>
+<p><code>short</code> is sufficient to store the value:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>    <span class="pl-k">short</span> uppper[] = { <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>, ... };</pre></div>
+<p>solution: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper-table.c">toupper-table.c</a></p>
 <h1>
 <a id="user-content-string-length" class="anchor" href="#string-length" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String length</h1>
 <p>We know that we can use <code>sizeof</code> to get a length of a character array including
@@ -188,52 +234,6 @@ functional languages).</p>
 <ul>
 <li>that said, there are pointers to functions (more on these later)</li>
 </ul>
-<h2>
-<a id="user-content-wrench-toupper" class="anchor" href="#wrench-toupper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> toupper</h2>
-<p>rewrite the
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/toupper.md">convert small characters to upper case</a>
-program from last time using a function.</p>
-<p>solution: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper.c">toupper.c</a></p>
-<h3>
-<a id="user-content-implementation-notes" class="anchor" href="#implementation-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>implementation notes</h3>
-<ul>
-<li>there is a <code>toupper()</code> library function from C99 so use <code>mytoupper()</code>
-<ul>
-<li>what happens if the program defines <code>int toupper(int)</code> ? (the symbol in <code>libc</code> is <em>weak</em> so it works)</li>
-</ul>
-</li>
-</ul>
-<h3>
-<a id="user-content-variant-do-this-via-lookup-table---array" class="anchor" href="#variant-do-this-via-lookup-table---array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>variant: do this via lookup table - array</h3>
-<ul>
-<li>generate array indexed by <code>a</code>..<code>z</code> (with corresponding values <code>A</code>..<code>Z</code>) in <code>main()</code> and use the array in the <code>mytoupper()</code> function</li>
-<li>arrays passed as function argument are in reality converted to pointers
-(to be introduced later)
-<ul>
-<li>so it is useless to write their size like this:</li>
-</ul>
-</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>         <span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> array[<span class="pl-c1">3</span>]); <span class="pl-c"><span class="pl-c">//</span> see what is the value of sizeof(array) inside the func()</span></pre></div>
-<ul>
-<li>this is better:</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>         <span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> array[], <span class="pl-c1">size_t</span> size);</pre></div>
-<ul>
-<li>
-<p>also, if the items in the array are changed in the function,
-they will be changed in the array itself (consequence of pointer
-conversion)</p>
-</li>
-<li>
-<p>what happens if <code>mytoupper(-1)</code> ?</p>
-</li>
-<li>
-<p><code>short</code> is sufficient to store the value:</p>
-</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">short</span> uppper[] = { <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>, ... };</pre></div>
-<p>solution: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper-table.c">toupper-table.c</a></p>
 <h1>
 <a id="user-content-ternary-operator" class="anchor" href="#ternary-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ternary operator</h1>
 <pre><code>    cond ? expr1 : expr 2
