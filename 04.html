@@ -140,6 +140,12 @@ that is the same type as the operator <code>sizeof</code> uses.  So, remember to
 
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Length of <span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>: <span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, s, strlen(s));</pre></div>
 <p>Note that to include a literal <code>"</code> in a string, you just escape it.</p>
+<h2>
+<a id="user-content-checking-empty-string" class="anchor" href="#checking-empty-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Checking empty string</h2>
+<p><code>strlen()</code> can be used to check if string is empty, however if not, it will
+incur performance penalty as it has to go through all the characters.</p>
+<p>Thus, it is better to check just the first character - if it is <code>\0</code> then
+the string is empty.</p>
 <h1>
 <a id="user-content-more-on-functionsarrays" class="anchor" href="#more-on-functionsarrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More on functions/arrays</h1>
 <h2>
