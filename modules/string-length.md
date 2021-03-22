@@ -26,3 +26,5 @@ incur performance penalty as it has to go through all the characters.
 
 Thus, it is better to check just the first character - if it is `\0` then
 the string is empty.
+
+#source string-isempty.c
