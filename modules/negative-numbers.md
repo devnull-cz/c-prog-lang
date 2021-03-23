@@ -52,9 +52,9 @@ The assymetry of the negative/positive interval can lead to the program crashing
 on architectures that detect it. This is consequence of hardware handling rather
 than the language.
 
-  code: #source crashme.c
-    - run with `-INT_MIN` (see limits.h) and -1.  `INT_MIN` is usually
-      -2147483648.
+#source crashme.c
+    - run with `-INT_MIN` (see `limits.h`) and -1.  `INT_MIN` is usually
+      `-2147483648`.
     - works in 64-bit mode as well due to int being passed in 32-bit registers
 
 ```
