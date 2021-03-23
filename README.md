@@ -39,6 +39,14 @@ like this:
 Each of the modules is supposed to be self contained - i.e. no recursive
 includes.
 
+## Tags
+
+| *directory* | *contents* |
+| ------------- |:-------------:|
+| `#source` | adds link to source code in the `src` directory |
+| `#solution` | ditto but with different emoji |
+| `#module` | adds a link to file under the `modules` directory |
+
 ## Modifying lecture notes
 
 See [style.md](/style.md) on the style used.
