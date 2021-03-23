@@ -55,20 +55,6 @@ Some compilers have dropped the support for K&R definitions or will drop soon.
 - #source shadow.c
 #source shadow-block.c
 
-## Variable number of arguments
-
-- functions can have variable number of arguments of different types (more on
-  that later)
-    - the three dots is called *ellipsis*
-```
-void func(fmt, ...);
-```
-
-- the first argument usually describes the rest of arguments in some way
-  - usually it is a format string.  It could possibly be an argument count if
-    they were of the same type however in that case they would probably be
-    passed as an pointer (we will get to pointers in a later class).
-
 ## Function is not object
 
 Like an array, function is not a first class object (i.e. no "functor" like in
