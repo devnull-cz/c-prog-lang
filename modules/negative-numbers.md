@@ -29,7 +29,7 @@ On Unix systems the shell reports the -1 return value as 255 in `echo $?`.  Even
 though the `main()` returns integer (4 bytes), the shell takes just low 8 bits
 and interprets them as unsigned quantity.
 
-  code: #source return-1.c
+#source return-1.c
 
 If long is 8 bytes, and an int 4, then `-1L < 1U` as you might expect.
 
@@ -45,8 +45,8 @@ which is 2^32 - 1 when interpreted as unsigned quantity.
 Just `printf("%u\n", -1)` to see it will print 4294967295 (use the unix/linux
 `bc` command and type `2^32-1` to verify).
 
-  code: #source signed-plus-unsigned.c
-  #source signed-to-unsigned.c
+#source signed-plus-unsigned.c
+#source signed-to-unsigned.c
 
 The assymetry of the negative/positive interval can lead to the program crashing
 on architectures that detect it. This is consequence of hardware handling rather
@@ -73,23 +73,23 @@ than the language.
 	$
 ```
 
-## Quiz 1
+## :wrench: Quiz 1
 
 - what is the result if `0xff` `signed char` and `0xff` `unsigned char` are
   compared using the `==` operator ?
   - write down the hexadecimal representation of the integers corresponding to
     the 2 chars with `printf()`
 
-code: #source int-promotion.c
+#source int-promotion.c
       - note that if the `b` character was defined as `char b` the result might be 1
         because it is up to the compiler to choose whether char will be signed
 	or unsigned.  Usually it is signed though. There are compiler options to
 	specify this, e.g. GCC has `-funsigned-char` and `-fsigned-char`
 
-## Quiz 2
+## :wrench: Quiz 2
 
 Will the program print the whole array ?
   - try to come up with reason of the expected behavior before running the
     program.
 
-  code: :wrench: #source whole-array.c
+#source whole-array.c
