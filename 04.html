@@ -309,8 +309,9 @@ x86 32-bit arithmetics can be much faster than when using 16-bit operands).</p>
 <p><em>Most operations</em> means all binary operators.  A ternary operator as well.  And
 even some unary operators.</p>
 <p><code>sizeof (1)</code> is 4 because 1 is an <code>int</code>.  However, if a number does not fit to an
-<code>int</code>, a higher type will be used.  For example, 4294967296 (2^32) will be stored
-in 8 bytes, and <code>sizeof (4294967296)</code> is 8.</p>
+<code>int</code>, a higher type will be used.  For example, <code>4294967296</code>
+(2^32 = <code>UINT_MAX + 1</code>) will be stored in 8 bytes, so <code>sizeof (4294967296)</code>
+is 8.</p>
 <p>Does it sound confusing?  Do not worry, we will give you specific rules later.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> verify that numbers that do not fit in an <code>int</code> will have a size of 8
 bytes.</p>
