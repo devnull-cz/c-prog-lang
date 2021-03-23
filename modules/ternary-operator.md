@@ -31,7 +31,7 @@ solution: #source toupper-ternary.c
 
 ## :wrench: min/max of 3 integer values
 
-write an expression that returns maximum of 3 integers i,j,k using
+write an expression that returns maximum of 3 integers `i`, `j`, `k` using
 ternary operator
 
   - do not use any macros
