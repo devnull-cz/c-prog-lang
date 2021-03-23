@@ -27,7 +27,7 @@ rewrite the
 program from last time using a function that utilizes the ternary operator
 (single line of code)
 
-solution: #source toupper-ternary.c
+#solution toupper-ternary.c
 
 ## :wrench: min/max of 3 integer values
 
@@ -36,7 +36,7 @@ ternary operator
 
   - do not use any macros
 
-solution: #source 3max.c
+#solution 3max.c
 
 ## quiz
 

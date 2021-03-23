@@ -27,6 +27,15 @@ markdownInclude.registerPlugin({
 });
 
 markdownInclude.registerPlugin({
+	pattern: /#solution .+/gm,
+	replace: function (tag) {
+		var res = tag.split("#solution ");
+		var file = res[1];
+		return res[0] + ':key: [' + file + "](" + SRC_LINK + file + ")";
+	}
+});
+
+markdownInclude.registerPlugin({
 	pattern: /^#module .+/gm,
 	replace: function (tag) {
 		var val = tag.replace("#module ", "");
