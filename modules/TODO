@@ -1,15 +1,3 @@
-# Modules we still need to use in 2020
-
-# Add a module on when to use size_t and when other integer types.
-#
-# E.g. https://stackoverflow.com/questions/131803/unsigned-int-vs-size-t
-#
-# Plus examples on working with file offset (seek, read, write, ...), etc.
-The size_t type is the unsigned integer type that is the result of the sizeof
-operator (and the offsetof operator), so it is guaranteed to be big enough to
-contain the size of the biggest object your system can handle (e.g., a static
-array of 8Gb).
-# also add an idea to use 'u' for an unsigned integer in for
 
 # Related to the int/size_t discussion above, make a new module for uint32_t et
 # al.  It is in the spec as part of stdint.h.
