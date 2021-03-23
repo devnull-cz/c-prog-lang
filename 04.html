@@ -299,8 +299,8 @@ define their own <code>MAX</code>/<code>MIN</code> macros.</li>
 <h1>
 <a id="user-content-arithmetic-type-conversions" class="anchor" href="#arithmetic-type-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arithmetic type conversions</h1>
 <p>In (very) general, if <em>binary</em> operators have operands of different types, the
-"lower" is promoted to "upper".  Eg. if one operand is a <code>long double</code>, the
-other operand is promoted to a <code>long double</code>.</p>
+"lower" is promoted to "upper".  Eg. if one operand is a <code>long double</code>
+and the other is not, the other operand is promoted to a <code>long double</code>.</p>
 <p>What is more, in most operations (for every operator, the spec says what is
 done in this respect), <code>char</code> and <code>short</code> int operands are converted to <code>int</code>s,
 and to <code>unsigned int</code>s if they do not fit in an <code>int</code>.  That conversion is
