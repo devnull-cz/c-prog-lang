@@ -453,6 +453,13 @@ an <code>int</code>?  As you might expect, the byte is just assigned to an <code
 value of the resulted type is converted to the parameter type as in assignment.</p>
 <p>More on that later.  For more information, see 6.9.1 in
 <a href="/modules/c99-standard.md">C99</a></p>
+<p>The order of evaluation of function arguments is unspecified, see 6.5.2.2p10
+in <a href="/modules/c99-standard.md">C99</a>:</p>
+<blockquote>
+<p>The order of evaluation of the function designator, the actual arguments, and
+subexpressions within the actual arguments is unspecified, but there is a
+sequence point before the actual call.</p>
+</blockquote>
 <h1>
 <a id="user-content-compiler-warnings" class="anchor" href="#compiler-warnings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compiler warnings</h1>
 <ul>
