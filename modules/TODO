@@ -1,8 +1,5 @@
 # Modules we still need to use in 2020
 
-# Looks like we did not do a section on goto.  Here it is for the next year.
-goto.md
-
 # Need to say more on std functions for string operations
 # - mention inherently insecure gets()
 # - limitations of strncpy()/strncat() - cause of strlcpy()/strlcat()
