@@ -20,7 +20,9 @@
 
 ## K&R
 
-history: you may still see in very old code: K&R (Kernighan and Ritchie)
+history: you may still see in very old code: K&R
+([Kernighan](https://en.wikipedia.org/wiki/Brian_Kernighan) and
+[Ritchie](https://en.wikipedia.org/wiki/Dennis_Ritchie))
 definition with types of arguments on separate line(s):
 
 ```C
