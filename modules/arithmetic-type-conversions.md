@@ -48,7 +48,7 @@ unsigned.
 The above is called *implicit type conversion*.  There is also *explicit type
 conversion* (called *casting*) which we will deal with later.
 
-I suggest you try these out with `printf("%zu", ...)`.  `%zu` (see "man 3
-printf") matches the return type of the `sizeof` operand.  The exact unsigned
-numeric type of what `sizeof` returns may differ in different implementations so
-`%zu` will work anywhere.
+I suggest you try these out with `printf("%zu", ...)`. The `%zu` format string
+(see the `printf` manual page in section 3 on Unix systems) matches the return
+type of the `sizeof` operand.  The exact unsigned numeric type of what `sizeof`
+returns may differ in different implementations so `%zu` will work anywhere.
