@@ -21,6 +21,8 @@ See [lecture-notes](https://github.com/devnull-cz/c-prog-lang/tree/notes) for no
 | ------------- |:-------------:|
 | `input` | definitions of lectures |
 | `modules` | individual Markdown files |
+| `modules/warm-up` | warm up tasks |
+| `modules/home-assignments` | home work tasks |
 | `src` | C examples |
 
 In the directory `input`, you define each lecture via including individual
