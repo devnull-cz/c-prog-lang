@@ -3,7 +3,7 @@
 - functions can have variable number of arguments of different types (more on
   that later)
     - the three dots is called *ellipsis*
-```
+```C
 void func(fmt, ...);
 ```
 
@@ -20,4 +20,4 @@ void func(fmt, ...);
 - what happens if there is one `int` value passed in between the `ULL`
   arguments ?
 
-:key: solution: #source stdarg.c
+#solution stdarg.c
