@@ -371,7 +371,7 @@ and not just -127 to 127.</p>
 though the <code>main()</code> returns integer (4 bytes), the shell takes just low 8 bits
 and interprets them as unsigned quantity.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/return-1.c">return-1.c</a></p>
-<p>If long is 8 bytes, and an int 4, then <code>-1L &lt; 1U</code> as you might expect.</p>
+<p>If long is 8 bytes, and int 4 bytes, then <code>-1L &lt; 1U</code> is true as you might expect.</p>
 <p>However, <code>-1 &gt; 1U</code> because -1 is promoted to unsigned.  Two's complement
 representation of -1 is (see the paragraph above):</p>
 <pre><code>(1) take absolute value of 1	00000000.00000000.00000000.00000001
@@ -379,7 +379,7 @@ representation of -1 is (see the paragraph above):</p>
 (3) add 1 to get 2's complement	11111111.11111111.11111111.11111111
 </code></pre>
 <p>which is 2^32 - 1 when interpreted as unsigned quantity.</p>
-<p>Just <code>printf("%u\n", -1)</code> to see it will print 4294967295 (use the unix/linux
+<p>Just <code>printf("%u\n", -1)</code> to see it will print <code>4294967295</code> (use the Unix/Linux
 <code>bc</code> command and type <code>2^32-1</code> to verify).</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/signed-plus-unsigned.c">signed-plus-unsigned.c</a>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/signed-to-unsigned.c">signed-to-unsigned.c</a></p>
