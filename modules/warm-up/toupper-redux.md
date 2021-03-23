@@ -9,7 +9,9 @@ program using a function.
 ### implementation notes
 
   - there is a `toupper()` library function from C99 so use `mytoupper()`
-    - what happens if the program defines `int toupper(int)` ? (the symbol in `libc` is *weak* so it works)
+    - what happens if the program defines `int toupper(int)` ?
+      - the symbol in `libc` is
+	[*weak*](https://en.wikipedia.org/wiki/Weak_symbol) so it works
 
 ### variant: do this via lookup table - array
 
