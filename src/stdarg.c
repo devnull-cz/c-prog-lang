@@ -1,5 +1,5 @@
 /*
- * To see the effect, compile with -m32
+ * To see the effect (on x86), compile as 32-bit program.
  */
 
 #include <stdio.h>
