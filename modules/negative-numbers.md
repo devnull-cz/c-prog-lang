@@ -83,7 +83,7 @@ than the language.
   - write down the hexadecimal representation of the integers corresponding to
     the 2 chars with `printf()`
 
-#source int-promotion.c
+#solution int-promotion.c
 
 - note that if the `b` character was defined as `char b` the result might be 1
   because it is up to the compiler to choose whether char will be signed
