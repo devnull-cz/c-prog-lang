@@ -7,9 +7,21 @@ This repository hosts the materials for teaching the [Programming in C class](ht
 
 See [lecture-notes](https://github.com/devnull-cz/c-prog-lang/tree/notes) for notes from individual classes in Markdown format and https://devnull-cz.github.io/c-prog-lang/ for HTML format.
 
-## Modifying lecture notes
+## Branches
 
-See [style.md](/style.md) on the style used.
+| *branch* | *contents* |
+| ------------- |:-------------:|
+| `master` | sources |
+| `notes` | Markdown |
+| `gh-pages` | HTML |
+
+## Directory structure
+
+| *directory* | *contents* |
+| ------------- |:-------------:|
+| `input` | definitions of lectures |
+| `modules` | individual Markdown files |
+| `src` | C examples |
 
 In the directory `input`, you define each lecture via including individual
 modules from the `modules` directory.  For example, `input/2020/01.md` looks
@@ -24,6 +36,10 @@ like this:
 
 Each of the modules is supposed to be self contained - i.e. no recursive
 includes.
+
+## Modifying lecture notes
+
+See [style.md](/style.md) on the style used.
 
 When you push a new changeset to the repo, the github backend will automatically
 process the input files and generates ready to use notes in Markdown in the
