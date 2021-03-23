@@ -20,8 +20,8 @@
 
 ## K&R
 
-history: you may still see in very old code: K&R definition with types of
-arguments on separate line(s):
+history: you may still see in very old code: K&R (Kernighan and Ritchie)
+definition with types of arguments on separate line(s):
 
 ```C
 int
