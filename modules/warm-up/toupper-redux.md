@@ -4,7 +4,7 @@ rewrite the
 #module toupper.md convert small characters to upper case
 program using a function.
 
-solution: #source toupper.c
+#solution toupper.c
 
 ### implementation notes
 
@@ -34,4 +34,4 @@ solution: #source toupper.c
     short uppper[] = { 'A', 'B', ... };
 ```
 
-solution: #source toupper-table.c
+#solution toupper-table.c
