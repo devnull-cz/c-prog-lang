@@ -22,8 +22,9 @@ Does it sound confusing?  Do not worry, we will give you specific rules later.
 :wrench: verify that numbers that do not fit in an `int` will have a size of 8
 bytes.
 
-## Examples (assuming `char c;` declaration);
+## Examples
 
+Aassuming `char c;` declaration:
 - `sizeof (999)` is 4 as "999" is an integer by definition.
 - `sizeof (c)` is 1
 - `sizeof (c + c)` is 4 as `+` is a binary operator and the integer promotion
