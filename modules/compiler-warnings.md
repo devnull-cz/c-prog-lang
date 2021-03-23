@@ -11,7 +11,7 @@
     - `-Wall` catches things like missing return value from a function that
       should return one
 
-      code: #source no-return.c
+      #source no-return.c
 
     - there are many places where a beginner can shoot himself into a foot
       by not knowing the language intricacies.
@@ -19,11 +19,11 @@
 	points. The `-Wsequence-point` that is included in `-Wall` warns about
 	that
 
-      code: #source sequence-point-violation.c
+      #source sequence-point-violation.c
 
   - the `-Wshadow` can catch shadow variables overriding:
 
-    code: #source shadow.c
+    #source shadow.c
     #source shadow-block.c
 
   - all or specific warnings can be turned into errors: `-Werrror` or

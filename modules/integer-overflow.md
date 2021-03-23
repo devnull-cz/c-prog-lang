@@ -9,7 +9,7 @@
     - for unsigned, an overflow always wraps around (modulo power of 2) and is a
       defined behavior.
 
-  code: #source int-overflow.c
+  #source int-overflow.c
   #source unsigned-overflow.c
 
     - use `-fstrict-overflow -Wstrict-overflow` (will become active only for
