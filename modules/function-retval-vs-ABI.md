@@ -1,4 +1,4 @@
-# Why it works?
+# Function return values and ABI
 
 Let's look at the following code.  Obviously, the function does not return its
 value while it definitely should have.  What happens if we use the function
@@ -6,7 +6,7 @@ return value anyway?
 
 #source why-it-works.c
 
-```C	
+```C
 #include <stdio.h>
 
 int
