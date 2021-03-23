@@ -53,9 +53,10 @@ on architectures that detect it. This is consequence of hardware handling rather
 than the language.
 
 #source crashme.c
-    - run with `-INT_MIN` (see `limits.h`) and -1.  `INT_MIN` is usually
-      `-2147483648`.
-    - works in 64-bit mode as well due to int being passed in 32-bit registers
+
+- run with `-INT_MIN` (see `limits.h`) and -1.  `INT_MIN` is usually
+  `-2147483648`.
+- works in 64-bit mode as well due to int being passed in 32-bit registers
 
 ```
 	$ cc -m64 crashme.c
@@ -81,10 +82,11 @@ than the language.
     the 2 chars with `printf()`
 
 #source int-promotion.c
-      - note that if the `b` character was defined as `char b` the result might be 1
-        because it is up to the compiler to choose whether char will be signed
-	or unsigned.  Usually it is signed though. There are compiler options to
-	specify this, e.g. GCC has `-funsigned-char` and `-fsigned-char`
+
+- note that if the `b` character was defined as `char b` the result might be 1
+  because it is up to the compiler to choose whether char will be signed
+  or unsigned.  Usually it is signed though. There are compiler options to
+  specify this, e.g. GCC has `-funsigned-char` and `-fsigned-char`
 
 ## :wrench: Quiz 2
 
