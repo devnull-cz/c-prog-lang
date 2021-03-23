@@ -386,10 +386,12 @@ representation of -1 is (see the paragraph above):</p>
 <p>The assymetry of the negative/positive interval can lead to the program crashing
 on architectures that detect it. This is consequence of hardware handling rather
 than the language.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/crashme.c">crashme.c</a>
-- run with <code>-INT_MIN</code> (see <code>limits.h</code>) and -1.  <code>INT_MIN</code> is usually
-<code>-2147483648</code>.
-- works in 64-bit mode as well due to int being passed in 32-bit registers</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/crashme.c">crashme.c</a></p>
+<ul>
+<li>run with <code>-INT_MIN</code> (see <code>limits.h</code>) and -1.  <code>INT_MIN</code> is usually
+<code>-2147483648</code>.</li>
+<li>works in 64-bit mode as well due to int being passed in 32-bit registers</li>
+</ul>
 <pre><code>	$ cc -m64 crashme.c
 	$ ./a.out 2147483648 -1
 	-2147483648 -1
@@ -416,11 +418,14 @@ the 2 chars with <code>printf()</code>
 </ul>
 </li>
 </ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-promotion.c">int-promotion.c</a>
-- note that if the <code>b</code> character was defined as <code>char b</code> the result might be 1
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-promotion.c">int-promotion.c</a></p>
+<ul>
+<li>note that if the <code>b</code> character was defined as <code>char b</code> the result might be 1
 because it is up to the compiler to choose whether char will be signed
 or unsigned.  Usually it is signed though. There are compiler options to
-specify this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char</code></p>
+specify this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char</code>
+</li>
+</ul>
 <h2>
 <a id="user-content-wrench-quiz-2" class="anchor" href="#wrench-quiz-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Quiz 2</h2>
 <p>Will the program print the whole array ?</p>
@@ -433,7 +438,7 @@ program.</li>
 <a id="user-content-function-arguments" class="anchor" href="#function-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function arguments</h1>
 <p>Say, what happens if you put a <code>char</code> as an argument of a function that accepts
 an <code>int</code>?  As you might expect, the byte is just assigned to an <code>int</code>.</p>
-<p>In general, the expressions passes as arguments are first evaluated, then the
+<p>In general, the expressions passed as arguments are evaluated first, then the
 value of the resulted type is converted to the parameter type as in assignment.</p>
 <p>More on that later.  For more information, see 6.9.1 in
 <a href="/modules/c99-standard.md">C99</a></p>
