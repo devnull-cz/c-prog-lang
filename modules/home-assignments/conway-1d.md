@@ -1,7 +1,8 @@
 ## Conway 1D
 
 write a 1-D implementation of [Conway's game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
-  - use [rule 30](http://mathworld.wolfram.com/Rule30.html) to determine the next
+  - use [rule 30](http://mathworld.wolfram.com/Rule30.html) to determine the
+    state
   - use two arrays (one 2-D and one 1-D) to represent the rules and its
     resulting values
     - there are 8 rules, each has 3 values to compare against and one result
@@ -12,5 +13,5 @@ write a 1-D implementation of [Conway's game of life](https://en.wikipedia.org/w
     - sleep for 1 second between iterations (`unistd.h` is needed for that)
   - each life "tick" will print the line representing the world
   - use functions to refactor the code
-  - once having a working solution, try to rewrite it to be more efficient
+  - once you have a working solution, try to rewrite it to be more efficient
     or elegant (or both)
