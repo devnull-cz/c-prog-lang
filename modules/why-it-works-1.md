@@ -34,7 +34,9 @@ $ ./a.out
 
 Well, I does not really work.  It "works" by accident.  Let's look at it more
 closely.  To establish a common environment, I will be using
-u-pl3.ms.mff.cuni.cz which you all have access to, so that you can try and see.
+the Linux lab at Malá Strana which you all have access to, so that you can try
+and see.
+
 Before I begin, let me give you more information:
 
 - it depends on a system and its version, and a compiler and its version
