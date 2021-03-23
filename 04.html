@@ -90,7 +90,12 @@ program using a function.</p>
 <ul>
 <li>there is a <code>toupper()</code> library function from C99 so use <code>mytoupper()</code>
 <ul>
-<li>what happens if the program defines <code>int toupper(int)</code> ? (the symbol in <code>libc</code> is <em>weak</em> so it works)</li>
+<li>what happens if the program defines <code>int toupper(int)</code> ?
+<ul>
+<li>the symbol in <code>libc</code> is
+<a href="https://en.wikipedia.org/wiki/Weak_symbol" rel="nofollow"><em>weak</em></a> so it works</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
