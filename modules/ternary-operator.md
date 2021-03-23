@@ -38,7 +38,7 @@ ternary operator
 
 #solution 3max.c
 
-## quiz
+## :wrench: quiz
 
 see the code in #source ternary.c
 
