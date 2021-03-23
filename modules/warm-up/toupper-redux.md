@@ -2,7 +2,7 @@
 
 rewrite the
 #module toupper.md convert small characters to upper case
-program from last time using a function.
+program using a function.
 
 solution: #source toupper.c
 
