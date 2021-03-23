@@ -2,7 +2,8 @@
 
 We know that we can use `sizeof` to get a length of a character array including
 the terminating `'\0'` character.  There is a more general way to get a string
-length, function `strlen`().  Note that when we know what pointers are, the
+length, function `strlen()` that returns the number of characters without
+the terminating zero.  Note that when we know what pointers are, the
 existence of the fuction will make more sense.
 
 The function is declared in `<string.h>` and returns a value of type `size_t`,
