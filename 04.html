@@ -386,9 +386,9 @@ representation of -1 is (see the paragraph above):</p>
 <p>The assymetry of the negative/positive interval can lead to the program crashing
 on architectures that detect it. This is consequence of hardware handling rather
 than the language.</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/crashme.c">crashme.c</a>
-- run with <code>-INT_MIN</code> (see limits.h) and -1.  <code>INT_MIN</code> is usually
--2147483648.
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/crashme.c">crashme.c</a>
+- run with <code>-INT_MIN</code> (see <code>limits.h</code>) and -1.  <code>INT_MIN</code> is usually
+<code>-2147483648</code>.
 - works in 64-bit mode as well due to int being passed in 32-bit registers</p>
 <pre><code>	$ cc -m64 crashme.c
 	$ ./a.out 2147483648 -1
@@ -459,7 +459,7 @@ that had to be run separately</p>
 <li>
 <p><code>-Wall</code> catches things like missing return value from a function that
 should return one</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/no-return.c">no-return.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/no-return.c">no-return.c</a></p>
 </li>
 <li>
 <p>there are many places where a beginner can shoot himself into a foot
@@ -469,13 +469,13 @@ by not knowing the language intricacies.</p>
 points. The <code>-Wsequence-point</code> that is included in <code>-Wall</code> warns about
 that</li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/sequence-point-violation.c">sequence-point-violation.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/sequence-point-violation.c">sequence-point-violation.c</a></p>
 </li>
 </ul>
 </li>
 <li>
 <p>the <code>-Wshadow</code> can catch shadow variables overriding:</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow.c">shadow.c</a>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow.c">shadow.c</a>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow-block.c">shadow-block.c</a></p>
 </li>
 <li>
@@ -524,7 +524,7 @@ defined behavior.</li>
 </ul>
 </li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-overflow.c">int-overflow.c</a>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-overflow.c">int-overflow.c</a>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/unsigned-overflow.c">unsigned-overflow.c</a></p>
 <ul>
 <li>use <code>-fstrict-overflow -Wstrict-overflow</code> (will become active only for
@@ -534,8 +534,7 @@ safe side</li>
 </li>
 </ul>
 <h1>
-<a id="user-content-home-assignments-wrench" class="anchor" href="#home-assignments-wrench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Home assignments <g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji>
-</h1>
+<a id="user-content-wrench-home-assignments" class="anchor" href="#wrench-home-assignments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignments</h1>
 <h2>
 <a id="user-content-conway-1d" class="anchor" href="#conway-1d" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conway 1D</h2>
 <p>write a 1-D implementation of <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" rel="nofollow">Conway's game of life</a></p>
