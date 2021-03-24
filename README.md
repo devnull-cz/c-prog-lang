@@ -47,6 +47,8 @@ includes.
 | `#solution` | ditto but with different emoji |
 | `#module` | adds a link to file under the `modules` directory |
 
+In general it is better to use tags on separate line.
+
 ## Modifying lecture notes
 
 See [style.md](/style.md) on the style used.
