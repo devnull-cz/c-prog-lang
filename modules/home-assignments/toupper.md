@@ -29,4 +29,4 @@ Expected output:
 	...
 ```
 
-Solution: #source to-upper.c
+#solution to-upper.c
