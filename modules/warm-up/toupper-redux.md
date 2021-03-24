@@ -1,7 +1,7 @@
 ## :wrench: toupper
 
 rewrite the
-#module toupper.md convert small characters to upper case
+#module home-assignments/toupper.md convert small characters to upper case
 program using a function.
 
 #solution toupper.c
