@@ -308,8 +308,8 @@ define their own <code>MAX</code>/<code>MIN</code> macros.</li>
 "lower" is promoted to "upper".  Eg. if one operand is a <code>long double</code>
 and the other is not, the other operand is promoted to a <code>long double</code>.</p>
 <p>What is more, in most operations (for every operator, the spec says what is
-done in this respect), <code>char</code> and <code>short</code> int operands are converted to <code>int</code>s,
-and to <code>unsigned int</code>s if they do not fit in an <code>int</code>.  That conversion is
+done in this respect), <code>char</code> and <code>short</code> int operands are converted to <code>int</code>,
+and to <code>unsigned int</code> if they do not fit in an <code>int</code>.  That conversion is
 called <em>integer promotion</em>.  This is done to make the language runtime fast (on
 x86 32-bit arithmetics can be much faster than when using 16-bit operands).</p>
 <p><em>Most operations</em> means all binary operators.  A ternary operator as well.  And
