@@ -26,7 +26,7 @@ bytes.
 ## Examples
 
 Aassuming `char c;` declaration:
-- `sizeof (999)` is 4 as "999" is an integer by definition.
+- `sizeof (999)` is 4 as `999` is an `int` by definition.
 - `sizeof (c)` is 1
 - `sizeof (c + c)` is 4 as `+` is a binary operator and the integer promotion
   kicks in
@@ -42,7 +42,7 @@ Aassuming `char c;` declaration:
 - `sizeof (1LL)` will usually be 8 as `long long` is usually 8 bytes.
 
 It gets more interesting if unsigned and signed numbers are involved.  Eg. a
-`signed int` is promoted to an `unsigned int` if one of the operands is
+`signed int` is promoted to an `unsigned int` if one of the `int` operand is
 unsigned.
 
 The above is called *implicit type conversion*.  There is also *explicit type
