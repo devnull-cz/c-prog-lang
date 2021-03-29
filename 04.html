@@ -546,12 +546,15 @@ Over the time you will find a set of warning options that will serve you well.</
 <ul>
 <li>
 <g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> for signed types the behavior is <strong>undefined</strong>!
-I.e. you cannot rely on overflow of a positive quantity in a signed int
-will be turned into a negative number.
-Some compilers will allow to specify the behavior of signed overflows
+I.e. you cannot rely that an overflow of a positive quantity in any signed
+integer will be turned into a negative number.
+<ul>
+<li>Some compilers will allow to choose the behavior of signed overflows
 using special options (<code>-fwrapv</code> for GCC), though.</li>
-<li>for unsigned, an overflow always wraps around (modulo power of 2) and is
-defined behavior.</li>
+</ul>
+</li>
+<li>for unsigned integers, an overflow always wraps around (modulo power of 2)
+as it is defined behavior.</li>
 </ul>
 </li>
 </ul>
@@ -642,7 +645,7 @@ and return <code>false</code> on failure, <code>true</code> on success.</li>
 <ul>
 <li>
 <p>on Unix systems one would use <code>ssize_t</code> for the offset which is a signed
-integer type of the same size as <code>size_t</code> (this is not part of C99 but
+integer type of the same size as <code>size_t</code> (<code>ssize_t</code> is not part of C99 but
 POSIX)</p>
 </li>
 <li>
