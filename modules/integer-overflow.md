@@ -2,7 +2,7 @@
 
 - what happens if `int` overflows ?
   - the behavior of overflow depends on whether the type is signed or unsigned
-    - :heavy\_exclamation\_mark: for signed types the behavior is undefined !
+    - :heavy\_exclamation\_mark: for signed types the behavior is **undefined**!
       I.e. you cannot rely on overflow of a positive quantity in a signed int
       will be turned into a negative number.
       Some compilers will allow to specify the behavior of signed overflows
