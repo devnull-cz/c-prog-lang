@@ -76,7 +76,7 @@ Creating archives with missing ending zero block(s):
   two-zero-blocks-missing.tar
 --- [ Configuration End ] ---
 
----[ Running tests ] ---
+--- [ Running tests ] ---
   001	PASS
   002	PASS
   003	PASS
@@ -138,7 +138,7 @@ Creating archives with missing ending zero block(s):
   two-zero-blocks-missing.tar
 --- [ Configuration End ] ---
 
----[ Running tests ] ---
+--- [ Running tests ] ---
   001	PASS
   002	PASS
   003	PASS
@@ -196,7 +196,7 @@ Creating archives with missing ending zero block(s):
   two-zero-blocks-missing.tar
 --- [ Configuration End ] ---
 
----[ Running tests ] ---
+--- [ Running tests ] ---
   001	PASS
   002	PASS
   003	PASS
