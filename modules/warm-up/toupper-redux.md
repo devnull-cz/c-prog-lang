@@ -1,4 +1,4 @@
-## :wrench: toupper
+## :wrench: Warm-up toupper
 
 rewrite the
 #module home-assignments/toupper.md convert small characters to upper case
