@@ -19,6 +19,4 @@ main(void)
 	} while (0);
 
 	printf("finish\n");
-
-	return (0);
 }

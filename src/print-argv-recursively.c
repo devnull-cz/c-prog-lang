@@ -30,6 +30,4 @@ int
 main(int argc, char **argv)
 {
 	myprint(argv);
-
-	return (0);
 }

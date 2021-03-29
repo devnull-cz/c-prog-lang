@@ -9,6 +9,4 @@ main(void)
 			    // Use newline to flush the buffer.
 	*p = 1;
 	printf("%d", *p);
-
-	return (0);
 }

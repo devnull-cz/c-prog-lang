@@ -10,6 +10,4 @@ main(void)
 
 	foo.a = 42;
 	printf("%d\n", foo.a);
-
-	return (0);
 }

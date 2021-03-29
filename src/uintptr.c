@@ -11,6 +11,4 @@ main(void)
 
 	printf("%p\n", ptr);
 	printf("0x%lx\n", uptr);
-
-	return (0);
 }

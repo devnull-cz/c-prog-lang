@@ -22,5 +22,4 @@ main(void)
 			printf("%d ", a[i][j]);
 
 	putchar('\n');
-	return (0);
 }

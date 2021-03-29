@@ -19,6 +19,4 @@ main(int argc, char **argv)
 
 	printf("%c\n", argv[2][3]);
 	printf("%c\n", *(*(argv + 2) + 3));
-
-	return (0);
 }

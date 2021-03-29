@@ -28,6 +28,4 @@ main(void)
 		printf("p = %s\n", p);
 		printf("s = %s\n", s);
 	}
-
-	return (0);
 }

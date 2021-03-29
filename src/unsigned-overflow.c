@@ -8,6 +8,4 @@ main(void)
 	unsigned int a = UINT_MAX;
 
 	printf("%u\n", ++a);
-
-	return (0);
 }

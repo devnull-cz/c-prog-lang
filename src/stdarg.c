@@ -26,6 +26,4 @@ int
 main(void)
 {
 	printf("%zu\n", f(3, 1ULL, 2147483647, 3ULL));
-
-	return (0);
 }

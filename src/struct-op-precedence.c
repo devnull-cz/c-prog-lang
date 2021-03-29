@@ -26,6 +26,4 @@ main(void)
 	printf("3rd char = %p\n", foo.b + 2);
 	printf("val = %d\n", foo.c->val);
 	printf("&val = %p\n", &(foo.c->val));
-
-	return (0);
 }

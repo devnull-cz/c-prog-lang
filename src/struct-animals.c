@@ -15,6 +15,4 @@ main(int argc, char *argv[])
 	printf("count: %zu\n",
 	    count_minlegs(animals, sizeof (animals) / sizeof (animals[0]),
 	    atoi(argv[1])));
-
-	return (0);
 }

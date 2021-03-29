@@ -13,6 +13,4 @@ int
 main(void)
 {
 	foo(0);
-
-	return (0);
 }

@@ -34,6 +34,4 @@ main(int argc, char *argv[])
 		errx(1, "usage: %s <num> <num>", argv[0]);
 
 	printf("%d\n", diffbits(atoi(argv[1]), atoi(argv[2])));
-
-	return (0);
 }

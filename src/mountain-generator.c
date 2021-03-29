@@ -108,6 +108,4 @@ main(int argc, char *argv[])
 		    array);
 		i++;
 	}
-
-	return (0);
 }

@@ -19,6 +19,4 @@ main(void)
 	*q = 'X';
 	free(q);
 	*q = 'Y';
-
-	return (0);
 }

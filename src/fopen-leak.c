@@ -14,6 +14,4 @@ main(int argc, char *argv[])
 		if (f == NULL)
 			err(1, "fopen [%zu]", i);
 	}
-
-	return (0);
 }

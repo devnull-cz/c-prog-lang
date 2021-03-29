@@ -33,7 +33,7 @@ strsepc(char **stringp, int c)
 		*stringp = NULL;
 	}
 
-	 /* The original value of *stringp is returned. */
+	/* The original value of *stringp is returned. */
 	return (orig);
 }
 
@@ -53,6 +53,4 @@ main(int argc, char **argv)
 	while ((orig = strsepc(&new, ',')) != NULL) {
 		printf("%s\n", orig);
 	}
-
-	return (0);
 }

@@ -17,6 +17,4 @@ main(void)
 	printf("%p\n", p);
 	/* Will print the same address as &foo.b */
 	printf("%p\n", &p->b);
-
-	return (0);
 }

@@ -33,6 +33,4 @@ main(void)
 
 	for (size_t i = 0; i < sizeof (amax) / sizeof (amax[0]); ++i)
 		printf("%d\n", amax[i]);
-
-	return (0);
 }

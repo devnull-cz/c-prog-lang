@@ -29,6 +29,4 @@ main(void)
 	*p2 = 'b';
 	/* Illegal as p2 itself is a const. */
 	p2 = NULL;
-
-	return (0);
 }

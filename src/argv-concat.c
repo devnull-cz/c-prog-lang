@@ -31,6 +31,4 @@ main(int argc, char *argv[])
 
 	printf("'%s'\n", origstr);
 	free(origstr);
-
-	return (0);
 }

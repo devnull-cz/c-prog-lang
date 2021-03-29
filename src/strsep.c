@@ -12,6 +12,4 @@ main(void)
 	while ((p = strsep(&inputstr, delim)) != NULL) {
 		printf("%s\n", p);
 	}
-
-	return (0);
 }

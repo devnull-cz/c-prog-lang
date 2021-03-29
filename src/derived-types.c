@@ -15,6 +15,4 @@ main(void)
 	a[8] = &p;
 	/* Assigning an incompatible pointer, your compiler should complain. */
 	a[7] = p;
-
-	return (0);
 }

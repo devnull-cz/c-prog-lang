@@ -13,6 +13,4 @@ main(void)
 {
 	printf("%d\n", FOO);
 	printf("%d\n", BAR);
-
-	return (0);
 }

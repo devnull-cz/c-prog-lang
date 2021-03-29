@@ -23,6 +23,4 @@ main(int argc, char *argv[])
 	do {
 		printf("%s\n", *argv);
 	} while (*++argv != NULL);
-
-	return (0);
 }

@@ -23,6 +23,4 @@ main(void)
 		printf("%d\t%d\t%.2f\n", i, in, cm);
 		++i;
 	}
-
-	return (0);
 }

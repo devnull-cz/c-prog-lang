@@ -23,6 +23,4 @@ main(int argc, char *argv[])
 	printf("%p %p\n", p, q);
 	printf("%d %d\n", *p, *q);
 	printf("%ld\n", p - q);
-
-	return (0);
 }

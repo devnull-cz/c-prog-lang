@@ -11,8 +11,6 @@ main(void)
 {
 	unsigned char c = 'A';
 
-	// not a integral promotion but a x86 API manifestation
+	/* not an integral promotion but an x86 API manifestation */
 	func(c);
-
-	return (0);
 }

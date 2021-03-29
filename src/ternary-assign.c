@@ -11,11 +11,11 @@ main(void)
 	 *	 expression '(i > j) ? max = i : max' to j.
 	 */
 
-	// (i > j) ? max = i : max = j;
-	// (i > j) ? (max = i) : max = j;
+	/*
+	 * (i > j) ? max = i : max = j;
+	 * (i > j) ? (max = i) : max = j;
+	 */
 	(i > j) ? (max = i) : (max = j);
 
 	printf("max = %d\n", max);
-
-	return (0);
 }

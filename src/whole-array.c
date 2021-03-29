@@ -13,6 +13,4 @@ main(void)
 		printf("%d\n", array[d + 1]);
 		d++;
 	}
-
-	return (0);
 }

@@ -75,7 +75,7 @@ print_world(void)
 int
 main(void)
 {
-	// Simulate life in 1-D.
+	/* Simulate life in 1-D. */
 	for (int i = 0; i < MAXITER; i++) {
 		print_world();
 		for (int j = 0; j < WIDTH; j++) {
@@ -86,6 +86,4 @@ main(void)
 		}
 		memcpy(world, next, sizeof (world));
 	}
-
-	return (0);
 }

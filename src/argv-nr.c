@@ -27,6 +27,4 @@ main(int argc, char *argv[])
 		errx(1, "2nd arg must be at most %zu.", n - 1);
 
 	printf("%c\n", *(*(argv + arg_idx) + char_idx));
-
-	return (0);
 }

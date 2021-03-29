@@ -13,6 +13,4 @@ main(void)
 
 	while ((c = getchar()) != EOF)
 		printf("%c", mytoupper(c));
-
-	return (0);
 }

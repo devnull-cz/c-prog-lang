@@ -57,6 +57,4 @@ main(void)
 	 */
 	(void) printf("%-5d:\n", 1111111111);
 	(void) printf("%5d:\n", 1111111111);
-
-	return (0);
 }

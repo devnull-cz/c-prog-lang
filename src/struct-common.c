@@ -25,6 +25,4 @@ main(void)
 
 	printf("%d\n", func((struct Common *)&a));
 	printf("%d\n", func((struct Common *)&b));
-
-	return (0);
 }

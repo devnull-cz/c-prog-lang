@@ -20,6 +20,4 @@ main(void)
 		printf("big endian\n");
 	else
 		printf("little endian\n");
-
-	return (0);
 }

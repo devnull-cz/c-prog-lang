@@ -18,5 +18,4 @@ main(int argc, char *argv[])
 		printf("%d '%s'\n", num, str);
 
 	fclose(fp);
-	return (0);
 }

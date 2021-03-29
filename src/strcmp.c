@@ -43,6 +43,4 @@ main(void)
 	assert(strcmp("foo", "foo") == 0);
 	assert(strcmp("foo", "fooz") < 0);
 	assert(strcmp("fooz", "foo") > 0);
-
-	return (0);
 }

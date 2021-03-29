@@ -32,6 +32,4 @@ main(void)
 		printf("%3d\t%6.2f\n", low, cm);
 		low = low + GAP;
 	}
-
-	return (0);
 }

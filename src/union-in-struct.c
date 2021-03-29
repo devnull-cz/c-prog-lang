@@ -12,6 +12,4 @@ main(void)
 
 	foo.u.a = 42;
 	printf("%d\n", foo.u.b);
-
-	return (0);
 }

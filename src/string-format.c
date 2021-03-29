@@ -9,13 +9,11 @@ main(void)
 	printf("%.5s\n", "foo");
 	printf("%.5s\n", "foobar");
 
-        /*
+	/*
 	 * We can also align a string to the left, print it with a greater
 	 * width, and not print all of it.  We will get the following:
-         *
-         *      :hello, wor     :
-         */
-        (void) printf(":%-15.10s:\n", "hello, world");
-
-	return (0);
+	 *
+	 *      :hello, wor     :
+	 */
+	(void) printf(":%-15.10s:\n", "hello, world");
 }

@@ -7,6 +7,4 @@ main(void)
 
 	if (some_error)
 		errx(1, "ERROR: %d", some_error);
-
-	return (0);
 }

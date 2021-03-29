@@ -18,6 +18,4 @@ main(void)
 	 */
 	if (y == x)
 		return (1);
-
-	return (0);
 }

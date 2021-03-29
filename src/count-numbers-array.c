@@ -27,6 +27,4 @@ main(void)
 
 	for (i = 0; i < sizeof (counts) / sizeof (counts[0]); i++)
 		printf("%zu: %d\n", i, counts[i]);
-
-	return (0);
 }

@@ -27,6 +27,4 @@ main(int argc, char *argv[])
 	for (struct item *p = head; p != NULL; p = p->next) {
 		printf("%d\n", p->value);
 	}
-
-	return (0);
 }

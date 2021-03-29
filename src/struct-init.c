@@ -13,6 +13,4 @@ main(void)
 	/* Remember, char is expanded to int if passed to printf */
 	printf("%d\n", foo.a);
 	printf("%c\n", foo.b);
-
-	return (0);
 }

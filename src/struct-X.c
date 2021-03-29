@@ -12,6 +12,4 @@ main(void)
 	printf("%zu\n", sizeof (struct X));
 	printf("%zu\n", sizeof (struct Y));
 	printf("%zu\n", sizeof (struct Z));
-
-	return (0);
 }

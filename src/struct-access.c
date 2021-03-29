@@ -12,6 +12,4 @@ main(void)
 	/* first dereference and then access */
 	(*p_foo).a = 1;		// eq. p_foo->a = 1;
 	(*p_foo).b = 'C';	// ditto
-
-	return (0);
 }

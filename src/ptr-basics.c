@@ -9,6 +9,4 @@ main(void)
 	printf("pointer lives at %p\n", &p);
 	printf("pointer points to %p\n", p);
 	printf("value of the pointed address: %d\n", *p);
-
-	return (0);
 }

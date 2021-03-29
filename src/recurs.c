@@ -19,6 +19,4 @@ main(int argc, char *argv[])
 		errx(1, "usage: %s <num>", argv[0]);
 
 	foo(atoi(argv[1]));
-
-	return (0);
 }

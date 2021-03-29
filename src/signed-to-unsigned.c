@@ -30,6 +30,4 @@ main(void)
 	 * (3) As unsigned, that is 2^32-1-(2^7-1) = 2^32-128 = 4294967168.
 	 */
 	printf("%u\n", i);
-
-	return (0);
 }

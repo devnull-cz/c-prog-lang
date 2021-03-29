@@ -16,6 +16,4 @@ main(void)
 	char c = (char) 128;
 
 	printf("%d\n", c);
-
-	return (0);
 }

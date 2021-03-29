@@ -11,6 +11,4 @@ main(void)
 	printf("%p %d\n", p, *p);
 	*p++;
 	printf("%p %d\n", p, *p);
-
-	return (0);
 }

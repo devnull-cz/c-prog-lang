@@ -10,6 +10,4 @@ main(void)
 	printf("%p\n", p);
 	printf("%p\n", q);
 	printf("%ld\n", q - p);
-
-	return (0);
 }

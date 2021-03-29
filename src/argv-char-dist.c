@@ -26,6 +26,4 @@ main(int argc, char *argv[])
 		errx(1, "chars not found");
 
 	printf("%zu\n", p2 - p1);
-
-	return (0);
 }

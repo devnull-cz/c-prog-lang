@@ -13,6 +13,4 @@ main(void)
 
 	printf("%s\n", s);
 	printf("%s\n", s2);
-
-	return (0);
 }

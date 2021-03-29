@@ -24,10 +24,7 @@ main(void)
 		}
 	}
 
-	if (min > 0)
-		printf("minimum of averages: %zu\n", min);
-	else
+	if (min <= 0)
 		errx(1, "no eligible lines for computation\n");
-
-	return (0);
+	printf("minimum of averages: %zu\n", min);
 }

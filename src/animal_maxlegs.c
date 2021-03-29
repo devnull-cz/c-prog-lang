@@ -8,6 +8,4 @@ main(void)
 {
 	printf("%s\n",
 	    maxlegs(animals, sizeof (animals) / sizeof (animals[0]))->name);
-
-	return (0);
 }

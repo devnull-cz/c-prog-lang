@@ -10,7 +10,7 @@ struct item {
 static struct item *
 allocate(size_t payload_len)
 {
-	// offsetof(struct item, payload) might be better to use here.
+	/* offsetof(struct item, payload) might be better to use here. */
 	struct item *p = malloc(sizeof (struct item) +
 	    payload_len * sizeof (p->payload[0]));
 	if (p == NULL)
@@ -33,6 +33,4 @@ main(void)
 		printf("%zu: %c\n", i, p->payload[i]);
 
 	free(p);
-
-	return (0);
 }

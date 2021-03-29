@@ -57,6 +57,4 @@ main(void)
 			printf("%c", a[i][j]);
 		putchar('\n');
 	}
-
-	return (0);
 }

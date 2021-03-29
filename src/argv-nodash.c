@@ -7,6 +7,4 @@ main(int argc, char *argv[])
 		if (argv[i][0] != '-')
 			printf("%p %s\n", argv[i], argv[i]);
 	}
-
-	return (0);
 }

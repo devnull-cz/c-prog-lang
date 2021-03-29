@@ -25,6 +25,4 @@ main(void)
 
 	printf("%p\n", a);
 	foo();
-
-	return (0);
 }

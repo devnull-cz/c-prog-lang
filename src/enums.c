@@ -10,6 +10,4 @@ main(void)
 {
 	printf("%d\n", SP);
 	printf("'%c'\n", SP);
-
-	return (0);
 }

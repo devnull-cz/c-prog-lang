@@ -6,8 +6,6 @@ main(void)
 	char foo[4];
 	char bar[5];
 
-	// BUG: will always overflow destination buffer !
+	/* BUG: will always overflow destination buffer! */
 	strncpy(foo, bar, sizeof (bar));
-
-	return (0);
 }

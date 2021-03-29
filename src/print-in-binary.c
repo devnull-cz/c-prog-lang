@@ -35,6 +35,4 @@ main(int argc, char **argv)
 			++i;
 	}
 	printf("%s\n", a + sizeof (a) - i - 1);
-
-	return (0);
 }

@@ -23,5 +23,4 @@ main(int argc, char *argv[])
 		fprintf(stderr, "%d\n", in[i]);
 
 	fclose(fp);
-	return (0);
 }

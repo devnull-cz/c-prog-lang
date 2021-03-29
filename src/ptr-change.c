@@ -17,6 +17,4 @@ main(void)
 	printf("p = %p\n", p);
 	change_ptr(&p, &j);
 	printf("p = %p\n", p);
-
-	return (0);
 }

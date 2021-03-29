@@ -15,10 +15,10 @@ bytecnt2str(uint64_t num)
 		idx++;
 	}
 
-  	// access string literal as array
+  	/* access string literal as array */
 	char u = " KMGTPE"[idx];
 
-	// printf("%llu\n", rest);
+	/* printf("%llu\n", rest); */
 
 	printf("%" PRIu64 "%s %ciB\n", num, rest > 0 ? "+" : "", u);
 #if 0
@@ -33,6 +33,4 @@ int
 main(int argc, char *argv[])
 {
 	bytecnt2str(atoi(argv[1]));
-
-	return (0);
 }

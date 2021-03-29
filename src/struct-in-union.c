@@ -18,6 +18,4 @@ main(void)
 
 	foo.s1.a = 42;
 	printf("%d %d\n", foo.s2.sa_1, foo.s2.sa_2);
-
-	return (0);
 }

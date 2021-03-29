@@ -21,6 +21,4 @@ main(int argc, char *argv[])
 
 	for (size_t i = 0; i < 16384; i++)
 		file_read(argv[1], atoi(argv[2]));
-
-	return (0);
 }

@@ -11,6 +11,4 @@ main(void)
 
 	printf("modifying array\n");
 	array[0] = 'A';
-
-	return (0);
 }
