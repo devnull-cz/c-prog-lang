@@ -326,7 +326,7 @@ bytes.</p>
 <p>Aassuming <code>char c;</code> declaration:</p>
 <ul>
 <li>
-<code>sizeof (999)</code> is 4 as "999" is an integer by definition.</li>
+<code>sizeof (999)</code> is 4 as <code>999</code> is an <code>int</code> by definition.</li>
 <li>
 <code>sizeof (c)</code> is 1</li>
 <li>
@@ -351,7 +351,7 @@ from the <a href="/modules/intro.md">first class</a>
 <code>sizeof (1LL)</code> will usually be 8 as <code>long long</code> is usually 8 bytes.</li>
 </ul>
 <p>It gets more interesting if unsigned and signed numbers are involved.  Eg. a
-<code>signed int</code> is promoted to an <code>unsigned int</code> if one of the operands is
+<code>signed int</code> is promoted to an <code>unsigned int</code> if one of the <code>int</code> operand is
 unsigned.</p>
 <p>The above is called <em>implicit type conversion</em>.  There is also <em>explicit type
 conversion</em> (called <em>casting</em>) which we will deal with later.</p>
