@@ -232,6 +232,36 @@ functional languages).</p>
 <li>that said, there are pointers to functions (more on these later)</li>
 </ul>
 <h1>
+<a id="user-content-scope" class="anchor" href="#scope" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scope</h1>
+<ul>
+<li>
+<p>every identifier has its <em>scope</em></p>
+</li>
+<li>
+<p>the scope of a name is the part of the program within which the name can be
+used.</p>
+</li>
+<li>
+<p>for example, we can declare a variable <code>int i</code> in the <code>main</code> function, and as
+well as in another function.  Those two variables reference different storage.</p>
+</li>
+<li>
+<p>for now, we only care about two types of scope - a file, and a block.</p>
+</li>
+<li>
+<p>when declaring a variable within the outer block of the function, its scope is
+from the variable declaration to the end of the function block.</p>
+</li>
+<li>
+<p>note that a block is used in multiple constructs in C, e.g. <code>while</code>, <code>for</code>,
+etc.</p>
+</li>
+<li>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow.c">shadow.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow-block.c">shadow-block.c</a></p>
+</li>
+</ul>
+<h1>
 <a id="user-content-functions-with-variable-number-of-arguments" class="anchor" href="#functions-with-variable-number-of-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions with variable number of arguments</h1>
 <ul>
 <li>functions can have variable number of arguments of different types (more on
