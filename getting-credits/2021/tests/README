@@ -224,6 +224,8 @@ Creating archives with missing ending zero block(s):
   027	PASS
   028	PASS
   029	PASS
+  030	PASS
+  031	PASS
 --- [ Tests finished ] ---
 
 --- [ Unconfiguration Start ] ---
