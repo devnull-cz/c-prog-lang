@@ -11,7 +11,7 @@ foo(void)
 {
 	int c = 4;
 
-	return ++c;
+	return (++c);
 }
 
 int
