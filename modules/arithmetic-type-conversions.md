@@ -5,8 +5,8 @@ In (very) general, if *binary* operators have operands of different types, the
 and the other is not, the other operand is promoted to a `long double`.
 
 What is more, in most operations (for every operator, the spec says what is
-done in this respect), `char` and `short` int operands are converted to `int`s,
-and to `unsigned int`s if they do not fit in an `int`.  That conversion is
+done in this respect), `char` and `short` int operands are converted to `int`,
+and to `unsigned int` if they do not fit in an `int`.  That conversion is
 called *integer promotion*.  This is done to make the language runtime fast (on
 x86 32-bit arithmetics can be much faster than when using 16-bit operands).
 
