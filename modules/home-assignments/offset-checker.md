@@ -21,7 +21,7 @@ write a function that has the following prototype:
 #solution range-check.c
 
   - on Unix systems one would use `ssize_t` for the offset which is a signed
-    integer type of the same size as `size_t` (this is not part of C99 but
+    integer type of the same size as `size_t` (`ssize_t` is not part of C99 but
     POSIX)
 
   - also, implement a set of test values in `main()` using an array
