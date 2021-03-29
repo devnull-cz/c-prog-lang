@@ -13,21 +13,22 @@
 #include <stdlib.h>
 
 void
-bar(void)
+bar(int n)
 {
-	printf("bar!\n");
+	printf("bar %d\n", n);
 }
 
-int
+/* Assuming 32 bit int, its max is 2147483647. */
+#define	INTVAL	2147483600
+
+void
 foo(unsigned char x)
 {
-	int value = 2147483600; /* assuming 32 bit int */
+	int value = INTVAL;
 
 	value += x;
-	if (value < 2147483600)	// !!! relying on undefined behavior !!!
-		bar();
-
-	return (value);
+	if (value < INTVAL)	// !!! relying on undefined behavior !!!
+		bar(value);
 }
 
 int
