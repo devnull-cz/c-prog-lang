@@ -1,11 +1,11 @@
 # More Information on Undefined Behavior
 
-For the definition of *undefined behavior*, see [types of behavior in
-C](/modules/behavior-types.md).
+For the definition of *undefined behavior* see the
+#module behavior-types.md types of behavior
 
 **Now an important note:** it is not that a small part of a program (statement,
-expression, ...) has a result that is not predictable, given that anything could
-have happened because of that, **the entire execution of the program that
+expression, ...) has a result that is not predictable.  Given that anything
+could have happened because of that, **the entire execution of the program that
 experienced that undefined behavior is meaningless.**
 
 Not only when writing software for cars, trains, planes, nuclear power plants,
