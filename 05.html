@@ -461,8 +461,9 @@ us repeat that the following is an example of implementation-defined behavior in
 this case tied to the gcc compiler.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">signed</span> <span class="pl-k">char</span> c = <span class="pl-c1">128</span>;	<span class="pl-c"><span class="pl-c">//</span> 128 - 256, ie. -128 will be in 'c'.  Might surprise</span>
 			<span class="pl-c"><span class="pl-c">//</span> one, right?</span></pre></div>
-<p><code>printf</code>'s <code>hh</code> modifier is for printing a <code>char</code>, <code>h</code> for a <code>short</code>.  Note that
-<code>i</code> is first converted to an <code>int</code> if it is not already, as arguments of
+<p><code>printf</code>'s <code>hh</code> modifier is for printing a <code>char</code> (as a number, do not confuse
+it with the <code>c</code> modifier which prints a character), <code>h</code> for a <code>short</code>.  Note
+that <code>i</code> is first converted to an <code>int</code> if it is not already, as arguments of
 variadic functions goes through <em>integer promotion</em>, as we already know.  Then,
 it is converted to a <code>char</code> <strong>inside</strong> <code>printf</code>.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> This will print 1 if compiled with gcc. <span class="pl-c">*/</span></span>
