@@ -12,5 +12,6 @@ environment*.
 See [C99 standard](/modules/c99-standard.md), 5.1.2.1, for more information if
 interested.
 
-If interested, see [here](/modules/behavior-types.md) for the definition of
-*implementation-defined* behavior above.
+If interested, see 
+#module types-of-behavior.md types of behavior
+for the definition of *implementation-defined* behavior above.

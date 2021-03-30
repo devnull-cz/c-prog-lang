@@ -114,7 +114,8 @@ standard says the result is *implementation-defined*.
 *Implementation-defined* means the implementation (ie. the compiler) must choose
 how to behave in such a situation and **must** document it.  See [the
 standard](/modules/c99-standard.md), section 3.4.1, for the precise definition.
-See also [behavior types](/modules/behavior-types.md).
+See also
+#module types-of-behavior.md types of behavior.
 
 The first rule is simple and needs no more discussion.
 

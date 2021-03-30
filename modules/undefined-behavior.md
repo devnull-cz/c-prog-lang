@@ -1,7 +1,7 @@
 # More Information on Undefined Behavior
 
 For the definition of *undefined behavior* see the
-#module behavior-types.md types of behavior
+#module types-of-behavior.md types of behavior
 
 **Now an important note:** it is not that a small part of a program (statement,
 expression, ...) has a result that is not predictable.  Given that anything
