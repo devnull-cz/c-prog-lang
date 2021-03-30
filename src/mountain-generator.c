@@ -99,7 +99,10 @@ main(int argc, char *argv[])
 	if (argc > 1)
 		limit = atoi(argv[1]);
 
-	/* Make them overlaid for a better visual effect. */
+	/*
+	 * Make them overlaid for a better visual effect (if you set limit to
+	 * more than 1).
+	 */
 	int i = 0;
 	while (i < limit) {
 		mountain(
