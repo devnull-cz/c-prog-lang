@@ -15,7 +15,8 @@
 void
 func(int array[][2], size_t nlines)
 {
-	printf("sizeof = %zu\n", sizeof (array[0]));
+	printf("sizeof for the array element (int [2]) = %zu\n",
+	    sizeof (array[0]));
 
 	int i = 0;
 	while (i < nlines) {
