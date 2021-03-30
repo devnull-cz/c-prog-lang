@@ -61,8 +61,9 @@ sizeof (c + 1)	// is	4
 ```
 
 Note that we already know that `c` is **never** modified as the expression in
-`sizeof` is never evaluated.  See the [sizeof module](/modules/sizeof.md) for to
-review the knowledge.
+`sizeof` is never evaluated.  See the 
+#module sizeof.md sizeof module
+for to review the knowledge.
 
 ### Printing `sizeof` value
 
