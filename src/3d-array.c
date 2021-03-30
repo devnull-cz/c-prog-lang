@@ -1,10 +1,11 @@
 /*
  * Compile and then run in gdb like this:
  *
+ *   $ gdb ./a.out
  *   break foo
  *   r
  *   step
- *   p/x (int [12])*<insert the address printed here>
+ *   p/x (int [12])*<insert the address printf() printed here>
  */
 
 #include <stdio.h>
@@ -23,5 +24,6 @@ main(void)
 	};
 
 	printf("%p\n", a);
+	/* We set the break here to stop the execution before program exits. */
 	foo();
 }
