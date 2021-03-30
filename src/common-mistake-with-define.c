@@ -6,6 +6,13 @@
 
 #define MYDEF = 3
 
-if (i < MYDEF) {
-        // ...
-}       
+int
+main(void)
+{
+	int i;
+
+	if (i < MYDEF) {
+		// ...
+		;
+	}       
+}
