@@ -140,6 +140,42 @@ if (i &lt; = 3) {
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/modules/preprocessor.md">preprocessor</a>
 for more information.</p>
 <h1>
+<a id="user-content-behavior-types-in-c" class="anchor" href="#behavior-types-in-c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Behavior types in C</h1>
+<p>From C99, Annex J.</p>
+<h2>
+<a id="user-content-3-terms-definitions-and-symbols" class="anchor" href="#3-terms-definitions-and-symbols" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Terms, definitions, and symbols</h2>
+<p>...</p>
+<h3>
+<a id="user-content-341" class="anchor" href="#341" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.1</h3>
+<p><em>implementation-defined behavior</em> is unspecified behavior where each
+implementation documents how the choice is made.</p>
+<p>An example of implementation-defined behavior is the propagation of
+the high-order bit when a signed integer is shifted right.</p>
+<p>...</p>
+<h3>
+<a id="user-content-343" class="anchor" href="#343" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.3</h3>
+<p><em>undefined behavior</em> is behavior, upon use of a nonportable or erroneous program
+construct or of erroneous data, for which this International Standard imposes no
+requirements.</p>
+<p>Possible undefined behavior ranges from ignoring the situation completely with
+unpredictable results, to behaving during translation or program execution in a
+documented manner characteristic of the environment (with or without the
+issuance of a diagnostic message), to terminating a translation or execution
+(with the issuance of a diagnostic message).</p>
+<p>An example of undefined behavior is the behavior on integer overflow.</p>
+<p>...</p>
+<h3>
+<a id="user-content-344" class="anchor" href="#344" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.4</h3>
+<p><em>unspecified behavior</em> is use of an unspecified value, or other behavior where
+this International Standard provides two or more possibilities and imposes no
+further requirements on which is chosen in any instance.</p>
+<p>An example of unspecified behavior is the order in which the arguments to a
+function are evaluated.</p>
+<h2>
+<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notes</h2>
+<p>See also <a href="/modules/undefined-behavior.md">More Information on Undefined
+Behavior</a>.</p>
+<h1>
 <a id="user-content-multidimensional-arrays" class="anchor" href="#multidimensional-arrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multidimensional arrays</h1>
 <ul>
 <li>multi-dimensional arrays: it is an array of arrays</li>
