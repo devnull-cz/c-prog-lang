@@ -409,7 +409,7 @@ for to review the knowledge.</p>
 		resulting character is written.
 </code></pre>
 <p>So it means that <code>%c</code> expects an <code>int</code> but we put a <code>char</code> there.  However,
-since an integer promotion is applied arguments of
+since an integer promotion is applied on non-fixed arguments of
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/variable-argument-functions.md">variadic functions,</a>
 <code>c</code> is converted to an <code>int</code> <strong>before</strong> it is used as an argument to <code>printf</code>.
 Note that on a 64-bit x86 platform, this conversion means no extra code as the
