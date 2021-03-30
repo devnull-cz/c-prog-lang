@@ -7,7 +7,7 @@ int a[3][2] = { {0, 1}, {2, 3}, {4, 5} };
 ```
 
 - `a` is an array of 3 elements.  Each of the element in an array of 2 elements.
-  - we read it like that as the operator `[]`, *array subscripting*, is
+  - we read it like that as the operator `[]`, called *array subscripting*, is
     evaluated **left-to-right**.  See
 #module operator-precedence.md operator precedence for more information.
 
