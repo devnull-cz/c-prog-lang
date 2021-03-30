@@ -521,13 +521,14 @@ actually assumes the following:</p>
 <code>c</code> is converted to an <code>int</code> based on Integer Promotion</li>
 <li>so the result type of <code>(c + i)</code> is an <code>int</code>
 </li>
-<li>that result is converted to an <code>unsigned int</code> because of <code>u</code> based on Integer
-Conversion we just introduced above.</li>
+<li>that result is converted to an <code>unsigned int</code> (= type of <code>u</code> which is
+"bigger" than <code>int</code>) using the Integer Conversion we just introduced above.</li>
 <li>the result type of <code>(c + i + u)</code> is then an <code>unsigned int</code>
 </li>
-<li>the result from 4) is then converted to a <code>long long</code> because of <code>ll</code>
+<li>the result from 4) is then converted to a <code>long long</code> because of the "bigger"
+type of <code>ll</code>
 </li>
-<li>a <code>long long</code> is the result type of the whole expression</li>
+<li>the <code>long long</code> is the result type of the whole expression</li>
 </ol>
 <p>Note that at every step, Integer Conversion rules were applied.</p>
 <p>Specifically, an unsigned integer type is "bigger" than the corresponding signed
