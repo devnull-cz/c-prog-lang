@@ -62,8 +62,9 @@ are not.
   store the `a` array unless we know the exact dimensions of the 2-d subarray.
 
 - as before, if you do not initialize the rest, it will be set as 0.  You can
-  also used [designated initializers](/modules/array-intro.md) same way as with
-  one-dimensional arrays.
+  also use
+#modules array-intro.md designated initializers
+  the same way as with one-dimensional arrays.
 
 - `sizeof` works as expected.  So, the following prints a size of of an element
   of `a`, which is an `[3][6]` subarray of `int`s, so `72` is printed (3 * 6 *
