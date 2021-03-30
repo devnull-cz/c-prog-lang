@@ -1,6 +1,6 @@
 # Common mistakes I.
 
-I noticed several times already that you may end up doing the following:
+Some of you often end up doing the following:
 ```
 #define MYDEF = 3
 ```
@@ -37,3 +37,7 @@ if (i < = 3) {
 
 }
 ```
+
+See the
+#module modules/preprocessor.md preprocessor
+for more information.
