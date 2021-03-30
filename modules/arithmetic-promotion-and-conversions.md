@@ -106,7 +106,9 @@ This is about **converting integers only**.
 There are three parts when converting integers:
 
 1. assigning an integer to another integer while the source value fits into
-the target -> the result is specified by the standard.  It is the same value.
+the target -> the result is specified by
+#module c99-standard.md the standard.
+The result is the same value.
 
 2. assigning any integer to an unsigned integer -> result specified by the
 standard, see below.
@@ -121,6 +123,12 @@ See also
 #module types-of-behavior.md types of behavior.
 
 The first rule is simple and needs no more discussion.
+
+```C
+long long int li = 13;
+/* Is it guaranteed the one byte 'c' will be 13 even that sizeof(li) is 8. */
+signed char c = li;
+```
 
 ### Integer to an unsigned integer
 
