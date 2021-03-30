@@ -93,7 +93,7 @@ printf(3) man page says:
 ```
 
 So it means that `%c` expects an `int` but we put a `char` there.  However,
-since an integer promotion is applied on arguments of
+since an integer promotion is applied on non-fixed arguments of
 #module variable-argument-functions.md variadic functions,
 `c` is converted to an `int` **before** it is used as an argument to `printf`.
 Note that on a 64-bit x86 platform, this conversion means no extra code as the
