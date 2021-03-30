@@ -1,12 +1,13 @@
 # Arithmetic promotion and conversions
 
 NOTE: the following is a simplified version of what is in the standard.  You
-need to consult the specification if unsure.  See [the
-standard](/modules/c99-standard.md) for the PDF.
+need to consult the specification if unsure.  See
+#module c99-standard.md the standard
+for the PDF link.
 
-We already mentioned some of this in an [Arithmetic type
-conversions](/modules/arithmetic-type-conversions.md) section but now we
-will be more specific.
+We already mentioned some of this in an
+#module arithmetic-type-conversions.md Arithmetic type conversions
+section but now we will be more specific.
 
 ## Integer promotion vs integer conversion vs arithmetic conversions
 
