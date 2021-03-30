@@ -337,7 +337,7 @@ main(void)
 }
 ```
 
-The compiler will warn you though as you are triggering something that
+The compiler **may** (or may not!) warn you as you are triggering something that
 is implementation-defined:
 
 ```
