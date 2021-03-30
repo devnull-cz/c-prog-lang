@@ -239,23 +239,26 @@ etc.</p>
 <li>functions can have variable number of arguments of different types (more on
 that later)
 <ul>
-<li>the three dots is called <em>ellipsis</em>
+<li>it must have at least one fixed argument (or more), and the rest is
+denoted with three dots <code>...</code>
+</li>
+<li>the dots are called <em>ellipsis</em>
 </li>
 </ul>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> <span class="pl-en">func</span>(fmt, ...);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">printf</span>(fmt, ...);</pre></div>
 <ul>
-<li>the first argument usually describes the rest of arguments in some way
+<li>the first argument typically describes the rest of arguments in some way
 <ul>
-<li>usually it is a format string.  It could possibly be an argument count if
-they were of the same type however in that case they would probably be
-passed as an pointer (we will get to pointers in a later class).</li>
+<li>usually it is a format string as in <code>printf</code>.  It could possibly be an
+argument count if those were of the same type however in that case they would
+probably be passed as an pointer (we will get to pointers in a later class).</li>
 </ul>
 </li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a function that takes variable number of <code>ULL</code> arguments
-and returns their sum</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a function that takes variable number of <code>ULL</code> arguments and
+returns their sum</p>
 <ul>
 <li>use the stdarg(3) man page</li>
 <li>what happens if there is one <code>int</code> value passed in between the <code>ULL</code>
