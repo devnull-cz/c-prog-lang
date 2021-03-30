@@ -2,17 +2,17 @@
  * A very simple moutain generator.  At every point you go horizontal, up, or
  * down.  The program generates something like the following:
  *
- * $ a.out
+ *   $ a.out
  *
- *                /                         /--
- *             / / \- /--                  /   \                       / /-
- *            / \    \   \              /--     \-                   /- \  \
- *           /            \            /          \             /-- /       \
- *       / /-              \-  /--   /-            \-          /   \         \
- *      / \                  \-   \ /                \-  /-- /-
- *     /                           \                   \-   \
- *  /--
- * -
+ *                  /                         /--
+ *               / / \- /--                  /   \                       / /-
+ *              / \    \   \              /--     \-                   /- \  \
+ *             /            \            /          \             /-- /       \
+ *         / /-              \-  /--   /-            \-          /   \         \
+ *        / \                  \-   \ /                \-  /-- /-
+ *       /                           \                   \-   \
+ *    /--
+ *   -
  */
 
 #include <stdio.h>
@@ -28,7 +28,7 @@ char mnt_chars[3] = "\\-/";
 void
 print_2D_array(size_t width, size_t height, char array[][width])
 {
-	// Print the 2-D array to standard output.
+	/* Print the 2-D array to standard output. */
 	int h = height - 1;
 
 	while (h >= 0) {
@@ -49,14 +49,14 @@ get_rand(int h, int max)
 	int r;
 
 	while (1) {
-		// Get -1, 0, or 1
+		/* Get -1, 0, or 1 */
 		r = rand() % 3 - 1;
 
-		// Reached the bottom, retry.
+		/* Reached the bottom, retry. */
 		if (h == 0 && r == -1)
 			continue;
 
-		// Reached the top, retry.
+		/* Reached the top, retry. */
 		if (h == max - 1 && r == 1)
 			continue;
 
