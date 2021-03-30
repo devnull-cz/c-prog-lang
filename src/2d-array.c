@@ -27,7 +27,7 @@ func(int array[][2], size_t nlines)
 int
 main(void)
 {
-	int a[4][2] = { {5, 6} , {7, 8}, {9, 10} };
+	int a[4][2] = { {5, 6}, {7, 8}, {9, 10} };
 
 	func(a, sizeof (a) / sizeof (a[0]));
 }
