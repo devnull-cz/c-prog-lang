@@ -385,7 +385,9 @@ argument (= <code>char</code>) is just put to a 32-bit register.</p>
 <ol>
 <li>
 <p>assigning an integer to another integer while the source value fits into
-the target -&gt; the result is specified by the standard.  It is the same value.</p>
+the target -&gt; the result is specified by
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">the standard.</a>
+The result is the same value.</p>
 </li>
 <li>
 <p>assigning any integer to an unsigned integer -&gt; result specified by the
@@ -402,6 +404,9 @@ standard</a>, section 3.4.1, for the precise definition.
 See also
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/types-of-behavior.md">types of behavior.</a></p>
 <p>The first rule is simple and needs no more discussion.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">long</span> <span class="pl-k">long</span> <span class="pl-k">int</span> li = <span class="pl-c1">13</span>;
+<span class="pl-c"><span class="pl-c">/*</span> Is it guaranteed the one byte 'c' will be 13 even that sizeof(li) is 8. <span class="pl-c">*/</span></span>
+<span class="pl-k">signed</span> <span class="pl-k">char</span> c = li;</pre></div>
 <h3>
 <a id="user-content-integer-to-an-unsigned-integer" class="anchor" href="#integer-to-an-unsigned-integer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer to an unsigned integer</h3>
 <blockquote>
