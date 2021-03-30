@@ -110,10 +110,10 @@ the target -> the result is specified by
 #module c99-standard.md the standard.
 The result is the same value.
 
-2. assigning any integer to an unsigned integer -> result specified by the
+2. assigning any integer to an **unsigned** integer -> result specified by the
 standard, see below.
 
-3. assigning an integer to a signed integer and the value does **not** fit.  The
+3. assigning an integer to a **signed** integer and the value does **not** fit.  The
 standard says the result is *implementation-defined*.
 
 *Implementation-defined* means the implementation (ie. the compiler) must choose
