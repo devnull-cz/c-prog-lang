@@ -43,5 +43,5 @@ function are evaluated.
 
 ## Notes
 
-See also [More Information on Undefined
-Behavior](/modules/undefined-behavior.md).
+See also
+#module undefined-behavior.md More Information on Undefined Behavior.
