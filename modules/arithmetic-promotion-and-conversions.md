@@ -165,7 +165,7 @@ Examples in C:
 ```C
 /* 'c' will be 24 */
 unsigned char c;
-c = -1000;		// 24 + 4 * 256
+c = -1000;		// -1000 + 4 * 256
 
 /* 'i' will be 4294967286 */
 unsigned int i;
