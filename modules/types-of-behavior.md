@@ -1,4 +1,4 @@
-# Behavior types in C
+# Types of behavior in C
 
 From C99, Annex J.
 
