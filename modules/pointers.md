@@ -140,13 +140,15 @@ p = &(i + 1);
 
 ## Changing pointers:
 
-- pointers can be moved forward and backward
+Pointers can be moved forward and backward
 
 ```
 p = p + 1;
 p++;
 p--;
 ```
+
+The pointer is moved by the amount of underlying (domain) data type when using arithmetics.
 
 ## operator gotchas
 
@@ -168,12 +170,9 @@ i = (*p) + 1;
 i = *p++;
 ```
 
-is evaluated as `*(p++)` but it still does the following because `++` is used in
-postfix mode, ie. the value of expression `p++` is `p`:
-
+is evaluated as `*(p++)` but it still does this
 ```
 i = *p; p++;
 ```
 
-- the pointer is moved by the amount of underlying (domain) data type when using
-  arithmetics
+  - because `++` is used in postfix mode, ie. the value of expression `p++` is `p`:
