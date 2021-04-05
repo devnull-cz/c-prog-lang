@@ -351,7 +351,7 @@ message.</li>
 <li>
 <code>fclose</code> closes the handle
 <ul>
-<li>important to avoid resource leak (it can allocate both memory and file
+<li>important to avoid resource leak (<code>fopen</code> can allocate both memory and file
 descriptor)</li>
 </ul>
 </li>
