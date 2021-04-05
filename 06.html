@@ -117,7 +117,7 @@ per-char init and try to print the string ?</p>
 <p><code>"xxx"</code> is called a <em>string literal</em> or a <em>string constant</em></p>
 </li>
 <li>
-<p>in lays in a consecutive piece of memory: <code>'x' 'x' 'x' '\0'</code></p>
+<p>stored in a consecutive piece of memory: <code>'x' 'x' 'x' '\0'</code></p>
 </li>
 <li>
 <p><code>'\0'</code> terminates the string literal.  That's the C convention.</p>
@@ -168,7 +168,7 @@ which case the rest would be initialized to zero as usual):</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
 <p>Anyway, you would probably never do it this way.  Just use <code>= "hello"</code>.</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-fill.c">array-fill.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-fill.c">array-fill.c</a></p>
 <ul>
 <li>string is printed via <code>printf()</code> as <code>%s</code>
 </li>
@@ -177,7 +177,7 @@ which case the rest would be initialized to zero as usual):</li>
 <ul>
 <li>experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-format.c">string-format.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-format.c">string-format.c</a></p>
 <h1>
 <a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task:</p>
@@ -199,7 +199,7 @@ than the 2nd
 </ul>
 </li>
 </ul>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tr.c">tr.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tr.c">tr.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task (bonus): refactor the code into a function(s)</p>
 <ul>
 <li>remember that arrays are passed into a function as a pointer (to be explained
@@ -253,7 +253,7 @@ expressions, function calls, sizeof, assignments, and ternary expressions.</p>
 <p><a href="http://en.cppreference.com/w/c/language/expressions" rel="nofollow">http://en.cppreference.com/w/c/language/expressions</a></p>
 <p>In C99, an expression can produce results (2+2 gets 4) or generate side effects
 (<code>printf("foo")</code> sends a string literal to the standard output).</p>
-<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/expression-statement.c">expression-statement.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/expression-statement.c">expression-statement.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: make the warning an error with your choice of compiler (would be
 a variant of <code>-W</code> in GCC)</p>
 <h1>
@@ -445,7 +445,7 @@ the given pointer type</p>
 <p>declared like this, e.g.</p>
 </li>
 </ul>
-<p><code>int *p; // pointer to an int</code></p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p; <span class="pl-c"><span class="pl-c">//</span> pointer to an int</span></pre></div>
 <ul>
 <li>note on style:</li>
 </ul>
@@ -512,7 +512,7 @@ points to</p>
 <li>the value of the pointed to variable</li>
 </ul>
 <p>Use the <code>%p</code> formatting for the first two.</p>
-<p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-basics.c">ptr-basics.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-basics.c">ptr-basics.c</a></p>
 <h2>
 <a id="user-content-null-pointer" class="anchor" href="#null-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NULL pointer</h2>
 <ul>
@@ -552,11 +552,10 @@ p = &amp;i;</pre></div>
 <ul>
 <li>operator precedence gotcha:</li>
 </ul>
-<pre><code>*p		// value of the pointed to variable
-*p + 1		// the value + 1
-*(p + 1)	// the value on the address + 1 (see below for what it
-		// means)
-</code></pre>
+<div class="highlight highlight-source-c"><pre>*p		<span class="pl-c"><span class="pl-c">//</span> value of the pointed to variable</span>
+*p + <span class="pl-c1">1</span>		<span class="pl-c"><span class="pl-c">//</span> the value + 1</span>
+*(p + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> the value on the address + 1 (see below for what it</span>
+		<span class="pl-c"><span class="pl-c">//</span> means)</span></pre></div>
 <ul>
 <li>note that the &amp; reference operator is possible to use only on variables
 <ul>
@@ -564,20 +563,17 @@ p = &amp;i;</pre></div>
 </ul>
 </li>
 </ul>
-<pre><code>p = &amp;(i + 1);
-</code></pre>
+<div class="highlight highlight-source-c"><pre>p = &amp;(i + <span class="pl-c1">1</span>);</pre></div>
 <ul>
 <li>store value to the address pointed to by the pointer:</li>
 </ul>
-<pre><code>*p = 1;
-</code></pre>
+<div class="highlight highlight-source-c"><pre>*p = <span class="pl-c1">1</span>;</pre></div>
 <h2>
 <a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers:</h2>
 <p>Pointers can be moved forward and backward</p>
-<pre><code>p = p + 1;
+<div class="highlight highlight-source-c"><pre>p = p + <span class="pl-c1">1</span>;
 p++;
-p--;
-</code></pre>
+p--;</pre></div>
 <p>The pointer is moved by the amount of underlying (domain) data type when using arithmetics.</p>
 <h2>
 <a id="user-content-operator-gotchas" class="anchor" href="#operator-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>operator gotchas</h2>
@@ -585,19 +581,15 @@ p--;
 <li>
 <code>*</code> has bigger precedence than <code>+</code> so:</li>
 </ul>
-<pre><code>i = *p + 1;
-</code></pre>
+<div class="highlight highlight-source-c"><pre>i = *p + <span class="pl-c1">1</span>;</pre></div>
 <p>is equal to</p>
-<pre><code>i = (*p) + 1;
-</code></pre>
+<div class="highlight highlight-source-c"><pre>i = (*p) + <span class="pl-c1">1</span>;</pre></div>
 <ul>
 <li>postfix <code>++</code> has higher precedence than <code>*</code>:</li>
 </ul>
-<pre><code>i = *p++;
-</code></pre>
+<div class="highlight highlight-source-c"><pre>i = *p++;</pre></div>
 <p>is evaluated as <code>*(p++)</code> but it still does this</p>
-<pre><code>i = *p; p++;
-</code></pre>
+<div class="highlight highlight-source-c"><pre>i = *p; p++;</pre></div>
 <ul>
 <li>because <code>++</code> is used in postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</li>
 </ul>
