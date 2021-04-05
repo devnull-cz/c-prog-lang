@@ -453,9 +453,6 @@ the given pointer type</p>
 <span class="pl-k">int</span> *p;  <span class="pl-c"><span class="pl-c">//</span> preferred in this lecture</span></pre></div>
 <ul>
 <li>
-<p>good practice is to prefix pointers with the 'p' letter</p>
-</li>
-<li>
 <p>a pointer is always associated with a type</p>
 </li>
 <li>
@@ -472,6 +469,11 @@ the given pointer type</p>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">5</span>;
 <span class="pl-k">int</span> *p = &amp;i;</pre></div>
+<ul>
+<li>good practice is to prefix pointers with the 'p' letter, e.g.:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> val;
+<span class="pl-k">int</span> *pval = &amp;val;</pre></div>
 <ul>
 <li>
 <p>the <code>&amp;</code> is an <em>address-of</em> operator and gets the address of the variable.</p>
