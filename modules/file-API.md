@@ -12,7 +12,7 @@ Part of the standard since C90.
   - the `b` binary mode usually does not have any effect (see
 #module c99-standard.md the standard)
 - `fclose` closes the handle
-  - important to avoid resource leak (it can allocate both memory and file
+  - important to avoid resource leak (`fopen` can allocate both memory and file
     descriptor)
 - `freopen` can be used to associate the standard streams (`stderr`, `stdin`, or
   `stdout`) with a file
