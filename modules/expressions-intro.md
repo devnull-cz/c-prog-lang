@@ -13,7 +13,7 @@ http://en.cppreference.com/w/c/language/expressions
 In C99, an expression can produce results (2+2 gets 4) or generate side effects
 (`printf("foo")` sends a string literal to the standard output).
 
-code: #source expression-statement.c
+#source expression-statement.c
 
 :wrench: task: make the warning an error with your choice of compiler (would be
 a variant of `-W` in GCC)

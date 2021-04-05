@@ -10,7 +10,9 @@ Motivation:
   the given pointer type
 - declared like this, e.g.
 
-`int *p; // pointer to an int`
+```C
+int *p; // pointer to an int
+```
 
 - note on style:
 
@@ -75,7 +77,7 @@ int *p = &i;
 
 Use the `%p` formatting for the first two.
 
-Code: #source ptr-basics.c
+#source ptr-basics.c
 
 ## NULL pointer
 
@@ -119,7 +121,7 @@ p = &i;
 ```
 
 - operator precedence gotcha:
-```
+```C
 *p		// value of the pointed to variable
 *p + 1		// the value + 1
 *(p + 1)	// the value on the address + 1 (see below for what it
@@ -128,13 +130,13 @@ p = &i;
 - note that the & reference operator is possible to use only on variables
   - thus this is invalid:
 
-```
+```C
 p = &(i + 1);
 ```
 
 - store value to the address pointed to by the pointer:
 
-```
+```C
 *p = 1;
 ```
 
@@ -142,7 +144,7 @@ p = &(i + 1);
 
 Pointers can be moved forward and backward
 
-```
+```C
 p = p + 1;
 p++;
 p--;
@@ -154,24 +156,24 @@ The pointer is moved by the amount of underlying (domain) data type when using a
 
 - `*` has bigger precedence than `+` so:
 
-```
+```C
 i = *p + 1;
 ```
 
 is equal to
 
-```
+```C
 i = (*p) + 1;
 ```
 
 - postfix `++` has higher precedence than `*`:
 
-```
+```C
 i = *p++;
 ```
 
 is evaluated as `*(p++)` but it still does this
-```
+```C
 i = *p; p++;
 ```
 

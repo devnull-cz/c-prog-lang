@@ -2,7 +2,7 @@
 
 - `"xxx"` is called a *string literal* or a *string constant*
 
-- in lays in a consecutive piece of memory: `'x' 'x' 'x' '\0'`
+- stored in a consecutive piece of memory: `'x' 'x' 'x' '\0'`
 
 - `'\0'` terminates the string literal.  That's the C convention.
 
@@ -54,7 +54,7 @@ char s[] = { 'h', 'e', 'l', 'l', 'o', '\0' };
 
 Anyway, you would probably never do it this way.  Just use `= "hello"`.
 
-code: #source array-fill.c
+#source array-fill.c
 
 - string is printed via `printf()` as `%s`
 
@@ -64,5 +64,4 @@ printf("%s\n", "hello, world");
 
 - experiment with what `%5s` and `%.5s` do (use any reasonable number)
 
-code: #source string-format.c
-
+#source string-format.c
