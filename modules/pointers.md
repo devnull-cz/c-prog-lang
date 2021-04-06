@@ -155,8 +155,12 @@ p--;
 ```
 
 The pointer is moved by the amount of underlying (domain) data type when using
-arithmetics. For example, if incrementing pointer to `int` by 1 adds 4 bytes
-to the address (assuming `int` is 4 bytes).
+arithmetics.
+
+:wrench: create a pointer to an `int`, print it out, create a new pointer
+that points to `p + 1`. See what is the difference between the 2 pointers.
+
+#solution ptr-diff.c
 
 ## operator gotchas
 
