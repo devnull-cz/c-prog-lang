@@ -12,7 +12,7 @@ tail /etc/passwd | tr 'abcdefgh' '123#'
       than the 2nd
       - do not store the expanded 2nd string as literal in your program !
 
-#source tr.c
+#solution tr.c
 
 :wrench: task (bonus): refactor the code into a function(s)
 
