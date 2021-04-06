@@ -74,7 +74,7 @@ int *pval = &val;
 - `sizeof (*p)` will return the amount needed to store the object the pointer
   points to
 
-:wrench: Task: write a program to print:
+:wrench: write a program to print:
 
    - address of the pointer
    - the address where it points to
@@ -82,7 +82,7 @@ int *pval = &val;
 
 Use the `%p` formatting for the first two.
 
-#source ptr-basics.c
+#solution ptr-basics.c
 
 ## NULL pointer
 
