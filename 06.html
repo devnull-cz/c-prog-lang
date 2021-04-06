@@ -416,19 +416,6 @@ parameter relative to:
 <li>
 <code>ftell</code> - get current position in the file</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> get a file size using the standard IO API (that is, <code>lseek(2)</code> is
-prohibited even if you know it).</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create array of <code>int</code> values (of arbitrary positive length with values
-ranging from <code>INT_MAX</code> to <code>0</code>), write the array to a file, read the values
-into another array and print them to the standard error.
-Between the writing and reading the file handle has to remain open. Use the
-same file handle for reading and writing.
-Use <code>od(1)</code> to verify the content of the file (thus it is handy to start with
-<code>INT_MAX</code> and e.g. divide by 2 for each successive value).</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fopen-binary.c">fopen-binary.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use the file created by the previous program. Read the values from the
-end of the file to the beginning of the file one by one without knowing the file
-size and print the numbers to the standard error output.</p>
 <h1>
 <a id="user-content-pointers" class="anchor" href="#pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointers</h1>
 <p>Motivation:</p>
@@ -607,6 +594,21 @@ that points to <code>p + 1</code>. See what is the difference between the 2 poin
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
+<h2>
+<a id="user-content-file-of-integers" class="anchor" href="#file-of-integers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File of integers</h2>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> get a file size using the standard IO API (that is, <code>lseek(2)</code> is
+prohibited even if you know it).</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create array of <code>int</code> values (of arbitrary positive length with values
+ranging from <code>INT_MAX</code> to <code>0</code>), write the array to a file, read the values
+into another array and print them to the standard error.
+Between the writing and reading the file handle has to remain open. Use the
+same file handle for reading and writing.
+Use <code>od(1)</code> to verify the content of the file (thus it is handy to start with
+<code>INT_MAX</code> and e.g. divide by 2 for each successive value).</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fopen-binary.c">fopen-binary.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use the file created by the previous program. Read the values from the
+end of the file to the beginning of the file one by one without knowing the file
+size and print the numbers to the standard error output.</p>
 
               </article>
             </div>
