@@ -384,9 +384,12 @@ it fail on your system?</p>
 <code>fwrite</code>/<code>fread</code> - for writing/reading binary data (such as structures or raw
 numeric types)</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: create a text file where each line begins with integer followed
-by space and a string (<code>echo "1 foo" &gt; file.txt; echo "2 bar" &gt;&gt; file.txt</code>).
-Read the file using <code>fscanf()</code> and print the values (i.e. integer and a string)
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create a text file where each line begins with integer followed
+by space and a string, e.g.:</p>
+<pre><code>42 towel
+13 dwarfs and Snow White
+</code></pre>
+<p>Read the file using <code>fscanf()</code> and print the values (i.e. integer and a string)
 from each line to standard output.</p>
 <h2>
 <a id="user-content-seeking" class="anchor" href="#seeking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Seeking</h2>
@@ -415,13 +418,14 @@ parameter relative to:
 </ul>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> get a file size using the standard IO API (that is, <code>lseek(2)</code> is
 prohibited even if you know it).</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write array of <code>int</code> values (use an arbitrary positive count with values
-ranging from <code>INT_MAX</code> to <code>0</code>) to a file and read the values into another array
-and print them to the standard error output without closing the file in between
-the writing and reading. Use <code>od(1)</code> to verify the content of the file (thus it
-is handy to start with <code>INT_MAX</code> and e.g. divide by 2 for each successive
-value).
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fopen-binary.c">fopen-binary.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create array of <code>int</code> values (of arbitrary positive length with values
+ranging from <code>INT_MAX</code> to <code>0</code>), write the array to a file, read the values
+into another array and print them to the standard error.
+Between the writing and reading the file handle has to remain open. Use the
+same file handle for reading and writing.
+Use <code>od(1)</code> to verify the content of the file (thus it is handy to start with
+<code>INT_MAX</code> and e.g. divide by 2 for each successive value).</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fopen-binary.c">fopen-binary.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use the file created by the previous program. Read the values from the
 end of the file to the beginning of the file one by one without knowing the file
 size and print the numbers to the standard error output.</p>
