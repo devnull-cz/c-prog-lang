@@ -561,8 +561,7 @@ p = &amp;i;</pre></div>
 </ul>
 <div class="highlight highlight-source-c"><pre>*p		<span class="pl-c"><span class="pl-c">//</span> value of the pointed to variable</span>
 *p + <span class="pl-c1">1</span>		<span class="pl-c"><span class="pl-c">//</span> the value + 1</span>
-*(p + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> the value on the address + 1 (see below for what it</span>
-		<span class="pl-c"><span class="pl-c">//</span> means)</span></pre></div>
+*(p + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> the value on the address + 1 (see below for what it means)</span></pre></div>
 <ul>
 <li>note that the &amp; reference operator is possible to use only on variables
 <ul>
@@ -581,7 +580,9 @@ p = &amp;i;</pre></div>
 <div class="highlight highlight-source-c"><pre>p = p + <span class="pl-c1">1</span>;
 p++;
 p--;</pre></div>
-<p>The pointer is moved by the amount of underlying (domain) data type when using arithmetics.</p>
+<p>The pointer is moved by the amount of underlying (domain) data type when using
+arithmetics. For example, if incrementing pointer to <code>int</code> by 1 adds 4 bytes
+to the address (assuming <code>int</code> is 4 bytes).</p>
 <h2>
 <a id="user-content-operator-gotchas" class="anchor" href="#operator-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>operator gotchas</h2>
 <ul>
