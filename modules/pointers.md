@@ -102,9 +102,9 @@ int *p = 0x1234;
   constant*
 #module c99-standard.md in the C specification.
 
-:wrench: Task: create NULL pointer and try to read from it / write to it
+:wrench: create NULL pointer and try to read from it / write to it
 
-Code: #source null-ptr.c
+#solution null-ptr.c
 
 ## Basic operations
 
