@@ -384,13 +384,6 @@ it fail on your system?</p>
 <code>fwrite</code>/<code>fread</code> - for writing/reading binary data (such as structures or raw
 numeric types)</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create a text file where each line begins with integer followed
-by space and a string, e.g.:</p>
-<pre><code>42 towel
-13 dwarfs and Snow White
-</code></pre>
-<p>Read the file using <code>fscanf()</code> and print the values (i.e. integer and a string)
-from each line to standard output.</p>
 <h2>
 <a id="user-content-seeking" class="anchor" href="#seeking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Seeking</h2>
 <p>When reading/writing to a file using the above function, the current position
@@ -609,6 +602,15 @@ Use <code>od(1)</code> to verify the content of the file (thus it is handy to st
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use the file created by the previous program. Read the values from the
 end of the file to the beginning of the file one by one without knowing the file
 size and print the numbers to the standard error output.</p>
+<h2>
+<a id="user-content-file-read" class="anchor" href="#file-read" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>file read</h2>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create a text file where each line begins with integer followed
+by space and a string, e.g.:</p>
+<pre><code>42 towel
+13 dwarfs and Snow White
+</code></pre>
+<p>Read the file using <code>fscanf()</code> and print the values (i.e. integer and a string)
+from each line to standard output.</p>
 
               </article>
             </div>
