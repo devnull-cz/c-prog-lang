@@ -379,10 +379,12 @@ the given pointer type</p>
 <span class="pl-k">int</span> *pval = &amp;val;</pre></div>
 <ul>
 <li>
-<p>the <code>&amp;</code> is an <em>address-of</em> operator and gets the address of the variable.</p>
+<p>the <code>&amp;</code> is an <em>address-of</em> operator and gets the address of the variable (i.e.
+the memory address of where the value is stored)</p>
 </li>
 <li>
-<p>the pointer itself is obviously stored in memory too</p>
+<p>the pointer itself is obviously stored in memory too (it's just another
+variable).  With the declarations above, it looks as follows:</p>
 </li>
 </ul>
 <pre><code>     p
@@ -398,8 +400,8 @@ the given pointer type</p>
 </code></pre>
 <ul>
 <li>
-<p>the size of the pointer depends on architecture and the way the program was
-compiled (see <code>-m32</code> / <code>-m64</code> command line switches of gcc)</p>
+<p>the size of the pointer depends on the architecture and the way the program
+was compiled (see <code>-m32</code> / <code>-m64</code> command line switches of gcc)</p>
 </li>
 <li>
 <p><code>sizeof (p)</code> will return the amount of memory to store the address of the
@@ -419,27 +421,35 @@ points to</p>
 <p>Use the <code>%p</code> formatting for the first two.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-basics.c">ptr-basics.c</a></p>
 <h2>
-<a id="user-content-null-pointer" class="anchor" href="#null-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NULL pointer</h2>
+<a id="user-content-null-pointer" class="anchor" href="#null-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Null pointer</h2>
 <ul>
-<li>the real danger with pointers is that invalid access results in a crash (the
-program is terminated by kernel)
-<ul>
-<li>this is because <code>NULL</code> address is left unmapped on purpose, or a page that
-cannot be accessed maps to the address.  Note that C guarantees that zero is
-never a valid address for data.</li>
-</ul>
-</li>
+<li>the real danger with pointers is that invalid memory access results in a crash
+(the program is terminated by kernel)</li>
 <li>can assign a number directly to a pointer (that should trigger a warning
 though.  We will get to casting and how to fix that later).</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">0x1234</span>;</pre></div>
 <ul>
-<li>special pointer value, <code>NULL</code>, is defined and it is called <em>a null pointer
-constant</em>
+<li>
+<p>zero pointer value is called <em>a null pointer constant</em> and is defined as
+a macro <code>NULL</code>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C specification.</a>
+<code>NULL</code> is converted to a <strong>null pointer</strong> which is guaranteed not to point to
+any object or function.  In other words, dereferencing a null pointer is
+guaranteed to terminate the program.</p>
+<ul>
+<li>
+<p>this is because zero address is left unmapped on purpose, or a page
+that cannot be accessed maps to the address.</p>
+</li>
+<li>
+<p>the C specification says that the macro <code>NULL</code> must be defined in
+`&lt;stddef.h&gt;</p>
 </li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create NULL pointer and try to read from it / write to it</p>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create the null pointer and try to read from it / write to it</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-ptr.c">null-ptr.c</a></p>
 <h2>
 <a id="user-content-basic-operations" class="anchor" href="#basic-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic operations</h2>
@@ -478,13 +488,13 @@ p = &amp;i;</pre></div>
 <div class="highlight highlight-source-c"><pre>p = p + <span class="pl-c1">1</span>;
 p++;
 p--;</pre></div>
-<p>The pointer is moved by the amount of underlying (domain) data type when using
-arithmetics.</p>
+<p><strong>The pointer is moved by the amount of underlying data type when using
+arithmetics.</strong></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create a pointer to an <code>int</code>, print it out, create a new pointer
 that points to <code>p + 1</code>. See what is the difference between the 2 pointers.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-diff.c">ptr-diff.c</a></p>
 <h2>
-<a id="user-content-operator-gotchas" class="anchor" href="#operator-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>operator gotchas</h2>
+<a id="user-content-operator-gotchas" class="anchor" href="#operator-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator gotchas</h2>
 <ul>
 <li>
 <code>*</code> has bigger precedence than <code>+</code> so:</li>
@@ -510,8 +520,7 @@ that points to <code>p + 1</code>. See what is the difference between the 2 poin
 <li>
 <code>fopen</code> opens a file and returns an opaque handle (pointer)
 <ul>
-<li>
-<code>NULL</code> pointer means error</li>
+<li>getting <code>NULL</code> means an error</li>
 <li>the <code>mode</code> argument controls the behavior: read, write, append
 <ul>
 <li>the <code>+</code> adds the other mode (write for read and vice versa, read for append)</li>
