@@ -100,8 +100,8 @@ int *p = 0x1234;
 - zero pointer value is called *a null pointer constant* and is defined as
   a macro `NULL`
 #module c99-standard.md in the C specification.
-  `NULL` is converted to a **null pointer** which is guaranteed not to point to
-  any object or function.  In other words, dereferencing a null pointer is
+  `NULL` is converted to a *null pointer* which is guaranteed in C not to point
+  to any object or function.  In other words, dereferencing a null pointer is
   guaranteed to terminate the program.
 
 	- this is because zero address is left unmapped on purpose, or a page
