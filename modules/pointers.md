@@ -49,9 +49,11 @@ int val;
 int *pval = &val;
 ```
 
-- the `&` is an *address-of* operator and gets the address of the variable.
+- the `&` is an *address-of* operator and gets the address of the variable (i.e.
+  the memory address of where the value is stored)
 
-- the pointer itself is obviously stored in memory too
+- the pointer itself is obviously stored in memory too (it's just another
+  variable).  With the declarations above, it looks as follows:
 
 ```
      p
@@ -66,8 +68,8 @@ int *pval = &val;
                             addr2
 ```
 
-- the size of the pointer depends on architecture and the way the program was
-  compiled (see `-m32` / `-m64` command line switches of gcc)
+- the size of the pointer depends on the architecture and the way the program
+  was compiled (see `-m32` / `-m64` command line switches of gcc)
 
 - `sizeof (p)` will return the amount of memory to store the address of the
   object the pointer points to
@@ -84,13 +86,10 @@ Use the `%p` formatting for the first two.
 
 #solution ptr-basics.c
 
-## NULL pointer
+## Null pointer
 
-- the real danger with pointers is that invalid access results in a crash (the
-  program is terminated by kernel)
-  - this is because `NULL` address is left unmapped on purpose, or a page that
-    cannot be accessed maps to the address.  Note that C guarantees that zero is
-    never a valid address for data.
+- the real danger with pointers is that invalid memory access results in a crash
+  (the program is terminated by kernel)
 - can assign a number directly to a pointer (that should trigger a warning
   though.  We will get to casting and how to fix that later).
 
@@ -98,11 +97,20 @@ Use the `%p` formatting for the first two.
 int *p = 0x1234;
 ```
 
-- special pointer value, `NULL`, is defined and it is called *a null pointer
-  constant*
+- zero pointer value is called *a null pointer constant* and is defined as
+  a macro `NULL`
 #module c99-standard.md in the C specification.
+  `NULL` is converted to a **null pointer** which is guaranteed not to point to
+  any object or function.  In other words, dereferencing a null pointer is
+  guaranteed to terminate the program.
 
-:wrench: create NULL pointer and try to read from it / write to it
+	- this is because zero address is left unmapped on purpose, or a page
+	  that cannot be accessed maps to the address.
+
+	- the C specification says that the macro `NULL` must be defined in
+	  `<stddef.h>
+
+:wrench: create the null pointer and try to read from it / write to it
 
 #solution null-ptr.c
 
@@ -154,15 +162,15 @@ p++;
 p--;
 ```
 
-The pointer is moved by the amount of underlying (domain) data type when using
-arithmetics.
+**The pointer is moved by the amount of underlying data type when using
+arithmetics.**
 
 :wrench: create a pointer to an `int`, print it out, create a new pointer
 that points to `p + 1`. See what is the difference between the 2 pointers.
 
 #solution ptr-diff.c
 
-## operator gotchas
+## Operator gotchas
 
 - `*` has bigger precedence than `+` so:
 
