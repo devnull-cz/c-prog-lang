@@ -1,39 +1,34 @@
-# Strings and String Literals
+# Strings and String Constants
 
 - `"xxx"` is called a *string literal* or a *string constant*
 
-	- do not confuse it with a character constant, e.g. `'A'`, as it uses
+	- do not confuse it with a *character constant*, e.g. `'A'`, as it uses
 	  single quotes.  In contrast to Python, for example, single and double
 	  quotes are two different things in C.
 
-- a string literal internally initializes an array of characters from the
-  string, with a `NUL` character appended.
+- a string constant internally initializes an array of characters, with a null
+  character appended.
 
-- `'\0'` terminates the string literal.  That's the C convention.
+- we already know that a *string* is a contiguous sequence of characters
+  terminated by and including the first null character
 
-- Using `'\0'` suggests it is a terminating NUL character but it is just a zero
-  byte.  So, you could use `0`, as follows, but it is not generally used:
-
-```C
-char foo[] = { 'b', 'a', 'r', 0 };
-```
-
-- a *string* is a contiguous sequence of characters terminated by and including
-  the first `NUL` character
-  - so, a string literal may include multiple `NUL` characters, thus defining
-    multiple strings.  In other words, a *string literal* and a *string* are two
-    different things.
-
-- To print a string via `printf`(), you use the `%s` conversion specifier:
+	- so, a string literal may include multiple null characters, thus
+	  defining multiple strings.  In other words, a *string literal* and a
+	  *string* are two different things.
 
 ```C
-printf("%s\n", foo);
+$ cat main.c
+#include <stdio.h>
+
+int
+main(void)
+{
+	printf("%s\n", "hello\0world.");
+}
+$ cc main.c
+$ ./a.out
+hello
 ```
-
-- :wrench: What happens if you forget to specify the terminating zero in the
-  above per-char initializator and try to print the string ?
-
-#source array-char-nozero.c
 
 - a string constant may be used to initialize a char array and usually that is
   how the string initialization is used (in contrast to `{ 'a', 'b', ... }')
@@ -42,7 +37,7 @@ printf("%s\n", foo);
 int
 main(void)
 {
-	char s[] = "hello, world\0, I arrived.";
+	char s[] = "hello, world.";
 
 	printf("%s\n", s);
 }
@@ -51,28 +46,26 @@ main(void)
 ```
 $ gcc -Wall -Wextra main.c
 $ ./a.out
-hello, world
+hello, world.
 ```
 
-- `'\0'` is called a `NUL` character.  It's just a zero value byte but the
-  convention is to use `'\0'` if it represents a string element.  `'\0'` is just
-  a special case of octal representation `'\0ooo'` where 'o' is an octal figure
-  (0-7).
+- `'\0'` is just a special case of octal representation `'\0ooo'` where 'o' is
+  an octal figure (0-7).
 
-- aside from the `{ 'x', ... }` initializer, character array initialization may
-  be done also with a string literal:
-
-```C
-/* sizeof (a) is 6 as the terminating 0 is counted in */
-char a[] = "hello";
-```
-
-- if `{}` is used for the initialization, you must add the terminating zero
-  yourself unless you use the size of the array and the string was shorter (in
-  which case the rest would be initialized to zero as usual):
+- remember that if `{}` is used for the initialization, **you must add the
+  terminating zero yourself** unless you use the size of the array and the
+  string was shorter (in which case the rest would be initialized to zero as
+  usual):
 
 ```C
 char s[] = { 'h', 'e', 'l', 'l', 'o', '\0' };
+```
+
+- so, the following is still a propertly terminated string but do not use it
+  like that
+
+```C
+char s[10] = { 'h', 'e', 'l', 'l', 'o' };
 ```
 
 Anyway, you would probably never do it this way.  Just use `= "hello"`.
