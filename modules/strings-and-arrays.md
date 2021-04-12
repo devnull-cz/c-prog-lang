@@ -1,7 +1,9 @@
 # Strings, arrays, and pointers
 
 We already went through
-#module strings.md basics on strings and string literals.
+#module string.md basics on strings
+and
+#module strings-and-string-constants.md string literals.
 
 Given that a string constant is internally used to initialize an array of
 `char`s, and an array name represents its first element memory address, the
