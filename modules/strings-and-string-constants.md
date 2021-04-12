@@ -71,6 +71,7 @@ char s[10] = { 'h', 'e', 'l', 'l', 'o' };
 Anyway, you would probably never do it this way.  Just use `= "hello"`.
 
 #source array-fill.c
+#source array-fill2.c
 
 - string is printed via `printf()` as `%s`
 
