@@ -35,7 +35,7 @@ hello
 ```
 
 - a string constant may be used to initialize a char array and usually that is
-  how the string initialization is used (in contrast to `{ 'a', 'b', ... }')
+  how the string initialization is used (in contrast to `{ 'a', 'b', ... }`)
 
 ```C
 int
