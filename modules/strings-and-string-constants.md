@@ -1,13 +1,17 @@
 # Strings and String Constants
 
+We already know what a
+#module string.md string
+is.  It is an array of non-null characters terminated by a null byte.
+
 - `"xxx"` is called a *string literal* or a *string constant*
 
 	- do not confuse it with a *character constant*, e.g. `'A'`, as it uses
 	  single quotes.  In contrast to Python, for example, single and double
 	  quotes are two different things in C.
 
-- a string constant internally initializes an array of characters, with a null
-  character appended.
+- **a string constant internally initializes an array of characters, with a null
+  character appended.**
 
 - we already know that a *string* is a contiguous sequence of characters
   terminated by and including the first null character
