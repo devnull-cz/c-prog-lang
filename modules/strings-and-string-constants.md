@@ -34,25 +34,6 @@ $ ./a.out
 hello
 ```
 
-- a string constant may be used to initialize a char array and usually that is
-  how the string initialization is used (in contrast to `{ 'a', 'b', ... }`)
-
-```C
-int
-main(void)
-{
-	char s[] = "hello, world.";
-
-	printf("%s\n", s);
-}
-```
-
-```
-$ gcc -Wall -Wextra main.c
-$ ./a.out
-hello, world.
-```
-
 - note that `'\0'` is just a special case of octal representation `'\ooo'`,
   called *octal escape sequence*, where `o` is an octal figure (0-7).  You can
   use any ASCII character like that.
@@ -73,6 +54,25 @@ main(void)
 $ ./a.out
 Z
 9
+```
+
+- a string constant may be used to initialize a char array and usually that is
+  how the string initialization is used (in contrast to `{ 'a', 'b', ... }`)
+
+```C
+int
+main(void)
+{
+	char s[] = "hello, world.";
+
+	printf("%s\n", s);
+}
+```
+
+```
+$ gcc -Wall -Wextra main.c
+$ ./a.out
+hello, world.
 ```
 
 - remember that if `{}` is used for the initialization, **you must add the
