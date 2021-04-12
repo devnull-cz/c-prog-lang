@@ -613,6 +613,17 @@ happen during runtime. The VLAs will be explained later).</p>
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">65</span>);
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span></pre></div>
 <ul>
+<li>
+<code>0</code> is octal constant, not a decimal constant, since an octal constant always
+begins with <code>0</code>.  The following will generate an error:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">099</span>);</pre></div>
+<pre><code>main.c: In function ‘main’:
+main.c:6:17: error: invalid digit "9" in octal constant
+    6 |  printf("%d\n", 099);
+      |                 ^~~
+</code></pre>
+<ul>
 <li>if you use a larger number than fits within a byte as an argument for the <code>%c</code>
 conversion, the higher bits are trimmed.  The rule here is that the <code>int</code>
 argument is converted within <code>printf</code> to <code>unsigned char</code> (not just <code>char</code>!),

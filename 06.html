@@ -137,15 +137,33 @@ hello, world.
 </code></pre>
 <ul>
 <li>
-<p><code>'\0'</code> is just a special case of octal representation <code>'\0ooo'</code> where 'o' is
-an octal figure (0-7).</p>
+<p>note that <code>'\0'</code> is just a special case of octal representation <code>'\ooo'</code>,
+called <em>octal escape sequence</em>, where <code>o</code> is an octal figure (0-7).  You can
+use any ASCII character like that.</p>
+<ul>
+<li>the full syntax is <code>'\o'</code>, <code>'\oo'</code>, or <code>'\ooo'</code>
 </li>
-<li>
-<p>remember that if <code>{}</code> is used for the initialization, <strong>you must add the
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>$ cat main.c
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c"><span class="pl-c">/*</span> Check the ascii manual page that 132 is 'Z', and 71 is '9'. <span class="pl-c">*/</span></span>
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\132</span><span class="pl-pds">'</span></span>);
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\71</span><span class="pl-pds">'</span></span>);
+}
+$ ./a.out
+Z
+<span class="pl-c1">9</span></pre></div>
+<ul>
+<li>remember that if <code>{}</code> is used for the initialization, <strong>you must add the
 terminating zero yourself</strong> unless you use the size of the array and the
 string was shorter (in which case the rest would be initialized to zero as
-usual):</p>
-</li>
+usual):</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
 <ul>
