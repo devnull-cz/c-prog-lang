@@ -53,8 +53,27 @@ $ ./a.out
 hello, world.
 ```
 
-- `'\0'` is just a special case of octal representation `'\0ooo'` where 'o' is
-  an octal figure (0-7).
+- note that `'\0'` is just a special case of octal representation `'\ooo'`,
+  called *octal escape sequence*, where `o` is an octal figure (0-7).  You can
+  use any ASCII character like that.
+
+	- the full syntax is `'\o'`, `'\oo'`, or `'\ooo'` 
+
+```C
+$ cat main.c
+#include <stdio.h>
+
+int
+main(void)
+{
+	/* Check the ascii manual page that 132 is 'Z', and 71 is '9'. */
+	printf("%c\n", '\132');
+	printf("%c\n", '\71');
+}
+$ ./a.out
+Z
+9
+```
 
 - remember that if `{}` is used for the initialization, **you must add the
   terminating zero yourself** unless you use the size of the array and the
