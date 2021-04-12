@@ -5,7 +5,7 @@ Part of the standard since C90.
 ## Opening/closing
 
 - `fopen` opens a file and returns an opaque handle (pointer)
-  - `NULL` pointer means error
+  - getting `NULL` means an error
   - the `mode` argument controls the behavior: read, write, append
     - the `+` adds the other mode (write for read and vice versa, read for append)
   - write mode creates the file if it does not exist
