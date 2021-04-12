@@ -82,37 +82,10 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h1>
-<p>An array of non-zero bytes (<code>char</code>s) terminated by a zero byte is called a
-<em>string</em>.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
-<p>The crucial fact is that a string is always terminated by a <em>null</em> (zero) byte,
-sometimes also called <em>NUL</em>.  That is how C knows where a string ends.  There is
-no metadata involved with the string, e.g. a length.  To figure out the length
-of a string, the string must be sequentially searched for the first null byte.</p>
-<p>The string length is the number of bytes preceding the null character.</p>
-<p>It also means the size of such an character array is <strong>one byte more than the
-number of characters in the string</strong>.  It is because of the terminating zero
-(<code>\0</code>) that the compiler adds to terminate the string.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };
-
-<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (foo));		<span class="pl-c"><span class="pl-c">//</span> prints 4</span></pre></div>
-<p>Using <code>'\0'</code> suggests it is a terminating null character but it is just a zero
-byte.  So, you could use <code>0</code>, as follows, but it is not generally used:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
-<ul>
-<li>To print a string via <code>printf</code>(), you use the <code>%s</code> conversion specifier:</li>
-</ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };
-
-<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, foo);	<span class="pl-c"><span class="pl-c">/*</span> will print "bar" without the quotes <span class="pl-c">*/</span></span></pre></div>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> What happens if you forget to specify the terminating zero in the above
-per-char initializator and try to print the string ?</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-char-nozero.c">array-char-nozero.c</a></p>
-<p>Note that the following array of characters contains three strings:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>, <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
-<h1>
 <a id="user-content-strings-and-string-constants" class="anchor" href="#strings-and-string-constants" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings and String Constants</h1>
+<p>We already know what a
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/string.md">string</a>
+is.  It is an array of non-null characters terminated by a null byte.</p>
 <ul>
 <li>
 <p><code>"xxx"</code> is called a <em>string literal</em> or a <em>string constant</em></p>
@@ -123,8 +96,8 @@ quotes are two different things in C.</li>
 </ul>
 </li>
 <li>
-<p>a string constant internally initializes an array of characters, with a null
-character appended.</p>
+<p><strong>a string constant internally initializes an array of characters, with a null
+character appended.</strong></p>
 </li>
 <li>
 <p>we already know that a <em>string</em> is a contiguous sequence of characters
