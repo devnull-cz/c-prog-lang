@@ -121,21 +121,6 @@ $ cc main.c
 $ ./a.out
 hello</pre></div>
 <ul>
-<li>a string constant may be used to initialize a char array and usually that is
-how the string initialization is used (in contrast to <code>{ 'a', 'b', ... }</code>)</li>
-</ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
-<span class="pl-en">main</span>(<span class="pl-k">void</span>)
-{
-	<span class="pl-k">char</span> s[] = <span class="pl-s"><span class="pl-pds">"</span>hello, world.<span class="pl-pds">"</span></span>;
-
-	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, s);
-}</pre></div>
-<pre><code>$ gcc -Wall -Wextra main.c
-$ ./a.out
-hello, world.
-</code></pre>
-<ul>
 <li>
 <p>note that <code>'\0'</code> is just a special case of octal representation <code>'\ooo'</code>,
 called <em>octal escape sequence</em>, where <code>o</code> is an octal figure (0-7).  You can
@@ -159,6 +144,21 @@ use any ASCII character like that.</p>
 $ ./a.out
 Z
 <span class="pl-c1">9</span></pre></div>
+<ul>
+<li>a string constant may be used to initialize a char array and usually that is
+how the string initialization is used (in contrast to <code>{ 'a', 'b', ... }</code>)</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-k">char</span> s[] = <span class="pl-s"><span class="pl-pds">"</span>hello, world.<span class="pl-pds">"</span></span>;
+
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, s);
+}</pre></div>
+<pre><code>$ gcc -Wall -Wextra main.c
+$ ./a.out
+hello, world.
+</code></pre>
 <ul>
 <li>remember that if <code>{}</code> is used for the initialization, <strong>you must add the
 terminating zero yourself</strong> unless you use the size of the array and the
