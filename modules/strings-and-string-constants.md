@@ -2,18 +2,41 @@
 
 - `"xxx"` is called a *string literal* or a *string constant*
 
-- stored in a consecutive piece of memory: `'x' 'x' 'x' '\0'`
-
-- `'\0'` terminates the string literal.  That's the C convention.
+	- do not confuse it with a character constant, e.g. `'A'`, as it uses
+	  single quotes.  In contrast to Python, for example, single and double
+	  quotes are two different things in C.
 
 - a string literal internally initializes an array of characters from the
   string, with a `NUL` character appended.
+
+- `'\0'` terminates the string literal.  That's the C convention.
+
+- Using `'\0'` suggests it is a terminating NUL character but it is just a zero
+  byte.  So, you could use `0`, as follows, but it is not generally used:
+
+```C
+char foo[] = { 'b', 'a', 'r', 0 };
+```
 
 - a *string* is a contiguous sequence of characters terminated by and including
   the first `NUL` character
   - so, a string literal may include multiple `NUL` characters, thus defining
     multiple strings.  In other words, a *string literal* and a *string* are two
     different things.
+
+- To print a string via `printf`(), you use the `%s` conversion specifier:
+
+```C
+printf("%s\n", foo);
+```
+
+- :wrench: What happens if you forget to specify the terminating zero in the
+  above per-char initializator and try to print the string ?
+
+#source array-char-nozero.c
+
+- a string constant may be used to initialize a char array and usually that is
+  how the string initialization is used (in contrast to `{ 'a', 'b', ... }')
 
 ```C
 int
