@@ -14,6 +14,20 @@
 	// --> A
 ```
 
+- `0` is octal constant, not a decimal constant, since an octal constant always
+  begins with `0`.  The following will generate an error:
+
+```C
+printf("%d\n", 099);
+```
+
+```
+main.c: In function ‘main’:
+main.c:6:17: error: invalid digit "9" in octal constant
+    6 |  printf("%d\n", 099);
+      |                 ^~~
+```
+
 - if you use a larger number than fits within a byte as an argument for the `%c`
   conversion, the higher bits are trimmed.  The rule here is that the `int`
   argument is converted within `printf` to `unsigned char` (not just `char`!),
