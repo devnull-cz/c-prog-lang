@@ -228,11 +228,13 @@ while (&lt;predicate&gt;) {
 <p>Using the for loop is very often easier and more readable.</p>
 <p>Example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
-<span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i)
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
+<span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i) {
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
+}</pre></div>
 <p>Or in C99:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i)
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i) {
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
+}</pre></div>
 <ul>
 <li>
 <p>the <code>break</code> statement terminates execution of the loop (i.e. it jumps right
