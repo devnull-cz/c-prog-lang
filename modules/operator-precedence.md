@@ -1,7 +1,7 @@
 # Operator precedence
 
 There are 15 levels of operator precedence,
-see the table on http://en.cppreference.com/w/c/language/operator_precedence
+see the table on http://en.cppreference.com/w/c/language/operator\_precedence
 
 ## Associativity
 

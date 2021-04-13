@@ -6,6 +6,9 @@ representing the argument within the function is of a type of **pointer to the
 array element**.  So, you can just declare the argument as an pointer to an
 element type and pass in an array name.
 
+The reason for this is that as C can only pass arguments by value, copying array
+data to function arguments would be very inefficient.
+
 Even if you declare a function argument as an array, **the argument is always
 treated as a pointer**.  The optional array size is accepted but ignored.  Do
 not use it as it is only confusing.

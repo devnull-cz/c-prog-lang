@@ -10,7 +10,8 @@ copy_s2a(char *dst, char *src)
 {
 	size_t n = 0;
 
-	while ((*dst++ = *src++) != '\0')
+	/* Let's be explicit about operator priority for now. */
+	while ((*(dst++) = *(src++)) != '\0')
 		++n;
 
 	/* ++ for '\0' as that was not counted. */
