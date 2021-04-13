@@ -32,7 +32,7 @@ printf("%c\n", p[1]);   // will print 'e'
 #source array-notation-with-ptr.c
 
 :heavy\_exclamation\_mark: Pointer initialized with a string literal **may not**
-be changed in the same way as array.  The internal array created and
+be changed in the same way as an array.  The internal array created and
 initialized from the string literal is in read-only by the specification.
 Writing to it is an undefined behavior.  Writing to it with `gcc` and `clang`
 will crash the program.  However, for example, [Oracle Developer
