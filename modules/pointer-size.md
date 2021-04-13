@@ -4,7 +4,8 @@
 int *p;
 ```
 
-`sizeof (p)` is an **address size**, in our case either 32 or 64 bits depending
+`sizeof (p)` is a size of a `p` variable which holds an address, which
+corresponds to the **address size**.  In our case either 32 or 64 bits depending
 on how your code was compiled.
 
 ```C
@@ -14,6 +15,7 @@ int
 main(void)
 {
 	int *p;
+
 	printf("%zu\n", sizeof (p));
 }
 ```
@@ -26,5 +28,5 @@ $ ./a.out
 8
 ```
 
-The `sizeof (*p)` is equivalent to `sizeof (int)` (as that is what the type of
-`*p` is).
+The `sizeof (*p)` is equivalent to `sizeof (int)` as that is what the type of
+`*p` is.
