@@ -167,7 +167,8 @@ function code, ie:</p>
 <a id="user-content-pointer-size" class="anchor" href="#pointer-size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer size</h1>
 <pre><code>int *p;
 </code></pre>
-<p><code>sizeof (p)</code> is an <strong>address size</strong>, in our case either 32 or 64 bits depending
+<p><code>sizeof (p)</code> is a size of a <code>p</code> variable which holds an address, which
+corresponds to the <strong>address size</strong>.  In our case either 32 or 64 bits depending
 on how your code was compiled.</p>
 <div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
 
@@ -175,6 +176,7 @@ on how your code was compiled.</p>
 <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
 	<span class="pl-k">int</span> *p;
+
 	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (p));
 }</pre></div>
 <pre><code>$ cc main.c
@@ -183,19 +185,19 @@ a.out: Mach-O 64-bit executable x86_64
 $ ./a.out
 8
 </code></pre>
-<p>The <code>sizeof (*p)</code> is equivalent to <code>sizeof (int)</code> (as that is what the type of
-<code>*p</code> is).</p>
+<p>The <code>sizeof (*p)</code> is equivalent to <code>sizeof (int)</code> as that is what the type of
+<code>*p</code> is.</p>
 <h1>
 <a id="user-content-arrays-and-pointers" class="anchor" href="#arrays-and-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arrays and pointers</h1>
 <p>In C, there is a strong relationship between arrays and pointers.  Most of the
 time, you can use array notation with pointers, and pointer notation with
-arrays.</p>
-<p>By definition, the value of a variable or an expression of type array is the
-address of an element zero of the array.</p>
+arrays, but <strong>not always</strong>.</p>
+<p>By definition, the value of a variable or an expression of an array type is the
+address of the first array element (an element zero).</p>
 <pre><code>int *pa;
 int a[4] = { 1, 2, 3, 4 };
 
-pa = &amp;a[0];     // [] is of higher precedence than &amp;
+pa = &amp;a[0];     // means &amp;(a[0]) as [] is of higher precedence than &amp;
 pa = a;         // this gets the same result as above
 
 p[0] = 3;	// the array is now { 3, 2, 3, 4 }
@@ -212,11 +214,12 @@ printf("%d\n", *(p + 2));       // will print 2
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> While you can work with arrays and pointers together,
 <strong>arrays are not pointers</strong> and <strong>pointers are not arrays</strong>.  To work with a
 pointer, the generated code must first get the value of the pointer variable,
-then work with it.  With arrays, the generated code directly works with the
-memory address the array starts at.  See below.</p>
+then work with it.  With arrays, the generated code directly uses the memory
+address the array starts at.  See below.</p>
 <h2>
-<a id="user-content-array-variables-are-not-modifiable" class="anchor" href="#array-variables-are-not-modifiable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array variables are not modifiable</h2>
-<p>You cannot do the following:</p>
+<a id="user-content-array-identifiers-are-not-modifiable" class="anchor" href="#array-identifiers-are-not-modifiable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array identifiers are not modifiable</h2>
+<p>As just said, the generated code directly uses the memory address of an array.
+So, you cannot do the following:</p>
 <pre><code>int a[1];
 int aa[1];
 ++a;            // error
@@ -231,8 +234,8 @@ a[<span class="pl-c1">0</span>] = <span class="pl-c1">15</span>;</pre></div>
 <p>The generated assembler code (e.g. <code>objdump -d</code> from LLVM) for the above assigns
 15 directly to the piece of memory on the stack (started by the base pointer
 <code>rbp</code>) that represents the first array element.  That also hints that one cannot
-assign to an array variable in C as it would need a special semantics that would
-not fit the way C works with arrays.</p>
+assign to an array identifier in C as it would need a special semantics that
+would not fit the way C works with arrays.</p>
 <pre><code>100000fa6:      c7 45 fc 0f 00 00 00    movl    $15, -4(%rbp)
 </code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-var-not-modifiable.c">array-var-not-modifiable.c</a></p>
