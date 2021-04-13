@@ -42,6 +42,10 @@ hello
 
 ```C
 $ cat main.c
+/*
+ * The code assumes that our environment uses ASCII but that is not mandatory.
+ * See 5.2.1 Character Sets in the C99 standard for more information.
+ */
 #include <stdio.h>
 
 int
@@ -50,10 +54,13 @@ main(void)
 	/* Check the ascii manual page that 132 is 'Z', and 71 is '9'. */
 	printf("%c\n", '\132');
 	printf("%c\n", '\71');
+	/* Will print "a<tab>b" */
+	printf("a\11b\n");
 }
 $ ./a.out
 Z
 9
+a	b
 ```
 
 - a string constant may be used to initialize a char array and usually that is
