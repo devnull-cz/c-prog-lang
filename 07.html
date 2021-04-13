@@ -247,7 +247,7 @@ and
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/strings-and-string-constants.md">string literals.</a></p>
 <p>Given that a string constant is internally used to initialize an array of
 <code>char</code>s, and an array name represents its first element memory address, the
-value of a string is an adress of its first character.</p>
+value of a string is an address of its first character.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-const-address.c">string-const-address.c</a></p>
 <p>You can use an array notation with pointers.  So, if you <strong>really</strong> wanted, you
 could do something like this:</p>
@@ -262,7 +262,7 @@ printf("%c\n", p[1]);   // will print 'e'
 </code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-notation-with-ptr.c">array-notation-with-ptr.c</a></p>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> Pointer initialized with a string literal <strong>may not</strong>
-be changed in the same way as array.  The internal array created and
+be changed in the same way as an array.  The internal array created and
 initialized from the string literal is in read-only by the specification.
 Writing to it is an undefined behavior.  Writing to it with <code>gcc</code> and <code>clang</code>
 will crash the program.  However, for example, <a href="https://www.oracle.com/application-development/technologies/developerstudio.html" rel="nofollow">Oracle Developer
@@ -310,6 +310,8 @@ actually passed is the <strong>address of the first element</strong> and the loc
 representing the argument within the function is of a type of <strong>pointer to the
 array element</strong>.  So, you can just declare the argument as an pointer to an
 element type and pass in an array name.</p>
+<p>The reason for this is that as C can only pass arguments by value, copying array
+data to function arguments would be very inefficient.</p>
 <p>Even if you declare a function argument as an array, <strong>the argument is always
 treated as a pointer</strong>.  The optional array size is accepted but ignored.  Do
 not use it as it is only confusing.</p>
@@ -395,17 +397,17 @@ need the <em>address-of</em> operator <code>&amp;</code> - see
 way to learn a programming language.</p>
 <h2>
 <a id="user-content-implement-a-function" class="anchor" href="#implement-a-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implement a function</h2>
-<p>Write a function that copies a string to a character array.  It returns the
-number of characters copied.</p>
+<p>Write a function that copies a string to a character array, including the
+terminating null character.  It returns the number of characters copied.</p>
 <p>Note that <strong>a string constant is read-only by definition</strong>, and writing to it is
 an undefined behavior.  That is:</p>
 <pre><code>char *s = "hello"
 // Do not do this.  Different compilers may act differently.
 s[0] = 'H';
 </code></pre>
-<p>Take
+<p>To write the function, take
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/implement-function.c">implement-function.c</a>
-and implement the function, see the comment inside.</p>
+and implement it there.  See the comment inside.</p>
 <p>Verify the code prints exactly what it says in the comments.  <code>gcc -Wall -Wextra implement-function.c</code> <strong>must</strong> be clear of any warnings.</p>
 <p>Solution:
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/implement-function-solution.c">implement-function-solution.c</a></p>
