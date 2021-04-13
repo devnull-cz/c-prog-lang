@@ -13,8 +13,8 @@
  *
  * An extension would be to fill it out as well.  This is what this code does.
  */
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 #define MYRAD	12
 
@@ -32,29 +32,24 @@ main(void)
 	for (i = 0; i < 2 * MYRAD + 1; ++i) {
 		int x = i - MYRAD;
 		int arg = MYRAD * MYRAD - x * x;
-		int y = (int)sqrt(arg);
+		int y = sqrt(arg);
 
+#if 1
 		/* See memset(3) again and use it to replace this for loop. */
 		for (int k = MYRAD - y; k <= MYRAD + y; ++k)
 			a[k][i] = '*';
 
-#if 0
-		/*
-		 * The following just prints the circle with no filling.
-		 * Comment out the loop above to get rid of the filling.
-		 */
+#else
+		/* The following just prints the circle with no filling. */
 		a[MYRAD - y][i] = '*';
 		a[MYRAD + y][i] = '*';
 #endif
 	}
 
-	/*
-	 * We do not know yet that a[n] is a string.  Not a terminated one here
-	 * though.  So print it as individual characters.
-	 */
+	/* Print out the array. */
 	for (i = 0; i < 2 * MYRAD + 1; ++i) {
 		for (j = 0; j < 2 * MYRAD + 1; ++j)
 			printf("%c", a[i][j]);
-		putchar('\n');
+		printf("\n");
 	}
 }
