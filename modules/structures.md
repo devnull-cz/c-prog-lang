@@ -168,11 +168,11 @@ code: #source struct-reference.c
 :wrench: Task: write the above assignments to the members `a` and `b` using a
 de-reference operator on `foo`
 
-code: :key: #source struct-access.c
+#solution struct-access.c
 
 :wrench: now if `a` was a pointer to integer, how would the code change ?
 
-code: :key: #source struct-access-ptr.c
+#solution struct-access-ptr.c
 
 ## Struct initialization
 
@@ -257,11 +257,11 @@ Note: will need:
 - `limits.h` for the `NAME_MAX` definition
 - `stddef.h` for `size_t` (as per C99, §7.17)
 
-:key: code:
-  - #source struct-animals.c
-  - #source animal\_minlegs.c
-  - #source animal.h
-  - #source animals.h
+code:
+  - #solution struct-animals.c
+  - #solution animal\_minlegs.c
+  - #solution animal.h
+  - #solution animals.h
 
 Note: for compilation it is only necessary to compile the `*.c` files and then
 link them together.
@@ -306,11 +306,11 @@ be printed to standard output.
 Note: does the original structure change if the structure returned from the
 function was modified within the function? How to fix this ?
 
-:key: code:
-  - #source animal\_maxlegs.c
-  - #source maxlegs.c
-  - #source animals.h
-  - #source animal.h
+code:
+  - #solution animal\_maxlegs.c
+  - #solution maxlegs.c
+  - #solution animals.h
+  - #solution animal.h
 
 ### :wrench: animal sorting
 
@@ -331,7 +331,8 @@ will use to compare two array elements.
 Make the program to accept an argument (0 or 1) and run the sorting function
 based on that.
 
-:key: code:
-  - #source animal-sort.c
-  - #source animals.h
-  - #source animal.h
+code:
+  - #solution animal-sort.c
+  - #solution animals.h
+  - #solution animal.h
+
