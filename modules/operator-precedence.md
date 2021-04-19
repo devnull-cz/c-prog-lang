@@ -96,4 +96,4 @@ write these expressions to get:
 
 Use as few brackets as possible.
 
-solution: #source struct-op-precedence.c
+#solution struct-op-precedence.c
