@@ -77,11 +77,11 @@ Note: do not print the terminating `NULL` entry
   - some `printf()` implementations barf on NULL pointer when printing via the
     `%s` format string
 
-:key: Code:
-  - #source argv-while.c
-  - #source argv-for.c
-  - #source argv-nodash.c
-  - #source print-argv-recursively.c
+Code:
+  - #solution argv-while.c
+  - #solution argv-for.c
+  - #solution argv-nodash.c
+  - #solution print-argv-recursively.c
 
 ## :wrench: Task: get char distance in specific argument
 
