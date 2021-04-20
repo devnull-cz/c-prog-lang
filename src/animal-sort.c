@@ -57,6 +57,6 @@ main(int argc, char *argv[])
 
 	printf("\nresult:\n");
 	for (i = 0; i < sizeof (animals) / sizeof (animals[0]); i++) {
-		printf("%s %zu\n", animals[i].name, animals[i].legs);
+		printf("%-20s %zu\n", animals[i].name, animals[i].legs);
 	}
 }
