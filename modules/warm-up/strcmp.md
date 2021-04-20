@@ -13,4 +13,6 @@ returns (according to the strcmp(3) manual page)
 #solution strcmp.c
 
 :wrench: compare your solution with the above. Try to reimplement
-it so that it is as smallest (in terms of Lines Of Code) as possible.
+it so that it is as smallest (in terms of
+[Lines Of Code](https://en.wikipedia.org/wiki/Source_lines_of_code))
+as possible.
