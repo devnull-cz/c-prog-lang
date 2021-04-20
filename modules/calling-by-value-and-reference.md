@@ -23,4 +23,4 @@ of the two `int`s.  Hint: aside from the *dererence* operator `*`, you will also
 need the *address-of* operator `&` - see
 #module pointers.md pointer basics
 
-#source swap-by-reference.c
+#solution swap-by-reference.c
