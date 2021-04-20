@@ -130,7 +130,7 @@ always treated as a pointer so the above effectively becomes:</p>
 <p>Also, you already know that you can use an array notation with characters as
 well, so you could use <code>argv[i][j]</code> to print individual characters.  Just make
 sure that it's not out of range.</p>
-<p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-as-2d-array.c">argv-as-2d-array.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-as-2d-array.c">argv-as-2d-array.c</a></p>
 <ul>
 <li>
 <p>the memory for <code>argc</code>, <code>argv</code> is allocated before <code>main()</code> is called</p>
@@ -207,12 +207,13 @@ an error.</p>
 7
 </code></pre>
 <p>Note: do not use <code>strchr()</code> or the like.</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-char-dist.c">argv-char-dist.c</a></p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-char-dist.c">argv-char-dist.c</a></p>
 <h2>
 <a id="user-content-usage-semi-formal-specification-of-program-arguments" class="anchor" href="#usage-semi-formal-specification-of-program-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>usage: semi-formal specification of program arguments</h2>
 <ul>
 <li>usually used to print when invalid option or arguments are specified</li>
-<li>can be handled via errx()</li>
+<li>can be handled via <code>errx()</code>
+</li>
 <li>the usage usually contains program name followed by the argument schema
 <ul>
 <li>see e.g. the nc(1) man page</li>
@@ -223,7 +224,7 @@ are enclosed in <code>&lt;&gt;</code> or left without brackets</li>
 </ul>
 <p>Task: write a program that takes 1 or 2 arguments, if run with any other count,
 print usage and exit.</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
 <h2>
 <a id="user-content-wrench-task-print-the-n-th-character-of-the-r-th-argument-count-from-0" class="anchor" href="#wrench-task-print-the-n-th-character-of-the-r-th-argument-count-from-0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-th argument (count from 0)</h2>
 <p>usage: <code>./a.out &lt;r&gt; &lt;n&gt; [args]</code></p>
@@ -234,7 +235,7 @@ square brackets (ie.  <code>argv[i][j]</code> is <strong>not</strong> allowed).<
 l
 </code></pre>
 <p>Note: use <code>atoi()</code> to convert the first 2 arguments to integers</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-nr.c">argv-nr.c</a></p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-nr.c">argv-nr.c</a></p>
 <h2>
 <a id="user-content-wrench-task-what-do-these-programs-do-when-run-with-2-arguments" class="anchor" href="#wrench-task-what-do-these-programs-do-when-run-with-2-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: what do these programs do when run with 2 arguments</h2>
 <p>Assume that the arguments are sufficiently long enough.</p>
