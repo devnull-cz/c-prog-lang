@@ -20,7 +20,7 @@ code:
   - #solution animals.h
   - #solution animal.h
 
-### :wrench: animal sorting
+## :wrench: animal sorting
 
 :wrench: Task: sort the array by number of legs, print it out to standard
 output.
