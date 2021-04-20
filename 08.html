@@ -174,7 +174,8 @@ terminated by a <code>NULL</code> pointer. (quote from the execve(2) man page)</
 </li>
 <li>print all command line arguments not starting with <code>-</code>
 </li>
-<li>print all command line arguments using a recursive function (that accepts pointer to pointer to char)</li>
+<li>print all command line arguments using a recursive function (that accepts
+pointer to pointer to char)</li>
 </ul>
 <p>Note: for all arguments print their address as well</p>
 <p>Note: do not print the terminating <code>NULL</code> entry</p>
@@ -200,9 +201,9 @@ terminated by a <code>NULL</code> pointer. (quote from the execve(2) man page)</
 <h2>
 <a id="user-content-wrench-task-get-char-distance-in-specific-argument" class="anchor" href="#wrench-task-get-char-distance-in-specific-argument" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: get char distance in specific argument</h2>
 <p>write a program with usage <code>./a.out &lt;a&gt; &lt;b&gt; &lt;string&gt;</code> to
-find a distance between the first occurence of character <code>&lt;a&gt;</code> and <code>&lt;b&gt;</code> in a
-string <code>&lt;string&gt;</code>.  If either of the character is not found in the string, print
-an error.</p>
+find a distance (number of characters) between the first occurence of character
+<code>&lt;a&gt;</code> and <code>&lt;b&gt;</code> in a string <code>&lt;string&gt;</code>.
+If either of the character is not found in the string, print an error.</p>
 <pre><code>./a.out a x "ahello xworld"
 7
 </code></pre>
@@ -222,8 +223,8 @@ an error.</p>
 <li>optional arguments are enclosed in square brackets, mandatory arguments
 are enclosed in <code>&lt;&gt;</code> or left without brackets</li>
 </ul>
-<p>Task: write a program that takes 1 or 2 arguments, if run with any other count,
-print usage and exit.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes 1 or 2 arguments. If run with any other
+count, print usage and exit.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
 <h2>
 <a id="user-content-wrench-task-print-the-n-th-character-of-the-r-th-argument-count-from-0" class="anchor" href="#wrench-task-print-the-n-th-character-of-the-r-th-argument-count-from-0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-th argument (count from 0)</h2>
