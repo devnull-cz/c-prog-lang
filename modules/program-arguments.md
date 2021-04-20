@@ -68,7 +68,8 @@ sure that it's not out of range.
   - print all command line arguments using `argc`
   - print all command line arguments using just `argv`
   - print all command line arguments not starting with `-`
-  - print all command line arguments using a recursive function (that accepts pointer to pointer to char)
+  - print all command line arguments using a recursive function (that accepts
+    pointer to pointer to char)
 
 Note: for all arguments print their address as well
 
@@ -85,9 +86,9 @@ Note: do not print the terminating `NULL` entry
 ## :wrench: Task: get char distance in specific argument
 
 write a program with usage `./a.out <a> <b> <string>` to
-find a distance between the first occurence of character `<a>` and `<b>` in a
-string `<string>`.  If either of the character is not found in the string, print
-an error.
+find a distance (number of characters) between the first occurence of character
+`<a>` and `<b>` in a string `<string>`.
+If either of the character is not found in the string, print an error.
 ```
 ./a.out a x "ahello xworld"
 7
@@ -105,8 +106,8 @@ Note: do not use `strchr()` or the like.
   - optional arguments are enclosed in square brackets, mandatory arguments
     are enclosed in `<>` or left without brackets
 
-Task: write a program that takes 1 or 2 arguments, if run with any other count,
-      print usage and exit.
+:wrench: write a program that takes 1 or 2 arguments. If run with any other
+count, print usage and exit.
 
 #solution usage.c
 
