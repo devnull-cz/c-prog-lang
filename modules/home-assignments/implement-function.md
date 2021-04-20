@@ -19,5 +19,4 @@ and implement it there.  See the comment inside.
 Verify the code prints exactly what it says in the comments.  `gcc -Wall -Wextra
 implement-function.c` **must** be clear of any warnings.
 
-Solution:
-#source implement-function-solution.c
+#solution implement-function-solution.c
