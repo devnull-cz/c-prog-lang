@@ -1,4 +1,4 @@
-/* compile with and without -fpack-struct and observe the difference */
+/* compile with and without -fpack-struct (GCC / Clang) and observe the difference */
 
 #include <stdio.h>
 
