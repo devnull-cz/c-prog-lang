@@ -33,7 +33,7 @@ Also, you already know that you can use an array notation with characters as
 well, so you could use `argv[i][j]` to print individual characters.  Just make
 sure that it's not out of range.
 
-Code: #source argv-as-2d-array.c
+#source argv-as-2d-array.c
 
 
 - the memory for `argc`, `argv` is allocated before `main()` is called
@@ -94,12 +94,12 @@ an error.
 ```
 Note: do not use `strchr()` or the like.
 
-:key: Code: #source argv-char-dist.c
+#solution argv-char-dist.c
 
 ## usage: semi-formal specification of program arguments
 
   - usually used to print when invalid option or arguments are specified
-  - can be handled via errx()
+  - can be handled via `errx()`
   - the usage usually contains program name followed by the argument schema
     - see e.g. the nc(1) man page
   - optional arguments are enclosed in square brackets, mandatory arguments
@@ -108,7 +108,7 @@ Note: do not use `strchr()` or the like.
 Task: write a program that takes 1 or 2 arguments, if run with any other count,
       print usage and exit.
 
-:key: Code: #source usage.c
+#solution usage.c
 
 ## :wrench: Task: print the n-th character of the r-th argument (count from 0)
 
@@ -123,7 +123,7 @@ l
 ```
 Note: use `atoi()` to convert the first 2 arguments to integers
 
-:key: Code: #source argv-nr.c
+#solution argv-nr.c
 
 ## :wrench: Task: what do these programs do when run with 2 arguments
 
