@@ -189,7 +189,7 @@ struct foo_s foo = { 1, 'C' };
 
 #source struct-init.c
 
-- or using 'designated initializers' from C99:
+- or using *designated initializers* from C99:
 
 ```C
 struct foo_s foo = {
