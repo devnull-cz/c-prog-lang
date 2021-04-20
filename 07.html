@@ -342,25 +342,7 @@ myfn(char a[20])
 multi-dimensional array is just a 1-dimensional array of elements that are of an
 array type.  Note that <strong>we are getting ahead of ourselves a little bit here</strong>,
 more on that will be later, especially on reading more complex declarations.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span>
-<span class="pl-en">myfn</span>(<span class="pl-k">int</span> a[<span class="pl-c1">2</span>][<span class="pl-c1">2</span>])
-{
-        <span class="pl-k">return</span>;
-}
-
-<span class="pl-k">int</span>
-<span class="pl-en">main</span>(<span class="pl-k">void</span>)
-{
-	<span class="pl-c"><span class="pl-c">/*</span></span>
-<span class="pl-c">	 * You need () as "*p[2]" would be "p is an array of pointers to int" as</span>
-<span class="pl-c">	 * [] has higher priority.  More on that later.</span>
-<span class="pl-c">	 <span class="pl-c">*/</span></span>
-        <span class="pl-c1">int</span> (*p)[<span class="pl-c1">2</span>];
-        <span class="pl-c1">int</span> (*p2)[<span class="pl-c1">3</span>];
-
-        <span class="pl-c1">myfn</span>(p);	<span class="pl-c"><span class="pl-c">//</span> OK</span>
-        <span class="pl-c1">myfn</span>(p2);	<span class="pl-c"><span class="pl-c">//</span> will trigger a warning</span>
-}</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/passing-arrays.c">passing-arrays.c</a></p>
 <pre><code>$ cc src/passing-arrays.c
 src/passing-arrays.c:14:14: warning: incompatible pointer types passing 'int (*)[3]' to parameter of
       type 'int (*)[2]' [-Wincompatible-pointer-types]
