@@ -18,7 +18,7 @@ p[0] = 3;	// the array is now { 3, 2, 3, 4 }
 *(a + 1) = 5;	// the array is now { 3, 5, 3, 4 }
 ```
 
-heavy\_exclamation\_mark: As you can see, incrementing a pointer increments the
+:heavy\_exclamation\_mark: As you can see, incrementing a pointer increments the
 value **by the size of the object the pointer points to**.  Another example:
 
 ```
