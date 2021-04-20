@@ -114,7 +114,7 @@ struct X { int a; char b; int c; };
 - does the compiler reorder struct members ? no, C is designed to trust the
   programmer.
 
-code: #source struct-X.c
+#source struct-X.c
 
 note: gcc/Clang has the `-fpack-struct` option that will condense the members at
 the expense of speed when accessing them.  Use only when you know what you are
@@ -163,7 +163,7 @@ foo->a = 42;
 foo->b = 'C';
 ```
 
-code: #source struct-reference.c
+#source struct-reference.c
 
 :wrench: Task: write the above assignments to the members `a` and `b` using a
 de-reference operator on `foo`
@@ -187,7 +187,7 @@ struct foo_s {
 struct foo_s foo = { 1, 'C' };
 ```
 
-code: #source struct-init.c
+#source struct-init.c
 
 - or using 'designated initializers' from C99:
 
@@ -203,7 +203,7 @@ struct foo_s foo = {
 - omitted field members are implicitly initialized the same as objects that have
   static storage duration (ie. will be initialized to 0).
 
-code: #source struct-designated-init.c
+#source struct-designated-init.c
 
 ## Operations on structures
 
