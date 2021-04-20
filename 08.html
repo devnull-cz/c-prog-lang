@@ -580,57 +580,6 @@ file it is not necessary to compile it individually.</p>
 file)</p>
 <div class="highlight highlight-source-c"><pre>      <span class="pl-k">static</span> <span class="pl-c1">size_t</span> <span class="pl-en">getlegs</span>(<span class="pl-k">struct</span> animal *);</pre></div>
 <p>that will return number of legs for a given animal.</p>
-<h3>
-<a id="user-content-animals-maximum-number-of-legs" class="anchor" href="#animals-maximum-number-of-legs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animals: maximum number of legs</h3>
-<p>implement:</p>
-<div class="highlight highlight-source-c"><pre>      <span class="pl-k">struct</span> animal *<span class="pl-en">maxlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len);</pre></div>
-<p>that will use the <code>getlegs()</code> function and will return an animal with highest
-leg count. Return pointer to the structure (= array element) from the function.</p>
-<p>The <code>main()</code> function (in separate file) will define an array of animals and
-will call <code>maxlegs()</code>.  The name of the animal with maximum number of legs will
-be printed to standard output.</p>
-<p>Note: does the original structure change if the structure returned from the
-function was modified within the function? How to fix this ?</p>
-<p>code:</p>
-<ul>
-<li>
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal_maxlegs.c">animal_maxlegs.c</a>
-</li>
-<li>
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/maxlegs.c">maxlegs.c</a>
-</li>
-<li>
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animals.h">animals.h</a>
-</li>
-<li>
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a>
-</li>
-</ul>
-<h3>
-<a id="user-content-wrench-animal-sorting" class="anchor" href="#wrench-animal-sorting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> animal sorting</h3>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> (home) Task: sort the array by number of legs, print it out to standard
-output.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: sort the array by the animal name. Print it out to standard
-output.  Use <code>strcmp()</code> to do the comparison of names.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: add a function that will sort according to the number of legs</p>
-<p>Make the comparison functions static.</p>
-<p>Use the standard libc sort function qsort(3).  Check the manual page on how it's
-used.  You will need to define a callback function that the qsort() function
-will use to compare two array elements.</p>
-<p>Make the program to accept an argument (0 or 1) and run the sorting function
-based on that.</p>
-<p>code:</p>
-<ul>
-<li>
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal-sort.c">animal-sort.c</a>
-</li>
-<li>
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animals.h">animals.h</a>
-</li>
-<li>
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a>
-</li>
-</ul>
 <h1>
 <a id="user-content-operator-precedence" class="anchor" href="#operator-precedence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator precedence</h1>
 <p>There are 15 levels of operator precedence,
@@ -716,6 +665,60 @@ of) or <code>*</code> (dereference)</p>
 </ul>
 <p>Use as few brackets as possible.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-op-precedence.c">struct-op-precedence.c</a></p>
+<h1>
+<a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
+<p>Note that home assignments are entirely voluntary but writing code is the only
+way to learn a programming language.</p>
+<h2>
+<a id="user-content-animals-maximum-number-of-legs" class="anchor" href="#animals-maximum-number-of-legs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animals: maximum number of legs</h2>
+<p>implement:</p>
+<div class="highlight highlight-source-c"><pre>      <span class="pl-k">struct</span> animal *<span class="pl-en">maxlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len);</pre></div>
+<p>that will use the <code>getlegs()</code> function and will return an animal with highest
+leg count. Return pointer to the structure (= array element) from the function.</p>
+<p>The <code>main()</code> function (in separate file) will define an array of animals and
+will call <code>maxlegs()</code>.  The name of the animal with maximum number of legs will
+be printed to standard output.</p>
+<p>Note: does the original structure change if the structure returned from the
+function was modified within the function? How to fix this ?</p>
+<p>code:</p>
+<ul>
+<li>
+<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal_maxlegs.c">animal_maxlegs.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/maxlegs.c">maxlegs.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animals.h">animals.h</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a>
+</li>
+</ul>
+<h3>
+<a id="user-content-wrench-animal-sorting" class="anchor" href="#wrench-animal-sorting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> animal sorting</h3>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: sort the array by number of legs, print it out to standard
+output.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: sort the array by the animal name. Print it out to standard
+output.  Use <code>strcmp()</code> to do the comparison of names.</p>
+<p>Make the comparison functions static.</p>
+<p>Use the standard libc sort function qsort(3).  Check the manual page on how it's
+used.  You will need to define a callback function that the qsort() function
+will use to compare two array elements.</p>
+<p>Make the program to accept an argument (0 or 1) and run the sorting function
+based on that.</p>
+<p>code:</p>
+<ul>
+<li>
+<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal-sort.c">animal-sort.c</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animals.h">animals.h</a>
+</li>
+<li>
+<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a>
+</li>
+</ul>
 
               </article>
             </div>
