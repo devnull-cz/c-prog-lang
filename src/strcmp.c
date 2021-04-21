@@ -38,6 +38,7 @@ mystrcmp(const char *s1, const char *s2)
 int
 main(void)
 {
+	assert(strcmp("", "") == 0);
 	assert(strcmp("abc", "abd") < 0);
 	assert(strcmp("foo", "bar") > 0);
 	assert(strcmp("foo", "foo") == 0);
