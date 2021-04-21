@@ -39,6 +39,8 @@ int
 main(void)
 {
 	assert(strcmp("", "") == 0);
+	assert(strcmp("", "foo") < 0);
+	assert(strcmp("foo", "") > 0);
 	assert(strcmp("abc", "abd") < 0);
 	assert(strcmp("foo", "bar") > 0);
 	assert(strcmp("foo", "foo") == 0);
