@@ -29,7 +29,7 @@ main(void)
 	 */
 	p_i = (int *)a;		// you need the cast to silence a warning
 	for (i = 0; i < MYSIZE * MYSIZE; ++i) {
-		printf("%d\n", p_i[i]);
+		printf("%d\n", p_i[i]); // could also do ((int *)a)[i] directly
 #if 0
 		/*
 		 * This would be wrong, a[i] is a pointer to the i-th
