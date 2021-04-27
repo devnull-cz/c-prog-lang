@@ -5,7 +5,7 @@ int main(int argc, char *argv[]);
 ```
 
   - `argv` is declared as an array of pointers
-    - i.e. `argv[i]` is a pointer to char
+    - i.e. `argv[i]` is a pointer to `char`
   - the arguments of `main()` can have arbitrary names however please stick
     to the convention to avoid confusion of those who might be reading your
     program
@@ -13,10 +13,10 @@ int main(int argc, char *argv[]);
   - `argc` is a number of command line arguments, including the command name
     itself (in `argv[0]`).
 
-  - `argv[i]` are arguments as strings.  Note, they are **strings** even if you put
-    numbers there on the command line.
+  - `argv[i]` are arguments as strings.  Note, they are **strings** even if you
+    put numbers there on the command line.
 
-  - `argv[argc]` is NULL by definition.
+  - `argv[argc]` is a null pointer by definition.
 
 Note: remember (see
 #module arrays-as-function-arguments.md notes about array passed to function
@@ -29,7 +29,7 @@ Note: remember (see
 
   The declaration merely hints at the memory layout.
 
-Also, you already know that you can use an array notation with characters as
+Also, you already know that you can use an array notation with strings as
 well, so you could use `argv[i][j]` to print individual characters.  Just make
 sure that it's not out of range.
 
@@ -44,7 +44,7 @@ sure that it's not out of range.
     program startup and program termination.
 
 - the `argv` is array of pointers to null-terminated strings and must be
-  terminated by a `NULL` pointer. (quote from the execve(2) man page)
+  terminated by a null pointer. (quote from the execve(2) man page)
 
 ```
   argv
@@ -73,8 +73,8 @@ sure that it's not out of range.
 
 Note: for all arguments print their address as well
 
-Note: do not print the terminating `NULL` entry
-  - some `printf()` implementations barf on NULL pointer when printing via the
+Note: do not print the terminating null pointer entry
+  - some `printf()` implementations barf on null pointer when printing via the
     `%s` format string
 
 Code:
@@ -115,9 +115,10 @@ count, print usage and exit.
 
 usage: `./a.out <r> <n> [args]`
 
-do not count `argv[0..2]`.  If not enough arguments or the argument is not long
-enough, print a helpful message.  Only use pointer arithmetics, do **not** use
-square brackets (ie.  `argv[i][j]` is **not** allowed).
+do not count `argv[0] .. arg[2]`.  If not enough arguments or the argument is
+not long enough, print a helpful message.  Only use pointer arithmetics, do
+**not** use square brackets (ie.  `argv[i][j]` is **not** allowed).
+
 ```
 ./a.out 2 3 hey hi world
 l
@@ -158,8 +159,8 @@ main(int argc, char **argv)
 ```
 
 Note: the last function might not compile with smarter compilers (such as LLVM)
-that include format string checks.  What is expected to happen if it the last
-piece of code does compile and is run with one argument?
+that include format string checks.  What is expected to happen if the last piece
+of code does compile and is run with one argument?
 
 Code:
   - #source plus-deref-plus-argv.c
