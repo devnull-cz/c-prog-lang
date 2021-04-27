@@ -9,7 +9,7 @@ The allocator in the standard C library offers the
 `malloc`()/`calloc`()/`free`()/...  APIs for heap allocation.
 
 :heavy\_exclamation\_mark: The `malloc`/`calloc` functions return a pointer to a
-memory area of a specified size or a `NULL` pointer if the allocation failed -
+memory area of a specified size or a null pointer if the allocation failed -
 always check that!  (even on Linux where it seems it can never fail - to be
 prepared for change in a configuration and also for portability to systems with
 more conservative memory allocation).

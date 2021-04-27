@@ -1,8 +1,8 @@
 # Pointer to a pointer
 
-We know that a pointer points to an object (unless its a `NULL` pointer or of
-type `void`), eg. an `int`.  However, the object may be another address, i.e.
-a pointer may point to another pointer.
+We know that a pointer points to an object (unless its a null pointer or of type
+`void`), e.g. an `int`.  However, the object may be another address, i.e.  a
+pointer may point to another pointer.
 
 ```C
 int i = 13;
@@ -36,14 +36,14 @@ foo(int **p, size_t idx)
 ```
 
 Clearly, this works fine in a situation when `pp` is indeed a pointer to an
-array of integer pointers (left).  Now what if someone passes a pointer to a
-pointer to an integer array (right)?
+array of integer pointers.  Now what if someone passes a pointer to a
+pointer to an integer array?
 
 Note that in both situations, `ppa` and `ppb` **properly fit the declaration**
 `int **p`.  That is, both arrays in the chart below are 2-dimensional and both
-have one of the dimensions set as `1`.  **The difference is which of the two
-dimensions is `1`.**  And that is a piece of information that must be provided
-upfront.
+have one of the dimensions set as `1`.  **The difference is in semantics - which
+of the two dimensions is meant to be `1`.**  And that is a piece of information
+that must be provided upfront.
 
 ```
     +-------+     +-------+     +-------+
