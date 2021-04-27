@@ -495,17 +495,18 @@ de-reference operator on <code>foo</code></p>
 <a id="user-content-struct-initialization" class="anchor" href="#struct-initialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Struct initialization</h2>
 <ul>
 <li>can initialize a structure in its definition using the initiator list of
-<strong>constant</strong> values</li>
+values.  You must either follow the ordering of members:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
 	<span class="pl-k">int</span> a;
 	<span class="pl-k">char</span> b;
+	<span class="pl-k">char</span> *s;
 };
 
-<span class="pl-k">struct</span> foo_s foo = { <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span> };</pre></div>
+<span class="pl-k">struct</span> foo_s foo = { <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>hello world<span class="pl-pds">"</span></span> };</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-init.c">struct-init.c</a></p>
 <ul>
-<li>or using <em>designated initializers</em> from C99:</li>
+<li>or use <em>designated initializers</em> from C99:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s foo = {
 	.<span class="pl-smi">b</span> = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>,

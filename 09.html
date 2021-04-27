@@ -87,8 +87,9 @@ associativity. Therefore, they will be evaluated as</p>
 <div class="highlight highlight-source-c"><pre>(<span class="pl-c1">8</span> / <span class="pl-c1">2</span>) % <span class="pl-c1">3</span></pre></div>
 <h2>
 <a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
-<p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value of the expression
-is still <code>*p</code> though as <code>p</code> is incremented after the expression is evaluated.</p>
+<p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value
+of the expression is still <code>*p</code> though as the dereference operator is applied on
+<code>p</code> since that is the value of <code>p++</code>.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: determine the outcome of these expressions/declarations:</p>
 <ul>
 <li><code>*p++</code></li>
@@ -103,8 +104,9 @@ is still <code>*p</code> though as <code>p</code> is incremented after the expre
 <span class="pl-k">int</span> <span class="pl-en">bar</span>(<span class="pl-k">void</span>);
 
 <span class="pl-k">int</span> x = foo() + bar();</pre></div>
-<p>The standard does not say how the evaluation will be done. <code>foo()</code> can be called
-before or after <code>bar()</code>. If we add another function:</p>
+<p>Note that the order of evaluation of subexpressions is an unspecified behavior
+(see C99 6.5, paragraph 3).  So, <code>foo()</code> can be called before or after <code>bar()</code>.
+If we add another function:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">foo</span>(<span class="pl-k">void</span>);
 <span class="pl-k">int</span> <span class="pl-en">bar</span>(<span class="pl-k">void</span>);
 <span class="pl-k">int</span> <span class="pl-en">another</span>(<span class="pl-k">void</span>);
@@ -120,13 +122,14 @@ in which <code>foo()</code> and <code>bar()</code> will be called is still undef
 <p>the condition in the statement:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> ((c = getchar()) != <span class="pl-c1">0</span>)
     ...</pre></div>
-<p>needs to be bracketed this way because <code>=</code>/<code>!=</code> has higher precedence than <code>=</code>.</p>
+<p>needs to be bracketed this way because <code>==</code> and <code>!=</code> is of higher precedence
+than <code>=</code>.</p>
 <h3>
 <a id="user-content--or--versus---or-" class="anchor" href="#-or--versus---or-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>&amp;</code> or <code>*</code> versus <code>-&gt;</code> or <code>.</code>
 </h3>
 <p><code>-&gt;</code> and <code>.</code> (structure member access) have higher precedence than <code>&amp;</code> (address
-of) or <code>*</code> (dereference)</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> consider structure</p>
+of) and <code>*</code> (dereference)</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> consider the following structures:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> bar {
 	<span class="pl-k">int</span> val;
 } bar;
@@ -136,15 +139,15 @@ of) or <code>*</code> (dereference)</p>
 	<span class="pl-k">char</span> *b;
 	<span class="pl-k">struct</span> bar *c;
 } foo;</pre></div>
-<p>initialize members of <code>foo</code> with <code>1, 2, 3</code> and <code>"BBB"</code>, respectively and
-<code>bar</code> with <code>42</code>. Use designated initializers.</p>
+<p>Now initialize the first two members of <code>foo</code> with <code>1, 2, 3</code> and <code>"BBB"</code>,
+respectively and <code>bar</code> with <code>42</code>.  Use designated initializers.</p>
 <p>write these expressions to get:</p>
 <ul>
 <li>the address of <code>a</code>
 </li>
 <li>the address of <code>b</code>
 </li>
-<li>the address of the second item of <code>a</code>
+<li>the address of the second element of <code>a</code>
 </li>
 <li>the address of the 3rd character from string <code>b</code>
 </li>
@@ -159,11 +162,11 @@ of) or <code>*</code> (dereference)</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-op-precedence.c">struct-op-precedence.c</a></p>
 <h1>
 <a id="user-content-pointer-addressing" class="anchor" href="#pointer-addressing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer addressing</h1>
-<p>Like with arrays, it is possible to subscript pointers:</p>
+<p>We alread know that as with arrays, it is possible to subscript pointers:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">10</span>];
 <span class="pl-k">int</span> *p = a;
 
-p[<span class="pl-c1">0</span>]...</pre></div>
+p[<span class="pl-c1">0</span>] = ...</pre></div>
 <p>This just goes directly from the standard: <code>p[x]</code> is equivalent to <code>*(p + x)</code>.
 And remember that incrementing a pointer or an array expression goes by
 increments of the element type size.</p>
@@ -235,9 +238,9 @@ print it out via <code>printf</code>, use a <code>t</code> modifier.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-to-array-of-ptrs.c">ptr-to-array-of-ptrs.c</a></p>
 <h1>
 <a id="user-content-pointer-to-a-pointer" class="anchor" href="#pointer-to-a-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer to a pointer</h1>
-<p>We know that a pointer points to an object (unless its a <code>NULL</code> pointer or of
-type <code>void</code>), eg. an <code>int</code>.  However, the object may be another address, i.e.
-a pointer may point to another pointer.</p>
+<p>We know that a pointer points to an object (unless its a null pointer or of type
+<code>void</code>), e.g. an <code>int</code>.  However, the object may be another address, i.e.  a
+pointer may point to another pointer.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">13</span>;
 <span class="pl-k">int</span> *<span class="pl-bu">pi</span> = &amp;i;
 <span class="pl-k">int</span> **ppi = &amp;<span class="pl-bu">pi</span>;        <span class="pl-c"><span class="pl-c">//</span> ppi is a pointer to a pointer to an int</span>
@@ -259,13 +262,13 @@ So, <code>int *p[]</code> can be written as <code>int **p</code>.</p>
         <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, **(p + idx));
 }</pre></div>
 <p>Clearly, this works fine in a situation when <code>pp</code> is indeed a pointer to an
-array of integer pointers (left).  Now what if someone passes a pointer to a
-pointer to an integer array (right)?</p>
+array of integer pointers.  Now what if someone passes a pointer to a
+pointer to an integer array?</p>
 <p>Note that in both situations, <code>ppa</code> and <code>ppb</code> <strong>properly fit the declaration</strong>
 <code>int **p</code>.  That is, both arrays in the chart below are 2-dimensional and both
-have one of the dimensions set as <code>1</code>.  <strong>The difference is which of the two
-dimensions is <code>1</code>.</strong>  And that is a piece of information that must be provided
-upfront.</p>
+have one of the dimensions set as <code>1</code>.  <strong>The difference is in semantics - which
+of the two dimensions is meant to be <code>1</code>.</strong>  And that is a piece of information
+that must be provided upfront.</p>
 <pre><code>    +-------+     +-------+     +-------+
  i  |   42  |   j |   7   |   k |   99  |
     +-------+     +-------+     +-------+
@@ -416,10 +419,10 @@ solution until you write your own code.</p>
 is allocated in an area called a <em>stack</em>. There is an area called a <em>heap</em> to
 allocate memory that lasts after the function returns. This is also called
 <em>dynamic allocation</em>.</p>
-<p>The allocator in the standard library offers the
+<p>The allocator in the standard C library offers the
 <code>malloc</code>()/<code>calloc</code>()/<code>free</code>()/...  APIs for heap allocation.</p>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> The <code>malloc</code>/<code>calloc</code> functions return a pointer to a
-memory area of a specified size or a <code>NULL</code> pointer if the allocation failed -
+memory area of a specified size or a null pointer if the allocation failed -
 always check that!  (even on Linux where it seems it can never fail - to be
 prepared for change in a configuration and also for portability to systems with
 more conservative memory allocation).</p>
@@ -467,13 +470,14 @@ different types</p>
 	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">15</span>] = <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>;
 }</pre></div>
 <p>This is possible since all the structures have the same member on the same
-offset (that is offset 0).</p>
+offset (that is offset 0).  However, note that you need to cast properly to
+avoid warnings.  See the code below.</p>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-common.c">struct-common.c</a></p>
-<p>Or, more commonly, a function will allocate a <code>A</code> or <code>B</code> structure and return
-its address as a pointer to the <code>Common</code> struct.  This pointer then needs to be
-casted according to its first member.</p>
+<p>A function may also allocate an <code>A</code> or <code>B</code> structure and return its address as a
+pointer to the <code>Common</code> struct.  This pointer then needs to be casted in the
+caller according to its first member.</p>
 <p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
-definitions for example on how this is done in practice.</p>
+definitions as an example on how this is done in practice.</p>
 <h1>
 <a id="user-content-wrench-home-assignment-1" class="anchor" href="#wrench-home-assignment-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
@@ -508,9 +512,10 @@ $ ./a.out 10
 <a id="user-content-memory-leaks" class="anchor" href="#memory-leaks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Memory leaks</h1>
 <p>The C runtime does not have a garbage collector so all heap allocated memory has
 to be explicitly freed via <code>free</code>() after it is no longer needed.  If not freed,
-that creates a resource leak called a <em>memory leak</em>.  Depending on the problem
-this might cause the problem of running out of memory later on (and then
-<code>malloc</code>/<code>calloc</code> can start returning <code>NULL</code>).</p>
+that creates a resource leak called a <em>memory leak</em> as the allocator deems such
+memory used even that your code no longer uses it.  Depending on the problem
+this might cause the problem of running out of memory later on, and then
+<code>malloc</code>/<code>calloc</code> can start returning a null pointer.</p>
 <p>The leaks can be checked using static or dynamic analyzers.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes all arguments that follow <code>argv[0]</code>,
 concatenates them (without the terminating <code>NUL</code> character) into one string
