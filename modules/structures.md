@@ -5,6 +5,8 @@
 - collection of one or more members, possibly of different types, grouped
   together under a single name
 
+- is one of the two *aggregate types* (the other aggregate type is the *array*)
+
 - structures permit group of related members to be treated as a unit (precursor
   to a class in Object Oriented Programming)
 
@@ -26,44 +28,63 @@ struct foo {
 	char b;
 };
 ```
-- any type can be a member of a structure except the structure itself
+- any type can be a member of a structure that it not incomplete and not a
+  function
+  - that means a structure may not contain itself (before the structure
+    definition is finished with the terminating `}` it is an incomplete type as
+    its size is not yet known)
+    - there is a minor exception though, see C99 6.7.2.1, paragraph 2 and 16,
+      and also a
+#module flexible-array-member.md *flexible array member*.
   - however: a pointer to its own type is possible (remember, a pointer
-    is just a number referencing a piece of memory)
+    is just a number referencing a piece of memory, and its size is known)
   - unlike in C++, structure cannot contain functions. It may contain
     pointers to functions, though.
-- structure does not have to have a name, #source struct-unnamed.c
-  - however then its use is limited to variable declaration
+- structure does not need a name, #source struct-unnamed.c
+  - however then its use is limited to a variable declaration
   - one can even have an "anonymous structure", however that is a C11
     extension, #source struct-anon.c
 
-- struct declaration cannot contain initializers.  However, the structure can be
-  initialized with a list of initializers in the same way as arrays.
+- the `struct` declaration itself cannot contain initializers.  However, the
+  structure can be initialized with a list of initializers in the same way as
+  arrays.
 
-- define a variable:
+  So, you cannot do:
+
 ```C
-struct foo foo;
+struct foo {
+	int a;
+} = { 1 };
 ```
 
-- usually the `_s` postfix is used to denote a structure name
+- when the structure has been defined, you can declare a variable of its type:
+
+```C
+struct foo f;
+```
+
+- sometimes the `_s` postfix is used to denote a structure name
 
  Note: the `struct` keyword has to be used for its definition and declaration:
 
-`foo foo;` is not valid.
+`foo f;` is not valid.
 
-- can declare structure and its variables at the same time:
+- can declare structure and its variables at the same time, and you can also
+  initialize it at the same time:
 
 ```C
 struct foo_s {
 	...
-} foo;
+} foo = { 0, ... };
 ```
 
-- however usually this is not done because structures are normally saved to
-  header files (and including such a header file would mean a variable
-  definition which is usually not desirable)
+- however, this is unusual because structures are normally saved to header
+  files, and including such a header file would mean a variable definition which
+  is rarely desirable
 
-- for better code readability, members are sometimes prefixed with a letter to
-  denote their structure type, e.g.:
+- for better code readability and also to be able to search for the members in
+  (large) code base, members are often prefixed with a common string ending with
+  an underscore to denote their structure membership, e.g.:
 
 ```C
 // 'sin' is a shortcut for 'Sockaddr_IN', the Internet socket
@@ -74,11 +95,11 @@ struct sockaddr_in {
 };
 ```
 
-- another reason is when looking for variable names in a big source code
-  repository (using `ctags`, `cstyle` or tools such as
+- when looking for variable names in a big source code repository (using
+  `ctags`, `cstyle` or tools such as
   [OpenGrok](https://github.com/opengrok/opengrok/)), there would be large
   amount of generally named variables like `port`, `size`, etc in various source
-  code files. However, with the prefix, like `sin_port`, very often you find
+  code files.  However, with the prefix, like `sin_port`, very often you find
   just one, the one you are looking for.
 
 ## Struct layout in memory
@@ -89,18 +110,19 @@ struct X { int a; char b; int c; };
 
 - the offset of the first member will be always 0
 
-- other members can be padded to preserve self-alignment (i.e. member is always
-  aligned in memory to multiple of its own size)
-	- the value of the padding bits is undefined
+- other members can be padded to preserve self-alignment (i.e. a member is
+  always aligned in memory to multiple of its own size)
+	- the value of the padding bits is undefined by definition and you must
+	  not rely on it
 
-- what will be the result of `sizeof (struct X)` ?
+- what will be the result of `sizeof (struct X)` above?
 	- why ? (think about efficiency of accessing members that cross
 	  a word in memory)
 
-- what if `char d` is added at the end of the data structure ?
-	- why is that ? (think about arrays and memory access again)
+- what if `char d` is added at the end of the data structure?
+	- why is that? (think about arrays and memory access again)
 
-- what if `char *d` is added at the end of the data structure ?  (i.e.  it will
+- what if `char *d` is added at the end of the data structure?  (i.e. it will
   have 4 members)
 	- assume this is being compiled on 64-bit machine
 	- for efficiency the access to the pointer should be aligned to its size
@@ -112,7 +134,7 @@ struct X { int a; char b; int c; };
 +-----------+----+--------+------------+
 ```
 
-- does the compiler reorder struct members ? no, C is designed to trust the
+- does the compiler reorder struct members?  No, C is designed to trust the
   programmer.
 
 #source struct-X.c
@@ -126,7 +148,8 @@ link: http://www.catb.org/esr/structure-packing/
 ## Struct members
 
 - members are accessed via 2 operators: `.` and `->`
-	- infix, in the group of operators with the highest precedence
+	- infix operators, left-to-right associativity, both are in the group of
+	  operators with the highest precedence (priority)
 	- `->` is used if the variable is a pointer, `.` otherwise
 
 - e.g.:
@@ -140,9 +163,9 @@ struct foo_s {
 foo.a = 42;
 foo.b = 'C';
 ```
-- the `.` and `->` operators have higher precedence than `*` and `&`, so:
 
-    `&foo.b` gets the address of the member `b`
+- the `.` and `->` operators have higher precedence than `*` and `&`, so:
+  `&foo.b` gets the address of the member `b`
 
 - structure assignment
 
@@ -151,6 +174,7 @@ struct foo_s one, two;
 
 one = two;
 ```
+
 - is done byte by byte (shallow copy - does not follow pointers)
 	- handy for members that are pointers
 	- on the other hand for large structures (say hundreds of bytes) this
@@ -171,13 +195,14 @@ de-reference operator on `foo`
 
 #solution struct-access.c
 
-:wrench: now if `a` was a pointer to integer, how would the code change ?
+:wrench: now if `a` was a pointer to integer, how would the code change?
 
 #solution struct-access-ptr.c
 
 ## Struct initialization
 
-- can initialize in definition using the initiator list of **constant** values
+- can initialize a structure in its definition using the initiator list of
+  **constant** values
 
 ```C
 struct foo_s {
@@ -199,7 +224,8 @@ struct foo_s foo = {
 };
 ```
 
-- the ordering in the struct declaration does not have to be preserved
+- the ordering in the struct declaration does not have to be preserved (but you
+  really should follow it though)
 
 - omitted field members are implicitly initialized the same as objects that have
   static storage duration (ie. will be initialized to 0).
@@ -269,15 +295,19 @@ link them together.
 
 It can be done e.g. like this:
 
-      cc struct-animals.c animal_minlegs.c
+```
+cc struct-animals.c animal_minlegs.c
+```
 
 where the compiler will do the compilation of the individual object files and
 then call the linker to contruct the binary (named `a.out`).
 
-Or like this:
+Or as follows:
 
-      cc -c struct-animals.c animal_minlegs.c
-      cc -o animals struct-animals.o animal_minlegs.o
+```
+cc -c struct-animals.c animal_minlegs.c
+cc -o animals struct-animals.o animal_minlegs.o
+```
 
 which is closer to what would be done using a Makefile.
 
@@ -286,7 +316,9 @@ file it is not necessary to compile it individually.
 
 :wrench: Task: use the code from previous task and implement (in separate `.c`
 file)
+
 ```C
-      static size_t getlegs(struct animal *);
+static size_t getlegs(struct animal *);
 ```
+
 that will return number of legs for a given animal.
