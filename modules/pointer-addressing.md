@@ -1,12 +1,12 @@
 # Pointer addressing
 
-Like with arrays, it is possible to subscript pointers:
+We alread know that as with arrays, it is possible to subscript pointers:
 
 ```C
 int a[10];
 int *p = a;
 
-p[0]...
+p[0] = ...
 ```
 
 This just goes directly from the standard: `p[x]` is equivalent to `*(p + x)`.
