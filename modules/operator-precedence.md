@@ -19,8 +19,9 @@ associativity. Therefore, they will be evaluated as
 ```
 ## Examples
 
-`*p++` is `*(p++)` as `++` is of higher priority than `*`.  However, the value of the expression
-is still `*p` though as `p` is incremented after the expression is evaluated.
+`*p++` is `*(p++)` as `++` is of higher priority than `*`.  However, the value
+of the expression is still `*p` though as the dereference operator is applied on
+`p` since that is the value of `p++`.
 
 :wrench: Task: determine the outcome of these expressions/declarations:
   - `*p++`
@@ -39,8 +40,9 @@ int bar(void);
 int x = foo() + bar();
 ```
 
-The standard does not say how the evaluation will be done. `foo()` can be called
-before or after `bar()`. If we add another function:
+Note that the order of evaluation of subexpressions is an unspecified behavior
+(see C99 6.5, paragraph 3).  So, `foo()` can be called before or after `bar()`.
+If we add another function:
 
 ```C
 int foo(void);
@@ -63,14 +65,16 @@ if ((c = getchar()) != 0)
     ...
 ```
 
-needs to be bracketed this way because `=`/`!=` has higher precedence than `=`.
+needs to be bracketed this way because `==` and `!=` is of higher precedence
+than `=`.
 
 ### `&` or `*` versus `->` or `.`
 
 `->` and `.` (structure member access) have higher precedence than `&` (address
-of) or `*` (dereference)
+of) and `*` (dereference)
 
-:wrench: consider structure
+:wrench: consider the following structures:
+
 ```C
 struct bar {
 	int val;
@@ -82,13 +86,14 @@ struct {
 	struct bar *c;
 } foo;
 ```
-initialize members of `foo` with `1, 2, 3` and `"BBB"`, respectively and
-`bar` with `42`. Use designated initializers.
+
+Now initialize the first two members of `foo` with `1, 2, 3` and `"BBB"`,
+respectively and `bar` with `42`.  Use designated initializers.
 
 write these expressions to get:
   - the address of `a`
   - the address of `b`
-  - the address of the second item of `a`
+  - the address of the second element of `a`
   - the address of the 3rd character from string `b`
   - the 3rd character from string `b`
   - value of `val` in `bar` using `foo`
