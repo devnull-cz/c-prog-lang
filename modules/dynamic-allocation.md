@@ -5,7 +5,7 @@ is allocated in an area called a *stack*. There is an area called a *heap* to
 allocate memory that lasts after the function returns. This is also called
 *dynamic allocation*.
 
-The allocator in the standard library offers the
+The allocator in the standard C library offers the
 `malloc`()/`calloc`()/`free`()/...  APIs for heap allocation.
 
 :heavy\_exclamation\_mark: The `malloc`/`calloc` functions return a pointer to a
