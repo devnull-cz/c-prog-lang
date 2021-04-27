@@ -30,13 +30,14 @@ if (c->type == 1) {
 ```
 
 This is possible since all the structures have the same member on the same
-offset (that is offset 0).
+offset (that is offset 0).  However, note that you need to cast properly to
+avoid warnings.  See the code below.
 
 code: #source struct-common.c
 
-Or, more commonly, a function will allocate a `A` or `B` structure and return
-its address as a pointer to the `Common` struct.  This pointer then needs to be
-casted according to its first member.
+A function may also allocate an `A` or `B` structure and return its address as a
+pointer to the `Common` struct.  This pointer then needs to be casted in the
+caller according to its first member.
 
 See `struct sockaddr`, `struct sockaddr_in` and `struct sockaddr_in6`
-definitions for example on how this is done in practice.
+definitions as an example on how this is done in practice.
