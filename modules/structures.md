@@ -116,7 +116,7 @@ struct X { int a; char b; int c; };
 	  not rely on it
 
 - what will be the result of `sizeof (struct X)` above?
-	- why ? (think about efficiency of accessing members that cross
+	- why? (think about efficiency of accessing members that cross
 	  a word in memory)
 
 - what if `char d` is added at the end of the data structure?
