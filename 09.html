@@ -157,6 +157,375 @@ of) or <code>*</code> (dereference)</p>
 </ul>
 <p>Use as few brackets as possible.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-op-precedence.c">struct-op-precedence.c</a></p>
+<h1>
+<a id="user-content-pointer-addressing" class="anchor" href="#pointer-addressing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer addressing</h1>
+<p>Like with arrays, it is possible to subscript pointers:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">10</span>];
+<span class="pl-k">int</span> *p = a;
+
+p[<span class="pl-c1">0</span>]...</pre></div>
+<p>This just goes directly from the standard: <code>p[x]</code> is equivalent to <code>*(p + x)</code>.
+And remember that incrementing a pointer or an array expression goes by
+increments of the element type size.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">2</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">222</span> };
+
+<span class="pl-c"><span class="pl-c">/*</span> Will print 222. <span class="pl-c">*/</span></span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *(a + <span class="pl-c1">1</span>));</pre></div>
+<h1>
+<a id="user-content-array-of-pointers" class="anchor" href="#array-of-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array of pointers</h1>
+<p>See also what we already know about
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/program-arguments.md">program arguments.</a></p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c"> * [] is of higher precedence than *, so the following means:</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> *	 "a is an array of 10 pointers to char"</span>
+<span class="pl-c"> <span class="pl-c">*/</span></span>
+<span class="pl-k">char</span> *a[<span class="pl-c1">10</span>];</pre></div>
+<p>You could write it as <code>char *(a[10])</code> but that would be quite uncommon and is
+not recommended.</p>
+<p>You can initialize such an array the same way as before.  Remember, a string
+literal is internally an array of <code>char</code>s, so we can use it to initialize the
+following array of <code>char</code> pointers (it is the same as <code>char *p = a</code>).</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *a[] = { <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>!<span class="pl-pds">"</span></span> };</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-of-ptrs.c">array-of-ptrs.c</a></p>
+<h1>
+<a id="user-content-10-minute-warm-up" class="anchor" href="#10-minute-warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10 minute warm-up</h1>
+<pre><code>./a.out dragon firefly jupiter
+</code></pre>
+<ul>
+<li>Using the pointer arithmetics and the dereference operator <code>*</code> only , given
+the exact command line above, print 'g' from the first argument, 'r' from the
+2nd, and 't' from the last one.</li>
+<li>That is, you must not use brackets <code>[]</code> at all.</li>
+<li>You can assume the command will have the arguments above, i.e. it's OK to
+crash if you run it without any arguments, for example.</li>
+<li>It is still good to verify you have at least 3 arguments.</li>
+<li>Remember
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/program-arguments.md">program arguments</a>
+</li>
+</ul>
+<h1>
+<a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
+<p>Note that home assignments are entirely voluntary but writing code is the only
+way to learn a programming language.</p>
+<h2>
+<a id="user-content-work-with-arrays-and-pointers" class="anchor" href="#work-with-arrays-and-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Work with arrays and pointers</h2>
+<ul>
+<li>Define two integers <code>i</code>, <code>j</code> and initialize them with some arbitrary values.</li>
+<li>Define an array <code>a</code> of pointers to <code>int</code> that contains pointers to these two
+integers.</li>
+<li>Define an array <code>b</code> of <code>int</code>s that will contain the values of these two
+integers.</li>
+<li>Define a pointer <code>p</code>, and assign i-th element of array <code>a</code> to it.</li>
+<li>Define a pointer <code>q</code>, and assign an address of the i-th element of array <code>b</code>
+to it.</li>
+<li>Print the address of <code>p</code>, <code>q</code> and then deference them.</li>
+</ul>
+<p>What you are expected to get when dereferencing the <code>p</code> and <code>q</code> pointers?</p>
+<p>What is the distance between these 2 pointers?  Does it make sense to do that?
+A difference between two pointers is a signed integer of type <code>ptrdiff_t</code>.  To
+print it out via <code>printf</code>, use a <code>t</code> modifier.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">2</span>];
+<span class="pl-k">int</span> *p = &amp;a[<span class="pl-c1">1</span>];
+<span class="pl-k">int</span> *q = &amp;a[<span class="pl-c1">0</span>];
+
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%td</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, p - q);</pre></div>
+<p>Usage: <code>./a.out &lt;i&gt;</code></p>
+<p>What is a reasonable value of the 1st argument (<code>i</code>) of the program ?</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-to-array-of-ptrs.c">ptr-to-array-of-ptrs.c</a></p>
+<h1>
+<a id="user-content-pointer-to-a-pointer" class="anchor" href="#pointer-to-a-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer to a pointer</h1>
+<p>We know that a pointer points to an object (unless its a <code>NULL</code> pointer or of
+type <code>void</code>), eg. an <code>int</code>.  However, the object may be another address, i.e.
+a pointer may point to another pointer.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">13</span>;
+<span class="pl-k">int</span> *<span class="pl-bu">pi</span> = &amp;i;
+<span class="pl-k">int</span> **ppi = &amp;<span class="pl-bu">pi</span>;        <span class="pl-c"><span class="pl-c">//</span> ppi is a pointer to a pointer to an int</span>
+
+<span class="pl-c"><span class="pl-c">//</span> *pi is a pointer to an int, so another dereference is needed to get the value</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, **ppi);   <span class="pl-c"><span class="pl-c">//</span> prints 13</span></pre></div>
+<h2>
+<a id="user-content-a-pointer-to-a-pointer-to-an-array-vs-a-pointer-to-an-array-of-pointers" class="anchor" href="#a-pointer-to-a-pointer-to-an-array-vs-a-pointer-to-an-array-of-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A pointer to a pointer to an array vs. a pointer to an array of pointers</h2>
+<p>Imagine this: let's assume we have an array of pointers to an integer, like
+this:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p[<span class="pl-c1">10</span>];     <span class="pl-c"><span class="pl-c">//</span> note it is equivalent to "int *(p[10])"</span></pre></div>
+<p>Now, let's have a function that takes an array of <code>int</code> pointers and prints the
+value pointed to by array's n-th element.  We know that when passing an array
+as an argument, C converts it to a pointer.
+So, <code>int *p[]</code> can be written as <code>int **p</code>.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span>
+<span class="pl-en">foo</span>(<span class="pl-k">int</span> **p, <span class="pl-c1">size_t</span> idx)
+{
+        <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, **(p + idx));
+}</pre></div>
+<p>Clearly, this works fine in a situation when <code>pp</code> is indeed a pointer to an
+array of integer pointers (left).  Now what if someone passes a pointer to a
+pointer to an integer array (right)?</p>
+<p>Note that in both situations, <code>ppa</code> and <code>ppb</code> <strong>properly fit the declaration</strong>
+<code>int **p</code>.  That is, both arrays in the chart below are 2-dimensional and both
+have one of the dimensions set as <code>1</code>.  <strong>The difference is which of the two
+dimensions is <code>1</code>.</strong>  And that is a piece of information that must be provided
+upfront.</p>
+<pre><code>    +-------+     +-------+     +-------+
+ i  |   42  |   j |   7   |   k |   99  |
+    +-------+     +-------+     +-------+
+        ^           /      _______/
+        |         /       /
+    +-------+-------+-------+           +------+------+------+
+ a  |   &amp;i  |   &amp;j  |   &amp;k  |         b |  42  |   7  |  99  |
+    +-------+-------+-------+           +------+------+------+
+        ^                                   ^
+        |                                   |
+    +-------+                           +------+.......
+ppa |   a   |                        pb |   b  |   ?  :
+    +-------+                           +------+.......
+                                           ^
+                                           |
+                                        +------+
+                                    ppb |  pb  |
+                                        +------+
+</code></pre>
+<ul>
+<li>What is the difference in accessing the values?  I.e. what will <code>**(x + 1)</code>
+and <code>*(*x + 1)</code> do when <code>x</code> is <code>ppa</code> or <code>ppb</code>?</li>
+<li>The following source code closely follows the ASCII art schema above.  Please
+study the code and make sure you understand the output completely.  Which
+address from the program output corresponds to the value of <code>?</code> above?</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-ptr-array.c">ptr-ptr-array.c</a></p>
+<p>Example output:</p>
+<pre><code>$ ./a.out
+ &amp;i = 0x7ffee68b1880 (42)
+ &amp;j = 0x7ffee68b187c (7)
+ &amp;k = 0x7ffee68b1878 (99)
+  a = 0x7ffee68b1890
+  b = 0x7ffee68b1884
+ pb = 0x7ffee68b1884 [*pb = 42]
+ppb = 0x7ffee68b1868 [*ppb = 0x7ffee68b1884]
+first:
+0x7ffee68b1880 = 42
+0x7ffee68b1884 = 42
+second:
+0x7ffee68b187c -&gt; 7 (in hex 0x7)
+0x7ffee68b1890 -&gt; -427091840 (in hex 0xe68b1880)
+</code></pre>
+<p>The situation above is taken from a real-life problem.  Quoting from
+<a href="https://unixpapa.com/incnote/pam.html" rel="nofollow">https://unixpapa.com/incnote/pam.html</a>:</p>
+<blockquote>
+<p>When the conversation function is called, it is passed an array of prompts.
+This is always passed in as struct pam_message <code>**mesg</code>. However, the
+interpretation varies. In Linux-PAM and OpenPAM this is a pointer to an array
+of pointers to pam_message structures, whereas in Solaris it is a pointer to a
+pointer to an array of pam_message structures. Frequently there is only one
+prompt being passed in, so it doesn't matter. Under either interpretation, the
+first structure is addressable as <code>**msg</code>. However, accessing subsequent
+elements is different. In Linux-PAM and OpenPAM, the second element is at
+<code>*(msg[2])</code>, while in Solaris it is at <code>(*msg)[2]</code>.</p>
+</blockquote>
+<p>The situation when one prompt is passed only is similar to what happens when the
+function <code>first</code>() in
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-ptr-array.c">ptr-ptr-array.c</a>
+is called for <code>ppa</code> and <code>ppb</code>: we see <code>42</code> in both cases (element <code>[0][0]</code>).
+The problem manifests itself when we have and need to reference more than one
+number (or more than one, as in the PAM situation above, <code>msg</code> structures).</p>
+<h1>
+<a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers</h1>
+<ul>
+<li>in order to change the value of a pointer in a function, it has to be passed
+as a pointer to a pointer
+<ul>
+<li>this makes sense, because the storage address of a plain pointer is not
+known to the function, and therefore we must pass in its address so that we
+can change the object the address points to by dereferencing the address.</li>
+</ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-change.c">ptr-change.c</a></p>
+<h1>
+<a id="user-content-explicit-type-conversion" class="anchor" href="#explicit-type-conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Explicit type conversion</h1>
+<p>We already saw an implicit conversion when working with integer types.</p>
+<p>Casting is an explicit type conversion:</p>
+<div class="highlight highlight-source-c"><pre>(type_name)expression;
+
+<span class="pl-k">int</span> i = <span class="pl-c1">13</span>;
+<span class="pl-k">long</span> l = (<span class="pl-k">long</span>)i;		<span class="pl-c"><span class="pl-c">//</span> Just an example.  The casting not needed in this</span>
+				<span class="pl-c"><span class="pl-c">//</span> case, the implicit integer conversion would</span>
+				<span class="pl-c"><span class="pl-c">//</span> work fine.</span></pre></div>
+<p>Casting is used to avoid compiler warnings as a sort of a hint to the compiler
+that you know what you are doing.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/cast-double.c">cast-double.c</a></p>
+<p>Explicit cast for pointers of different types works:</p>
+<p>(C99, 6.3.2.3, 7)</p>
+<blockquote>
+<p>A pointer to an object or incomplete type may be converted to a pointer to a
+different object or incomplete type.  If the resulting pointer is not
+correctly aligned for the pointed-to type, the behavior is undefined.
+Otherwise, when converted back again, the result shall compare equal to the
+original pointer.</p>
+</blockquote>
+<p>This will be especially handy for pointers to structures.  See
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/structure-casting.md">structure casting</a>
+for more information.</p>
+<p>You can always cast explicitly but it depends on what will be done with the
+result.  For example, on some architectures, you cannot access improperly
+unaligned objects.  The following example is from a SPARC machine.</p>
+<pre><code>$ isainfo
+sparcv9 sparc
+
+$ cat main.c
+#include &lt;stdio.h&gt;
+
+int
+main(void)
+{
+        char *s = "hello, world, hello, world";
+        long long int *p = (long long int *)(s + 1);
+
+        printf("%lld\n", *p);
+}
+
+$ gcc main.c
+$ ./a.out
+Bus Error (core dumped)
+</code></pre>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bus-error.c">bus-error.c</a></p>
+<p>Now see the following code and figure out what is going to happen.
+<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-cast.c">ptr-cast.c</a></p>
+<p>Note that <code>void *</code> is a special pointer that cannot be dereferenced.  You can
+always assign any pointer to a <code>(void *)</code> pointer without any need for casting,
+and you can also assign any <code>(void *)</code> pointer to any other pointer without any
+need for casting.  These assignments are <strong>guaranteed to not lose any
+information</strong>.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">99</span>;
+<span class="pl-k">void</span> *p = &amp;i;
+<span class="pl-k">int</span> *<span class="pl-bu">pi</span> = p;
+
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *<span class="pl-bu">pi</span>);	<span class="pl-c"><span class="pl-c">//</span> will print 99</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *p);	<span class="pl-c"><span class="pl-c">//</span> dereferencing (void *), will error out when compiled</span></pre></div>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Verify that a staticly allocated 2D array is stored in one piece of
+memory, row by row.</p>
+<p>Hint: you need to recast a 2D array to a 1D array, then print it as a
+single row.  There are a few different ways to do it.  Do not look at the
+solution until you write your own code.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">5</span>][<span class="pl-c1">5</span>] = { ... };
+<span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-static-array-as-1d.c">2d-static-array-as-1d.c</a></p>
+<h1>
+<a id="user-content-heapdynamic-allocation-mallocfree" class="anchor" href="#heapdynamic-allocation-mallocfree" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>heap/dynamic allocation: malloc()/free()</h1>
+<p>The memory automatically allocated for local variables and function parameters
+is allocated in an area called a <em>stack</em>. There is an area called a <em>heap</em> to
+allocate memory that lasts after the function returns. This is also called
+<em>dynamic allocation</em>.</p>
+<p>The allocator in the standard library offers the
+<code>malloc</code>()/<code>calloc</code>()/<code>free</code>()/...  APIs for heap allocation.</p>
+<p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> The <code>malloc</code>/<code>calloc</code> functions return a pointer to a
+memory area of a specified size or a <code>NULL</code> pointer if the allocation failed -
+always check that!  (even on Linux where it seems it can never fail - to be
+prepared for change in a configuration and also for portability to systems with
+more conservative memory allocation).</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span>	<span class="pl-en">ARRLEN</span>	<span class="pl-c1">20</span>
+<span class="pl-k">int</span> *p;
+
+<span class="pl-k">if</span> ((p = malloc(ARRLEN * <span class="pl-k">sizeof</span> (<span class="pl-k">int</span>))) == <span class="pl-c1">NULL</span>)
+	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>malloc<span class="pl-pds">"</span></span>);
+p[<span class="pl-c1">0</span>] = <span class="pl-c1">99</span>;
+p[ARRLEN - <span class="pl-c1">1</span>] = <span class="pl-c1">77</span>;</pre></div>
+<p>The prototype for <code>malloc</code> is as follows:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> *<span class="pl-en">malloc</span>(<span class="pl-c1">size_t</span> size);</pre></div>
+<p>Note that as <code>malloc</code> returns <code>void *</code>, there is no need to explicitly type its
+result when assigned to a pointer.  That is, do not use:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p;
+
+p = (<span class="pl-k">int</span> *)malloc(<span class="pl-c1">16</span>);</pre></div>
+<p>See <code>man malloc</code> for more memory allocation related functions.</p>
+<h1>
+<a id="user-content-pointer-to-a-structure-and-type-casting" class="anchor" href="#pointer-to-a-structure-and-type-casting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer to a structure and type casting</h1>
+<ul>
+<li>
+<p>pointers to structures are often used to achieve common interface for
+different types</p>
+<ul>
+<li>e.g.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> Common { <span class="pl-k">int</span> type; };
+<span class="pl-k">struct</span> A      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">8</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 1</span>
+<span class="pl-k">struct</span> B      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">16</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 2</span></pre></div>
+<ul>
+<li>then a function can be declared like so:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">func</span>(<span class="pl-k">struct</span> Common *c);</pre></div>
+<ul>
+<li>internally it can do e.g.:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">1</span>) {
+	<span class="pl-k">struct</span> A *ap = (<span class="pl-k">struct</span> A *)c;
+	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">7</span>] = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;
+} <span class="pl-k">else</span> <span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">2</span>) {
+	<span class="pl-k">struct</span> B *bp = (<span class="pl-k">struct</span> B *)c;
+	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">15</span>] = <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>;
+}</pre></div>
+<p>This is possible since all the structures have the same member on the same
+offset (that is offset 0).</p>
+<p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-common.c">struct-common.c</a></p>
+<p>Or, more commonly, a function will allocate a <code>A</code> or <code>B</code> structure and return
+its address as a pointer to the <code>Common</code> struct.  This pointer then needs to be
+casted according to its first member.</p>
+<p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
+definitions for example on how this is done in practice.</p>
+<h1>
+<a id="user-content-wrench-home-assignment-1" class="anchor" href="#wrench-home-assignment-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
+<p>Note that home assignments are entirely voluntary but writing code is the only
+way to learn a programming language.</p>
+<h1>
+<a id="user-content-linked-list" class="anchor" href="#linked-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linked list</h1>
+<p>Declare a structure that will form a simple linked list and will hold an integer
+as a value.  The program will be run with a single argument specifying how many
+items the list will have.</p>
+<p>Allocate a new structure and insert into the head (global variable).  Each new
+item will have its value incremented by one.</p>
+<p>Aside from the value itself, each node needs to hold a pointer to the next
+structure in the list.  The last node has the next pointer set as NULL.</p>
+<p>Once the list is complete, print its value by traversing its items from head to
+end.</p>
+<pre><code>$ ./a.out
+a.out: usage: ./a.out &lt;num&gt;
+$ ./a.out 10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+</code></pre>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linked-list-free.c">linked-list-free.c</a></p>
+<h1>
+<a id="user-content-memory-leaks" class="anchor" href="#memory-leaks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Memory leaks</h1>
+<p>The C runtime does not have a garbage collector so all heap allocated memory has
+to be explicitly freed via <code>free</code>() after it is no longer needed.  If not freed,
+that creates a resource leak called a <em>memory leak</em>.  Depending on the problem
+this might cause the problem of running out of memory later on (and then
+<code>malloc</code>/<code>calloc</code> can start returning <code>NULL</code>).</p>
+<p>The leaks can be checked using static or dynamic analyzers.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes all arguments that follow <code>argv[0]</code>,
+concatenates them (without the terminating <code>NUL</code> character) into one string
+dynamically allocated via <code>malloc</code>() and prints this string to the standard
+output.</p>
+<ul>
+<li>the concatenation can be done either by hand (try that first) or strncat()
+(try that afterwards)</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-concat.c">argv-concat.c</a></p>
+<p>You can then put the string processing in a loop and comment out the <code>free</code>()
+call on the allocated memory.  Then check with <code>top -s 1</code> on Linux, macOS, or
+any other Unix-like system (or use any other suitable system monitoring tool)
+that the memory size of the running program quickly increases.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/src/argv-concat-nofree.c">src/argv-concat-nofree.c</a></p>
 
               </article>
             </div>
