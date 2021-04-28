@@ -19,7 +19,7 @@ main(void)
 	 * without a reminder?
 	 */
 	while (fread(a, sizeof (a), 1, fp) == 1) {
-		for (int i = 0; i < sizeof (a); ++i)
+		for (size_t i = 0; i < sizeof (a); ++i)
 			putchar(a[i]);
 	}
 
