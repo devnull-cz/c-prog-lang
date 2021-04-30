@@ -1,4 +1,4 @@
-# Arithmetic promotion and conversions
+# Arithmetic/integer promotion and conversion
 
 NOTE: the following is a simplified version of what is in the standard.  You
 need to consult the specification if unsure.  See
