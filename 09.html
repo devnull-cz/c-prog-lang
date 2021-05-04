@@ -81,12 +81,10 @@ see the table at <a href="http://en.cppreference.com/w/c/language/operator_prece
 <p>If there are multiple operators with the same precedence in an expression,
 the evaluation is decided based on associativity.</p>
 <p>For example:</p>
-<pre lang="C"><code>8 / 2 % 3
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-c1">8</span> / <span class="pl-c1">2</span> % <span class="pl-c1">3</span></pre></div>
 <p>has 2 operators with precedence level of 3 that have left-to-right
 associativity. Therefore, they will be evaluated as</p>
-<pre lang="C"><code>(8 / 2) % 3
-</code></pre>
+<div class="highlight highlight-source-c"><pre>(<span class="pl-c1">8</span> / <span class="pl-c1">2</span>) % <span class="pl-c1">3</span></pre></div>
 <h2>
 <a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 <p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value
