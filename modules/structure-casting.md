@@ -33,7 +33,7 @@ This is possible since all the structures have the same member on the same
 offset (that is offset 0).  However, note that you need to cast properly to
 avoid warnings.  See the code below.
 
-code: #source struct-common.c
+#source struct-common.c
 
 A function may also allocate an `A` or `B` structure and return its address as a
 pointer to the `Common` struct.  This pointer then needs to be casted in the
