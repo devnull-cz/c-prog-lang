@@ -39,4 +39,4 @@ on big or little endian system (least significant byte is stored on lowest
 address). The program will print either "big endian" or "little endian" to
 standard output.
 
-:key: code: #source union-lowhigh.c
+#solution union-lowhigh.c
