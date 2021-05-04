@@ -11,8 +11,8 @@
 - static objects retain their value upon reentry to functions and blocks.
 - you can initialize a static object.  The initialization happens just once.
 
-code: #source fn-static-object.c
+#source fn-static-object.c
 
 This one also shows how to use `goto`.  More on that later.
 
-code: #source block-static-object.c
+#source block-static-object.c
