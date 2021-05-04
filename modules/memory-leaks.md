@@ -24,4 +24,4 @@ call on the allocated memory.  Then check with `top -s 1` on Linux, macOS, or
 any other Unix-like system (or use any other suitable system monitoring tool)
 that the memory size of the running program quickly increases.
 
-#source src/argv-concat-nofree.c
+#source argv-concat-nofree.c
