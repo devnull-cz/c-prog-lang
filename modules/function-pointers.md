@@ -2,6 +2,7 @@
 
 A function name is a pointer to the function.  You can pass it as an argument.
 
+```C
 	int
 	myadd(int a, int b)
 	{
@@ -13,8 +14,9 @@ A function name is a pointer to the function.  You can pass it as an argument.
 	{
 		return ((*f)(a, b));
 	}
+```
 
-Code: #source fn-ptr.c
+#source fn-ptr.c
 
 ## :wrench: argv sorting
 
@@ -28,5 +30,5 @@ sort them numerically.
 After that, come up with another way of sorting the arguments and write a
 function for it as well.
 
-:key: Code: #source argv-sort.c
+#solution argv-sort.c
 (for alphabetical sorting only)
