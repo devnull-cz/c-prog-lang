@@ -5,11 +5,11 @@ int
 main(void)
 {
 	char *p;
-	char str[] = "foo,bar";
+	char str[] = "foo,,bar";
 	char *inputstr = str;
 	char *delim = ",";
 
 	while ((p = strsep(&inputstr, delim)) != NULL) {
-		printf("%s\n", p);
+		printf("'%s'\n", p);
 	}
 }
