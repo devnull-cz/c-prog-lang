@@ -1,11 +1,11 @@
 # Memory leaks
 
-The C runtime does not have a garbage collector so all heap allocated memory has
-to be explicitly freed via `free`() after it is no longer needed.  If not freed,
-that creates a resource leak called a *memory leak* as the allocator deems such
-memory used even that your code no longer uses it.  Depending on the problem
-this might cause the problem of running out of memory later on, and then
-`malloc`/`calloc` can start returning a null pointer.
+If memory allocated on the heap is not freed, it creates a resource leak called
+a *memory leak* as the allocator deems such memory used even that your code no
+longer uses it.
+
+Depending on the size this might cause the problem of running out of memory
+later on, and then `malloc`/`calloc` can start returning a null pointer.
 
 The leaks can be checked using static or dynamic analyzers.
 

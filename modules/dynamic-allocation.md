@@ -40,3 +40,6 @@ p = (int *)malloc(16);
 ```
 
 See `man malloc` for more memory allocation related functions.
+
+The C runtime does not have a garbage collector so all heap allocated memory
+has to be explicitly freed via `free`() after it is no longer needed.
