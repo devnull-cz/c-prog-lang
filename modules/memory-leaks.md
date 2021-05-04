@@ -14,7 +14,7 @@ concatenates them (without the terminating `NUL` character) into one string
 dynamically allocated via `malloc`() and prints this string to the standard
 output.
 
-  - the concatenation can be done either by hand (try that first) or strncat()
+  - the concatenation can be done either by hand (try that first) or `strncat()`
     (try that afterwards)
 
 #source argv-concat.c
