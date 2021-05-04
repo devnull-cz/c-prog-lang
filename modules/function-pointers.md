@@ -3,17 +3,17 @@
 A function name is a pointer to the function.  You can pass it as an argument.
 
 ```C
-	int
-	myadd(int a, int b)
-	{
-		return (a + b);
-	}
+int
+myadd(int a, int b)
+{
+	return (a + b);
+}
 
-	int
-	process_numbers(int a, int b, int (*f)(int, int))
-	{
-		return ((*f)(a, b));
-	}
+int
+process_numbers(int a, int b, int (*f)(int, int))
+{
+	return ((*f)(a, b));
+}
 ```
 
 #source fn-ptr.c
