@@ -300,19 +300,18 @@ internally-linked objects are unique to a translation unit.</p>
 <h1>
 <a id="user-content-function-pointers" class="anchor" href="#function-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function pointers.</h1>
 <p>A function name is a pointer to the function.  You can pass it as an argument.</p>
-<pre><code>int
-myadd(int a, int b)
-{
-	return (a + b);
-}
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span>
+	<span class="pl-en">myadd</span>(<span class="pl-k">int</span> a, <span class="pl-k">int</span> b)
+	{
+		<span class="pl-k">return</span> (a + b);
+	}
 
-int
-process_numbers(int a, int b, int (*f)(int, int))
-{
-	return ((*f)(a, b));
-}
-</code></pre>
-<p>Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fn-ptr.c">fn-ptr.c</a></p>
+	<span class="pl-k">int</span>
+	<span class="pl-en">process_numbers</span>(<span class="pl-k">int</span> a, <span class="pl-k">int</span> b, <span class="pl-k">int</span> (*f)(<span class="pl-k">int</span>, <span class="pl-k">int</span>))
+	{
+		<span class="pl-k">return</span> ((*f)(a, b));
+	}</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fn-ptr.c">fn-ptr.c</a></p>
 <h2>
 <a id="user-content-wrench-argv-sorting" class="anchor" href="#wrench-argv-sorting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> argv sorting</h2>
 <p>Use <code>qsort(3)</code> function to sort <code>argv</code>, and print it sorted then.  Check the man
@@ -322,7 +321,7 @@ array you provide to the <code>qsort()</code> function.</p>
 sort them numerically.</p>
 <p>After that, come up with another way of sorting the arguments and write a
 function for it as well.</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> Code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-sort.c">argv-sort.c</a>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-sort.c">argv-sort.c</a>
 (for alphabetical sorting only)</p>
 <h1>
 <a id="user-content-wrench-home-assignment-1" class="anchor" href="#wrench-home-assignment-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
