@@ -6,6 +6,7 @@ print_hex(char *ident, char *str, char *end)
 {
 	char *p;
 
+	printf("%-10s", ident);
 	for (p = str; p < end; p++)
 		printf("%2hhx ", *p);
 
