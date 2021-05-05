@@ -16,6 +16,6 @@ main(void)
 
 	// Print the original string to see how it changed.
 	for (p = str; p < end; p++)
-		printf("%x ", *p);
+		printf("%hhx ", *p);
 	printf("\n");
 }
