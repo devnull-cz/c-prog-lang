@@ -133,32 +133,6 @@ any other Unix-like system (or use any other suitable system monitoring tool)
 that the memory size of the running program quickly increases.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-concat-nofree.c">argv-concat-nofree.c</a></p>
 <h1>
-<a id="user-content-wrench-linked-list" class="anchor" href="#wrench-linked-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Linked list</h1>
-<p>Declare a structure that will form a simple linked list and will hold an integer
-as a value.  The program will be run with a single argument specifying how many
-items the list will have.</p>
-<p>Allocate a new structure and insert into the head (global variable).  Each new
-item will have its value incremented by one.</p>
-<p>Aside from the value itself, each node needs to hold a pointer to the next
-structure in the list.  The last node has the next pointer set as <code>NULL</code>.</p>
-<p>Once the list is complete, print its value by traversing its items from head to
-end.</p>
-<pre><code>$ ./a.out
-a.out: usage: ./a.out &lt;num&gt;
-$ ./a.out 10
-9
-8
-7
-6
-5
-4
-3
-2
-1
-0
-</code></pre>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linked-list-free.c">linked-list-free.c</a></p>
-<h1>
 <a id="user-content-pointer-to-a-structure-and-type-casting" class="anchor" href="#pointer-to-a-structure-and-type-casting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer to a structure and type casting</h1>
 <ul>
 <li>
@@ -196,133 +170,35 @@ caller according to its first member.</p>
 <p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
 definitions as an example on how this is done in practice.</p>
 <h1>
-<a id="user-content-unions" class="anchor" href="#unions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unions</h1>
-<ul>
-<li>similar to structures however have different semantics
-<ul>
-<li>stores its members in the same memory location</li>
-<li>allows for different "views" of the same data</li>
-</ul>
-</li>
-<li>usually combined with structures</li>
-<li>handy for efficient data storage or HW programming</li>
-</ul>
-<p>consider this declaration:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">union</span> foo {
-	<span class="pl-k">unsigned</span> <span class="pl-k">short</span> i; <span class="pl-c"><span class="pl-c">//</span> 2 bytes</span>
-	<span class="pl-k">struct</span> {
-		<span class="pl-k">unsigned</span> <span class="pl-k">char</span> low;
-		<span class="pl-k">unsigned</span> <span class="pl-k">char</span> high;
-	} bytes;
-};</pre></div>
-<ul>
-<li>the <code>sizeof(union foo)</code> will be that of its largest member</li>
-<li>modify a value of <code>i</code> and it will be reflected in the low/high values
-because <code>i</code> and <code>bytes</code> share the same location</li>
-</ul>
-<pre><code>		0             high memory addresses
-		+-------------+
-		|      i      |
-		+-------------+
-		| low  | high |
-                +-------------+
-</code></pre>
-<ul>
-<li>union can be part of a structure, <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/union-in-struct.c">union-in-struct.c</a>
-and vice versa <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-in-union.c">struct-in-union.c</a>
-</li>
-<li>union can be "anonymous" (e.g. no name inside of a structure), however this is
-non-standard just like for structures</li>
-</ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: use the above declaration to find out if the program is running
-on big or little endian system (least significant byte is stored on lowest
-address). The program will print either "big endian" or "little endian" to
-standard output.</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/union-lowhigh.c">union-lowhigh.c</a></p>
-<h1>
-<a id="user-content-storage-classes" class="anchor" href="#storage-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Storage classes</h1>
-<ul>
-<li>two classes - <em>automatic</em> and <em>static</em>
-</li>
-<li>declaration within a block creates an automatic object.  Its storage is valid
-only within the very same block.</li>
-<li>the storage class determines the lifetime of the storage associated with the
-identified object</li>
-<li>only one storage class specifier may be given in a declaration</li>
-<li>objects declared outside of any block is always of the static storage class
-(e.g. global variables).</li>
-<li>static objects retain their value upon reentry to functions and blocks.</li>
-<li>you can initialize a static object.  The initialization happens just once.</li>
-</ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fn-static-object.c">fn-static-object.c</a></p>
-<p>This one also shows how to use <code>goto</code>.  More on that later.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/block-static-object.c">block-static-object.c</a></p>
-<h1>
-<a id="user-content-static-variables-and-functions" class="anchor" href="#static-variables-and-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static variables and functions</h1>
-<ul>
-<li>
-<p>if a function is declared <code>static</code>, it is visible only from the same source
-code file</p>
-</li>
-<li>
-<p>static variables: retain value across function calls.  That is, the
-initialization of a static variable within a function is done only once.</p>
-</li>
-<li>
-<p>yes, the word <code>static</code> is overloaded in C</p>
-</li>
-</ul>
-<h1>
-<a id="user-content-internal-vs-external-linkage" class="anchor" href="#internal-vs-external-linkage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Internal vs external linkage</h1>
-<p>Static objects with the keyword <code>static</code> are of internal linkage, meaning they
-are not seen from other compilation units.  Static objects without the keyword
-<code>static</code> are implicitly external.</p>
-<p>Use <code>extern</code> keyword for objects that are defined in a different compilation
-unit.</p>
-<p>Example:</p>
-<pre><code>$ cc linkage.c ext.c
-Undefined symbols for architecture x86_64:
-  "_si", referenced from:
-      _main in linkage-917564.o
-ld: symbol(s) not found for architecture x86_64
-clang: error: linker command failed with exit code 1 (use -v to see
-invocation)
-</code></pre>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linkage.c">linkage.c</a>
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ext.c">ext.c</a></p>
-<p>Also note that each object must have exactly one definition.  For objects with
-internal linkage, this rule applies separately to each translation unit, because
-internally-linked objects are unique to a translation unit.</p>
-<h1>
-<a id="user-content-function-pointers" class="anchor" href="#function-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function pointers.</h1>
-<p>A function name is a pointer to the function.  You can pass it as an argument.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
-<span class="pl-en">myadd</span>(<span class="pl-k">int</span> a, <span class="pl-k">int</span> b)
-{
-	<span class="pl-k">return</span> (a + b);
-}
-
-<span class="pl-k">int</span>
-<span class="pl-en">process_numbers</span>(<span class="pl-k">int</span> a, <span class="pl-k">int</span> b, <span class="pl-k">int</span> (*f)(<span class="pl-k">int</span>, <span class="pl-k">int</span>))
-{
-	<span class="pl-k">return</span> ((*f)(a, b));
-}</pre></div>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fn-ptr.c">fn-ptr.c</a></p>
-<h2>
-<a id="user-content-wrench-argv-sorting" class="anchor" href="#wrench-argv-sorting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> argv sorting</h2>
-<p>Use <code>qsort(3)</code> function to sort <code>argv</code>, and print it sorted then.  Check the man
-page, you will need to write a function that can compare two elements of the
-array you provide to the <code>qsort()</code> function.</p>
-<p>First use <code>strcmp()</code> to sort the argument alphabetically, then use <code>atoi()</code> to
-sort them numerically.</p>
-<p>After that, come up with another way of sorting the arguments and write a
-function for it as well.</p>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-sort.c">argv-sort.c</a>
-(for alphabetical sorting only)</p>
-<h1>
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
+<h1>
+<a id="user-content-wrench-linked-list" class="anchor" href="#wrench-linked-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Linked list</h1>
+<p>Declare a structure that will form a simple linked list and will hold an integer
+as a value.  The program will be run with a single argument specifying how many
+items the list will have.</p>
+<p>Allocate a new structure and insert into the head (global variable).  Each new
+item will have its value incremented by one.</p>
+<p>Aside from the value itself, each node needs to hold a pointer to the next
+structure in the list.  The last node has the next pointer set as <code>NULL</code>.</p>
+<p>Once the list is complete, print its value by traversing its items from head to
+end.</p>
+<pre><code>$ ./a.out
+a.out: usage: ./a.out &lt;num&gt;
+$ ./a.out 10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+</code></pre>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linked-list-free.c">linked-list-free.c</a></p>
 <h1>
 <a id="user-content-command-line-option-parsing" class="anchor" href="#command-line-option-parsing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>command line option parsing</h1>
 <p>Implement a command line parser ala getopt(3). The global variable <code>myoptarg</code>
