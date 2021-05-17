@@ -350,15 +350,17 @@ function type, a pointer type.</li>
 <p>With <code>typedef</code>, you create new data type <strong>names</strong> for <strong>existing</strong> types.  Note
 that you <strong>never</strong> create new data <strong>types</strong> with <code>typedef</code>.  In other words,
 with <code>typedef</code>, you create synonyms to existing types.</p>
-<p><code>typedef</code> is most commonly used for derived types but many C provided names by
-the standard are based on basic types.  For example, <code>size_t</code>, see its
-definition in <code>/usr/include/sys/types.h</code>.</p>
+<p><code>typedef</code> is most commonly used for derived types but many type names provided
+by the C standard itself are based on even basic types.  For example, <code>size_t</code>,
+see its definition in <code>/usr/include/sys/types.h</code>.</p>
+<p>You can also create new type names using type names you created before, see
+below.</p>
 <p><code>typedef</code> is used as follows:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-k">int</span> myint;
 <span class="pl-k">typedef</span> *<span class="pl-k">char</span> mycharptr;
 
 mycharptr p = <span class="pl-s"><span class="pl-pds">"</span>my string<span class="pl-pds">"</span></span>;</pre></div>
-<p><code>typedef</code> is also great to create complex type names in small steps.  As we will
+<p><code>typedef</code> is great to create complex type names in small steps.  As we will
 see next.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-k">char</span> **array[<span class="pl-c1">10</span>];
 array a;</pre></div>
