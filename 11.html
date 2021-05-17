@@ -217,10 +217,10 @@ function for it as well.</p>
 (for alphabetical sorting only)</p>
 <h1>
 <a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
-<p>Declare a 3-d array of 2x2x3 <code>int</code>s and statically initialize it with numbers
-1..12.  Retype the array as 1-d and print all elements.  You should get then:</p>
+<p>Declare a 3-d array of 1x2x3 <code>int</code>s and statically initialize it with numbers
+1..6.  Retype the array as 1-d and print all elements.  You should get then:</p>
 <pre><code>$ ./a.out
-1 2 3 4 5 6 7 8 9 10 11 12
+1 2 3 4 5 6
 </code></pre>
 <h1>
 <a id="user-content-the-last-initializer-and-a-comma" class="anchor" href="#the-last-initializer-and-a-comma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The last initializer and a comma</h1>
@@ -237,8 +237,8 @@ C99, it's optional.</p>
 <p>We already know integer constants, character and string constants, a
 floating-point constant, constant expression (an expression that involves only
 constants).</p>
-<p>There is one other kind of constant, the "enumeration constant".  An enumeration
-is a list of constant integer values, as in:</p>
+<p>There is one other kind of constant, the <em>enumeration constant</em>.  An
+<em>enumeration</em> is a list of constant integer values, as in:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> boolean { NO, YES};</pre></div>
 <p>The first name has value <code>0</code>, the next one <code>1</code>, etc.  You can use explicit
 values as well.  Unspecified values continue to progress from the last value
