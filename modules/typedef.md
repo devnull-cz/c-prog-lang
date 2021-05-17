@@ -13,7 +13,8 @@ with `typedef`, you create synonyms to existing types.
 by the C standard itself are based on even basic types.  For example, `size_t`,
 see its definition in `/usr/include/sys/types.h`.
 
-You can also created new type names using type names you created before.
+You can also create new type names using type names you created before, see
+below.
 
 `typedef` is used as follows:
 
@@ -24,7 +25,7 @@ typedef *char mycharptr;
 mycharptr p = "my string";
 ```
 
-`typedef` is also great to create complex type names in small steps.  As we will
+`typedef` is great to create complex type names in small steps.  As we will
 see next.
 
 ```C
