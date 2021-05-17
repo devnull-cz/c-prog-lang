@@ -195,6 +195,167 @@ sort them numerically.</p>
 function for it as well.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-sort.c">argv-sort.c</a>
 (for alphabetical sorting only)</p>
+<h1>
+<a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
+<p>Declare a 3-d array of 2x2x3 <code>int</code>s and statically initialize it with numbers
+1..12.  Retype the array as 1-d and print all elements.  You should get then:</p>
+<pre><code>$ ./a.out
+1 2 3 4 5 6 7 8 9 10 11 12
+</code></pre>
+<h1>
+<a id="user-content-the-last-initializer-and-a-comma" class="anchor" href="#the-last-initializer-and-a-comma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The last initializer and a comma</h1>
+<p>In C89, having a comma after the last initializer was a syntax error.  Since
+C99, it's optional.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> s {
+	<span class="pl-k">int</span> a;
+	<span class="pl-k">int</span> b;
+} s = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, };	<span class="pl-c"><span class="pl-c">//</span> ',' after 2 is optional</span></pre></div>
+<p>See why keeping the last comma always there might be a very good idea:
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/missing-comma-in-initializer.c">missing-comma-in-initializer.c</a></p>
+<h1>
+<a id="user-content-enumeration-constant" class="anchor" href="#enumeration-constant" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Enumeration constant</h1>
+<p>We already know integer constants, character and string constants, a
+floating-point constant, constant expression (an expression that involves only
+constants).</p>
+<p>There is one other kind of constant, the "enumeration constant".  An enumeration
+is a list of constant integer values, as in:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> boolean { NO, YES};</pre></div>
+<p>The first name has value <code>0</code>, the next one <code>1</code>, etc.  You can use explicit
+values as well.  Unspecified values continue to progress from the last value
+specified.  For example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> months {
+	JAN = <span class="pl-c1">1</span>,
+	FEB,
+	MAR,
+	APR,
+	MAY,
+	JUN,
+	JUL,
+	AUG,
+	SEP,
+	OCT,
+	NOV,
+	DEC,
+};</pre></div>
+<p>You could also do as follows:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> weird {
+	one = <span class="pl-c1">3</span>,
+	two,		<span class="pl-c"><span class="pl-c">//</span> 4</span>
+	three = <span class="pl-c1">3</span>,
+	four = <span class="pl-c1">0</span>,
+	five,		<span class="pl-c"><span class="pl-c">//</span> 1</span>
+	six,		<span class="pl-c"><span class="pl-c">//</span> 2</span>
+	seven = -<span class="pl-c1">1</span>,
+	...
+}</pre></div>
+<p>The list consists of <em>enumerators</em>.  I.e. both <code>JAN = 1</code> and <code>FEB</code> are
+enumerators.  When used in code, <code>JAN</code>, <code>FEB</code>, <code>MAR</code> etc. are <em>enumeration
+constants</em>.  The values of enumeration constants must fit an <code>int</code>.  However,
+the implementation may define any integer type to be compatible with the
+enumerated type under the condition that all enumeration constants fit the type.
+So, the implementation <strong>might</strong> choose a <code>char</code> to be compatible with the <code>enum boolean</code> above.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> white_space { NL = <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span>, SP = <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span>, TAB = <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\t</span><span class="pl-pds">'</span></span> };</pre></div>
+<p>The <code>sizeof</code> operator applied on an enum itself tells you the integer type used
+(<code>sizeof (enum weird)</code>), and <code>sizeof</code> on any enumeration constant gives you the
+same number.</p>
+<p><strong>Names</strong> in different enumerations must be distinct.  In other words, all
+enumerators share the same name space.  Values in the same enumerations need not
+be distinct, e.g.:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> not_really_useful { GGG = <span class="pl-c1">1</span>, HHH = <span class="pl-c1">1</span>, GHGH = <span class="pl-c1">0</span> };</pre></div>
+<p>Example: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/enums.c">enums.c</a>, <a href="src/enum-values.c">enum-values.c</a></p>
+<h2>
+<a id="user-content-use-enums" class="anchor" href="#use-enums" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use <code>enum</code>s!</h2>
+<p>This:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> commands {
+	XXX_LIST,
+	XXX_EXTRACT,
+	XXX_CREATE
+}</pre></div>
+<p>is so much better than this:</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span>	<span class="pl-en">XXX_LIST</span>	<span class="pl-c1">0</span>
+#<span class="pl-k">define</span>	<span class="pl-en">XXX_EXTRACT</span>	<span class="pl-c1">1</span>
+#<span class="pl-k">define</span>	<span class="pl-en">XXX_CREATE</span>	<span class="pl-c1">2</span></pre></div>
+<p>The reason is that the enum is known to the compiler and may be included into
+debug symbols.  So, when debugging, you might, if the compiler/debugger support
+it, see <code>XXX_LIST</code> instead of just <code>0</code>.  In the latter case, as the compiler
+only see the numbers when compiling the code, you will never see any symbolic
+names.  So, seeing the symbols instead of common numbers <code>0</code> or <code>1</code> is really
+helping.</p>
+<h1>
+<a id="user-content-the-const-keyword" class="anchor" href="#the-const-keyword" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>const</code> keyword</h1>
+<p><code>const</code> is a <em>qualifier</em> that may be applied to the declaration of any variable.
+It specifies its value cannot be changed.  If you apply <code>const</code> to an array, the
+array elements cannot be modified.</p>
+<p>You can initialize the variable declared with the <code>const</code> qualifier.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/const.c">const.c</a></p>
+<p>Using <code>const</code> will not really make the storage constant, you just cannot use
+that variable for an assignment to the storage.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>;
+<span class="pl-k">int</span> <span class="pl-k">const</span> *p2 = &amp;i;
+
+<span class="pl-c"><span class="pl-c">//</span> illegal</span>
+*p2 = <span class="pl-s"><span class="pl-pds">'</span>x<span class="pl-pds">'</span></span>;
+<span class="pl-c"><span class="pl-c">//</span> ok</span>
+i = <span class="pl-s"><span class="pl-pds">'</span>x<span class="pl-pds">'</span></span>;</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/const-not-really-a-const.c">const-not-really-a-const.c</a></p>
+<p>It also depends where you apply the <code>const</code> keyword.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> <span class="pl-k">const</span> *s1;		<span class="pl-c"><span class="pl-c">//</span> s1 is a pointer to const char</span>
+<span class="pl-k">const</span> <span class="pl-k">char</span> *s1;		<span class="pl-c"><span class="pl-c">//</span> same as above</span>
+<span class="pl-k">char</span> *<span class="pl-k">const</span> s2;		<span class="pl-c"><span class="pl-c">//</span> s2 is a const pointer to a char</span>
+
+*s1 = <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>;		<span class="pl-c"><span class="pl-c">//</span> illegal</span>
+s1 = <span class="pl-c1">NULL</span>;		<span class="pl-c"><span class="pl-c">//</span> legal</span>
+
+s2 = <span class="pl-c1">NULL</span>;		<span class="pl-c"><span class="pl-c">//</span> illegal</span>
+*s2 = <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>;		<span class="pl-c"><span class="pl-c">//</span> legal</span></pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/const-and-pointers.c">const-and-pointers.c</a></p>
+<p>Using <code>const</code> can get a bit confusing.  It is mostly used for pointer arguments
+to constant memory to specify that an array will not be changed in the function.
+For example, string functions:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c1">size_t</span> <span class="pl-en">strlen</span>(<span class="pl-k">const</span> <span class="pl-k">char</span> *s);
+<span class="pl-k">char</span> *<span class="pl-en">strncpy</span>(<span class="pl-k">char</span> *dest, <span class="pl-k">const</span> <span class="pl-k">char</span> *src, <span class="pl-c1">size_t</span> n);
+...</pre></div>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <code>const</code></p>
+<p>The following is a <code>const</code> pointer to a <code>const</code> character.  So, you can neither
+do <code>*p = ...</code> nor <code>p = ...</code>.  Verify.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">const</span> <span class="pl-k">char</span> *<span class="pl-k">const</span> p;</pre></div>
+<h1>
+<a id="user-content-the-typedef-keyword" class="anchor" href="#the-typedef-keyword" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>typedef</code> keyword</h1>
+<ul>
+<li>note that a <code>char</code>, signed and unsigned integer types, and the floating types
+are collectively called <em>basic types</em>.</li>
+<li>then you have <em>derived types</em> - an array type, a structure, a union, a
+function type, a pointer type.</li>
+</ul>
+<p>With <code>typedef</code>, you create new data type <strong>names</strong> for <strong>existing</strong> types.  Note
+that you <strong>never</strong> create new data <strong>types</strong> with <code>typedef</code>.  In other words,
+with <code>typedef</code>, you create synonyms to existing types.</p>
+<p><code>typedef</code> is most commonly used for derived types but many C provided names by
+the standard are based on basic types.  For example, <code>size_t</code>, see its
+definition in <code>/usr/include/sys/types.h</code>.</p>
+<p><code>typedef</code> is used as follows:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-k">int</span> myint;
+<span class="pl-k">typedef</span> *<span class="pl-k">char</span> mycharptr;
+
+mycharptr p = <span class="pl-s"><span class="pl-pds">"</span>my string<span class="pl-pds">"</span></span>;</pre></div>
+<p><code>typedef</code> is also great to create complex type names in small steps.  As we will
+see next.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-k">char</span> **array[<span class="pl-c1">10</span>];
+array a;</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/derived-types.c">derived-types.c</a></p>
+<p>The convention is to add <code>_t</code> to a new type name.  For example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-k">struct</span> mystruct_s {
+	<span class="pl-k">int</span> a;
+	<span class="pl-k">char</span> c;
+} <span class="pl-c1">mystruct_t</span>;</pre></div>
+<p>And you can use it like this:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> mystruct_s x;
+<span class="pl-c1">mystruct_t</span> y;</pre></div>
+<p><code>x</code> and <code>y</code> are of the same type.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/typedef.c">typedef.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task</p>
+<p>Use <code>typedef</code> in the warm-up code for the item structure and use the new name
+instead of <code>struct item ...</code>.</p>
 
               </article>
             </div>
