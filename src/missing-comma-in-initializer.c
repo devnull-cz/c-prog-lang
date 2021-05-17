@@ -19,8 +19,8 @@ char *s[] = {
 	"tears"		// no comma after the last initializer
 /*
  * Now imagine adding two new strings and forgetting to add a comma after the
- * previously last initializer.  So, change 0 to 1, compiler, and run.  What
- * happened?
+ * previously last initializer - which may very well happen as double quotes may
+ * can the coder.  Now, change 0 to 1 below, compile, and run.  What happened?
  */
 #if 0
 	"in",
