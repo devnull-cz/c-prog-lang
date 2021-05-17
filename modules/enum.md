@@ -4,8 +4,8 @@ We already know integer constants, character and string constants, a
 floating-point constant, constant expression (an expression that involves only
 constants).
 
-There is one other kind of constant, the "enumeration constant".  An enumeration
-is a list of constant integer values, as in:
+There is one other kind of constant, the *enumeration constant*.  An
+*enumeration* is a list of constant integer values, as in:
 
 ```C
 enum boolean { NO, YES};
