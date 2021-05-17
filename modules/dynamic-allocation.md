@@ -31,7 +31,9 @@ void *malloc(size_t size);
 ```
 
 Note that as `malloc` returns `void *`, there is no need to explicitly type its
-result when assigned to a pointer.  That is, do not use:
+result when assigned to a pointer, see
+#module explicit-type-conversion.md Explicit type conversion.
+That is, do not use:
 
 ```C
 int *p;
