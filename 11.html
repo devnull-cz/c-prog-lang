@@ -269,8 +269,8 @@ specified.  For example:</p>
 	...
 }</pre></div>
 <p>The list consists of <em>enumerators</em>.  I.e. both <code>JAN = 1</code> and <code>FEB</code> are
-enumerators.  When used in code, <code>JAN</code>, <code>FEB</code>, <code>MAR</code> etc. are <em>enumeration
-constants</em>.  The values of enumeration constants must fit an <code>int</code>.  However,
+enumerators.  When used in code, <code>JAN</code>, <code>FEB</code>, <code>MAR</code> etc. are enumeration
+constants.  The values of enumeration constants must fit an <code>int</code>.  However,
 the implementation may define any integer type to be compatible with the
 enumerated type under the condition that all enumeration constants fit the type.
 So, the implementation <strong>might</strong> choose a <code>char</code> to be compatible with the <code>enum boolean</code> above.</p>
@@ -279,7 +279,7 @@ So, the implementation <strong>might</strong> choose a <code>char</code> to be c
 (<code>sizeof (enum weird)</code>), and <code>sizeof</code> on any enumeration constant gives you the
 same number.</p>
 <p><strong>Names</strong> in different enumerations must be distinct.  In other words, all
-enumerators share the same name space.  Values in the same enumerations need not
+enumerators share the same namespace.  Values in the same enumerations need not
 be distinct, e.g.:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> not_really_useful { GGG = <span class="pl-c1">1</span>, HHH = <span class="pl-c1">1</span>, GHGH = <span class="pl-c1">0</span> };</pre></div>
 <p>Example: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="src/enums.c">enums.c</a>, <a href="src/enum-values.c">enum-values.c</a></p>
@@ -298,9 +298,9 @@ be distinct, e.g.:</p>
 <p>The reason is that the enum is known to the compiler and may be included into
 debug symbols.  So, when debugging, you might, if the compiler/debugger support
 it, see <code>XXX_LIST</code> instead of just <code>0</code>.  In the latter case, as the compiler
-only see the numbers when compiling the code, you will never see any symbolic
-names.  So, seeing the symbols instead of common numbers <code>0</code> or <code>1</code> is really
-helping.</p>
+only see the numbers when compiling the code (macros were replaced by numbers in
+teh preprocessor phase), you will never see any symbolic names.  So, seeing the
+symbols instead of common numbers <code>0</code> or <code>1</code> is really helping.</p>
 <h1>
 <a id="user-content-the-const-keyword" class="anchor" href="#the-const-keyword" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>const</code> keyword</h1>
 <p><code>const</code> is a <em>qualifier</em> that may be applied to the declaration of any variable.
