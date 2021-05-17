@@ -1,6 +1,6 @@
-# Variable name space and scope
+# Variable namespace and scope
 
-Identifiers fall into several name spaces that do not interfere with one
+Identifiers fall into several namespaces that do not interfere with one
 another.
 
 These distinct classes are:
@@ -13,4 +13,4 @@ These distinct classes are:
 The "individual" part means each structure or union has its own namespace.  So,
 you can have two different structures, each using the same member names.
 
-#source identifier-name-space.c
+#source identifier-namespace.c
