@@ -1,4 +1,4 @@
-# command line option parsing
+# Command line option parsing
 
 Implement a command line parser ala getopt(3). The global variable `myoptarg`
 will be set if an option has an argument to mimic the `optarg` set by getopt().
