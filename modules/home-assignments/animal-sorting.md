@@ -1,7 +1,7 @@
 ## :wrench: animal sorting
 
 You may remember
-#module home-assignment/animals.md working with animal structure.
+#module home-assignments/animals.md working with an animal structure.
 
 Use the same structure for this assignment.
 
