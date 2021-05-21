@@ -86,7 +86,7 @@ If unsure what is the correct behavior, check how GNU tar behaves on Linux.
 - Listing works as usual.
 
 	$ touch file1 file2 file3 file4
-	$ mytar -f archive.tar -c file*
+	$ tar -f archive.tar -c file*
 	$ ./mytar -f archive.tar -t
 	file1
 	file2
