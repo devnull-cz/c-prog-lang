@@ -13,6 +13,8 @@
  * (no particular order). Then free the allocated memory.
  */
 
+#define	_POSIX_C_SOURCE	1
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
