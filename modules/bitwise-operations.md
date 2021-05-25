@@ -41,7 +41,7 @@ E4
 11100100
 ```
 
-#source print-in-binary.c
+#solution print-in-binary.c
 
 Bitwise operators are as follows:
 
