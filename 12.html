@@ -73,84 +73,6 @@
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <p>Lecture on May 26 2021</p>
 <h1>
-<a id="user-content-variable-namespace-and-scope" class="anchor" href="#variable-namespace-and-scope" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variable namespace and scope</h1>
-<p>Identifiers fall into several namespaces that do not interfere with one
-another.</p>
-<p>These distinct classes are:</p>
-<ul>
-<li>objects, functions, <code>typedef</code> constants</li>
-<li>labels</li>
-<li>tags of structures or unions, and enumerations</li>
-<li>structure or union individually</li>
-</ul>
-<p>The "individual" part means each structure or union has its own namespace.  So,
-you can have two different structures, each using the same member names.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/identifier-namespace.c">identifier-namespace.c</a></p>
-<h1>
-<a id="user-content-reading-complex-declarations" class="anchor" href="#reading-complex-declarations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reading complex declarations</h1>
-<p>To read a complex declaration, you use
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/operator-precedence.md">operator priorities</a>
-and watch for parentheses.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> **argv</pre></div>
-<p><code>argv</code> is a pointer to a pointer to <code>char</code></p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> (*a)[<span class="pl-c1">10</span>]</pre></div>
-<p><code>a</code> is a pointer to an array of 10 <code>int</code>s</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *a[<span class="pl-c1">10</span>]</pre></div>
-<p><code>a</code> is an array of 10 pointers to <code>int</code></p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> *<span class="pl-en">myfunc</span>()</pre></div>
-<p><code>myfunc</code> is a function returning a pointer to <code>void</code></p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> (*myfunc)()</pre></div>
-<p><code>myfunc</code> is a pointer to a function returning <code>void</code></p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> (*(*<span class="pl-en">x</span>())[])()</pre></div>
-<p><code>x</code> is a function returning pointer to an array of pointers to a function
-returning a <code>char</code></p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> (*(*x[<span class="pl-c1">3</span>])())[<span class="pl-c1">5</span>]</pre></div>
-<p><code>x</code> is an array of 3 pointers to a function returning a pointer to an
-array of 5 <code>char</code>s</p>
-<h2>
-<a id="user-content-how-to-read-it" class="anchor" href="#how-to-read-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to read it</h2>
-<ol>
-<li>find the identifier (non keyword or custom type) of a variable or function</li>
-<li>start decoding:</li>
-</ol>
-<ul>
-<li>left to right</li>
-<li>
-<code>)</code>  =&gt; reverse decoding direction</li>
-<li>
-<code>()</code> =&gt; denotes function</li>
-<li>
-<code>[]</code> =&gt; array</li>
-<li>
-<code>;</code>  =&gt; reverse the direction</li>
-<li>when reading from right to left, we can hit:
-<ul>
-<li>
-<code>(</code>   =&gt; reverse the direction</li>
-<li>
-<code>*</code>   =&gt; pointer</li>
-<li>type identifier =&gt; starts the whole definition</li>
-</ul>
-</li>
-</ul>
-<p>Example:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *(*(**foo[][<span class="pl-c1">8</span>])())[];</pre></div>
-<p>You can mentally simplify as:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *(*SOME_FUNCTION)[];</pre></div>
-<p>Where <code>SOME_FUNCTION</code> is <code>(**foo[][8])()</code></p>
-<p>Read as:</p>
-<p><code>foo</code> is an array of arrays of 8 pointers to a pointer to a function
-returning a pointer to an array of pointers to a <code>char</code>.</p>
-<p>Alternatively, you can do it via two simpler steps:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-k">char</span> *a_of_p[];
-<span class="pl-k">typedef</span> a_of_p *(**foo[][<span class="pl-c1">8</span>])();</pre></div>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/complex-declaration.c">complex-declaration.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Practice:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *(*(*fp1)(<span class="pl-k">int</span>))[<span class="pl-c1">10</span>];
-<span class="pl-k">char</span> (*(*<span class="pl-en">x</span>())[])()
-double *f()[]           <span class="pl-c"><span class="pl-c">//</span> this is not legal in C as a function cannot</span>
-                        <span class="pl-c"><span class="pl-c">//</span> return an array</span></pre></div>
-<h1>
 <a id="user-content-bitwise-operations" class="anchor" href="#bitwise-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bitwise operations</h1>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task</p>
 <p>Print <code>argv[1]</code> in binary (assume it is a correct decimal number).  Note that
@@ -290,6 +212,84 @@ integers.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitdiff.c">bitdiff.c</a></p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/print-in-binary.c">print-in-binary.c</a></p>
 <p>Sub-task for home: flip those bits and verify that the numbers are the same.</p>
+<h1>
+<a id="user-content-variable-namespace-and-scope" class="anchor" href="#variable-namespace-and-scope" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variable namespace and scope</h1>
+<p>Identifiers fall into several namespaces that do not interfere with one
+another.</p>
+<p>These distinct classes are:</p>
+<ul>
+<li>objects, functions, <code>typedef</code> constants</li>
+<li>labels</li>
+<li>tags of structures or unions, and enumerations</li>
+<li>structure or union individually</li>
+</ul>
+<p>The "individual" part means each structure or union has its own namespace.  So,
+you can have two different structures, each using the same member names.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/identifier-namespace.c">identifier-namespace.c</a></p>
+<h1>
+<a id="user-content-reading-complex-declarations" class="anchor" href="#reading-complex-declarations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reading complex declarations</h1>
+<p>To read a complex declaration, you use
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/operator-precedence.md">operator priorities</a>
+and watch for parentheses.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> **argv</pre></div>
+<p><code>argv</code> is a pointer to a pointer to <code>char</code></p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> (*a)[<span class="pl-c1">10</span>]</pre></div>
+<p><code>a</code> is a pointer to an array of 10 <code>int</code>s</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *a[<span class="pl-c1">10</span>]</pre></div>
+<p><code>a</code> is an array of 10 pointers to <code>int</code></p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> *<span class="pl-en">myfunc</span>()</pre></div>
+<p><code>myfunc</code> is a function returning a pointer to <code>void</code></p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> (*myfunc)()</pre></div>
+<p><code>myfunc</code> is a pointer to a function returning <code>void</code></p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> (*(*<span class="pl-en">x</span>())[])()</pre></div>
+<p><code>x</code> is a function returning pointer to an array of pointers to a function
+returning a <code>char</code></p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> (*(*x[<span class="pl-c1">3</span>])())[<span class="pl-c1">5</span>]</pre></div>
+<p><code>x</code> is an array of 3 pointers to a function returning a pointer to an
+array of 5 <code>char</code>s</p>
+<h2>
+<a id="user-content-how-to-read-it" class="anchor" href="#how-to-read-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to read it</h2>
+<ol>
+<li>find the identifier (non keyword or custom type) of a variable or function</li>
+<li>start decoding:</li>
+</ol>
+<ul>
+<li>left to right</li>
+<li>
+<code>)</code>  =&gt; reverse decoding direction</li>
+<li>
+<code>()</code> =&gt; denotes function</li>
+<li>
+<code>[]</code> =&gt; array</li>
+<li>
+<code>;</code>  =&gt; reverse the direction</li>
+<li>when reading from right to left, we can hit:
+<ul>
+<li>
+<code>(</code>   =&gt; reverse the direction</li>
+<li>
+<code>*</code>   =&gt; pointer</li>
+<li>type identifier =&gt; starts the whole definition</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *(*(**foo[][<span class="pl-c1">8</span>])())[];</pre></div>
+<p>You can mentally simplify as:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *(*SOME_FUNCTION)[];</pre></div>
+<p>Where <code>SOME_FUNCTION</code> is <code>(**foo[][8])()</code></p>
+<p>Read as:</p>
+<p><code>foo</code> is an array of arrays of 8 pointers to a pointer to a function
+returning a pointer to an array of pointers to a <code>char</code>.</p>
+<p>Alternatively, you can do it via two simpler steps:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-k">char</span> *a_of_p[];
+<span class="pl-k">typedef</span> a_of_p *(**foo[][<span class="pl-c1">8</span>])();</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/complex-declaration.c">complex-declaration.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Practice:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *(*(*fp1)(<span class="pl-k">int</span>))[<span class="pl-c1">10</span>];
+<span class="pl-k">char</span> (*(*<span class="pl-en">x</span>())[])()
+double *f()[]           <span class="pl-c"><span class="pl-c">//</span> this is not legal in C as a function cannot</span>
+                        <span class="pl-c"><span class="pl-c">//</span> return an array</span></pre></div>
 <h1>
 <a id="user-content-linking-objects" class="anchor" href="#linking-objects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linking objects</h1>
 <p>Larger programs are often split into many source code files. One can create the
