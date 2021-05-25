@@ -72,7 +72,7 @@ So,
 ((338 & 978) == 272).	// == is of higher prority than &
 ```
 
-Common uses of bitwise operators:
+## Common uses of bitwise operators:
 
 ```C
 n = n & 01777;			// zero out some highest bits
