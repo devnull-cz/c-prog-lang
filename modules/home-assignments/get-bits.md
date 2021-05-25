@@ -14,7 +14,7 @@ i = getbits(0x100, 8, 1);
 (void) printf("0x%X\n", i);
 assert(i == 1);
 
-/* 1110 0100: should return 9 */
+/* 1110 0100: should return 9 (1001 in binary) */
 i = getbits(0xe4, 5, 4);
 (void) printf("0x%X\n", i);
 assert(i == 9);
