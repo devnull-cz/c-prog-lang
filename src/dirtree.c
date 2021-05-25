@@ -13,9 +13,6 @@
  * (no particular order). Then free the allocated memory.
  */
 
-#define	_XOPEN_SOURCE	500
-#define	_DEFAULT_SOURCE
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -59,8 +56,9 @@ alloc_node(char *elem)
 {
 	node_t *n = malloc(sizeof (node_t));
 	assert(n != NULL);
-	n->elem = strdup(elem);
+	n->elem = malloc(strlen(elem) + 1);
 	assert(n->elem != NULL);
+	strcpy(n->elem, elem);
 	memset(n->children, 0, sizeof (n->children));
 	n->num_child = 0;
 
@@ -84,7 +82,9 @@ add(char *path)
 	char *pelem;
 	node_t *n = root;
 	// copy the string to avoid bus error on writing to read-only memory.
-	char *p = strdup(path);
+	char *p = malloc(strlen(path) + 1);
+	assert(p != NULL);
+	strcpy(p, path);
 	char *porig = p;
 
 	printf("adding path '%s'\n", path);
