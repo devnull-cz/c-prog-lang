@@ -307,6 +307,10 @@ runtime under the hood. So in reality the compiler accepts some linker options
 (and passes them through) to make it easier for the programmer.</p>
 <p>For GCC you can use the <code>-###</code> option to see what commands are executed during
 compilation.</p>
+<p>Usually it is desirable to avoid rebuilding objects unnecessarily, especially
+when there is a large number of source files. This is usually done via set of
+rules that establish dependency. The most common tool for that is <code>make</code> and
+<code>Makefile</code> is its configuration file that drives the compilation.</p>
 <h1>
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
