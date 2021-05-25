@@ -13,8 +13,6 @@
  * (no particular order). Then free the allocated memory.
  */
 
-#define	_POSIX_C_SOURCE	1
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -91,9 +89,8 @@ add(char *path)
 
 	printf("adding path '%s'\n", path);
 
-	char *brkt;
-	for (pelem = strtok_r(p, "/", &brkt); pelem != NULL;
-            pelem = strtok_r(NULL, "/", &brkt)) {
+	for (pelem = strtok(p, "/"); pelem != NULL;
+	    pelem = strtok(NULL, "/")) {
 		if (pelem[0] != '\0') {
 			printf("  adding path element '%s'\n", pelem);
 			node_t *nn;
