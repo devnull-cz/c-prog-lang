@@ -328,7 +328,7 @@ i = getbits(<span class="pl-c1">0x100</span>, <span class="pl-c1">8</span>, <spa
 (<span class="pl-k">void</span>) printf(<span class="pl-s"><span class="pl-pds">"</span>0x<span class="pl-c1">%X</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
 <span class="pl-en">assert</span>(i == <span class="pl-c1">1</span>);
 
-<span class="pl-c"><span class="pl-c">/*</span> 1110 0100: should return 9 <span class="pl-c">*/</span></span>
+<span class="pl-c"><span class="pl-c">/*</span> 1110 0100: should return 9 (1001 in binary) <span class="pl-c">*/</span></span>
 i = getbits(<span class="pl-c1">0xe4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">4</span>);
 (<span class="pl-k">void</span>) printf(<span class="pl-s"><span class="pl-pds">"</span>0x<span class="pl-c1">%X</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
 <span class="pl-en">assert</span>(i == <span class="pl-c1">9</span>);
