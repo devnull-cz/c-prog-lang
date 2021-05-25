@@ -344,6 +344,32 @@ i = getbits(<span class="pl-c1">0xe4</span>, <span class="pl-c1">5</span>, <span
 i = getbits(<span class="pl-c1">0xAA</span>, <span class="pl-c1">7</span>, <span class="pl-c1">8</span>);
 (<span class="pl-k">void</span>) printf(<span class="pl-s"><span class="pl-pds">"</span>0x<span class="pl-c1">%X</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
 <span class="pl-en">assert</span>(i == <span class="pl-c1">0xAA</span>);</pre></div>
+<h2>
+<a id="user-content-create-and-traverse-path-tree" class="anchor" href="#create-and-traverse-path-tree" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create and traverse path tree</h2>
+<p>Create tree of paths, where each node is a path element. The tree starts
+with root '/', the leaves are files. The three can look e.g. like this:</p>
+<pre><code>                         "/"
+		       /  |   \
+		      /   |     \
+		  "foo/" "f.txt"  "bar/"
+		  /   \
+		"a.c" "b.c"
+</code></pre>
+<p>Populate the tree with given paths and print the leaves (no particular order).
+Then free the allocated memory.</p>
+<p>Each node can have constant number of children.</p>
+<p>Possible input:</p>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> *paths[] = { <span class="pl-s"><span class="pl-pds">"</span>/beverages/coffee/espresso.java<span class="pl-pds">"</span></span>,
+			<span class="pl-s"><span class="pl-pds">"</span>/beverages/alcohol/beer.c<span class="pl-pds">"</span></span>,
+			<span class="pl-s"><span class="pl-pds">"</span>/food/healthy/vegetarian/salad.txt<span class="pl-pds">"</span></span>,
+			<span class="pl-s"><span class="pl-pds">"</span>/food/healthy/fruit/blueberries.hs<span class="pl-pds">"</span></span>,
+			<span class="pl-s"><span class="pl-pds">"</span>/food/unhealthy/cake.md<span class="pl-pds">"</span></span> };</pre></div>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/dirtree.c">dirtree.c</a></p>
+<p>bonus tasks:</p>
+<ul>
+<li>remove the limitation for the constant number of children</li>
+<li>print full paths of all files in the tree (hint: backpointers)</li>
+</ul>
 
               </article>
             </div>
