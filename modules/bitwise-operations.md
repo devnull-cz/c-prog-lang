@@ -77,6 +77,7 @@ For unsigned values the upper bits are filled with zeroes.
 If the number is signed and negative (i.e. starts with bit 1 in two's complement
 representation), the behavior is implementation dependent.
 Usually the value it is _sign-extended_, i.e. filled with 1's.
+
 #source left-right-shift.c
 
 ## Common uses of bitwise operators:
