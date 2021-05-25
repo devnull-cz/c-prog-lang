@@ -89,7 +89,9 @@ add(char *path)
 
 	printf("adding path '%s'\n", path);
 
-	while ((pelem = strsep(&p, "/")) != NULL) {
+	char *brkt;
+	for (pelem = strtok_r(p, "/", &brkt); pelem != NULL;
+            pelem = strtok_r(NULL, "/", &brkt)) {
 		if (pelem[0] != '\0') {
 			printf("  adding path element '%s'\n", pelem);
 			node_t *nn;
