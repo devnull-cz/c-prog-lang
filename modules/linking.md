@@ -31,3 +31,8 @@ runtime under the hood. So in reality the compiler accepts some linker options
 
 For GCC you can use the `-###` option to see what commands are executed during
 compilation.
+
+Usually it is desirable to avoid rebuilding objects unnecessarily, especially
+when there is a large number of source files. This is usually done via set of
+rules that establish dependency. The most common tool for that is `make` and
+`Makefile` is its configuration file that drives the compilation.
