@@ -14,6 +14,7 @@
  */
 
 #define	_XOPEN_SOURCE	500
+#define	_DEFAULT_SOURCE
 
 #include <stdio.h>
 #include <string.h>
