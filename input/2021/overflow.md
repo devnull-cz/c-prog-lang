@@ -4,3 +4,4 @@
 #include "modules/non-transparent-handles.md"
 #include "modules/incomplete-type.md"
 #include "modules/opaque-structures.md"
+#include "modules/goto.md"
