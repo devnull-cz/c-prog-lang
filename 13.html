@@ -257,7 +257,8 @@ an easy way to do it.</li>
 </ul>
 <p>Task: write a custom <code>assert</code>() macro that prints the line and file information
 (using <code>__LINE__</code>, <code>__FILE__</code> pre-defined macros) and exits.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/assert.c">assert.c</a></p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/assert.c">assert.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/my-assert.c">my-assert.c</a></p>
 <ul>
 <li>
 <p>there is also <code>#error</code> pre-processor pragma that can be used to fail during
@@ -782,7 +783,7 @@ foo.a++; <span class="pl-c"><span class="pl-c">//</span> will wrap around to 0 s
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitfield-wraparound.c">bitfield-wraparound.c</a></p>
 <h1>
 <a id="user-content-non-transparent-handles-may-cause-issues" class="anchor" href="#non-transparent-handles-may-cause-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Non-transparent handles may cause issues</h1>
-<p>If your library is statelful, the state is often managed by a handle
+<p>If your library is stateful, the state is often managed by a handle
 used as an argument in the library function calls.  Let's say internally in the
 library we need to track some ID and a position.  Those members are expected to
 be used only by the library itself so the consumers of the library should use
