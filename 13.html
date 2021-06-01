@@ -709,10 +709,12 @@ the flexible array was empty</strong>.</li>
 </ul>
 <p>Example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> item {
-	<span class="pl-k">int</span> value;
-	<span class="pl-c"><span class="pl-c">//</span> possible other members</span>
-	<span class="pl-k">char</span> payload[];
-	<span class="pl-c"><span class="pl-c">//</span> nothing can follow</span>
+	<span class="pl-k">int</span>	itm_value;
+	<span class="pl-c"><span class="pl-c">/*</span> Other members follow<span class="pl-c">*/</span></span>
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+	<span class="pl-k">int</span>	itm_plen;
+	<span class="pl-k">char</span>	itm_payload[];
+	<span class="pl-c"><span class="pl-c">/*</span> Nothing can follow! <span class="pl-c">*/</span></span>
 };</pre></div>
 <p><code>sizeof (struct item)</code> will give the size <strong>without the last member computed</strong></p>
 <pre><code>+-------------+-----------------------+
@@ -722,7 +724,11 @@ the flexible array was empty</strong>.</li>
 <p>Previously, this was hacked around using array with 0 members and GCC accepted
 this.  Since C99 this can be done properly using this technique.</p>
 <p>The extra data is allocated as follows:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> item *p = malloc(<span class="pl-k">sizeof</span> (<span class="pl-k">struct</span> item) + payload_len * <span class="pl-k">sizeof</span> (p-&gt;payload[<span class="pl-c1">0</span>]));</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> item *p;
+
+p = malloc(<span class="pl-k">sizeof</span> (<span class="pl-k">struct</span> item) + payload_len * <span class="pl-k">sizeof</span> (p-&gt;itm_payload[<span class="pl-c1">0</span>]));
+<span class="pl-en">assert</span>(p != <span class="pl-c1">NULL</span>);
+p-&gt;itm_plen = payload_len * <span class="pl-k">sizeof</span> (p-&gt;itm_payload[<span class="pl-c1">0</span>]);</pre></div>
 <ul>
 <li>with this approach the overall structure alignment might be lost
 <ul>
