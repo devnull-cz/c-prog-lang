@@ -73,6 +73,43 @@
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <p>Lecture date: June 2, 2021</p>
 <h1>
+<a id="user-content-switch-statement" class="anchor" href="#switch-statement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>switch</code> statement</h1>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">switch</span> (expression) {
+	<span class="pl-k">case</span> constant1:
+		<span class="pl-c"><span class="pl-c">//</span> statements</span>
+		<span class="pl-k">break</span>;
+	<span class="pl-k">case</span> constant2:
+		<span class="pl-c"><span class="pl-c">//</span> statements</span>
+		<span class="pl-k">break</span>;
+	.
+	.
+	.
+	<span class="pl-k">default</span>:
+		<span class="pl-c"><span class="pl-c">//</span> default statements</span>
+}</pre></div>
+<p>Each <code>case</code> is a label.  For that reason, you must <code>break</code> unless you want to
+code fall through.  The reason for that is historical and time showed it was not
+the right decision.</p>
+<p>Very often used for command line option processing.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> opt;
+
+<span class="pl-k">while</span> ((opt = getopt(argc, argv, <span class="pl-s"><span class="pl-pds">"</span>c:<span class="pl-pds">"</span></span>)) != -<span class="pl-c1">1</span>) {
+	<span class="pl-k">switch</span> (opt) {
+	<span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>:
+		<span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">		 * optarg should be copied since it might be</span>
+<span class="pl-c">		 * overwritten by another option or freed by getopt()</span>
+<span class="pl-c">		 <span class="pl-c">*/</span></span>
+		<span class="pl-k">if</span> ((code = <span class="pl-c1">strdup</span>(<span class="pl-c1">optarg</span>)) == <span class="pl-c1">NULL</span>)
+			<span class="pl-c1">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>cannot alloc memory for -c optarg<span class="pl-pds">"</span></span>);
+		<span class="pl-k">break</span>;
+	<span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>?<span class="pl-pds">'</span></span>:
+		<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>unknown option: '<span class="pl-c1">%c</span>'<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">optopt</span>);
+		<span class="pl-c1">usage</span>(argv0);
+		<span class="pl-k">break</span>;
+	}
+}</pre></div>
+<h1>
 <a id="user-content-goto-statement" class="anchor" href="#goto-statement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>goto</code> statement</h1>
 <p>Any statement may be preceded by a prefix that declares an identifier as a label
 name.  Labels by themselves do not alter the flow of control.</p>
@@ -88,12 +125,12 @@ err:
 	<span class="pl-c1">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>missing arguments<span class="pl-pds">"</span></span>);
 	<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
 }</pre></div>
-<p>In general, use of <code>goto</code> in C is generally frown upon unless it is used to jump
-to an error/clean-up section or break from structured code.  Even that is
-questioned by some but large number of major projects (Linux kernel code,
-OpenSSH, OpenSSL, etc.) use it that way.  Consider the following code <strong>with
-conditionals that do not nest</strong>.  It leads to code duplication (or large amount
-of indentation to fix that):</p>
+<p>Use of <code>goto</code> in C is frown upon unless it is used to jump to an error/clean-up
+section or break from structured code.  While even that use is questioned by
+some, large number of major projects (Linux kernel code, OpenSSH, OpenSSL, etc.)
+use it that way.  We strongly believe such use greatly simplifies the code.</p>
+<p>Consider the following code <strong>with conditionals that do not nest</strong>.  It leads to
+code duplication (or large amount of indentation to fix that):</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
 <span class="pl-en">myfn</span>(<span class="pl-k">void</span>)
 {
@@ -144,7 +181,7 @@ of indentation to fix that):</p>
 		<span class="pl-k">goto</span> err3;
 	<span class="pl-c"><span class="pl-c">/*</span> etc... <span class="pl-c">*/</span></span>
 
-	<span class="pl-c"><span class="pl-c">/*</span> If I got here, it means all went fine. <span class="pl-c">*/</span></span>
+	<span class="pl-c"><span class="pl-c">/*</span> Getting here means all went fine. <span class="pl-c">*/</span></span>
 	ret = <span class="pl-c1">0</span>;
 	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Success.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
 
