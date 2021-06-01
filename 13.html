@@ -752,7 +752,7 @@ couple of bytes
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo {
 	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> a : <span class="pl-c1">3</span>;
 	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> b : <span class="pl-c1">1</span>;
-	<span class="pl-k">unsigned</span> <span class="pl-k">int</span>   : <span class="pl-c1">4</span>;
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> c : <span class="pl-c1">4</span>;
 };</pre></div>
 <ul>
 <li>
@@ -781,6 +781,8 @@ features have to be used (<code>#pragma</code>'s etc.)</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
 	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> a : <span class="pl-c1">3</span>;
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> b : <span class="pl-c1">1</span>;
+	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> c : <span class="pl-c1">4</span>;
 } foo;
 
 foo.a = <span class="pl-c1">7</span>;
