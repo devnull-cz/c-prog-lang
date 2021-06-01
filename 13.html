@@ -633,10 +633,9 @@ you want</li>
 <code>__STDC_VERSION__</code> macro (note there are two underscores both leading and
 terminating the macro).  In the <a href="http://port70.net/~nsz/c/c89/c94_na1.html" rel="nofollow">Normative Addendum
 1</a> for C89 from 1994, the macro was
-defined with a value of <code>199409L</code>.  In the <a href="http://port70.net/~nsz/c/c99/n1256.pdf" rel="nofollow">C99
-specification</a> (there is also a <a href="http://port70.net/~nsz/c/c99/n1256.txt" rel="nofollow">handy
-txt only version</a>, the macro has a value
-of <code>199901L</code>.</p>
+defined with a value of <code>199409L</code>.  In the
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">C99 specification</a>
+the macro has a value of <code>199901L</code>.</p>
 <p>So, if you want your compiler to use a minimal or a specific C version, work
 with the macro and <code>#ifdef</code> and <code>#error</code> preprocessor directives.</p>
 <div class="highlight highlight-source-c"><pre>#<span class="pl-k">ifndef</span> __STDC_VERSION__
