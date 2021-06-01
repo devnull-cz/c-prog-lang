@@ -9,7 +9,7 @@
 struct foo {
 	unsigned int a : 3;
 	unsigned int b : 1;
-	unsigned int   : 4;
+	unsigned int c : 4;
 };
 ```
 
@@ -31,6 +31,8 @@ struct foo {
 ```C
 struct foo_s {
 	unsigned int a : 3;
+	unsigned int b : 1;
+	unsigned int c : 4;
 } foo;
 
 foo.a = 7;
