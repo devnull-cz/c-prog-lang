@@ -19,12 +19,13 @@ err:
 }
 ```
 
-In general, use of `goto` in C is generally frown upon unless it is used to jump
-to an error/clean-up section or break from structured code.  Even that is
-questioned by some but large number of major projects (Linux kernel code,
-OpenSSH, OpenSSL, etc.) use it that way.  Consider the following code **with
-conditionals that do not nest**.  It leads to code duplication (or large amount
-of indentation to fix that):
+Use of `goto` in C is frown upon unless it is used to jump to an error/clean-up
+section or break from structured code.  While even that use is questioned by
+some, large number of major projects (Linux kernel code, OpenSSH, OpenSSL, etc.)
+use it that way.  We strongly believe such use greatly simplifies the code.
+
+Consider the following code **with conditionals that do not nest**.  It leads to
+code duplication (or large amount of indentation to fix that):
 
 ```C
 int
@@ -81,7 +82,7 @@ myfn(void)
 		goto err3;
 	/* etc... */
 
-	/* If I got here, it means all went fine. */
+	/* Getting here means all went fine. */
 	ret = 0;
 	printf("Success.\n");
 
