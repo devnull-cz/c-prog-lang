@@ -8,7 +8,7 @@
     a.out`
 
 #source recurs.c
-  - run with: `ltrace -n4 -L ./a.out 5`
+  - run with: `ltrace -n4 -tt ./a.out 5`
 
 Note: `ltrace` can trace system calls as well with the `-S` option
 
