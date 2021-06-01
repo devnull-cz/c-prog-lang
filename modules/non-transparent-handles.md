@@ -1,6 +1,6 @@
 # Non-transparent handles may cause issues
 
-If your library is statelful, the state is often managed by a handle
+If your library is stateful, the state is often managed by a handle
 used as an argument in the library function calls.  Let's say internally in the
 library we need to track some ID and a position.  Those members are expected to
 be used only by the library itself so the consumers of the library should use

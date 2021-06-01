@@ -10,6 +10,7 @@ Task: write a custom `assert`() macro that prints the line and file information
 (using `__LINE__`, `__FILE__` pre-defined macros) and exits.
 
 #source assert.c
+#source my-assert.c
 
 - there is also `#error` pre-processor pragma that can be used to fail during
   the compilation phase
