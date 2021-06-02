@@ -42,3 +42,5 @@ while ((opt = getopt(argc, argv, "c:")) != -1) {
 	}
 }
 ```
+
+#source switch.c
