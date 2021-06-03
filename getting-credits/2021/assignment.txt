@@ -3,8 +3,9 @@
 Tar: A GNU tar compatible tape archiver
 =======================================
 
-The goal is to write a tool with a very small subset of GNU tar functionality.
-The key requirement is that the subset itself is fully compatible with GNU tar.
+The goal is to write a tool implementing a very small subset of GNU tar
+functionality.  The key requirement is that the subset itself is fully
+compatible with GNU tar.
 
 See http://mff.devnull.cz/c-prog-lang/ for general information on submission,
 deadlines, testing and common testing environment, and other rules.  Please read
@@ -18,8 +19,10 @@ Always use the latest version of the tests.
 
 General rules
 -------------
-You may not use code written by someone else except of getting the POSIX tar
-structure from a header file.  No other exceptions.
+You may not take code written by someone else except of copy/pasting the POSIX
+tar structure from a header file.  No other exceptions.
+
+The code you write must conform to C99.
 
 Tar Specification
 -----------------

@@ -19,6 +19,8 @@ main(int argc, char *argv[])
 	if (argc != 3)
 		errx(1, "usage: %s <file> <bytecnt>", argv[0]);
 
-	for (size_t i = 0; i < 16384; i++)
+	for (size_t i = 0; i < 16384; i++) {
+		fprintf(stderr, "%zu\n", i);
 		file_read(argv[1], atoi(argv[2]));
+	}
 }
