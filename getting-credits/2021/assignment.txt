@@ -118,7 +118,7 @@ If unsure what is the correct behavior, check how GNU tar behaves on Linux.
 - Listing truncated archive (that is, there is not enough data for the listed
   archived file size in the archive) reports an error.
 
-	$ ../../mytar -f partial.tar -t
+	$ ./mytar -f partial.tar -t
 	aaa-file
 	mytar: Unexpected EOF in archive
 	mytar: Error is not recoverable: exiting now
@@ -127,7 +127,7 @@ If unsure what is the correct behavior, check how GNU tar behaves on Linux.
   accepted but missing just one emits a warning (but the command still returns
   0):
 
-	$ ../../mytar -f one-zero-block-missing.tar -t
+	$ ./mytar -f one-zero-block-missing.tar -t
 	aaa-file
 	mytar: A lone zero block at 4
 	$ echo $?
