@@ -133,7 +133,7 @@ If unsure what is the correct behavior, check how GNU tar behaves on Linux.
 	$ echo $?
 	0
 
-- no need to collate the options, as showen below.  We will not test it.
+- no need to collate the options, as shown below.  We will not test it.
 
 	$ ./mytar -tf archive.tar
 
