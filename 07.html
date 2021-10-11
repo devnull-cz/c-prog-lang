@@ -313,8 +313,8 @@ not use it as it is only confusing.</p>
 	a = <span class="pl-c1">NULL</span>;
 }</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-as-argument.c">array-as-argument.c</a></p>
-<p>Some compilers even notice that the <code>sizeof</code> operator is applied on array passed
-into a function and produce a warning about it (clang with
+<p>Some compilers even notice that the <code>sizeof</code> operator is applied on an array
+passed into a function and produce a warning about it (clang with
 <code>-Wsizeof-array-argument</code>).</p>
 <pre><code>$ clang -Wsizeof-array-argument array-as-argument.c
 array-as-argument.c:15:25: warning: sizeof on array function parameter will
