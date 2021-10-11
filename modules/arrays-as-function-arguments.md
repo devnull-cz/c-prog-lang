@@ -27,8 +27,8 @@ myfn(int a[])
 
 #source array-as-argument.c
 
-Some compilers even notice that the `sizeof` operator is applied on array passed
-into a function and produce a warning about it (clang with
+Some compilers even notice that the `sizeof` operator is applied on an array
+passed into a function and produce a warning about it (clang with
 `-Wsizeof-array-argument`).
 
 ```
