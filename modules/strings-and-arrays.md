@@ -38,7 +38,8 @@ Writing to it is an undefined behavior.  Writing to it with `gcc` and `clang`
 will crash the program.  However, for example, [Oracle Developer
 Studio](https://www.oracle.com/application-development/technologies/developerstudio.html)
 puts such arrays into read-write memory.  So, working code complied with that
-compiler and modifying string literals will crash if compiled those other two.
+compiler and modifying string literals will crash if compiled with those other
+two.
 
 #source string-literal-write.c
 
