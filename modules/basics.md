@@ -11,7 +11,8 @@
 - each program **must** have a `main()` function
 	- well, there are exceptions: see
 #module freestanding-environment.md freestanding environment
-          if interested.  It is out of scope for this seminar though.
+	  if interested.  Another exception is implementation defined.  It is
+	  out of scope for this seminar though.
 
 - string literals (AKA string constants): #source printf.c
 
