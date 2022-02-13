@@ -8,7 +8,7 @@ main(void)
 
 	printf("Inches\tCentimeters\n");
 	while (i < 10) {
-		printf("%d\t%6.2f\n", i, i * 2.54);
+		printf("%d\t%5.2f\n", i, i * 2.54);
 #if 0
 		/* Try also these. */
 		printf("%d\t%f\n", i, i * 2.54);
