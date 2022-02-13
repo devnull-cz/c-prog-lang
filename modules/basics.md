@@ -89,7 +89,7 @@
 - :wrench: print out a table for inch to centimeter conversion for 1-9 inches,
   use `int`s only (not `float`s)
 	- #source inches-to-cm.c
-	- use "\t" escape sequence for printf to print tabelators
+	- use `\t` escape sequence for printf to print tabelators
 	- like this:
 	```C
 	printf("\tX\tY\n");
