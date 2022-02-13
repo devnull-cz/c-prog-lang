@@ -111,21 +111,21 @@
 - :wrench: use floats for the conversion code
 	- #source inches-to-cm2.c
 		- '\t' in a string will print a tab
-		- `6` is the minimum field width 
+		- `5` is the minimum field width 
 		- `.2` is the precision
 		- see the printf(3) man page for details
 	- example output:
 	```
 	Inches	Centimeters
-	1	  2.54
-	2	  5.08
-	3	  7.62
-	4	 10.16
-	5	 12.70
-	6	 15.24
-	7	 17.78
-	8	 20.32
-	9	 22.86
+	1	 2.54
+	2	 5.08
+	3	 7.62
+	4	10.16
+	5	12.70
+	6	15.24
+	7	17.78
+	8	20.32
+	9	22.86
 	```
 
 - :wrench: print fahrenheit to centigrade table.  Use floats.
