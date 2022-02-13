@@ -86,12 +86,26 @@
 	- see the optional minimum field width and precision
 	- experiment!!!
 
-- :wrench: print out a table for inch to centimeter conversion
+- :wrench: print out a table for inch to centimeter conversion for 1-9 inches,
+  use `int`s only (not `float`s)
 	- #source inches-to-cm.c
 	- use "\t" escape sequence for printf to print tabelators
 	- like this:
 	```C
 	printf("\tX\tY\n");
+	```
+	- example output:
+	```
+	Inches	Centimeters
+	1	2
+	2	5
+	3	7
+	4	10
+	5	12
+	6	15
+	7	17
+	8	20
+	9	22
 	```
 
 - :wrench: use floats for the conversion code
@@ -100,6 +114,19 @@
 		- `6` is the minimum field width 
 		- `.2` is the precision
 		- see the printf(3) man page for details
+	- example output:
+	```
+	Inches	Centimeters
+	1	  2.54
+	2	  5.08
+	3	  7.62
+	4	 10.16
+	5	 12.70
+	6	 15.24
+	7	 17.78
+	8	 20.32
+	9	 22.86
+	```
 
 - :wrench: print fahrenheit to centigrade table.  Use floats.
 	- the formula to convert F to C is: (F - 32) × 5/9.  E.g. 72F is 22.22C.
