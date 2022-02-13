@@ -347,7 +347,8 @@ expression</p>
 </ul>
 </li>
 <li>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> print out a table for inch to centimeter conversion</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> print out a table for inch to centimeter conversion for 1-9 inches,
+use <code>int</code>s only (not <code>float</code>s)</p>
 <ul>
 <li>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/inches-to-cm.c">inches-to-cm.c</a>
@@ -356,6 +357,20 @@ expression</p>
 <li>like this:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre> <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span>X<span class="pl-cce">\t</span>Y<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);</pre></div>
+<ul>
+<li>example output:</li>
+</ul>
+<pre><code> Inches	Centimeters
+ 1	2
+ 2	5
+ 3	7
+ 4	10
+ 5	12
+ 6	15
+ 7	17
+ 8	20
+ 9	22
+</code></pre>
 </li>
 <li>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use floats for the conversion code</p>
@@ -371,7 +386,19 @@ expression</p>
 <li>see the printf(3) man page for details</li>
 </ul>
 </li>
+<li>example output:</li>
 </ul>
+<pre><code> Inches	Centimeters
+ 1	  2.54
+ 2	  5.08
+ 3	  7.62
+ 4	 10.16
+ 5	 12.70
+ 6	 15.24
+ 7	 17.78
+ 8	 20.32
+ 9	 22.86
+</code></pre>
 </li>
 <li>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> print fahrenheit to centigrade table.  Use floats.</p>
