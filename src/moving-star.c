@@ -2,7 +2,8 @@
  * Implement a moving star that zick zacks on the same line between some
  * boundary (say 50 character wide).
  *
- * This is an assignment after the first C language seminar class.
+ * This is an assignment after the first C language seminar class.  Do not use
+ * arrays or else branch; just print each character one by one via printf.
  *
  * See the assignment for important information that may help you in
  * implementing this:
