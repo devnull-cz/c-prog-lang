@@ -46,7 +46,11 @@
 	- `int i = 13;`
 	- `13` is called an *initializer*
 	- you can initialize a variable with another variable, and so on
-		- `int i = 13; int j = i; int k = i + j;`
+```C
+	int i = 13;
+	int j = i;
+	int k = i + j;
+```
 
 - arithmetics
 	- `==` is for equality, `=` for an assignment
