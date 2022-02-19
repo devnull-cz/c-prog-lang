@@ -20,4 +20,4 @@ $ cat /etc/passwd | ./a.out
 9: 31
 ```
 
-Solution: #source count-numbers.c
+#solution count-numbers.c

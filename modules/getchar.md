@@ -44,4 +44,4 @@ parentheses around the assignment.  The `=` operator has lower priority than the
 
 We will learn more about operator priority later in the semester.
 
-Solution: #source getchar.c
+#solution getchar.c
