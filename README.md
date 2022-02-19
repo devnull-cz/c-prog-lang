@@ -19,11 +19,11 @@ See [lecture-notes](https://github.com/devnull-cz/c-prog-lang/tree/notes) for no
 
 | *directory* | *contents* |
 | ------------- |:-------------:|
-| `input` | definitions of lectures |
-| `modules` | individual Markdown files |
-| `modules/warm-up` | warm up tasks |
-| `modules/home-assignments` | home work tasks |
-| `src` | C examples |
+| [`input`](https://github.com/devnull-cz/c-prog-lang/tree/master/input) | definitions of lectures |
+| [`modules`](https://github.com/devnull-cz/c-prog-lang/tree/master/modules) | individual Markdown files |
+| [`modules/warm-up`](https://github.com/devnull-cz/c-prog-lang/tree/master/modules/warm-up) | warm up tasks |
+| [`modules/home-assignments`](https://github.com/devnull-cz/c-prog-lang/tree/master/modules/home-assignments) | home work tasks |
+| [`src`](https://github.com/devnull-cz/c-prog-lang/tree/master/src) | C examples |
 
 In the directory `input`, you define each lecture via including individual
 modules from the `modules` directory.  For example, `input/2020/01.md` looks
