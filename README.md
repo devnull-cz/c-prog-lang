@@ -11,9 +11,9 @@ See [lecture-notes](https://github.com/devnull-cz/c-prog-lang/tree/notes) for no
 
 | *branch* | *contents* |
 | ------------- |:-------------:|
-| `master` | sources |
-| `notes` | Markdown |
-| `gh-pages` | HTML |
+| [`master`](https://github.com/devnull-cz/c-prog-lang/tree/master) | sources |
+| [`notes`](https://github.com/devnull-cz/c-prog-lang/tree/notes) | Markdown |
+| [`gh-pages`](https://github.com/devnull-cz/c-prog-lang/tree/gh-pages) | HTML |
 
 ## Directory structure
 
