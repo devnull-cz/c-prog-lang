@@ -8,6 +8,7 @@ on:
     - input/**
     - .github/workflows/pages.yml
     - dev/*
+    - docs/*
 jobs:
   build:
     runs-on: ubuntu-latest
