@@ -4,6 +4,7 @@
 #
 # Assumes:
 #   - set of Markdown files created in /tmp/notes/<year>/ by expand.sh
+#   - master branch checkout with the docs/index.html file
 #
 
 set -e
@@ -18,16 +19,20 @@ for mdfile in *.md; do
 	grip --pass "$GH_PAGES_TOKEN" --export "$mdfile"
 done
 
-# Construct index page.
-echo "<html><body>" > index.html
-echo "<head>Notes for C programming class</head>" >> index.html
-echo "<ul>" >> index.html
+# Construct index page for the notes.
+notes="notes.html"
+echo "<html><body>" > $notes
+echo "<head>Notes for C programming class</head>" >> $notes
+echo "<ul>" >> $notes
 for htmlfile in [0-9]*.html; do
-	echo "<a href=$htmlfile>`basename $htmlfile`</a>" >> index.html
+	echo "<a href=$htmlfile>`basename $htmlfile`</a>" >> $notes
 done
-echo "</ul>" >> index.html
-echo "</body></html>" >> index.html
+echo "</ul>" >> $notes
+echo "</body></html>" >> $notes
 cd -
+
+# copy index page.
+cp ../master/docs/index.html .
 
 mv /tmp/notes/$year/*.html .
 git add -f *.html
