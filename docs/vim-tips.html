@@ -1,0 +1,106 @@
+<head>
+<title>ViM tips</title>
+<meta charset="utf-8">
+
+<script type="text/javascript">
+function write_last_mod ()
+{
+	var loc = new String (document.location);
+	if (loc.match (/\.html($|\?.*)|\/$/)) {
+		var last_modified = new Date (document.lastModified);
+		// var date_stamp = last_modified.toDateString ();
+		// document.writeln (date_stamp);
+		document.writeln (last_modified);
+	}
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>ViM tips for source code file editing</h1>
+
+<p>You can find lots of tutorials on ViM.  This page contains a few
+tips that may help you when editing C source code files.
+
+<p>If you are looking for an IDE like environment with ViM, you can check <a
+href="https://www.safaribooksonline.com/blog/2014/11/23/way-vim-ide/">Turning
+vim into an IDE through vim plugins</a>.
+
+<p>First advice is to use <code>:help <i>word</i></code> (colon included) for
+searching through ViM's on-line help.  So if you want to learn about how to
+split your terminal into separate windows, use <code>:help windows</code>
+
+<p>In my experience, whatever I was looking for, I found in ViM.  The only thing
+missing is running a shell in a terminal window, editing the output, and using
+it again as shell input --  that is what Emacs supports.
+
+<p><tt>^X</tt> means <tt>Ctrl+X</tt> where <tt>X</tt> is small 'x'.
+
+<ul>
+	<li>always use 'smartindent'.  Sometimes set by default.  Put "set
+	smartindent" to <tt>~/.vimrc</tt>, or type ":set si" if in ViM.  With
+	this setting, ViM will greatly help with indenting.  And yes, indenting
+	by a tabelator is a good thing in C source code.
+
+	<li>Pressing <tt>K</tt> while for a word under the cursor will invoke a
+	manual page for that word.  Sometimes <tt>nK</tt> works to use a
+	specific manual page section.
+
+	<li><tt>[i</tt> within a word will search the current file upwards and
+	also through all include files (recursively) for the word and displays
+	the last line found with the word on the status line.  Very often it is
+	a definition or a declaration of such a variable, function, etc.
+
+	<li><tt>[^I</tt> similar to <tt>[i</tt> but it will jump there.  See
+	below on how to jump back.
+
+	<li><tt>gf</tt> will display a file under the cursor ("go file").  Also
+	works for include files as ViM knows where such files are located by
+	default.  You can also help ViM with other directories that should be
+	searched for files (not just for <tt>gf</tt>), use <tt>set pa=...</tt>
+	in your <tt>.vimrc</tt> file.
+
+	<li>If you jump somewhere, including searching for a string via
+	<tt>/</tt> or displaying another file via <tt>gf</tt>, ViM keeps a stack
+	of such positions.  You can go up and down the stack with <tt>^O</tt>
+	and <tt>^I</tt>.  So if you use <tt>[^I</tt> to jump somewhere, use
+	<tt>^O</tt> to jump back.
+
+	<li>In the insert mode, <tt>^P</tt> will complete the current word with
+	whatever it can find in the current file and include files (upwards).
+	So, if you start with <tt>PTHREAD_M</tt>, you have included
+	<tt>&lt;pthread.h&gt;</tt>, and press <tt>^P</tt>, ViM will complete to
+	<tt>PTHREAD_MUTEX_INITIALIZER</tt>.  Press again, it will offer another
+	matching word.
+
+	<li><tt>%</tt> will jump to a matching parenthese
+
+	<li><tt>*</tt> will search for a word under the cursor.  <tt>#</tt> will
+	search backwards.  After the first search, you can use <tt>n</tt> to
+	search for next occurences.
+
+	<li><tt>&gt;&gt;</tt> indents a current line to the right by a shift
+	width (a tabelator by default).  Use <tt>set sw=N</tt> to change that to
+	<tt>N</tt> spaces.  Also works with <tt>&lt;&lt;</tt>.
+
+	<li>Visual blocks and indenting: make a block (<tt>V</tt> then move the
+	cursor), then use <tt>&gt;</tt> or <tt>&lt;</tt> to move the whole block
+	horizontally.  Also try <tt>v</tt> a <tt>^V</tt>.  After an indentation
+	you can use a period to repeat the last action.  To indent back, use
+	<tt>u</tt> for undo or <tt>&lt;</tt> and <tt>&gt;</tt>.
+
+	<li><tt>[{</tt> jumps to the beginning of a program block.  Similarly
+	<tt>]}</tt>.  Great if you want to jump to the begining of a cycle,
+	function, etc.
+</ul>
+
+<p>
+<hr>
+Last changed:
+<script>
+write_last_mod ();
+</script>
+
+</body>
