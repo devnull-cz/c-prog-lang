@@ -1,7 +1,6 @@
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+<head>
 <title>The C Programming Language (NPRG066), summer semester 2020</title>
-  <script type="text/javascript">
+  <script type='text/javascript'>
   function write_last_mod ()
   {
       var loc = new String (document.location);
@@ -45,11 +44,13 @@ $ echo $?
 </pre>
 -->
 
-<p><a href="http://is.cuni.cz/studium/predmety/index.php?do=predmet&amp;kod=NPRG066">NPRG066</a>,
+<p><a
+href="http://is.cuni.cz/studium/predmety/index.php?do=predmet&kod=NPRG066">NPRG066</a>,
 <a href="http://mff.cuni.cz/">MFF UK</a>, summer semester 2021/2022.<br>
-<b>Malá Strana, Mon 9:00, room SU2.</b><br>
-Lectured by: Jan Pechanec, Vladimír Kotal<br>
-Department: <a href="https://www.mff.cuni.cz/cs/informaticka-sekce/pracoviste/sisal">SISAL</a><br>
+<b>Mal&aacute; Strana, Mon 9:00, room SU2.</b><br>
+Lectured by: Jan Pechanec, Vladim&iacute;r Kotal<br>
+Department: <a
+href="https://www.mff.cuni.cz/cs/informaticka-sekce/pracoviste/sisal">SISAL</a><br>
 First class: Mon 14, 2022
 
 <!--
@@ -72,7 +73,7 @@ minutes.  That is, if you have anything to discuss, please join the
 meeting on time.</font>
 -->
 
-</p><h2>Overview</h2>
+<h2>Overview</h2>
 
 <blockquote>
 <!--
@@ -82,11 +83,12 @@ book."</i>
 <p><i>"Since C is relatively small, it can be described in a small
 space, and learned quickly.  A programmer can reasonable expect to know
 and understand and indeed regularly use the entire language."</i>
-</p><p>-- Brian W. Kernighan, Dennis M. Ritchie
-</p></blockquote>
+<p>-- Brian W. Kernighan, Dennis M. Ritchie
+</blockquote>
 
 <p>The seminar is lectured in English unless everybody present can speak
-Czech.  <b>It is a recommended pre-requisite for <a href="https://devnull-cz.github.io/unix-linux-prog-in-c/">Unix/Linux
+Czech.  <b>It is a recommended pre-requisite for <a
+href="https://devnull-cz.github.io/unix-linux-prog-in-c/">Unix/Linux
 Programming in C (NSWI015).</a></b>
 
 <!--
@@ -94,7 +96,7 @@ Programming in C (NSWI015).</a></b>
 poster.</b></a>
 -->
 
-</p><h2>Abstract</h2>
+<h2>Abstract</h2>
 
 <p>The hands-on seminar is meant to teach students how to program in C.
 It is targeting people who have no prior experience with the language.
@@ -104,35 +106,35 @@ statements, loops, and functions.  The C standards C90 and C99 will be
 covered.  Strong emphasis will be put on writing real C programs taking
 advantage of all the language features discussed.
 
-</p><h2>Target Group</h2>
+<h2>Target Group</h2>
 
 <p>This seminar is primarily targeting people who have no prior
 experience with the C language.  However, anybody is welcome, especially
 after the first elementary lectures.
 
-</p><h2><a name="developmentenvironment">Development Environment</a></h2>
+<h2><a name="developmentenvironment">Development Environment</a></h2>
 
 <p>What you need for this seminar?  Just a C compiler and a text editor.
 There are a few options:
 
-</p><ol>
+<ol>
 <li>Linux machines in the SU2 lab remotely accessible via SSH with your
 MFF UK login.  The compiler is <tt>gcc</tt>.  Start a few terminals and
 that is all you need.  To log in, use e.g.  <code>ssh
 yourname@u-pl3.ms.mff.cuni.cz</code>.  There seems to be <tt>u-pl</tt>
 machines from 1 to 37.  Pick any of those, your home directory is
-mounted on all.  You can use <a href="https://putty.org/">PuTTY</a>
+mounted on all.  You can use <a href="https://putty.org">PuTTY</a>
 client on Windows.  Windows 10 already have OpenSSH.
-</li><li>Use your laptop with a GNU C (<code>gcc</code>) compiler installed,
+<li>Use your laptop with a GNU C (<code>gcc</code>) compiler installed,
 or any other modern C compiler.  Any Linux distro, (Free|Net|Open)BSD,
 or a macOS machine will do but you may need to install the compiler
 there.  On macOS, just run <tt>cc</tt> and follow the instructions
 there.
-</li><li>Install a C compiler on your Windows laptop.
-</li><li>Various combinations of the above in a virtual machine (e.g.  open
+<li>Install a C compiler on your Windows laptop.
+<li>Various combinations of the above in a virtual machine (e.g.  open
 source <a href="https://www.virtualbox.org/">VirtualBox</a> runs on many
 platforms).
-</li></ol>
+</ol>
 
 <!--
 <p>There is Eduroam WiFi available in the SU2 lab so you can easily
@@ -142,19 +144,21 @@ connect to the lab machines from your laptops via SSH, see above.
 <h3>Development Tools</h3>
 
 <p>We recommend to work from the terminal only, there is really no need
-for an IDE.  We use <a href="http://www.vim.org/">ViM</a> (on Linux
+for an IDE.  We use <a href="http://www.vim.org">ViM</a> (on Linux
 distros and macOS as <code>vi</code>) and the compiler.  If you are in
 the first year and did not go through the Unix intro lecture yet, the
-<code>vi</code> editor may not feel friendly at first, in that case <a href="https://joe-editor.sourceforge.io/">Joe</a> is a good alternative.
+<code>vi</code> editor may not feel friendly at first, in that case <a
+href="https://joe-editor.sourceforge.io">Joe</a> is a good alternative.
 It is also installed on all Linux lab machines as <code>joe</code>.  You
 can also use GNU <a href="https://www.nano-editor.org/">nano</a> which
 is very easy to use as well.
 
-</p><p>If you can create a simple C program, compile it, and successfully
+<p>If you can create a simple C program, compile it, and successfully
 execute the resulting binary <code>a.out</code>, you are good to go.
 For example:
 
-</p><pre>$ cat main.c 
+<pre>
+$ cat main.c 
 int
 main(void)
 {
@@ -168,59 +172,62 @@ $ echo $?
 
 <h2>Mailing List</h2>
 
-<p><a href="http://mbox.ms.mff.cuni.cz/listserv/listinfo/c-prog-lang-l"><b>Subscribe
+<p><a
+href="http://mbox.ms.mff.cuni.cz/listserv/listinfo/c-prog-lang-l"><b>Subscribe
 here to c-prog-lang-l</b></a> mailing list hosted on
 mbox.ms.mff.cuni.cz.
 
-</p><p>We will use this alias for various announcements regarding the
+<p>We will use this alias for various announcements regarding the
 seminar.  <b>It is your responsibility to subscribe to it</b>.  And feel
 free to use it for technical discussion regarding the C language and
 what we do in the seminar.
 
-</p><h2>Syllabus</h2>
+<h2>Syllabus</h2>
 
 <ul>
 <li>C history, standards, motivation
-</li><li>coding style, basic language primitives
-</li><li>function declaration/definition, local variables
-</li><li>arrays, ternary operator
-</li><li>arithmetic type conversions, negative numbers representation
-</li><li>strings
-</li><li>pointers, reference/dereference, pointer arithmetics, arrays and
+<li>coding style, basic language primitives
+<li>function declaration/definition, local variables
+<li>arrays, ternary operator
+<li>arithmetic type conversions, negative numbers representation
+<li>strings
+<li>pointers, reference/dereference, pointer arithmetics, arrays and
 pointers
-</li><li>dynamic memory allocation
-</li><li>storage classes
-</li><li>structures, unions
-</li><li>reading complex declarations
-</li><li>const, enum, typedef, bit fields
-</li><li>file access
-</li><li>bit operations
-</li><li>debugging tools and techniques
-</li></ul>
+<li>dynamic memory allocation
+<li>storage classes
+<li>structures, unions
+<li>reading complex declarations
+<li>const, enum, typedef, bit fields
+<li>file access
+<li>bit operations
+<li>debugging tools and techniques
+</ul>
 
-<h2><a name="gettingcredits&quot;">Getting credits</a></h2>
+<h2><a name=gettingcredits">Getting credits</a></h2>
 
 <p>To get credits, you complete a given assignment in C as a home
 project.  The project submission is via sending us email with a link to
-an online repository we can use with Git or Mercurial (e.g. <a href="http://github.com/">GitHub</a>).  You need to send the email to
+an online repository we can use with Git or Mercurial (e.g. <a
+href="http://github.com">GitHub</a>).  You need to send the email to
 both of us, see the contacts below.  Sending your code as an attachment
 will not be accepted.
 
-</p><p>We need to receive the email before the deadlines, anything after the
+<p>We need to receive the email before the deadlines, anything after the
 deadline will not be accepted.
 
-</p><p><b>You must pass all the tests</b> before handing over your solution.
+<p><b>You must pass all the tests</b> before handing over your solution.
 The tests will be provided with the assignment.  We will build your code
 and verify the tests on one of the Linux machines
-<code>u-pl</code>N in the MFF UK lab at Malá Strana, see the <a href="#developmentenvironment">Development Environment</a> section
+<code>u-pl</code>N in the MFF UK lab at Mal&aacute; Strana, see the <a
+href="#developmentenvironment">Development Environment</a> section
 above. If your code does not pass all the tests there, the submission
 will not be accepted. 
 
-</p><p><b>You are supposed to write the code by yourself.  Taking any
+<p><b>You are supposed to write the code by yourself.  Taking any
 existing code is strictly prohibited except for copy/pasting the POSIX
 tar structure as specified in the assignment.</b>
 
-</p><p><b><font color="red">More info about deadlines and the assignment
+<p><b><font color="red">More info about deadlines and the assignment
 will be presented here by the middle of March</font></b>.
 
 <!--
@@ -253,60 +260,73 @@ C style.</a>
 2</a>.
 -->
 
-</p><h2>Seminar Notes</h2>
+<h2>Seminar Notes</h2>
 
-<p>Seminar repository is <a href="https://github.com/devnull-cz/c-prog-lang/tree/master/">work
-in progress</a>.  There is a <a href="https://github.com/devnull-cz/c-prog-lang/tree/notes">direct link
-to the generated notes</a>.  A <a href="https://devnull-cz.github.io/c-prog-lang/">HTML version of the
+<p>Seminar repository is <a
+href="https://github.com/devnull-cz/c-prog-lang/tree/master/">work
+in progress</a>.  There is a <a
+href="https://github.com/devnull-cz/c-prog-lang/tree/notes">direct link
+to the generated notes</a>.  A <a
+href="https://devnull-cz.github.io/c-prog-lang/">HTML version of the
 notes</a> is provided as well.
 
 <!--
 <p><a href="./2019">Notes from the previous year</a> for your reference.
 -->
 
-</p><h2>C style for writing code</h2>
+<h2>C style for writing code</h2>
 
-<p>We strongly encourage you to use a good <a href="https://devnull-cz.github.io/unix-linux-prog-in-c/cstyle.html">C
+<p>We strongly encourage you to use a good <a
+href="https://devnull-cz.github.io/unix-linux-prog-in-c/cstyle.html">C
 style</a> to follow when writing C code.  It comes with a Perl script to
 check your style.  <b>We just cannot stress enough the importance of
 readable code with a unified look.</b>
 
-</p><p>There are <a href="https://en.wikipedia.org/wiki/Indent_style">other
+<p>There are <a href="https://en.wikipedia.org/wiki/Indent_style">other
 indent styles to choose from.</a>
 
-</p><h2>References</h2>
+<h2>References</h2>
 
 <h3>Primary References</h3>
 
 <ul>
-<li><a href="http://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628">
+<li><a
+href="http://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628">
 The C Programming Language, 2nd Edition</a> by Brian W. Kernighan,
 Dennis M. Ritchie
-</li><li><a href="https://www.amazon.com/Expert-Programming-Peter-van-Linden/dp/0131774298">Expert
+<li><a
+href="https://www.amazon.com/Expert-Programming-Peter-van-Linden/dp/0131774298">Expert
 C Programming: Deep C Secrets</a> by Peter van der Linden.
-</li><li><a href="http://www.open-std.org/JTC1/sc22/wg14/www/docs/n1256.pdf">The
+<li><a
+href="http://www.open-std.org/JTC1/sc22/wg14/www/docs/n1256.pdf">The
 latest revision of the C99 draft</a>
-</li></ul>
+</ul>
 
 <h3>Supplementary References</h3>
 
 <ul>
-<li><a href="http://en.cppreference.com/w/c/language/operator_precedence">C
+<li><a
+href="http://en.cppreference.com/w/c/language/operator_precedence">C
 operator precedence table</a>
-</li><li><a href="https://www.bell-labs.com/usr/dmr/www/chist.pdf">The Development
+<li><a
+href="https://www.bell-labs.com/usr/dmr/www/chist.pdf">The Development
 of the C Language</a>, Dennis M. Ritchie, ACM, 1993.
-</li><li><a href="http://beej.us/guide/bgc/">Beej's Guide to C</a>
-</li><li><a href="http://www.kopp.cz/www/cz/607-vyrobek-ucebnice-jazyka-c">Učebnice
+<li><a href="http://beej.us/guide/bgc/">Beej's Guide to C</a>
+<li><a
+href="http://www.kopp.cz/www/cz/607-vyrobek-ucebnice-jazyka-c">U&#269;ebnice
 jazyka C</a>, Pavel Herout.
-</li><li><a href="http://www.pvv.org/~oma/DeepC_slides_oct2011.pdf">Deep C</a>
+<li><a
+href="http://www.pvv.org/~oma/DeepC_slides_oct2011.pdf">Deep C</a>
 presentation slides (PDF).
-</li><li><a href="http://port70.net/~nsz/c/">Existing C spec drafts in one
+<li><a href="http://port70.net/~nsz/c/">Existing C spec drafts in one
 place</a>
-</li><li><a href="http://port70.net/~nsz/c/c89/c89-draft.html">The C89 specification
+<li><a
+href="http://port70.net/~nsz/c/c89/c89-draft.html">The C89 specification
 draft</a>
-</li><li><a href="https://en.wikipedia.org/wiki/C11_%28C_standard_revision%29">C11
+<li><a
+href="https://en.wikipedia.org/wiki/C11_%28C_standard_revision%29">C11
 Standard Revision</a>
-</li></ul>
+</ul>
 
 <a name="contact"><h2>Contact</h2></a>
 
@@ -314,11 +334,9 @@ Standard Revision</a>
 <tt>vlada at kotalovi dot cz</tt>, <tt>jp at devnull dot cz</tt>
 </p>
 
-<p></p><hr>
+<p><hr>
 Last modified:
 <script>
 write_last_mod ();
-</script>Sat Feb 19 2022 21:23:17 GMT+0100 (Central European Standard Time)
-
-
-</body></html>
+</script>
+</body>
