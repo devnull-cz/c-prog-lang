@@ -46,7 +46,7 @@
 ## Signedness
 
 - each integer type has a `signed` and `unsigned` variant.  By default, the
-  numeric types are signed aside from char which depends on the implementation
+  numeric types are signed aside from `char` which depends on the implementation
   (of the C compiler).  If you need an unsigned type, use `unsigned` reserved
   word.
 ```C
@@ -77,6 +77,7 @@
 	short sh;
 	printf("%d\n", sh);
 ```
+
 ## Modifiers for printf()
 
 - `l` for long, eg. `long l; printf("%ld\n", l);`
