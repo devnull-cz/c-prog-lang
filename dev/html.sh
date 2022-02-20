@@ -31,8 +31,8 @@ echo "</ul>" >> $notes
 echo "</body></html>" >> $notes
 cd -
 
-# copy index page.
-cp ../master/docs/index.html .
+# copy documents.
+cp ../master/docs/*.html .
 
 mv /tmp/notes/$year/*.html .
 git add -f *.html
