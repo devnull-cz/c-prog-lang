@@ -43,12 +43,10 @@ main(void)
 		/*
 		 * Remember, you are not supposed to use the "else" branch yet!
 		 */
-		direction = direction + 2;
-		if (direction == 3)
-			direction = -1;
+		direction = direction * -1;
 		/*
-		 * Move the position back within the boundary (ie. pos here was
-		 * either 'width' or -1 so it would never be printed again).
+		 * Move the position back within the boundary (ie. 'pos' here
+		 * was either 'width' or -1 so it would never be printed again).
 		 */
 		pos = pos + direction;
 	}
