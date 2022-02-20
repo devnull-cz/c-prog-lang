@@ -26,7 +26,7 @@
   binary is compiled in 32 or 64 bits.
   - :wrench: see what code emits your compiler by default (i.e. without using
     either `-m32` or `-m64` options)
-    - use `file` to display the information about the binary
+    - use the `file` command to display the information about the binary
 
 - see also *5.2.4.2 Numerical limits*
 #module c99-standard.md in the C spec.
