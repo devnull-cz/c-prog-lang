@@ -231,11 +231,16 @@ multiple times)
 </li>
 </ul>
 </li>
+<li>macros: for more complicated code snippets, e.g. <code>#define IS_ZERO(a)  a == 0</code>
+<ul>
+<li>the argument will be replace with whatever is given</li>
 <li>use parens for <code>#define</code> to prevent problems with macro expansion
 <ul>
 <li><code>#define	X	(1 + 1)</code></li>
 <li>same for more complicated macros:
 <code>#define MUL(a, b)  ((a) * (b))</code>
+</li>
+</ul>
 </li>
 </ul>
 </li>
