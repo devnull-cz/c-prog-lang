@@ -21,3 +21,6 @@ $ cat /etc/passwd | ./a.out
 ```
 
 #solution count-numbers.c
+
+- variant: instead of printing occurrences, print `*` characters to get a
+  histogram.  Use `log()` (see `math(3)`) to trim the values down.
