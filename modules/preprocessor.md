@@ -39,4 +39,5 @@ To see the result of running preprocessor on your code, use `cpp` or
 the `-E` option of the compiler.
 
 ### :wrench: Task: reimplement fahr-to-cent.c using defines instead of literal numbers
-  - solution: `fahr-to-cent_defines.c`
+
+#solution fahr-to-cent_defines.c

@@ -52,4 +52,4 @@ Ell	Inches	Centimeters
 30	1350	3429.00
 ```
 
-#solution `ell-in-cm.c`
+#solution ell-in-cm.c
