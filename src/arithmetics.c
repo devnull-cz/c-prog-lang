@@ -24,7 +24,7 @@ main(void)
 	printf("Twice incremented k is %d\n", k);
 
 	/*
-	 * If both arguments are integeres, the result is also an integer.  This
+	 * If both arguments are integers, the result is also an integer.  This
 	 * will print 9.
 	 */
 	printf("100 divided by 11 is %d\n", 100 / 11);
