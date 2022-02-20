@@ -28,7 +28,8 @@ BLACKLIST=./const-not-really-a-const.c \
 	./const-and-pointers.c \
 	./hello-world1.c \
 	./empty-array.c \
-	./printf.c
+	./printf.c \
+	./error.c
 SRCS_ORIG=$(shell find . -type f -name '*.c')
 SRCS=$(filter-out $(BLACKLIST),$(SRCS_ORIG))
 OBJS=$(SRCS:c=o)
