@@ -14,12 +14,13 @@
   - `man 3 printf`, see `%f` is of type `double`.  You can use:
 
 ```C
-	  printf("%f\n", float)
+          float pi = 3.14
+	  printf("%f\n", pi);
 ```
 
-- floats are automatically converted to doubles if used as arguments in
-  functions with variable number of arguments (known as a "variadic function"),
-  i.e. like printf()
+  - floats are automatically converted to doubles if used as arguments in
+    functions with variable number of arguments (known as a "variadic function"),
+    i.e. like printf()
 
 - `char` (1 byte), `short` (usually 2 bytes), `long` (4 or 8 bytes), `long long`
   (usually 8 bytes, and can not be less).  It also depends on whether your
