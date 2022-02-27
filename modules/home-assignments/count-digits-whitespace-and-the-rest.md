@@ -15,6 +15,6 @@ c == ' ' || c == '\t' || c == '\n'
 
 - put both the checks into separate functions
 - then write a new version of the program and use:
-        - use `isspace`() from C99
-	- `isdigit`() vs `isnumber`() - the latter detects digits + possibly
+  - `isspace`() from C99
+  - `isdigit`() vs `isnumber`() - the latter detects digits + possibly
 	  more characters (depending on locale setting)
