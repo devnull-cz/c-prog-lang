@@ -32,7 +32,7 @@ $ ./a.out
 
 **So what happened???**
 
-Well, I does not really work.  It "works" by accident.  Let's look at it more
+Well, it does not really work.  It "works" by accident.  Let's look at it more
 closely.  To establish a common environment, I will be using
 the Linux lab at Malá Strana which you all have access to, so that you can try
 and see.
