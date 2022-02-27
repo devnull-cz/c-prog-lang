@@ -171,7 +171,7 @@ Apparently not, let's see the disassembled code:
 
 So, let's involve another local variable.
 
-```
+```C
 int
 addnum(int n1, int n2)
 {
@@ -180,7 +180,8 @@ addnum(int n1, int n2)
 	int i = 13;
 	n = i + n;
 }
-
+```
+```
 $ gcc main.c
 $ ./a.out
 13
