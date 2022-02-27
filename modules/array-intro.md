@@ -119,9 +119,9 @@ Note: **global variables are always zeroized.**
 
 There is a *partial array initialization* where the *initializers* are called
 *designated initializers* in the C spec:
-
+```C
   char array[128] = { [0] = 'A', [2] = 'f', [4] = 'o', [6] = 'o' };
-
+```
 - a subscript is in square brackets
 - the `[subscript]` is known as a *designator*.  Inreasing ordering is not
   required but expected.
