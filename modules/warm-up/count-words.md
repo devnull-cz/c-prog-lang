@@ -18,10 +18,10 @@ tabelator, a space, and a newline.
 
 - what happens if the number of words exceeds the type that stores the count?
 
-#source words.c
+#solution words.c
 actually uses a library check for white space for simplicity.
 
-another solution is #source words2.c
+#solution words2.c
 It is even simpler than the first solution while not using the library function.
 
 Example:
