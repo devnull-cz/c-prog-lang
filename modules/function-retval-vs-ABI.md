@@ -132,14 +132,15 @@ $ objdump -d a.out
 
 What if we increment variable `n`, does it change anything?
 
-```
+```C
 int
 addnum(int n1, int n2)
 {
 	int n = n1 + n2;
 	++n;
 }
-
+```
+```
 $ gcc main.c 
 ./a.out 
 100
