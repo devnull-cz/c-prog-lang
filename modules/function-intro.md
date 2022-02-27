@@ -45,7 +45,7 @@ hola(void)
 }
 ```
 
-A function call is an expression so you can you it as such:
+A function call is an expression so you can use it as such:
 
 ```C
 printf("%d\n", return_a_number());
