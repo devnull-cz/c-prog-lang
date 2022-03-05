@@ -27,8 +27,8 @@ is of type `int`, and therefore you can do e.g. `printf("%d\n", a[2]);`.
 	- assigning to an array as a whole
 
 - as with integer and floating point variables, we may initialize an array
-  during its definition.  In general, the value for the initialization is known
-  as an *initializer*.
+  during its definition.  In general, the value for any variable initialization
+  (not just arrays) is known as an *initializer*.
 
 ```C
 short array[3] = { 1, 2, 3 };
