@@ -11,7 +11,7 @@ A function has a single return value and multiple input parameters.
 
 A function *declaration* is only declaring the API without its body.  In C, it
 is called a *function prototype* and it consists of a type, a function name, and
-an argument list in parentheses.  For example:
+an parameter list in parentheses.  For example:
 
 ```C
 int digit(int c);
@@ -29,6 +29,11 @@ return_a_number(void)
 	return (1000);
 }
 ```
+
+Note that when declare or define a function, the function has *parameters*.
+When we call such a function though, we pass in *arguments*.  So, for the above
+mentioned function `digit`, if called as `digit(7)`, we passed argument `7` as
+parameter `c`.
 
 Also as with the `main` function, you can use `void` instead of the argument
 list to say the function accepts no arguments.  You could just use `()` to
