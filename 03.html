@@ -252,21 +252,22 @@ start with the next index.  For example:</li>
 (there is a gcc extension for that but let's not go there).</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-designated-initializers.c">array-designated-initializers.c</a></p>
-<p>Note the code above mentions a missing <code>=</code> as a GCC extension.  With a non-GCC
-compiler it does not compile:</p>
+<p>Note that the code file right above mentions in a comment that a missing <code>=</code> is
+a GCC extension.  With a non-GCC compiler it does not compile:</p>
 <pre><code>$ cc array-designated-initializers.c
 "array-designated-initializers.c", line 15: syntax error before or at: 'A'
 cc: acomp failed for array-designated-initializers.c
 </code></pre>
-<p>Once declared, the values cannot be assigned at once.  So, you can only do
-things as follows:</p>
+<p>Once an array is declared, its elements cannot be assigned at once.  So, you can
+only do things as follows:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> array[<span class="pl-c1">4</span>];
 
 array[<span class="pl-c1">0</span>] = <span class="pl-c1">1</span>;
 array[<span class="pl-c1">1</span>] = <span class="pl-c1">2</span>;
 array[<span class="pl-c1">2</span>] = array[<span class="pl-c1">3</span>] = <span class="pl-c1">3</span>;
 <span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
-<p>You cannot assign an array into array - has to be done an element by element.</p>
+<p>You cannot assign an array into another array - has to be done an element by
+element.</p>
 <ul>
 <li>likewise for comparison</li>
 </ul>
