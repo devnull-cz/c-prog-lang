@@ -444,9 +444,9 @@ Segmentation fault: 11
 <em>string</em>.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
 <p>The crucial fact is that a string is always terminated by a <em>null</em> (zero) byte,
-sometimes also called <em>NUL</em>.  That is how C knows where a string ends.  There is
-no metadata involved with the string, e.g. a length.  To figure out the length
-of a string, the string must be sequentially searched for the first null byte.</p>
+sometimes also called <em>NUL</em>.  That is how C knows where the string ends.  There
+is no metadata involved with a string, e.g. its length.  To figure out the
+length of a string, the string must be sequentially searched for the first NUL.</p>
 <p>The string length is the number of bytes preceding the null character.</p>
 <p>It also means the size of such an character array is <strong>one byte more than the
 number of characters in the string</strong>.  It is because of the terminating zero
