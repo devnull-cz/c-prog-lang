@@ -1,6 +1,6 @@
 # More on functions/arrays
 
-## variable length array (VLA)
+## Variable length array (VLA)
 - automatically allocated based on a variable value.  Only for local variables,
   not globals. Same warning applies w.r.t. array size and stack growth as with
   fixed width arrays.
@@ -34,7 +34,8 @@ int a; int b;
 }
 ```
 
-Some compilers have dropped the support for K&R definitions or will drop soon.
+Some compilers have dropped the support for K&R definitions or will drop it
+soon.
 
 ## Function is not object
 
