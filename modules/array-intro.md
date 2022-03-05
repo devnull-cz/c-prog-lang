@@ -9,7 +9,8 @@ int array[5];
 
 The integer value `n` in `[n]` specifies the number of array *elements*.
 
-- an array *subscript* always starts from `0` and ends with `n - 1`
+- an array *subscript* (also called an *index*) always starts from `0` and ends
+  with `n - 1`
 - a subscript may be any integer expression
 - the type of array elements is called an *element type*
 
@@ -123,7 +124,7 @@ There is a *partial array initialization* where the *initializers* are called
   char array[128] = { [0] = 'A', [2] = 'f', [4] = 'o', [6] = 'o' };
 ```
 - a subscript is in square brackets
-- the `[subscript]` is known as a *designator*.  Inreasing ordering is not
+- the `[subscript]` is known as a *designator*.  Increasing ordering is not
   required but expected.
 - the rest of elements will be initialized to zero
 - if you do not specify the array size, it is taken from the highest designator
