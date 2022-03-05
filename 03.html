@@ -366,14 +366,14 @@ test.c:4:2: note: previous implicit declaration is here
 	^
 1 warning and 1 error generated.
 </code></pre>
-<p>Argument names may be omitted in prototypes, i.e.:</p>
+<p>Parameter names may be omitted in prototypes, i.e.:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">myfn</span>(<span class="pl-k">int</span>, <span class="pl-k">int</span>);</pre></div>
 <p>A variable defined in function parameters or locally within the function
 overrides global variables.  Each identifier is visible (= can be used) only
 within a region of program text called its <em>scope</em>.  See
 <a href="/modules/c99-standard.md">C99</a>, section <em>6.2.1 Scopes of identifiers</em> for more
 information.</p>
-<p>Within a function body, you may use its arguments as any other local variables.</p>
+<p>Within a function body, you may use its parameters as any other local variables.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
 <span class="pl-en">myfn</span>(<span class="pl-k">int</span> i, <span class="pl-k">int</span> j)
 {
@@ -381,7 +381,7 @@ information.</p>
 	<span class="pl-k">return</span> (i);
 }</pre></div>
 <p>As <strong>arguments are always passed by value</strong> in C, the variable value is not
-changed in scope that called the function.</p>
+changed in the scope that called the function.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> myfn defined here <span class="pl-c">*/</span></span>
 
 <span class="pl-k">int</span>
@@ -389,13 +389,12 @@ changed in scope that called the function.</p>
 {
 	<span class="pl-k">int</span> i = <span class="pl-c1">3</span>;
 
-	<span class="pl-c1">myfn</span>(i, i);
-	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);	<span class="pl-c"><span class="pl-c">//</span> will print 3</span>
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">myfn</span>(i, i));	<span class="pl-c"><span class="pl-c">//</span> will print 9</span>
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);		<span class="pl-c"><span class="pl-c">//</span> will print 3</span>
 }</pre></div>
-<p>Local variables are on the stack.</p>
-<p>Variable passing depends on bitness and architecture. E.g. 32-bit x86 on the
-stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on the
-stack.</p>
+<p>Local variables are stored on stack.</p>
+<p>Argument passing depends on bitness and architecture. E.g. 32-bit x86 puts them
+on stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on stack.</p>
 <p>Functions can be recursive. <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/recursive-fn.c">recursive-fn.c</a></p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span></span>
 <span class="pl-c"> * Print 0..9 recursively using a function call fn(9).</span>
