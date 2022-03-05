@@ -1,4 +1,4 @@
-# comma operator
+# The comma operator
 
 Useful to perform expression evaluations in one place. The first part is evaluated, then the second part.
 The result of the expression is the result of the second part, e.g.:
