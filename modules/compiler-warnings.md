@@ -4,8 +4,9 @@
   something strange and potentially harmful can happen.
   - there are differences between various compilers
   - will focus on GCC here
-  - during the old days the tool producing these warnings was called 'lint'
-    that had to be run separately
+  - during the old days the tool producing these warnings was called `lint`
+    that had to be run separately (there was not enough memory to do both at
+    once).  Now those extra checkes are usually part of the compiler itself.
 
   - the basic: `-Wall -Wextra`
     - `-Wall` catches things like missing return value from a function that
