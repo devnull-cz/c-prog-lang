@@ -1,11 +1,9 @@
-# Integer Literals
+# Integer literals
 
 - An *integer literal* can be a decimal, octal, or hexadecimal constant. 
 
 - so, all of these are equal:
 ```C
-	printf("%c\n", 'A'); // will print an integer as a character
-	// --> A
 	printf("%c\n", 0101);
 	// --> A
 	printf("%c\n", 0x41);
