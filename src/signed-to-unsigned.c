@@ -1,5 +1,6 @@
 /*
- * Be careful when working with signed and unsigned numbers together.
+ * Be very careful when working with signed and unsigned numbers together.
+ * And better do not mix those at all!
  */
 #include <stdio.h>
 
