@@ -1,3 +1,11 @@
+/*
+ * Note that this involves signed overflow which is undefined behavior in the
+ * spec.
+ *
+ * $ ./a.out 2147483648 -1
+ * -2147483648 -1
+ * Floating point exception: 8
+ */
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
