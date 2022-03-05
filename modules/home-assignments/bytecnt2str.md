@@ -1,12 +1,12 @@
-## byte count to human readable string
+## Byte count to human readable string
 
- write function to convert `uint64_t` to human readable count
-  (binary - see https://en.wikipedia.org/wiki/Orders_of_magnitude_(data) or
-  https://en.wikipedia.org/wiki/Mebibyte, e.g. MiB as mebibyte, etc.) and print
-  it to standard output
+Write function to convert `uint64_t` to human readable count (binary - see
+https://en.wikipedia.org/wiki/Orders\_of\_magnitude_(data) or
+https://en.wikipedia.org/wiki/Mebibyte, e.g. MiB as mebibyte, etc.) and print it
+to standard output.
 
 ```C
-  void bytecnt2str(uint64_t num);
+void bytecnt2str(uint64_t num);
 ```
 
   - use character array to represent the magnitude letters and perform
@@ -24,4 +24,3 @@
 5242880		5 MiB
 ```
   solution: [bytecnt2str.c](src/bytecnt2str.c)
-
