@@ -302,7 +302,7 @@ that when we have pointers)</li>
 </ul>
 <p>A function <em>declaration</em> is only declaring the API without its body.  In C, it
 is called a <em>function prototype</em> and it consists of a type, a function name, and
-an argument list in parentheses.  For example:</p>
+an parameter list in parentheses.  For example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">digit</span>(<span class="pl-k">int</span> c);
 <span class="pl-k">int</span> <span class="pl-en">space</span>(<span class="pl-k">int</span> c);
 <span class="pl-k">float</span> <span class="pl-en">myfun</span>(<span class="pl-k">int</span> c, <span class="pl-k">int</span> i, <span class="pl-k">float</span> f);</pre></div>
@@ -313,6 +313,10 @@ function).</p>
 {
 	<span class="pl-k">return</span> (<span class="pl-c1">1000</span>);
 }</pre></div>
+<p>Note that when declare or define a function, the function has <em>parameters</em>.
+When we call such a function though, we pass in <em>arguments</em>.  So, for the above
+mentioned function <code>digit</code>, if called as <code>digit(7)</code>, we passed argument <code>7</code> as
+parameter <code>c</code>.</p>
 <p>Also as with the <code>main</code> function, you can use <code>void</code> instead of the argument
 list to say the function accepts no arguments.  You could just use <code>()</code> to
 indicate the function has no arguments but that is an old way of doing things
