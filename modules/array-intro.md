@@ -142,8 +142,8 @@ There is a *partial array initialization* where the *initializers* are called
 
 #source array-designated-initializers.c
 
-Note the code above mentions a missing `=` as a GCC extension.  With a non-GCC
-compiler it does not compile:
+Note that the code file right above mentions in a comment that a missing `=` is
+a GCC extension.  With a non-GCC compiler it does not compile:
 
 ```
 $ cc array-designated-initializers.c
@@ -151,8 +151,8 @@ $ cc array-designated-initializers.c
 cc: acomp failed for array-designated-initializers.c
 ```
 
-Once declared, the values cannot be assigned at once.  So, you can only do
-things as follows:
+Once an array is declared, its elements cannot be assigned at once.  So, you can
+only do things as follows:
 
 ```C
 int array[4];
@@ -163,7 +163,8 @@ array[2] = array[3] = 3;
 // ...
 ```
 
-You cannot assign an array into array - has to be done an element by element.
+You cannot assign an array into another array - has to be done an element by
+element.
 
 - likewise for comparison
 
