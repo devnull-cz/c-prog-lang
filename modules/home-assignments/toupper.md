@@ -1,9 +1,10 @@
-## :wrench: to upper
+## :wrench: To upper
 
 Convert small characters to upper chars in input.  Use the fact that a-z and
 A-Z are in two consequtive sections of the ASCII table.
 
 Use the else branch:
+
 ```
 	if (a) {
 		...
@@ -11,7 +12,9 @@ Use the else branch:
 		...
 	{
 ```
+
 Expected output:
+
 ```
 	$ cat /etc/passwd  | ./a.out
 	##
