@@ -1,14 +1,19 @@
 # Arithmetic type conversions
 
 In (very) general, if *binary* operators have operands of different types, the
-"lower" is promoted to "upper".  Eg. if one operand is a `long double`
-and the other is not, the other operand is promoted to a `long double`.
+"lower" is promoted to "upper".  E.g. if one operand is a `long` and the other
+is an `int`, the other operand is promoted to a `long`.
 
 What is more, in most operations (for every operator, the spec says what is
-done in this respect), `char` and `short` int operands are converted to `int`,
-and to `unsigned int` if they do not fit in an `int`.  That conversion is
-called *integer promotion*.  This is done to make the language runtime fast (on
-x86 32-bit arithmetics can be much faster than when using 16-bit operands).
+done in this respect), `char` and `short` integer operands are *promoted* to
+an `int`, or to an `unsigned int` if they do not fit in an `int`.  That
+conversion is called *integer promotion*.  This is done to make the language
+runtime fast (on x86 32-bit arithmetics can be much faster than when using
+16-bit operands).
+
+  - note that the only way an `unsigned short` would not fit a (signed) `int`
+    but fit an `unsigned int` is if both types had the same size (e.g. 4 bytes).
+    You will probably not use such a compiler/platform combination, ever.
 
 *Most operations* means all binary operators.  A ternary operator as well.  And
 even some unary operators.
@@ -25,11 +30,12 @@ bytes.
 
 ## Examples
 
-Aassuming `char c;` declaration:
+Assuming `char c;` declaration, then:
+
 - `sizeof (999)` is 4 as `999` is an `int` by definition.
-- `sizeof (c)` is 1
+- `sizeof (c)` is 1, always
 - `sizeof (c + c)` is 4 as `+` is a binary operator and the integer promotion
-  kicks in
+  kicks in, as mentioned above
 - `sizeof (++c)` is still 1 as `++` is an unary operator for which the integer
   promotion rules do not apply.
 - `sizeof (+c)` is 4 as for unary `+` and `-`, the integer promotion is applied.
@@ -41,7 +47,7 @@ Aassuming `char c;` declaration:
     from the [first class](/modules/intro.md)
 - `sizeof (1LL)` will usually be 8 as `long long` is usually 8 bytes.
 
-It gets more interesting if unsigned and signed numbers are involved.  Eg. a
+It gets more interesting if unsigned and signed numbers are involved.  E.g. a
 `signed int` is promoted to an `unsigned int` if one of the `int` operand is
 unsigned.
 
