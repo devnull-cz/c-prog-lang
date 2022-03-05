@@ -1,6 +1,6 @@
 # Expressions
 
-- any expression has a value
+- every expression has a value
 
 - logical expression has value 0 or 1, and its type is always `int`
 ```
@@ -14,7 +14,7 @@ printf("%d\n", 100 == 101);
 --> 0
 ```
 
-- neverending `while` loop is then:
+- neverending `while` loop is for examples as follows:
 
 ```
 while (1) {
