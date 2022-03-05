@@ -136,7 +136,8 @@ example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> array[<span class="pl-c1">5</span>];</pre></div>
 <p>The integer value <code>n</code> in <code>[n]</code> specifies the number of array <em>elements</em>.</p>
 <ul>
-<li>an array <em>subscript</em> always starts from <code>0</code> and ends with <code>n - 1</code>
+<li>an array <em>subscript</em> (also called an <em>index</em>) always starts from <code>0</code> and ends
+with <code>n - 1</code>
 </li>
 <li>a subscript may be any integer expression</li>
 <li>the type of array elements is called an <em>element type</em>
@@ -236,7 +237,7 @@ int a[10] = {};
 <div class="highlight highlight-source-c"><pre>  <span class="pl-k">char</span> array[<span class="pl-c1">128</span>] = { [<span class="pl-c1">0</span>] = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, [<span class="pl-c1">2</span>] = <span class="pl-s"><span class="pl-pds">'</span>f<span class="pl-pds">'</span></span>, [<span class="pl-c1">4</span>] = <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, [<span class="pl-c1">6</span>] = <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };</pre></div>
 <ul>
 <li>a subscript is in square brackets</li>
-<li>the <code>[subscript]</code> is known as a <em>designator</em>.  Inreasing ordering is not
+<li>the <code>[subscript]</code> is known as a <em>designator</em>.  Increasing ordering is not
 required but expected.</li>
 <li>the rest of elements will be initialized to zero</li>
 <li>if you do not specify the array size, it is taken from the highest designator
