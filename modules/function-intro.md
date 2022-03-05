@@ -97,7 +97,7 @@ test.c:4:2: note: previous implicit declaration is here
 1 warning and 1 error generated.
 ```
 
-Argument names may be omitted in prototypes, i.e.:
+Parameter names may be omitted in prototypes, i.e.:
 
 ```C
 int myfn(int, int);
@@ -109,7 +109,7 @@ within a region of program text called its *scope*.  See
 [C99](/modules/c99-standard.md), section *6.2.1 Scopes of identifiers* for more
 information.
 
-Within a function body, you may use its arguments as any other local variables.
+Within a function body, you may use its parameters as any other local variables.
 
 ```C
 int
@@ -121,7 +121,7 @@ myfn(int i, int j)
 ```
 
 As **arguments are always passed by value** in C, the variable value is not
-changed in scope that called the function.
+changed in the scope that called the function.
 
 ```C
 /* myfn defined here */
@@ -131,16 +131,15 @@ main(void)
 {
 	int i = 3;
 
-	myfn(i, i);
-	printf("%d\n", i);	// will print 3
+	printf("%d\n", myfn(i, i));	// will print 9
+	printf("%d\n", i);		// will print 3
 }
 ```
 
-Local variables are on the stack.
+Local variables are stored on stack.
 
-Variable passing depends on bitness and architecture. E.g. 32-bit x86 on the
-stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on the
-stack.
+Argument passing depends on bitness and architecture. E.g. 32-bit x86 puts them
+on stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on stack.
 
 Functions can be recursive. #source recursive-fn.c
 
