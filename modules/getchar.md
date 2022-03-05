@@ -7,8 +7,8 @@
 	- `EOF` is a define, usually set as `-1`.  That is why `getchar` returns
 	  an `int` instead of a `char` as it needs an extra value for `EOF`.
 	- `getchar` needs `#include <stdio.h>`
-	- you can verify that [`EOF` is part of `<stdio>`]
-	(https://pubs.opengroup.org/onlinepubs/9699919799/)
+	- you can verify that `EOF` is part of `<stdio>`, search for "getchar"
+	  here: https://pubs.opengroup.org/onlinepubs/9699919799
 
 ### :wrench: Task: write code that will read characters from a terminal and prints them out.
 
