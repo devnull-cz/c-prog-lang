@@ -86,9 +86,9 @@ than the language.
 #solution int-promotion.c
 
 - note that if the `b` character was defined as `char b` the result might be 1
-  because it is up to the compiler to choose whether char will be signed
-  or unsigned.  Usually it is signed though. There are compiler options to
-  specify this, e.g. GCC has `-funsigned-char` and `-fsigned-char`
+  because it is up to the compiler to choose whether `char` is signed or
+  unsigned.  Usually it is signed though. There are compiler options to specify
+  this, e.g. GCC has `-funsigned-char` and `-fsigned-char`
 
 ## :wrench: Quiz 2
 
