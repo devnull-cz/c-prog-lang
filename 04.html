@@ -470,9 +470,9 @@ the 2 chars with <code>printf()</code>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-promotion.c">int-promotion.c</a></p>
 <ul>
 <li>note that if the <code>b</code> character was defined as <code>char b</code> the result might be 1
-because it is up to the compiler to choose whether char will be signed
-or unsigned.  Usually it is signed though. There are compiler options to
-specify this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char</code>
+because it is up to the compiler to choose whether <code>char</code> is signed or
+unsigned.  Usually it is signed though. There are compiler options to specify
+this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char</code>
 </li>
 </ul>
 <h2>
@@ -498,6 +498,14 @@ in <a href="/modules/c99-standard.md">C99</a>:</p>
 subexpressions within the actual arguments is unspecified, but there is a
 sequence point before the actual call.</p>
 </blockquote>
+<p>That means, do not do things like these as it is not specified whether the 2nd
+argument expression is evaluated after the first agument is processed, or
+before.  So, based on the compiler you use, you may either call the function
+with <code>(1, 2)</code> or <code>(2, 2)</code>.</p>
+<pre><code>int i = 1;
+
+myfn(i, ++i);
+</code></pre>
 <h1>
 <a id="user-content-compiler-warnings" class="anchor" href="#compiler-warnings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compiler warnings</h1>
 <ul>
