@@ -16,8 +16,8 @@ The integer value `n` in `[n]` specifies the number of array *elements*.
 So, `int array[3]` elements will be accessible as `a[0]` .. `a[2]`, each element
 is of type `int`, and therefore you can do e.g. `printf("%d\n", a[2]);`.
 
-- `0` as the first subscript so it is easier to work with *pointers* and
-  efficiency for array access - we will get to pointers later.
+- `0` was chosen as the first subscript so that was is easier to work with
+  *pointers* and for array access efficiency - we will get to pointers later.
 
 - what is not possible to do with arrays in C (limitations are important
   knowledge):
