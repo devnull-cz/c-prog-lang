@@ -16,19 +16,9 @@ main(void)
 	 * Will print 4294967168.  The reason is:
 	 *
 	 * (1) c was promoted to int above ("integral promotion")
-	 * (2) in two's complement, -128 as int is (in steps):
-	 *
-	 *	- two's complement is one's complement + 1
-	 *	- negative number is represented as the two's complement of its
-	 *	  absolute value
-	 *
-	 *	Which means:
-	 *
-	 *	000000000000000000000000010000000	abs 128
-	 *	111111111111111111111111101111111	one's complement
-	 *	111111111111111111111111110000000	two's complement
-	 *
-	 * (3) As unsigned, that is 2^32-1-(2^7-1) = 2^32-128 = 4294967168.
+	 * (2) assigning a value to an unsigned that does not fit causes a wrap
+	 *     around by 2^32 (in this case) until the value fits in
+	 * (3) So here, it is (-128 + 2^32) = 4294967168.
 	 */
 	printf("%u\n", i);
 }
