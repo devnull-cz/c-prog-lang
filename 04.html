@@ -673,12 +673,12 @@ with 1-D.
 or elegant (or both)</li>
 </ul>
 <h2>
-<a id="user-content-byte-count-to-human-readable-string" class="anchor" href="#byte-count-to-human-readable-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>byte count to human readable string</h2>
-<p>write function to convert <code>uint64_t</code> to human readable count
-(binary - see <a href="https://en.wikipedia.org/wiki/Orders_of_magnitude_(data)" rel="nofollow">https://en.wikipedia.org/wiki/Orders_of_magnitude_(data)</a> or
-<a href="https://en.wikipedia.org/wiki/Mebibyte" rel="nofollow">https://en.wikipedia.org/wiki/Mebibyte</a>, e.g. MiB as mebibyte, etc.) and print
-it to standard output</p>
-<div class="highlight highlight-source-c"><pre>  <span class="pl-k">void</span> <span class="pl-en">bytecnt2str</span>(<span class="pl-c1">uint64_t</span> num);</pre></div>
+<a id="user-content-byte-count-to-human-readable-string" class="anchor" href="#byte-count-to-human-readable-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Byte count to human readable string</h2>
+<p>Write function to convert <code>uint64_t</code> to human readable count (binary - see
+<a href="https://en.wikipedia.org/wiki/Orders%5C_of%5C_magnitude_(data)" rel="nofollow">https://en.wikipedia.org/wiki/Orders\_of\_magnitude_(data)</a> or
+<a href="https://en.wikipedia.org/wiki/Mebibyte" rel="nofollow">https://en.wikipedia.org/wiki/Mebibyte</a>, e.g. MiB as mebibyte, etc.) and print it
+to standard output.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> <span class="pl-en">bytecnt2str</span>(<span class="pl-c1">uint64_t</span> num);</pre></div>
 <ul>
 <li>
 <p>use character array to represent the magnitude letters and perform
