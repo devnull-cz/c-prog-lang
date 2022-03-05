@@ -596,9 +596,16 @@ right way to do it:</li>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (<span class="pl-c1">13</span>));
 <span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
 <ul>
-<li>the expression within the <code>sizeof</code> operator is <strong>never</strong> executed (the
+<li>
+<p>you may see code using <code>%u</code>, <code>%lu</code>, <code>%llu</code> for <code>sizeof</code> values.  However,
+that will only work based on a specific compiler and the architecture and
+may not work using a different combination.  Always use <code>%zu</code> for arguments
+of type <code>size_t</code>.</p>
+</li>
+<li>
+<p>the expression within the <code>sizeof</code> operator is <strong>never</strong> executed (the
 compiler should warn you about such code).  <strong>Only the size in bytes needed to
-store the value if evaluated is returned.</strong>
+store the value if evaluated is returned.</strong></p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">1</span>;
