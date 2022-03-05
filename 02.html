@@ -640,7 +640,7 @@ why the following is going to print <code>1 4 4</code>:</li>
 this is not universally true (for Variable Length Arrays (VLAs) it has to
 happen during runtime. The VLAs will be explained later).</p>
 <h1>
-<a id="user-content-integer-literals" class="anchor" href="#integer-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer Literals</h1>
+<a id="user-content-integer-literals" class="anchor" href="#integer-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer literals</h1>
 <ul>
 <li>
 <p>An <em>integer literal</em> can be a decimal, octal, or hexadecimal constant.</p>
@@ -649,9 +649,7 @@ happen during runtime. The VLAs will be explained later).</p>
 <p>so, all of these are equal:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>); <span class="pl-c"><span class="pl-c">//</span> will print an integer as a character</span>
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0101</span>);
+<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0101</span>);
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
 	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0x41</span>);
 	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
