@@ -1,3 +1,6 @@
+/*
+ * We assume C locale.
+ */
 #include <stdio.h>
 
 int
