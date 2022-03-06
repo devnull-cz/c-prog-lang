@@ -332,7 +332,24 @@ ternary operator</p>
 <a id="user-content-arithmetic-type-conversions" class="anchor" href="#arithmetic-type-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arithmetic type conversions</h1>
 <p>In (very) general, if <em>binary</em> operators have operands of different types, the
 "lower" is promoted to "upper".  E.g. if one operand is a <code>long</code> and the other
-is an <code>int</code>, the other operand is promoted to a <code>long</code>.</p>
+is an <code>int</code>, the other operand is promoted to a <code>long</code>.  An unsigned type is
+always higher to its corresponding signed type.  That is, if summing up a
+<code>signed int</code> with an <code>unsigned int</code>, the signed one will be converted to an
+unsigned first.</p>
+<p>To give you a glimpse into what this means:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c"><span class="pl-c">/*</span> Also try with '-10 + 1U + 10U' <span class="pl-c">*/</span></span>
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%ld</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, -<span class="pl-c1">10</span> + <span class="pl-c1">1U</span> + <span class="pl-c1">10L</span>);
+}</pre></div>
+<p>You would expect the result to be <code>1</code>, right?</p>
+<pre><code>$ cc main.c
+$ ./a.out
+4294967297
+</code></pre>
+<p>However, <code>-10 + 11U + 10L</code> would result in <code>11</code>, and <code>-1 + 2U</code> would result in
+<code>1</code>.</p>
 <p>What is more, in most operations (for every operator, the spec says what is
 done in this respect), <code>char</code> and <code>short</code> integer operands are <em>promoted</em> to
 an <code>int</code>, or to an <code>unsigned int</code> if they do not fit in an <code>int</code>.  That
@@ -346,10 +363,9 @@ You will probably not use such a compiler/platform combination, ever.</li>
 </ul>
 <p><em>Most operations</em> means all binary operators.  A ternary operator as well.  And
 even some unary operators.</p>
-<p><code>sizeof (1)</code> is 4 because 1 is an <code>int</code>.  However, if a number does not fit to an
-<code>int</code>, a higher type will be used.  For example, <code>4294967296</code>
-(2^32 = <code>UINT_MAX + 1</code>) will be stored in 8 bytes, so <code>sizeof (4294967296)</code>
-is 8.</p>
+<p><code>sizeof (1)</code> is 4 because 1 is an <code>int</code>.  However, if a number does not fit to
+an <code>int</code>, a higher type will be used.  For example, <code>4294967296</code> (2^32 =
+<code>UINT_MAX + 1</code>) will be stored in 8 bytes, so <code>sizeof (4294967296)</code> is 8.</p>
 <p>Does it sound confusing?  Do not worry, we will give you specific rules later.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> verify that numbers that do not fit in an <code>int</code> will have a size of 8
 bytes.</p>
