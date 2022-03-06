@@ -2,8 +2,8 @@
 
 - every identifier has its *scope*
 
-- the scope of a name is the part of the program within which the name can be
-  used.
+- the scope of an identifier is the part of the program within which the
+  identifier name can be used.
 
 - for example, we can declare a variable `int i` in the `main` function, and as
   well as in another function.  Those two variables reference different storage.
