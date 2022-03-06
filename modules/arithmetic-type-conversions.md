@@ -86,7 +86,7 @@ returns may differ in different implementations so `%zu` will work anywhere.
 
 If `long` is 8 bytes, and `int` 4 bytes, then `-1L < 1U` is true as you might
 expect.  If both types are 4 bytes though, the relational expression is false!
-See *6.3.1.8 Usual arithmetic conversions*, paragrap *1*, for the details.
+See *6.3.1.8 Usual arithmetic conversions*, paragraph *1*, for the details.
 
 However, `-1 > 1U` is true because `-1` is promoted to `unsigned int`.  Two's
 complement representation of -1 is:
