@@ -4,7 +4,10 @@ int
 main(void)
 {
 	unsigned char a = 0xff;
-	/* This will probably wrap around but it is undefined by the spec. */
+	/*
+	 * This will probably wrap around and is implementation defined by the
+	 * spec.
+	 */
 	signed char b = 0xff;
 
 	int c = (a == b); // true, or false ?
