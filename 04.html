@@ -437,7 +437,7 @@ returns may differ in different implementations so <code>%zu</code> will work an
 <a id="user-content-example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h2>
 <p>If <code>long</code> is 8 bytes, and <code>int</code> 4 bytes, then <code>-1L &lt; 1U</code> is true as you might
 expect.  If both types are 4 bytes though, the relational expression is false!
-See <em>6.3.1.8 Usual arithmetic conversions</em>, paragrap <em>1</em>, for the details.</p>
+See <em>6.3.1.8 Usual arithmetic conversions</em>, paragraph <em>1</em>, for the details.</p>
 <p>However, <code>-1 &gt; 1U</code> is true because <code>-1</code> is promoted to <code>unsigned int</code>.  Two's
 complement representation of -1 is:</p>
 <pre><code>(1) take absolute value of 1	00000000.00000000.00000000.00000001
