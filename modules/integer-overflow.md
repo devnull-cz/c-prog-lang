@@ -17,3 +17,26 @@
     - use `-fstrict-overflow -Wstrict-overflow` (will become active only for
       higher optimization levels, i.e. `-O<X>` where `X > 1`) to stay on the
       safe side
+
+See the difference in using `-ftrapv` and not:
+
+```C
+janp:t490:~$ cat main.c
+#include <stdio.h>
+
+int
+main(void)
+{
+	int i = 2147483647;
+	printf("%d\n", ++i);
+}
+```
+
+```
+$ gcc main.c
+$ ./a.out
+-2147483648
+$ gcc -ftrapv main.c
+$ ./a.out
+Aborted (core dumped)
+```
