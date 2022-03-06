@@ -440,9 +440,11 @@ Segmentation fault: 11
 </code></pre>
 <h1>
 <a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h1>
-<p>An array of non-zero bytes (<code>char</code>s) terminated by a zero byte is called a
-<em>string</em>.</p>
+<p>A contiguous sequence of non-zero bytes (<code>char</code>s) terminated by a zero byte is
+called a <em>string</em>.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
+<p>Note that a string does not have to be declared as an array as shown above, it
+may be just a piece of memory that meets the definition of a string above.</p>
 <p>The crucial fact is that a string is always terminated by a <em>null</em> (zero) byte,
 sometimes also called <em>NUL</em>.  That is how C knows where the string ends.  There
 is no metadata involved with a string, e.g. its length.  To figure out the
