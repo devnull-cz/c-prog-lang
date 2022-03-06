@@ -82,6 +82,55 @@ I suggest you try these out with `printf("%zu", ...)`. The `%zu` format string
 type of the `sizeof` operand.  The exact unsigned numeric type of what `sizeof`
 returns may differ in different implementations so `%zu` will work anywhere.
 
+## Example 2
+
+If `long` is 8 bytes, and `int` 4 bytes, then `-1L < 1U` is true as you might
+expect.
+
+However, `-1 > 1U` is true because -1 is promoted to unsigned.  Two's complement
+representation of -1 is (see the paragraph above):
+```
+(1) take absolute value of 1	00000000.00000000.00000000.00000001
+(2) one's complement		11111111.11111111.11111111.11111110
+(3) add 1 to get 2's complement	11111111.11111111.11111111.11111111
+```
+which is `2^32 - 1` when interpreted as unsigned quantity.
+
+Just `printf("%u\n", -1)` to see it will print `4294967295` (use the Unix/Linux
+`bc` command and type `2^32-1` to verify).
+
+#source signed-plus-unsigned.c
+#source signed-to-unsigned.c
+
+## Example 3
+
+The assymetry of the negative/positive interval can lead to the program crashing
+on architectures that detect it. This is consequence of hardware handling rather
+than the language.
+
+#source crashme.c
+
+- run with `-INT_MIN` (see `limits.h`) and `-1`.  `INT_MIN` is usually
+  `-2147483648`. The program would normally yield `2147483648` (positive number)
+  however that would be `INT_MAX + 1`.
+- works in 64-bit mode as well due to int being passed in 32-bit registers
+
+```
+$ cc -m64 crashme.c
+$ ./a.out 2147483648 -1
+-2147483648 -1
+Floating point exception: 8
+$ echo $?
+136
+$ kill -l 136
+FPE
+
+$ cc -m32 crashme.c
+$ ./a.out 2147483648 -1
+2147483647 -1
+$
+```
+
 ## :wrench: Quiz 1
 
 - what is the result if `0xff` `signed char` and `0xff` `unsigned char` are
