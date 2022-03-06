@@ -75,25 +75,3 @@ than the language.
 	2147483647 -1
 	$
 ```
-
-## :wrench: Quiz 1
-
-- what is the result if `0xff` `signed char` and `0xff` `unsigned char` are
-  compared using the `==` operator ?
-  - write down the hexadecimal representation of the integers corresponding to
-    the 2 chars with `printf()`
-
-#solution int-promotion.c
-
-- note that if the `b` character was defined as `char b` the result might be 1
-  because it is up to the compiler to choose whether `char` is signed or
-  unsigned.  Usually it is signed though. There are compiler options to specify
-  this, e.g. GCC has `-funsigned-char` and `-fsigned-char`
-
-## :wrench: Quiz 2
-
-Will the program print the whole array ?
-  - try to come up with reason of the expected behavior before running the
-    program.
-
-#source whole-array.c
