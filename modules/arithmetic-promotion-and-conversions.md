@@ -14,15 +14,15 @@ section but now we will be more specific.
 First, let's define three different actions, then we will go through those one
 by one.
 
-*Integer promotion*: `char` -> `int`; `short` -> `int`; or both to `unsigned int`
-if the value does not fit a `signed int` (may happen if a `short int` is of the
-same size as an `int`, and `unsigned short` is used).
+*Integer promotion*: `char` -> `int`; `short` -> `int`; or both to `unsigned
+int` if the value does not fit a `signed int` (may happen if a `short int` is of
+the same size as an `int`, and `unsigned short` is used).
 
 *Integer conversion*: converting integers (eg. assigning a `signed long` to an
 `unsigned char`, or assigning an `unsigned int` to a `signed char`)
 
-*Arithmetic conversion*: many operators cause conversions.  The effect is to bring
-the operands into a common type **before** the operator is applied.  For
+*Arithmetic conversion*: many operators cause conversions.  The effect is to
+bring the operands into a common type **before** the operator is applied.  For
 example:
 
 ```C
@@ -113,8 +113,8 @@ The result is the same value.
 2. assigning any integer to an **unsigned** integer -> result specified by the
 standard, see below.
 
-3. assigning an integer to a **signed** integer and the value does **not** fit.  The
-standard says the result is *implementation-defined*.
+3. assigning an integer to a **signed** integer and the value does **not** fit.
+The standard says the result is *implementation-defined*.
 
 *Implementation-defined* means the implementation (ie. the compiler) must choose
 how to behave in such a situation and **must** document it.  See [the
@@ -242,12 +242,12 @@ and exit, for example.
  _Bool, if the value can be represented by the new type, it is unchanged.
 
 2 Otherwise, if the new type is unsigned, the value is converted by repeatedly
-  adding or subtracting one more than the maximum value that can be represented in
-  the new type until the value is in the range of the new type.
+  adding or subtracting one more than the maximum value that can be represented
+  in the new type until the value is in the range of the new type.
 
 3 Otherwise, the new type is signed and the value cannot be represented in it;
-  either the result is implementation-defined or an implementation-defined signal
-  is raised.
+  either the result is implementation-defined or an implementation-defined
+  signal is raised.
 ```
 
 Example: #source integer-conversion.c
