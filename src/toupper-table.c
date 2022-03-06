@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 int
-mytoupper(int c, short table[])
+mytoupper(int c, char table[])
 {
 	if (c >= 'a' && c <= 'z')
-		return table[c - 'a'];
+		return (table[c - 'a']);
 	return (c);
 }
 
@@ -12,7 +12,7 @@ int
 main(void)
 {
 	int c;
-	short table['z' - 'a' + 1];
+	char table['z' - 'a' + 1];
 
 	size_t i = 0;
 	c = 'a';
