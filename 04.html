@@ -355,43 +355,6 @@ and not just -127 to 127.</p>
 though the <code>main()</code> returns integer (4 bytes), the calling program (shell) gets
 just the low 8 bits and interprets them as unsigned quantity.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/return-1.c">return-1.c</a></p>
-<p>If <code>long</code> is 8 bytes, and <code>int</code> 4 bytes, then <code>-1L &lt; 1U</code> is true as you might
-expect.</p>
-<p>However, <code>-1 &gt; 1U</code> is true because -1 is promoted to unsigned.  Two's complement
-representation of -1 is (see the paragraph above):</p>
-<pre><code>(1) take absolute value of 1	00000000.00000000.00000000.00000001
-(2) one's complement		11111111.11111111.11111111.11111110
-(3) add 1 to get 2's complement	11111111.11111111.11111111.11111111
-</code></pre>
-<p>which is <code>2^32 - 1</code> when interpreted as unsigned quantity.</p>
-<p>Just <code>printf("%u\n", -1)</code> to see it will print <code>4294967295</code> (use the Unix/Linux
-<code>bc</code> command and type <code>2^32-1</code> to verify).</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/signed-plus-unsigned.c">signed-plus-unsigned.c</a>
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/signed-to-unsigned.c">signed-to-unsigned.c</a></p>
-<p>The assymetry of the negative/positive interval can lead to the program crashing
-on architectures that detect it. This is consequence of hardware handling rather
-than the language.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/crashme.c">crashme.c</a></p>
-<ul>
-<li>run with <code>-INT_MIN</code> (see <code>limits.h</code>) and <code>-1</code>.  <code>INT_MIN</code> is usually
-<code>-2147483648</code>. The program would normally yield <code>2147483648</code> (positive number)
-however that would be <code>INT_MAX + 1</code>.</li>
-<li>works in 64-bit mode as well due to int being passed in 32-bit registers</li>
-</ul>
-<pre><code>	$ cc -m64 crashme.c
-	$ ./a.out 2147483648 -1
-	-2147483648 -1
-	Floating point exception: 8
-	$ echo $?
-	136
-	$ kill -l 136
-	FPE
-
-	$ cc -m32 crashme.c
-	$ ./a.out 2147483648 -1
-	2147483647 -1
-	$
-</code></pre>
 <h1>
 <a id="user-content-arithmetic-type-conversions" class="anchor" href="#arithmetic-type-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arithmetic type conversions</h1>
 <p>In (very) general, if <em>binary</em> operators have operands of different types, the
@@ -470,6 +433,47 @@ conversion</em> (called <em>casting</em>) which we will deal with later.</p>
 (see the <code>printf</code> manual page in section 3 on Unix systems) matches the return
 type of the <code>sizeof</code> operand.  The exact unsigned numeric type of what <code>sizeof</code>
 returns may differ in different implementations so <code>%zu</code> will work anywhere.</p>
+<h2>
+<a id="user-content-example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h2>
+<p>If <code>long</code> is 8 bytes, and <code>int</code> 4 bytes, then <code>-1L &lt; 1U</code> is true as you might
+expect.</p>
+<p>However, <code>-1 &gt; 1U</code> is true because -1 is promoted to unsigned.  Two's complement
+representation of -1 is (see the paragraph above):</p>
+<pre><code>(1) take absolute value of 1	00000000.00000000.00000000.00000001
+(2) one's complement		11111111.11111111.11111111.11111110
+(3) add 1 to get 2's complement	11111111.11111111.11111111.11111111
+</code></pre>
+<p>which is <code>2^32 - 1</code> when interpreted as unsigned quantity.</p>
+<p>Just <code>printf("%u\n", -1)</code> to see it will print <code>4294967295</code> (use the Unix/Linux
+<code>bc</code> command and type <code>2^32-1</code> to verify).</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/signed-plus-unsigned.c">signed-plus-unsigned.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/signed-to-unsigned.c">signed-to-unsigned.c</a></p>
+<h2>
+<a id="user-content-example-3" class="anchor" href="#example-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 3</h2>
+<p>The assymetry of the negative/positive interval can lead to the program crashing
+on architectures that detect it. This is consequence of hardware handling rather
+than the language.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/crashme.c">crashme.c</a></p>
+<ul>
+<li>run with <code>-INT_MIN</code> (see <code>limits.h</code>) and <code>-1</code>.  <code>INT_MIN</code> is usually
+<code>-2147483648</code>. The program would normally yield <code>2147483648</code> (positive number)
+however that would be <code>INT_MAX + 1</code>.</li>
+<li>works in 64-bit mode as well due to int being passed in 32-bit registers</li>
+</ul>
+<pre><code>$ cc -m64 crashme.c
+$ ./a.out 2147483648 -1
+-2147483648 -1
+Floating point exception: 8
+$ echo $?
+136
+$ kill -l 136
+FPE
+
+$ cc -m32 crashme.c
+$ ./a.out 2147483648 -1
+2147483647 -1
+$
+</code></pre>
 <h2>
 <a id="user-content-wrench-quiz-1" class="anchor" href="#wrench-quiz-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Quiz 1</h2>
 <ul>
