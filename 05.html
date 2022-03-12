@@ -132,9 +132,9 @@ hello, world
 <p>What happens?  A preprocessor replaces occurences of <code>MYDEF</code> with whatever is
 after <code>MYDEF</code>, and separated from it with a sequence of white spaces (tabs,
 spaces, newlines if escaped).</p>
-<p>In the case above, <code>MYDEF</code> will be literary replaced with "= 3".</p>
+<p>In the case above, <code>MYDEF</code> will be literary replaced with <code>= 3</code>.</p>
 <p>Check with <code>gcc -E</code> (or <code>cpp</code>) which stops after the preprocessor phase (ie. it
-does NOT compile anything).  The following is in <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji>
+does NOT compile anything).  The following is in
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/common-mistake-with-define.c">common-mistake-with-define.c</a></p>
 <div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span> <span class="pl-en">MYDEF</span> = <span class="pl-c1">3</span>
 
