@@ -1,5 +1,5 @@
 /*
- * Print the first element from each line.
+ * Print the first element from each line of 2-dimensional array.
  */
 #include <stdio.h>
 
