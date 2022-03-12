@@ -14,7 +14,8 @@ spaces, newlines if escaped).
 In the case above, `MYDEF` will be literary replaced with `= 3`.
 
 Check with `gcc -E` (or `cpp`) which stops after the preprocessor phase (ie. it
-does NOT compile anything).  The following is in
+does NOT compile anything).
+
 #source common-mistake-with-define.c
 
 ```C
