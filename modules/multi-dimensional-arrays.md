@@ -65,11 +65,12 @@ int a[5][][8] = { 0 };
 #module array-intro.md designated initializers
   the same way as with one-dimensional arrays.
 
-- `sizeof` works as expected.  So, the following prints a size of of an element
-  of `a`, which is an `[3][6]` subarray of `int`s, so `72` is printed (`3 * 6 *
-  sizeof (int)`) unless you are on something you borrowed from the [Computer
-  History Museum](https://computerhistory.org/).  If you happen to be in Silicon
-  Valley, it is worth going to Mountain View to visit this one.
+- `sizeof` works as expected.  So, the following piece of code prints a size of
+  of an element of `a`, which is an `[3][6]` subarray of `int`s, so `72` is
+  printed (`3 * 6 * sizeof (int)`) unless you are on something you borrowed
+  from the [Computer History Museum](https://computerhistory.org/).
+  Side note: if you happen to be in Silicon Valley, it is worth going to
+  Mountain View to visit this one.
 
 ```C
 int a[][3][6];
