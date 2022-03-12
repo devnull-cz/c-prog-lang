@@ -223,22 +223,24 @@ also use
 the same way as with one-dimensional arrays.</p>
 </li>
 <li>
-<p><code>sizeof</code> works as expected.  So, the following prints a size of of an element
-of <code>a</code>, which is an <code>[3][6]</code> subarray of <code>int</code>s, so <code>72</code> is printed (<code>3 * 6 * sizeof (int)</code>) unless you are on something you borrowed from the <a href="https://computerhistory.org/" rel="nofollow">Computer
-History Museum</a>.  If you happen to be in Silicon
-Valley, it is worth going to Mountain View to visit this one.</p>
+<p><code>sizeof</code> works as expected.  So, the following piece of code prints a size of
+of an element of <code>a</code>, which is an <code>[3][6]</code> subarray of <code>int</code>s, so <code>72</code> is
+printed (<code>3 * 6 * sizeof (int)</code>) unless you are on something you borrowed
+from the <a href="https://computerhistory.org/" rel="nofollow">Computer History Museum</a>.
+Side note: if you happen to be in Silicon Valley, it is worth going to
+Mountain View to visit this one.</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[][<span class="pl-c1">3</span>][<span class="pl-c1">6</span>];
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>sizeof = <span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (array[<span class="pl-c1">0</span>]));</pre></div>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Define an array <code>[4][2]</code>, statically initialize it, and write a
-function that accepts such an array and prints the first element from each <code>[2]</code>
-subarray.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-array.c">2d-array.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Define 2-dimensional array of integers with dimensions <code>[4][2]</code>,
+statically initialize it, and write a function that accepts such an array
+and prints the first element from each <code>[2]</code> subarray.</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-array.c">2d-array.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes a 2-D array of integers and constructs a 1-D
 array of maximum values in each sub-array, then prints out the new array to the
 standard output.  For the maximum value in a sub-array, write a function.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-array-max.c">2d-array-max.c</a></p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-array-max.c">2d-array-max.c</a></p>
 <h2>
 <a id="user-content-vla-multi-dimensional-arrays-and-function-arguments" class="anchor" href="#vla-multi-dimensional-arrays-and-function-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VLA, multi-dimensional arrays, and function arguments</h2>
 <p>You can use variable-length arrays in function arguments themselves, like this:</p>
