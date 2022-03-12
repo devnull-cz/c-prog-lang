@@ -244,12 +244,11 @@ standard output.  For the maximum value in a sub-array, write a function.</p>
 <h2>
 <a id="user-content-vla-multi-dimensional-arrays-and-function-arguments" class="anchor" href="#vla-multi-dimensional-arrays-and-function-arguments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VLA, multi-dimensional arrays, and function arguments</h2>
 <p>You can use variable-length arrays in function arguments themselves, like this:</p>
-<pre><code>int
-myfn(int width, int a[][width])
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">myfn</span>(<span class="pl-k">int</span> width, <span class="pl-k">int</span> a[][width])
 {
 	...
-}
-</code></pre>
+}</pre></div>
 <h1>
 <a id="user-content-arithmeticinteger-promotion-and-conversion" class="anchor" href="#arithmeticinteger-promotion-and-conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arithmetic/integer promotion and conversion</h1>
 <p>NOTE: the following is a simplified version of what is in the standard.  You
