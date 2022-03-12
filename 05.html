@@ -125,10 +125,9 @@ $ echo $?
 hello, world
 </code></pre>
 <h1>
-<a id="user-content-common-mistakes-i" class="anchor" href="#common-mistakes-i" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Common mistakes I.</h1>
+<a id="user-content-common-mistakes---defines" class="anchor" href="#common-mistakes---defines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Common mistakes - defines</h1>
 <p>Some of you often end up doing the following:</p>
-<pre><code>#define MYDEF = 3
-</code></pre>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span> <span class="pl-en">MYDEF</span> = <span class="pl-c1">3</span></pre></div>
 <p>And you hit a syntax error when <code>MYDEF</code> is used later in the code.</p>
 <p>What happens?  A preprocessor replaces occurences of <code>MYDEF</code> with whatever is
 after <code>MYDEF</code>, and separated from it with a sequence of white spaces (tabs,
