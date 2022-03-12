@@ -77,9 +77,9 @@ int a[][3][6];
 printf("sizeof = %zu\n", sizeof (array[0]));
 ```
 
-:wrench: Define an array `[4][2]`, statically initialize it, and write a
-function that accepts such an array and prints the first element from each `[2]`
-subarray.
+:wrench: Define 2-dimensional array of integers with dimensions `[4][2]`,
+statically initialize it, and write a function that accepts such an array
+and prints the first element from each `[2]` subarray.
 
 #source 2d-array.c
 
