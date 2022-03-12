@@ -93,7 +93,7 @@ standard output.  For the maximum value in a sub-array, write a function.
 
 You can use variable-length arrays in function arguments themselves, like this:
 
-```
+```C
 int
 myfn(int width, int a[][width])
 {
