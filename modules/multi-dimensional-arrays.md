@@ -16,8 +16,8 @@ int a[3][2] = { {0, 1}, {2, 3}, {4, 5} };
   i.e. `a[1, 2]` does not work, you have to use `a[1][2]`
 
 - in memory this is stored as consequent individual "lines".  In other words,
-  any array, no matter how many dimensiones it has, is stored as one piece of
-  memory.
+  any array, no matter how many dimensions it has, is stored as one piece of
+  contiguous memory.
 
 - for 3-D array it looks as follows.  `a` is an array of 2-dimensional arrays:
 
