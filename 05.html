@@ -195,16 +195,16 @@ contiguous memory.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/3d-array.c">3d-array.c</a></p>
 <ul>
 <li>as with the 1-dimensional array, the most "significant" dimension of the array
-may be omitted <strong>if statically initialized</strong>, but nothing below, i.e.</li>
+may be omitted <strong>if statically initialized</strong>, but nothing below, i.e. these
+are fine:</li>
 </ul>
 <pre><code>int a[][5] = { 0 };
 int a[][3][6] = { 0 };
 </code></pre>
-<p>are fine. However:</p>
+<p>However these are not:</p>
 <pre><code>int a[5][6][] = { 0 };
 int a[5][][8] = { 0 };
 </code></pre>
-<p>are not.</p>
 <ul>
 <li>
 <p>the reason is that if you do not know how may "lines" are there, it's OK, but
