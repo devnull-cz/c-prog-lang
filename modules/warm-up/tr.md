@@ -3,7 +3,7 @@
 Implement functionality provided by the following command with the specific
 options.  Just hardcode the parameter in the code, e.g.
 
-```
+```C
 #define CHAR_DO_DEL     'x'
 ```
 
