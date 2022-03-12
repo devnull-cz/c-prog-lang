@@ -1,7 +1,7 @@
-# Common mistakes I.
+# Common mistakes - defines
 
 Some of you often end up doing the following:
-```
+```C
 #define MYDEF = 3
 ```
 
