@@ -11,10 +11,10 @@ What happens?  A preprocessor replaces occurences of `MYDEF` with whatever is
 after `MYDEF`, and separated from it with a sequence of white spaces (tabs,
 spaces, newlines if escaped).
 
-In the case above, `MYDEF` will be literary replaced with "= 3".
+In the case above, `MYDEF` will be literary replaced with `= 3`.
 
 Check with `gcc -E` (or `cpp`) which stops after the preprocessor phase (ie. it
-does NOT compile anything).  The following is in :eyes:
+does NOT compile anything).  The following is in
 #source common-mistake-with-define.c
 
 ```C
