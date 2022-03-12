@@ -62,7 +62,7 @@ int a[5][][8] = { 0 };
 
 - as before, if you do not initialize the rest, it will be set as 0.  You can
   also use
-#modules array-intro.md designated initializers
+#module array-intro.md designated initializers
   the same way as with one-dimensional arrays.
 
 - `sizeof` works as expected.  So, the following prints a size of of an element
