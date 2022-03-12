@@ -81,13 +81,13 @@ printf("sizeof = %zu\n", sizeof (array[0]));
 statically initialize it, and write a function that accepts such an array
 and prints the first element from each `[2]` subarray.
 
-#source 2d-array.c
+#solution 2d-array.c
 
 :wrench: write a program that takes a 2-D array of integers and constructs a 1-D
 array of maximum values in each sub-array, then prints out the new array to the
 standard output.  For the maximum value in a sub-array, write a function.
 
-#source 2d-array-max.c
+#solution 2d-array-max.c
 
 ## VLA, multi-dimensional arrays, and function arguments
 
