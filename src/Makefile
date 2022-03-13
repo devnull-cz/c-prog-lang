@@ -1,5 +1,6 @@
 # compile all source files.
-# Requires GNU make. Supports Linux and macOS.
+# Requires GNU make and Git + Git checkout of the repository.
+# Supports Linux and macOS.
 
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=c99
 
