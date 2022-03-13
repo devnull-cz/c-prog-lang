@@ -30,7 +30,7 @@ BLACKLIST=./const-not-really-a-const.c \
 	./empty-array.c \
 	./printf.c \
 	./error.c
-SRCS_ORIG=$(shell find . -type f -name '*.c')
+SRCS_ORIG=$(shell git ls-files '*.c')
 SRCS=$(filter-out $(BLACKLIST),$(SRCS_ORIG))
 OBJS=$(SRCS:c=o)
 OBJNAMES=$(subst ./,,$(OBJS))
