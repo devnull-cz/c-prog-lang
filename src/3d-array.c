@@ -23,7 +23,7 @@ main(void)
 	    { {8,7,8}, {9,1,9} },
 	};
 
-	printf("%p\n", a);
+	printf("%p\n", (void *)a);
 	/* We set the break here to stop the execution before program exits. */
 	foo();
 }
