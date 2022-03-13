@@ -18,6 +18,7 @@ main(void)
 	 *
 	 * Also, %x takes the arguments as UNSIGNED ints.
 	 */
+	printf("a: %hhu, b: %hhd\n", a, b);
 	printf("a: %08x, b: %08x\n", a, b);
 	printf("b: %d\n", c);
 
