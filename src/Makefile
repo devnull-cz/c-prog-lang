@@ -21,16 +21,16 @@ OS=macos
 endif
 
 OBJDIR=objs
-BLACKLIST=./const-not-really-a-const.c \
-	./ternary.c \
-	./array-var-not-modifiable.c \
-	./const.c \
-	./common-mistake-with-define.c \
-	./const-and-pointers.c \
-	./hello-world1.c \
-	./empty-array.c \
-	./printf.c \
-	./error.c
+BLACKLIST=const-not-really-a-const.c \
+	ternary.c \
+	array-var-not-modifiable.c \
+	const.c \
+	common-mistake-with-define.c \
+	const-and-pointers.c \
+	hello-world1.c \
+	empty-array.c \
+	printf.c \
+	error.c
 SRCS_ORIG=$(shell git ls-files '*.c')
 SRCS=$(filter-out $(BLACKLIST),$(SRCS_ORIG))
 OBJS=$(SRCS:c=o)
