@@ -18,8 +18,8 @@ main(void)
 	 *
 	 * Also, %x takes the arguments as UNSIGNED ints.
 	 */
-	printf("A: %08x, B: %08x\n", a, b);
-	printf("C: %d\n", c);
+	printf("a: %08x, b: %08x\n", a, b);
+	printf("b: %d\n", c);
 
 	return (c);
 }
