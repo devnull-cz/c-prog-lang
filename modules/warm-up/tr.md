@@ -28,3 +28,6 @@ Squeeze multiple occurrences of the character into one.
 $ echo "hellooooooo, wooooooorld" | tr -s o
 hello, world
 ```
+
+Now for both variants, you can extend it to use not a single character,
+but a character set (using character arrays), just like `tr` does.
