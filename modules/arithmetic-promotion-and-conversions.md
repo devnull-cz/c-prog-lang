@@ -124,7 +124,7 @@ See also
 
 ### Assigning number fits the integer object
 
-The first rule is simple and needs no more discussion.
+The first rule is simple and needs not much discussion.
 
 ```C
 long long int li = 13;
@@ -132,11 +132,12 @@ long long int li = 13;
 signed char c = li;
 ```
 
-Note that the case alread showed above, `char c = 'A';`, also fits this rule.
+Note that the case already showed above, `char c = 'A';`, also fits this rule.
 `'A'` is a character constant from ASCII, so its type is an `int`, and its value
-fits a `char` no matter whether it is signed or unsigned.  ASCII only uses
-values 0-127 and even `signed char` is required to accomodate that range.  So,
-as `'A'` fits the `c` object, this situation is covered by the first rule.
+fits a `char` no matter whether it is signed or unsigned.  ASCII by its
+specification only uses values 0-127 and even `signed char` is required to
+accommodate that range.  So, as `'A'` fits the `c` object, this situation is
+covered by the first rule.
 
 ### Integer to an unsigned integer
 
