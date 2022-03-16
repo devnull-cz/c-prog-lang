@@ -347,15 +347,16 @@ See also
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/types-of-behavior.md">types of behavior.</a></p>
 <h3>
 <a id="user-content-assigning-number-fits-the-integer-object" class="anchor" href="#assigning-number-fits-the-integer-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Assigning number fits the integer object</h3>
-<p>The first rule is simple and needs no more discussion.</p>
+<p>The first rule is simple and needs not much discussion.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">long</span> <span class="pl-k">long</span> <span class="pl-k">int</span> li = <span class="pl-c1">13</span>;
 <span class="pl-c"><span class="pl-c">/*</span> Is it guaranteed the one byte 'c' will be 13 even that sizeof(li) is 8. <span class="pl-c">*/</span></span>
 <span class="pl-k">signed</span> <span class="pl-k">char</span> c = li;</pre></div>
-<p>Note that the case alread showed above, <code>char c = 'A';</code>, also fits this rule.
+<p>Note that the case already showed above, <code>char c = 'A';</code>, also fits this rule.
 <code>'A'</code> is a character constant from ASCII, so its type is an <code>int</code>, and its value
-fits a <code>char</code> no matter whether it is signed or unsigned.  ASCII only uses
-values 0-127 and even <code>signed char</code> is required to accomodate that range.  So,
-as <code>'A'</code> fits the <code>c</code> object, this situation is covered by the first rule.</p>
+fits a <code>char</code> no matter whether it is signed or unsigned.  ASCII by its
+specification only uses values 0-127 and even <code>signed char</code> is required to
+accommodate that range.  So, as <code>'A'</code> fits the <code>c</code> object, this situation is
+covered by the first rule.</p>
 <h3>
 <a id="user-content-integer-to-an-unsigned-integer" class="anchor" href="#integer-to-an-unsigned-integer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer to an unsigned integer</h3>
 <blockquote>
