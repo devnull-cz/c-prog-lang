@@ -166,7 +166,9 @@ char`:
 unsigned char c = 257;		// -> 1 (257 - 256)
 unsigned char c = 258;		// -> 2 (258 - 256)
 unsigned char c = 1000;		// -> 232 (1000 - 3*256)
-unsigned char c = 4294967279;	// -> 239 (4294967279 - 2^32 + 256)
+
+/* -> 239 (4294967279 - 2^32 + 256), and it's the same as 4294967279 % 256 */
+unsigned char c = 4294967279;
 ```
 
 Examples in C:
