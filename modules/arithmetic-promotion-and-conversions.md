@@ -310,8 +310,8 @@ unsigned int u;
 i + u;		// 'i' is first converted to unsigned int
 ```
 
-That is why `-1 > 1U` is **TRUE** since `-1` is first converted to an unsigned
-int, ie.  `-1` is converted into `-1 + 2^32`, i.e. `4294967295`, and the
+That is why `-1 > 1U` is **TRUE** since `-1` is first converted to an `unsigned
+int`, ie.  `-1` is converted into `-1 + 2^32`, i.e. `4294967295`, and the
 expression is then evaluated as:
 
 ```C
