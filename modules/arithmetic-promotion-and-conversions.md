@@ -243,7 +243,7 @@ not hurt to cite the
 #module c99-standard.md C99 standard
 in full on this.
 The following section covers all the integer conversions we went through above.
-The below mentioned "implementation-defined signal" might be to print an error
+The below mentioned *implementation-defined signal* might be to print an error
 and exit, for example.
 
 ```
