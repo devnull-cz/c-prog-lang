@@ -379,7 +379,9 @@ the new type until the value is in the range of the new type.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">unsigned</span> <span class="pl-k">char</span> c = <span class="pl-c1">257</span>;		<span class="pl-c"><span class="pl-c">//</span> -&gt; 1 (257 - 256)</span>
 <span class="pl-k">unsigned</span> <span class="pl-k">char</span> c = <span class="pl-c1">258</span>;		<span class="pl-c"><span class="pl-c">//</span> -&gt; 2 (258 - 256)</span>
 <span class="pl-k">unsigned</span> <span class="pl-k">char</span> c = <span class="pl-c1">1000</span>;		<span class="pl-c"><span class="pl-c">//</span> -&gt; 232 (1000 - 3*256)</span>
-<span class="pl-k">unsigned</span> <span class="pl-k">char</span> c = <span class="pl-c1">4294967279</span>;	<span class="pl-c"><span class="pl-c">//</span> -&gt; 239 (4294967279 - 2^32 + 256)</span></pre></div>
+
+<span class="pl-c"><span class="pl-c">/*</span> -&gt; 239 (4294967279 - 2^32 + 256), and it's the same as 4294967279 % 256 <span class="pl-c">*/</span></span>
+<span class="pl-k">unsigned</span> <span class="pl-k">char</span> c = <span class="pl-c1">4294967279</span>;</pre></div>
 <p>Examples in C:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> 'c' will be 24 <span class="pl-c">*/</span></span>
 <span class="pl-k">unsigned</span> <span class="pl-k">char</span> c;
