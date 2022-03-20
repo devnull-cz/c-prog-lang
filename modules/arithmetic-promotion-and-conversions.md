@@ -427,8 +427,10 @@ printf("%c\n", 321);
 printf("%c\n", -191);
 ```
 
-Also check the following code and try to figure out what is goingto be printed
-before actually building and executing the code:
+The code is in here to verify:
+#source integer-conversion-assignment.c
+
+Also check the following code and try to figure out what is going to be printed:
 
 #source int-promotion.c
 
