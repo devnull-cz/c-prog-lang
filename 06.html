@@ -563,22 +563,51 @@ that points to <code>p + 1</code>. See what is the difference between the 2 poin
 <li>because <code>++</code> is used in postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</li>
 </ul>
 <h1>
+<a id="user-content-err-family-of-functions" class="anchor" href="#err-family-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>err</code>() family of functions</h1>
+<ul>
+<li>not defined by any standard however handy</li>
+<li>present in BSD, glibc (= Linux distros), Solaris, macOS, etc.</li>
+<li>use the <code>&lt;err.h&gt;</code> include, see the err(3) man page</li>
+<li>this is especially handy when working with I/O</li>
+<li>instead of writing:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error) {
+	<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">strerror</span>(errno));
+	<span class="pl-c1">exit</span>(<span class="pl-c1">1</span>);
+}</pre></div>
+<ul>
+<li>write the following</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error)
+     <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-pds">"</span></span>);</pre></div>
+<ul>
+<li>notice that a newline is inserted automatically at the end of the error
+message.</li>
+<li>or for functions that do not modify the <code>errno</code> value, use the <em>x</em> variant:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (some_error)
+	<span class="pl-en">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>ERROR: <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, some_error);</pre></div>
+<ul>
+<li>there's also <code>warn()</code>/<code>warnx()</code> that do not exit the program</li>
+</ul>
+<h1>
 <a id="user-content-file-api" class="anchor" href="#file-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File API</h1>
 <p>Part of the standard since C90.</p>
 <h2>
 <a id="user-content-openingclosing" class="anchor" href="#openingclosing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opening/closing</h2>
 <ul>
 <li>
-<code>fopen</code> opens a file and returns an opaque handle (pointer)
+<code>fopen("path", "mode")</code> opens a file and returns a pointer to an opaque <code>FILE</code>
+type.  That pointer serves as a handle.
 <ul>
 <li>getting <code>NULL</code> means an error</li>
-<li>the <code>mode</code> argument controls the behavior: read, write, append
+<li>the <code>mode</code> argument controls the behavior: read (<code>r</code>), write (<code>w</code>),
+append (<code>a</code>)
 <ul>
-<li>the <code>+</code> adds the other mode (write for read and vice versa, read for
-append)</li>
-</ul>
-</li>
-<li>write mode creates the file if it does not exist</li>
+<li>the <code>+</code> adds the other mode (write for read and vice versa,
+read for append).</li>
+<li>write mode <code>w</code> creates the file if it does not exist, and truncates
+it if it does exist</li>
 <li>the <code>b</code> binary mode usually does not have any effect (see
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">the standard)</a>
 </li>
@@ -586,9 +615,8 @@ append)</li>
 </li>
 <li>
 <code>fclose</code> closes the handle
-<ul>
-<li>important to avoid resource leak (<code>fopen</code> can allocate both memory and file
-descriptor)</li>
+- important to avoid resource leak (<code>fopen</code> can allocate both
+memory and file descriptor)</li>
 </ul>
 </li>
 <li>
@@ -603,21 +631,23 @@ it fail on your system?</p>
 <a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h2>
 <ul>
 <li>
-<code>fprintf</code> - <code>printf</code> to a stream</li>
-<li>
-<code>fscanf</code>
-<ul>
-<li>basically parses text input from a stream according to format string</li>
-<li>except the format string all the parameters must be pointers</li>
-</ul>
+<p><code>fprintf</code> - <code>printf</code> to a stream</p>
 </li>
 <li>
-<code>fputs</code>/<code>fgets</code> - send/read string to/from a stream</li>
+<p><code>fscanf</code>
+- basically parses text input from a stream according to format string
+- except the format string all the parameters must be pointers</p>
+</li>
 <li>
-<code>fputc</code>/<code>fgetc</code> - send/read <code>char</code> to/from a stream</li>
+<p><code>fputs</code>/<code>fgets</code> - send/read string to/from a stream</p>
+</li>
 <li>
-<code>fwrite</code>/<code>fread</code> - for writing/reading binary data (such as structures or raw
-numeric types)</li>
+<p><code>fputc</code>/<code>fgetc</code> - send/read <code>char</code> to/from a stream</p>
+</li>
+<li>
+<p><code>fwrite</code>/<code>fread</code> - for writing/reading binary data (such as structures or raw
+numeric types)</p>
+</li>
 </ul>
 <h2>
 <a id="user-content-read-a-file" class="anchor" href="#read-a-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Read a file</h2>
@@ -686,34 +716,6 @@ parameter relative to:
 </li>
 <li>
 <code>ftell</code> - get current position in the file</li>
-</ul>
-<h1>
-<a id="user-content-err-family-of-functions" class="anchor" href="#err-family-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>err</code>() family of functions</h1>
-<ul>
-<li>not defined by any standard however handy</li>
-<li>present in BSD, glibc (= Linux distros), Solaris, macOS, etc.</li>
-<li>use the <code>&lt;err.h&gt;</code> include, see the err(3) man page</li>
-<li>this is especially handy when working with I/O</li>
-<li>instead of writing:</li>
-</ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error) {
-	<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">strerror</span>(errno));
-	<span class="pl-c1">exit</span>(<span class="pl-c1">1</span>);
-}</pre></div>
-<ul>
-<li>write the following</li>
-</ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error)
-     <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-pds">"</span></span>);</pre></div>
-<ul>
-<li>notice that a newline is inserted automatically at the end of the error
-message.</li>
-<li>or for functions that do not modify the <code>errno</code> value, use the <em>x</em> variant:</li>
-</ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (some_error)
-	<span class="pl-en">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>ERROR: <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, some_error);</pre></div>
-<ul>
-<li>there's also <code>warn()</code>/<code>warnx()</code> that do not exit the program</li>
 </ul>
 <h1>
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
