@@ -102,3 +102,6 @@ myfn(int width, int a[][width])
 	...
 }
 ```
+
+As mentioned before, this generates more code in comparison to statically
+defined array dimensions and we do not recommend using it.
