@@ -208,6 +208,150 @@ like that</li>
 <li>experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-format.c">string-format.c</a></p>
+<h1>
+<a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
+<ul>
+<li>
+<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> extend the program <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tr-d-chars.c">tr-d-chars.c</a>
+from last time to translate character input, e.g.</li>
+</ul>
+<pre><code>tail /etc/passwd | tr 'abcdefgh' '123#'
+</code></pre>
+<ul>
+<li>use character arrays defined with string literals to represent the 2 strings
+<ul>
+<li>see the tr(1) man page on what needs to happen if the 1st string is longer
+than the 2nd
+<ul>
+<li>do not store the expanded 2nd string as literal in your program !
+(i.e. not <code>123#####</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tr.c">tr.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> (bonus): refactor the code into a function(s)</p>
+<ul>
+<li>remember that arrays are passed into a function as a pointer (to be explained
+soon, not needed now) which can be used inside the function with an array
+subscript.</li>
+</ul>
+<h1>
+<a id="user-content-the-for-loop" class="anchor" href="#the-for-loop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>for</code> loop</h1>
+<p>Formally defined as:</p>
+<pre><code>for (&lt;init&gt;; &lt;predicate&gt;; &lt;update&gt;)
+	&lt;body&gt;
+</code></pre>
+<p>It is the same as:</p>
+<pre><code>&lt;init&gt;
+while (&lt;predicate&gt;) {
+	&lt;body&gt;
+	&lt;update&gt;
+}
+</code></pre>
+<p>Using the for loop is very often easier and more readable.</p>
+<p>Example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
+<span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i) {
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
+}</pre></div>
+<p>Or in C99:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i) {
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
+}</pre></div>
+<ul>
+<li>
+<p>the <code>break</code> statement terminates execution of the loop (i.e. it jumps right
+<strong>after</strong> the enclosing <code>}</code>)</p>
+</li>
+<li>
+<p>with the <code>continue</code> statement, the execution jumps to the end of the loop body
+(i.e. it jumps <strong>at</strong> the enclosing <code>}</code>).  That means the execution continues
+with the <code>&lt;predicate&gt;</code> test.</p>
+</li>
+<li>
+<p>both <code>break</code> and <code>continue</code> statements relate to the smallest enclosing loop
+they are executed in</p>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/for.c">for.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: compute minimum of averages of lines in 2-D integer array (of
+arbitrary dimensions) that have positive values (if there is negative value in
+given line, do not use the line for computation).</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2darray-min-avg.c">2darray-min-avg.c</a></p>
+<h1>
+<a id="user-content-expressions" class="anchor" href="#expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expressions</h1>
+<blockquote>
+<p>"In mathematics, an expression or mathematical expression is a finite
+combination of symbols that is well-formed according to rules that depend on
+the context."</p>
+</blockquote>
+<p>In C, expressions are, amongst others, variables, constants, strings, and
+expressions in parentheses.  Also arithmetic expressions, relational
+expressions, function calls, sizeof, assignments, and ternary expressions.</p>
+<p><a href="http://en.cppreference.com/w/c/language/expressions" rel="nofollow">http://en.cppreference.com/w/c/language/expressions</a></p>
+<p>In C99, an expression can produce results (2+2 gets 4) or generate side effects
+(<code>printf("foo")</code> sends a string literal to the standard output).</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/expression-statement.c">expression-statement.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: make the warning an error with your choice of compiler (would be
+a variant of <code>-W</code> in GCC)</p>
+<h1>
+<a id="user-content-statements" class="anchor" href="#statements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Statements</h1>
+<p>Statements are (only from what we already learned), expressions, selections
+(<code>if</code>, <code>switch</code> (not introduced yet)), <code>{}</code> blocks (known as <em>compounds</em>),
+iterations, and jumps (<code>goto</code> (not introduced yet), <code>continue</code>, <code>break</code>,
+<code>return</code>).</p>
+<p><a href="http://en.cppreference.com/w/c/language/statements" rel="nofollow">http://en.cppreference.com/w/c/language/statements</a></p>
+<p>Basically, statements are pieces of code executed in sequence. The function body
+is a compound statement. The compound statement (a.k.a. <em>block</em>) is a sequence
+of statements and declarations.  Blocks can be nested.  Blocks inside a function
+body are good for variable reuse.</p>
+<p>A semicolon is not used after a compound statement but it is allowed.  The
+following is valid code then:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	{ }
+	{ };
+}</pre></div>
+<p><strong>A declaration is not a statement</strong> (there are subtle consequences, we can show
+them later).</p>
+<p>Some statements must end with <code>;</code>.  For example, expression statements.  The
+following are all valid expression statements.  They do not make much sense
+though and may generate a warning about an unused result.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> this one is not a statement <span class="pl-c">*/</span></span>
+<span class="pl-k">char</span> c;
+
+<span class="pl-c"><span class="pl-c">/*</span> these are all expression statements <span class="pl-c">*/</span></span>
+c;
+<span class="pl-c1">1</span> + <span class="pl-c1">1</span>;
+<span class="pl-c1">1000</span>;
+<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-statement.c">null-statement.c</a>
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/compound-statement.c">compound-statement.c</a></p>
+<h2>
+<a id="user-content-wrt-compound-statement-vs-expression" class="anchor" href="#wrt-compound-statement-vs-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>w.r.t. compound statement vs. expression:</h2>
+<ul>
+<li>It is not allowed to have a compound statement within an expression.
+<ul>
+<li>That said, GCC has a language extension (gcc99) that can be used to allow
+this - the reason is for protecting multiple evaluation within macros.</li>
+<li>The C99 standard does not define it.</li>
+<li>gotcha: the following code has to be compiled with <code>gcc</code> with the
+<code>-pedantic-errors</code> option in order to reveal the problem</li>
+</ul>
+</li>
+</ul>
+<pre><code>gcc -std=c99 -Wall -Wextra -pedantic-errors compound-statement-invalid.c
+
+compound-statement-invalid.c: In function ‘main’:
+compound-statement-invalid.c:8:6: error: ISO C forbids braced-groups within expressions [-Wpedantic]
+    8 |  if (({ i *= 2; puts("doubled");}), i % 2 == 0) {
+      |      ^
+</code></pre>
+<p>Our recommendation is to always use these options.</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/compound-statement-invalid.c">compound-statement-invalid.c</a></p>
 
                       </article>
                     </div>
