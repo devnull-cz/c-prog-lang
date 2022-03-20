@@ -4,17 +4,20 @@ Part of the standard since C90.
 
 ## Opening/closing
 
-- `fopen` opens a file and returns an opaque handle (pointer)
-  - getting `NULL` means an error
-  - the `mode` argument controls the behavior: read, write, append
-    - the `+` adds the other mode (write for read and vice versa, read for
-      append)
-  - write mode creates the file if it does not exist
-  - the `b` binary mode usually does not have any effect (see
+- `fopen("path", "mode")` opens a file and returns a pointer to an opaque `FILE`
+  type.  That pointer serves as a handle.
+	- getting `NULL` means an error
+	- the `mode` argument controls the behavior: read (`r`), write (`w`),
+	  append (`a`)
+		- the `+` adds the other mode (write for read and vice versa,
+		  read for append).
+	  - write mode `w` creates the file if it does not exist, and truncates
+	    it if it does exist
+	  - the `b` binary mode usually does not have any effect (see
 #module c99-standard.md the standard)
-- `fclose` closes the handle
-  - important to avoid resource leak (`fopen` can allocate both memory and file
-    descriptor)
+	- `fclose` closes the handle
+		  - important to avoid resource leak (`fopen` can allocate both
+		    memory and file descriptor)
 - `freopen` can be used to associate the standard streams (`stderr`, `stdin`, or
   `stdout`) with a file
 
@@ -28,10 +31,11 @@ it fail on your system?
 
 - `fprintf` - `printf` to a stream
 - `fscanf`
-  - basically parses text input from a stream according to format string
-  - except the format string all the parameters must be pointers
+	  - basically parses text input from a stream according to format string
+	  - except the format string all the parameters must be pointers
 - `fputs`/`fgets` - send/read string to/from a stream
 - `fputc`/`fgetc` - send/read `char` to/from a stream
+
 - `fwrite`/`fread` - for writing/reading binary data (such as structures or raw
   numeric types)
 
