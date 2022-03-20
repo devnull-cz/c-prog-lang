@@ -33,7 +33,8 @@ int *p;  // preferred in this lecture
 printf("%d", *p);
 ```
 
-- the dereference is also used to write a value to the variable pointed:
+- the dereference is also used to write a value to the object the pointer
+  points to:
 
 ```C
 *p = 5;
@@ -53,8 +54,8 @@ int val;
 int *pval = &val;
 ```
 
-- the `&` is an *address-of* operator and gets the address of the variable (i.e.
-  the memory address of where the value is stored)
+- the `&` above is an *address-of* operator and gets the address of the object
+  (i.e. the memory address of where the value is stored)
 
 - the pointer itself is obviously stored in memory too (it's just another
   variable).  With the declarations above, it looks as follows:
@@ -101,12 +102,13 @@ Use the `%p` formatting for the first two.
 int *p = 0x1234;
 ```
 
-- zero pointer value is called *a null pointer constant* and is defined as
+- zero pointer value is called *a null pointer constant* and is also defined as
   a macro `NULL`
 #module c99-standard.md in the C specification.
-  `NULL` is converted to a *null pointer* which is guaranteed in C not to point
-  to any object or function.  In other words, dereferencing a null pointer is
-  guaranteed to terminate the program.
+  If a null pointer constant is converted to a pointer type such a pointer is
+  called a *null pointer* and it is guaranteed in C not to point to any object
+  or function.  In other words, dereferencing a null pointer is guaranteed to
+  terminate the program.
 
 	- this is because zero address is left unmapped on purpose, or a page
 	  that cannot be accessed maps to the address.
@@ -114,7 +116,8 @@ int *p = 0x1234;
 	- the C specification says that the macro `NULL` must be defined in
 	  `<stddef.h>`
 
-:wrench: create the null pointer and try to read from it / write to it
+:wrench: create the null pointer (i.e. assign `0` to a pointer) and try to read
+from and/or write to it (i.e. dereference such a pointer).
 
 #solution null-ptr.c
 
