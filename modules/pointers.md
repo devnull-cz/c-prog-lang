@@ -1,5 +1,9 @@
 # Pointers
 
+A *pointer* is a reference to an entity, e.g. to an object of type `int`.  By
+itself it is just an object (= variable) whose value is the reference (= memory
+address) to the entity.
+
 Motivation:
 
 - memory allocation / shared memory
