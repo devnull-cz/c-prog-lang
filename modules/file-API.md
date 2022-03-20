@@ -55,8 +55,8 @@ if ((fp = fopen("/etc/passwd", "r")) == NULL)
 	err(1, "fopen");
 
 /*
- * fread() returns a number of *items* read.  In our case, it's the same
- * as number of bytes as we read it one byte at a time.
+ * fread() returns a number of *items* read.  In our case, it's the same as
+ * number of bytes as we read it one byte at a time.
  */
 while (fread(&c, sizeof (c), 1, fp) == 1) {
 	putchar(c);
@@ -101,9 +101,9 @@ changes accordingly.  However, the position can be manipulated without
 performing any I/O.
 
 - `fseek` - moves the position
-  - the `whence` parameter has 3 possible values and makes the `offset`
-    parameter relative to:
-    - `SEEK_SET` - the beginning of the file
-    - `SEEK_END` - the end of the file
-    - `SEEK_CUR` - the current location of the cursor in the file
+	- the `whence` parameter has 3 possible values and makes the `offset`
+	  parameter relative to:
+		- `SEEK_SET` - the beginning of the file
+		- `SEEK_END` - the end of the file
+		- `SEEK_CUR` - the current location of the cursor in the file
 - `ftell` - get current position in the file
