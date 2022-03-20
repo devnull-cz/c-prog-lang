@@ -492,7 +492,7 @@ main(void)
 
 $ cc main.c
 main.c: In function ‘main’:
-main.c:8:24: warning: dereferencing ‘void \*’ pointer
+main.c:8:24: warning: dereferencing ‘void *’ pointer
     8 |         printf("%p\n", *p);
       |                        ^~
 main.c:8:24: error: invalid use of void expression
@@ -520,13 +520,10 @@ p = &amp;i;</pre></div>
 *p + <span class="pl-c1">1</span>		<span class="pl-c"><span class="pl-c">//</span> the value + 1</span>
 *(p + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> the value on the address + 1 (see below for what it means)</span></pre></div>
 <ul>
-<li>note that the &amp; reference operator is possible to use only on variables
-<ul>
-<li>thus this is invalid:</li>
+<li>note that the <code>&amp;</code> reference operator is possible to use only on objects that
+may be assigned values.  The following is invalid then:</li>
 </ul>
-</li>
-</ul>
-<div class="highlight highlight-source-c"><pre>p = &amp;(i + <span class="pl-c1">1</span>);</pre></div>
+<div class="highlight highlight-source-c"><pre>p = &amp;(i + <span class="pl-c1">1</span>);	<span class="pl-c"><span class="pl-c">//</span> we cannot assign to (i + 1)</span></pre></div>
 <ul>
 <li>store value to the address pointed to by the pointer:</li>
 </ul>
