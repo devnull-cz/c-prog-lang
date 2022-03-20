@@ -210,31 +210,26 @@ like that</li>
 <a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
 <ul>
 <li>
-<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> extend the program <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tr-d-chars.c">tr-d-chars.c</a>
-from last time to translate character input, e.g.</li>
+<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write code to print the following using a single <code>printf</code> with a
+single conversion specification like this.</li>
 </ul>
-<pre><code>tail /etc/passwd | tr 'abcdefgh' '123#'
+<pre><code>printf("%s\n", str);
 </code></pre>
 <ul>
-<li>use character arrays defined with string literals to represent the 2 strings
-<ul>
-<li>see the tr(1) man page on what needs to happen if the 1st string is longer
-than the 2nd
-<ul>
-<li>do not store the expanded 2nd string as literal in your program !
-(i.e. not <code>123#####</code>)</li>
+<li>Your code must not have <code>x</code> in it.  The only string literal alowed in your
+code must be <code>"%s\n"</code> in <code>printf</code>.</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tr.c">tr.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> (bonus): refactor the code into a function(s)</p>
-<ul>
-<li>remember that arrays are passed into a function as a pointer (to be explained
-soon, not needed now) which can be used inside the function with an array
-subscript.</li>
-</ul>
+<pre><code>$ grep x main.c
+$
+</code></pre>
+<p>Expected output follows (<code>&lt;tab&gt;</code> means a literal tabelator character):</p>
+<pre><code>hello
+world
+&lt;tab&gt;x
+'
+</code></pre>
+<p>Solution:
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/create-string.c">create-string.c</a></p>
 <h1>
 <a id="user-content-the-for-loop" class="anchor" href="#the-for-loop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>for</code> loop</h1>
 <p>Formally defined as:</p>
