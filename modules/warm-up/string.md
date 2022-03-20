@@ -1,3 +1,5 @@
+# Create a special string
+
 - :wrench: write code to print the output further below using a single `printf`
   with a single conversion specification like this:
 

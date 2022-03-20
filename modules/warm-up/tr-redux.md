@@ -1,3 +1,5 @@
+# Extend "tr -d"
+
 - :wrench: extend the program
 #source tr-d-chars.c
   from last time to translate character input, e.g.
