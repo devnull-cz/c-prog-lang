@@ -389,7 +389,8 @@ the given pointer type</p>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, *p);</pre></div>
 <ul>
-<li>the dereference is also used to write a value to the variable pointed:</li>
+<li>the dereference is also used to write a value to the object the pointer
+points to:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>*p = <span class="pl-c1">5</span>;</pre></div>
 <ul>
@@ -404,8 +405,8 @@ the given pointer type</p>
 <span class="pl-k">int</span> *pval = &amp;val;</pre></div>
 <ul>
 <li>
-<p>the <code>&amp;</code> is an <em>address-of</em> operator and gets the address of the variable (i.e.
-the memory address of where the value is stored)</p>
+<p>the <code>&amp;</code> above is an <em>address-of</em> operator and gets the address of the object
+(i.e. the memory address of where the value is stored)</p>
 </li>
 <li>
 <p>the pointer itself is obviously stored in memory too (it's just another
@@ -456,12 +457,13 @@ though.  We will get to casting and how to fix that later).</li>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">0x1234</span>;</pre></div>
 <ul>
 <li>
-<p>zero pointer value is called <em>a null pointer constant</em> and is defined as
+<p>zero pointer value is called <em>a null pointer constant</em> and is also defined as
 a macro <code>NULL</code>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C specification.</a>
-<code>NULL</code> is converted to a <em>null pointer</em> which is guaranteed in C not to point
-to any object or function.  In other words, dereferencing a null pointer is
-guaranteed to terminate the program.</p>
+If a null pointer constant is converted to a pointer type such a pointer is
+called a <em>null pointer</em> and it is guaranteed in C not to point to any object
+or function.  In other words, dereferencing a null pointer is guaranteed to
+terminate the program.</p>
 <ul>
 <li>
 <p>this is because zero address is left unmapped on purpose, or a page
@@ -474,7 +476,8 @@ that cannot be accessed maps to the address.</p>
 </ul>
 </li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create the null pointer and try to read from it / write to it</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create the null pointer (i.e. assign <code>0</code> to a pointer) and try to read
+from and/or write to it (i.e. dereference such a pointer).</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-ptr.c">null-ptr.c</a></p>
 <h2>
 <a id="user-content-basic-operations" class="anchor" href="#basic-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic operations</h2>
