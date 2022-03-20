@@ -173,8 +173,10 @@ for more information.</li>
 </ul>
 </li>
 <li>
-<p>to access a given item all elements have to be specified in square brackets.
-i.e. <code>a[1, 2]</code> does not work, you have to use <code>a[1][2]</code></p>
+<p>to access a given item all subscripts (= indexes) have to be specified in
+square brackets.  i.e. <code>a[1, 2]</code> does not work, you have to use <code>a[1][2]</code>.
+However, <code>a[1, 2]</code> is not a syntax error as <code>1, 2</code> are two operands separated
+by a <em>comma operator</em>, so <code>a[1, 2]</code> effectively means <code>a[2]</code>.</p>
 </li>
 <li>
 <p>in memory this is stored as consequent individual "lines".  In other words,
