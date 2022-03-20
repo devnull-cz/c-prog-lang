@@ -210,16 +210,18 @@ like that</li>
 <a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
 <ul>
 <li>
-<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write code to print the following using a single <code>printf</code> with a
-single conversion specification like this.</li>
+<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write code to print the output further below using a single <code>printf</code>
+with a single conversion specification like this:</li>
 </ul>
 <pre><code>printf("%s\n", str);
 </code></pre>
 <ul>
-<li>Your code must not have <code>x</code> in it.  The only string literal alowed in your
+<li>Your code must not have <code>x</code> in it.  The only string literal allowed in your
 code must be <code>"%s\n"</code> in <code>printf</code>.</li>
 </ul>
 <pre><code>$ grep x main.c
+$
+$ grep '".*"' main.c | grep -v 'printf.*%s'
 $
 </code></pre>
 <p>Expected output follows (<code>&lt;tab&gt;</code> means a literal tabelator character):</p>
