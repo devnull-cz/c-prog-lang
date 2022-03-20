@@ -1,6 +1,6 @@
 # Statements
 
-Statements are (list not complete), expressions, selections (`if`, `switch` (not
+Statements are (list not complete): expressions, selections (`if`, `switch` (not
 introduced yet)), `{}` blocks (known as *compounds*), iterations, and jumps
 (`goto` (not introduced yet), `continue`, `break`, `return`).
 
