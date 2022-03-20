@@ -205,8 +205,8 @@ implementation](https://gcc.gnu.org/onlinedocs/gcc/Integers-implementation.html)
 
 So, with `gcc` (and probably any other compilers you might meet today), this
 means the wrap-around rule is applied for signed integers as well.  However, let
-us repeat that the following is an example of implementation-defined behavior in
-this case tied to the gcc compiler.
+us repeat that the following is an example of implementation-defined behavior
+tied to the gcc compiler.
 
 ```C
 signed char c = 128;	// 128 - 256, ie. -128 will be in 'c'.  Might surprise
