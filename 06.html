@@ -457,14 +457,20 @@ though.  We will get to casting and how to fix that later).</li>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">0x1234</span>;</pre></div>
 <ul>
 <li>
-<p>zero pointer value is called <em>a null pointer constant</em> and is also defined as
-a macro <code>NULL</code>
+<p>zero pointer value cast to <code>void *</code> is called <em>a null pointer constant</em> and is
+also defined as a macro <code>NULL</code>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C specification.</a>
 If a null pointer constant is converted to a pointer type such a pointer is
 called a <em>null pointer</em> and it is guaranteed in C not to point to any object
 or function.  In other words, dereferencing a null pointer is guaranteed to
 terminate the program.</p>
 <ul>
+<li>
+<p>we will talk about <code>void</code> later but it is <strong>a type that has no
+values</strong>.  A pointer to such a type can never be dereferenced (as that
+would give us a value of the type but we just defined such a value
+does not exist).</p>
+</li>
 <li>
 <p>this is because zero address is left unmapped on purpose, or a page
 that cannot be accessed maps to the address.</p>
@@ -476,6 +482,21 @@ that cannot be accessed maps to the address.</p>
 </ul>
 </li>
 </ul>
+<pre><code>int
+main(void)
+{
+        void *p = 0;
+
+        printf("%p\n", *p);
+}
+
+$ cc main.c
+main.c: In function ‘main’:
+main.c:8:24: warning: dereferencing ‘void \*’ pointer
+    8 |         printf("%p\n", *p);
+      |                        ^~
+main.c:8:24: error: invalid use of void expression
+</code></pre>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create the null pointer (i.e. assign <code>0</code> to a pointer) and try to read
 from and/or write to it (i.e. dereference such a pointer).</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-ptr.c">null-ptr.c</a></p>
