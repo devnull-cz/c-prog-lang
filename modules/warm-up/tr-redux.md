@@ -1,6 +1,5 @@
-# Warm-up
-
-- :wrench: extend the program #source tr-d-chars.c
+- :wrench: extend the program
+#source tr-d-chars.c
   from last time to translate character input, e.g.
 ```
 tail /etc/passwd | tr 'abcdefgh' '123#'
