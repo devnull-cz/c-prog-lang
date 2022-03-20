@@ -142,7 +142,9 @@ does NOT compile anything).</p>
 	<span class="pl-c"><span class="pl-c">//</span> ...</span>
 }</pre></div>
 <p>The code above will end up in a syntax error as <code>i &lt; = 3</code> is not a correct
-expression in C (because of the space between <code>&lt;</code> and <code>=</code>).</p>
+expression in C because of the space between <code>&lt;</code> and <code>=</code>.  Note that there is
+an existing operator <code>&lt;=</code> which means the obvious but having operators <code>&lt;</code> and
+<code>=</code> next to each other is illegal.</p>
 <pre><code>$ gcc -E common-mistake-with-define.c
 ...
 ...
