@@ -9,10 +9,11 @@ http://en.cppreference.com/w/c/language/statements
 Basically, statements are pieces of code executed in sequence. The function body
 is a compound statement. The compound statement (a.k.a. *block*) is a sequence
 of statements and declarations.  Blocks can be nested.  Blocks inside a function
-body are good for variable reuse.
+body can be used for variable reuse but should be used for that with care, if at
+all.
 
 A semicolon is not used after a compound statement but it is allowed.  The
-following is valid code then:
+following is valid code then, and does essentially nothing:
 
 ```C
 int
@@ -44,24 +45,3 @@ c;
 #source null-statement.c
 #source compound-statement.c
 
-## w.r.t. compound statement vs. expression:
-
-- It is not allowed to have a compound statement within an expression.
-  - That said, GCC has a language extension (gcc99) that can be used to allow
-    this - the reason is for protecting multiple evaluation within macros.
-  - The C99 standard does not define it.
-  - gotcha: the following code has to be compiled with `gcc` with the
-    `-pedantic-errors` option in order to reveal the problem
-
-```
-gcc -std=c99 -Wall -Wextra -pedantic-errors compound-statement-invalid.c
-
-compound-statement-invalid.c: In function ‘main’:
-compound-statement-invalid.c:8:6: error: ISO C forbids braced-groups within expressions [-Wpedantic]
-    8 |  if (({ i *= 2; puts("doubled");}), i % 2 == 0) {
-      |      ^
-```
-
-Our recommendation is to always use these options.
-
-#source compound-statement-invalid.c
