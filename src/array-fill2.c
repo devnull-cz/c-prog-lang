@@ -1,6 +1,7 @@
 /*
  * The code will print strings, possibly some garbage after them, then it might
- * crash.  It may also look like it just works fine.
+ * crash.  The second string might be printed as "foobar".  It may also look
+ * like it just works fine.
  */
 #include <stdio.h>
 
