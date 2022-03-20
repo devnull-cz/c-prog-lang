@@ -414,8 +414,8 @@ implementation</a></p>
 </code></pre>
 <p>So, with <code>gcc</code> (and probably any other compilers you might meet today), this
 means the wrap-around rule is applied for signed integers as well.  However, let
-us repeat that the following is an example of implementation-defined behavior in
-this case tied to the gcc compiler.</p>
+us repeat that the following is an example of implementation-defined behavior
+tied to the gcc compiler.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">signed</span> <span class="pl-k">char</span> c = <span class="pl-c1">128</span>;	<span class="pl-c"><span class="pl-c">//</span> 128 - 256, ie. -128 will be in 'c'.  Might surprise</span>
 			<span class="pl-c"><span class="pl-c">//</span> one, right?</span></pre></div>
 <p><code>printf</code>'s <code>hh</code> modifier is for printing a <code>char</code> (as a number, do not confuse
