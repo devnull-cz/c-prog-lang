@@ -663,8 +663,8 @@ FILE *fp;
 	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>fopen<span class="pl-pds">"</span></span>);
 
 <span class="pl-c"><span class="pl-c">/*</span></span>
-<span class="pl-c"> * fread() returns a number of *items* read.  In our case, it's the same</span>
-<span class="pl-c"> * as number of bytes as we read it one byte at a time.</span>
+<span class="pl-c"> * fread() returns a number of *items* read.  In our case, it's the same as</span>
+<span class="pl-c"> * number of bytes as we read it one byte at a time.</span>
 <span class="pl-c"> <span class="pl-c">*/</span></span>
 <span class="pl-k">while</span> (fread(&amp;c, <span class="pl-k">sizeof</span> (c), <span class="pl-c1">1</span>, fp) == <span class="pl-c1">1</span>) {
 	<span class="pl-c1">putchar</span>(c);
