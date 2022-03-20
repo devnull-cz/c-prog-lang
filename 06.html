@@ -352,6 +352,343 @@ compound-statement-invalid.c:8:6: error: ISO C forbids braced-groups within expr
 </code></pre>
 <p>Our recommendation is to always use these options.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/compound-statement-invalid.c">compound-statement-invalid.c</a></p>
+<h1>
+<a id="user-content-pointers" class="anchor" href="#pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointers</h1>
+<p>Motivation:</p>
+<ul>
+<li>
+<p>memory allocation / shared memory</p>
+</li>
+<li>
+<p>protocol buffer parsing</p>
+</li>
+<li>
+<p>pointer arithmetics</p>
+</li>
+<li>
+<p>the value stored in a pointer variable is the address of the memory storing
+the given pointer type</p>
+</li>
+<li>
+<p>declared like this, e.g.</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p; <span class="pl-c"><span class="pl-c">//</span> pointer to an int</span></pre></div>
+<ul>
+<li>note on style:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> * p;
+<span class="pl-k">int</span> *p;  <span class="pl-c"><span class="pl-c">//</span> preferred in this lecture</span></pre></div>
+<ul>
+<li>
+<p>a pointer is always associated with a type</p>
+</li>
+<li>
+<p>to access the object the pointer points to, use a <em>dereference</em> operator <code>*</code>:</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, *p);</pre></div>
+<ul>
+<li>the dereference is also used to write a value to the variable pointed:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>*p = <span class="pl-c1">5</span>;</pre></div>
+<ul>
+<li>in a declaration, you may assign like this:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">5</span>;
+<span class="pl-k">int</span> *p = &amp;i;</pre></div>
+<ul>
+<li>good practice is to prefix pointers with the 'p' letter, e.g.:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> val;
+<span class="pl-k">int</span> *pval = &amp;val;</pre></div>
+<ul>
+<li>
+<p>the <code>&amp;</code> is an <em>address-of</em> operator and gets the address of the variable (i.e.
+the memory address of where the value is stored)</p>
+</li>
+<li>
+<p>the pointer itself is obviously stored in memory too (it's just another
+variable).  With the declarations above, it looks as follows:</p>
+</li>
+</ul>
+<pre><code>     p
+     +---------------+
+     |     addr2     |
+     +---------------+        i
+     ^                        +-------+
+     |                        | 5     |
+   addr1                      +-------+
+                              ^
+                              |
+                            addr2
+</code></pre>
+<ul>
+<li>
+<p>the size of the pointer depends on the architecture and the way the program
+was compiled (see <code>-m32</code> / <code>-m64</code> command line switches of gcc)</p>
+</li>
+<li>
+<p><code>sizeof (p)</code> will return the amount of memory to store the address of the
+object the pointer points to</p>
+</li>
+<li>
+<p><code>sizeof (*p)</code> will return the amount needed to store the object the pointer
+points to</p>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program to print:</p>
+<ul>
+<li>address of the pointer</li>
+<li>the address where it points to</li>
+<li>the value of the pointed to variable</li>
+</ul>
+<p>Use the <code>%p</code> formatting for the first two.</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-basics.c">ptr-basics.c</a></p>
+<h2>
+<a id="user-content-null-pointer" class="anchor" href="#null-pointer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Null pointer</h2>
+<ul>
+<li>the real danger with pointers is that invalid memory access results in a crash
+(the program is terminated by kernel)</li>
+<li>can assign a number directly to a pointer (that should trigger a warning
+though.  We will get to casting and how to fix that later).</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">0x1234</span>;</pre></div>
+<ul>
+<li>
+<p>zero pointer value is called <em>a null pointer constant</em> and is defined as
+a macro <code>NULL</code>
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C specification.</a>
+<code>NULL</code> is converted to a <em>null pointer</em> which is guaranteed in C not to point
+to any object or function.  In other words, dereferencing a null pointer is
+guaranteed to terminate the program.</p>
+<ul>
+<li>
+<p>this is because zero address is left unmapped on purpose, or a page
+that cannot be accessed maps to the address.</p>
+</li>
+<li>
+<p>the C specification says that the macro <code>NULL</code> must be defined in
+<code>&lt;stddef.h&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create the null pointer and try to read from it / write to it</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-ptr.c">null-ptr.c</a></p>
+<h2>
+<a id="user-content-basic-operations" class="anchor" href="#basic-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic operations</h2>
+<ul>
+<li>notice the difference:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
+<span class="pl-k">int</span> *p = &amp;i;</pre></div>
+<p>vs.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
+<span class="pl-k">int</span> *p;
+
+<span class="pl-c"><span class="pl-c">//</span> set value of the pointer (i.e. the address where it points to).</span>
+p = &amp;i;</pre></div>
+<ul>
+<li>operator precedence gotcha:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>*p		<span class="pl-c"><span class="pl-c">//</span> value of the pointed to variable</span>
+*p + <span class="pl-c1">1</span>		<span class="pl-c"><span class="pl-c">//</span> the value + 1</span>
+*(p + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> the value on the address + 1 (see below for what it means)</span></pre></div>
+<ul>
+<li>note that the &amp; reference operator is possible to use only on variables
+<ul>
+<li>thus this is invalid:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>p = &amp;(i + <span class="pl-c1">1</span>);</pre></div>
+<ul>
+<li>store value to the address pointed to by the pointer:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>*p = <span class="pl-c1">1</span>;</pre></div>
+<h2>
+<a id="user-content-changing-pointers" class="anchor" href="#changing-pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers:</h2>
+<p>Pointers can be moved forward and backward</p>
+<div class="highlight highlight-source-c"><pre>p = p + <span class="pl-c1">1</span>;
+p++;
+p--;</pre></div>
+<p><strong>The pointer is moved by the amount of underlying data type when using
+arithmetics.</strong></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create a pointer to an <code>int</code>, print it out, create a new pointer
+that points to <code>p + 1</code>. See what is the difference between the 2 pointers.</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-diff.c">ptr-diff.c</a></p>
+<h2>
+<a id="user-content-operator-gotchas" class="anchor" href="#operator-gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator gotchas</h2>
+<ul>
+<li>
+<code>*</code> has bigger precedence than <code>+</code> so:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>i = *p + <span class="pl-c1">1</span>;</pre></div>
+<p>is equal to</p>
+<div class="highlight highlight-source-c"><pre>i = (*p) + <span class="pl-c1">1</span>;</pre></div>
+<ul>
+<li>postfix <code>++</code> has higher precedence than <code>*</code>:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre>i = *p++;</pre></div>
+<p>is evaluated as <code>*(p++)</code> but it still does this</p>
+<div class="highlight highlight-source-c"><pre>i = *p; p++;</pre></div>
+<ul>
+<li>because <code>++</code> is used in postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</li>
+</ul>
+<h1>
+<a id="user-content-file-api" class="anchor" href="#file-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File API</h1>
+<p>Part of the standard since C90.</p>
+<h2>
+<a id="user-content-openingclosing" class="anchor" href="#openingclosing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opening/closing</h2>
+<ul>
+<li>
+<code>fopen</code> opens a file and returns an opaque handle (pointer)
+<ul>
+<li>getting <code>NULL</code> means an error</li>
+<li>the <code>mode</code> argument controls the behavior: read, write, append
+<ul>
+<li>the <code>+</code> adds the other mode (write for read and vice versa, read for
+append)</li>
+</ul>
+</li>
+<li>write mode creates the file if it does not exist</li>
+<li>the <code>b</code> binary mode usually does not have any effect (see
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">the standard)</a>
+</li>
+</ul>
+</li>
+<li>
+<code>fclose</code> closes the handle
+<ul>
+<li>important to avoid resource leak (<code>fopen</code> can allocate both memory and file
+descriptor)</li>
+</ul>
+</li>
+<li>
+<code>freopen</code> can be used to associate the standard streams (<code>stderr</code>, <code>stdin</code>, or
+<code>stdout</code>) with a file</li>
+</ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a code that opens the same file in an cycle (until <code>fopen()</code>
+fails) without calling <code>fclose()</code> on the handle. After how many iterations does
+it fail on your system?</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fopen-leak.c">fopen-leak.c</a></p>
+<h2>
+<a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h2>
+<ul>
+<li>
+<code>fprintf</code> - <code>printf</code> to a stream</li>
+<li>
+<code>fscanf</code>
+<ul>
+<li>basically parses text input from a stream according to format string</li>
+<li>except the format string all the parameters must be pointers</li>
+</ul>
+</li>
+<li>
+<code>fputs</code>/<code>fgets</code> - send/read string to/from a stream</li>
+<li>
+<code>fputc</code>/<code>fgetc</code> - send/read <code>char</code> to/from a stream</li>
+<li>
+<code>fwrite</code>/<code>fread</code> - for writing/reading binary data (such as structures or raw
+numeric types)</li>
+</ul>
+<h2>
+<a id="user-content-read-a-file" class="anchor" href="#read-a-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Read a file</h2>
+<p><code>fread</code>() reads a selected number of items of a given size to memory.  We can
+use either an array or we can directly read to a variable through an operator
+address-of.  In our case, we will be reading a file byte by byte, so we can give
+<code>fread</code>() just an address of a character variable.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> c;
+FILE *fp;
+
+<span class="pl-c"><span class="pl-c">/*</span> Choose any other file you have on your system. <span class="pl-c">*/</span></span>
+<span class="pl-k">if</span> ((fp = fopen(<span class="pl-s"><span class="pl-pds">"</span>/etc/passwd<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span>)) == <span class="pl-c1">NULL</span>)
+	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>fopen<span class="pl-pds">"</span></span>);
+
+<span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c"> * fread() returns a number of *items* read.  In our case, it's the same</span>
+<span class="pl-c"> * as number of bytes as we read it one byte at a time.</span>
+<span class="pl-c"> <span class="pl-c">*/</span></span>
+<span class="pl-k">while</span> (fread(&amp;c, <span class="pl-k">sizeof</span> (c), <span class="pl-c1">1</span>, fp) == <span class="pl-c1">1</span>) {
+	<span class="pl-c1">putchar</span>(c);
+}
+
+<span class="pl-en">fclose</span>(fp);</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/read-file.c">read-file.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Note that you could read more characters at a time.  However, keep in
+mind the 2nd argument is size of the element read, and the 3rd argument is how
+many elements we read in one call.  For example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> a[<span class="pl-c1">16</span>];
+...
+<span class="pl-k">while</span> ((n = fread(a, <span class="pl-c1">1</span>, <span class="pl-k">sizeof</span> (a), fp)) &gt; <span class="pl-c1">0</span>) {
+	<span class="pl-c"><span class="pl-c">/*</span> process the bytes here <span class="pl-c">*/</span></span>
+
+	<span class="pl-c"><span class="pl-c">/*</span> if we read less than requested, we hit end of file <span class="pl-c">*/</span></span>
+	<span class="pl-k">if</span> (n &lt; <span class="pl-k">sizeof</span> (a))
+		<span class="pl-k">break</span>;
+}</pre></div>
+<p>Check the solution here:
+<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/read-file2.c">read-file2.c</a></p>
+<p>Also check manual page for <code>fread</code>() and ignore for now that the 1st argument is
+of type <code>void *</code>, we will get there later.  As mentioned above, you can safely
+put there an array or an address of a variable.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Check the man page for <code>fwrite</code>() and modify the code so that what is
+read from the file you write to some other file.  Do not remember to open the
+output file for writing.  All the details are in the man page.</p>
+<h2>
+<a id="user-content-seeking" class="anchor" href="#seeking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Seeking</h2>
+<p>When reading/writing to a file using the above function, the current position
+changes accordingly.  However, the position can be manipulated without
+performing any I/O.</p>
+<ul>
+<li>
+<code>fseek</code> - moves the position
+<ul>
+<li>the <code>whence</code> parameter has 3 possible values and makes the <code>offset</code>
+parameter relative to:
+<ul>
+<li>
+<code>SEEK_SET</code> - the beginning of the file</li>
+<li>
+<code>SEEK_END</code> - the end of the file</li>
+<li>
+<code>SEEK_CUR</code> - the current location of the cursor in the file</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<code>ftell</code> - get current position in the file</li>
+</ul>
+<h1>
+<a id="user-content-err-family-of-functions" class="anchor" href="#err-family-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>err</code>() family of functions</h1>
+<ul>
+<li>not defined by any standard however handy</li>
+<li>present in BSD, glibc (= Linux distros), Solaris, macOS, etc.</li>
+<li>use the <code>&lt;err.h&gt;</code> include, see the err(3) man page</li>
+<li>this is especially handy when working with I/O</li>
+<li>instead of writing:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error) {
+	<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">strerror</span>(errno));
+	<span class="pl-c1">exit</span>(<span class="pl-c1">1</span>);
+}</pre></div>
+<ul>
+<li>write the following</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error)
+     <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-pds">"</span></span>);</pre></div>
+<ul>
+<li>notice that a newline is inserted automatically at the end of the error
+message.</li>
+<li>or for functions that do not modify the <code>errno</code> value, use the <em>x</em> variant:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (some_error)
+	<span class="pl-en">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>ERROR: <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, some_error);</pre></div>
+<ul>
+<li>there's also <code>warn()</code>/<code>warnx()</code> that do not exit the program</li>
+</ul>
 
                       </article>
                     </div>
