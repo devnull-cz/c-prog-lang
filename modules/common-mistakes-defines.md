@@ -27,7 +27,10 @@ if (i < MYDEF) {
 ```
 
 The code above will end up in a syntax error as `i < = 3` is not a correct
-expression in C (because of the space between `<` and `=`).
+expression in C because of the space between `<` and `=`.  Note that there is
+an existing operator `<=` which means the obvious but having operators `<` and
+`=` next to each other is illegal.
+
 
 ```
 $ gcc -E common-mistake-with-define.c
