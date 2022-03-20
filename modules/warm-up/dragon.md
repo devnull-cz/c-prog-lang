@@ -1,4 +1,4 @@
-# 10 minute warm-up
+## Working with dereference operator
 
 ```
 ./a.out dragon firefly jupiter

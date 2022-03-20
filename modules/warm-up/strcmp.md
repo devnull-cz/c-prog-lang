@@ -1,4 +1,4 @@
-# :wrench: warm-up: implement strcmp()
+## :wrench: implement strcmp()
 
 Implement
 

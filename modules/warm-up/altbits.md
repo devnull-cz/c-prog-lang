@@ -1,4 +1,4 @@
-# :wrench: Warm-up/home task: alternating bits detection
+## :wrench: Warm-up/home task: alternating bits detection
 
 Task: detect if an integer has alternating bits, e.g. `10101`
 

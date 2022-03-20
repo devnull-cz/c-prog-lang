@@ -1,4 +1,4 @@
-# :wrench: Warm-up: bit difference
+## :wrench: Warm-up: bit difference
 
 Task: write a program that counts the number of bits that need to be flipped so
       that number A becomes number B.

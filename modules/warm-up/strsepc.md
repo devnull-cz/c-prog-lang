@@ -1,14 +1,15 @@
-# :wrench: warm-up strsepc
+# :wrench: `strsepc`
 
-implement
+Implement:
 
 ```C
-      char *strsepc(char **stringp, int c);
+char *strsepc(char **stringp, int c);
 ```
 
 which behaves like strsep(3) except that it searches only for the first
 occurence of a single character.
 
-Try to use `strsep`() first #source strsep.c
+Try to use `strsep`() first
+#source strsep.c
 
 #solution strsepc.c

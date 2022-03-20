@@ -1,4 +1,4 @@
-# :wrench: Warm-up: `tr` variants
+## :wrench: `tr` variants
 
 Implement functionality provided by the following command with the specific
 options.  Just hardcode the parameter in the code, e.g.

@@ -1,4 +1,4 @@
-# Warm-up
+## Print a circle
 
 Print a circle of a chosen radius.  Use a define for the radius so that you can
 test other sizes.  This is for 12, for example:
