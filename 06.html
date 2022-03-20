@@ -262,15 +262,39 @@ while (&lt;predicate&gt;) {
 </li>
 <li>
 <p>with the <code>continue</code> statement, the execution jumps to the end of the loop body
-(i.e. it jumps <strong>at</strong> the enclosing <code>}</code>).  That means the execution continues
-with the <code>&lt;predicate&gt;</code> test.</p>
-</li>
-<li>
-<p>both <code>break</code> and <code>continue</code> statements relate to the smallest enclosing loop
-they are executed in</p>
+(i.e. it jumps <strong>at</strong> the enclosing <code>}</code>) but the <code>&lt;update&gt;</code> part is executed.
+The execution then continues with the <code>&lt;predicate&gt;</code> test.  Example:</p>
 </li>
 </ul>
+<pre><code>for (int i = 0; i &lt; 3; ++i) {
+	printf("%d\n", i);
+	continue;
+	putchar('a');
+}
+
+$ ./a.out
+1
+2
+3
+$
+</code></pre>
+<ul>
+<li>both <code>break</code> and <code>continue</code> statements relate to the smallest enclosing loop
+they are executed in</li>
+</ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/for.c">for.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> print a subset of an ASCII table for characters <code>a</code> to <code>z</code>:</p>
+<pre><code>$ ./a.out
+Dec	Oct	Char
+97	141	a
+98	142	b
+99	143	c
+100	144	d
+101	145	e
+...
+...
+</code></pre>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/print-ascii-table-subset.c">print-ascii-table-subset.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> task: compute minimum of averages of lines in 2-D integer array (of
 arbitrary dimensions) that have positive values (if there is negative value in
 given line, do not use the line for computation).</p>
