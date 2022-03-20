@@ -520,6 +520,11 @@ p = &amp;i;</pre></div>
 *p + <span class="pl-c1">1</span>		<span class="pl-c"><span class="pl-c">//</span> the value + 1</span>
 *(p + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> the value on the address + 1 (see below for what it means)</span></pre></div>
 <ul>
+<li>pointers of the same type can be assigned to one another</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">13</span>;
+<span class="pl-k">int</span> *p2 = p;</pre></div>
+<ul>
 <li>note that the <code>&amp;</code> reference operator is possible to use only on objects that
 may be assigned values.  The following is invalid then:</li>
 </ul>
