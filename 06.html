@@ -324,9 +324,10 @@ introduced yet)), <code>{}</code> blocks (known as <em>compounds</em>), iteratio
 <p>Basically, statements are pieces of code executed in sequence. The function body
 is a compound statement. The compound statement (a.k.a. <em>block</em>) is a sequence
 of statements and declarations.  Blocks can be nested.  Blocks inside a function
-body are good for variable reuse.</p>
+body can be used for variable reuse but should be used for that with care, if at
+all.</p>
 <p>A semicolon is not used after a compound statement but it is allowed.  The
-following is valid code then:</p>
+following is valid code then, and does essentially nothing:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
 <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
@@ -348,28 +349,6 @@ c;
 <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-statement.c">null-statement.c</a>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/compound-statement.c">compound-statement.c</a></p>
-<h2>
-<a id="user-content-wrt-compound-statement-vs-expression" class="anchor" href="#wrt-compound-statement-vs-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>w.r.t. compound statement vs. expression:</h2>
-<ul>
-<li>It is not allowed to have a compound statement within an expression.
-<ul>
-<li>That said, GCC has a language extension (gcc99) that can be used to allow
-this - the reason is for protecting multiple evaluation within macros.</li>
-<li>The C99 standard does not define it.</li>
-<li>gotcha: the following code has to be compiled with <code>gcc</code> with the
-<code>-pedantic-errors</code> option in order to reveal the problem</li>
-</ul>
-</li>
-</ul>
-<pre><code>gcc -std=c99 -Wall -Wextra -pedantic-errors compound-statement-invalid.c
-
-compound-statement-invalid.c: In function ‘main’:
-compound-statement-invalid.c:8:6: error: ISO C forbids braced-groups within expressions [-Wpedantic]
-    8 |  if (({ i *= 2; puts("doubled");}), i % 2 == 0) {
-      |      ^
-</code></pre>
-<p>Our recommendation is to always use these options.</p>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/compound-statement-invalid.c">compound-statement-invalid.c</a></p>
 <h1>
 <a id="user-content-pointers" class="anchor" href="#pointers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointers</h1>
 <p>Motivation:</p>
