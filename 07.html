@@ -97,6 +97,91 @@
                     <div class="Box-body px-5 pb-5">
                       <article id="grip-content" class="markdown-body entry-content container-lg">
                         <h1>
+<a id="user-content-warm-up" class="anchor" href="#warm-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
+<h2>
+<a id="user-content-print-a-circle" class="anchor" href="#print-a-circle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Print a circle</h2>
+<p>Print a circle of a chosen radius.  Use a define for the radius so that you can
+test other sizes.  This is for 12, for example:</p>
+<pre><code>$ ./a.out
+            *
+        **** ****
+      **         **
+     *             *
+    *               *
+   *                 *
+  *                   *
+
+ *                     *
+
+
+
+*                       *
+
+
+
+ *                     *
+
+  *                   *
+   *                 *
+    *               *
+     *             *
+      **         **
+        **** ****
+            *
+</code></pre>
+<p>Hint: an equation for a circle is <code>x^2 + y^2 = MYRAD^2</code>, ie.</p>
+<pre><code>y = sqrt(MYRAD * MYRAD - x * x);
+</code></pre>
+<p>Obviously, there are more ways how to do it.</p>
+<ul>
+<li>the easiest way is to use a two-dimensional array and go through the <code>x</code> axis
+and fill the corresponding <code>y</code> value before printing out the array line by
+line.
+<ul>
+<li>to print the array, instead of printing it a character by character, we can
+also use array lines as strings if we terminate each line first with a <code>\0</code>.</li>
+</ul>
+</li>
+<li>you could print the output line by line, that is, figure out what to print on
+each line.  You do not need a two-dimensional array then, and speaking of
+which, not even an array at all.</li>
+</ul>
+<p>You can find the <code>sqrt()</code> function declaration in <code>&lt;math.h&gt;</code>.</p>
+<p>On Linux, you will need to link with the math library to get the <code>sqrt()</code>
+function code, ie:</p>
+<pre><code>$ gcc -lm warm-up.c
+</code></pre>
+<p>An extension: fill the circle up.</p>
+<pre><code>$ ./a.out
+            *
+        *********
+      *************
+     ***************
+    *****************
+   *******************
+  *********************
+  *********************
+ ***********************
+ ***********************
+ ***********************
+ ***********************
+*************************
+ ***********************
+ ***********************
+ ***********************
+ ***********************
+  *********************
+  *********************
+   *******************
+    *****************
+     ***************
+      *************
+        *********
+            *
+</code></pre>
+<p>Solution:
+<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/circle.c">circle.c</a></p>
+<h1>
 <a id="user-content-file-api" class="anchor" href="#file-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File API</h1>
 <p>Part of the standard since C90.</p>
 <h2>
@@ -254,89 +339,6 @@ parameter relative to:
 <li>
 <code>ftell</code> - get current position in the file</li>
 </ul>
-<h2>
-<a id="user-content-print-a-circle" class="anchor" href="#print-a-circle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Print a circle</h2>
-<p>Print a circle of a chosen radius.  Use a define for the radius so that you can
-test other sizes.  This is for 12, for example:</p>
-<pre><code>$ ./a.out
-            *
-        **** ****
-      **         **
-     *             *
-    *               *
-   *                 *
-  *                   *
-
- *                     *
-
-
-
-*                       *
-
-
-
- *                     *
-
-  *                   *
-   *                 *
-    *               *
-     *             *
-      **         **
-        **** ****
-            *
-</code></pre>
-<p>Hint: an equation for a circle is <code>x^2 + y^2 = MYRAD^2</code>, ie.</p>
-<pre><code>y = sqrt(MYRAD * MYRAD - x * x);
-</code></pre>
-<p>Obviously, there are more ways how to do it.</p>
-<ul>
-<li>the easiest way is to use a two-dimensional array and go through the <code>x</code> axis
-and fill the corresponding <code>y</code> value before printing out the array line by
-line.
-<ul>
-<li>to print the array, instead of printing it a character by character, we can
-also use array lines as strings if we terminate each line first with a <code>\0</code>.</li>
-</ul>
-</li>
-<li>you could print the output line by line, that is, figure out what to print on
-each line.  You do not need a two-dimensional array then, and speaking of
-which, not even an array at all.</li>
-</ul>
-<p>You can find the <code>sqrt()</code> function declaration in <code>&lt;math.h&gt;</code>.</p>
-<p>On Linux, you will need to link with the math library to get the <code>sqrt()</code>
-function code, ie:</p>
-<pre><code>$ gcc -lm warm-up.c
-</code></pre>
-<p>An extension: fill the circle up.</p>
-<pre><code>$ ./a.out
-            *
-        *********
-      *************
-     ***************
-    *****************
-   *******************
-  *********************
-  *********************
- ***********************
- ***********************
- ***********************
- ***********************
-*************************
- ***********************
- ***********************
- ***********************
- ***********************
-  *********************
-  *********************
-   *******************
-    *****************
-     ***************
-      *************
-        *********
-            *
-</code></pre>
-<p>Solution:
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/circle.c">circle.c</a></p>
 <h1>
 <a id="user-content-pointer-size" class="anchor" href="#pointer-size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer size</h1>
 <pre><code>int *p;
@@ -391,7 +393,7 @@ pointer, the generated code must first get the value of the pointer variable,
 then work with it.  With arrays, the generated code directly uses the memory
 address the array starts at.  See below.</p>
 <h2>
-<a id="user-content-array-identifiers-are-not-modifiable" class="anchor" href="#array-identifiers-are-not-modifiable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array identifiers are not modifiable</h2>
+<a id="user-content-array-identifiers--variables-are-not-modifiable" class="anchor" href="#array-identifiers--variables-are-not-modifiable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array identifiers (= variables) are not modifiable</h2>
 <p>As just said, the generated code directly uses the memory address of an array.
 So, you cannot do the following:</p>
 <pre><code>int a[1];
