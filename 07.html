@@ -491,7 +491,9 @@ element type and pass in an array name.</p>
 data to function arguments would be very inefficient.</p>
 <p>Even if you declare a function argument as an array, <strong>the argument is always
 treated as a pointer</strong>.  The optional array size is accepted but ignored.  Do
-not use it as it is only confusing.</p>
+not use it as it is only confusing.  See for example <em>6.9.1 Function
+definitions</em>, paragraph (10) in
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">C99</a></p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">void</span>
 <span class="pl-en">myfn</span>(<span class="pl-k">int</span> a[])
 {
