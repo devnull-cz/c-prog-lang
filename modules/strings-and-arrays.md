@@ -11,8 +11,8 @@ value of a string is an address of its first character.
 
 #source string-literal-address.c
 
-You can use an array notation with pointers.  So, if you **really** wanted, you
-could do something like this:
+We already know that one can use an array notation with pointers.  So, if you
+**really** wanted, you could do something like this:
 
 ```C
 printf("%c\n", "hello, world"[1]);	// will print `e`
