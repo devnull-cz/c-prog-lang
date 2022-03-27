@@ -144,9 +144,15 @@ if (fclose(fp) != 0)
 <ul>
 <li>that means e.g. reading the standard input would automatically read
 from a specific file, if you wanted that</li>
+<li>
+<code>printf(...)</code> is equivalent to <code>fprintf(stdout, ...)</code>.  However, you
+can print directly to <code>stderr</code> with <code>fprintf</code>
+</li>
 </ul>
 </li>
 </ul>
+<pre><code>fprintf(stderr, "Error happened: %s\n", "some error");
+</code></pre>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a code that opens the same file in an cycle (until <code>fopen()</code>
 fails) without calling <code>fclose()</code> on the handle. After how many iterations does
 it fail on your system?</p>
@@ -155,23 +161,26 @@ it fail on your system?</p>
 <a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h2>
 <ul>
 <li>
-<p><code>fprintf</code> - <code>printf</code> to a stream</p>
-</li>
+<code>fprintf</code> - <code>printf</code> to a stream</li>
 <li>
-<p><code>fscanf</code>
+<code>fscanf</code>
 - basically parses text input from a stream according to format string
-- except the format string all the parameters must be pointers</p>
-</li>
+- except the format string all the parameters must be pointers</li>
 <li>
-<p><code>fputs</code>/<code>fgets</code> - send/read string to/from a stream</p>
-</li>
+<code>fputs</code>/<code>fgets</code> - send/read string to/from a stream</li>
+</ul>
+<pre><code>fputs("hello, world\n", stdout);
+</code></pre>
+<ul>
 <li>
-<p><code>fputc</code>/<code>fgetc</code> - send/read <code>char</code> to/from a stream</p>
-</li>
+<code>fputc</code>/<code>fgetc</code> - send/read <code>char</code> to/from a stream</li>
+</ul>
+<pre><code>fputc('x', stderr);
+</code></pre>
+<ul>
 <li>
-<p><code>fwrite</code>/<code>fread</code> - for writing/reading binary data (such as structures or raw
-numeric types)</p>
-</li>
+<code>fwrite</code>/<code>fread</code> - for writing/reading binary data (such as structures or raw
+numeric types)</li>
 </ul>
 <h2>
 <a id="user-content-read-a-file" class="anchor" href="#read-a-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Read a file</h2>
