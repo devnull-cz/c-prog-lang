@@ -2,21 +2,20 @@
 #include <stdio.h>
 #include <string.h>
 
-#define	MYRAD	10
-
-char a[2 * MYRAD + 1][2 * MYRAD + 2];
+#define	MYRAD	15
 
 int
 main(void)
 {
-	memset(a, ' ', (2 * MYRAD + 1) * (2 * MYRAD + 2));
+	char a[2 * MYRAD + 2];
 
+	a[2 * MYRAD + 1] = '\0';
 	for (int i = -MYRAD; i <= MYRAD; ++i) {
 		int y = sqrt(MYRAD * MYRAD - i * i);
 
-		a[i + MYRAD][y + MYRAD] = '*';
-		a[i + MYRAD][-y + MYRAD] = '*';
-		a[i + MYRAD][2 * MYRAD + 1] = '\0';
-		printf("%s\n", a[i + MYRAD]);
+		memset(a, ' ', sizeof (a) - 1);
+		a[y + MYRAD] = '*';
+		a[-y + MYRAD] = '*';
+		printf("%s\n", a);
 	}
 }
