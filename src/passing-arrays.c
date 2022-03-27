@@ -13,7 +13,15 @@ main(void)
 	 */
         int (*p)[2];
         int (*p2)[3];
+	/*
+	 * As the the array expression is converted to a pointer, the first
+	 * dimension is irrelevant.  All other dimensions are not.
+	 */
+	int a[99][2];
+	int a2[2][3];
 
         myfn(p);	// OK
         myfn(p2);	// will trigger a warning
+        myfn(a);	// OK
+        myfn(a2);	// will trigger a warning
 }
