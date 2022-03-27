@@ -535,8 +535,12 @@ myfn(int a[2][2])
 <h1>
 <a id="user-content-calling-by-value-vs-calling-by-reference" class="anchor" href="#calling-by-value-vs-calling-by-reference" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Calling by value vs calling by reference</h1>
 <p>In C, function arguments are always passed by value.  To change a value of an
-argument, thus emulating a calling by reference, you need to pass pointers.</p>
-<p>So, the following will <strong>not</strong> do what we might naively assume it would:</p>
+argument, thus emulating a calling by reference, you need to pass pointers.
+That means, you pass a pointer by value so that you know what piece of memory to
+modify.</p>
+<p>The following will <strong>not</strong> do what one might naively assume it would.  What you
+actually swap are values on a stack or in registers while the original objects
+were left untouched.</p>
 <pre><code>int
 swap(int a, int b)
 {
