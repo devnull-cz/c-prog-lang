@@ -91,3 +91,6 @@ $ ./a.out
 
 Solution:
 #source circle.c
+
+A simplified solution:
+#source circle-simplified.c
