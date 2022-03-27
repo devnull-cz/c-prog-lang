@@ -35,6 +35,12 @@ if (fclose(fp) != 0)
   `stdout`) with a file
 	- that means e.g. reading the standard input would automatically read
 	  from a specific file, if you wanted that
+	- `printf(...)` is equivalent to `fprintf(stdout, ...)`.  However, you
+	  can print directly to `stderr` with `fprintf`
+
+```
+fprintf(stderr, "Error happened: %s\n", "some error");
+```
 
 :wrench: write a code that opens the same file in an cycle (until `fopen()`
 fails) without calling `fclose()` on the handle. After how many iterations does
@@ -49,7 +55,16 @@ it fail on your system?
 	  - basically parses text input from a stream according to format string
 	  - except the format string all the parameters must be pointers
 - `fputs`/`fgets` - send/read string to/from a stream
+
+```
+fputs("hello, world\n", stdout);
+```
+
 - `fputc`/`fgetc` - send/read `char` to/from a stream
+
+```
+fputc('x', stderr);
+```
 
 - `fwrite`/`fread` - for writing/reading binary data (such as structures or raw
   numeric types)
