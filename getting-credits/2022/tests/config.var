@@ -1,0 +1,18 @@
+export tmpdir=dir.0REI8
+
+export tarfile=archive.tar
+
+export inputfiles="aaa-file
+another-file2
+empty.data
+file.zero
+file1.random
+file2.zero
+file3.zero
+hello-world
+small-file"
+
+export aaafile=aaa-file
+
+export aaa1stblocks=aaa-file-1st-blocks
+
