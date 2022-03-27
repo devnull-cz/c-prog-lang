@@ -13,7 +13,7 @@ Even if you declare a function argument as an array, **the argument is always
 treated as a pointer**.  The optional array size is accepted but ignored.  Do
 not use it as it is only confusing.  See for example *6.9.1 Function
 definitions*, paragraph (10) in
-#module c99-standard.md C99
+#module c99-standard.md C99.
 
 ```C
 void
