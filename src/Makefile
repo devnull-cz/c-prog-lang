@@ -94,7 +94,7 @@ endif
 $(OBJDIR)/struct-reference.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
 $(OBJDIR)/null-ptr.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
 $(OBJDIR)/ptr-basics.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
-$(OBJDIR)/string-const-address.o: CFLAGS_EXTRA=-Wno-format-pedantic \
+$(OBJDIR)/string-literal-address.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-format
 $(OBJDIR)/prefix-ptr-inc.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-format

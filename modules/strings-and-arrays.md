@@ -9,7 +9,7 @@ Given that a string constant is internally used to initialize an array of
 `char`s, and an array name represents its first element memory address, the
 value of a string is an address of its first character.
 
-#source string-const-address.c
+#source string-literal-address.c
 
 You can use an array notation with pointers.  So, if you **really** wanted, you
 could do something like this:
