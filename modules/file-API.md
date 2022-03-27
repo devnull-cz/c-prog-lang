@@ -38,7 +38,7 @@ if (fclose(fp) != 0)
 	- `printf(...)` is equivalent to `fprintf(stdout, ...)`.  However, you
 	  can print directly to `stderr` with `fprintf`
 
-```
+```C
 fprintf(stderr, "Error happened: %s\n", "some error");
 ```
 
@@ -56,13 +56,13 @@ it fail on your system?
 	  - except the format string all the parameters must be pointers
 - `fputs`/`fgets` - send/read string to/from a stream
 
-```
+```C
 fputs("hello, world\n", stdout);
 ```
 
 - `fputc`/`fgetc` - send/read `char` to/from a stream
 
-```
+```C
 fputc('x', stderr);
 ```
 
@@ -75,6 +75,18 @@ fputc('x', stderr);
 use either an array or we can directly read to a variable through an operator
 address-of.  In our case, we will be reading a file byte by byte, so we can give
 `fread`() just an address of a character variable.
+
+You can ignore the `restrict` keyword, it is intended as a hit for a compiler
+optimization, and also just accept now that we can assign any pointer to a `void
+*` pointer.
+
+```C
+size_t fread(void *restrict ptr, size_t size, size_t nmemb,
+	    FILE *restrict stream);
+```
+
+Now we will read the file in chunks of one byte only.  Therefore we can use an
+`address-of` operator on a `char` object.
 
 ```C
 char c;
@@ -99,7 +111,8 @@ fclose(fp);
 
 :wrench: Note that you could read more characters at a time.  However, keep in
 mind the 2nd argument is size of the element read, and the 3rd argument is how
-many elements we read in one call.  For example:
+many elements we read in one call.  Remember that using an array name `a` is the
+same as `&a[0]`.  For example:
 
 ```C
 char a[16];
