@@ -49,10 +49,12 @@ Obviously, there are more ways how to do it.
   each line.  You do not need a two-dimensional array then, and speaking of
   which, not even an array at all.
 
-You can find the `sqrt()` function declaration in `<math.h>`.
+You can find the `sqrt()` function declaration in `<math.h>`.  You can also use
+`memset()` from `string.h` to set a piece of memory to a specific byte (=
+character).
 
-On Linux, you will need to link with the math library to get the `sqrt()`
-function code, ie:
+On Linux and possibly other systems, you will need to link with the math library
+to get the `sqrt()` function code, ie:
 
 ```
 $ gcc -lm warm-up.c
