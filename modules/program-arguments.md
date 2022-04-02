@@ -44,7 +44,8 @@ sure that it's not out of range.
     program startup and program termination.
 
 - the `argv` is array of pointers to null-terminated strings and must be
-  terminated by a null pointer. (quote from the execve(2) man page)
+  terminated by a null pointer. (quote from the execve(2) man page on Unix
+  systems)
 
 ```
   argv
