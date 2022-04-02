@@ -30,7 +30,8 @@ BLACKLIST=const-not-really-a-const.c \
 	hello-world1.c \
 	empty-array.c \
 	printf.c \
-	error.c
+	error.c \
+	integer-conversion-assignment.c
 SRCS_ORIG=$(shell git ls-files '*.c')
 SRCS=$(filter-out $(BLACKLIST),$(SRCS_ORIG))
 OBJS=$(SRCS:c=o)
