@@ -17,7 +17,7 @@ Part of the standard since C90.
 	- `fclose` closes the handle
 		  - important to avoid resource leak (`fopen` can allocate both
 		    memory and file descriptor)
-```
+```C
 FILE *fp;
 
 /* Choose any other file you have on your system. */
