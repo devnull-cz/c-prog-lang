@@ -30,7 +30,7 @@ if (fclose(fp) != 0)
 	err(1, "fclose failed");
 ```
 
-- the `b` binary mode usually does not have any effect (see
+- the `b` binary mode usually does not have any effect
 - `freopen` can be used to associate the standard streams (`stderr`, `stdin`, or
   `stdout`) with a file
 	- that means e.g. reading the standard input would automatically read
