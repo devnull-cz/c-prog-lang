@@ -244,7 +244,7 @@ You can only:
 
 So, structures cannot be:
 
-- compared
+- compared (for that one has to implement a comparator function)
 - incremented (obviously)
 
 ## :wrench: Task: animals as structures
