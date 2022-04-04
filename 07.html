@@ -214,17 +214,16 @@ memory and file descriptor)</li>
 </ul>
 </li>
 </ul>
-<pre><code>FILE *fp;
+<div class="highlight highlight-source-c"><pre>FILE *fp;
 
-/* Choose any other file you have on your system. */
-if ((fp = fopen("/etc/passwd", "r")) == NULL)
-	err(1, "fopen");
+<span class="pl-c"><span class="pl-c">/*</span> Choose any other file you have on your system. <span class="pl-c">*/</span></span>
+<span class="pl-k">if</span> ((fp = fopen(<span class="pl-s"><span class="pl-pds">"</span>/etc/passwd<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span>)) == <span class="pl-c1">NULL</span>)
+	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>fopen<span class="pl-pds">"</span></span>);
 
-/* process the file... */
+<span class="pl-c"><span class="pl-c">/*</span> process the file... <span class="pl-c">*/</span></span>
 
-if (fclose(fp) != 0)
-	err(1, "fclose failed");
-</code></pre>
+<span class="pl-k">if</span> (fclose(fp) != <span class="pl-c1">0</span>)
+	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>fclose failed<span class="pl-pds">"</span></span>);</pre></div>
 <ul>
 <li>the <code>b</code> binary mode usually does not have any effect</li>
 <li>
