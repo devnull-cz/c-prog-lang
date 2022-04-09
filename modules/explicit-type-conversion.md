@@ -89,4 +89,4 @@ int a[5][5] = { ... };
 // ...
 ```
 
-#source 2d-static-array-as-1d.c
+#solution 2d-static-array-as-1d.c
