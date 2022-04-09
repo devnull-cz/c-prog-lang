@@ -73,7 +73,9 @@ than `=`.
 `->` and `.` (structure member access) have higher precedence than `&` (address
 of) and `*` (dereference)
 
-:wrench: consider the following structures:
+# :wrench: Operator precedence and structures
+
+consider the following structures:
 
 ```C
 struct bar {
