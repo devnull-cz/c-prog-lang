@@ -80,7 +80,7 @@ consider the following structures:
 ```C
 struct bar {
 	int val;
-} bar;
+};
 
 struct {
 	int a[42];
