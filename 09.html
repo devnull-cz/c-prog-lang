@@ -182,15 +182,15 @@ of) and <code>*</code> (dereference)</p>
 <p>consider the following structures:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> bar {
 	<span class="pl-k">int</span> val;
-};
+} bar;
 
 <span class="pl-k">struct</span> {
 	<span class="pl-k">int</span> a[<span class="pl-c1">42</span>];
 	<span class="pl-k">char</span> *b;
 	<span class="pl-k">struct</span> bar *c;
 } foo;</pre></div>
-<p>Now initialize the first two members of <code>foo</code> with <code>1, 2, 3</code> and <code>"BBB"</code>,
-respectively and <code>val</code> in <code>bar</code> with <code>42</code>.  Use designated initializers.</p>
+<p>Now initialize the members of <code>foo</code> with <code>1, 2, 3</code>, <code>"BBB"</code> and address of
+<code>bar</code>, respectively and <code>val</code> in <code>bar</code> with <code>42</code>.  Use designated initializers.</p>
 <p>write these expressions to get:</p>
 <ul>
 <li>the address of <code>a</code>
