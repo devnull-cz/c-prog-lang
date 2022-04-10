@@ -80,7 +80,7 @@ consider the following structures:
 ```C
 struct bar {
 	int val;
-};
+} bar;
 
 struct {
 	int a[42];
@@ -89,8 +89,8 @@ struct {
 } foo;
 ```
 
-Now initialize the first two members of `foo` with `1, 2, 3` and `"BBB"`,
-respectively and `val` in `bar` with `42`.  Use designated initializers.
+Now initialize the members of `foo` with `1, 2, 3`, `"BBB"` and address of
+`bar`, respectively and `val` in `bar` with `42`.  Use designated initializers.
 
 write these expressions to get:
   - the address of `a`
