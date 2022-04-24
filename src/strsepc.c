@@ -42,7 +42,7 @@ main(int argc, char **argv)
 {
 	char *orig, *new;
 
-	assert(argc == 2);
+	assert(argc == 3);
 #if 1
 	new = argv[1];
 #else
@@ -50,7 +50,7 @@ main(int argc, char **argv)
 	new = "foo,bar";
 #endif
 
-	while ((orig = strsepc(&new, ',')) != NULL) {
+	while ((orig = strsepc(&new, argv[2][0])) != NULL) {
 		printf("%s\n", orig);
 	}
 }
