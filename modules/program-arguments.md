@@ -137,8 +137,8 @@ Note: use `atoi()` to convert the first 2 arguments to integers
 
 Assume that the arguments are sufficiently long enough.
 
-Skipping ahead: prefix `++` and dereference operator have the same precedence
-so they are evaluated based on associativity which is right-to-left.
+Skipping ahead: prefix `++` and dereference operator `*` have the same
+precedence so they are evaluated based on associativity which is right-to-left.
 
 ```C
 int
