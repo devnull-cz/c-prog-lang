@@ -391,8 +391,8 @@ arrays.</p>
 <p>Note: the <code>struct</code> keyword has to be used for its definition and declaration:</p>
 <p><code>foo f;</code> is not valid.</p>
 <ul>
-<li>can declare structure and its variables at the same time, and you can also
-initialize it at the same time:</li>
+<li>can declare structure and objects of its type at the same time, and you can
+also initialize it at the same time:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
 	...
@@ -400,8 +400,8 @@ initialize it at the same time:</li>
 <ul>
 <li>
 <p>however, this is unusual because structures are normally saved to header
-files, and including such a header file would mean a variable definition which
-is rarely desirable</p>
+files, and including such a header file would mean actual variable
+definition(s) which is rarely desirable</p>
 </li>
 <li>
 <p>for better code readability and also to be able to search for the members in
