@@ -1,10 +1,11 @@
 /*
  * $ ./a.out <N> <M> <X> <Y>
  *
- * Allocate a 2d array of strings.  The array's dimension is NxM, each string is
- * initialized with its position in the array, ie. "X, Y".  Use snprintf(3) to
- * print into the strings.  The command will print the [X,Y] element of the
- * allocated array.  Examples:
+ * Allocate a 2d array of strings (you will need to allocated each array line
+ * individually).  The array's dimension is NxM, each string is initialized with
+ * its position in the array, ie. "X, Y".  Use snprintf(3) to print into the
+ * strings.  The command will print the [X,Y] element of the allocated array.
+ * Examples:
  *
  * $ ./a.out 5 5 1 2
  * 1, 2
