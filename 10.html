@@ -144,6 +144,16 @@ p = (<span class="pl-k">int</span> *)malloc(<span class="pl-c1">16</span>);</pre
 <p>See <code>man malloc</code> for more memory allocation related functions.</p>
 <p>The C runtime does not have a garbage collector so all heap allocated memory
 has to be explicitly freed via <code>free</code>() after it is no longer needed.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes at least 2 arguments.  First argument
+specifies a dimension of an array of <code>int</code>s, the rest are the <code>int</code>s to fill
+out the array.  To allocate memory for the array, use <code>malloc</code>.  When filling
+out the array , ignore extra arguments.  If you have less arguments, use zero
+for the remaining array elements.  At the end, print out the array.  To convert
+a string to an integer, use <code>atoi</code> and assume numbers are correctly entered.</p>
+<pre><code>./a.out 10 1 2 3 7 8 999 7 7 7 9 9 9 10 11
+1 2 3 7 8 999 7 7 7 9 
+</code></pre>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/allocate-and-fill-out-array.c">allocate-and-fill-out-array.c</a></p>
 <h1>
 <a id="user-content-memory-leaks" class="anchor" href="#memory-leaks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Memory leaks</h1>
 <p>If memory allocated on the heap is not freed, it creates a resource leak called
