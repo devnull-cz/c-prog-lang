@@ -29,6 +29,16 @@ if (c->type == 1) {
 }
 ```
 
+- and the `func` is used like this, i.e. the non-Common argument is always
+  casted to the common structure.
+
+```C
+struct A a;
+
+if (func((struct Common *)a) == -1) {
+	...
+```
+
 This is possible since all the structures have the same member on the same
 offset (that is offset 0).  However, note that you need to cast properly to
 avoid warnings.  See the code below.
