@@ -277,9 +277,9 @@ consumers of this API.
 The function will be implemented in a separate file.  (Do not forget to create a
 header file(s).)
 
-In the `main()` program (first program argument arg will specify the `min`
-parameter of the function) pass the array of structs to the function and report
-the result.
+In the `main()` program (first program argument will specify the `min` parameter
+for the function) pass an array of structures to the function and report the
+result.
 
 Note: will need:
   - `limits.h` for the `NAME_MAX` definition
