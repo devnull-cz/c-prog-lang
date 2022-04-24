@@ -14,14 +14,14 @@ int
 main(void)
 {
 	char *p;
-	char str[] = "foo,,bar,fbar";
+	char str[] = "foo,,bar.fbar:foob";
 	char *end = str + strlen(str) + 1;
 	char *inputstr = str;
 
 	// Print the original string.
 	print_hex("before: ", str, end);
 
-	while ((p = strsep(&inputstr, ",")) != NULL)
+	while ((p = strsep(&inputstr, ",.:")) != NULL)
 		printf("'%s'\n", p);
 
 	// Print the string now to see how it changed.
