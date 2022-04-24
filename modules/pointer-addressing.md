@@ -1,6 +1,7 @@
 # Pointer addressing
 
-We alread know that as with arrays, it is possible to subscript pointers:
+We already know that the same as with arrays, it is possible to subscript
+pointers:
 
 ```C
 int a[10];
