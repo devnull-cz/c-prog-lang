@@ -102,7 +102,7 @@ struct sockaddr_in {
   code files.  However, with the prefix, like `sin_port`, very often you find
   just one, the one you are looking for.
 
-## Struct layout in memory
+## Structure layout in memory
 
 ```C
 struct X { int a; char b; int c; };
