@@ -4,12 +4,9 @@
 static void
 print_hex(char *ident, char *str, char *end)
 {
-	char *p;
-
 	printf("%-10s", ident);
-	for (p = str; p < end; p++)
+	for (char *p = str; p < end; p++)
 		printf("%2hhx ", *p);
-
 	printf("\n");
 }
 
@@ -17,18 +14,16 @@ int
 main(void)
 {
 	char *p;
-	char str[] = "foo,,bar";  // There is good reason this is array.
+	char str[] = "foo,,bar,fbar";
 	char *end = str + strlen(str) + 1;
 	char *inputstr = str;
-	char *delim = ",";
 
 	// Print the original string.
 	print_hex("before: ", str, end);
 
-	while ((p = strsep(&inputstr, delim)) != NULL) {
+	while ((p = strsep(&inputstr, ",")) != NULL)
 		printf("'%s'\n", p);
-	}
 
-	// Print the original string to see how it changed.
+	// Print the string now to see how it changed.
 	print_hex("after: ", str, end);
 }
