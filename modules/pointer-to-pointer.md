@@ -39,10 +39,9 @@ array of integer pointers.  Now what if someone passes a pointer to a
 pointer to an integer array?
 
 Note that in both situations, `ppa` and `ppb` **properly fit the declaration**
-`int **p`.  That is, both arrays in the chart below are 2-dimensional and both
-have one of the dimensions set as `1`.  **The difference is in semantics - which
-of the two dimensions is meant to be `1`.**  And that is a piece of information
-that must be provided upfront.
+`int **p`.  **The difference is in semantics - is the actual array in the first
+or the second indirection?** And that is a piece of information that must be
+provided upfront.
 
 ```
     +-------+     +-------+     +-------+
