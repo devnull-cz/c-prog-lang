@@ -17,7 +17,6 @@ main(int argc, char *argv[])
 	size_t len = 0;
 
 	while (1) {
-
 		fprintf(stderr, "%c", '.');
 
 		for (int i = 1; i < argc; i++)
