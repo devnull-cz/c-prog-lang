@@ -145,7 +145,7 @@ doing as it may not be safe on all architectures.
 
 link: http://www.catb.org/esr/structure-packing/
 
-## Struct members
+## Structure members
 
 - members are accessed via 2 operators: `.` and `->`
 	- infix operators, left-to-right associativity, both are in the group of
@@ -199,7 +199,7 @@ de-reference operator on `foo`
 
 #solution struct-access-ptr.c
 
-## Struct initialization
+## Structure initialization
 
 - can initialize a structure in its definition using the initiator list of
   values.  You must either follow the ordering of members:
