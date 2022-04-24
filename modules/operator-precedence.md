@@ -1,12 +1,12 @@
 # Operator precedence
 
 There are 15 levels of operator precedence,
-see the table at http://en.cppreference.com/w/c/language/operator_precedence
+see the table at http://en.cppreference.com/w/c/language/operator\_precedence
 
 ## Associativity
 
 If there are multiple operators with the same precedence in an expression,
-the evaluation is decided based on associativity.
+the evaluation is decided based on their associativity.
 
 For example:
 ```C
