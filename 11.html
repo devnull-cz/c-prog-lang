@@ -248,10 +248,11 @@ internally-linked objects are unique to a translation unit.</p>
 <p>Use <code>qsort(3)</code> function to sort <code>argv</code>, and print it sorted then.  Check the man
 page, you will need to write a function that can compare two elements of the
 array you provide to the <code>qsort()</code> function.</p>
-<p>First use <code>strcmp()</code> to sort the argument alphabetically, then use <code>atoi()</code> to
-sort them numerically.</p>
-<p>After that, come up with another way of sorting the arguments and write a
-function for it as well.</p>
+<p>First use <code>strcmp()</code> to sort the argument alphabetically, then use <code>atoi()</code>
+(or a function that actually checks if a string represents a number)
+to sort them numerically.</p>
+<p>After that, come up with another way of sorting the arguments (e.g. according
+to their length etc.) and write a function for it as well.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-sort.c">argv-sort.c</a>
 (for alphabetical sorting only)</p>
 <h1>
