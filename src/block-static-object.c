@@ -3,6 +3,7 @@
 int
 main(void)
 {
+	/* There can be some code here. */
 again:
 	{
 		static int i = 0;
