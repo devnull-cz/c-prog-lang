@@ -14,8 +14,7 @@ Example:
 	  "_si", referenced from:
 	      _main in linkage-917564.o
 	ld: symbol(s) not found for architecture x86_64
-	clang: error: linker command failed with exit code 1 (use -v to see
-	invocation)
+	clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
 #source linkage.c
 #source ext.c
