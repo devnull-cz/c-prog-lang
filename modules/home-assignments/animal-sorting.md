@@ -24,3 +24,5 @@ code:
   - #solution animal-sort.c
   - #solution animals.h
   - #solution animal.h
+
+Bonus: sort the animals based on both name and number of legs.
