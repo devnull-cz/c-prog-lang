@@ -259,6 +259,11 @@ internally-linked objects are unique to a translation unit.</p>
 	<span class="pl-k">return</span> ((*f)(a, b));
 }</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fn-ptr.c">fn-ptr.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and convert the depth-first
+traversal function to accept a second argument that will be a callback.
+Implement 2 callback functions - one that will print the integer type nodes,
+another that will print the string type nodes (each callback will check the type
+of the node). The callback will have a single argument - pointer to node.</p>
 <h2>
 <a id="user-content-wrench-argv-sorting" class="anchor" href="#wrench-argv-sorting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> argv sorting</h2>
 <p>Use <code>qsort(3)</code> function to sort <code>argv</code>, and print it sorted then.  Check the man
@@ -271,11 +276,6 @@ to sort them numerically.</p>
 to their length etc.) and write a function for it as well.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-sort.c">argv-sort.c</a>
 (for alphabetical sorting only)</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and convert the depth-first
-traversal function to accept a second argument that will be a callback.
-Implement 2 callback functions - one that will print the integer type nodes,
-another that will print the string type nodes (each callback will check the type
-of the node). The callback will have a single argument - pointer to node.</p>
 <h1>
 <a id="user-content-the-last-initializer-and-a-comma" class="anchor" href="#the-last-initializer-and-a-comma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The last initializer and a comma</h1>
 <p>In C89, having a comma after the last initializer was a syntax error.  Since
