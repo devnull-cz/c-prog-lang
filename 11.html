@@ -167,6 +167,8 @@ on big or little endian system (least significant byte is stored on lowest
 address). The program will print either "big endian" or "little endian" to
 standard output.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/union-lowhigh.c">union-lowhigh.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and convert it to use <code>union</code>
+to store the data</p>
 <h1>
 <a id="user-content-storage-classes" class="anchor" href="#storage-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Storage classes</h1>
 <ul>
@@ -220,6 +222,8 @@ initialization of a static variable within a function is done only once.</p>
 <p>yes, the word <code>static</code> is overloaded in C</p>
 </li>
 </ul>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and use the <code>static</code> keyword
+where it makes sense.</p>
 <h1>
 <a id="user-content-internal-vs-external-linkage" class="anchor" href="#internal-vs-external-linkage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Internal vs external linkage</h1>
 <p>Static objects with the keyword <code>static</code> are of internal linkage, meaning they
@@ -267,6 +271,11 @@ to sort them numerically.</p>
 to their length etc.) and write a function for it as well.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-sort.c">argv-sort.c</a>
 (for alphabetical sorting only)</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and convert the depth-first
+traversal function to accept a second argument that will be a callback.
+Implement 2 callback functions - one that will print the integer type nodes,
+another that will print the string type nodes (each callback will check the type
+of the node). The callback will have a single argument - pointer to node.</p>
 <h1>
 <a id="user-content-the-last-initializer-and-a-comma" class="anchor" href="#the-last-initializer-and-a-comma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The last initializer and a comma</h1>
 <p>In C89, having a comma after the last initializer was a syntax error.  Since
@@ -346,6 +355,8 @@ it, see <code>XXX_LIST</code> instead of just <code>0</code>.  In the latter cas
 only see the numbers when compiling the code (macros were replaced by numbers in
 teh preprocessor phase), you will never see any symbolic names.  So, seeing the
 symbols instead of common numbers <code>0</code> or <code>1</code> is really helping.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> convert the binary tree implementation to use enum to store the data
+type.</p>
 <h1>
 <a id="user-content-the-const-keyword" class="anchor" href="#the-const-keyword" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>const</code> keyword</h1>
 <p><code>const</code> is a <em>qualifier</em> that may be applied to the declaration of any variable.
@@ -384,6 +395,8 @@ For example, string functions:</p>
 <p>The following is a <code>const</code> pointer to a <code>const</code> character.  So, you can neither
 do <code>*p = ...</code> nor <code>p = ...</code>.  Verify.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">const</span> <span class="pl-k">char</span> *<span class="pl-k">const</span> p;</pre></div>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and use the <code>const</code> keyword where
+it makes sense.</p>
 <h1>
 <a id="user-content-the-typedef-keyword" class="anchor" href="#the-typedef-keyword" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>typedef</code> keyword</h1>
 <ul>
@@ -420,9 +433,8 @@ array a;</pre></div>
 <span class="pl-c1">mystruct_t</span> y;</pre></div>
 <p><code>x</code> and <code>y</code> are of the same type.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/typedef.c">typedef.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task</p>
-<p>Use <code>typedef</code> in the warm-up code for the item structure and use the new name
-instead of <code>struct item ...</code>.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and use <code>typedef</code> for the node
+structure itself and also fot the callback.</p>
 <h1>
 <a id="user-content-wrench-home-assignment" class="anchor" href="#wrench-home-assignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
