@@ -6,3 +6,6 @@
 - static variables: retain value across function calls.  That is, the
   initialization of a static variable within a function is done only once.
 - yes, the word `static` is overloaded in C
+
+:wrench: take the binary tree implementation and use the `static` keyword
+where it makes sense.

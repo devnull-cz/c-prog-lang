@@ -55,7 +55,5 @@ mystruct_t y;
 
 #source typedef.c
 
-:wrench: Task
-
-Use `typedef` in the warm-up code for the item structure and use the new name
-instead of `struct item ...`.
+:wrench: take the binary tree implementation and use `typedef` for the node
+structure itself and also fot the callback.

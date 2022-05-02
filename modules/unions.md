@@ -40,3 +40,6 @@ address). The program will print either "big endian" or "little endian" to
 standard output.
 
 #solution union-lowhigh.c
+
+:wrench: take the binary tree implementation and convert it to use `union`
+to store the data

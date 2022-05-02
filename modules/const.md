@@ -57,3 +57,6 @@ do `*p = ...` nor `p = ...`.  Verify.
 ```C
 const char *const p;
 ```
+
+:wrench: take the binary tree implementation and use the `const` keyword where
+it makes sense.

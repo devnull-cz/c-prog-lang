@@ -99,3 +99,6 @@ it, see `XXX_LIST` instead of just `0`.  In the latter case, as the compiler
 only see the numbers when compiling the code (macros were replaced by numbers in
 teh preprocessor phase), you will never see any symbolic names.  So, seeing the
 symbols instead of common numbers `0` or `1` is really helping.
+
+:wrench: convert the binary tree implementation to use enum to store the data
+type.

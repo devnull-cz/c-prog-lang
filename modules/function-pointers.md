@@ -33,3 +33,9 @@ to their length etc.) and write a function for it as well.
 
 #solution argv-sort.c
 (for alphabetical sorting only)
+
+:wrench: take the binary tree implementation and convert the depth-first
+traversal function to accept a second argument that will be a callback.
+Implement 2 callback functions - one that will print the integer type nodes,
+another that will print the string type nodes (each callback will check the type
+of the node). The callback will have a single argument - pointer to node.
