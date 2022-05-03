@@ -77,7 +77,11 @@ If unsure what is the correct behavior, check how GNU tar behaves on Linux.
 
 - Assume only archives exclusively containing regular files.  That is, if you
   hit any header aside from one for regular files, you report the wrong header
-  (you need to list any previous archived files if there are any) and exit:
+  (you need to list any previous archived files if there are any) and exit.
+
+  In the following example, we have a directory in the archive.  Given that
+  DIRTYPE is declared in the tar spec as a character constant '5', it is decimal
+  53 which is then reported:
 
 	$ ./mytar -f archive.tar -t
 	mytar: Unsupported header type: 53
