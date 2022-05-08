@@ -12,7 +12,7 @@ main(void)
 	char *p = &c;
 
 	/* OK */
-	a[8] = &p;
+	a[0] = &p;
 	/* Assigning an incompatible pointer, your compiler should complain. */
-	a[7] = p;
+	a[1] = p;
 }
