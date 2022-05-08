@@ -356,7 +356,8 @@ So, the implementation <strong>might</strong> choose a <code>char</code> to be c
 <p>The <code>sizeof</code> operator applied on an enum itself tells you the integer type used
 (<code>sizeof (enum weird)</code>), and <code>sizeof</code> on any enumeration constant gives you the
 same number.</p>
-<p><strong>Names</strong> in different enumerations must be distinct.  In other words, all
+<p><strong>Names</strong> even in different enumerations must be distinct (that is quite clear
+given that how enumerations constants are being used).  In other words, all
 enumerators share the same namespace.  Values in the same enumerations need not
 be distinct, e.g.:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> not_really_useful { GGG = <span class="pl-c1">1</span>, HHH = <span class="pl-c1">1</span>, GHGH = <span class="pl-c1">0</span> };</pre></div>
@@ -386,6 +387,7 @@ type.</p>
 <p><code>const</code> is a <em>qualifier</em> that may be applied to the declaration of any variable.
 It specifies its value cannot be changed.  If you apply <code>const</code> to an array, the
 array elements cannot be modified.</p>
+<p>Note that the verb <em>qualify</em> here means <em>to limit the strength or meaning of</em>.</p>
 <p>You can initialize the variable declared with the <code>const</code> qualifier.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/const.c">const.c</a></p>
 <p>Using <code>const</code> will not really make the storage constant, you just cannot use
@@ -515,7 +517,7 @@ for the final in-person test with the 90 minute limit).</p>
 <span class="pl-c"> <span class="pl-c">*/</span></span></pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linked-list.c">linked-list.c</a></p>
 <h2>
-<a id="user-content-wrench-animal-sorting" class="anchor" href="#wrench-animal-sorting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> animal sorting</h2>
+<a id="user-content-wrench-animal-sorting" class="anchor" href="#wrench-animal-sorting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Animal sorting</h2>
 <p>You may remember
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/home-assignments/animals.md">working with an animal structure.</a></p>
 <p>Use the same structure for this assignment.</p>
