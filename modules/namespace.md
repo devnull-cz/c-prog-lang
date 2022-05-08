@@ -8,7 +8,7 @@ These distinct classes are:
 - objects, functions, `typedef` constants
 - labels
 - tags of structures or unions, and enumerations
-- structure or union individually
+- members of a structure or union individually
 
 The "individual" part means each structure or union has its own namespace.  So,
 you can have two different structures, each using the same member names.
