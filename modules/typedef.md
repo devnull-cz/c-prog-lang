@@ -20,7 +20,7 @@ below.
 
 ```C
 typedef int myint;
-typedef *char mycharptr;
+typedef char *mycharptr;
 
 mycharptr p = "my string";
 ```
