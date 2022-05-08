@@ -63,7 +63,8 @@ The `sizeof` operator applied on an enum itself tells you the integer type used
 (`sizeof (enum weird)`), and `sizeof` on any enumeration constant gives you the
 same number.
 
-**Names** in different enumerations must be distinct.  In other words, all
+**Names** even in different enumerations must be distinct (that is quite clear
+given that how enumerations constants are being used).  In other words, all
 enumerators share the same namespace.  Values in the same enumerations need not
 be distinct, e.g.:
 
