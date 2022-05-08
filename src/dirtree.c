@@ -1,6 +1,7 @@
 /*
- * Create tree of paths, where each node is path element. The tree starts
- * with root '/', the leaves are files. The three can look e.g. like this:
+ * In memory, create tree of paths, where each node is path element. The tree
+ * starts with root '/', the leaves are files. The three can look e.g. like
+ * this:
  *
  *                       "/"
  *		       /  |   \
@@ -9,8 +10,11 @@
  *		  /   \
  *		"a.c" "b.c"
  *
- * Populate the tree with given paths and print the leaves
- * (no particular order). Then free the allocated memory.
+ * Populate the tree with given paths and print the leaves (no particular
+ * order). Then free the allocated memory.
+ *
+ * You can also print non-leaf nodes as well and use indenting based on the
+ * three level.
  */
 
 #include <stdio.h>
