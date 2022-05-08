@@ -1,4 +1,4 @@
-## :wrench: animal sorting
+## :wrench: Animal sorting
 
 You may remember
 #module home-assignments/animals.md working with an animal structure.
