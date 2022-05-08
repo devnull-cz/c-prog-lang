@@ -4,6 +4,37 @@ Static objects with the keyword `static` are of internal linkage, meaning they
 are not seen from other compilation units.  Static objects without the keyword
 `static` are implicitly external.
 
+Note that global variables in always in the static storage class, and the
+following global variable is visible only from within the file where it is
+defined because of the `static` keyword:
+
+```C
+static int x_global;
+
+int
+main(void)
+{
+	// ...
+}
+```
+
+As we mentioned before, `static` is really an overloaded word/keyword in C and
+may lead to confusion.
+
+However, the following global variable (of the static storage class) is of
+external linkage, meaning it is visible from other compilation modules (=
+files).
+
+```C
+int x_global;
+
+int
+main(void)
+{
+	// ...
+}
+```
+
 Use `extern` keyword for objects that are defined in a different compilation
 unit.
 
