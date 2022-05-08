@@ -173,29 +173,30 @@ to store the data</p>
 <h1>
 <a id="user-content-storage-classes" class="anchor" href="#storage-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Storage classes</h1>
 <ul>
-<li>two classes - <em>automatic</em> and <em>static</em>
+<li>there are two storage classes - <em>automatic</em> and <em>static</em>
 </li>
-<li>declaration within a block creates an automatic object.  Its storage is valid
-only within the very same block.</li>
 <li>the storage class determines the lifetime of the storage associated with the
 identified object</li>
+<li>declaration within a block creates an automatic object.  Its storage is valid
+only within the very same block.</li>
 <li>only one storage class specifier may be given in a declaration</li>
 <li>objects declared outside of any block is always of the static storage class
 (e.g. global variables).</li>
-<li>static objects retain their value upon reentry to functions and blocks.</li>
+<li>static local objects (e.g. <code>static int i;</code>) retain their value upon reentry to
+functions and blocks.</li>
 <li>you can initialize a static object.  The initialization happens just once.</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fn-static-object.c">fn-static-object.c</a></p>
 <p>This one also shows how to use <code>goto</code>.  More on that later.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/block-static-object.c">block-static-object.c</a></p>
-<p>Local variables are implicitly local but you could use the <code>auto</code> keyword (noone
-does that though):</p>
+<p>Local variables are implicitly automatic but you could use the <code>auto</code> keyword
+(noone does that though):</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
 <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
 	<span class="pl-k">auto</span> <span class="pl-k">int</span> i;
 }</pre></div>
-<p>You can also verify that as mentioned above, global variables always in the
+<p>You can also verify that as mentioned above, global variables can be only in the
 static storage class:</p>
 <div class="highlight highlight-source-c"><pre>$ cat main.c
 <span class="pl-k">auto</span> <span class="pl-k">int</span> j;
@@ -230,6 +231,28 @@ where it makes sense.</p>
 <p>Static objects with the keyword <code>static</code> are of internal linkage, meaning they
 are not seen from other compilation units.  Static objects without the keyword
 <code>static</code> are implicitly external.</p>
+<p>Note that global variables in always in the static storage class, and the
+following global variable is visible only from within the file where it is
+defined because of the <code>static</code> keyword:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">static</span> <span class="pl-k">int</span> x_global;
+
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}</pre></div>
+<p>As we mentioned before, <code>static</code> is really an overloaded word/keyword in C and
+may lead to confusion.</p>
+<p>However, the following global variable (of the static storage class) is of
+external linkage, meaning it is visible from other compilation modules (=
+files).</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> x_global;
+
+<span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}</pre></div>
 <p>Use <code>extern</code> keyword for objects that are defined in a different compilation
 unit.</p>
 <p>Example:</p>
