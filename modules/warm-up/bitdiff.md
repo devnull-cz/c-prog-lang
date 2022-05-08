@@ -11,6 +11,4 @@ Note: consider only positive integers, assume `int`.
 
 #solution bitdiff.c
 
-#source print-in-binary.c
-
 Sub-task for home: flip those bits and verify that the numbers are the same.
