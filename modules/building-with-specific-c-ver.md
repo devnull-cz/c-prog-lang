@@ -44,11 +44,11 @@ here](https://pubs.opengroup.org/onlinepubs/7990989775/), and type `c89`.
 
 In
 [POSIX:2004](https://en.wikipedia.org/wiki/Single_UNIX_Specification#2004:_POSIX:2004),
-which is SUS ver 3 with updates, the C compiler binary supporting C99 standard
-had to be named `c99`.  The [latest SUS
+which corresponds to SUS ver 3 with updates, the C compiler binary supporting
+C99 standard had to be named `c99`.  The [latest SUS
 version](https://pubs.opengroup.org/onlinepubs/9699919799/) (as of May, 2020)
 still defines `c99`.  I expect the future SUS versions with require `c11` binary
-to support C11 standard.
+to support the C11 standard.
 
 Might be difficult to get the compiler work as the exact specification version.
 For example, the following will compile while `//` are not part of C89, and
