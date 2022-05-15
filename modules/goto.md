@@ -107,19 +107,3 @@ would have to check all error paths and modify those one by one.
 breaks**.  If used wisely, it leads to cleaner code and saves lots of
 indentation.  Also note that the `break` and `continue` statements are jumps as
 well, and imagine how to structure your code without it.
-
-Also note that "any statement may be **preceded** by... a label".  As `case` is
-a label as well (only valid within the `switch` statement though), you cannot
-have a declaration right after the `case` label.  You also cannot have a label
-right before a closing `}`.  So, a *null statement* to the rescue:
-
-```C
-switch (c) {
-case 'a':
-	;	/* must be here as a declaration is not a statement. */
-	int a;
-	/* ... */
-default:
-	;	/* must be here as the closing '}' is not a statement. */
-}
-```
