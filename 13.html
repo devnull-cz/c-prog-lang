@@ -210,18 +210,6 @@ would have to check all error paths and modify those one by one.</p>
 breaks</strong>.  If used wisely, it leads to cleaner code and saves lots of
 indentation.  Also note that the <code>break</code> and <code>continue</code> statements are jumps as
 well, and imagine how to structure your code without it.</p>
-<p>Also note that "any statement may be <strong>preceded</strong> by... a label".  As <code>case</code> is
-a label as well (only valid within the <code>switch</code> statement though), you cannot
-have a declaration right after the <code>case</code> label.  You also cannot have a label
-right before a closing <code>}</code>.  So, a <em>null statement</em> to the rescue:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">switch</span> (c) {
-<span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>:
-	;	<span class="pl-c"><span class="pl-c">/*</span> must be here as a declaration is not a statement. <span class="pl-c">*/</span></span>
-	<span class="pl-k">int</span> a;
-	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
-<span class="pl-k">default</span>:
-	;	<span class="pl-c"><span class="pl-c">/*</span> must be here as the closing '}' is not a statement. <span class="pl-c">*/</span></span>
-}</pre></div>
 <h1>
 <a id="user-content-switch-statement" class="anchor" href="#switch-statement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>switch</code> statement</h1>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">switch</span> (expression) {
@@ -260,6 +248,21 @@ the right decision.</p>
 	}
 }</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/switch.c">switch.c</a></p>
+<p>Also note that "any statement may be <strong>preceded</strong> by... a label".  As <code>case</code> is
+a label as well (only valid within the <code>switch</code> statement though), you cannot
+have a declaration right after the <code>case</code> label, because declaration is not a
+statement. Similarly, you also cannot have a label right before a closing <code>}</code>.
+So, a <em>null statement</em> to the rescue:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">switch</span> (c) {
+<span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>:
+	;	<span class="pl-c"><span class="pl-c">/*</span> must be here as a declaration is not a statement. <span class="pl-c">*/</span></span>
+	<span class="pl-k">int</span> a;
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+<span class="pl-k">default</span>:
+	;	<span class="pl-c"><span class="pl-c">/*</span> must be here as the closing '}' is not a statement. <span class="pl-c">*/</span></span>
+}</pre></div>
+<p>The other alternative would be to move the first statement that follows the
+variable declaration before it.</p>
 <h1>
 <a id="user-content-building-with-a-concrete-c-specification-version" class="anchor" href="#building-with-a-concrete-c-specification-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building with a concrete C specification version</h1>
 <p>If you want to make sure your code is built following a concrete C version, it
