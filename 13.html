@@ -436,13 +436,12 @@ foo.a = <span class="pl-c1">7</span>;
 foo.a++; <span class="pl-c"><span class="pl-c">//</span> will wrap around to 0 since this is unsigned</span></pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitfield-wraparound.c">bitfield-wraparound.c</a></p>
 <h1>
-<a id="user-content-non-transparent-handles-may-cause-issues" class="anchor" href="#non-transparent-handles-may-cause-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Non-transparent handles may cause issues</h1>
+<a id="user-content-tansparent-handles-may-cause-issues" class="anchor" href="#tansparent-handles-may-cause-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tansparent handles may cause issues</h1>
 <p>If your library is stateful, the state is often managed by a handle
 used as an argument in the library function calls.  Let's say internally in the
 library we need to track some ID and a position.  Those members are expected to
-be used only by the library itself so the consumers of the library should use
-the handle in a transparent way.   That is, they should not care nor use
-whatever is inside the handle.</p>
+be used only by the library itself so the consumers of the library should
+not care or use whatever is inside the handle.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> mylib.h <span class="pl-c">*/</span></span>
 <span class="pl-k">struct</span> ml_hndl {
 	<span class="pl-k">int</span> ml_id;
@@ -517,7 +516,7 @@ of structures that keep the states.  That is possible but you now need to
 manage the internal structure that keeps the state structures.  You also
 cannot change the index type unless you recompile all the consumers as well.</li>
 <li>the library provider could use something called <em>incomplete types</em> and use
-them to provide an opaque (transparent) handle.</li>
+them to provide an opaque handle.</li>
 </ul>
 <h1>
 <a id="user-content-incomplete-types" class="anchor" href="#incomplete-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Incomplete types</h1>
