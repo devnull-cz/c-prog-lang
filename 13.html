@@ -132,10 +132,11 @@ err:
 	<span class="pl-c1">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>missing arguments<span class="pl-pds">"</span></span>);
 	<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
 }</pre></div>
-<p>Use of <code>goto</code> in C is frown upon unless it is used to jump to an error/clean-up
-section or break from structured code.  While even that use is questioned by
-some, large number of major projects (Linux kernel code, OpenSSH, OpenSSL, etc.)
-use it that way.  We strongly believe such use simplifies the code if done well.</p>
+<p>Use of <code>goto</code> in C is often frowned upon unless it is used to jump to an
+error/clean-up section or break from structured code.
+While even that use is questioned by some, large number of major projects (Linux
+kernel code, OpenSSH, OpenSSL, etc.) use it that way.  We strongly believe such
+use simplifies the code if done well.</p>
 <p>Consider the following code <strong>with conditionals that do not nest</strong>.  It leads to
 code duplication (or large amount of indentation to fix that):</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
