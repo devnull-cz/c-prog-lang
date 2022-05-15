@@ -14,7 +14,7 @@ void
 do_stuff(struct foo *f);
 ```
 
-The file implementing `do_stuff()` **will retype the opaque structure object to
+The file implementing `do_stuff()` **will cast the opaque structure object to
 an internal structure type**.
 
 ```C
