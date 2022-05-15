@@ -104,7 +104,7 @@ is modified, you add it to the clean-up section.  In the former example, you
 would have to check all error paths and modify those one by one.
 
 **We support reasonable use of `goto` for the clean-up and structured code
-breaks**.  If used wisely it leads to cleaner code and saves lots of
+breaks**.  If used wisely, it leads to cleaner code and saves lots of
 indentation.  Also note that the `break` and `continue` statements are jumps as
 well, and imagine how to structure your code without it.
 
