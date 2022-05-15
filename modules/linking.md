@@ -24,8 +24,8 @@ cc -c bar.c
 cc -o binary foo.o bar.o ...
 ```
 
-Do not confuse the runtime linker with *dynamic linker*, usually represented by
-the `ldd` program.  See its manual page for more information.
+Do not confuse the runtime linker with *dynamic linker*, usually called
+`ld.so`. See its manual page for more information.
 
 Note that the program `ld` was not invoked directly, it is the compiler that
 serves as an `ld` wrapper as it needs to add more object files with the C
