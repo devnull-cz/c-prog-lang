@@ -603,7 +603,7 @@ anytime.</p>
 
 <span class="pl-k">void</span>
 <span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> foo *f);</pre></div>
-<p>The file implementing <code>do_stuff()</code> <strong>will retype the opaque structure object to
+<p>The file implementing <code>do_stuff()</code> <strong>will cast the opaque structure object to
 an internal structure type</strong>.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> in foo_impl.h not provided to the consumers <span class="pl-c">*/</span></span>
 <span class="pl-k">struct</span> foo_impl {
