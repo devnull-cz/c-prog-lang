@@ -355,14 +355,14 @@ the flexible array was empty</strong>.</li>
 	<span class="pl-k">char</span>	itm_payload[];
 	<span class="pl-c"><span class="pl-c">/*</span> Nothing can follow! <span class="pl-c">*/</span></span>
 };</pre></div>
-<p><code>sizeof (struct item)</code> will give the size <strong>without the last member computed</strong></p>
+<p>The memory layout looks like this:</p>
 <pre><code>+-------------+-----------------------+
 | struct item |      payload ...      |
 +-------------+-----------------------+
 </code></pre>
-<p>Previously, this was hacked around using array with 0 members and GCC accepted
+<p>Previously, this was hacked around using array with 0 items and GCC accepted
 this.  Since C99 this can be done properly using this technique.</p>
-<p>The extra data is allocated as follows:</p>
+<p>The data for the structure is allocated as follows:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> item *p;
 
 p = malloc(<span class="pl-k">sizeof</span> (<span class="pl-k">struct</span> item) + payload_len * <span class="pl-k">sizeof</span> (p-&gt;itm_payload[<span class="pl-c1">0</span>]));
