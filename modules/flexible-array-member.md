@@ -6,8 +6,8 @@
   - handy for structures with a fixed header and some "padding" data of flexible
     length that is allocated dynamically
   - why not to use a pointer instead?  It is good when passing data over
-    boundaries such as network, kernel/userland, etc. since no structure
-    copy is required.
+    boundaries such as network, kernel/userland, etc. since deep structure
+    copy is not necessary.
     - just copy the structure as a whole (however, it is necessary to know how
       large is the padding) because it is all contiguous memory
 - `sizeof (the_structure)` gives you the size of the structure **as if
