@@ -1,11 +1,10 @@
-# Non-transparent handles may cause issues
+# Tansparent handles may cause issues
 
 If your library is stateful, the state is often managed by a handle
 used as an argument in the library function calls.  Let's say internally in the
 library we need to track some ID and a position.  Those members are expected to
-be used only by the library itself so the consumers of the library should use
-the handle in a transparent way.   That is, they should not care nor use
-whatever is inside the handle.
+be used only by the library itself so the consumers of the library should
+not care or use whatever is inside the handle.
 
 ```C
 /* mylib.h */
@@ -97,4 +96,4 @@ There are ways to mitigate that:
   manage the internal structure that keeps the state structures.  You also
   cannot change the index type unless you recompile all the consumers as well.
 - the library provider could use something called *incomplete types* and use
-  them to provide an opaque (transparent) handle.
+  them to provide an opaque handle.
