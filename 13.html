@@ -150,16 +150,16 @@ code duplication (or large amount of indentation to fix that):</p>
 
 	<span class="pl-k">if</span> ((p = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
 		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
-	<span class="pl-k">if</span> ((p2 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>) == <span class="pl-c1">NULL</span>) {
+	<span class="pl-k">if</span> ((p2 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>) {
 		<span class="pl-c1">free</span>(p);
 		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
 	}
-	<span class="pl-k">if</span> ((p3 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>) == <span class="pl-c1">NULL</span>) {
+	<span class="pl-k">if</span> ((p3 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>) {
 		<span class="pl-c1">free</span>(p);
 		<span class="pl-c1">free</span>(p2);
 		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
 	}
-	<span class="pl-k">if</span> ((p4 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>) == <span class="pl-c1">NULL</span>) {
+	<span class="pl-k">if</span> ((p4 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>) {
 		<span class="pl-c1">free</span>(p);
 		<span class="pl-c1">free</span>(p2);
 		<span class="pl-c1">free</span>(p3);
@@ -185,11 +185,11 @@ code duplication (or large amount of indentation to fix that):</p>
 
 	<span class="pl-k">if</span> ((p = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
 		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
-	<span class="pl-k">if</span> ((p2 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>) == <span class="pl-c1">NULL</span>)
+	<span class="pl-k">if</span> ((p2 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
 		<span class="pl-k">goto</span> err;
-	<span class="pl-k">if</span> ((p3 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>) == <span class="pl-c1">NULL</span>)
+	<span class="pl-k">if</span> ((p3 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
 		<span class="pl-k">goto</span> err2;
-	<span class="pl-k">if</span> ((p4 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>) == <span class="pl-c1">NULL</span>)
+	<span class="pl-k">if</span> ((p4 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
 		<span class="pl-k">goto</span> err3;
 	<span class="pl-c"><span class="pl-c">/*</span> etc... <span class="pl-c">*/</span></span>
 

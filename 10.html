@@ -106,7 +106,8 @@
 <a id="user-content-wrench-strsepc" class="anchor" href="#wrench-strsepc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <code>strsepc</code>
 </h1>
 <p>Implement:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *<span class="pl-en">strsepc</span>(<span class="pl-k">char</span> **stringp, <span class="pl-k">int</span> c);</pre></div>
+<pre lang="C"><code>char *strsepc(char **stringp, int c);
+</code></pre>
 <p>which behaves like strsep(3) except that it searches only for the first
 occurence of a single character.</p>
 <p>Try to use <code>strsep</code>() first
@@ -125,22 +126,25 @@ memory area of a specified size or a null pointer if the allocation failed -
 always check that!  (even on Linux where it seems it can never fail - to be
 prepared for change in a configuration and also for portability to systems with
 more conservative memory allocation).</p>
-<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span>	<span class="pl-en">ARRLEN</span>	<span class="pl-c1">20</span>
-<span class="pl-k">int</span> *p;
+<pre lang="C"><code>#define	ARRLEN	20
+int *p;
 
-<span class="pl-k">if</span> ((p = malloc(ARRLEN * <span class="pl-k">sizeof</span> (<span class="pl-k">int</span>))) == <span class="pl-c1">NULL</span>)
-	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>malloc<span class="pl-pds">"</span></span>);
-p[<span class="pl-c1">0</span>] = <span class="pl-c1">99</span>;
-p[ARRLEN - <span class="pl-c1">1</span>] = <span class="pl-c1">77</span>;</pre></div>
+if ((p = malloc(ARRLEN * sizeof (int))) == NULL)
+	err(1, "malloc");
+p[0] = 99;
+p[ARRLEN - 1] = 77;
+</code></pre>
 <p>The prototype for <code>malloc</code> is as follows:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> *<span class="pl-en">malloc</span>(<span class="pl-c1">size_t</span> size);</pre></div>
+<pre lang="C"><code>void *malloc(size_t size);
+</code></pre>
 <p>Note that as <code>malloc</code> returns <code>void *</code>, there is no need to explicitly type its
 result when assigned to a pointer, see
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/explicit-type-conversion.md">Explicit type conversion.</a>
 That is, do not use:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p;
+<pre lang="C"><code>int *p;
 
-p = (<span class="pl-k">int</span> *)malloc(<span class="pl-c1">16</span>);</pre></div>
+p = (int *)malloc(16);
+</code></pre>
 <p>See <code>man malloc</code> for more memory allocation related functions.</p>
 <p>The C runtime does not have a garbage collector so all heap allocated memory
 has to be explicitly freed via <code>free</code>() after it is no longer needed.</p>
@@ -187,31 +191,35 @@ different types</p>
 </ul>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> Common { <span class="pl-k">int</span> type; };
-<span class="pl-k">struct</span> A      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">8</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 1</span>
-<span class="pl-k">struct</span> B      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">16</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 2</span></pre></div>
+<pre lang="C"><code>struct Common { int type; };
+struct A      { int type; char data[8]; };	// type == 1
+struct B      { int type; char data[16]; };	// type == 2
+</code></pre>
 <ul>
 <li>then a function can be declared like so:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">func</span>(<span class="pl-k">struct</span> Common *c);</pre></div>
+<pre lang="C"><code>int func(struct Common *c);
+</code></pre>
 <ul>
 <li>internally it can do e.g.:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">1</span>) {
-	<span class="pl-k">struct</span> A *ap = (<span class="pl-k">struct</span> A *)c;
-	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">7</span>] = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;
-} <span class="pl-k">else</span> <span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">2</span>) {
-	<span class="pl-k">struct</span> B *bp = (<span class="pl-k">struct</span> B *)c;
-	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">15</span>] = <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>;
-}</pre></div>
+<pre lang="C"><code>if (c-&gt;type == 1) {
+	struct A *ap = (struct A *)c;
+	ap-&gt;data[7] = 'A';
+} else if (c-&gt;type == 2) {
+	struct B *bp = (struct B *)c;
+	ap-&gt;data[15] = 'B';
+}
+</code></pre>
 <ul>
 <li>and the <code>func</code> is used like this, i.e. the non-Common argument is always
 casted to the common structure.</li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> A a;
+<pre lang="C"><code>struct A a;
 
-<span class="pl-k">if</span> (func((<span class="pl-k">struct</span> Common *)a) == -<span class="pl-c1">1</span>) {
-	...</pre></div>
+if (func((struct Common *)a) == -1) {
+	...
+</code></pre>
 <p>This is possible since all the structures have the same member on the same
 offset (that is offset 0).  However, note that you need to cast properly to
 avoid warnings.  See the code below.</p>
