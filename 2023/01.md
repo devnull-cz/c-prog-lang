@@ -26,7 +26,8 @@
 	   focus on C99).
 	2. You should be able to recognise whether C is appropriate for solving
 	   a specific problem.
-	3. Why it's so easy to get burned when working in C?
+	3. You should understand why it may be so easy to get burned when
+	   working in C.
 		- [A Case Study of Toyota Unintended Acceleration and Software
 		  Safety](https://users.ece.cmu.edu/~koopman/pubs/koopman14_toyota_ua_slides.pdf)
 - We are here to help you understand concepts, see the big picture, and learn
