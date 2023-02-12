@@ -35,7 +35,7 @@ main(void)
 				++i;
 			}
 			fflush(stdout);
-			poll(NULL, 0, 30);
+			poll(NULL, 0, 50);
 			fprintf(stderr, "\r");
 			pos = pos + direction;
 			++j;
