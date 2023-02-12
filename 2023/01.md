@@ -6,6 +6,7 @@
   above).
 - Getting credits - see the seminar web page above.
 - What is C.
+- Popularity of C: https://en.wikipedia.org/wiki/TIOBE\_index
 - C89, C99, C11 (ie. 2011), C17 (only fixes issues found in C11) standards.  Due
   to time constraints, we will focus on C99.
 - Why it's worth learning C?
