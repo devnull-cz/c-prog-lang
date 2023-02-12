@@ -15,6 +15,7 @@
 	- Lots of important code in C (Linux and Android kernel, Apple iOS
 	  kernel
 	  ([Darwin](https://en.wikipedia.org/wiki/Darwin_(operating_system)),
+	  also see [PureDarwin](http://www.puredarwin.org/)),
 	  major parts of Windows kernel, OpenSSH, OpenSSL,
 	  Apache, NGINX, cURL, etc. etc.)
 	- C programmers will be needed virtually for ever
