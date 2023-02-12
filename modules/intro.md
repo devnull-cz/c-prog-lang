@@ -13,7 +13,9 @@
 	- Helps with better understanding of computers
 	- Lingua franca of programming
 	- Lots of important code in C (Linux and Android kernel, Apple iOS
-	  kernel (Darwin), major parts of Windows kernel, OpenSSH, OpenSSL,
+	  kernel
+	  ([Darwin](https://en.wikipedia.org/wiki/Darwin_(operating_system)),
+	  major parts of Windows kernel, OpenSSH, OpenSSL,
 	  Apache, NGINX, cURL, etc. etc.)
 	- C programmers will be needed virtually for ever
 	- Fast, very portable
