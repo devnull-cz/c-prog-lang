@@ -2,7 +2,7 @@
 
 ```
   /*
-   * Implement a moving star that zick zacks on the __SAME__ line between some
+   * Implement a moving star that zick zacks on the same line between some
    * boundary (say 50 character wide).
    *
    * You will only need:
