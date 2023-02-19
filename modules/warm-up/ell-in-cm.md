@@ -1,4 +1,4 @@
-## Convert units of measurement
+## :wrench: Convert units of measurement
 
 Print conversion table for [Ell](https://en.wikipedia.org/wiki/Ell) (rope length
 used by Frodo and Sam in The Lord of the Rings had some 30 ells) to inches
