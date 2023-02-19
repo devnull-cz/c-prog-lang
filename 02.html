@@ -200,7 +200,12 @@ have to, as those are things of the past century.</li>
 <li>includes:
 <ul>
 <li>
-<code>#include &lt;foo/bar.h&gt;</code> or <code>#include "foo.h"</code>
+<code>#include "foo.h"</code> (start in current directory and then continue the
+search in system paths) or <code>#include &lt;foo/bar.h&gt;</code> (just system paths)
+<ul>
+<li>some compilers display the include search paths (e.g. clang with <code>-v</code>)</li>
+<li>use the <code>-I</code> compiler option to add search paths to the list</li>
+</ul>
 </li>
 </ul>
 </li>
