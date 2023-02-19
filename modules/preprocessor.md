@@ -32,7 +32,7 @@
     ```
     - then the compiler can be run with `-DDEBUG` to enable the code
 - macros: for more complicated code snippets, e.g. `#define IS_ZERO(a)  a == 0`
-  - the argument will be replace with whatever is given
+  - the argument will be replaced with whatever is given
   - use parens for `#define` to prevent problems with macro expansion
     - `#define	X	(1 + 1)`
     - same for more complicated macros:
