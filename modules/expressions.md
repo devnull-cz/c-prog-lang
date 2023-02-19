@@ -14,7 +14,7 @@ printf("%d\n", 100 == 101);
 --> 0
 ```
 
-- neverending `while` loop is for examples as follows:
+- neverending `while` loop is for example as follows:
 
 ```
 while (1) {
