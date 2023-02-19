@@ -3,7 +3,10 @@
   - defines:
     - basic defines: `#define FOO` or `#define FOO 1`
   - includes:
-    - `#include <foo/bar.h>` or `#include "foo.h"`
+    - `#include "foo.h"` (start in current directory and then continue the
+      search in system paths) or `#include <foo/bar.h>` (just system paths)
+      - some compilers display the include search paths (e.g. clang with `-v`)
+      - use the `-I` compiler option to add search paths to the list
   - conditional compilation:
     - `#if`, `#ifdef`, `#ifndef`, `#else`, `#endif`
       - `#if` can be used with expressions:
