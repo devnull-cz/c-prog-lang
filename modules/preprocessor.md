@@ -15,7 +15,7 @@
       ...
       #endif
       ```
-  - also useful for header guards (to avoid including same header file
+  - also useful for *header guards* (to avoid including same header file
     multiple times)
     ```C
     #ifndef FOO_H
