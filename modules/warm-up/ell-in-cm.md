@@ -9,7 +9,7 @@ will be the last column.
 
 Each 10 lines print a line (sequence of `-` characters, say 20 times).
 The line will immediately follow the table header and then will appear
-each 10 lines. Use `while` cycle to print the lines.
+each 10 lines. Use `while` cycle to print the line.
 
 Print 30 numeric rows.
 
