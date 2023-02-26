@@ -239,7 +239,7 @@ $ ./a.out
 
 What we should take away from this situation:
 
-- Anything looking as working does not mean it is correct
+- Anything looking as working does not mean it is correct.
 - Ideally, if possible, test on different architectures (like x86, SPARC, ARM,
   etc).
 - Using different compilers and different systems may help as well.  For
