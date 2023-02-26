@@ -243,8 +243,8 @@ What we should take away from this situation:
 - Ideally, if possible, test on different architectures (like x86, SPARC, ARM,
   etc).
 - Using different compilers and different systems may help as well.  For
-  example, if you develop in a Linux distro, testing it also on a macOS laptop
-  would be worth it.
+  example, if you develop in a Linux distro with `gcc`, testing it also on a
+  macOS laptop would be worth it (C compiler in macOS Xcode IDE is `clang`).
 - If something magically stops working that did work before, be ready for
   breakage like this.  Even something that has worked for ages does not
   necessarily means the code must have been correct.
