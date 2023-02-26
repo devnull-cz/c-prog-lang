@@ -312,25 +312,29 @@ can see above, more on that later.</li>
 </ul>
 <h1><a id="user-content-the-break-statement" class="anchor" aria-hidden="true" href="#the-break-statement"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>break</code> statement</h1>
 <ul>
-<li>statement <code>break</code> will cause a jump out of a most inner while loop (well, any
-kind of loop but we only introduced the <code>while</code> loop so far).</li>
+<li>The <code>break</code> statement will cause a jump out of a most inner while loop (well,
+any kind of loop but we only introduced the <code>while</code> loop so far).</li>
 </ul>
-<pre><code>	int finished = 0;
-	while (1) {
-		if (finished)
-			break;
-		/* not finished work done here */
-		call_a_function();
-		k = xxx;
+<pre><code>int finished = 0;
+while (1) {
+	if (finished)
+		break;
+	/* not finished work done here */
+	call_a_function();
+	k = xxx;
+	...
+	if (yyy) {
 		...
-		if (yyy) {
-			...
-			finished = 1;
-		}
-		/* more work done here */
-		...
+		finished = 1;
 	}
+	/* more work done here */
+	...
+}
 </code></pre>
+<ul>
+<li>There is no <code>break &lt;level&gt;</code> to say how many levels to break as might be found
+e.g. in a unix shell.</li>
+</ul>
 <h1><a id="user-content-basic-operators" class="anchor" aria-hidden="true" href="#basic-operators"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic operators</h1>
 <ul>
 <li>equality is <code>==</code> since a single <code>=</code> is an assignment operator</li>
