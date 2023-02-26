@@ -11,11 +11,12 @@ while (a = 3, b < 10) {
 
 The cycle will be controlled by the boolean result of the second expression.
 
-This is not limited just to 2 expressions.
+This is not limited just to 2 expressions, you can add more comma operators.  It
+is left associative.
 
 Note that the comma used in variable declaration (`int a, b = 3;`) or function
 call is not comma operator.
 
-:wrench: what will be returned ? #source comma.c
+:wrench: What will be returned? #source comma.c
 
 This is handy for cycle control expressions.
