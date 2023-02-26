@@ -130,49 +130,50 @@ example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> array[<span class="pl-c1">5</span>];</pre></div>
 <p>The integer value <code>n</code> in <code>[n]</code> specifies the number of array <em>elements</em>.</p>
 <ul>
-<li>an array <em>subscript</em> (also called an <em>index</em>) always starts from <code>0</code> and ends
+<li>An array <em>subscript</em> (also called an <em>index</em>) always starts from <code>0</code> and ends
 with <code>n - 1</code>
 </li>
-<li>a subscript may be any integer expression</li>
-<li>the type of array elements is called an <em>element type</em>
+<li>A subscript may be any integer expression</li>
+<li>The type of array elements is called an <em>element type</em>
 </li>
 </ul>
-<p>So, <code>int array[3]</code> elements will be accessible as <code>a[0]</code> .. <code>a[2]</code>, each element
-is of type <code>int</code>, and therefore you can do e.g. <code>printf("%d\n", a[2]);</code>.</p>
+<p>So, in array <code>int array[3]</code>, elements will be accessible as <code>a[0]</code> .. <code>a[2]</code>.
+Each element is of type <code>int</code>, and therefore you can do e.g. <code>printf("%d\n", a[2]);</code>.</p>
 <ul>
 <li>
-<p><code>0</code> was chosen as the first subscript so that was is easier to work with
-<em>pointers</em> and for array access efficiency - we will get to pointers later.</p>
+<p><code>0</code> was chosen as the first subscript so that it was easier to work with
+<em>pointers</em>, and also for array access efficiency - we will get to pointers
+later.</p>
 </li>
 <li>
-<p>what is not possible to do with arrays in C (limitations are important
+<p>What is not possible to do with arrays in C (limitations are important
 knowledge):</p>
 <ul>
-<li>associative arrays</li>
-<li>array subscripts returning a sub-array (like found e.g. in Python)</li>
-<li>assigning to an array as a whole</li>
+<li>Associative arrays</li>
+<li>Array subscripts returning a sub-array (like found e.g. in Python)</li>
+<li>Assigning to an array as a whole</li>
 </ul>
 </li>
 <li>
-<p>as with integer and floating point variables, we may initialize an array
-during its definition.  In general, the value for any variable initialization
-(not just arrays) is known as an <em>initializer</em>.</p>
+<p>As with integer and floating point variables, we may initialize an array
+during its definition.  In general, the contruct for any variable
+initialization (not just arrays) is known as an <em>initializer</em>.</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[<span class="pl-c1">3</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };</pre></div>
-<p>If the array size is omitted the compiler will compute the size from the the
-number of initializers.  So, you can just do the following.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[<span class="pl-c1">3</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };	<span class="pl-c"><span class="pl-c">//</span> "{ 1, 2, 3 };" is an initializer</span></pre></div>
+<p>If the array size is omitted the compiler will compute the size from the number
+of initializers.  So, you can just do the following:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
 <span class="pl-k">char</span> array[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };</pre></div>
-<p>Note that if you need your array to contain only the elements from the
-initializer, omitting the array size is the way to go to avoid errors as in
-changing the initializer while forgetting to update the array size.</p>
+<p>If you need your array to contain only the elements from the initializer,
+omitting the array size is the way to go to avoid errors in modifying the
+initializer while forgetting to update the array size.</p>
 <ul>
 <li>
-<p>the <code>sizeof</code> operator on array always gets <strong>the array size in bytes</strong>.  It
+<p>The <code>sizeof</code> operator on array always gets <strong>the array size in bytes</strong>.  It
 will <strong>not</strong> get the array size in elements.</p>
 <ul>
-<li>to get the number of elements in an array, you must divide the array
+<li>To get the number of elements in an array, you must divide the array
 size in bytes by the size of its element.  Always use <code>0</code> subscript,
 see below on why.</li>
 </ul>
@@ -182,16 +183,17 @@ see below on why.</li>
 
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Elements in array: <span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (a) / sizeof (a[<span class="pl-c1">0</span>]));</pre></div>
 <p>The above is the correct approach that is immune to changing the array
-declaration (i.e. the type of elements).  Do not use the following:</p>
-<div class="highlight highlight-source-c"><pre>    <span class="pl-k">sizeof</span> (array) / <span class="pl-k">sizeof</span> (<span class="pl-k">int</span>)</pre></div>
+declaration (i.e. the type of elements).  As arrays may not be empty, there is
+always an element <code>[0]</code> (see below).  Do not use the following:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">sizeof</span> (array) / <span class="pl-k">sizeof</span> (<span class="pl-k">int</span>)</pre></div>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Declare an array of <code>char</code>s without setting the array size, initialize
 the array during declaration (see above), then print each element of the array
 on a separate line using a <code>while</code> loop.</p>
 <p>Arrays introduced so far are not dynamic and <strong>can not</strong> be resized.</p>
 <ul>
-<li>try to perform out-of-bound access. What is the threshold for
-behavior change on your system ?</li>
-<li>why is it not faulting for the one-off error?</li>
+<li>Try to perform an out-of-bound access.  What is the threshold for behavior
+change on your system ?</li>
+<li>Why is it not faulting for the one-off error?</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-out-of-bounds.c">array-out-of-bounds.c</a></p>
 <pre><code>$ ./a.out
@@ -203,18 +205,18 @@ Assigning to index 4096... Segmentation Fault
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/debugger.md">some info on debugging.</a></p>
 <p>You do not need to initialize all elements.  With such type of an
 initialization, you always start from subscript <code>0</code>, and there are no gaps:</p>
-<div class="highlight highlight-source-c"><pre>  <span class="pl-k">short</span> array[<span class="pl-c1">4</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[<span class="pl-c1">4</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };</pre></div>
 <p>In the example above, the elements not explicitly initalized are set to <code>0</code> so
 the value of <code>array[3]</code> will be initialized to <code>0</code>.</p>
 <ul>
 <li>
-<p>i.e. <code>int array[100] = { 0 };</code> will have all values set to <code>0</code></p>
+<p>I.e. <code>int array[100] = { 0 };</code> will have all values set to <code>0</code></p>
 </li>
 <li>
-<p>the initialization is done by a compiler</p>
+<p>The initialization is done by a compiler</p>
 </li>
 <li>
-<p>using <code>= {}</code> is not allowed by the C specification (allowed in C++) but
+<p>Using <code>= {}</code> is not allowed by the C specification (allowed in C++) but
 generally accepted.  Not with <code>-Wpedantic</code> though:</p>
 </li>
 </ul>
@@ -228,21 +230,21 @@ int a[10] = {};
 <p>Note: <strong>global variables are always zeroized.</strong></p>
 <p>There is a <em>partial array initialization</em> where the <em>initializers</em> are called
 <em>designated initializers</em> in the C spec:</p>
-<div class="highlight highlight-source-c"><pre>  <span class="pl-k">char</span> array[<span class="pl-c1">128</span>] = { [<span class="pl-c1">0</span>] = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, [<span class="pl-c1">2</span>] = <span class="pl-s"><span class="pl-pds">'</span>f<span class="pl-pds">'</span></span>, [<span class="pl-c1">4</span>] = <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, [<span class="pl-c1">6</span>] = <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> array[<span class="pl-c1">128</span>] = { [<span class="pl-c1">0</span>] = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, [<span class="pl-c1">2</span>] = <span class="pl-s"><span class="pl-pds">'</span>f<span class="pl-pds">'</span></span>, [<span class="pl-c1">4</span>] = <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, [<span class="pl-c1">6</span>] = <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };</pre></div>
 <ul>
-<li>a subscript is in square brackets</li>
-<li>the <code>[subscript]</code> is known as a <em>designator</em>.  Increasing ordering is not
+<li>A subscript is in square brackets</li>
+<li>The <code>[subscript]</code> is known as a <em>designator</em>.  Increasing ordering is not
 required but expected.</li>
-<li>the rest of elements will be initialized to zero</li>
-<li>if you do not specify the array size, it is taken from the highest designator
+<li>The rest of elements will be initialized to zero</li>
+<li>If you do not specify the array size, it is taken from the highest designator
 index</li>
-<li>you can combine designators with fixed order initializers, and you always
+<li>You can combine designators with fixed order initializers, and you always
 start with the next index.  For example:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>  <span class="pl-c"><span class="pl-c">/*</span> a[5] is 'e' etc.  a[0]..a[3] are NUL characters (= zero bytes). <span class="pl-c">*/</span></span>
   <span class="pl-k">char</span> a[<span class="pl-c1">128</span>] = { [<span class="pl-c1">4</span>] = <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };</pre></div>
 <ul>
-<li>you cannot specify a repetition or setting multiple elements to the same value
+<li>You cannot specify a repetition or setting multiple elements to the same value
 (there is a gcc extension for that but let's not go there).</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-designated-initializers.c">array-designated-initializers.c</a></p>
@@ -263,11 +265,11 @@ array[<span class="pl-c1">2</span>] = array[<span class="pl-c1">3</span>] = <spa
 <p>You cannot assign an array into another array - has to be done an element by
 element.</p>
 <ul>
-<li>likewise for comparison</li>
+<li>Likewise for a comparison</li>
 </ul>
 <p>Arrays cannot be declared as empty (<code>int a[0]</code>).</p>
 <ul>
-<li>this is explicitly forbidden by the standard, see
+<li>This is explicitly forbidden by the standard, see
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">C99</a>
 6.7.5.2 Array declarators.</li>
 <li>GCC accepts that though.  Do not use it like that.</li>
