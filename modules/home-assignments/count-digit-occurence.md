@@ -2,9 +2,9 @@
 
 If unsure about the behavior, compile our solution and run it.
 
-- read characters until `EOF` and count occurence of each 0-9 digit.
-  Only use what we have learned so far.  You may end up with longer code than
-  otherwise necessary but that is OK.
+- Read characters until `EOF` and count occurence of each 0-9 digit.  Only use
+  what we have learned so far.  You may end up with longer code than otherwise
+  necessary but that is OK.
 
 ```
 $ cat /etc/passwd | ./a.out
@@ -22,5 +22,5 @@ $ cat /etc/passwd | ./a.out
 
 #solution count-numbers.c
 
-- variant: instead of printing occurrences, print `*` characters to get a
+- Variant: instead of printing occurrences, print `*` characters to get a
   histogram.  Use `log()` (see `math(3)`) to trim the values down.
