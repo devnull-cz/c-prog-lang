@@ -604,7 +604,7 @@ an expression or a type name
 <ul>
 <li>This is not a function so you can use it without parens: <code>sizeof foo</code> unless
 its argument is a type name, in that case parens are required.  However, for
-better readability parenthesis are usually used.</li>
+better readability parentheses are usually used.</li>
 </ul>
 </li>
 </ul>
@@ -779,7 +779,7 @@ value.  So, you can do the following:</li>
 <span class="pl-k">if</span> (c == EOF)
 	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
 <p>However, do <strong>not</strong> abuse it as you may create a hard to read code.  Note the
-parenthesis around the assignment.  The <code>=</code> operator has a lower priority than
+parentheses around the assignment.  The <code>=</code> operator has a lower priority than
 the <code>==</code> operator.  If the parens are not used, the following would happen:</p>
 <p><code>if (c = getchar() == EOF)</code> would be evaluated as:</p>
 <p><code>if (c = (getchar() == EOF))</code>, meaning that <code>c</code> would be either <code>0</code> or <code>1</code> based

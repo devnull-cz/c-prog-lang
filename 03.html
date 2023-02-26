@@ -160,7 +160,7 @@ during its definition.  In general, the contruct for any variable
 initialization (not just arrays) is known as an <em>initializer</em>.</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[<span class="pl-c1">3</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };	<span class="pl-c"><span class="pl-c">//</span> "{ 1, 2, 3 };" is an initializer</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[<span class="pl-c1">3</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };	<span class="pl-c"><span class="pl-c">//</span> "{ 1, 2, 3 }" is the initializer</span></pre></div>
 <p>If the array size is omitted the compiler will compute the size from the number
 of initializers.  So, you can just do the following:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> array[] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
@@ -213,7 +213,8 @@ the value of <code>array[3]</code> will be initialized to <code>0</code>.</p>
 <p>I.e. <code>int array[100] = { 0 };</code> will have all values set to <code>0</code></p>
 </li>
 <li>
-<p>The initialization is done by a compiler</p>
+<p>The initialization is done in code added by the compiler.  That code is part
+of the runtime system of the language.</p>
 </li>
 <li>
 <p>Using <code>= {}</code> is not allowed by the C specification (allowed in C++) but
@@ -290,12 +291,12 @@ computing <code>sizeof(a[0])</code> as the expression is not evaluated (see
 <p>Functions can be used to encapsulate some work, for code re-factoring, etc.</p>
 <p>A function has a single return value and multiple input parameters.</p>
 <ul>
-<li>if you also need to extract an error code with the value or get multiple
+<li>If you also need to extract an error code with the value or get multiple
 return values, that needs to be done via passing data via reference (more on
-that when we have pointers)</li>
-<li>i.e. this is not like Go that returns an error along with the data</li>
+that when we have pointers).</li>
+<li>I.e. this is not like Go that returns an error along with the data.</li>
 </ul>
-<p>A function <em>declaration</em> is only declaring the API without its body.  In C, it
+<p>A function <em>declaration</em> is only declaring an API without its body.  In C, it
 is called a <em>function prototype</em> and it consists of a type, a function name, and
 an parameter list in parentheses.  For example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">digit</span>(<span class="pl-k">int</span> c);
@@ -308,10 +309,10 @@ function).</p>
 {
 	<span class="pl-k">return</span> (<span class="pl-c1">1000</span>);
 }</pre></div>
-<p>Note that when declare or define a function, the function has <em>parameters</em>.
-When we call such a function though, we pass in <em>arguments</em>.  So, for the above
+<p>When we declare or define a function, the function has <em>parameters</em>.  When we
+call such a function though, we pass in <em>arguments</em>.  So, for the above
 mentioned function <code>digit</code>, if called as <code>digit(7)</code>, we passed argument <code>7</code> as
-parameter <code>c</code>.</p>
+the parameter <code>c</code>.</p>
 <p>Also as with the <code>main</code> function, you can use <code>void</code> instead of the argument
 list to say the function accepts no arguments.  You could just use <code>()</code> to
 indicate the function has no arguments but that is an old way of doing things
@@ -376,7 +377,7 @@ information.</p>
 	<span class="pl-k">return</span> (i);
 }</pre></div>
 <p>As <strong>arguments are always passed by value</strong> in C, the variable value is not
-changed in the scope that called the function.</p>
+changed in the caller:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> myfn defined here <span class="pl-c">*/</span></span>
 
 <span class="pl-k">int</span>
@@ -389,7 +390,8 @@ changed in the scope that called the function.</p>
 }</pre></div>
 <p>Local variables are stored on stack.</p>
 <p>Argument passing depends on bitness and architecture. E.g. 32-bit x86 puts them
-on stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on stack.</p>
+on the stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on a
+the stack.</p>
 <p>Functions can be recursive. <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/recursive-fn.c">recursive-fn.c</a></p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span></span>
 <span class="pl-c"> * Print 0..9 recursively using a function call fn(9).</span>
