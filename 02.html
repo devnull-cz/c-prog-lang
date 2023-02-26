@@ -666,25 +666,24 @@ why the following is going to print <code>1 4 4</code>:</li>
 <p>The <code>sizeof</code> operator is usually evaluated during compilation time however
 this is not universally true.  For Variable Length Arrays (VLAs) it has to
 happen during runtime.  The VLAs will be explained later.</p>
-<h1><a id="user-content-integer-literals" class="anchor" aria-hidden="true" href="#integer-literals"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer literals</h1>
+<h1><a id="user-content-integer-constants" class="anchor" aria-hidden="true" href="#integer-constants"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer constants</h1>
 <ul>
 <li>
-<p>An <em>integer literal</em> can be a decimal, octal, or hexadecimal constant.</p>
+<p>An <em>integer constant</em> can be a decimal, octal, or hexadecimal constant.</p>
 </li>
 <li>
-<p>so, all of these are equal:</p>
+<p>All of these are equal:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0101</span>);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0x41</span>);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">65</span>);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0101</span>);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0x41</span>);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">65</span>);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; A</span></pre></div>
 <ul>
-<li>
-<code>0</code> is octal constant, not a decimal constant, since an octal constant always
-begins with <code>0</code>.  The following will generate an error:</li>
+<li>Technically, <code>0</code> is an octal constant, not a decimal constant, since an octal
+constant always begins with <code>0</code>.  The following will generate an error:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">099</span>);</pre></div>
 <pre><code>main.c: In function ‘main’:
@@ -693,10 +692,10 @@ main.c:6:17: error: invalid digit "9" in octal constant
       |                 ^~~
 </code></pre>
 <ul>
-<li>if you use a larger number than fits within a byte as an argument for the <code>%c</code>
+<li>If you use a larger number than fits within a byte as an argument for the <code>%c</code>
 conversion, the higher bits are trimmed.  The rule here is that the <code>int</code>
 argument is converted within <code>printf</code> to <code>unsigned char</code> (not just <code>char</code>!),
-then printed as a character (= letter).  More on integer conversion in
+then printed as a character (= letter).  More on the integer conversion in
 upcoming lectures.  See also
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/numbers.md">Numbers</a>
 on why you never pass a <code>char</code> nor <code>short</code> to a variadic function.
@@ -706,15 +705,15 @@ man page for more information.</li>
 </ul>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">65</span> + <span class="pl-c1">256</span> + <span class="pl-c1">256</span> + <span class="pl-c1">256</span> * <span class="pl-c1">100</span>);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; still prints A</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">65</span> + <span class="pl-c1">256</span> + <span class="pl-c1">256</span> + <span class="pl-c1">256</span> * <span class="pl-c1">100</span>);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; still prints A</span></pre></div>
 <ul>
-<li>assignment is also an expression, meaning it has a value of the result, so the
+<li>Assignment is also an expression, meaning it has a value of the result, so the
 following is legal and all variables <code>a</code>, <code>b</code>, and <code>c</code> will be initialized
-with 13</li>
+with 13 (it is right associative).</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">int</span> a, b, c;
-	a = b = c = <span class="pl-c1">13</span>;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a, b, c;
+a = b = c = <span class="pl-c1">13</span>;</pre></div>
 <h3><a id="user-content-wrench-task-print-ascii-table" class="anchor" aria-hidden="true" href="#wrench-task-print-ascii-table"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print ASCII table</h3>
 <p>Print ASCII table with hexadecimal values like on in the ascii(7) man page
 <a href="https://man.openbsd.org/ascii" rel="nofollow">https://man.openbsd.org/ascii</a> except for non-printable characters print <code>NP</code>
@@ -739,7 +738,6 @@ function.</p>
 68 h	69 i	6a j	6b k	6c l	6d m	6e n	6f o	
 70 p	71 q	72 r	73 s	74 t	75 u	76 v	77 w	
 78 x	79 y	7a z	7b {	7c |	7d }	7e ~	7f NP	
-
 </code></pre>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ascii-hex.c">ascii-hex.c</a></p>
 <h1><a id="user-content-getchar" class="anchor" aria-hidden="true" href="#getchar"><span aria-hidden="true" class="octicon octicon-link"></span></a>getchar()</h1>
