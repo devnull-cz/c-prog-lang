@@ -539,9 +539,10 @@ $ ./a.out
 </code></pre>
 <ul>
 <li>When compiled in 64 bits, it is still as incorrect as before but it will
-print 13 anyway as 13 is assigned to a 64 bit register (because of x64 ABI).
-So, if you use that code successfully in 64 bits you might be surprised if
-the code is then compiled in 32 bits and "suddenly" gets broken.</li>
+probably print <code>13</code> anyway as <code>13</code> is assigned to a 64 bit register (because
+of x64 ABI).  So, if you use that code successfully in 64 bits you might be
+surprised if the code is then compiled in 32 bits and "suddenly gets broken".
+It was broken from the very beginning.</li>
 </ul>
 <pre><code>$ cc -m64 wrong-modifier.c
 wrong-modifier.c:6:19: warning: format specifies type 'long
@@ -589,12 +590,12 @@ using suffices</p>
 <span class="pl-c"><span class="pl-c">//</span> --&gt; ??</span></pre></div>
 <ul>
 <li>Escape sequences <code>\ooo</code> and <code>\xhh</code> (not <code>\Xhh</code>) are character sized bit
-patterns, either specified as octal or hexadecimal numbers.  They can be used
-in string constants and in character constants.  They are still of type <code>int</code>
-as they are character constants, see above.</li>
+patterns, either specified as octal or hexadecimal numbers, and representing a
+single character.  They can be used both in string and character constants
+constants.</li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\110\x6F\154\x61</span><span class="pl-pds">"</span></span>);
-<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x21</span><span class="pl-pds">'</span></span>);
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\110\x6F\154\x61</span><span class="pl-pds">"</span></span>);	<span class="pl-c"><span class="pl-c">//</span> Used in a string literal.</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x21</span><span class="pl-pds">'</span></span>);		<span class="pl-c"><span class="pl-c">//</span> Used in a character constant.</span>
 <span class="pl-c"><span class="pl-c">//</span> -&gt; Hola!</span></pre></div>
 <h1><a id="user-content-the-sizeof-operator" class="anchor" aria-hidden="true" href="#the-sizeof-operator"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>sizeof</code> operator</h1>
 <ul>
