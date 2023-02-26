@@ -104,7 +104,8 @@ the value of `array[3]` will be initialized to `0`.
 
 - I.e. `int array[100] = { 0 };` will have all values set to `0`
 
-- The initialization is done by a compiler
+- The initialization is done in code added by the compiler.  That code is part
+  of the runtime system of the language.
 
 - Using `= {}` is not allowed by the C specification (allowed in C++) but
   generally accepted.  Not with `-Wpedantic` though:
