@@ -1,4 +1,4 @@
-## count words
+## Count words
 
 Print out number of words read from the standard input.  Ideally, use your
 `getchar` based code from your repository to start with.
@@ -8,18 +8,17 @@ upload it to your
 #module scm.md source code management repository.
 
 A *word* is defined as a group of any characters surrounded by whitespace
-characters.  For our case these white space characters will suffice: a
-tabelator, a space, and a newline.
+characters.  Those are: a tabelator, a space, and a newline.
 
-- write your own check for a whitespace character, do not use library functions
-  for that
+- Write your own check for a whitespace character, do not use library functions
+  for that.
 
-- check correctness of your implementation with `wc -w <file>`
+- Check correctness of your implementation with `wc -w <file>`
 
-- what happens if the number of words exceeds the type that stores the count?
+- What happens if the number of words exceeds the type that stores the count?
 
 #solution words.c
-actually uses a library check for white space for simplicity.
+Does uses a library check `isspace` for white space for simplicity.
 
 #solution words2.c
 It is even simpler than the first solution while not using the library function.
