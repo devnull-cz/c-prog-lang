@@ -33,7 +33,7 @@ return_a_number(void)
 When we declare or define a function, the function has *parameters*.  When we
 call such a function though, we pass in *arguments*.  So, for the above
 mentioned function `digit`, if called as `digit(7)`, we passed argument `7` as
-parameter `c`.
+the parameter `c`.
 
 Also as with the `main` function, you can use `void` instead of the argument
 list to say the function accepts no arguments.  You could just use `()` to
@@ -121,7 +121,7 @@ myfn(int i, int j)
 ```
 
 As **arguments are always passed by value** in C, the variable value is not
-changed in the scope that called the function.
+changed in the caller:
 
 ```C
 /* myfn defined here */
@@ -139,7 +139,8 @@ main(void)
 Local variables are stored on stack.
 
 Argument passing depends on bitness and architecture. E.g. 32-bit x86 puts them
-on stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on stack.
+on the stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on a
+the stack.
 
 Functions can be recursive. #source recursive-fn.c
 
