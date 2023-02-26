@@ -497,12 +497,12 @@ the Linux lab at Malá Strana which you all have access to, so that you can try
 and see.</p>
 <p>Before I begin, let me give you more information:</p>
 <ul>
-<li>it depends on a system and its version, and a compiler and its version
+<li>It depends on a system and its version, and a compiler and its version
 <ul>
 <li>you can also try the <code>clang</code> compiler later on the same machine</li>
 </ul>
 </li>
-<li>will be using <code>gcc</code> which defaults to generate 64 bit binaries on the Linux
+<li>Will be using <code>gcc</code> which defaults to generate 64 bit binaries on the Linux
 distro installed on u-pl3.ms.mff.cuni.cz (and other machines in the lab).</li>
 <li>64 bit binaries on x86 use <a href="https://en.wikipedia.org/wiki/X86-64" rel="nofollow">X86-64 ABI</a>
 </li>
@@ -510,11 +510,11 @@ distro installed on u-pl3.ms.mff.cuni.cz (and other machines in the lab).</li>
 <a href="https://en.wikipedia.org/wiki/Application_binary_interface" rel="nofollow">ABI</a> is not
 <a href="https://en.wikipedia.org/wiki/Application_programming_interface" rel="nofollow">API</a>
 </li>
-<li>by this ABI (it's law!), the first two function integer arguments are passed
+<li>By this ABI (it's law!), the first two function integer arguments are passed
 through the general purpose <strong>edi</strong> and <strong>esi</strong> registers</li>
-<li>integer function return value is passed back to the caller via the general
+<li>Integer function return value is passed back to the caller via the general
 purpose <strong>eax</strong> register</li>
-<li><strong>the stack on x86 grows down</strong></li>
+<li><strong>The stack on x86 grows down</strong></li>
 </ul>
 <p>Let's compile the code and disassemble it.  All we need are the <code>main</code> and
 <code>addnum</code> function.  See my notes inline.</p>
@@ -681,16 +681,16 @@ $ ./a.out
 </code></pre>
 <p>What we should take away from this situation:</p>
 <ul>
-<li>anything looking as working does not mean it is correct</li>
-<li>ideally, if possible, test on different architectures (like x86, SPARC, ARM,
+<li>Anything looking as working does not mean it is correct</li>
+<li>Ideally, if possible, test on different architectures (like x86, SPARC, ARM,
 etc).</li>
-<li>using different compilers and different systems may help as well.  For
+<li>Using different compilers and different systems may help as well.  For
 example, if you develop in a Linux distro, testing it also on a macOS laptop
 would be worth it.</li>
-<li>if something magically stops working that did work before, be ready for
+<li>If something magically stops working that did work before, be ready for
 breakage like this.  Even something that has worked for ages does not
 necessarily means the code must have been correct.</li>
-<li>always use <code>-Wall -Wextra</code> GCC options when building your code.  More on that
+<li>Always use <code>-Wall -Wextra</code> GCC options when building your code.  More on that
 later in the seminar.  See that <code>clang</code> warns by default which is a good
 thing.</li>
 </ul>
