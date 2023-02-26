@@ -1,19 +1,19 @@
-# Integer literals
+# Integer constants
 
-- An *integer literal* can be a decimal, octal, or hexadecimal constant. 
+- An *integer constant* can be a decimal, octal, or hexadecimal constant. 
 
-- so, all of these are equal:
+- All of these are equal:
 ```C
-	printf("%c\n", 0101);
-	// --> A
-	printf("%c\n", 0x41);
-	// --> A
-	printf("%c\n", 65);
-	// --> A
+printf("%c\n", 0101);
+// --> A
+printf("%c\n", 0x41);
+// --> A
+printf("%c\n", 65);
+// --> A
 ```
 
-- `0` is octal constant, not a decimal constant, since an octal constant always
-  begins with `0`.  The following will generate an error:
+- Technically, `0` is an octal constant, not a decimal constant, since an octal
+  constant always begins with `0`.  The following will generate an error:
 
 ```C
 printf("%d\n", 099);
@@ -26,10 +26,10 @@ main.c:6:17: error: invalid digit "9" in octal constant
       |                 ^~~
 ```
 
-- if you use a larger number than fits within a byte as an argument for the `%c`
+- If you use a larger number than fits within a byte as an argument for the `%c`
   conversion, the higher bits are trimmed.  The rule here is that the `int`
   argument is converted within `printf` to `unsigned char` (not just `char`!),
-  then printed as a character (= letter).  More on integer conversion in
+  then printed as a character (= letter).  More on the integer conversion in
   upcoming lectures.  See also
 #module numbers.md Numbers
   on why you never pass a `char` nor `short` to a variadic function.
@@ -37,16 +37,17 @@ main.c:6:17: error: invalid digit "9" in octal constant
 	  man page for more information.
 
 ```C
-	printf("%c\n", 65 + 256 + 256 + 256 * 100);
-	// --> still prints A
+printf("%c\n", 65 + 256 + 256 + 256 * 100);
+// --> still prints A
 ```
 
-- assignment is also an expression, meaning it has a value of the result, so the
+- Assignment is also an expression, meaning it has a value of the result, so the
   following is legal and all variables `a`, `b`, and `c` will be initialized
-  with 13
+  with 13 (it is right associative).
+
 ```C
-	int a, b, c;
-	a = b = c = 13;
+int a, b, c;
+a = b = c = 13;
 ```
 
 ### :wrench: Task: print ASCII table
@@ -61,6 +62,7 @@ function.
 Use just `while` and `if` (without `else`).
 
 Sample output:
+
 ```
 00 NP	01 NP	02 NP	03 NP	04 NP	05 NP	06 NP	07 NP	
 08 NP	09 NP	0a NP	0b NP	0c NP	0d NP	0e NP	0f NP	
@@ -78,7 +80,6 @@ Sample output:
 68 h	69 i	6a j	6b k	6c l	6d m	6e n	6f o	
 70 p	71 q	72 r	73 s	74 t	75 u	76 v	77 w	
 78 x	79 y	7a z	7b {	7c |	7d }	7e ~	7f NP	
-
 ```
 
 #solution ascii-hex.c
