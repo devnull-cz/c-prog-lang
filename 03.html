@@ -96,29 +96,28 @@
                     <div class="Box-body px-5 pb-5">
                       <article id="grip-content" class="markdown-body entry-content container-lg">
                         <h1><a id="user-content-warm-up" class="anchor" aria-hidden="true" href="#warm-up"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
-<h2><a id="user-content-count-words" class="anchor" aria-hidden="true" href="#count-words"><span aria-hidden="true" class="octicon octicon-link"></span></a>count words</h2>
+<h2><a id="user-content-count-words" class="anchor" aria-hidden="true" href="#count-words"><span aria-hidden="true" class="octicon octicon-link"></span></a>Count words</h2>
 <p>Print out number of words read from the standard input.  Ideally, use your
 <code>getchar</code> based code from your repository to start with.</p>
 <p><strong>Always try to reuse code you have already written!</strong>  Then do not forget to
 upload it to your
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/scm.md">source code management repository.</a></p>
 <p>A <em>word</em> is defined as a group of any characters surrounded by whitespace
-characters.  For our case these white space characters will suffice: a
-tabelator, a space, and a newline.</p>
+characters.  Those are: a tabelator, a space, and a newline.</p>
 <ul>
 <li>
-<p>write your own check for a whitespace character, do not use library functions
-for that</p>
+<p>Write your own check for a whitespace character, do not use library functions
+for that.</p>
 </li>
 <li>
-<p>check correctness of your implementation with <code>wc -w &lt;file&gt;</code></p>
+<p>Check correctness of your implementation with <code>wc -w &lt;file&gt;</code></p>
 </li>
 <li>
-<p>what happens if the number of words exceeds the type that stores the count?</p>
+<p>What happens if the number of words exceeds the type that stores the count?</p>
 </li>
 </ul>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/words.c">words.c</a>
-actually uses a library check for white space for simplicity.</p>
+Does uses a library check <code>isspace</code> for white space for simplicity.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/words2.c">words2.c</a>
 It is even simpler than the first solution while not using the library function.</p>
 <p>Example:</p>
