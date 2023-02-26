@@ -130,9 +130,10 @@ $ ./a.out
 ```
 
  - When compiled in 64 bits, it is still as incorrect as before but it will
-   print 13 anyway as 13 is assigned to a 64 bit register (because of x64 ABI).
-   So, if you use that code successfully in 64 bits you might be surprised if
-   the code is then compiled in 32 bits and "suddenly" gets broken.
+   probably print `13` anyway as `13` is assigned to a 64 bit register (because
+   of x64 ABI).  So, if you use that code successfully in 64 bits you might be
+   surprised if the code is then compiled in 32 bits and "suddenly gets broken".
+   It was broken from the very beginning.
 
 ```
 $ cc -m64 wrong-modifier.c
@@ -172,12 +173,12 @@ printf("%ld", 13LL);
 ```
 
 - Escape sequences `\ooo` and `\xhh` (not `\Xhh`) are character sized bit
-  patterns, either specified as octal or hexadecimal numbers.  They can be used
-  in string constants and in character constants.  They are still of type `int`
-  as they are character constants, see above.
+  patterns, either specified as octal or hexadecimal numbers, and representing a
+  single character.  They can be used both in string and character constants
+  constants.
 
 ```C
-printf("\110\x6F\154\x61");
-printf("%c\n", '\x21');
+printf("\110\x6F\154\x61");	// Used in a string literal.
+printf("%c\n", '\x21');		// Used in a character constant.
 // -> Hola!
 ```
