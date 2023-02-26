@@ -1,6 +1,6 @@
 # Numbers and types
 
-- for example, the 1, 7, and 20000 integer literals are always integers of type
+- For example, the 1, 7, and 20000 integer literals are always integers of type
   `int` **if they fit** in (the range of an `int` is [-2^31, 2^31 - 1] on 32/64
   bit CPUs)
 - Hexadecimal numbers start with `0x` or `0X`.  Eg. `0xFF`, `0Xaa`, `0x13f`,
@@ -15,17 +15,18 @@
 - Note when we say a *character*, we mean a value that represents a character
   from the ASCII table.  A character is not the same thing as `char`.
 
-- `float`, `double`
-  - `man 3 printf`, see `%f` is of type `double`.  You can use:
+- Types `float`, `double`
+  - If you `man 3 printf`, you can see that `%f` is of type `double`.  You can
+    use:
 
 ```C
           float pi = 3.14
 	  printf("%f\n", pi);
 ```
 
-  - floats are automatically converted to doubles if used as arguments in
-    functions with variable number of arguments (known as a "variadic
-    function"), i.e. like printf()
+  - `float`s are automatically converted to `double`s if used as arguments in
+    functions with variable number of arguments (known as *variadic
+    function*), i.e. like printf()
 
 - `char` (1 byte), `short` (usually 2 bytes), `long` (4 or 8 bytes), `long long`
   (usually 8 bytes, and can not be less).  It also depends on whether your
@@ -34,34 +35,38 @@
     either `-m32` or `-m64` options)
     - use the `file` command to display the information about the binary
 
-- see also *5.2.4.2 Numerical limits*
+- See also *5.2.4.2 Numerical limits*
 #module c99-standard.md in the C spec.
   For example, `int` must be at least 4 bytes but the C spec does not prevent it
   from being 8 bytes in the future.
 
 - `char`s and `short`s are automatically converted to `int` if used as arguments
-  in variadic functions.
+  in variadic functions, and also if used as operands in many operators.  More
+  on that later.
 
-- as `'X'` is `int` but within 0-127, it's OK to do the following as it will fit
-  even if `char` is signed:
+- As `'X'` is `int` but within 0-127 (see above on the ASCII standard), it is
+  OK to do the following as it will fit even when `char` is signed:
+
 ```C
 	char c = 'A';
 ```
 
 ## Signedness
 
-- each integer type has a `signed` and `unsigned` variant.  By default, the
+- Each integer type has a `signed` and `unsigned` variant.  By default, the
   numeric types are signed aside from `char` which depends on the implementation
   (of the C compiler).  If you need an unsigned type, use `unsigned` reserved
   word.
+
 ```C
-  signed int si;	// not used though, just use 'int si'
-  unsigned int ui;
-  unsigned long ul;
-  unsigned long long ull;
-  ...
+signed int si;	// not used though, just use 'int si'
+unsigned int ui;
+unsigned long ul;
+unsigned long long ull;
+...
 ```
-- for `int`s, you do not even need to use the `int` keyword, ie. `signed i`,
+
+- For `int`s, you do not even need to use the `int` keyword, ie. `signed i`,
   `unsigned u` are valid but it is recommended to use `int i` and `unsigned int
   u` anyway.
 
@@ -75,13 +80,13 @@
   register (Intel x64 convention).
 
 ```C
-	/* OK */
-	char c = 127;
-	printf("%d\n", c);
+/* OK */
+char c = 127;
+printf("%d\n", c);
 
-	/* OK */
-	short sh = 32768;
-	printf("%d\n", sh);
+/* OK */
+short sh = 32768;
+printf("%d\n", sh);
 ```
 
 ## Modifiers for printf()
@@ -92,60 +97,60 @@
 - `u` is unsigned, `x` is unsigned hexa, `X` is unsigned HEXA
 
 ```C
-	unsigned int u = 13;
-	printf("%u\n", u);
+unsigned int u = 13;
+printf("%u\n", u);
 
-	unsigned long long llu = 13;
-	printf("%llu\n", llu);
+unsigned long long llu = 13;
+printf("%llu\n", llu);
 
-	unsigned int u = 13;
-	printf("%x\n", u);
-	// --> d
-	printf("%X\n", u);
-	// --> D
+unsigned int u = 13;
+printf("%x\n", u);
+// --> d
+printf("%X\n", u);
+// --> D
 ```
 
-- the following is a problem though if compiled in 32 bits as you put 4 bytes on
+- The following is a problem though if compiled in 32 bits as you put 4 bytes on
   the stack but `printf` will take 8 bytes.  Older compilers may not warn you at
   all!
 
 ```
-	/* DEFINITELY NOT OK.  Remember, 13 is of the "int" type. */
-	printf("%lld\n", 13);
+/* DEFINITELY NOT OK.  Remember, 13 is of the "int" type. */
+printf("%lld\n", 13);
 
-	$ cc -m32 wrong-modifier.c
-	wrong-modifier.c:6:19: warning: format specifies type 'long
-	long' but the argument has type 'int' [-Wformat]
-		printf("%lld\n", 13);
-			~~~~     ^~
-			%d
-	1 warning generated.
-	$ ./a.out
-	2026120757116941
+$ cc -m32 wrong-modifier.c
+wrong-modifier.c:6:19: warning: format specifies type 'long
+long' but the argument has type 'int' [-Wformat]
+	printf("%lld\n", 13);
+		~~~~     ^~
+		%d
+1 warning generated.
+$ ./a.out
+2026120757116941
 ```
 
- - when compiled in 64 bits, it is still as incorrect as before but it will
+ - When compiled in 64 bits, it is still as incorrect as before but it will
    print 13 anyway as 13 is assigned to a 64 bit register (because of x64 ABI).
    So, if you use that code successfully in 64 bits you might be surprised if
    the code is then compiled in 32 bits and "suddenly" gets broken.
 
 ```
-	$ cc -m64 wrong-modifier.c
-	wrong-modifier.c:6:19: warning: format specifies type 'long
-	long' but the argument has type 'int' [-Wformat]
-		printf("%lld\n", 13);
-			~~~~     ^~
-			%d
-	1 warning generated.
-	$ ./a.out
-	13
+$ cc -m64 wrong-modifier.c
+wrong-modifier.c:6:19: warning: format specifies type 'long
+long' but the argument has type 'int' [-Wformat]
+	printf("%lld\n", 13);
+		~~~~     ^~
+		%d
+1 warning generated.
+$ ./a.out
+13
 ```
 
 #source wrong-modifier.c
 
 ## Suffixes
 
-- you can explicitly specify integer constants with different integer types
+- You can explicitly specify integer constants with different integer types
   using suffices
 
 	- `13L` and `13l` is a `long`
@@ -154,16 +159,16 @@
 	- `13lu` and `13LU` is an `unsigned long`
 	- `13llu` and `13LLU` is an `unsigned long long`
 
-- so, `0xFULL` and `0XFULL` is an `unsigned long long` 15 :-)
+- So, `0xFULL` and `0XFULL` is an `unsigned long long` 15 :-)
 
 ```C
-	printf("%llu\n", 0xFULL);
-	// --> 15
-	printf("%lld", 13LL);	/* OK */
-	// --> 13
-	/* NOT OK as long may be 4 bytes while long long is 8+ bytes */
-	printf("%ld", 13LL);
-	// --> ??
+printf("%llu\n", 0xFULL);
+// --> 15
+printf("%lld", 13LL);	/* OK */
+// --> 13
+/* NOT OK as long may be 4 bytes while long long is 8+ bytes */
+printf("%ld", 13LL);
+// --> ??
 ```
 
 - Escape sequences `\ooo` and `\xhh` (not `\Xhh`) are character sized bit
@@ -172,7 +177,7 @@
   as they are character constants, see above.
 
 ```C
-	printf("\110\x6F\154\x61");
-	printf("%c\n", '\x21');
-	// -> Hola!
+printf("\110\x6F\154\x61");
+printf("%c\n", '\x21');
+// -> Hola!
 ```
