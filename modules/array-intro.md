@@ -34,7 +34,7 @@ a[2]);`.
   initialization (not just arrays) is known as an *initializer*.
 
 ```C
-short array[3] = { 1, 2, 3 };	// "{ 1, 2, 3 };" is an initializer
+short array[3] = { 1, 2, 3 };	// "{ 1, 2, 3 }" is the initializer
 ```
 
 If the array size is omitted the compiler will compute the size from the number
