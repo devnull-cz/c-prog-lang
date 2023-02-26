@@ -424,9 +424,9 @@ but more on that later.</p>
 <p>Not allowing to return an array is done for efficiency as copying the whole
 array (by value) would be too expensive.</p>
 <ul>
-<li>watch for size of an array as a local variable in a function</li>
-<li>arrays as local variable may significantly increase the stack size (and a
-stack size is limited in threaded environments)</li>
+<li>Watch for array sizes if used within functions.</li>
+<li>Arrays as local variable may significantly increase the stack size (and a
+stack size is limited in threaded environments).</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/func-large-array.c">func-large-array.c</a></p>
 <p>The following may or may not happen in your environment:</p>
@@ -436,7 +436,7 @@ Segmentation fault: 11
 </code></pre>
 <h1><a id="user-content-strings" class="anchor" aria-hidden="true" href="#strings"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h1>
 <p>A contiguous sequence of non-zero bytes (<code>char</code>s) terminated by a zero byte is
-called a <em>string</em>.</p>
+called a <em>string</em> (C99 7.1.1).</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
 <p>Note that a string does not have to be declared as an array as shown above, it
 may be just a piece of memory that meets the definition of a string above.</p>
@@ -446,8 +446,8 @@ is no metadata involved with a string, e.g. its length.  To figure out the
 length of a string, the string must be sequentially searched for the first NUL.</p>
 <p>The string length is the number of bytes preceding the null character.</p>
 <p>It also means the size of such an character array is <strong>one byte more than the
-number of characters in the string</strong>.  It is because of the terminating zero
-(<code>\0</code>) that the compiler adds to terminate the string.</p>
+number of non-zero characters in the string</strong>.  It is because of the terminating
+zero (<code>\0</code>).  The NUL belongs to the string though.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };
 
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (foo));		<span class="pl-c"><span class="pl-c">//</span> prints 4</span></pre></div>
@@ -465,6 +465,8 @@ per-char initializator and try to print the string ?</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-char-nozero.c">array-char-nozero.c</a></p>
 <p>Note that the following array of characters contains three strings:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>, <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
+<p>And an character array does not need to be or contain a string at all:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> not_a_string[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>i<span class="pl-pds">'</span></span> };</pre></div>
 <h1><a id="user-content-function-return-values-and-abi" class="anchor" aria-hidden="true" href="#function-return-values-and-abi"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function return values and ABI</h1>
 <p>Let's look at the following code.  Obviously, the function does not return its
 value while it definitely should have.  What happens if we use the function
