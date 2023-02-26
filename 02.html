@@ -372,10 +372,11 @@ The result of the expression is the result of the second part, e.g.:</p>
 }
 </code></pre>
 <p>The cycle will be controlled by the boolean result of the second expression.</p>
-<p>This is not limited just to 2 expressions.</p>
+<p>This is not limited just to 2 expressions, you can add more comma operators.  It
+is left associative.</p>
 <p>Note that the comma used in variable declaration (<code>int a, b = 3;</code>) or function
 call is not comma operator.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> what will be returned ? <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/comma.c">comma.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> What will be returned? <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/comma.c">comma.c</a></p>
 <p>This is handy for cycle control expressions.</p>
 <h1><a id="user-content-the-boolean-type" class="anchor" aria-hidden="true" href="#the-boolean-type"><span aria-hidden="true" class="octicon octicon-link"></span></a>The boolean type</h1>
 <p>There is a new <code>_Bool</code> type as of C99.  Put <code>0</code> as false, and a non-zero (stick
@@ -393,7 +394,7 @@ on its own, you can use those macros if you include <code>&lt;stdbool.h&gt;</cod
 <h1><a id="user-content-numbers-and-types" class="anchor" aria-hidden="true" href="#numbers-and-types"><span aria-hidden="true" class="octicon octicon-link"></span></a>Numbers and types</h1>
 <ul>
 <li>
-<p>for example, the 1, 7, and 20000 integer literals are always integers of type
+<p>For example, the 1, 7, and 20000 integer literals are always integers of type
 <code>int</code> <strong>if they fit</strong> in (the range of an <code>int</code> is [-2^31, 2^31 - 1] on 32/64
 bit CPUs)</p>
 </li>
@@ -414,10 +415,10 @@ values 0-127.</p>
 from the ASCII table.  A character is not the same thing as <code>char</code>.</p>
 </li>
 <li>
-<p><code>float</code>, <code>double</code></p>
+<p>Types <code>float</code>, <code>double</code></p>
 <ul>
-<li>
-<code>man 3 printf</code>, see <code>%f</code> is of type <code>double</code>.  You can use:</li>
+<li>If you <code>man 3 printf</code>, you can see that <code>%f</code> is of type <code>double</code>.  You can
+use:</li>
 </ul>
 </li>
 </ul>
@@ -425,9 +426,9 @@ from the ASCII table.  A character is not the same thing as <code>char</code>.</
 	  <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%f</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-bu">pi</span>);</pre></div>
 <ul>
 <li>
-<p>floats are automatically converted to doubles if used as arguments in
-functions with variable number of arguments (known as a "variadic
-function"), i.e. like printf()</p>
+<p><code>float</code>s are automatically converted to <code>double</code>s if used as arguments in
+functions with variable number of arguments (known as <em>variadic
+function</em>), i.e. like printf()</p>
 </li>
 <li>
 <p><code>char</code> (1 byte), <code>short</code> (usually 2 bytes), <code>long</code> (4 or 8 bytes), <code>long long</code>
@@ -443,36 +444,37 @@ either <code>-m32</code> or <code>-m64</code> options)
 </ul>
 </li>
 <li>
-<p>see also <em>5.2.4.2 Numerical limits</em>
+<p>See also <em>5.2.4.2 Numerical limits</em>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C spec.</a>
 For example, <code>int</code> must be at least 4 bytes but the C spec does not prevent it
 from being 8 bytes in the future.</p>
 </li>
 <li>
 <p><code>char</code>s and <code>short</code>s are automatically converted to <code>int</code> if used as arguments
-in variadic functions.</p>
+in variadic functions, and also if used as operands in many operators.  More
+on that later.</p>
 </li>
 <li>
-<p>as <code>'X'</code> is <code>int</code> but within 0-127, it's OK to do the following as it will fit
-even if <code>char</code> is signed:</p>
+<p>As <code>'X'</code> is <code>int</code> but within 0-127 (see above on the ASCII standard), it is
+OK to do the following as it will fit even when <code>char</code> is signed:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> c = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;</pre></div>
 <h2><a id="user-content-signedness" class="anchor" aria-hidden="true" href="#signedness"><span aria-hidden="true" class="octicon octicon-link"></span></a>Signedness</h2>
 <ul>
-<li>each integer type has a <code>signed</code> and <code>unsigned</code> variant.  By default, the
+<li>Each integer type has a <code>signed</code> and <code>unsigned</code> variant.  By default, the
 numeric types are signed aside from <code>char</code> which depends on the implementation
 (of the C compiler).  If you need an unsigned type, use <code>unsigned</code> reserved
 word.</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>  <span class="pl-k">signed</span> <span class="pl-k">int</span> si;	<span class="pl-c"><span class="pl-c">//</span> not used though, just use 'int si'</span>
-  <span class="pl-k">unsigned</span> <span class="pl-k">int</span> ui;
-  <span class="pl-k">unsigned</span> <span class="pl-k">long</span> ul;
-  <span class="pl-k">unsigned</span> <span class="pl-k">long</span> <span class="pl-k">long</span> ull;
-  ...</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">signed</span> <span class="pl-k">int</span> si;	<span class="pl-c"><span class="pl-c">//</span> not used though, just use 'int si'</span>
+<span class="pl-k">unsigned</span> <span class="pl-k">int</span> ui;
+<span class="pl-k">unsigned</span> <span class="pl-k">long</span> ul;
+<span class="pl-k">unsigned</span> <span class="pl-k">long</span> <span class="pl-k">long</span> ull;
+...</pre></div>
 <ul>
 <li>
-<p>for <code>int</code>s, you do not even need to use the <code>int</code> keyword, ie. <code>signed i</code>,
+<p>For <code>int</code>s, you do not even need to use the <code>int</code> keyword, ie. <code>signed i</code>,
 <code>unsigned u</code> are valid but it is recommended to use <code>int i</code> and <code>unsigned int u</code> anyway.</p>
 </li>
 <li>
@@ -487,13 +489,13 @@ type, then put it on the stack (Intel x32 passing argument convention) or in a
 register (Intel x64 convention).</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-c"><span class="pl-c">/*</span> OK <span class="pl-c">*/</span></span>
-	<span class="pl-k">char</span> c = <span class="pl-c1">127</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, c);
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span> OK <span class="pl-c">*/</span></span>
+<span class="pl-k">char</span> c = <span class="pl-c1">127</span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, c);
 
-	<span class="pl-c"><span class="pl-c">/*</span> OK <span class="pl-c">*/</span></span>
-	<span class="pl-k">short</span> sh = <span class="pl-c1">32768</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, sh);</pre></div>
+<span class="pl-c"><span class="pl-c">/*</span> OK <span class="pl-c">*/</span></span>
+<span class="pl-k">short</span> sh = <span class="pl-c1">32768</span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, sh);</pre></div>
 <h2><a id="user-content-modifiers-for-printf" class="anchor" aria-hidden="true" href="#modifiers-for-printf"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modifiers for printf()</h2>
 <ul>
 <li>
@@ -506,56 +508,56 @@ register (Intel x64 convention).</p>
 <p><code>u</code> is unsigned, <code>x</code> is unsigned hexa, <code>X</code> is unsigned HEXA</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> u = <span class="pl-c1">13</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%u</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
+<div class="highlight highlight-source-c"><pre><span class="pl-k">unsigned</span> <span class="pl-k">int</span> u = <span class="pl-c1">13</span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%u</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
 
-	<span class="pl-k">unsigned</span> <span class="pl-k">long</span> <span class="pl-k">long</span> llu = <span class="pl-c1">13</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%llu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, llu);
+<span class="pl-k">unsigned</span> <span class="pl-k">long</span> <span class="pl-k">long</span> llu = <span class="pl-c1">13</span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%llu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, llu);
 
-	<span class="pl-k">unsigned</span> <span class="pl-k">int</span> u = <span class="pl-c1">13</span>;
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%x</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; d</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%X</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; D</span></pre></div>
+<span class="pl-k">unsigned</span> <span class="pl-k">int</span> u = <span class="pl-c1">13</span>;
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%x</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; d</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%X</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, u);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; D</span></pre></div>
 <ul>
-<li>the following is a problem though if compiled in 32 bits as you put 4 bytes on
+<li>The following is a problem though if compiled in 32 bits as you put 4 bytes on
 the stack but <code>printf</code> will take 8 bytes.  Older compilers may not warn you at
 all!</li>
 </ul>
-<pre><code>	/* DEFINITELY NOT OK.  Remember, 13 is of the "int" type. */
-	printf("%lld\n", 13);
+<pre><code>/* DEFINITELY NOT OK.  Remember, 13 is of the "int" type. */
+printf("%lld\n", 13);
 
-	$ cc -m32 wrong-modifier.c
-	wrong-modifier.c:6:19: warning: format specifies type 'long
-	long' but the argument has type 'int' [-Wformat]
-		printf("%lld\n", 13);
-			~~~~     ^~
-			%d
-	1 warning generated.
-	$ ./a.out
-	2026120757116941
+$ cc -m32 wrong-modifier.c
+wrong-modifier.c:6:19: warning: format specifies type 'long
+long' but the argument has type 'int' [-Wformat]
+	printf("%lld\n", 13);
+		~~~~     ^~
+		%d
+1 warning generated.
+$ ./a.out
+2026120757116941
 </code></pre>
 <ul>
-<li>when compiled in 64 bits, it is still as incorrect as before but it will
+<li>When compiled in 64 bits, it is still as incorrect as before but it will
 print 13 anyway as 13 is assigned to a 64 bit register (because of x64 ABI).
 So, if you use that code successfully in 64 bits you might be surprised if
 the code is then compiled in 32 bits and "suddenly" gets broken.</li>
 </ul>
-<pre><code>	$ cc -m64 wrong-modifier.c
-	wrong-modifier.c:6:19: warning: format specifies type 'long
-	long' but the argument has type 'int' [-Wformat]
-		printf("%lld\n", 13);
-			~~~~     ^~
-			%d
-	1 warning generated.
-	$ ./a.out
-	13
+<pre><code>$ cc -m64 wrong-modifier.c
+wrong-modifier.c:6:19: warning: format specifies type 'long
+long' but the argument has type 'int' [-Wformat]
+	printf("%lld\n", 13);
+		~~~~     ^~
+		%d
+1 warning generated.
+$ ./a.out
+13
 </code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/wrong-modifier.c">wrong-modifier.c</a></p>
 <h2><a id="user-content-suffixes" class="anchor" aria-hidden="true" href="#suffixes"><span aria-hidden="true" class="octicon octicon-link"></span></a>Suffixes</h2>
 <ul>
 <li>
-<p>you can explicitly specify integer constants with different integer types
+<p>You can explicitly specify integer constants with different integer types
 using suffices</p>
 <ul>
 <li>
@@ -575,25 +577,25 @@ using suffices</p>
 </ul>
 </li>
 <li>
-<p>so, <code>0xFULL</code> and <code>0XFULL</code> is an <code>unsigned long long</code> 15 :-)</p>
+<p>So, <code>0xFULL</code> and <code>0XFULL</code> is an <code>unsigned long long</code> 15 :-)</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%llu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0xFULL</span>);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; 15</span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%lld</span><span class="pl-pds">"</span></span>, <span class="pl-c1">13LL</span>);	<span class="pl-c"><span class="pl-c">/*</span> OK <span class="pl-c">*/</span></span>
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; 13</span>
-	<span class="pl-c"><span class="pl-c">/*</span> NOT OK as long may be 4 bytes while long long is 8+ bytes <span class="pl-c">*/</span></span>
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%ld</span><span class="pl-pds">"</span></span>, <span class="pl-c1">13LL</span>);
-	<span class="pl-c"><span class="pl-c">//</span> --&gt; ??</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%llu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">0xFULL</span>);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; 15</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%lld</span><span class="pl-pds">"</span></span>, <span class="pl-c1">13LL</span>);	<span class="pl-c"><span class="pl-c">/*</span> OK <span class="pl-c">*/</span></span>
+<span class="pl-c"><span class="pl-c">//</span> --&gt; 13</span>
+<span class="pl-c"><span class="pl-c">/*</span> NOT OK as long may be 4 bytes while long long is 8+ bytes <span class="pl-c">*/</span></span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%ld</span><span class="pl-pds">"</span></span>, <span class="pl-c1">13LL</span>);
+<span class="pl-c"><span class="pl-c">//</span> --&gt; ??</span></pre></div>
 <ul>
 <li>Escape sequences <code>\ooo</code> and <code>\xhh</code> (not <code>\Xhh</code>) are character sized bit
 patterns, either specified as octal or hexadecimal numbers.  They can be used
 in string constants and in character constants.  They are still of type <code>int</code>
 as they are character constants, see above.</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\110\x6F\154\x61</span><span class="pl-pds">"</span></span>);
-	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x21</span><span class="pl-pds">'</span></span>);
-	<span class="pl-c"><span class="pl-c">//</span> -&gt; Hola!</span></pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\110\x6F\154\x61</span><span class="pl-pds">"</span></span>);
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x21</span><span class="pl-pds">'</span></span>);
+<span class="pl-c"><span class="pl-c">//</span> -&gt; Hola!</span></pre></div>
 <h1><a id="user-content-the-sizeof-operator" class="anchor" aria-hidden="true" href="#the-sizeof-operator"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>sizeof</code> operator</h1>
 <ul>
 <li>the <code>sizeof</code> operator computes the byte size of its argument which is an
