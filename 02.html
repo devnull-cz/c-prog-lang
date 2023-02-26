@@ -273,10 +273,10 @@ the <code>-E</code> option of the compiler.</p>
 <h1><a id="user-content-expressions" class="anchor" aria-hidden="true" href="#expressions"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expressions</h1>
 <ul>
 <li>
-<p>every expression has a value</p>
+<p>Every expression has a value.</p>
 </li>
 <li>
-<p>logical expression has value 0 or 1, and its type is always <code>int</code></p>
+<p>A logical expression has value 0 or 1, and its type is always <code>int</code>.</p>
 </li>
 </ul>
 <pre><code>1 &gt; 10	... 0
@@ -289,12 +289,27 @@ printf("%d\n", 100 == 101);
 --&gt; 0
 </code></pre>
 <ul>
-<li>neverending <code>while</code> loop is for example as follows:</li>
+<li>
+<p>Even constants are expressions (more on that later), e.g. <code>1</code>.</p>
+</li>
+<li>
+<p>As the <code>while</code> statement is defined as (C99 6.8.5):</p>
+</li>
 </ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">while</span> (expression) statement</pre></div>
+<p>...and given that a constant is also an expression, a neverending <code>while</code> loop
+can be written for example as follows.  It is because it will loop until the
+expression becomes 0.  That is never, in this case.</p>
 <pre><code>while (1) {
 	...
 }
 </code></pre>
+<p>You could also write <code>while (2)</code> or <code>while (1000)</code> and it would still be a
+neverending loop but that is not how it is usually used.</p>
+<ul>
+<li>note that the <code>statement</code> from the spec definition can be a code block as you
+can see above, more on that later.</li>
+</ul>
 <h1><a id="user-content-the-break-statement" class="anchor" aria-hidden="true" href="#the-break-statement"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>break</code> statement</h1>
 <ul>
 <li>statement <code>break</code> will cause a jump out of a most inner while loop (well, any
