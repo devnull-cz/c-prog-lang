@@ -599,18 +599,26 @@ constants.</li>
 <span class="pl-c"><span class="pl-c">//</span> -&gt; Hola!</span></pre></div>
 <h1><a id="user-content-the-sizeof-operator" class="anchor" aria-hidden="true" href="#the-sizeof-operator"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>sizeof</code> operator</h1>
 <ul>
-<li>the <code>sizeof</code> operator computes the byte size of its argument which is an
-expression or a type
+<li>The <code>sizeof</code> operator computes the byte size of its argument which is either
+an expression or a type name
 <ul>
-<li>this is not a function so you can use it without parens: <code>sizeof foo</code>
-</li>
-<li>its type is <code>size_t</code> which is an unsigned integer according to the
-standard.  However, the implementation (= compiler) can choose whether
-it's an <code>unsigned int</code>, an <code>unsigned long int</code>, or an <code>unsigned long long int</code>.</li>
-<li>in printf(), the <code>z</code> modifier modifies <code>u</code> to <code>size_t</code>, so this is the
-right way to do it:</li>
+<li>This is not a function so you can use it without parens: <code>sizeof foo</code> unless
+its argument is a type name, in that case parens are required.  However, for
+better readability parenthesis are usually used.</li>
 </ul>
 </li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">sizeof</span> (<span class="pl-c1">1</span>);	<span class="pl-c"><span class="pl-c">//</span> OK</span>
+<span class="pl-k">sizeof</span> <span class="pl-c1">1</span>;	<span class="pl-c"><span class="pl-c">//</span> OK but "sizeof (1)" is better.</span>
+<span class="pl-k">sizeof</span> <span class="pl-c1">1</span> + <span class="pl-c1">1</span>;	<span class="pl-c"><span class="pl-c">//</span> See?</span>
+<span class="pl-k">sizeof</span> (<span class="pl-k">int</span>);	<span class="pl-c"><span class="pl-c">//</span> OK</span>
+<span class="pl-k">sizeof</span> <span class="pl-k">int</span>;	<span class="pl-c"><span class="pl-c">//</span> Syntax error.</span></pre></div>
+<ul>
+<li>Its type is <code>size_t</code> which is an unsigned integer according to the
+standard.  However, the implementation (= compiler) can choose whether
+it is an <code>unsigned int</code>, an <code>unsigned long int</code>, or an <code>unsigned long long int</code>.</li>
+<li>In printf(), the <code>z</code> modifier modifies <code>u</code> to <code>size_t</code>, so this is the
+right way to do it:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (<span class="pl-c1">13</span>));
 <span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
@@ -622,7 +630,7 @@ may not work using a different combination.  Always use <code>%zu</code> for arg
 of type <code>size_t</code>.</p>
 </li>
 <li>
-<p>the expression within the <code>sizeof</code> operator is <strong>never</strong> executed (the
+<p>the expression within the <code>sizeof</code> operator is <strong>never</strong> <em>evaluated</em> (the
 compiler should warn you about such code).  <strong>Only the size in bytes needed to
 store the value if evaluated is returned.</strong></p>
 </li>
@@ -633,7 +641,7 @@ store the value if evaluated is returned.</strong></p>
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);
 <span class="pl-c"><span class="pl-c">//</span> --&gt; 1</span></pre></div>
 <ul>
-<li><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> try <code>sizeof</code> on various values and types in printf(), compile with
+<li><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Try <code>sizeof</code> on various values and types in printf(), compile with
 <code>-m 32</code> and <code>-m 64</code> and see the difference</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">sizeof</span> (<span class="pl-c1">1</span>);
@@ -641,10 +649,11 @@ store the value if evaluated is returned.</strong></p>
 <span class="pl-k">sizeof</span> (<span class="pl-k">long</span>);
 <span class="pl-k">sizeof</span> (<span class="pl-k">long</span> <span class="pl-k">long</span>);
 <span class="pl-k">sizeof</span> (<span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>);
+<span class="pl-k">sizeof</span> (<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\075</span><span class="pl-pds">'</span></span>);
 <span class="pl-k">sizeof</span> (<span class="pl-c1">1LL</span>);
 <span class="pl-c"><span class="pl-c">//</span> ...</span></pre></div>
 <ul>
-<li>we will get there later in semester but if you are bored, try to figure out
+<li>We will get there later in semester but if you are bored, try to figure out
 why the following is going to print <code>1 4 4</code>:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> c;
@@ -655,8 +664,8 @@ why the following is going to print <code>1 4 4</code>:</li>
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%zu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-k">sizeof</span> (+c));
 <span class="pl-c"><span class="pl-c">//</span> --&gt; 4</span></pre></div>
 <p>The <code>sizeof</code> operator is usually evaluated during compilation time however
-this is not universally true (for Variable Length Arrays (VLAs) it has to
-happen during runtime. The VLAs will be explained later).</p>
+this is not universally true.  For Variable Length Arrays (VLAs) it has to
+happen during runtime.  The VLAs will be explained later.</p>
 <h1><a id="user-content-integer-literals" class="anchor" aria-hidden="true" href="#integer-literals"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer literals</h1>
 <ul>
 <li>
