@@ -1,7 +1,7 @@
 # Strings
 
 A contiguous sequence of non-zero bytes (`char`s) terminated by a zero byte is
-called a *string*.
+called a *string* (C99 7.1.1).
 
 ```C
 char foo[] = { 'b', 'a', 'r', 0 };
@@ -18,8 +18,8 @@ length of a string, the string must be sequentially searched for the first NUL.
 The string length is the number of bytes preceding the null character.
 
 It also means the size of such an character array is **one byte more than the
-number of characters in the string**.  It is because of the terminating zero
-(`\0`) that the compiler adds to terminate the string. 
+number of non-zero characters in the string**.  It is because of the terminating
+zero (`\0`).  The NUL belongs to the string though.
 
 ```C
 char foo[] = { 'b', 'a', 'r', '\0' };
@@ -52,4 +52,10 @@ Note that the following array of characters contains three strings:
 
 ```C
 char foo[] = { 'a', '\0', 'b', 0, 'c', 0 };
+```
+
+And an character array does not need to be or contain a string at all:
+
+```C
+char not_a_string[] = { 'h', 'i' };
 ```
