@@ -39,18 +39,18 @@ and see.
 
 Before I begin, let me give you more information:
 
-- it depends on a system and its version, and a compiler and its version
+- It depends on a system and its version, and a compiler and its version
 	- you can also try the `clang` compiler later on the same machine
-- will be using `gcc` which defaults to generate 64 bit binaries on the Linux
+- Will be using `gcc` which defaults to generate 64 bit binaries on the Linux
   distro installed on u-pl3.ms.mff.cuni.cz (and other machines in the lab).
 - 64 bit binaries on x86 use [X86-64 ABI](https://en.wikipedia.org/wiki/X86-64)
 - [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) is not
   [API](https://en.wikipedia.org/wiki/Application_programming_interface)
-- by this ABI (it's law!), the first two function integer arguments are passed
+- By this ABI (it's law!), the first two function integer arguments are passed
   through the general purpose **edi** and **esi** registers
-- integer function return value is passed back to the caller via the general
+- Integer function return value is passed back to the caller via the general
   purpose **eax** register
-- **the stack on x86 grows down**
+- **The stack on x86 grows down**
 
 Let's compile the code and disassemble it.  All we need are the `main` and
 `addnum` function.  See my notes inline.
@@ -239,16 +239,16 @@ $ ./a.out
 
 What we should take away from this situation:
 
-- anything looking as working does not mean it is correct
-- ideally, if possible, test on different architectures (like x86, SPARC, ARM,
+- Anything looking as working does not mean it is correct
+- Ideally, if possible, test on different architectures (like x86, SPARC, ARM,
   etc).
-- using different compilers and different systems may help as well.  For
+- Using different compilers and different systems may help as well.  For
   example, if you develop in a Linux distro, testing it also on a macOS laptop
   would be worth it.
-- if something magically stops working that did work before, be ready for
+- If something magically stops working that did work before, be ready for
   breakage like this.  Even something that has worked for ages does not
   necessarily means the code must have been correct.
-- always use `-Wall -Wextra` GCC options when building your code.  More on that
+- Always use `-Wall -Wextra` GCC options when building your code.  More on that
   later in the seminar.  See that `clang` warns by default which is a good
   thing.
 
