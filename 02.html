@@ -746,7 +746,7 @@ function.</p>
 <code>getchar</code> function reads one character from the process standard input and
 returns its value as an <code>int</code>.
 <ul>
-<li>when it reaches end of input (for example, by pressing <code>Ctrl-D</code> in the
+<li>When it reaches end of input (for example, by pressing <code>Ctrl-D</code> in the
 terminal), it returns <code>EOF</code>
 </li>
 <li>
@@ -755,7 +755,7 @@ an <code>int</code> instead of a <code>char</code> as it needs an extra value fo
 <li>
 <code>getchar</code> needs <code>#include &lt;stdio.h&gt;</code>
 </li>
-<li>you can verify that <code>EOF</code> is part of <code>&lt;stdio&gt;</code>, search for "getchar"
+<li>You can verify that <code>EOF</code> is part of <code>&lt;stdio&gt;</code>, search for "getchar"
 here: <a href="https://pubs.opengroup.org/onlinepubs/9699919799" rel="nofollow">https://pubs.opengroup.org/onlinepubs/9699919799</a>
 </li>
 </ul>
@@ -763,28 +763,27 @@ here: <a href="https://pubs.opengroup.org/onlinepubs/9699919799" rel="nofollow">
 </ul>
 <h3><a id="user-content-wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out" class="anchor" aria-hidden="true" href="#wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write code that will read characters from a terminal and prints them out.</h3>
 <p>It should work like this:</p>
-<pre><code>	$ cat /etc/passwd | ./a.out &gt; passwd
-	$ diff passwd /etc/passwd
-	$ echo $?
-	0
+<pre><code>$ cat /etc/passwd | ./a.out &gt; passwd
+$ diff passwd /etc/passwd
+$ echo $?
+0
 </code></pre>
 <ul>
-<li>remember, we said above that an assignment is just an expression, so it has a
-value.  So, you can do this:</li>
+<li>Remember, we said above that an assignment is just an expression, so it has a
+value.  So, you can do the following:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">if</span> ((c = getchar()) == EOF)
-		<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> ((c = getchar()) == EOF)
+	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
 <p>instead of:</p>
-<div class="highlight highlight-source-c"><pre>	c = getchar();
-	<span class="pl-k">if</span> (c == EOF)
-		<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
+<div class="highlight highlight-source-c"><pre>c = getchar();
+<span class="pl-k">if</span> (c == EOF)
+	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
 <p>However, do <strong>not</strong> abuse it as you may create a hard to read code.  Note the
-parentheses around the assignment.  The <code>=</code> operator has lower priority than the
-<code>==</code> operator.  If the parens are not used, the following would happen:</p>
+parenthesis around the assignment.  The <code>=</code> operator has a lower priority than
+the <code>==</code> operator.  If the parens are not used, the following would happen:</p>
 <p><code>if (c = getchar() == EOF)</code> would be evaluated as:</p>
-<p><code>if (c = (getchar() == EOF))</code>, meaning that "c" would be either 0 or 1
-based on whether we read a character or the terminal input is
-closed.</p>
+<p><code>if (c = (getchar() == EOF))</code>, meaning that <code>c</code> would be either <code>0</code> or <code>1</code> based
+on whether we read a character or the terminal input is closed.</p>
 <p>We will learn more about operator priority later in the semester.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/getchar.c">getchar.c</a></p>
 <h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
