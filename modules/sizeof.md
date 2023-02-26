@@ -4,7 +4,7 @@
   an expression or a type name
   - This is not a function so you can use it without parens: `sizeof foo` unless
     its argument is a type name, in that case parens are required.  However, for
-    better readability parenthesis are usually used.
+    better readability parentheses are usually used.
 
 ```C
 sizeof (1);	// OK

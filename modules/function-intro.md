@@ -4,12 +4,12 @@ Functions can be used to encapsulate some work, for code re-factoring, etc.
 
 A function has a single return value and multiple input parameters.
 
-- if you also need to extract an error code with the value or get multiple
+- If you also need to extract an error code with the value or get multiple
   return values, that needs to be done via passing data via reference (more on
-  that when we have pointers)
-- i.e. this is not like Go that returns an error along with the data
+  that when we have pointers).
+- I.e. this is not like Go that returns an error along with the data.
 
-A function *declaration* is only declaring the API without its body.  In C, it
+A function *declaration* is only declaring an API without its body.  In C, it
 is called a *function prototype* and it consists of a type, a function name, and
 an parameter list in parentheses.  For example:
 
@@ -30,8 +30,8 @@ return_a_number(void)
 }
 ```
 
-Note that when declare or define a function, the function has *parameters*.
-When we call such a function though, we pass in *arguments*.  So, for the above
+When we declare or define a function, the function has *parameters*.  When we
+call such a function though, we pass in *arguments*.  So, for the above
 mentioned function `digit`, if called as `digit(7)`, we passed argument `7` as
 parameter `c`.
 

@@ -38,7 +38,7 @@ if (c == EOF)
 ```
 
 However, do **not** abuse it as you may create a hard to read code.  Note the
-parenthesis around the assignment.  The `=` operator has a lower priority than
+parentheses around the assignment.  The `=` operator has a lower priority than
 the `==` operator.  If the parens are not used, the following would happen:
 
 `if (c = getchar() == EOF)` would be evaluated as:
