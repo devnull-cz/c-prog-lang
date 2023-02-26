@@ -4,9 +4,18 @@
 combination of symbols that is well-formed according to rules that depend on
 the context."
 
-In C, expressions are, amongst others, variables, constants, strings, and
-expressions in parentheses.  Also arithmetic expressions, relational
-expressions, function calls, `sizeof`, assignments, and ternary expressions.
+In C, expressions are, amongst others:
+
+- variables
+- constants
+- strings
+- expressions in parentheses
+- arithmetic expressions
+- relational expressions
+- function calls
+- `sizeof`
+- assignments
+- ternary expressions
 
 http://en.cppreference.com/w/c/language/expressions
 
