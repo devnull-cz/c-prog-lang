@@ -6,7 +6,8 @@
   identifier name can be used.
 
 - For example, we can declare a variable `int i` in the `main` function, and as
-  well as in another function.  Those two variables reference different storage.
+  well as in another function.  Those two variables reference different
+  [objects](/modules/object.md).
 
 - For now, we only care about two types of scope - a file, and a block.
 
@@ -21,7 +22,7 @@
   etc.
 
 - Within the inner block, an identifier of the same name declared in the
-  outer block is hidden (and not visible) within the inner block.  See:
+  outer block is hidden (and not visible).  See:
 
 	- #source shadow.c
 	- #source shadow-block.c
