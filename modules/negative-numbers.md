@@ -1,14 +1,13 @@
 # Negative numbers
 
 Negative numbers are usually stored in [two's complement](https://en.wikipedia.org/wiki/Two's_complement)
-(however, that is implementation defined by the standard).
+(however, that is implementation defined by C99).
 
-In short, you take an absolute value, create one's complement
-(inverting the digits in binary representation) and add 1.  There
-are several advantages of this representation, one is that there is only 1 zero 
-(not negative and positive zero if we used the highest bit to track the sign).  
-That is why a `signed char`, for example, can hold -128 to 127,
-and not just -127 to 127.
+In short, you take an absolute value, create one's complement (inverting the
+digits in binary representation) and add 1.  There are several advantages of
+this representation, one is that there is only 1 zero (not negative and positive
+zero if we used the highest bit to track the sign).  That is why a `signed
+char`, for example, can hold -128 to 127, and not just -127 to 127.
 
 For a `char`:
 ```
