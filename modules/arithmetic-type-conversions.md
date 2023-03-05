@@ -66,11 +66,12 @@ Assuming `char c;` declaration, then:
 - `sizeof (++c)` is still 1 as `++` is an unary operator for which the integer
   promotion rules do not apply.
 - `sizeof (+c)` is 4 as for unary `+` and `-`, the integer promotion is applied.
-  - You just need to know or check the spec if you do not remember.  Most
-    of the time it does not matter but do not fool yourself, if you do not
-    know details like that in C, it will bite you sooner or later.
-  - remember [A Case Study of Toyota Unintended Acceleration and Software Safety](https://users.ece.cmu.edu/~koopman/pubs/koopman14_toyota_ua_slides.pdf)
-    from the [first class](/modules/intro.md)
+	- You just need to know or check the spec if you do not remember.  Most
+	  of the time it does not matter but do not fool yourself, if you do not
+	  know details like that in C, it will bite you sooner or later.
+	- remember [A Case Study of Toyota Unintended Acceleration and Software
+	  Safety](https://users.ece.cmu.edu/~koopman/pubs/koopman14_toyota_ua_slides.pdf)
+	  from the [first class](/modules/intro.md)
 - `sizeof (1LL)` will usually be 8 as `long long` is usually 8 bytes.
 
 It gets more interesting if unsigned and signed numbers are involved.  E.g. a
@@ -87,11 +88,15 @@ returns may differ in different implementations so `%zu` will work anywhere.
 ## Example 2
 
 If `long` is 8 bytes, and `int` 4 bytes, then `-1L < 1U` is true as you might
-expect.  If both types are 4 bytes though, the relational expression is false!
-See *6.3.1.8 Usual arithmetic conversions*, paragraph *1*, for the details.
+expect because `1U` is converted to a `long` because a `long` can represent all
+values an `unsigned int`.
 
-However, `-1 > 1U` is true because `-1` is promoted to `unsigned int`.  Two's
-complement representation of -1 is:
+However, if both types are 4 bytes, the relational expression is false!  The
+reason is that in this case, as both types has the same *integer conversion
+rank* (C99 6.3.1.1), the signed is converted to unsigned.  See *6.3.1.8 Usual
+arithmetic conversions*, paragraph *1*, for the details.
+
+Two's complement representation of -1 in 4 bytes is:
 
 ```
 (1) take absolute value of 1	00000000.00000000.00000000.00000001
@@ -140,8 +145,8 @@ $
 
 - what is the result if `0xff` `signed char` and `0xff` `unsigned char` are
   compared using the `==` operator ?
-  - write down the hexadecimal representation of the integers corresponding to
-    the 2 chars with `printf()`
+	- write down the hexadecimal representation of the integers
+	  corresponding to the 2 chars with `printf()`
 
 #solution int-promotion.c
 
@@ -153,7 +158,8 @@ $
 ## :wrench: Quiz 2
 
 Will the program print the whole array ?
-  - try to come up with reason of the expected behavior before running the
-    program.
+
+	- try to come up with reason of the expected behavior before running the
+	  program.
 
 #source whole-array.c

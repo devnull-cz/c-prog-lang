@@ -88,8 +88,8 @@ printf("%c", c);
 printf(3) man page says:
 
 ```
-        c	The int argument is converted to an unsigned char, and the
-		resulting character is written.
+c	The int argument is converted to an unsigned char, and the
+	resulting character is written.
 ```
 
 So it means that `%c` expects an `int` but we put a `char` there.  However,
@@ -268,6 +268,8 @@ Example: #source integer-conversion.c
 Simply put, arithmetic conversion is about converting all arguments of an
 operator to the smallest common type **before** the operator is applied.  That
 includes arithmetic operators as well as logical operators (>, <, <=, ==, >=)
+
+The details are in *6.3.1.8 Usual arithmetic conversions*, paragraph *1*.
 
 Example:
 
