@@ -20,7 +20,5 @@ main(void)
 	 */
 	printf("a: %hhu, b: %hhd\n", a, b);
 	printf("a: %08x, b: %08x\n", a, b);
-	printf("b: %d\n", c);
-
-	return (c);
+	printf("c: %d\n", c);
 }
