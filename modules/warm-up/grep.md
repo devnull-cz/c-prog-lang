@@ -1,6 +1,6 @@
 ## A trivial grep
 
-:wrench: write code to implement `grep *word*`
+:wrench: Write code to implement `grep *word*`
 
 ```
 $ cat /etc/passwd | ./a.out root
