@@ -16,24 +16,25 @@
   from the ASCII table.  A character is not the same thing as `char`.
 
 - Types `float`, `double`
-  - If you `man 3 printf`, you can see that `%f` is of type `double`.  You can
-    use:
+	- If you `man 3 printf`, you can see that `%f` is of type `double`.  You
+	  can use:
 
 ```C
-          float pi = 3.14
-	  printf("%f\n", pi);
+float pi = 3.14
+printf("%f\n", pi);
 ```
 
-  - `float`s are automatically converted to `double`s if used as arguments in
-    functions with variable number of arguments (known as *variadic
-    function*), i.e. like printf()
+	- `float`s are automatically converted to `double`s if used as arguments
+	  in functions with variable number of arguments (known as *variadic
+	  function*), i.e. like printf()
 
 - `char` (1 byte), `short` (usually 2 bytes), `long` (4 or 8 bytes), `long long`
   (usually 8 bytes, and can not be less).  It also depends on whether your
   binary is compiled in 32 or 64 bits.
-  - :wrench: see what code emits your compiler by default (i.e. without using
-    either `-m32` or `-m64` options)
-    - use the `file` command to display the information about the binary
+	- :wrench: see what code emits your compiler by default (i.e. without
+	  using either `-m32` or `-m64` options)
+		- use the `file` command to display the information about the
+		  binary
 
 - See also *5.2.4.2 Numerical limits*
 #module c99-standard.md in the C spec.
@@ -48,8 +49,22 @@
   OK to do the following as it will fit even when `char` is signed:
 
 ```C
-	char c = 'A';
+char c = 'A';
 ```
+
+- In `printf`, you need to use the same type of an argument as is expected by
+  the conversion specified.  Note that e.g. integers and floating point numbers
+  have different representation, and printing a integer as an double (and vice
+  versa) will lead to unexpected consequences.  More on that later.
+
+```
+printf("%f\n", 1);
+
+$ ./a.out
+0.000000
+```
+
+#source print-int-as-double.c
 
 ## Signedness
 

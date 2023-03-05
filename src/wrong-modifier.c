@@ -10,4 +10,8 @@ main(void)
 	 * code.
 	 */
 	printf("%lld\n", 13);
+
+	/* The following is always correct.  Why? */
+	char c = 13;
+	printf("%d\n", c);
 }
