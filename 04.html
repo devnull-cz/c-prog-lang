@@ -308,32 +308,29 @@ works.  Why?</p>
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, c);</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/wrong-modifier.c">wrong-modifier.c</a></p>
 <h1><a id="user-content-ternary-operator" class="anchor" aria-hidden="true" href="#ternary-operator"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ternary operator</h1>
-<pre><code>    cond ? expr1 : expr 2
+<pre><code>cond ? expr1 : expr 2
 </code></pre>
-<p>same as</p>
-<pre><code>    if (cond) expr else expr2
+<p>Is the same as:</p>
+<pre><code>if (cond) expr else expr2
 </code></pre>
-<p>e.g.</p>
-<pre><code>    max = (i &gt; j) ? i : j;
+<p>Example:</p>
+<pre><code>max = (i &gt; j) ? i : j;
 </code></pre>
-<p>note that if we add a semicolon, an expression becomes a statement, e.g.:</p>
-<pre><code>      (i == j) ? i++ : j++;
+<p>Note that if we add a semicolon, an expression becomes a statement, e.g.:</p>
+<pre><code>(i == j) ? i++ : j++;
 </code></pre>
-<p>will increment <code>i</code> or <code>j</code>.  The parens are not needed but generally used for
-better readability.</p>
+<p>That will increment <code>i</code> or <code>j</code>.  The parentheses are not needed but generally
+used for better readability.</p>
 <p>code: <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ternary-assign.c">ternary-assign.c</a></p>
-<h2><a id="user-content-wrench-toupper-using-ternary-operator" class="anchor" aria-hidden="true" href="#wrench-toupper-using-ternary-operator"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> toupper using ternary operator</h2>
+<h2><a id="user-content-wrench-toupper-using-ternary-operator" class="anchor" aria-hidden="true" href="#wrench-toupper-using-ternary-operator"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> <code>toupper()</code> using ternary operator</h2>
 <p>Rewrite the
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/toupper.md">convert small characters to upper case</a>
 program from last time using a function that utilizes the ternary operator
 (single line of code)</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper-ternary.c">toupper-ternary.c</a></p>
 <h2><a id="user-content-wrench-minmax-of-3-integer-values" class="anchor" aria-hidden="true" href="#wrench-minmax-of-3-integer-values"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Min/max of 3 integer values</h2>
-<p>write an expression that returns maximum of 3 integers <code>i</code>, <code>j</code>, <code>k</code> using
-ternary operator</p>
-<ul>
-<li>do not use any macros</li>
-</ul>
+<p>Write an expression that returns maximum of 3 integers <code>i</code>, <code>j</code>, <code>k</code> using
+ternary operator.  Do not use any macros (in case you know those).</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/3max.c">3max.c</a></p>
 <h1><a id="user-content-negative-numbers" class="anchor" aria-hidden="true" href="#negative-numbers"><span aria-hidden="true" class="octicon octicon-link"></span></a>Negative numbers</h1>
 <p>Negative numbers are usually stored in <a href="https://en.wikipedia.org/wiki/Two's_complement" rel="nofollow">two's complement</a>
