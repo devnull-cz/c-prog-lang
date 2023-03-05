@@ -338,13 +338,11 @@ ternary operator</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/3max.c">3max.c</a></p>
 <h1><a id="user-content-negative-numbers" class="anchor" aria-hidden="true" href="#negative-numbers"><span aria-hidden="true" class="octicon octicon-link"></span></a>Negative numbers</h1>
 <p>Negative numbers are usually stored in <a href="https://en.wikipedia.org/wiki/Two's_complement" rel="nofollow">two's complement</a>
-(however, that is implementation defined by the standard).</p>
-<p>In short, you take an absolute value, create one's complement
-(inverting the digits in binary representation) and add 1.  There
-are several advantages of this representation, one is that there is only 1 zero
-(not negative and positive zero if we used the highest bit to track the sign).<br>
-That is why a <code>signed char</code>, for example, can hold -128 to 127,
-and not just -127 to 127.</p>
+(however, that is implementation defined by C99).</p>
+<p>In short, you take an absolute value, create one's complement (inverting the
+digits in binary representation) and add 1.  There are several advantages of
+this representation, one is that there is only 1 zero (not negative and positive
+zero if we used the highest bit to track the sign).  That is why a <code>signed char</code>, for example, can hold -128 to 127, and not just -127 to 127.</p>
 <p>For a <code>char</code>:</p>
 <pre><code> 10000000	-128
  ........
