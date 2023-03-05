@@ -5,7 +5,6 @@
 ```
 $ cat /etc/passwd | ./a.out root
 root:x:0:0::/root:/bin/bash
-
 ```
 
 Assume a reasonable maximum line width, e.g. 1024 bytes including the newline.
