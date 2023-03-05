@@ -533,53 +533,55 @@ myfn(i, ++i);
 <li>Each compiler has its own set of warnings that usually give a clue that
 something strange and potentially harmful can happen.
 <ul>
-<li>
-<p>There are differences between various compilers.</p>
-</li>
-<li>
-<p>We will focus on GCC here.</p>
-</li>
-<li>
-<p>During the old days the tool producing these warnings was called
+<li>There are differences between various compilers.</li>
+<li>We will focus on GCC here.</li>
+<li>During the old days the tool producing these warnings was called
 <code>lint</code> that had to be run separately (there was not enough memory to
 do both at once).  Now those extra checkes are usually part of the
-compiler itself.</p>
-</li>
-<li>
-<p>The basics: use <code>-Wall -Wextra</code></p>
+compiler itself.</li>
+<li>The basics: use <code>-Wall -Wextra</code>
 <ul>
 <li>
 <code>-Wall</code> catches things like missing return value from a
 function that should return one.</li>
-</ul>
+<li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/no-return.c">no-return.c</a>
 </li>
 </ul>
 </li>
+<li>There are many places where a beginner can shoot himself into a foot
+by not knowing the language intricacies.
+<ul>
+<li>E.g. variable cannot be modified more than once between
+sequencing points (C99 6.5 paragraph 2). The
+<code>-Wsequence-point</code> that is included in <code>-Wall</code> warns about
+that.</li>
+<li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/sequence-point-violation.c">sequence-point-violation.c</a>
+</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/no-return.c">no-return.c</a></p>
-<pre><code>- There are many places where a beginner can shoot himself into a foot
-  by not knowing the language intricacies.
-	- E.g. variable cannot be modified more than once between
-	  sequencing points (C99 6.5 paragraph 2). The
-	  `-Wsequence-point` that is included in `-Wall` warns about
-	  that.
-</code></pre>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/sequence-point-violation.c">sequence-point-violation.c</a></p>
-<pre><code>- The `-Wshadow` can catch shadow variables overriding:
-</code></pre>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow.c">shadow.c</a>
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow-block.c">shadow-block.c</a></p>
-<pre><code>- All or specific warnings can be turned into errors: `-Werrror` or
-  `-Werror=&lt;insert_specific_error&gt;`, respectively.
-	- Unless the warnings contain false positives (and those can
-	  usually be suppressed) this will help to avoid troubles later.
-
-- There are other means to check for correctness (static/dynamic
-  analysis), more on those later.
-</code></pre>
+</li>
+<li>The <code>-Wshadow</code> can catch shadow variables overriding:
+<ul>
+<li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow.c">shadow.c</a>
+</li>
+<li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow-block.c">shadow-block.c</a>
+</li>
+</ul>
+</li>
+<li>All or specific warnings can be turned into errors: <code>-Werrror</code> or
+<code>-Werror=&lt;insert_specific_error&gt;</code>, respectively.
+<ul>
+<li>Unless the warnings contain false positives (and those can
+usually be suppressed) this will help to avoid troubles later.</li>
+</ul>
+</li>
+<li>There are other means to check for correctness (static/dynamic
+analysis), more on those later.</li>
+</ul>
+</li>
+</ul>
 <h2><a id="user-content-wrench-use-the-options" class="anchor" aria-hidden="true" href="#wrench-use-the-options"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Use the options</h2>
 <p>Go through the programs written so far and run the compiler using the <code>-Wall -Wextra</code> options.
-- What kind of problems did you discover ? how to fix them ?
+- What kind of problems have you discovered?  How to fix those?
 - See e.g. <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> [whole-array.c example above (where only](<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/whole-array.c">https://github.com/devnull-cz/c-prog-lang/blob/master/src/whole-array.c</a> example above (where only)
 <code>-Wextra</code> gives some clue)</p>
 <p>Explore the compiler documentation for more helpful options.  Over the time you
