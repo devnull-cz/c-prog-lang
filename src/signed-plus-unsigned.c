@@ -6,7 +6,7 @@
 int
 main(void)
 {
-	/* Will print 1 */
+	/* Will print 1 (true). */
 	printf("%d\n", -1 > 1U);
 
 	/*
