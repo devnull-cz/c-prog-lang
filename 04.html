@@ -399,8 +399,8 @@ ternary operator as well.  And even some unary operators.</p>
 an <code>int</code>, a higher type will be used.  For example, <code>4294967296</code> (2^32 =
 <code>UINT_MAX + 1</code>) will be stored in 8 bytes, so <code>sizeof (4294967296)</code> is 8.</p>
 <p>Does it sound confusing?  Do not worry, we will give you specific rules later in
-the <a href="/modules/arithmetic-promotion-and-conversions.md"><em>Arithmetic/integer promotion and
-conversion</em></a> section.</p>
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">modules/arithmetic-promotion-and-conversions.md</a>
+<em>Arithmetic/integer promotion and conversion</em> section.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Verify that numbers that do not fit in an <code>int</code> will have a size of 8
 bytes.</p>
 <h2><a id="user-content-examples" class="anchor" aria-hidden="true" href="#examples"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
@@ -434,8 +434,8 @@ from the <a href="/modules/intro.md">first class</a>
 <code>signed int</code> is promoted to an <code>unsigned int</code> if one of the <code>int</code> operand is
 unsigned.  This is called an <em>implicit type conversion</em>.  There is also
 <em>explicit type conversion</em> (called <em>casting</em>) which we will deal with later in
-the <a href="/modules/arithmetic-promotion-and-conversions.md"><em>Arithmetic/integer promotion and
-conversion</em></a> section.</p>
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/">modules/arithmetic-promotion-and-conversions.md</a>
+<em>Arithmetic/integer promotion and conversion</em> section.</p>
 <p>I suggest you try these out with <code>printf("%zu", ...)</code>. The <code>%zu</code> format string
 (see the <code>printf</code> manual page in section 3 on Unix systems) matches the return
 type of the <code>sizeof</code> operand.  The exact unsigned numeric type of what <code>sizeof</code>
