@@ -613,40 +613,33 @@ function are evaluated.</p>
 <p>See also
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/undefined-behavior.md">More Information on Undefined Behavior.</a></p>
 <h1><a id="user-content-integer-overflow" class="anchor" aria-hidden="true" href="#integer-overflow"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer overflow</h1>
+<p>What happens if an <code>int</code> overflows?</p>
 <ul>
-<li>
-<p>what happens if <code>int</code> overflows ?</p>
+<li>The behavior of an integer overflow depends on whether the type is
+signed or unsigned.
 <ul>
-<li>the behavior of overflow depends on whether the type is signed or unsigned
-<ul>
-<li><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> for signed types the behavior is
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/undefined-behavior.md">undefined</a>
-I.e. you cannot rely that an overflow of a positive quantity in any signed
-integer will be turned into a negative number.
-<ul>
+<li><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> For signed types the behavior is
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/undefined-behavior.md">undefined.</a>
+I.e. you cannot rely that an overflow of a positive quantity in
+any signed integer will be turned into a negative number.</li>
+</ul>
+</li>
 <li>Some compilers will allow to choose the behavior of signed overflows
 using special options (<code>-fwrapv</code> for GCC), though.</li>
-</ul>
-</li>
-<li>for unsigned integers, an overflow always wraps around (modulo power of 2)
-as it is defined behavior.</li>
-</ul>
-</li>
-</ul>
-<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-overflow.c">int-overflow.c</a>
-<g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/unsigned-overflow.c">unsigned-overflow.c</a></p>
+<li>For unsigned integers, the spec requires that overflow always wraps around
+(modulo power of 2).
 <ul>
-<li>use <code>-fstrict-overflow -Wstrict-overflow</code> (will become active only for
-higher optimization levels, i.e. <code>-O&lt;X&gt;</code> where <code>X &gt; 1</code>) to stay on the
-safe side</li>
+<li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/int-overflow.c">int-overflow.c</a>
+</li>
+<li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/unsigned-overflow.c">unsigned-overflow.c</a>
+</li>
 </ul>
 </li>
+<li>Use <code>-fstrict-overflow -Wstrict-overflow</code> (will become active only for higher
+optimization levels, i.e. <code>-O&lt;X&gt;</code> where <code>X &gt; 1</code>) to stay on the safe side.</li>
 </ul>
 <p>See the difference in using <code>-ftrapv</code> and not:</p>
-<div class="highlight highlight-source-c"><pre>janp:t490:~$ cat main.c
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
-
-<span class="pl-k">int</span>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
 <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
 	<span class="pl-k">int</span> i = <span class="pl-c1">2147483647</span>;
