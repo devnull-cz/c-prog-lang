@@ -432,9 +432,10 @@ from the <a href="/modules/intro.md">first class</a>
 </ul>
 <p>It gets more interesting if unsigned and signed numbers are involved.  E.g. a
 <code>signed int</code> is promoted to an <code>unsigned int</code> if one of the <code>int</code> operand is
-unsigned.</p>
-<p>The above is called <em>implicit type conversion</em>.  There is also <em>explicit type
-conversion</em> (called <em>casting</em>) which we will deal with later.</p>
+unsigned.  This is called an <em>implicit type conversion</em>.  There is also
+<em>explicit type conversion</em> (called <em>casting</em>) which we will deal with later in
+the <a href="/modules/arithmetic-promotion-and-conversions.md"><em>Arithmetic/integer promotion and
+conversion</em></a> section.</p>
 <p>I suggest you try these out with <code>printf("%zu", ...)</code>. The <code>%zu</code> format string
 (see the <code>printf</code> manual page in section 3 on Unix systems) matches the return
 type of the <code>sizeof</code> operand.  The exact unsigned numeric type of what <code>sizeof</code>
