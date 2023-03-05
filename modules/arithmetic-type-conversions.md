@@ -29,6 +29,8 @@ $ ./a.out
 However, `-10 + 11U + 10L` would result in `11`, and `-1 + 2U` would result in
 `1`.
 
+#source not-one.c
+
 What is more, in most operations (for every operator, the spec says what is
 done in this respect), `char` and `short` integer operands are *promoted* to
 an `int`, or to an `unsigned int` if they do not fit in an `int`.  That
