@@ -228,34 +228,34 @@ functional languages).</p>
 <h1><a id="user-content-scope" class="anchor" aria-hidden="true" href="#scope"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scope</h1>
 <ul>
 <li>
-<p>every identifier has its <em>scope</em></p>
+<p>Every identifier has its <em>scope</em>.</p>
 </li>
 <li>
-<p>the scope of an identifier is the part of the program within which the
+<p>The scope of an identifier is the part of the program within which the
 identifier name can be used.</p>
 </li>
 <li>
-<p>for example, we can declare a variable <code>int i</code> in the <code>main</code> function, and as
+<p>For example, we can declare a variable <code>int i</code> in the <code>main</code> function, and as
 well as in another function.  Those two variables reference different storage.</p>
 </li>
 <li>
-<p>for now, we only care about two types of scope - a file, and a block.</p>
+<p>For now, we only care about two types of scope - a file, and a block.</p>
 </li>
 <li>
-<p>when declaring an identifier inside a block or within the list of parameter
+<p>When declaring an identifier inside a block or within the list of parameter
 declarations in a function definition, the identifier has <em>block scope</em>.
 Its scope is from the variable declaration to the end of the block.</p>
 </li>
 <li>
-<p>when declaring a variable outside of any block or list of parameters, the
+<p>When declaring a variable outside of any block or list of parameters, the
 identifier has <em>file scope</em>.</p>
 </li>
 <li>
-<p>note that a block is used in multiple constructs in C, e.g. <code>while</code>, <code>for</code>,
+<p>Note that a block is used in multiple constructs in C, e.g. <code>while</code>, <code>for</code>,
 etc.</p>
 </li>
 <li>
-<p>within the inner block, an identifier of the same name declared in the
+<p>Within the inner block, an identifier of the same name declared in the
 outer block is hidden (and not visible) within the inner block.  See:</p>
 <ul>
 <li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow.c">shadow.c</a>
