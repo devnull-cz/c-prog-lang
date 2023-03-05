@@ -76,10 +76,10 @@ Assuming `char c;` declaration, then:
 
 It gets more interesting if unsigned and signed numbers are involved.  E.g. a
 `signed int` is promoted to an `unsigned int` if one of the `int` operand is
-unsigned.
-
-The above is called *implicit type conversion*.  There is also *explicit type
-conversion* (called *casting*) which we will deal with later.
+unsigned.  This is called an *implicit type conversion*.  There is also
+*explicit type conversion* (called *casting*) which we will deal with later in
+the [*Arithmetic/integer promotion and
+conversion*](/modules/arithmetic-promotion-and-conversions.md) section.
 
 I suggest you try these out with `printf("%zu", ...)`. The `%zu` format string
 (see the `printf` manual page in section 3 on Unix systems) matches the return
