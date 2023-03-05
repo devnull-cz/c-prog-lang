@@ -155,7 +155,14 @@ changed in the array itself (consequence of pointer conversion)</p>
 root:x:0:0::/root:/bin/bash
 
 </code></pre>
-<p>Solution: TBD.  You can send us yours and we use it here.</p>
+<p>Assume a reasonable maximum line width, e.g. 1024 bytes including the newline.
+Print an error and exit with 1 (i.e. <code>return (1)</code> from <code>main</code>) when hitting a
+line that crosses that limit.  Test that it works as expected!</p>
+<p>Note that it is generally better to fail rather then silently choose what to do
+on situations like that.  For example, just ignoring the rest of the line after
+the 1024 byte limit which might be very confusing for users.</p>
+<p>Solution: TBD.  You can send us your solution so that we use it here.  Do it as
+simple as possible.</p>
 <h1><a id="user-content-string-length" class="anchor" aria-hidden="true" href="#string-length"><span aria-hidden="true" class="octicon octicon-link"></span></a>String length</h1>
 <p>We know that we can use <code>sizeof</code> to get a length of a character array including
 the terminating <code>'\0'</code> character.  There is a more generic way to get a string
