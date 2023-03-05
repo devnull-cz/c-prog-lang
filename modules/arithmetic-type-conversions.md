@@ -50,7 +50,7 @@ an `int`, a higher type will be used.  For example, `4294967296` (2^32 =
 `UINT_MAX + 1`) will be stored in 8 bytes, so `sizeof (4294967296)` is 8.
 
 Does it sound confusing?  Do not worry, we will give you specific rules later in
-#module modules/arithmetic-promotion-and-conversions.md *Arithmetic/integer promotion and conversion* section.
+#module arithmetic-promotion-and-conversions.md *Arithmetic/integer promotion and conversion* section.
 
 :wrench: Verify that numbers that do not fit in an `int` will have a size of 8
 bytes.
@@ -77,7 +77,7 @@ It gets more interesting if unsigned and signed numbers are involved.  E.g. a
 `signed int` is promoted to an `unsigned int` if one of the `int` operand is
 unsigned.  This is called an *implicit type conversion*.  There is also
 *explicit type conversion* (called *casting*) which we will deal with later in
-#module modules/arithmetic-promotion-and-conversions.md *Arithmetic/integer promotion and conversion* section.
+#module arithmetic-promotion-and-conversions.md *Arithmetic/integer promotion and conversion* section.
 
 I suggest you try these out with `printf("%zu", ...)`. The `%zu` format string
 (see the `printf` manual page in section 3 on Unix systems) matches the return
