@@ -149,12 +149,19 @@ changed in the array itself (consequence of pointer conversion)</p>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">short</span> uppper[] = { <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>, ... };</pre></div>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper-table.c">toupper-table.c</a></p>
+<h2><a id="user-content-a-trivial-grep" class="anchor" aria-hidden="true" href="#a-trivial-grep"><span aria-hidden="true" class="octicon octicon-link"></span></a>A trivial grep</h2>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write code to implement <code>grep *word*</code></p>
+<pre><code>$ cat /etc/passwd | ./a.out root
+root:x:0:0::/root:/bin/bash
+
+</code></pre>
+<p>Solution: TBD.  You can send us yours and we use it here.</p>
 <h1><a id="user-content-string-length" class="anchor" aria-hidden="true" href="#string-length"><span aria-hidden="true" class="octicon octicon-link"></span></a>String length</h1>
 <p>We know that we can use <code>sizeof</code> to get a length of a character array including
-the terminating <code>'\0'</code> character.  There is a more general way to get a string
+the terminating <code>'\0'</code> character.  There is a more generic way to get a string
 length, function <code>strlen()</code> that returns the number of characters without
 the terminating zero.  Note that when we know what pointers are, the
-existence of the fuction will make more sense.</p>
+existence of the function will make more sense.</p>
 <p>The function is declared in <code>&lt;string.h&gt;</code> and returns a value of type <code>size_t</code>,
 that is the same type as the operator <code>sizeof</code> uses.  So, remember to use the
 <code>z</code> modifier to the <code>%u</code> conversion specifier:</p>

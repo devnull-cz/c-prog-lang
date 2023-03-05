@@ -467,6 +467,27 @@ per-char initializator and try to print the string ?</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> foo[] = { <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>, <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span> };</pre></div>
 <p>And an character array does not need to be or contain a string at all:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> not_a_string[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>i<span class="pl-pds">'</span></span> };</pre></div>
+<p>A special case of of initializing a character array that is to represent a
+string is using double quotes.  The terminating zero will be the last character
+of the array.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> mys[] = <span class="pl-s"><span class="pl-pds">"</span>This is a string<span class="pl-pds">"</span></span>;
+
+<span class="pl-k">int</span> i = <span class="pl-c1">0</span>;
+
+<span class="pl-c"><span class="pl-c">/*</span> Now print the string from the array one by one. <span class="pl-c">*/</span></span>
+<span class="pl-k">while</span> (mys[i] != <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span>)
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-pds">"</span></span>, mys[i++]);
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+
+<span class="pl-c"><span class="pl-c">/*</span> Normally, you would of course do the following. <span class="pl-c">*/</span></span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, mys);</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/init-array-from-string.c">init-array-from-string.c</a></p>
+<p>Note that the above really creates a local variable on the stack with its memory
+initialized from the string when the code is executed.</p>
+<pre><code>$ cc init-array-from-string.c
+$  strings a.out | grep bar
+foobar
+</code></pre>
 <h1><a id="user-content-function-return-values-and-abi" class="anchor" aria-hidden="true" href="#function-return-values-and-abi"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function return values and ABI</h1>
 <p>Let's look at the following code.  Obviously, the function does not return its
 value while it definitely should have.  What happens if we use the function
