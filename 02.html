@@ -417,28 +417,28 @@ from the ASCII table.  A character is not the same thing as <code>char</code>.</
 <li>
 <p>Types <code>float</code>, <code>double</code></p>
 <ul>
-<li>If you <code>man 3 printf</code>, you can see that <code>%f</code> is of type <code>double</code>.  You can
-use:</li>
+<li>If you <code>man 3 printf</code>, you can see that <code>%f</code> is of type <code>double</code>.  You
+can use:</li>
 </ul>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>          <span class="pl-k">float</span> <span class="pl-bu">pi</span> = <span class="pl-c1">3.14</span>
-	  <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%f</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-bu">pi</span>);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">float</span> <span class="pl-bu">pi</span> = <span class="pl-c1">3.14</span>
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%f</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-bu">pi</span>);</pre></div>
+<pre><code>- `float`s are automatically converted to `double`s if used as arguments
+  in functions with variable number of arguments (known as *variadic
+  function*), i.e. like printf()
+</code></pre>
 <ul>
-<li>
-<p><code>float</code>s are automatically converted to <code>double</code>s if used as arguments in
-functions with variable number of arguments (known as <em>variadic
-function</em>), i.e. like printf()</p>
-</li>
 <li>
 <p><code>char</code> (1 byte), <code>short</code> (usually 2 bytes), <code>long</code> (4 or 8 bytes), <code>long long</code>
 (usually 8 bytes, and can not be less).  It also depends on whether your
 binary is compiled in 32 or 64 bits.</p>
 <ul>
-<li><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> see what code emits your compiler by default (i.e. without using
-either <code>-m32</code> or <code>-m64</code> options)
+<li><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> see what code emits your compiler by default (i.e. without
+using either <code>-m32</code> or <code>-m64</code> options)
 <ul>
-<li>use the <code>file</code> command to display the information about the binary</li>
+<li>use the <code>file</code> command to display the information about the
+binary</li>
 </ul>
 </li>
 </ul>
@@ -459,7 +459,19 @@ on that later.</p>
 OK to do the following as it will fit even when <code>char</code> is signed:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre>	<span class="pl-k">char</span> c = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> c = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;</pre></div>
+<ul>
+<li>In <code>printf</code>, you need to use the same type of an argument as is expected by
+the conversion specified.  Note that e.g. integers and floating point numbers
+have different representation, and printing a integer as an double (and vice
+versa) will lead to unexpected consequences.  More on that later.</li>
+</ul>
+<pre><code>printf("%f\n", 1);
+
+$ ./a.out
+0.000000
+</code></pre>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/print-int-as-double.c">print-int-as-double.c</a></p>
 <h2><a id="user-content-signedness" class="anchor" aria-hidden="true" href="#signedness"><span aria-hidden="true" class="octicon octicon-link"></span></a>Signedness</h2>
 <ul>
 <li>Each integer type has a <code>signed</code> and <code>unsigned</code> variant.  By default, the
