@@ -1,4 +1,4 @@
-## `toupper`
+## `toupper()`
 
 Rewrite the
 #module home-assignments/toupper.md convert small characters to upper case
@@ -21,21 +21,21 @@ program using a function.
   `main()` and use the array in the `mytoupper()` function
 - Arrays passed as function argument are in reality converted to pointers (to be
   introduced later)
-	- so it is useless to write their size like this:
+	- So, it is useless to write their size like this:
 
 ```C
 /* see what is the value of sizeof(array) inside the func() */
- void func(int array[3]);
+void func(int array[3]);
 ```
 
-- this is better:
+- This is better:
 
 ```C
- void func(int array[], size_t size);
+void func(int array[], size_t size);
 ```
 
 - Also, if the items in the array are changed in the function, they will be
-  changed in the array itself (consequence of pointer conversion)
+  changed in the array itself (consequence of pointer conversion).
 
 - What happens if `mytoupper(-1)` ?
 - `short` is sufficient to store the value:
