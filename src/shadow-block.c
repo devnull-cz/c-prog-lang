@@ -1,5 +1,6 @@
 /*
- * compile with -Wshadow (GCC)
+ * Compile with -Wshadow (GCC) to see the warning about having the variable 'c'
+ * shadowing the other one of the same name, but representing different objects.
  */
 
 #include <stdio.h>
@@ -20,5 +21,6 @@ foo(void)
 int
 main(void)
 {
+	/* Will print 5. */
 	printf("%d\n", foo());
 }

@@ -1,5 +1,6 @@
 /*
- * compile with -Wshadow (GCC)
+ * Compile with -Wshadow (GCC).  Also see "./shadow-block.c" for more
+ * information.
  */
 
 #include <stdio.h>
@@ -17,5 +18,6 @@ foo(void)
 int
 main(void)
 {
+	/* Will print 5. */
 	printf("%d\n", foo());
 }
