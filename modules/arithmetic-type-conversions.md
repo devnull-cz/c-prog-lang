@@ -38,20 +38,22 @@ conversion is called *integer promotion*.  This is done to make the language
 runtime fast (on x86 32-bit arithmetics can be much faster than when using
 16-bit operands).
 
-  - note that the only way an `unsigned short` would not fit a (signed) `int`
+  - Note that the only way an `unsigned short` would not fit a (signed) `int`
     but fit an `unsigned int` is if both types had the same size (e.g. 4 bytes).
     You will probably not use such a compiler/platform combination, ever.
 
-*Most operations* means all binary operators.  A ternary operator as well.  And
-even some unary operators.
+The **most operations** from the above sentence means all binary operators.  A
+ternary operator as well.  And even some unary operators.
 
 `sizeof (1)` is 4 because 1 is an `int`.  However, if a number does not fit to
 an `int`, a higher type will be used.  For example, `4294967296` (2^32 =
 `UINT_MAX + 1`) will be stored in 8 bytes, so `sizeof (4294967296)` is 8.
 
-Does it sound confusing?  Do not worry, we will give you specific rules later.
+Does it sound confusing?  Do not worry, we will give you specific rules later in
+the [*Arithmetic/integer promotion and
+conversion*](/modules/arithmetic-promotion-and-conversions.md) section.
 
-:wrench: verify that numbers that do not fit in an `int` will have a size of 8
+:wrench: Verify that numbers that do not fit in an `int` will have a size of 8
 bytes.
 
 ## Examples
