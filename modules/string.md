@@ -47,7 +47,6 @@ per-char initializator and try to print the string ?
 
 #source array-char-nozero.c
 
-
 Note that the following array of characters contains three strings:
 
 ```C
@@ -58,4 +57,33 @@ And an character array does not need to be or contain a string at all:
 
 ```C
 char not_a_string[] = { 'h', 'i' };
+```
+
+A special case of of initializing a character array that is to represent a
+string is using double quotes.  The terminating zero will be the last character
+of the array.
+
+```C
+char mys[] = "This is a string";
+
+int i = 0;
+
+/* Now print the string from the array one by one. */
+while (mys[i] != '\0')
+	printf("%c", mys[i++]);
+printf("\n");
+
+/* Normally, you would of course do the following. */
+printf("%s\n", mys);
+```
+
+#source init-array-from-string.c
+
+Note that the above really creates a local variable on the stack with its memory
+initialized from the string when the code is executed.
+
+```
+$ cc init-array-from-string.c
+$  strings a.out | grep bar
+foobar
 ```
