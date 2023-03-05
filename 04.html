@@ -389,17 +389,19 @@ conversion is called <em>integer promotion</em>.  This is done to make the langu
 runtime fast (on x86 32-bit arithmetics can be much faster than when using
 16-bit operands).</p>
 <ul>
-<li>note that the only way an <code>unsigned short</code> would not fit a (signed) <code>int</code>
+<li>Note that the only way an <code>unsigned short</code> would not fit a (signed) <code>int</code>
 but fit an <code>unsigned int</code> is if both types had the same size (e.g. 4 bytes).
 You will probably not use such a compiler/platform combination, ever.</li>
 </ul>
-<p><em>Most operations</em> means all binary operators.  A ternary operator as well.  And
-even some unary operators.</p>
+<p>The <strong>most operations</strong> from the above sentence means all binary operators.  A
+ternary operator as well.  And even some unary operators.</p>
 <p><code>sizeof (1)</code> is 4 because 1 is an <code>int</code>.  However, if a number does not fit to
 an <code>int</code>, a higher type will be used.  For example, <code>4294967296</code> (2^32 =
 <code>UINT_MAX + 1</code>) will be stored in 8 bytes, so <code>sizeof (4294967296)</code> is 8.</p>
-<p>Does it sound confusing?  Do not worry, we will give you specific rules later.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> verify that numbers that do not fit in an <code>int</code> will have a size of 8
+<p>Does it sound confusing?  Do not worry, we will give you specific rules later in
+the <a href="/modules/arithmetic-promotion-and-conversions.md"><em>Arithmetic/integer promotion and
+conversion</em></a> section.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Verify that numbers that do not fit in an <code>int</code> will have a size of 8
 bytes.</p>
 <h2><a id="user-content-examples" class="anchor" aria-hidden="true" href="#examples"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 <p>Assuming <code>char c;</code> declaration, then:</p>
