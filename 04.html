@@ -421,7 +421,8 @@ promotion rules do not apply.</li>
 <li>You just need to know or check the spec if you do not remember.  Most
 of the time it does not matter but do not fool yourself, if you do not
 know details like that in C, it will bite you sooner or later.</li>
-<li>remember <a href="https://users.ece.cmu.edu/~koopman/pubs/koopman14_toyota_ua_slides.pdf" rel="nofollow">A Case Study of Toyota Unintended Acceleration and Software Safety</a>
+<li>remember <a href="https://users.ece.cmu.edu/~koopman/pubs/koopman14_toyota_ua_slides.pdf" rel="nofollow">A Case Study of Toyota Unintended Acceleration and Software
+Safety</a>
 from the <a href="/modules/intro.md">first class</a>
 </li>
 </ul>
@@ -440,10 +441,13 @@ type of the <code>sizeof</code> operand.  The exact unsigned numeric type of wha
 returns may differ in different implementations so <code>%zu</code> will work anywhere.</p>
 <h2><a id="user-content-example-2" class="anchor" aria-hidden="true" href="#example-2"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h2>
 <p>If <code>long</code> is 8 bytes, and <code>int</code> 4 bytes, then <code>-1L &lt; 1U</code> is true as you might
-expect.  If both types are 4 bytes though, the relational expression is false!
-See <em>6.3.1.8 Usual arithmetic conversions</em>, paragraph <em>1</em>, for the details.</p>
-<p>However, <code>-1 &gt; 1U</code> is true because <code>-1</code> is promoted to <code>unsigned int</code>.  Two's
-complement representation of -1 is:</p>
+expect because <code>1U</code> is converted to a <code>long</code> because a <code>long</code> can represent all
+values an <code>unsigned int</code>.</p>
+<p>However, if both types are 4 bytes, the relational expression is false!  The
+reason is that in this case, as both types has the same <em>integer conversion
+rank</em> (C99 6.3.1.1), the signed is converted to unsigned.  See <em>6.3.1.8 Usual
+arithmetic conversions</em>, paragraph <em>1</em>, for the details.</p>
+<p>Two's complement representation of -1 in 4 bytes is:</p>
 <pre><code>(1) take absolute value of 1	00000000.00000000.00000000.00000001
 (2) one's complement		11111111.11111111.11111111.11111110
 (3) add 1 to get 2's complement	11111111.11111111.11111111.11111111
@@ -483,8 +487,8 @@ $
 <li>what is the result if <code>0xff</code> <code>signed char</code> and <code>0xff</code> <code>unsigned char</code> are
 compared using the <code>==</code> operator ?
 <ul>
-<li>write down the hexadecimal representation of the integers corresponding to
-the 2 chars with <code>printf()</code>
+<li>write down the hexadecimal representation of the integers
+corresponding to the 2 chars with <code>printf()</code>
 </li>
 </ul>
 </li>
@@ -499,10 +503,9 @@ this, e.g. GCC has <code>-funsigned-char</code> and <code>-fsigned-char</code>
 </ul>
 <h2><a id="user-content-wrench-quiz-2" class="anchor" aria-hidden="true" href="#wrench-quiz-2"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Quiz 2</h2>
 <p>Will the program print the whole array ?</p>
-<ul>
-<li>try to come up with reason of the expected behavior before running the
-program.</li>
-</ul>
+<pre><code>- try to come up with reason of the expected behavior before running the
+  program.
+</code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/whole-array.c">whole-array.c</a></p>
 <h1><a id="user-content-function-arguments" class="anchor" aria-hidden="true" href="#function-arguments"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function arguments</h1>
 <p>Say, what happens if you put a <code>char</code> as an argument of a function that accepts
@@ -528,73 +531,60 @@ myfn(i, ++i);
 </code></pre>
 <h1><a id="user-content-compiler-warnings" class="anchor" aria-hidden="true" href="#compiler-warnings"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compiler warnings</h1>
 <ul>
-<li>each compiler has its own set of warnings that usually give a clue that
+<li>Each compiler has its own set of warnings that usually give a clue that
 something strange and potentially harmful can happen.
 <ul>
 <li>
-<p>there are differences between various compilers</p>
+<p>There are differences between various compilers.</p>
 </li>
 <li>
-<p>will focus on GCC here</p>
+<p>We will focus on GCC here.</p>
 </li>
 <li>
-<p>during the old days the tool producing these warnings was called <code>lint</code>
-that had to be run separately (there was not enough memory to do both at
-once).  Now those extra checkes are usually part of the compiler itself.</p>
+<p>During the old days the tool producing these warnings was called
+<code>lint</code> that had to be run separately (there was not enough memory to
+do both at once).  Now those extra checkes are usually part of the
+compiler itself.</p>
 </li>
 <li>
-<p>the basic: <code>-Wall -Wextra</code></p>
+<p>The basics: use <code>-Wall -Wextra</code></p>
 <ul>
 <li>
-<p><code>-Wall</code> catches things like missing return value from a function that
-should return one</p>
+<code>-Wall</code> catches things like missing return value from a
+function that should return one.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/no-return.c">no-return.c</a></p>
-</li>
-<li>
-<p>there are many places where a beginner can shoot himself into a foot
-by not knowing the language intricacies.</p>
-<ul>
-<li>e.g. variable cannot be modified more than once between sequencing
-points. The <code>-Wsequence-point</code> that is included in <code>-Wall</code> warns about
-that</li>
-</ul>
+<pre><code>- There are many places where a beginner can shoot himself into a foot
+  by not knowing the language intricacies.
+	- E.g. variable cannot be modified more than once between
+	  sequencing points (C99 6.5 paragraph 2). The
+	  `-Wsequence-point` that is included in `-Wall` warns about
+	  that.
+</code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/sequence-point-violation.c">sequence-point-violation.c</a></p>
-</li>
-</ul>
-</li>
-<li>
-<p>the <code>-Wshadow</code> can catch shadow variables overriding:</p>
+<pre><code>- The `-Wshadow` can catch shadow variables overriding:
+</code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow.c">shadow.c</a>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/shadow-block.c">shadow-block.c</a></p>
-</li>
-<li>
-<p>all or specific warnings can be turned into errors: <code>-Werrror</code> or
-<code>-Werror=&lt;insert_specific_error&gt;</code> , respectively</p>
-<ul>
-<li>unless the warnings contain false positives (and those can usually be
-suppressed) this will help to avoid troubles later</li>
-</ul>
-</li>
-<li>
-<p>there are other means to check for correctness (static/dynamic analysis),
-more on those later</p>
-</li>
-</ul>
-</li>
-</ul>
+<pre><code>- All or specific warnings can be turned into errors: `-Werrror` or
+  `-Werror=&lt;insert_specific_error&gt;`, respectively.
+	- Unless the warnings contain false positives (and those can
+	  usually be suppressed) this will help to avoid troubles later.
+
+- There are other means to check for correctness (static/dynamic
+  analysis), more on those later.
+</code></pre>
 <h2><a id="user-content-wrench-use-the-options" class="anchor" aria-hidden="true" href="#wrench-use-the-options"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Use the options</h2>
-<p>Go through the programs written so far and run the compiler using the
-<code>-Wall -Wextra</code> options.</p>
-<ul>
-<li>what kind of problems did you discover ? how to fix them ?
-<ul>
-<li>see e.g. <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/whole-array.c">whole-array.c</a>
-example above (where only <code>-Wextra</code> gives some clue)</li>
-</ul>
-</li>
-</ul>
-<p>Explore the compiler documentation for more helpful options.
-Over the time you will find a set of warning options that will serve you well.</p>
+<p>Go through the programs written so far and run the compiler using the <code>-Wall -Wextra</code> options.
+- What kind of problems did you discover ? how to fix them ?
+- See e.g. <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> [whole-array.c example above (where only](<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/whole-array.c">https://github.com/devnull-cz/c-prog-lang/blob/master/src/whole-array.c</a> example above (where only)
+<code>-Wextra</code> gives some clue)</p>
+<p>Explore the compiler documentation for more helpful options.  Over the time you
+will find a set of warning options that will serve you well.</p>
 <h1><a id="user-content-types-of-behavior-in-c" class="anchor" aria-hidden="true" href="#types-of-behavior-in-c"><span aria-hidden="true" class="octicon octicon-link"></span></a>Types of behavior in C</h1>
 <p>From C99, Annex J.</p>
 <h2><a id="user-content-3-terms-definitions-and-symbols" class="anchor" aria-hidden="true" href="#3-terms-definitions-and-symbols"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Terms, definitions, and symbols</h2>
