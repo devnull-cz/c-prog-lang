@@ -268,33 +268,34 @@ outer block is hidden (and not visible).  See:</p>
 </ul>
 <h1><a id="user-content-functions-with-variable-number-of-arguments" class="anchor" aria-hidden="true" href="#functions-with-variable-number-of-arguments"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions with variable number of arguments</h1>
 <ul>
-<li>functions can have variable number of arguments of different types (more on
-that later)
+<li>Functions can have variable number of arguments of different types (more on
+that later).
 <ul>
-<li>it must have at least one fixed argument (or more), and the rest is
+<li>It must have at least one fixed argument (or more), and the rest is
 denoted with three dots <code>...</code>
 </li>
-<li>the dots are called <em>ellipsis</em>
+<li>The dots are called <em>ellipsis</em>
 </li>
 </ul>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">printf</span>(fmt, ...);</pre></div>
 <ul>
-<li>the first argument typically describes the rest of arguments in some way
+<li>The first argument typically describes the rest of arguments in some way
 <ul>
-<li>usually it is a format string as in <code>printf</code>.  It could possibly be an
-argument count if those were of the same type however in that case they would
-probably be passed as an pointer (we will get to pointers in a later class).</li>
+<li>Usually it is a format string as in <code>printf</code>.  It could possibly be an
+argument count if those were of the same type however in that case
+they would probably be passed as an pointer (we will get to pointers
+in a later class).</li>
 </ul>
 </li>
 </ul>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a function that takes variable number of <code>ULL</code> arguments and
 returns their sum</p>
 <ul>
-<li>use the stdarg(3) man page</li>
-<li>what happens if there is one <code>int</code> value passed in between the <code>ULL</code>
-arguments ?</li>
+<li>Use the stdarg(3) man page.</li>
+<li>What happens if there is one <code>int</code> value passed in between the <code>ULL</code>
+arguments?</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/stdarg.c">stdarg.c</a></p>
 <h1><a id="user-content-ternary-operator" class="anchor" aria-hidden="true" href="#ternary-operator"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ternary operator</h1>
