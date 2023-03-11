@@ -480,8 +480,8 @@ i + u;		<span class="pl-c"><span class="pl-c">//</span> 'i' is first converted t
 <p>That is why <code>-1 &gt; 1U</code> is <strong>TRUE</strong> since <code>-1</code> is first converted to an <code>unsigned int</code>, ie.  <code>-1</code> is converted into <code>-1 + 2^32</code>, i.e. <code>4294967295</code>, and the
 expression is then evaluated as:</p>
 <div class="highlight highlight-source-c"><pre>(<span class="pl-c1">4294967295U</span> &gt; <span class="pl-c1">1U</span>)</pre></div>
-<p>A ternary operator also first converts its arguments to a common type no matter
-which branch will be returned.  For example:</p>
+<p>The arguments of ternary operator are also first converted to a common type no
+matter which branch will be returned.  For example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">unsigned</span> <span class="pl-k">int</span> i = <span class="pl-c1">0</span> ? <span class="pl-c1">1U</span> : -<span class="pl-c1">1</span>;
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%u</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, i);		<span class="pl-c"><span class="pl-c">//</span> will print 2^32-1 (ie. 4294967295)</span></pre></div>
 <p>However, if you do this:</p>
