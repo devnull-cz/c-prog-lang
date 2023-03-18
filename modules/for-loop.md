@@ -56,8 +56,8 @@ $ ./a.out
 $
 ```
 
-- both `break` and `continue` statements relate to the smallest enclosing loop
-  they are executed in
+- both `break` and `continue` statements relate to the innermost loop
+  they are executed in.
 
 #source for.c
 
