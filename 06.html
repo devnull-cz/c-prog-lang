@@ -495,8 +495,9 @@ main.c:8:24: warning: dereferencing ‘void *’ pointer
       |                        ^~
 main.c:8:24: error: invalid use of void expression
 </code></pre>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create the null pointer (i.e. assign <code>0</code> to a pointer) and try to read
-from and/or write to it (i.e. dereference such a pointer).</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create null pointer (i.e. assign <code>0</code> to a pointer) to a non-void type
+(say integer) and try to read from and/or write to it (i.e. dereference such a
+pointer).</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-ptr.c">null-ptr.c</a></p>
 <h2><a id="user-content-basic-operations" class="anchor" aria-hidden="true" href="#basic-operations"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic operations</h2>
 <ul>
@@ -522,7 +523,7 @@ p = &amp;i;</pre></div>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">13</span>;
 <span class="pl-k">int</span> *p2 = p;</pre></div>
 <ul>
-<li>note that the <code>&amp;</code> reference operator is possible to use only on objects that
+<li>note that the <code>&amp;</code> address-of operator is possible to use only on objects that
 may be assigned values.  The following is invalid then:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>p = &amp;(i + <span class="pl-c1">1</span>);	<span class="pl-c"><span class="pl-c">//</span> we cannot assign to (i + 1)</span></pre></div>
