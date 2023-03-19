@@ -138,8 +138,9 @@ main.c:8:24: warning: dereferencing ‘void *’ pointer
 main.c:8:24: error: invalid use of void expression
 ```
 
-:wrench: create the null pointer (i.e. assign `0` to a pointer) and try to read
-from and/or write to it (i.e. dereference such a pointer).
+:wrench: create null pointer (i.e. assign `0` to a pointer) to a non-void type
+(say integer) and try to read from and/or write to it (i.e. dereference such a
+pointer).
 
 #solution null-ptr.c
 
