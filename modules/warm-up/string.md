@@ -26,5 +26,4 @@ world
 '
 ```
 
-Solution:
-#source create-string.c
+#solution create-string.c
