@@ -75,10 +75,10 @@ Dec	Oct	Char
 ...
 ```
 
-#source print-ascii-table-subset.c
+#solution print-ascii-table-subset.c
 
 :wrench: task: compute minimum of averages of lines in 2-D integer array (of
 arbitrary dimensions) that have positive values (if there is negative value in
 given line, do not use the line for computation).
 
-#source 2darray-min-avg.c
+#solution 2darray-min-avg.c
