@@ -177,7 +177,7 @@ int *p = 13;
 int *p2 = p;
 ```
 
-- note that the `&` reference operator is possible to use only on objects that
+- note that the `&` address-of operator is possible to use only on objects that
   may be assigned values.  The following is invalid then:
 
 ```C
