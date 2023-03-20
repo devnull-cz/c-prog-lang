@@ -184,6 +184,8 @@ int *p2 = p;
 p = &(i + 1);	// we cannot assign to (i + 1)
 ```
 
+#source ptr-lvalue.c
+
 - store value to the address pointed to by the pointer:
 
 ```C
