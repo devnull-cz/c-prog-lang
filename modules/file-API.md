@@ -129,10 +129,12 @@ while ((n = fread(a, sizeof (a[0]), sizeof (a) / sizeof (a[0]), fp)) > 0) {
 }
 ```
 
-Check the solution here:
-#solution read-file2.c
+What could happen if reading bytes into character array and the 2nd and 3rd
+arguments are swapped ?
 
-Also check manual page for `fread`() and ignore for now that the 1st argument is
+#source read-file2.c
+
+Check manual page for `fread`() and ignore for now that the 1st argument is
 of type `void *`, we will get there later.  As mentioned above, you can safely
 put there an array or an address of a variable.
 
