@@ -34,7 +34,7 @@ $ ./a.out
 
 Hint: an equation for a circle is `x^2 + y^2 = MYRAD^2`, ie.
 
-```
+```C
 y = sqrt(MYRAD * MYRAD - x * x);
 ```
 
