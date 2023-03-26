@@ -1,6 +1,6 @@
 # Pointer size
 
-```
+```C
 int *p;
 ```
 
