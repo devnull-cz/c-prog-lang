@@ -306,9 +306,10 @@ the same as <code>&amp;a[0]</code>.  For example:</p>
 	<span class="pl-k">if</span> (n &lt; (<span class="pl-k">sizeof</span> (a) / <span class="pl-k">sizeof</span> (a[<span class="pl-c1">0</span>])))
 		<span class="pl-k">break</span>;
 }</pre></div>
-<p>Check the solution here:
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/read-file2.c">read-file2.c</a></p>
-<p>Also check manual page for <code>fread</code>() and ignore for now that the 1st argument is
+<p>What could happen if reading bytes into character array and the 2nd and 3rd
+arguments are swapped ?</p>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/read-file2.c">read-file2.c</a></p>
+<p>Check manual page for <code>fread</code>() and ignore for now that the 1st argument is
 of type <code>void *</code>, we will get there later.  As mentioned above, you can safely
 put there an array or an address of a variable.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Check the man page for <code>fwrite</code>() and modify the code so that what is
