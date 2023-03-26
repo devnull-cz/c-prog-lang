@@ -113,9 +113,9 @@ fclose(fp);
 #source read-file.c
 
 :wrench: Note that you could read more characters at a time.  However, keep in
-mind the 2nd argument is size of the element read, and the 3rd argument is how
-many elements we read in one call.  Remember that using an array name `a` is the
-same as `&a[0]`.  For example:
+mind the 2nd argument is the size of the element read, and the 3rd argument is
+how many elements we read in one call.  Remember that using an array name `a` is
+the same as `&a[0]`.  For example:
 
 ```C
 char a[16];
