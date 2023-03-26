@@ -114,8 +114,13 @@ $(OBJDIR)/integer-conversion.o: CFLAGS_EXTRA=-Wno-constant-conversion
 else ifeq ($(CC), gcc)
 $(OBJDIR)/integer-conversion.o: CFLAGS_EXTRA=-Wno-overflow
 endif
+ifeq ($(CC), clang)
+$(OBJDIR)/array-as-argument.o: CFLAGS_EXTRA=-Wno-sizeof-array-argument \
+	-Wno-format-pedantic
+else ifeq ($(CC), gcc)
 $(OBJDIR)/array-as-argument.o: CFLAGS_EXTRA=-Wno-sizeof-array-argument \
 	-Wno-format-pedantic -Wno-stringop-overflow
+endif
 $(OBJDIR)/sequence-point-violation.o: CFLAGS_EXTRA=-Wno-unsequenced \
 	-Wno-uninitialized -Wno-sequence-point
 $(OBJDIR)/ptr-cast.o: CFLAGS_EXTRA=-Wno-incompatible-pointer-types
