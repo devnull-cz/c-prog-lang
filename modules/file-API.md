@@ -137,7 +137,7 @@ of type `void *`, we will get there later.  As mentioned above, you can safely
 put there an array or an address of a variable.
 
 :wrench: Check the man page for `fwrite`() and modify the code so that what is
-read from the file you write to some other file.  Do not remember to open the
+read from the file you write to some other file.  Do not forget to open the
 output file for writing.  All the details are in the man page.
 
 ## Seeking
