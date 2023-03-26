@@ -1,4 +1,4 @@
-## Implement a function
+## Implement a function to copy string to array
 
 Write a function that copies a string to a character array, including the
 terminating null character.  It returns the number of characters copied.
@@ -13,10 +13,10 @@ s[0] = 'H';
 ```
 
 To write the function, take
-#source tasks/implement-function.c
+#source tasks/string-to-array-copy.c
 and implement it there.  See the comment inside.
 
 Verify the code prints exactly what it says in the comments.  `gcc -Wall -Wextra
 implement-function.c` **must** be clear of any warnings.
 
-#solution tasks/implement-function-solution.c
+#solution tasks/string-to-array-copy-solution.c
