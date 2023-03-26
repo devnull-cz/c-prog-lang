@@ -155,3 +155,10 @@ performing any I/O.
 		- `SEEK_END` - the end of the file
 		- `SEEK_CUR` - the current location of the cursor in the file
 - `ftell` - get current position in the file
+
+:wrench: by using seeking, write code that creates a file that has every
+4-th character a upper case letter of alphabet (`A` to `Z`) and then
+prints the contents of the file byte by byte. Print the non-printable bytes
+in hexadecimal (with `0x` prefix).
+
+#solution file-AZ.c
