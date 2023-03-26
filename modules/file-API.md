@@ -117,7 +117,7 @@ same as `&a[0]`.  For example:
 ```C
 char a[16];
 ...
-while ((n = fread(a, 1, sizeof (a), fp)) > 0) {
+while ((n = fread(a, sizeof (a[0]), sizeof (a), fp)) > 0) {
 	/* process the bytes here */
 
 	/* if we read less than requested, we hit end of file */
