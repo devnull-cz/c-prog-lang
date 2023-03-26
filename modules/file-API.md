@@ -120,7 +120,7 @@ the same as `&a[0]`.  For example:
 ```C
 char a[16];
 ...
-while ((n = fread(a, sizeof (a[0]), sizeof (a), fp)) > 0) {
+while ((n = fread(a, sizeof (a[0]), sizeof (a) / sizeof (a[0]), fp)) > 0) {
 	/* Process the bytes here. */
 
 	/* If we read less than requested, we hit end of file or error. */
