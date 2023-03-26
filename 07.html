@@ -530,15 +530,14 @@ modify.</p>
 <p>The following will <strong>not</strong> do what one might naively assume it would.  What you
 actually swap are values on a stack or in registers while the original objects
 were left untouched.</p>
-<pre><code>int
-swap(int a, int b)
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">swap</span>(<span class="pl-k">int</span> a, <span class="pl-k">int</span> b)
 {
-	int n = a;
+	<span class="pl-k">int</span> n = a;
 
 	a = b;
 	b = n;
-}
-</code></pre>
+}</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/swap-by-value.c">swap-by-value.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> modify the code above so that <code>swap</code>() that actually swaps the values
 of the two <code>int</code>s.  Hint: aside from the <em>dererence</em> operator <code>*</code>, you will also
