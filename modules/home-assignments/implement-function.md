@@ -13,10 +13,10 @@ s[0] = 'H';
 ```
 
 To write the function, take
-#source implement-function.c
+#source tasks/implement-function.c
 and implement it there.  See the comment inside.
 
 Verify the code prints exactly what it says in the comments.  `gcc -Wall -Wextra
 implement-function.c` **must** be clear of any warnings.
 
-#solution implement-function-solution.c
+#solution tasks/implement-function-solution.c
