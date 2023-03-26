@@ -295,7 +295,7 @@ many elements we read in one call.  Remember that using an array name <code>a</c
 same as <code>&amp;a[0]</code>.  For example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> a[<span class="pl-c1">16</span>];
 ...
-<span class="pl-k">while</span> ((n = fread(a, <span class="pl-c1">1</span>, <span class="pl-k">sizeof</span> (a), fp)) &gt; <span class="pl-c1">0</span>) {
+<span class="pl-k">while</span> ((n = fread(a, <span class="pl-k">sizeof</span> (a[<span class="pl-c1">0</span>]), <span class="pl-k">sizeof</span> (a), fp)) &gt; <span class="pl-c1">0</span>) {
 	<span class="pl-c"><span class="pl-c">/*</span> process the bytes here <span class="pl-c">*/</span></span>
 
 	<span class="pl-c"><span class="pl-c">/*</span> if we read less than requested, we hit end of file <span class="pl-c">*/</span></span>
