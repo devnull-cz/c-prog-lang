@@ -61,7 +61,7 @@ $(OBJDIR)/array-designated-initializers.o: CFLAGS_EXTRA=-Wno-gnu-designator \
 	-Wno-pedantic
 $(OBJDIR)/ptr-to-array-of-ptrs.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-format
-$(OBJDIR)/implement-function.o: CFLAGS_EXTRA=\
+$(OBJDIR)/tasks/string-to-array-copy.o: CFLAGS_EXTRA=\
 	-Wno-implicit-function-declaration -Wno-format
 $(OBJDIR)/static-func.o: CFLAGS_EXTRA=-Wno-unused-function
 $(OBJDIR)/cast-intptr.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
