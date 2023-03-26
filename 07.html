@@ -302,7 +302,7 @@ the same as <code>&amp;a[0]</code>.  For example:</p>
 <span class="pl-k">while</span> ((n = fread(a, <span class="pl-k">sizeof</span> (a[<span class="pl-c1">0</span>]), <span class="pl-k">sizeof</span> (a) / <span class="pl-k">sizeof</span> (a[<span class="pl-c1">0</span>]), fp)) &gt; <span class="pl-c1">0</span>) {
 	<span class="pl-c"><span class="pl-c">/*</span> Process the bytes here. <span class="pl-c">*/</span></span>
 
-	<span class="pl-c"><span class="pl-c">/*</span> If we read less than requested, we hit end of file or error. <span class="pl-c">*/</span></span>
+	<span class="pl-c"><span class="pl-c">/*</span> If we read less elements than requested, we hit end of file or error. <span class="pl-c">*/</span></span>
 	<span class="pl-k">if</span> (n &lt; (<span class="pl-k">sizeof</span> (a) / <span class="pl-k">sizeof</span> (a[<span class="pl-c1">0</span>])))
 		<span class="pl-k">break</span>;
 }</pre></div>
