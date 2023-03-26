@@ -92,7 +92,7 @@ $ ./a.out
 ```
 
 Solution:
-#source circle.c
+#solution circle.c
 
 A simplified solution:
-#source circle-simplified.c
+#solution circle-simplified.c
