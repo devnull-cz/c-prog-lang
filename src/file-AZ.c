@@ -13,7 +13,14 @@ main(void)
 		fseek(fp, 3, SEEK_CUR);
 	}
 
+	/*
+	 * Examine the file size as reported by the file system and note
+	 * the discrepancy with the number from ftell().
+	 * What would have to be changed to make them the same ?
+	 */
 	size_t size = ftell(fp);
+	printf("file size = %zu\n", size);
+
 	fseek(fp, 0, SEEK_SET);
 	for (size_t i = 0; i < size; i++) {
 		char c = fgetc(fp);
