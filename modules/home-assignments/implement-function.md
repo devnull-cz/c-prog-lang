@@ -6,7 +6,7 @@ terminating null character.  It returns the number of characters copied.
 Note that **a string constant is read-only by definition**, and writing to it is
 an undefined behavior.  That is:
 
-```
+```C
 char *s = "hello"
 // Do not do this.  Different compilers may act differently.
 s[0] = 'H';
