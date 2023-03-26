@@ -9,7 +9,7 @@ The following will **not** do what one might naively assume it would.  What you
 actually swap are values on a stack or in registers while the original objects
 were left untouched.
 
-```
+```C
 int
 swap(int a, int b)
 {
