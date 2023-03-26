@@ -575,10 +575,9 @@ from each line to standard output.</p>
 terminating null character.  It returns the number of characters copied.</p>
 <p>Note that <strong>a string constant is read-only by definition</strong>, and writing to it is
 an undefined behavior.  That is:</p>
-<pre><code>char *s = "hello"
-// Do not do this.  Different compilers may act differently.
-s[0] = 'H';
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *s = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>
+<span class="pl-c"><span class="pl-c">//</span> Do not do this.  Different compilers may act differently.</span>
+s[<span class="pl-c1">0</span>] = <span class="pl-s"><span class="pl-pds">'</span>H<span class="pl-pds">'</span></span>;</pre></div>
 <p>To write the function, take
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/tasks/implement-function.c">tasks/implement-function.c</a>
 and implement it there.  See the comment inside.</p>
