@@ -115,7 +115,7 @@ else ifeq ($(CC), gcc)
 $(OBJDIR)/integer-conversion.o: CFLAGS_EXTRA=-Wno-overflow
 endif
 $(OBJDIR)/array-as-argument.o: CFLAGS_EXTRA=-Wno-sizeof-array-argument \
-	-Wno-format-pedantic
+	-Wno-format-pedantic -Wno-stringop-overflow
 $(OBJDIR)/sequence-point-violation.o: CFLAGS_EXTRA=-Wno-unsequenced \
 	-Wno-uninitialized -Wno-sequence-point
 $(OBJDIR)/ptr-cast.o: CFLAGS_EXTRA=-Wno-incompatible-pointer-types
