@@ -294,12 +294,12 @@ FILE *fp;
 <span class="pl-en">fclose</span>(fp);</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/read-file.c">read-file.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Note that you could read more characters at a time.  However, keep in
-mind the 2nd argument is size of the element read, and the 3rd argument is how
-many elements we read in one call.  Remember that using an array name <code>a</code> is the
-same as <code>&amp;a[0]</code>.  For example:</p>
+mind the 2nd argument is the size of the element read, and the 3rd argument is
+how many elements we read in one call.  Remember that using an array name <code>a</code> is
+the same as <code>&amp;a[0]</code>.  For example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> a[<span class="pl-c1">16</span>];
 ...
-<span class="pl-k">while</span> ((n = fread(a, <span class="pl-k">sizeof</span> (a[<span class="pl-c1">0</span>]), <span class="pl-k">sizeof</span> (a), fp)) &gt; <span class="pl-c1">0</span>) {
+<span class="pl-k">while</span> ((n = fread(a, <span class="pl-k">sizeof</span> (a[<span class="pl-c1">0</span>]), <span class="pl-k">sizeof</span> (a) / <span class="pl-k">sizeof</span> (a[<span class="pl-c1">0</span>]), fp)) &gt; <span class="pl-c1">0</span>) {
 	<span class="pl-c"><span class="pl-c">/*</span> Process the bytes here. <span class="pl-c">*/</span></span>
 
 	<span class="pl-c"><span class="pl-c">/*</span> If we read less than requested, we hit end of file or error. <span class="pl-c">*/</span></span>
