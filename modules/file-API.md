@@ -69,6 +69,9 @@ fputc('x', stderr);
 - `fwrite`/`fread` - for writing/reading binary data (such as structures or raw
   numeric types)
 
+- `feof`/`ferror` - determine if the last I/O operation hit end of file or
+  error.
+
 ## Read a file
 
 `fread`() reads a selected number of items of a given size to memory.  We can
@@ -118,9 +121,9 @@ same as `&a[0]`.  For example:
 char a[16];
 ...
 while ((n = fread(a, sizeof (a[0]), sizeof (a), fp)) > 0) {
-	/* process the bytes here */
+	/* Process the bytes here. */
 
-	/* if we read less than requested, we hit end of file */
+	/* If we read less than requested, we hit end of file or error. */
 	if (n < sizeof (a))
 		break;
 }
