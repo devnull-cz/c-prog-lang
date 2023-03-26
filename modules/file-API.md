@@ -46,7 +46,7 @@ fprintf(stderr, "Error happened: %s\n", "some error");
 fails) without calling `fclose()` on the handle. After how many iterations does
 it fail on your system?
 
-#source fopen-leak.c
+#solution fopen-leak.c
 
 ## I/O
 
