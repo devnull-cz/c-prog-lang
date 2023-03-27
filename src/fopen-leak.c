@@ -13,5 +13,6 @@ main(int argc, char *argv[])
 		FILE *f = fopen(argv[1], "r");
 		if (f == NULL)
 			err(1, "fopen [%zu]", i);
+		printf("%zu\n", i);
 	}
 }
