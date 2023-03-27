@@ -144,6 +144,8 @@ if it does not exist. If it exists, its contents should be truncated.
 Do not forget to open the output file for writing.
 All the details are in the man page.
 
+#solution file-copy.c
+
 ## Seeking
 
 When reading/writing to a file using the above function, the current position
