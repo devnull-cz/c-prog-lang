@@ -35,7 +35,7 @@ printf("%d\n", *(p + 2));       // will print 2
 
 :heavy\_exclamation\_mark: While you can work with arrays and pointers together,
 **arrays are not pointers** and **pointers are not arrays**.  To work with a
-pointer, the generated code must first get the value of the pointer variable,
+pointer, the generated code must first get the value of the pointer identifier,
 then work with it.  With arrays, the generated code directly uses the memory
 address the array starts at.  See below.
 

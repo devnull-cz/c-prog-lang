@@ -2,10 +2,10 @@
 
 Valid pointer operations are:
 
-- assignment of pointers of the same type
-- adding or subtracting a pointer and an integer
-- subtracting or comparing two pointers to members of the same array
-- assigning or comparing a pointer to zero
+- Assignment of pointers of the same type.
+- Adding or subtracting a pointer and an integer.
+- Subtracting or comparing two pointers to members of the same array.
+- Assigning or comparing a pointer to zero.
 
 All other pointer arithmetic are invalid operations and may or may not trigger a
 warning.
