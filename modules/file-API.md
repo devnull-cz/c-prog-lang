@@ -4,19 +4,19 @@ Part of the standard since C90.
 
 ## Opening/closing
 
-- `fopen("path", "mode")` opens a file and returns a pointer to an opaque `FILE`
-  type.  That pointer serves as a handle.
-	- getting `NULL` means an error
-	- the `mode` argument controls the behavior: read (`r`), write (`w`),
-	  append (`a`)
-		- the `+` adds the other mode (write for read and vice versa,
+- The `fopen("path", "mode")` opens a file and returns a pointer to an opaque
+  `FILE` type.  That pointer serves as a handle.
+	- Getting `NULL` means an error.
+	- The `mode` argument controls the behavior: read (`r`), write (`w`),
+	  append (`a`).
+		- The `+` adds the other mode (write for read and vice versa,
 		  read for append).
-	  - write mode `w` creates the file if it does not exist, and truncates
-	    it if it does exist
+	  - Write mode `w` creates the file if it does not exist, and truncates
+	    it if it does exist.
 #module c99-standard.md the standard)
-	- `fclose` closes the handle
-		  - important to avoid resource leak (`fopen` can allocate both
-		    memory and file descriptor)
+	- The `fclose` closes the handle
+		  - Important to avoid resource leak (`fopen` can allocate both
+		    memory and file descriptor).
 ```C
 FILE *fp;
 
@@ -30,19 +30,19 @@ if (fclose(fp) != 0)
 	err(1, "fclose failed");
 ```
 
-- the `b` binary mode usually does not have any effect
-- `freopen` can be used to associate the standard streams (`stderr`, `stdin`, or
-  `stdout`) with a file
-	- that means e.g. reading the standard input would automatically read
-	  from a specific file, if you wanted that
+- The `b` binary mode usually does not have any effect.
+- The `freopen` can be used to associate the standard streams (`stderr`,
+  `stdin`, or `stdout`) with a file
+	- That means e.g. reading the standard input would automatically read
+	  from a specific file, if you wanted that.
 	- `printf(...)` is equivalent to `fprintf(stdout, ...)`.  However, you
-	  can print directly to `stderr` with `fprintf`
+	  can print directly to `stderr` with `fprintf`.
 
 ```C
 fprintf(stderr, "Error happened: %s\n", "some error");
 ```
 
-:wrench: write a code that opens the same file in an cycle (until `fopen()`
+:wrench: Write a code that opens the same file in an cycle (until `fopen()`
 fails) without calling `fclose()` on the handle. After how many iterations does
 it fail on your system?
 
@@ -52,8 +52,8 @@ it fail on your system?
 
 - `fprintf` - `printf` to a stream
 - `fscanf`
-	  - basically parses text input from a stream according to format string
-	  - except the format string all the parameters must be pointers
+	  - Basically parses text input from a stream according to format string
+	  - Except the format string all the parameters must be pointers
 - `fputs`/`fgets` - send/read string to/from a stream
 
 ```C
@@ -74,10 +74,10 @@ fputc('x', stderr);
 
 ## Read a file
 
-`fread`() reads a selected number of items of a given size to memory.  We can
-use either an array or we can directly read to a variable through an operator
-address-of.  In our case, we will be reading a file byte by byte, so we can give
-`fread`() just an address of a character variable.
+The `fread`() reads a selected number of items of a given size to memory.  We
+can use either an array or we can directly read to a variable through an
+operator address-of.  In our case, we will be reading a file byte by byte, so we
+can give `fread`() just an address of a character variable.
 
 You can ignore the `restrict` keyword, it is intended as a hit for a compiler
 optimization, and also just accept now that we can assign any pointer to a `void
@@ -85,7 +85,7 @@ optimization, and also just accept now that we can assign any pointer to a `void
 
 ```C
 size_t fread(void *restrict ptr, size_t size, size_t nmemb,
-	    FILE *restrict stream);
+	     FILE *restrict stream);
 ```
 
 Now we will read the file in chunks of one byte only.  Therefore we can use an
@@ -139,10 +139,10 @@ of type `void *`, we will get there later.  As mentioned above, you can safely
 put there an array or an address of a variable.
 
 :wrench: Check the man page for `fwrite`() and modify the code so that what is
-read from the file you write to some other file. The file should be created
-if it does not exist. If it exists, its contents should be truncated.
-Do not forget to open the output file for writing.
-All the details are in the man page.
+read from the file you write to some other file. The file should be created if
+it does not exist. If it exists, its contents should be truncated.  Do not
+forget to open the output file for writing.  All the details are in the man
+page.
 
 #solution file-copy.c
 
@@ -160,9 +160,9 @@ performing any I/O.
 		- `SEEK_CUR` - the current location of the cursor in the file
 - `ftell` - get current position in the file
 
-:wrench: by using seeking, write code that creates a file that has every
+:wrench: By seeking, write code that creates a file that has every
 4-th character a upper case letter of alphabet (`A` to `Z`) and then
-prints the contents of the file byte by byte. Print the non-printable bytes
+prints the contents of the file byte by byte.  Print the non-printable bytes
 in hexadecimal (with `0x` prefix).
 
 #solution file-AZ.c
