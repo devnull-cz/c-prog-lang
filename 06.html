@@ -571,31 +571,27 @@ postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</p
 <h1><a id="user-content-err-family-of-functions" class="anchor" aria-hidden="true" href="#err-family-of-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <code>err</code>() family of functions</h1>
 <ul>
-<li>not defined by any standard however handy</li>
-<li>present in BSD, glibc (= Linux distros), Solaris, macOS, etc.</li>
-<li>use the <code>&lt;err.h&gt;</code> include, see the err(3) man page</li>
-<li>this is especially handy when working with I/O</li>
-<li>instead of writing:</li>
+<li>Not defined by any standard however handy.</li>
+<li>Present in BSD, glibc (= Linux distros), Solaris, macOS, etc.</li>
+<li>Use the <code>&lt;err.h&gt;</code> include, see the err(3) man page.</li>
+<li>This is especially handy when working with I/O.</li>
 </ul>
+<p>Instead of writing:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error) {
-	<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">strerror</span>(errno));
+	<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>Error occured: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">strerror</span>(errno));
 	<span class="pl-c1">exit</span>(<span class="pl-c1">1</span>);
 }</pre></div>
-<ul>
-<li>write the following</li>
-</ul>
+<p>Use the following:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (error)
-     <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>error occured: <span class="pl-pds">"</span></span>);</pre></div>
+     <span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>Error occured: <span class="pl-pds">"</span></span>);</pre></div>
 <ul>
-<li>notice that a newline is inserted automatically at the end of the error
+<li>Notice that a newline is inserted automatically at the end of the error
 message.</li>
-<li>or for functions that do not modify the <code>errno</code> value, use the <em>x</em> variant:</li>
+<li>For functions that do not modify the <code>errno</code> value, use the <em>x</em> variant:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (some_error)
 	<span class="pl-en">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>ERROR: <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, some_error);</pre></div>
-<ul>
-<li>there's also <code>warn()</code>/<code>warnx()</code> that do not exit the program</li>
-</ul>
+<p>There's also <code>warn()</code>/<code>warnx()</code> that do not exit the program.</p>
 <h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
