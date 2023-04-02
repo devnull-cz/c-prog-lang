@@ -125,19 +125,18 @@ as possible.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> *argv[]);</pre></div>
 <ul>
 <li>
-<p><code>argv</code> is declared as an array of pointers</p>
+<p>The <code>argv</code> is declared as an array of pointers.</p>
 <ul>
 <li>i.e. <code>argv[i]</code> is a pointer to <code>char</code>
 </li>
 </ul>
 </li>
 <li>
-<p>the arguments of <code>main()</code> can have arbitrary names however please stick
-to the convention to avoid confusion of those who might be reading your
-program</p>
+<p>The arguments of <code>main()</code> can have arbitrary names however please stick to the
+convention to avoid confusion of those who might be reading your program</p>
 </li>
 <li>
-<p><code>argc</code> is a number of command line arguments, including the command name
+<p>The <code>argc</code> is a number of command line arguments, including the command name
 itself (in <code>argv[0]</code>).</p>
 </li>
 <li>
@@ -152,7 +151,7 @@ put numbers there on the command line.</p>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/arrays-as-function-arguments.md">notes about array passed to function</a>
 ) that in a function argument, an array is
 always treated as a pointer so the above effectively becomes:</p>
-<div class="highlight highlight-source-c"><pre>        <span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv);</pre></div>
 <p>i.e. in this context, char <code>*argv[]</code> and char <code>**argv</code> are the same.</p>
 <p>The declaration merely hints at the memory layout.  That is how it was concieved
 by the fathers of C, unfortunately it often causes confusion.</p>
@@ -164,18 +163,16 @@ sure that it's not out of range.</p>
 <li>
 <p>the memory for <code>argc</code>, <code>argv</code> is allocated before <code>main()</code> is called</p>
 <ul>
-<li>
-<p>the standard (C99) leaves unspecified where argc/argv are stored</p>
+<li>the standard (C99) leaves unspecified where argc/argv are stored</li>
+</ul>
 <blockquote>
 <p>section 5.1.2.2.1: the strings pointed to by the argv array shall be
 modifiable by the program, and retain their last-stored values between
 program startup and program termination.</p>
 </blockquote>
 </li>
-</ul>
-</li>
 <li>
-<p>the <code>argv</code> is an array of pointers to null-terminated strings and must be
+<p>The <code>argv</code> is an array of pointers to null-terminated strings and must be
 terminated by a null pointer. (quote from the execve(2) man page on Unix
 systems)</p>
 </li>
@@ -197,19 +194,19 @@ systems)</p>
 </code></pre>
 <h2><a id="user-content-wrench-task-print-command-line-arguments" class="anchor" aria-hidden="true" href="#wrench-task-print-command-line-arguments"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print command line arguments</h2>
 <ul>
-<li>print all command line arguments using <code>argc</code>
+<li>Print all command line arguments using <code>argc</code>
 </li>
-<li>print all command line arguments using just <code>argv</code>
+<li>Print all command line arguments using just <code>argv</code>
 </li>
-<li>print all command line arguments not starting with <code>-</code>
+<li>Print all command line arguments not starting with <code>-</code>
 </li>
-<li>print all command line arguments using a recursive function (that accepts
-pointer to pointer to char)</li>
+<li>Print all command line arguments using a recursive function (that accepts
+pointer to pointer to char).</li>
 </ul>
 <p>Note: for all arguments print their address as well</p>
 <p>Note: do not print the terminating null pointer entry</p>
 <ul>
-<li>some <code>printf()</code> implementations barf on null pointer when printing via the
+<li>Some <code>printf()</code> implementations barf on null pointer when printing via the
 <code>%s</code> format string</li>
 </ul>
 <p>Code:</p>
@@ -225,12 +222,12 @@ pointer to pointer to char)</li>
 </ul>
 <h2><a id="user-content-wrench-task-print-command-line-arguments-part-ii" class="anchor" aria-hidden="true" href="#wrench-task-print-command-line-arguments-part-ii"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print command line arguments (part II.)</h2>
 <ul>
-<li>print all command line arguments without using square brackets</li>
-<li>as above but do not use any variable aside from <code>argv</code>
+<li>Print all command line arguments without using square brackets</li>
+<li>As above but do not use any variable aside from <code>argv</code>
 </li>
 </ul>
 <h2><a id="user-content-wrench-task-get-char-distance-in-specific-argument" class="anchor" aria-hidden="true" href="#wrench-task-get-char-distance-in-specific-argument"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: get char distance in specific argument</h2>
-<p>write a program with usage <code>./a.out &lt;a&gt; &lt;b&gt; &lt;string&gt;</code> to
+<p>Write a program with usage <code>./a.out &lt;a&gt; &lt;b&gt; &lt;string&gt;</code> to
 find a distance (number of characters) between the first occurence of character
 <code>&lt;a&gt;</code> and <code>&lt;b&gt;</code> in a string <code>&lt;string&gt;</code>.
 If either of the character is not found in the string, print an error.</p>
@@ -239,25 +236,22 @@ If either of the character is not found in the string, print an error.</p>
 </code></pre>
 <p>Note: do not use <code>strchr()</code> or the like.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-char-dist.c">argv-char-dist.c</a></p>
-<h2><a id="user-content-usage-semi-formal-specification-of-program-arguments" class="anchor" aria-hidden="true" href="#usage-semi-formal-specification-of-program-arguments"><span aria-hidden="true" class="octicon octicon-link"></span></a>usage: semi-formal specification of program arguments</h2>
+<h2><a id="user-content-usage-string-a-semi-formal-specification-of-program-arguments" class="anchor" aria-hidden="true" href="#usage-string-a-semi-formal-specification-of-program-arguments"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage string: a semi-formal specification of program arguments</h2>
 <ul>
-<li>usually used to print when invalid option or arguments are specified</li>
-<li>can be handled via <code>errx()</code>
+<li>Usually used to print when invalid option or arguments are specified</li>
+<li>Can be handled via <code>errx()</code>
 </li>
-<li>the usage usually contains program name followed by the argument schema
-<ul>
-<li>see e.g. the nc(1) man page</li>
+<li>The usage usually contains program name followed by the argument schema</li>
+<li>See e.g. the <code>nc(1)</code> man page</li>
+<li>Optional arguments are enclosed in square brackets, mandatory arguments are
+enclosed in <code>&lt;&gt;</code> or left without brackets</li>
 </ul>
-</li>
-<li>optional arguments are enclosed in square brackets, mandatory arguments
-are enclosed in <code>&lt;&gt;</code> or left without brackets</li>
-</ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes 1 or 2 arguments. If run with any other
-count, print usage and exit.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Write a program that takes 1 or 2 arguments.  If run with any other
+count, print a meaningful usage and exit.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
-<h2><a id="user-content-wrench-task-print-the-n-th-character-of-the-r-th-argument-count-from-0" class="anchor" aria-hidden="true" href="#wrench-task-print-the-n-th-character-of-the-r-th-argument-count-from-0"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: print the n-th character of the r-th argument (count from 0)</h2>
-<p>usage: <code>./a.out &lt;r&gt; &lt;n&gt; [args]</code></p>
-<p>do not count <code>argv[0] .. arg[2]</code>.  If not enough arguments or the argument is
+<h2><a id="user-content-wrench-print-the-n-th-character-of-the-r-th-argument-count-from-0" class="anchor" aria-hidden="true" href="#wrench-print-the-n-th-character-of-the-r-th-argument-count-from-0"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Print the n-th character of the r-th argument (count from 0)</h2>
+<p>Usage: <code>./a.out &lt;r&gt; &lt;n&gt; [args]</code></p>
+<p>Do not count <code>argv[0] .. arg[2]</code>.  If not enough arguments or the argument is
 not long enough, print a helpful message.  Only use pointer arithmetics, do
 <strong>not</strong> use square brackets (ie.  <code>argv[i][j]</code> is <strong>not</strong> allowed).</p>
 <pre><code>./a.out 2 3 hey hi world
@@ -265,7 +259,7 @@ l
 </code></pre>
 <p>Note: use <code>atoi()</code> to convert the first 2 arguments to integers</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-nr.c">argv-nr.c</a></p>
-<h2><a id="user-content-wrench-task-what-do-these-programs-do-when-run-with-2-arguments" class="anchor" aria-hidden="true" href="#wrench-task-what-do-these-programs-do-when-run-with-2-arguments"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: what do these programs do when run with 2 arguments</h2>
+<h2><a id="user-content-wrench-what-do-these-programs-do-when-run-with-2-arguments" class="anchor" aria-hidden="true" href="#wrench-what-do-these-programs-do-when-run-with-2-arguments"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> What do these programs do when run with 2 arguments</h2>
 <p>Assume that the arguments are sufficiently long enough.</p>
 <p>Skipping ahead: prefix <code>++</code> and dereference operator <code>*</code> have the same
 precedence so they are evaluated based on associativity which is right-to-left.</p>
