@@ -595,18 +595,18 @@ file it is not necessary to compile it individually.</p>
 <h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
-<h2><a id="user-content-animals-maximum-number-of-legs" class="anchor" aria-hidden="true" href="#animals-maximum-number-of-legs"><span aria-hidden="true" class="octicon octicon-link"></span></a>animals: maximum number of legs</h2>
-<p>implement:</p>
-<div class="highlight highlight-source-c"><pre>      <span class="pl-k">struct</span> animal *<span class="pl-en">maxlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len);</pre></div>
-<p>that will use the <code>getlegs()</code> function and will return an animal with highest
-leg count. Return pointer to the structure (= array element) from the function.</p>
+<h2><a id="user-content-animals-maximum-number-of-legs" class="anchor" aria-hidden="true" href="#animals-maximum-number-of-legs"><span aria-hidden="true" class="octicon octicon-link"></span></a>Animals: maximum number of legs</h2>
+<p>Implement:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> animal *<span class="pl-en">maxlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len);</pre></div>
+<p>It will use the <code>getlegs()</code> function and will return an animal with highest leg
+count. Return pointer to the structure (= array element) from the function.</p>
 <p>The <code>main()</code> function (in separate file) will define an array of animals and
 will call <code>maxlegs()</code>.  The name of the animal with maximum number of legs will
 be printed to standard output.</p>
 <p>Note: does the original structure change if the structure returned from the
-function was modified within the function? How to fix this ?</p>
-<p>code:
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal_maxlegs.c">animal_maxlegs.c</a>
+function was modified within the function?  How to fix this ?</p>
+<p>Code:</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal_maxlegs.c">animal_maxlegs.c</a>
 <g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/maxlegs.c">maxlegs.c</a>
 <g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animals.h">animals.h</a>
 <g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/animal.h">animal.h</a></p>
