@@ -36,5 +36,5 @@ while (1) {
 You could also write `while (2)` or `while (1000)` and it would still be a
 neverending loop but that is not how it is usually used.
 
-- note that the `statement` from the spec definition can be a code block as you
+- Note that the `statement` from the spec definition can be a code block as you
   can see above, more on that later.
