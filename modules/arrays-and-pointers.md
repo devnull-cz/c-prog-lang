@@ -4,8 +4,8 @@ In C, there is a strong relationship between arrays and pointers.  Most of the
 time, you can use array notation with pointers, and pointer notation with
 arrays, but **not always**.
 
-By definition, the value of a variable or an expression of an array type is the
-address of the first array element (an element zero).
+By definition, the value of an array identifier  or an expression of an array
+type is the address of the first array element (an element zero).
 
 ```C
 int *pa;
@@ -19,7 +19,10 @@ p[0] = 3;	// the array is now { 3, 2, 3, 4 }
 ```
 
 :heavy\_exclamation\_mark: As you can see, incrementing a pointer increments the
-value **by the size of the object the pointer points to**.  Another example:
+value **by the size of the object the pointer points to**.  That was already
+mentioned in
+#module pointers.md the pointer intro.
+Another example:
 
 ```C
 int a[] = { 0, 1, 2 };
