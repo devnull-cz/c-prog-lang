@@ -120,7 +120,7 @@ and **must** document it.  See [the standard](/modules/c99-standard.md), section
 3.4.1, for the precise definition.  See also
 #module types-of-behavior.md types of behavior.
 
-### Assigning number fits the integer object
+### Rule 1: Assigning number fits the integer object
 
 The first rule is simple and needs not much discussion.
 
@@ -137,7 +137,7 @@ its specification only uses values 0-127 and even `signed char` is required to
 accommodate that range.  So, as `'A'` fits the `c` object, this situation is
 covered by the first rule.
 
-### Integer to an unsigned integer
+### Rule 2: Integer to an unsigned integer
 
 > 6.3.1.3 Signed and unsigned integers
 ...
@@ -181,7 +181,7 @@ unsigned int i;
 i = -10;		// -10 + 2^32
 ```
 
-### Assign to a signed type when the value does not fit
+### Rule 3: Assign to a signed type when the value does not fit
 
 When any integer is converted to a signed type, the value is unchanged if it can
 be represented in the new type (that is rule 1 above) and **is
