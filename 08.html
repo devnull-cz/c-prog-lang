@@ -205,12 +205,10 @@ terminated by a null pointer.</p>
 <li>Print all command line arguments using a recursive function (that accepts
 pointer to pointer to char).</li>
 </ul>
-<p>Note: for all arguments print their address as well</p>
-<p>Note: do not print the terminating null pointer entry</p>
-<ul>
-<li>Some <code>printf()</code> implementations barf on null pointer when printing via the
-<code>%s</code> format string</li>
-</ul>
+<p>Note: for all arguments print their address as well.</p>
+<p>Note: do not print the terminating null pointer entry.</p>
+<p>Some <code>printf()</code> implementations barf on a null pointer when printing via the
+<code>%s</code> format string.</p>
 <p>Code:</p>
 <ul>
 <li><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-while.c">argv-while.c</a>
@@ -228,10 +226,10 @@ pointer to pointer to char).</li>
 <li>As above but do not use any variable aside from <code>argv</code>.</li>
 </ul>
 <h2><a id="user-content-wrench-get-char-distance-in-specific-argument" class="anchor" aria-hidden="true" href="#wrench-get-char-distance-in-specific-argument"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Get char distance in specific argument</h2>
-<p>Write a program with usage <code>./a.out &lt;a&gt; &lt;b&gt; &lt;string&gt;</code> to
-find a distance (number of characters) between the first occurence of character
-<code>&lt;a&gt;</code> and <code>&lt;b&gt;</code> in a string <code>&lt;string&gt;</code>.
-If either of the character is not found in the string, print an error.</p>
+<p>Write a program with usage <code>./a.out &lt;a&gt; &lt;b&gt; &lt;string&gt;</code> to find a distance (number
+of characters) between the first occurence of character <code>&lt;a&gt;</code> and <code>&lt;b&gt;</code> in a
+string <code>&lt;string&gt;</code>.  If either of the character is not found in the string, print
+an error.</p>
 <pre><code>./a.out a x "ahello xworld"
 7
 </code></pre>
