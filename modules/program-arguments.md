@@ -78,11 +78,12 @@ If unsure, draw a diagram.  The memory addresses are just examples:
 - Print all command line arguments using a recursive function (that accepts
   pointer to pointer to char).
 
-Note: for all arguments print their address as well
+Note: for all arguments print their address as well.
 
-Note: do not print the terminating null pointer entry
-- Some `printf()` implementations barf on null pointer when printing via the
-  `%s` format string
+Note: do not print the terminating null pointer entry.
+
+Some `printf()` implementations barf on a null pointer when printing via the
+`%s` format string.
 
 Code:
 - #solution argv-while.c
@@ -97,14 +98,16 @@ Code:
 
 ## :wrench: Get char distance in specific argument
 
-Write a program with usage `./a.out <a> <b> <string>` to
-find a distance (number of characters) between the first occurence of character
-`<a>` and `<b>` in a string `<string>`.
-If either of the character is not found in the string, print an error.
+Write a program with usage `./a.out <a> <b> <string>` to find a distance (number
+of characters) between the first occurence of character `<a>` and `<b>` in a
+string `<string>`.  If either of the character is not found in the string, print
+an error.
+
 ```
 ./a.out a x "ahello xworld"
 7
 ```
+
 Note: do not use `strchr()` or the like.
 
 #solution argv-char-dist.c
