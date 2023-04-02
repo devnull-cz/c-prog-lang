@@ -152,32 +152,33 @@ if (i &lt; = 3) {
 for more information.</p>
 <h1><a id="user-content-multidimensional-arrays" class="anchor" aria-hidden="true" href="#multidimensional-arrays"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multidimensional arrays</h1>
 <ul>
-<li>multi-dimensional arrays: it is an array of arrays</li>
+<li>Multi-dimensional arrays: it is an array of arrays</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">3</span>][<span class="pl-c1">2</span>] = { {<span class="pl-c1">0</span>, <span class="pl-c1">1</span>}, {<span class="pl-c1">2</span>, <span class="pl-c1">3</span>}, {<span class="pl-c1">4</span>, <span class="pl-c1">5</span>} };</pre></div>
 <ul>
 <li>
 <p><code>a</code> is an array of 3 elements.  Each of the element in an array of 2 elements.</p>
 <ul>
-<li>we read it like that as the operator <code>[]</code>, called <em>array subscripting</em>, is
-evaluated <strong>left-to-right</strong>.  See
+<li>we read it that way because the operator <code>[]</code>, called <em>array subscripting</em>,
+is evaluated <strong>left-to-right</strong>.  See
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/operator-precedence.md">operator precedence</a>
 for more information.</li>
 </ul>
 </li>
 <li>
-<p>to access a given item all subscripts (= indexes) have to be specified in
+<p>To access a given item all subscripts (= indexes) have to be specified in
 square brackets.  i.e. <code>a[1, 2]</code> does not work, you have to use <code>a[1][2]</code>.
-However, <code>a[1, 2]</code> is not a syntax error as <code>1, 2</code> are two operands separated
-by a <em>comma operator</em>, so <code>a[1, 2]</code> effectively means <code>a[2]</code>.</p>
+However, beware that <code>a[1, 2]</code> is not a syntax error as <code>1, 2</code> are two
+operands separated by a <em>comma operator</em>, so <code>a[1, 2]</code> effectively means
+<code>a[2]</code>.</p>
 </li>
 <li>
-<p>in memory this is stored as consequent individual "lines".  In other words,
+<p>In memory this is stored as consequent individual "lines".  In other words,
 any array, no matter how many dimensions it has, is stored as one piece of
 contiguous memory.</p>
 </li>
 <li>
-<p>for 3-D array it looks as follows.  <code>a</code> is an array of 2-dimensional arrays:</p>
+<p>For a 3-D array it looks as follows.  <code>a</code> is an array of 2-dimensional arrays:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">2</span>][<span class="pl-c1">4</span>][<span class="pl-c1">3</span>] = {
@@ -191,7 +192,7 @@ contiguous memory.</p>
 </code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/3d-array.c">3d-array.c</a></p>
 <ul>
-<li>as with the 1-dimensional array, the most "significant" dimension of the array
+<li>As with the 1-dimensional array, the most "significant" dimension of the array
 may be omitted <strong>if statically initialized</strong>, but nothing below, i.e. these
 are fine:</li>
 </ul>
@@ -204,28 +205,28 @@ int a[5][][8] = { 0 };
 </code></pre>
 <ul>
 <li>
-<p>the reason is that if you do not specify how many "lines" are there in memory,
-it is OK as that can be recognized from the initializer, but you always need
+<p>The reason is that if you do not specify how many "lines" are there in memory,
+it is OK as that can be recognized from the initializer but you always need
 to know the "length" of the "line" so that you can store them one by one.</p>
 </li>
 <li>
-<p>see above for <code>a[2][4][3]</code> and its memory layout.  We can easily add a new
+<p>See above for <code>a[2][4][3]</code> and its memory layout.  We can easily add a new
 element of <code>a</code> which is a 2-dimensional array, but there is no way we can
 store the <code>a</code> array unless we know the exact dimensions of the 2-d subarray.</p>
 </li>
 <li>
-<p>as before, if you do not initialize the rest, it will be set as 0.  You can
+<p>As before, if you do not initialize the rest, it will be set as 0.  You can
 also use
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/array-intro.md">designated initializers</a>
 the same way as with one-dimensional arrays.</p>
 </li>
 <li>
-<p><code>sizeof</code> works as expected.  So, the following piece of code prints a size of
-of an element of <code>a</code>, which is an <code>[3][6]</code> subarray of <code>int</code>s, so <code>72</code> is
-printed (<code>3 * 6 * sizeof (int)</code>) unless you are on something you borrowed
-from the <a href="https://computerhistory.org/" rel="nofollow">Computer History Museum</a>.
-Side note: if you happen to be in Silicon Valley, it is worth going to
-Mountain View to visit this one.</p>
+<p>The operator <code>sizeof</code> works as expected.  So, the following piece of code
+prints a size of of an element of <code>a</code>, which is an <code>[3][6]</code> subarray of
+<code>int</code>s, so <code>72</code> is printed (<code>3 * 6 * sizeof (int)</code>) unless you are on
+something you borrowed from the <a href="https://computerhistory.org/" rel="nofollow">Computer History
+Museum</a>.  Side note: if you happen to be in
+Silicon Valley, it is worth going to Mountain View to visit this one.</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[][<span class="pl-c1">3</span>][<span class="pl-c1">6</span>];
@@ -234,7 +235,7 @@ Mountain View to visit this one.</p>
 statically initialize it, and write a function that accepts such an array
 and prints the first element from each <code>[2]</code> subarray.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-array.c">2d-array.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes a 2-D array of integers and constructs a 1-D
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Write a program that takes a 2-D array of integers and constructs a 1-D
 array of maximum values in each sub-array, then prints out the new array to the
 standard output.  For the maximum value in a sub-array, write a function.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/2d-array-max.c">2d-array-max.c</a></p>
