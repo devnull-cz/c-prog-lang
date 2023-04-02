@@ -132,8 +132,8 @@ signed char c = li;
 
 Note that the case already showed above, `char c = 'A';`, also fits this rule.
 `'A'` is a character constant from ASCII, so its type is an `int`, and its value
-fits a `char` no matter whether it is signed or unsigned.  ASCII by its
-specification only uses values 0-127 and even `signed char` is required to
+fits a `char` no matter whether the `char` type is signed or unsigned.  ASCII by
+its specification only uses values 0-127 and even `signed char` is required to
 accommodate that range.  So, as `'A'` fits the `c` object, this situation is
 covered by the first rule.
 
