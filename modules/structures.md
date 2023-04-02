@@ -79,8 +79,8 @@ struct foo_s {
 ```
 
 - However, this is unusual because structures are normally saved to header
-  files, and including such a header file would mean actual variable
-  definition(s) which is rarely desirable.
+  files, and including such a header file would mean actual object definition(s)
+  which is rarely desirable.
 
 - For better code readability and also to be able to search for the members in
   (large) code base, members are often prefixed with a common string ending with
@@ -149,10 +149,11 @@ Link: http://www.catb.org/esr/structure-packing/
 
 ## Structure members
 
-- Members are accessed via 2 operators: `.` and `->`
-	- Infix operators, left-to-right associativity, both are in the group of
-	  operators with the highest precedence (priority)
-	- `->` is used if the variable is a pointer, `.` otherwise
+Members are accessed via 2 operators: `.` and `->`
+
+- Infix operators, left-to-right associativity, both are in the group of
+  operators with the highest precedence (priority)
+- `->` is used if the variable is a pointer, `.` otherwise
 
 - E.g.:
 
@@ -166,10 +167,11 @@ foo.a = 42;
 foo.b = 'C';
 ```
 
-- The `.` and `->` operators have higher precedence than `*` and `&`, so:
-  `&foo.b` gets the address of the member `b`.
+The `.` and `->` operators have higher precedence than `*` and `&`, so: `&foo.b`
+gets the address of the member `b`.
 
-- Structure assignment:
+Structure assignment is done byte by byte (shallow copy - does not follow
+pointers):
 
 ```C
 struct foo_s one, two;
@@ -177,12 +179,11 @@ struct foo_s one, two;
 one = two;
 ```
 
-- Is done byte by byte (shallow copy - does not follow pointers).
-	- Handy for members that are pointers.
-	- On the other hand for large structures (say hundreds of bytes) this
-	  can be quite an expensive operation.
+- Handy for members that are pointers.
+- On the other hand for large structures (say hundreds of bytes) this can be
+  quite an expensive operation.
 
-- Pointers to structures:
+Pointers to structures are often used:
 
 ```C
 struct foo_s *foo;
@@ -204,8 +205,8 @@ de-reference operator on `foo`.
 
 ## Structure initialization
 
-- Can initialize a structure in its definition using the initiator list of
-  values.  You must either follow the ordering of members:
+Can initialize a structure in its definition using the initiator list of values.
+You must either follow the ordering of members:
 
 ```C
 struct foo_s {
@@ -228,11 +229,11 @@ struct foo_s foo = {
 };
 ```
 
-- The ordering in the struct declaration does not have to be preserved (but you
-  really should follow it though).
+The ordering in the struct declaration does not have to be preserved (but you
+really should follow it though).
 
-- Omitted field members are implicitly initialized the same as objects that have
-  static storage duration (ie. will be initialized to 0).
+Omitted field members are implicitly initialized the same as objects that have
+static storage duration (ie. will be initialized to 0).
 
 #source struct-designated-init.c
 
@@ -252,7 +253,7 @@ So, structures cannot be:
 
 ## :wrench: animals as structures
 
-define array of structures of this type:
+Define array of structures of this type:
 
 ```C
 struct animal {
