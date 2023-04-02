@@ -185,26 +185,24 @@ to get the <code>sqrt()</code> function code, i.e:</p>
 <p>Part of the standard since C90.</p>
 <h2><a id="user-content-openingclosing" class="anchor" aria-hidden="true" href="#openingclosing"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opening/closing</h2>
 <ul>
-<li>
-<code>fopen("path", "mode")</code> opens a file and returns a pointer to an opaque <code>FILE</code>
-type.  That pointer serves as a handle.
+<li>The <code>fopen("path", "mode")</code> opens a file and returns a pointer to an opaque
+<code>FILE</code> type.  That pointer serves as a handle.
 <ul>
-<li>getting <code>NULL</code> means an error</li>
-<li>the <code>mode</code> argument controls the behavior: read (<code>r</code>), write (<code>w</code>),
-append (<code>a</code>)
+<li>Getting <code>NULL</code> means an error.</li>
+<li>The <code>mode</code> argument controls the behavior: read (<code>r</code>), write (<code>w</code>),
+append (<code>a</code>).
 <ul>
-<li>the <code>+</code> adds the other mode (write for read and vice versa,
+<li>The <code>+</code> adds the other mode (write for read and vice versa,
 read for append).</li>
-<li>write mode <code>w</code> creates the file if it does not exist, and truncates
-it if it does exist
+<li>Write mode <code>w</code> creates the file if it does not exist, and truncates
+it if it does exist.
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">the standard)</a>
 </li>
 </ul>
 </li>
-<li>
-<code>fclose</code> closes the handle
-- important to avoid resource leak (<code>fopen</code> can allocate both
-memory and file descriptor)</li>
+<li>The <code>fclose</code> closes the handle
+- Important to avoid resource leak (<code>fopen</code> can allocate both
+memory and file descriptor).</li>
 </ul>
 </li>
 </ul>
@@ -219,22 +217,20 @@ memory and file descriptor)</li>
 <span class="pl-k">if</span> (fclose(fp) != <span class="pl-c1">0</span>)
 	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>fclose failed<span class="pl-pds">"</span></span>);</pre></div>
 <ul>
-<li>the <code>b</code> binary mode usually does not have any effect</li>
-<li>
-<code>freopen</code> can be used to associate the standard streams (<code>stderr</code>, <code>stdin</code>, or
-<code>stdout</code>) with a file
+<li>The <code>b</code> binary mode usually does not have any effect.</li>
+<li>The <code>freopen</code> can be used to associate the standard streams (<code>stderr</code>,
+<code>stdin</code>, or <code>stdout</code>) with a file
 <ul>
-<li>that means e.g. reading the standard input would automatically read
-from a specific file, if you wanted that</li>
+<li>That means e.g. reading the standard input would automatically read
+from a specific file, if you wanted that.</li>
 <li>
 <code>printf(...)</code> is equivalent to <code>fprintf(stdout, ...)</code>.  However, you
-can print directly to <code>stderr</code> with <code>fprintf</code>
-</li>
+can print directly to <code>stderr</code> with <code>fprintf</code>.</li>
 </ul>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>Error happened: <span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>some error<span class="pl-pds">"</span></span>);</pre></div>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a code that opens the same file in an cycle (until <code>fopen()</code>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Write a code that opens the same file in an cycle (until <code>fopen()</code>
 fails) without calling <code>fclose()</code> on the handle. After how many iterations does
 it fail on your system?</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fopen-leak.c">fopen-leak.c</a></p>
@@ -244,8 +240,8 @@ it fail on your system?</p>
 <code>fprintf</code> - <code>printf</code> to a stream</li>
 <li>
 <code>fscanf</code>
-- basically parses text input from a stream according to format string
-- except the format string all the parameters must be pointers</li>
+- Basically parses text input from a stream according to format string
+- Except the format string all the parameters must be pointers</li>
 <li>
 <code>fputs</code>/<code>fgets</code> - send/read string to/from a stream</li>
 </ul>
@@ -266,14 +262,14 @@ error.</p>
 </li>
 </ul>
 <h2><a id="user-content-read-a-file" class="anchor" aria-hidden="true" href="#read-a-file"><span aria-hidden="true" class="octicon octicon-link"></span></a>Read a file</h2>
-<p><code>fread</code>() reads a selected number of items of a given size to memory.  We can
-use either an array or we can directly read to a variable through an operator
-address-of.  In our case, we will be reading a file byte by byte, so we can give
-<code>fread</code>() just an address of a character variable.</p>
+<p>The <code>fread</code>() reads a selected number of items of a given size to memory.  We
+can use either an array or we can directly read to a variable through an
+operator address-of.  In our case, we will be reading a file byte by byte, so we
+can give <code>fread</code>() just an address of a character variable.</p>
 <p>You can ignore the <code>restrict</code> keyword, it is intended as a hit for a compiler
 optimization, and also just accept now that we can assign any pointer to a <code>void *</code> pointer.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c1">size_t</span> <span class="pl-en">fread</span>(<span class="pl-k">void</span> *<span class="pl-k">restrict</span> ptr, <span class="pl-c1">size_t</span> size, <span class="pl-c1">size_t</span> nmemb,
-	    FILE *<span class="pl-k">restrict</span> stream);</pre></div>
+	     FILE *<span class="pl-k">restrict</span> stream);</pre></div>
 <p>Now we will read the file in chunks of one byte only.  Therefore we can use an
 <code>address-of</code> operator on a <code>char</code> object.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> c;
@@ -313,10 +309,10 @@ arguments are swapped ?</p>
 of type <code>void *</code>, we will get there later.  As mentioned above, you can safely
 put there an array or an address of a variable.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Check the man page for <code>fwrite</code>() and modify the code so that what is
-read from the file you write to some other file. The file should be created
-if it does not exist. If it exists, its contents should be truncated.
-Do not forget to open the output file for writing.
-All the details are in the man page.</p>
+read from the file you write to some other file. The file should be created if
+it does not exist. If it exists, its contents should be truncated.  Do not
+forget to open the output file for writing.  All the details are in the man
+page.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/file-copy.c">file-copy.c</a></p>
 <h2><a id="user-content-seeking" class="anchor" aria-hidden="true" href="#seeking"><span aria-hidden="true" class="octicon octicon-link"></span></a>Seeking</h2>
 <p>When reading/writing to a file using the above function, the current position
@@ -342,9 +338,9 @@ parameter relative to:
 <li>
 <code>ftell</code> - get current position in the file</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> by using seeking, write code that creates a file that has every
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> By seeking, write code that creates a file that has every
 4-th character a upper case letter of alphabet (<code>A</code> to <code>Z</code>) and then
-prints the contents of the file byte by byte. Print the non-printable bytes
+prints the contents of the file byte by byte.  Print the non-printable bytes
 in hexadecimal (with <code>0x</code> prefix).</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/file-AZ.c">file-AZ.c</a></p>
 <h1><a id="user-content-pointer-size" class="anchor" aria-hidden="true" href="#pointer-size"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer size</h1>
