@@ -382,8 +382,8 @@ also initialize it at the same time:</li>
 <ul>
 <li>
 <p>However, this is unusual because structures are normally saved to header
-files, and including such a header file would mean actual variable
-definition(s) which is rarely desirable.</p>
+files, and including such a header file would mean actual object definition(s)
+which is rarely desirable.</p>
 </li>
 <li>
 <p>For better code readability and also to be able to search for the members in
@@ -458,15 +458,14 @@ the expense of speed when accessing them.  Use only when you know what you are
 doing as it may not be safe on all architectures.</p>
 <p>Link: <a href="http://www.catb.org/esr/structure-packing/" rel="nofollow">http://www.catb.org/esr/structure-packing/</a></p>
 <h2><a id="user-content-structure-members" class="anchor" aria-hidden="true" href="#structure-members"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure members</h2>
-<ul>
-<li>
 <p>Members are accessed via 2 operators: <code>.</code> and <code>-&gt;</code></p>
 <ul>
-<li>Infix operators, left-to-right associativity, both are in the group of
-operators with the highest precedence (priority)</li>
 <li>
-<code>-&gt;</code> is used if the variable is a pointer, <code>.</code> otherwise</li>
-</ul>
+<p>Infix operators, left-to-right associativity, both are in the group of
+operators with the highest precedence (priority)</p>
+</li>
+<li>
+<p><code>-&gt;</code> is used if the variable is a pointer, <code>.</code> otherwise</p>
 </li>
 <li>
 <p>E.g.:</p>
@@ -479,31 +478,19 @@ operators with the highest precedence (priority)</li>
 
 foo.a = <span class="pl-c1">42</span>;
 foo.b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
-<ul>
-<li>
-<p>The <code>.</code> and <code>-&gt;</code> operators have higher precedence than <code>*</code> and <code>&amp;</code>, so:
-<code>&amp;foo.b</code> gets the address of the member <code>b</code>.</p>
-</li>
-<li>
-<p>Structure assignment:</p>
-</li>
-</ul>
+<p>The <code>.</code> and <code>-&gt;</code> operators have higher precedence than <code>*</code> and <code>&amp;</code>, so: <code>&amp;foo.b</code>
+gets the address of the member <code>b</code>.</p>
+<p>Structure assignment is done byte by byte (shallow copy - does not follow
+pointers):</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s one, two;
 
 one = two;</pre></div>
 <ul>
-<li>
-<p>Is done byte by byte (shallow copy - does not follow pointers).</p>
-<ul>
 <li>Handy for members that are pointers.</li>
-<li>On the other hand for large structures (say hundreds of bytes) this
-can be quite an expensive operation.</li>
+<li>On the other hand for large structures (say hundreds of bytes) this can be
+quite an expensive operation.</li>
 </ul>
-</li>
-<li>
-<p>Pointers to structures:</p>
-</li>
-</ul>
+<p>Pointers to structures are often used:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s *foo;
 
 foo-&gt;a = <span class="pl-c1">42</span>;
@@ -515,10 +502,8 @@ de-reference operator on <code>foo</code>.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> now if <code>a</code> was a pointer to integer, how would the code change?</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-access-ptr.c">struct-access-ptr.c</a></p>
 <h2><a id="user-content-structure-initialization" class="anchor" aria-hidden="true" href="#structure-initialization"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure initialization</h2>
-<ul>
-<li>Can initialize a structure in its definition using the initiator list of
-values.  You must either follow the ordering of members:</li>
-</ul>
+<p>Can initialize a structure in its definition using the initiator list of values.
+You must either follow the ordering of members:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
 	<span class="pl-k">int</span> a;
 	<span class="pl-k">char</span> b;
@@ -534,16 +519,10 @@ values.  You must either follow the ordering of members:</li>
 	.<span class="pl-smi">b</span> = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>,
 	.<span class="pl-smi">a</span> = <span class="pl-c1">1</span>,
 };</pre></div>
-<ul>
-<li>
 <p>The ordering in the struct declaration does not have to be preserved (but you
 really should follow it though).</p>
-</li>
-<li>
 <p>Omitted field members are implicitly initialized the same as objects that have
 static storage duration (ie. will be initialized to 0).</p>
-</li>
-</ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-designated-init.c">struct-designated-init.c</a></p>
 <h2><a id="user-content-operations-on-structures" class="anchor" aria-hidden="true" href="#operations-on-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operations on structures</h2>
 <p>You can only:</p>
@@ -559,7 +538,7 @@ static storage duration (ie. will be initialized to 0).</p>
 <li>Incremented (obviously).</li>
 </ul>
 <h2><a id="user-content-wrench-animals-as-structures" class="anchor" aria-hidden="true" href="#wrench-animals-as-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> animals as structures</h2>
-<p>define array of structures of this type:</p>
+<p>Define array of structures of this type:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> animal {
 	<span class="pl-k">char</span> name[NAME_MAX];	<span class="pl-c"><span class="pl-c">//</span> max filename length should be sufficient</span>
 				<span class="pl-c"><span class="pl-c">//</span> even for these long Latin names</span>
