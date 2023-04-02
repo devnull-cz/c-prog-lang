@@ -130,9 +130,10 @@ count, print a meaningful usage and exit.
 
 Usage: `./a.out <r> <n> [args]`
 
-Do not count `argv[0] .. arg[2]`.  If not enough arguments or the argument is
-not long enough, print a helpful message.  Only use pointer arithmetics, do
-**not** use square brackets (ie.  `argv[i][j]` is **not** allowed).
+Ignore `argv[0]`, `argv[1]`, and `argv[2]`.  If there are not at least `n` extra
+arguments or the `n`-th argument is not long enough, print a helpful message.
+Only use pointer arithmetics, do **not** use square brackets (ie.  `argv[i][j]`
+is **not** allowed).
 
 ```
 ./a.out 2 3 hey hi world
