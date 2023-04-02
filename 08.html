@@ -105,6 +105,17 @@
 <p>an integer greater than, equal to, or less than 0, according as the
 string s1 is greater than, equal to, or less than the string s2.</p>
 </blockquote>
+<p>You can add the following piece of code into your <code>main</code> function to test it
+(and include <code>assert.h</code>):</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">assert</span>(strcmp(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>) == 0);
+<span class="pl-en">assert</span>(strcmp(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>) &lt; 0);
+<span class="pl-en">assert</span>(strcmp(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>) &gt; 0);
+<span class="pl-en">assert</span>(strcmp(<span class="pl-s"><span class="pl-pds">"</span>abc<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>abd<span class="pl-pds">"</span></span>) &lt; 0);
+<span class="pl-en">assert</span>(strcmp(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>) &gt; 0);
+<span class="pl-en">assert</span>(strcmp(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>) == 0);
+<span class="pl-en">assert</span>(strcmp(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>fooz<span class="pl-pds">"</span></span>) &lt; 0);
+<span class="pl-en">assert</span>(strcmp(<span class="pl-s"><span class="pl-pds">"</span>fooz<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>) &gt; 0);</pre></div>
+<p>If any assert triggers, your implementation is buggy.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/strcmp.c">strcmp.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Compare your solution with the above. Try to reimplement
 it so that it is as smallest (in terms of
