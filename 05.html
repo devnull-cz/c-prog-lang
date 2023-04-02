@@ -338,7 +338,7 @@ and <strong>must</strong> document it.  See <a href="/modules/c99-standard.md">t
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/types-of-behavior.md">types of behavior.</a></p>
 </li>
 </ol>
-<h3><a id="user-content-assigning-number-fits-the-integer-object" class="anchor" aria-hidden="true" href="#assigning-number-fits-the-integer-object"><span aria-hidden="true" class="octicon octicon-link"></span></a>Assigning number fits the integer object</h3>
+<h3><a id="user-content-rule-1-assigning-number-fits-the-integer-object" class="anchor" aria-hidden="true" href="#rule-1-assigning-number-fits-the-integer-object"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rule 1: Assigning number fits the integer object</h3>
 <p>The first rule is simple and needs not much discussion.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">long</span> <span class="pl-k">long</span> <span class="pl-k">int</span> li = <span class="pl-c1">13</span>;
 <span class="pl-c"><span class="pl-c">/*</span> Is it guaranteed the one byte 'c' will be 13 even that sizeof(li) is 8. <span class="pl-c">*/</span></span>
@@ -349,7 +349,7 @@ fits a <code>char</code> no matter whether the <code>char</code> type is signed 
 its specification only uses values 0-127 and even <code>signed char</code> is required to
 accommodate that range.  So, as <code>'A'</code> fits the <code>c</code> object, this situation is
 covered by the first rule.</p>
-<h3><a id="user-content-integer-to-an-unsigned-integer" class="anchor" aria-hidden="true" href="#integer-to-an-unsigned-integer"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integer to an unsigned integer</h3>
+<h3><a id="user-content-rule-2-integer-to-an-unsigned-integer" class="anchor" aria-hidden="true" href="#rule-2-integer-to-an-unsigned-integer"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rule 2: Integer to an unsigned integer</h3>
 <blockquote>
 <p>6.3.1.3 Signed and unsigned integers
 ...
@@ -381,7 +381,7 @@ c = -<span class="pl-c1">1000</span>;		<span class="pl-c"><span class="pl-c">//<
 <span class="pl-c"><span class="pl-c">/*</span> 'i' will be 4294967286 <span class="pl-c">*/</span></span>
 <span class="pl-k">unsigned</span> <span class="pl-k">int</span> i;
 i = -<span class="pl-c1">10</span>;		<span class="pl-c"><span class="pl-c">//</span> -10 + 2^32</span></pre></div>
-<h3><a id="user-content-assign-to-a-signed-type-when-the-value-does-not-fit" class="anchor" aria-hidden="true" href="#assign-to-a-signed-type-when-the-value-does-not-fit"><span aria-hidden="true" class="octicon octicon-link"></span></a>Assign to a signed type when the value does not fit</h3>
+<h3><a id="user-content-rule-3-assign-to-a-signed-type-when-the-value-does-not-fit" class="anchor" aria-hidden="true" href="#rule-3-assign-to-a-signed-type-when-the-value-does-not-fit"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rule 3: Assign to a signed type when the value does not fit</h3>
 <p>When any integer is converted to a signed type, the value is unchanged if it can
 be represented in the new type (that is rule 1 above) and <strong>is
 implementation-defined otherwise.</strong></p>
