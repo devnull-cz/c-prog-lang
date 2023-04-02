@@ -114,12 +114,10 @@ The result is the same value.
 standard, see below.
 
 3. assigning an integer to a **signed** integer and the value does **not** fit.
-The standard says the result is *implementation-defined*.
-
-*Implementation-defined* means the implementation (ie. the compiler) must choose
-how to behave in such a situation and **must** document it.  See [the
-standard](/modules/c99-standard.md), section 3.4.1, for the precise definition.
-See also
+The standard says the result is *implementation-defined*.  It means the
+implementation (i.e. the compiler) must choose how to behave in such a situation
+and **must** document it.  See [the standard](/modules/c99-standard.md), section
+3.4.1, for the precise definition.  See also
 #module types-of-behavior.md types of behavior.
 
 ### Assigning number fits the integer object
