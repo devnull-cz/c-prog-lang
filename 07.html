@@ -391,7 +391,7 @@ Another example:</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-inc.c">ptr-inc.c</a></p>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> While you can work with arrays and pointers together,
 <strong>arrays are not pointers</strong> and <strong>pointers are not arrays</strong>.  To work with a
-pointer, the generated code must first get the value of the pointer variable,
+pointer, the generated code must first get the value of the pointer identifier,
 then work with it.  With arrays, the generated code directly uses the memory
 address the array starts at.  See below.</p>
 <h2><a id="user-content-array-identifiers-ie-variables-are-not-modifiable" class="anchor" aria-hidden="true" href="#array-identifiers-ie-variables-are-not-modifiable"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array identifiers (i.e. variables) are not modifiable</h2>
@@ -455,10 +455,10 @@ printf("%c\n", *(a + 1));       // will print 'e'
 <h1><a id="user-content-valid-pointer-operations" class="anchor" aria-hidden="true" href="#valid-pointer-operations"><span aria-hidden="true" class="octicon octicon-link"></span></a>Valid pointer operations</h1>
 <p>Valid pointer operations are:</p>
 <ul>
-<li>assignment of pointers of the same type</li>
-<li>adding or subtracting a pointer and an integer</li>
-<li>subtracting or comparing two pointers to members of the same array</li>
-<li>assigning or comparing a pointer to zero</li>
+<li>Assignment of pointers of the same type.</li>
+<li>Adding or subtracting a pointer and an integer.</li>
+<li>Subtracting or comparing two pointers to members of the same array.</li>
+<li>Assigning or comparing a pointer to zero.</li>
 </ul>
 <p>All other pointer arithmetic are invalid operations and may or may not trigger a
 warning.</p>
