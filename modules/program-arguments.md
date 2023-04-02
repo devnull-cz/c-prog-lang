@@ -4,28 +4,29 @@
 int main(int argc, char *argv[]);
 ```
 
-  - `argv` is declared as an array of pointers
-    - i.e. `argv[i]` is a pointer to `char`
-  - the arguments of `main()` can have arbitrary names however please stick
-    to the convention to avoid confusion of those who might be reading your
-    program
+- The `argv` is declared as an array of pointers.
+	- i.e. `argv[i]` is a pointer to `char`
+- The arguments of `main()` can have arbitrary names however please stick to the
+  convention to avoid confusion of those who might be reading your program
 
-  - `argc` is a number of command line arguments, including the command name
-    itself (in `argv[0]`).
+- The `argc` is a number of command line arguments, including the command name
+  itself (in `argv[0]`).
 
-  - `argv[i]` are arguments as strings.  Note, they are **strings** even if you
-    put numbers there on the command line.
+- `argv[i]` are arguments as strings.  Note, they are **strings** even if you
+  put numbers there on the command line.
 
-  - `argv[argc]` is a null pointer by definition.
+- `argv[argc]` is a null pointer by definition.
 
 Note: remember (see
 #module arrays-as-function-arguments.md notes about array passed to function
 ) that in a function argument, an array is
       always treated as a pointer so the above effectively becomes:
+
 ```C
-        int main(int argc, char **argv);
+int main(int argc, char **argv);
 ```
-  i.e. in this context, char `*argv[]` and char `**argv` are the same.
+
+i.e. in this context, char `*argv[]` and char `**argv` are the same.
 
 The declaration merely hints at the memory layout.  That is how it was concieved
 by the fathers of C, unfortunately it often causes confusion.
@@ -37,13 +38,13 @@ sure that it's not out of range.
 #source argv-as-2d-array.c
 
 - the memory for `argc`, `argv` is allocated before `main()` is called
-  - the standard (C99) leaves unspecified where argc/argv are stored
+	- the standard (C99) leaves unspecified where argc/argv are stored
 
-    > section 5.1.2.2.1: the strings pointed to by the argv array shall be
-    modifiable by the program, and retain their last-stored values between
-    program startup and program termination.
+	> section 5.1.2.2.1: the strings pointed to by the argv array shall be
+	modifiable by the program, and retain their last-stored values between
+	program startup and program termination.
 
-- the `argv` is an array of pointers to null-terminated strings and must be
+- The `argv` is an array of pointers to null-terminated strings and must be
   terminated by a null pointer. (quote from the execve(2) man page on Unix
   systems)
 
@@ -66,32 +67,32 @@ sure that it's not out of range.
 
 ## :wrench: Task: print command line arguments
 
-- print all command line arguments using `argc`
-- print all command line arguments using just `argv`
-- print all command line arguments not starting with `-`
-- print all command line arguments using a recursive function (that accepts
-  pointer to pointer to char)
+- Print all command line arguments using `argc`
+- Print all command line arguments using just `argv`
+- Print all command line arguments not starting with `-`
+- Print all command line arguments using a recursive function (that accepts
+  pointer to pointer to char).
 
 Note: for all arguments print their address as well
 
 Note: do not print the terminating null pointer entry
-  - some `printf()` implementations barf on null pointer when printing via the
-    `%s` format string
+- Some `printf()` implementations barf on null pointer when printing via the
+  `%s` format string
 
 Code:
-  - #solution argv-while.c
-  - #solution argv-for.c
-  - #solution argv-nodash.c
-  - #solution print-argv-recursively.c
+- #solution argv-while.c
+- #solution argv-for.c
+- #solution argv-nodash.c
+- #solution print-argv-recursively.c
 
 ## :wrench: Task: print command line arguments (part II.)
 
-- print all command line arguments without using square brackets
-- as above but do not use any variable aside from `argv`
+- Print all command line arguments without using square brackets
+- As above but do not use any variable aside from `argv`
 
 ## :wrench: Task: get char distance in specific argument
 
-write a program with usage `./a.out <a> <b> <string>` to
+Write a program with usage `./a.out <a> <b> <string>` to
 find a distance (number of characters) between the first occurence of character
 `<a>` and `<b>` in a string `<string>`.
 If either of the character is not found in the string, print an error.
@@ -103,25 +104,25 @@ Note: do not use `strchr()` or the like.
 
 #solution argv-char-dist.c
 
-## usage: semi-formal specification of program arguments
+## Usage string: a semi-formal specification of program arguments
 
-  - usually used to print when invalid option or arguments are specified
-  - can be handled via `errx()`
-  - the usage usually contains program name followed by the argument schema
-    - see e.g. the nc(1) man page
-  - optional arguments are enclosed in square brackets, mandatory arguments
-    are enclosed in `<>` or left without brackets
+- Usually used to print when invalid option or arguments are specified
+- Can be handled via `errx()`
+- The usage usually contains program name followed by the argument schema
+- See e.g. the `nc(1)` man page
+- Optional arguments are enclosed in square brackets, mandatory arguments are
+  enclosed in `<>` or left without brackets
 
-:wrench: write a program that takes 1 or 2 arguments. If run with any other
-count, print usage and exit.
+:wrench: Write a program that takes 1 or 2 arguments.  If run with any other
+count, print a meaningful usage and exit.
 
 #solution usage.c
 
-## :wrench: Task: print the n-th character of the r-th argument (count from 0)
+## :wrench: Print the n-th character of the r-th argument (count from 0)
 
-usage: `./a.out <r> <n> [args]`
+Usage: `./a.out <r> <n> [args]`
 
-do not count `argv[0] .. arg[2]`.  If not enough arguments or the argument is
+Do not count `argv[0] .. arg[2]`.  If not enough arguments or the argument is
 not long enough, print a helpful message.  Only use pointer arithmetics, do
 **not** use square brackets (ie.  `argv[i][j]` is **not** allowed).
 
@@ -129,11 +130,12 @@ not long enough, print a helpful message.  Only use pointer arithmetics, do
 ./a.out 2 3 hey hi world
 l
 ```
+
 Note: use `atoi()` to convert the first 2 arguments to integers
 
 #solution argv-nr.c
 
-## :wrench: Task: what do these programs do when run with 2 arguments
+## :wrench: What do these programs do when run with 2 arguments
 
 Assume that the arguments are sufficiently long enough.
 
@@ -169,5 +171,5 @@ that include format string checks.  What is expected to happen if the last piece
 of code does compile and is run with one argument?
 
 Code:
-  - #source plus-deref-plus-argv.c
-  - #source plus-deref-plus-deref-argv.c
+- #source plus-deref-plus-argv.c
+- #source plus-deref-plus-deref-argv.c
