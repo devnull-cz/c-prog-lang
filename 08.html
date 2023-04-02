@@ -298,21 +298,21 @@ of code does compile and is run with one argument?</p>
 <h2><a id="user-content-basics" class="anchor" aria-hidden="true" href="#basics"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basics</h2>
 <ul>
 <li>
-<p>collection of one or more members, possibly of different types, grouped
-together under a single name</p>
+<p>Collection of one or more members, possibly of different types, grouped
+together under a single name.</p>
 </li>
 <li>
-<p>is one of the two <em>aggregate types</em> (the other aggregate type is the <em>array</em>)</p>
+<p>Is one of the two <em>aggregate types</em> (the other aggregate type is the <em>array</em>)</p>
 </li>
 <li>
-<p>structures permit group of related members to be treated as a unit (precursor
-to a class in Object Oriented Programming)</p>
+<p>Structures permit group of related members to be treated as a unit (precursor
+to a class in Object Oriented Programming).</p>
 </li>
 <li>
-<p>structures can contain other structures</p>
+<p>Structures can contain other structures.</p>
 </li>
 <li>
-<p>structure is specified as:</p>
+<p>Structure is specified as:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo {
@@ -325,55 +325,55 @@ to a class in Object Oriented Programming)</p>
 };</pre></div>
 <ul>
 <li>
-<p>any type can be a member of a structure that it not <strong>incomplete</strong> and not a
+<p>Any type can be a member of a structure that it not <strong>incomplete</strong> and not a
 function.  Incomplete means its size is unknown; more on that later.</p>
 <ul>
-<li>that means a structure may not contain itself (before the structure
-definition is finished with the terminating <code>}</code>, it is an incomplete type as
-its size is not yet known)
+<li>That means a structure may not contain itself (before the structure
+definition is finished with the terminating <code>}</code>, it is an incomplete
+type as its size is not yet known)
 <ul>
-<li>there is a minor exception though, see C99 6.7.2.1, paragraph 2 and 16,
-and also a
+<li>There is a minor exception though, see C99 6.7.2.1, paragraph
+2 and 16, and also a
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/flexible-array-member.md"><em>flexible array member</em>.</a>
 </li>
 </ul>
 </li>
-<li>however: a pointer to its own type is possible (remember, a pointer
-is just a number referencing a piece of memory, and its size is known)</li>
-<li>unlike in C++, structure cannot contain functions. It may contain
+<li>However: a pointer to its own type is possible (remember, a pointer is
+just a number referencing a piece of memory, and its size is known)</li>
+<li>Unlike in C++, structure cannot contain functions. It may contain
 pointers to functions, though.</li>
 </ul>
 </li>
 <li>
-<p>structure does not need a name, <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-unnamed.c">struct-unnamed.c</a></p>
+<p>Structure does not need a name, <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-unnamed.c">struct-unnamed.c</a></p>
 <ul>
-<li>however then its use is limited to a variable declaration</li>
-<li>one can even have an "anonymous structure", however that is a C11
+<li>However then its use is limited to a variable declaration</li>
+<li>One can even have an "anonymous structure", however that is a C11
 extension, <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-anon.c">struct-anon.c</a>
 </li>
 </ul>
 </li>
 <li>
-<p>the <code>struct</code> declaration itself cannot contain initializers.  However, the
+<p>The <code>struct</code> declaration itself cannot contain initializers.  However, the
 structure can be initialized with a list of initializers in the same way as
 arrays.</p>
-<p>So, you cannot do:</p>
 </li>
 </ul>
+<p>So, you cannot do:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo {
 	<span class="pl-k">int</span> a;
 } = { <span class="pl-c1">1</span> };</pre></div>
 <ul>
-<li>when the structure has been defined, you can declare a variable of its type:</li>
+<li>When the structure has been defined, you can declare a variable of its type:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo f;</pre></div>
 <ul>
-<li>sometimes the <code>_s</code> or <code>_st</code> postfix is used to hint that a name is a structure</li>
+<li>Sometimes the <code>_s</code> or <code>_st</code> postfix is used to hint that a name is a structure</li>
 </ul>
 <p>Note: the <code>struct</code> keyword has to be used for its definition and declaration:</p>
 <p><code>foo f;</code> is not valid.</p>
 <ul>
-<li>can declare structure and objects of its type at the same time, and you can
+<li>Can declare structure and objects of its type at the same time, and you can
 also initialize it at the same time:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
@@ -381,24 +381,25 @@ also initialize it at the same time:</li>
 } foo = { <span class="pl-c1">0</span>, ... };</pre></div>
 <ul>
 <li>
-<p>however, this is unusual because structures are normally saved to header
+<p>However, this is unusual because structures are normally saved to header
 files, and including such a header file would mean actual variable
-definition(s) which is rarely desirable</p>
+definition(s) which is rarely desirable.</p>
 </li>
 <li>
-<p>for better code readability and also to be able to search for the members in
+<p>For better code readability and also to be able to search for the members in
 (large) code base, members are often prefixed with a common string ending with
 an underscore to denote their structure membership, e.g.:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span> 'sin' is a shortcut for 'Sockaddr_IN', the Internet socket</span>
-<span class="pl-c"><span class="pl-c">//</span> address</span>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c"> * 'sin' is a shortcut for 'Sockaddr_IN', the Internet socket address</span>
+<span class="pl-c"> <span class="pl-c">*/</span></span>
 <span class="pl-k">struct</span> sockaddr_in {
 	<span class="pl-k">short</span>   sin_family;
 	<span class="pl-c1">u_short</span> sin_port;
 };</pre></div>
 <ul>
-<li>when looking for variable names in a big source code repository (using
+<li>When looking for variable names in a big source code repository (using
 <code>ctags</code>, <code>cstyle</code> or tools such as
 <a href="https://github.com/opengrok/opengrok/">OpenGrok</a>), there would be large
 amount of generally named variables like <code>port</code>, <code>size</code>, etc in various source
@@ -409,36 +410,37 @@ just one, the one you are looking for.</li>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> X { <span class="pl-k">int</span> a; <span class="pl-k">char</span> b; <span class="pl-k">int</span> c; };</pre></div>
 <ul>
 <li>
-<p>the offset of the first member will be always 0</p>
+<p>The offset of the first member will be always 0.</p>
 </li>
 <li>
-<p>other members will be padded to preserve self-alignment (i.e. a member is
-always aligned in memory to multiple of its own size)</p>
+<p>Other members will be padded to preserve self-alignment (i.e. a member is
+always aligned in memory to multiple of its own size).</p>
 <ul>
-<li>the value of the padding bits is undefined by definition and you must
-not rely on it</li>
+<li>The value of the padding bits is undefined by definition and you must
+not rely on it.</li>
 </ul>
 </li>
 <li>
-<p>what will be the result of <code>sizeof (struct X)</code> above?</p>
+<p>What will be the result of <code>sizeof (struct X)</code> above?</p>
 <ul>
-<li>why? (think about efficiency of accessing members that cross
-a word in memory)</li>
+<li>Why? (think about efficiency of accessing members that cross
+a word in memory).</li>
 </ul>
 </li>
 <li>
-<p>what if <code>char d</code> is added at the end of the data structure?</p>
+<p>What if <code>char d</code> is added at the end of the data structure?</p>
 <ul>
-<li>why is that? (think about arrays and memory access again)</li>
+<li>Why is that? (think about arrays and memory access again).</li>
 </ul>
 </li>
 <li>
-<p>what if <code>char *d</code> is added at the end of the data structure?  (i.e. it will
-have 4 members)</p>
+<p>What if <code>char *d</code> is added at the end of the data structure?  (i.e. it will
+have 4 members).</p>
 <ul>
-<li>assume this is being compiled on 64-bit machine</li>
-<li>for efficiency the access to the pointer should be aligned to its size</li>
-<li>if in doubt, draw a picture</li>
+<li>Assume this is being compiled on 64-bit machine.</li>
+<li>For efficiency the access to the pointer should be aligned to its
+size.</li>
+<li>If in doubt, draw a picture.</li>
 </ul>
 </li>
 </ul>
@@ -447,27 +449,27 @@ have 4 members)</p>
 +-----------+----+--------+------------+
 </code></pre>
 <ul>
-<li>does the compiler reorder struct members?  No, C is designed to trust the
+<li>Does the compiler reorder struct members?  No, C is designed to trust the
 programmer.</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-X.c">struct-X.c</a></p>
-<p>note: gcc/Clang has the <code>-fpack-struct</code> option that will condense the members at
+<p>Note: gcc/Clang has the <code>-fpack-struct</code> option that will condense the members at
 the expense of speed when accessing them.  Use only when you know what you are
 doing as it may not be safe on all architectures.</p>
-<p>link: <a href="http://www.catb.org/esr/structure-packing/" rel="nofollow">http://www.catb.org/esr/structure-packing/</a></p>
+<p>Link: <a href="http://www.catb.org/esr/structure-packing/" rel="nofollow">http://www.catb.org/esr/structure-packing/</a></p>
 <h2><a id="user-content-structure-members" class="anchor" aria-hidden="true" href="#structure-members"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure members</h2>
 <ul>
 <li>
-<p>members are accessed via 2 operators: <code>.</code> and <code>-&gt;</code></p>
+<p>Members are accessed via 2 operators: <code>.</code> and <code>-&gt;</code></p>
 <ul>
-<li>infix operators, left-to-right associativity, both are in the group of
+<li>Infix operators, left-to-right associativity, both are in the group of
 operators with the highest precedence (priority)</li>
 <li>
 <code>-&gt;</code> is used if the variable is a pointer, <code>.</code> otherwise</li>
 </ul>
 </li>
 <li>
-<p>e.g.:</p>
+<p>E.g.:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
@@ -479,11 +481,11 @@ foo.a = <span class="pl-c1">42</span>;
 foo.b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
 <ul>
 <li>
-<p>the <code>.</code> and <code>-&gt;</code> operators have higher precedence than <code>*</code> and <code>&amp;</code>, so:
-<code>&amp;foo.b</code> gets the address of the member <code>b</code></p>
+<p>The <code>.</code> and <code>-&gt;</code> operators have higher precedence than <code>*</code> and <code>&amp;</code>, so:
+<code>&amp;foo.b</code> gets the address of the member <code>b</code>.</p>
 </li>
 <li>
-<p>structure assignment</p>
+<p>Structure assignment:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s one, two;
@@ -491,15 +493,15 @@ foo.b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'<
 one = two;</pre></div>
 <ul>
 <li>
-<p>is done byte by byte (shallow copy - does not follow pointers)</p>
+<p>Is done byte by byte (shallow copy - does not follow pointers).</p>
 <ul>
-<li>handy for members that are pointers</li>
-<li>on the other hand for large structures (say hundreds of bytes) this
-can be quite an expensive operation</li>
+<li>Handy for members that are pointers.</li>
+<li>On the other hand for large structures (say hundreds of bytes) this
+can be quite an expensive operation.</li>
 </ul>
 </li>
 <li>
-<p>pointers to structures:</p>
+<p>Pointers to structures:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s *foo;
@@ -507,14 +509,14 @@ can be quite an expensive operation</li>
 foo-&gt;a = <span class="pl-c1">42</span>;
 foo-&gt;b = <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>;</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-reference.c">struct-reference.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: write the above assignments to the members <code>a</code> and <code>b</code> using a
-de-reference operator on <code>foo</code></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Write the above assignments to the members <code>a</code> and <code>b</code> using a
+de-reference operator on <code>foo</code>.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-access.c">struct-access.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> now if <code>a</code> was a pointer to integer, how would the code change?</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-access-ptr.c">struct-access-ptr.c</a></p>
 <h2><a id="user-content-structure-initialization" class="anchor" aria-hidden="true" href="#structure-initialization"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure initialization</h2>
 <ul>
-<li>can initialize a structure in its definition using the initiator list of
+<li>Can initialize a structure in its definition using the initiator list of
 values.  You must either follow the ordering of members:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> foo_s {
@@ -534,11 +536,11 @@ values.  You must either follow the ordering of members:</li>
 };</pre></div>
 <ul>
 <li>
-<p>the ordering in the struct declaration does not have to be preserved (but you
-really should follow it though)</p>
+<p>The ordering in the struct declaration does not have to be preserved (but you
+really should follow it though).</p>
 </li>
 <li>
-<p>omitted field members are implicitly initialized the same as objects that have
+<p>Omitted field members are implicitly initialized the same as objects that have
 static storage duration (ie. will be initialized to 0).</p>
 </li>
 </ul>
@@ -546,27 +548,27 @@ static storage duration (ie. will be initialized to 0).</p>
 <h2><a id="user-content-operations-on-structures" class="anchor" aria-hidden="true" href="#operations-on-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operations on structures</h2>
 <p>You can only:</p>
 <ul>
-<li>copy a structure</li>
-<li>assign to it as a unit</li>
-<li>taking its address with &amp;</li>
-<li>access its members</li>
+<li>Copy a structure.</li>
+<li>Assign to it as a unit.</li>
+<li>Taking its address with <code>&amp;</code>.</li>
+<li>Access its members.</li>
 </ul>
 <p>So, structures cannot be:</p>
 <ul>
-<li>compared (for that one has to implement a comparator function)</li>
-<li>incremented (obviously)</li>
+<li>Compared (for that one has to implement a comparator function).</li>
+<li>Incremented (obviously).</li>
 </ul>
-<h2><a id="user-content-wrench-task-animals-as-structures" class="anchor" aria-hidden="true" href="#wrench-task-animals-as-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: animals as structures</h2>
+<h2><a id="user-content-wrench-animals-as-structures" class="anchor" aria-hidden="true" href="#wrench-animals-as-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> animals as structures</h2>
 <p>define array of structures of this type:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> animal {
 	<span class="pl-k">char</span> name[NAME_MAX];	<span class="pl-c"><span class="pl-c">//</span> max filename length should be sufficient</span>
 				<span class="pl-c"><span class="pl-c">//</span> even for these long Latin names</span>
 	<span class="pl-c1">size_t</span> legs;		<span class="pl-c"><span class="pl-c">//</span> can have many legs</span>
 };</pre></div>
-<p>and initialize it with some samples (can define the array in <code>animals.h</code>) and
+<p>And initialize it with some samples (can define the array in <code>animals.h</code>) and
 implement a function:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c1">size_t</span> <span class="pl-en">count_minlegs</span>(<span class="pl-k">struct</span> animal *, <span class="pl-c1">size_t</span> len, <span class="pl-c1">size_t</span> min);</pre></div>
-<p>that will return number of animals in the array (of <code>len</code> items) that have at
+<p>That will return number of animals in the array (of <code>len</code> items) that have at
 least <code>min</code> legs.</p>
 <p>Notice that the function returns <code>size_t</code>. This way it is ready for future
 expansion. If it returned <code>unsigned int</code> and 32-bits was not found enough later
@@ -584,7 +586,7 @@ result.</p>
 <li>
 <code>stddef.h</code> for <code>size_t</code> (as per C99, §7.17)</li>
 </ul>
-<p>code:</p>
+<p>Code:</p>
 <ul>
 <li><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-animals.c">struct-animals.c</a>
 </li>
@@ -600,8 +602,8 @@ link them together.</p>
 <p>It can be done e.g. like this:</p>
 <pre><code>cc struct-animals.c animal_minlegs.c
 </code></pre>
-<p>where the compiler will do the compilation of the individual object files and
-then call the linker to contruct the binary (named <code>a.out</code>).</p>
+<p>The compiler will do the compilation of the individual object files and then
+call the linker to contruct the binary (named <code>a.out</code>).</p>
 <p>Or as follows:</p>
 <pre><code>cc -c struct-animals.c animal_minlegs.c
 cc -o animals struct-animals.o animal_minlegs.o
@@ -609,10 +611,10 @@ cc -o animals struct-animals.o animal_minlegs.o
 <p>which is closer to what would be done using a Makefile.</p>
 <p>Technically, <code>animals.h</code> contains code, however, given it is included in a <code>.c</code>
 file it is not necessary to compile it individually.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: use the code from previous task and implement (in separate <code>.c</code>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use the code from previous task and implement (in separate <code>.c</code>
 file)</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">static</span> <span class="pl-c1">size_t</span> <span class="pl-en">getlegs</span>(<span class="pl-k">struct</span> animal *);</pre></div>
-<p>that will return number of legs for a given animal.</p>
+<p>That will return number of legs for a given animal.</p>
 <h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
