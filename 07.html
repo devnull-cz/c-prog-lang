@@ -369,8 +369,8 @@ $ ./a.out
 <p>In C, there is a strong relationship between arrays and pointers.  Most of the
 time, you can use array notation with pointers, and pointer notation with
 arrays, but <strong>not always</strong>.</p>
-<p>By definition, the value of a variable or an expression of an array type is the
-address of the first array element (an element zero).</p>
+<p>By definition, the value of an array identifier  or an expression of an array
+type is the address of the first array element (an element zero).</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *pa;
 <span class="pl-k">int</span> a[<span class="pl-c1">4</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span> };
 
@@ -380,7 +380,10 @@ pa = a;         <span class="pl-c"><span class="pl-c">//</span> this gets the sa
 p[<span class="pl-c1">0</span>] = <span class="pl-c1">3</span>;	<span class="pl-c"><span class="pl-c">//</span> the array is now { 3, 2, 3, 4 }</span>
 *(a + <span class="pl-c1">1</span>) = <span class="pl-c1">5</span>;	<span class="pl-c"><span class="pl-c">//</span> the array is now { 3, 5, 3, 4 }</span></pre></div>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> As you can see, incrementing a pointer increments the
-value <strong>by the size of the object the pointer points to</strong>.  Another example:</p>
+value <strong>by the size of the object the pointer points to</strong>.  That was already
+mentioned in
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/pointers.md">the pointer intro.</a>
+Another example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[] = { <span class="pl-c1">0</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span> };
 <span class="pl-k">int</span> *p = a;
 
