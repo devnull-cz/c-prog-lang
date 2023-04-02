@@ -280,7 +280,7 @@ It sometimes happens with unary operators as well.  You need to consult the
 specification.  For example:</p>
 <pre><code>++ and --	*NO* integer promotion
 ! (negation)	*NO* integer promotion
-+ and -		integer promotion happens
++ and -		integer promotion happens for both unary and binary operations
 </code></pre>
 <p>That means for <code>char c</code>:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">sizeof</span> (c)	<span class="pl-c"><span class="pl-c">//</span> is	1</span>
@@ -331,14 +331,13 @@ standard, see below.</p>
 </li>
 <li>
 <p>assigning an integer to a <strong>signed</strong> integer and the value does <strong>not</strong> fit.
-The standard says the result is <em>implementation-defined</em>.</p>
+The standard says the result is <em>implementation-defined</em>.  It means the
+implementation (i.e. the compiler) must choose how to behave in such a situation
+and <strong>must</strong> document it.  See <a href="/modules/c99-standard.md">the standard</a>, section
+3.4.1, for the precise definition.  See also
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/types-of-behavior.md">types of behavior.</a></p>
 </li>
 </ol>
-<p><em>Implementation-defined</em> means the implementation (ie. the compiler) must choose
-how to behave in such a situation and <strong>must</strong> document it.  See <a href="/modules/c99-standard.md">the
-standard</a>, section 3.4.1, for the precise definition.
-See also
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/types-of-behavior.md">types of behavior.</a></p>
 <h3><a id="user-content-assigning-number-fits-the-integer-object" class="anchor" aria-hidden="true" href="#assigning-number-fits-the-integer-object"><span aria-hidden="true" class="octicon octicon-link"></span></a>Assigning number fits the integer object</h3>
 <p>The first rule is simple and needs not much discussion.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">long</span> <span class="pl-k">long</span> <span class="pl-k">int</span> li = <span class="pl-c1">13</span>;
