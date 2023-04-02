@@ -1,3 +1,6 @@
+/*
+ * This is a simplified version of circle.c
+ */
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
