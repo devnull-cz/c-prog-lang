@@ -250,9 +250,10 @@ count, print a meaningful usage and exit.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/usage.c">usage.c</a></p>
 <h2><a id="user-content-wrench-print-the-n-th-character-of-the-r-th-argument-count-from-0" class="anchor" aria-hidden="true" href="#wrench-print-the-n-th-character-of-the-r-th-argument-count-from-0"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Print the n-th character of the r-th argument (count from 0)</h2>
 <p>Usage: <code>./a.out &lt;r&gt; &lt;n&gt; [args]</code></p>
-<p>Do not count <code>argv[0] .. arg[2]</code>.  If not enough arguments or the argument is
-not long enough, print a helpful message.  Only use pointer arithmetics, do
-<strong>not</strong> use square brackets (ie.  <code>argv[i][j]</code> is <strong>not</strong> allowed).</p>
+<p>Ignore <code>argv[0]</code>, <code>argv[1]</code>, and <code>argv[2]</code>.  If there are not at least <code>n</code> extra
+arguments or the <code>n</code>-th argument is not long enough, print a helpful message.
+Only use pointer arithmetics, do <strong>not</strong> use square brackets (ie.  <code>argv[i][j]</code>
+is <strong>not</strong> allowed).</p>
 <pre><code>./a.out 2 3 hey hi world
 l
 </code></pre>
