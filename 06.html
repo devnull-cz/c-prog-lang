@@ -105,17 +105,17 @@ character is part of the string.</p>
 <p>A <em>string literal</em> is a sequence of zero or more characters enclosed in
 double-quotes, as in <code>"xxx"</code>.  It is also called a <em>string constant</em>.</p>
 <ul>
-<li>do not confuse it with a <em>character constant</em>, e.g. <code>'A'</code>, as it uses
+<li>Do not confuse it with a <em>character constant</em>, e.g. <code>'A'</code>, as it uses
 single quotes.  In contrast to Python, for example, single and double
 quotes are two different things in C.</li>
 </ul>
 </li>
 <li>
-<p><strong>a string constant internally initializes an array of characters, with a null
+<p><strong>A string constant internally initializes an array of characters, with a null
 character appended.</strong></p>
 </li>
 <li>
-<p>that also means that a string literal may include multiple null characters,
+<p>That also means that a string literal may include multiple null characters,
 thus defining multiple strings.  Note that a <em>string literal</em> and a <em>string</em>
 are two different things even that people mostly both call a string.</p>
 </li>
@@ -133,11 +133,11 @@ $ ./a.out
 hello</pre></div>
 <ul>
 <li>
-<p><code>'\0'</code> is just a special case of octal representation <code>'\ooo'</code>,
+<p>The <code>'\0'</code> is just a special case of octal representation <code>'\ooo'</code>,
 called <em>octal escape sequence</em>, where <code>o</code> is an octal figure (0-7).  You can
 use any ASCII character like that.</p>
 <ul>
-<li>the full syntax is <code>'\o'</code>, <code>'\oo'</code>, or <code>'\ooo'</code>.  <code>\6</code> is another
+<li>The full syntax is <code>'\o'</code>, <code>'\oo'</code>, or <code>'\ooo'</code>.  <code>\6</code> is another
 example of an octal character sequence while <code>\8</code> is illegal.</li>
 </ul>
 </li>
@@ -163,8 +163,8 @@ Z
 <span class="pl-c1">9</span>
 a	b</pre></div>
 <ul>
-<li>a string constant may be used to initialize a <code>char</code> array and usually that is
-how the string initialization is used (in contrast to <code>{ 'a', 'b', ... }</code>)</li>
+<li>A string constant may be used to initialize a <code>char</code> array and usually that is
+how the string initialization is used (in contrast to <code>{ 'a', 'b', ... }</code>).</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
 <span class="pl-en">main</span>(<span class="pl-k">void</span>)
@@ -178,27 +178,27 @@ $ ./a.out
 hello, world.
 </code></pre>
 <ul>
-<li>remember that if <code>{}</code> is used for the initialization, <strong>you must add the
+<li>Remember that if <code>{}</code> is used for the initialization, <strong>you must add the
 terminating zero yourself</strong> unless you use the size of the array and the
 string was shorter (in which case the rest would be initialized to zero as
 usual):</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> s[] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span> };</pre></div>
 <ul>
-<li>so, the following is still a propertly terminated string but do not use it
-like that</li>
+<li>So, the following is still a properly terminated string but do not use it like
+that, it is confusing:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> s[<span class="pl-c1">10</span>] = { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };</pre></div>
 <p>Anyway, you would probably never do it this way.  Just use <code>= "hello"</code>.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-fill.c">array-fill.c</a>
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-fill2.c">array-fill2.c</a></p>
 <ul>
-<li>string is printed via <code>printf()</code> as <code>%s</code>
-</li>
+<li>We already know that a string is printed via <code>printf()</code> using the <code>%s</code>
+conversion specifier:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>hello, world<span class="pl-pds">"</span></span>);</pre></div>
 <ul>
-<li>experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
+<li>Experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-format.c">string-format.c</a></p>
 <h1><a id="user-content-warm-up" class="anchor" aria-hidden="true" href="#warm-up"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warm-up</h1>
