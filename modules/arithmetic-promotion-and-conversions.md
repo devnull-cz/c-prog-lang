@@ -289,8 +289,9 @@ actually assumes the following:
 
 What happens:
 
-1. `c` is converted to an `int` based on Integer Promotion
-2. so the result type of `(c + i)` is an `int`
+1. `c` is converted to an `int` based on Integer Promotion with a binary `+`
+operator
+2. the result type of `(c + i)` is an `int` as both operands are `int`s
 3. that result is converted to an `unsigned int` (= type of `u` which is
 "bigger" than `int`) using the Integer Conversion we just introduced above.
 4. the result type of `(c + i + u)` is then an `unsigned int`
@@ -298,10 +299,9 @@ What happens:
 type of `ll`
 6. the `long long` is the result type of the whole expression
 
-Note that at every step, Integer Conversion rules were applied.
-
-Specifically, an unsigned integer type is "bigger" than the corresponding signed
-type.
+Note that at every step, Integer Conversion rules were applied.  Also, an
+unsigned integer type is "bigger" than the corresponding signed type, see
+#module rank.md on the *integer conversion rank*.
 
 ```C
 int i;
