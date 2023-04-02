@@ -44,7 +44,7 @@ specification.  For example:
 ```
 ++ and --	*NO* integer promotion
 ! (negation)	*NO* integer promotion
-+ and -		integer promotion happens
++ and -		integer promotion happens for both unary and binary operations
 ```
 
 That means for `char c`:
