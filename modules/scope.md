@@ -13,9 +13,9 @@
 
 - When declaring an identifier inside a block or within the list of parameter
   declarations in a function definition, the identifier has *block scope*.
-  Its scope is from the variable declaration to the end of the block.
+  Its scope is from the identifier declaration to the end of the block.
 
-- When declaring a variable outside of any block or list of parameters, the
+- When declaring an identifier  outside of any block or list of parameters, the
   identifier has *file scope*.
 
 - Note that a block is used in multiple constructs in C, e.g. `while`, `for`,
