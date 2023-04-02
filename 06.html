@@ -359,65 +359,66 @@ c;
 <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/compound-statement.c">compound-statement.c</a></p>
 <h1><a id="user-content-pointers" class="anchor" aria-hidden="true" href="#pointers"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointers</h1>
 <p>A <em>pointer</em> is a reference to an entity, e.g. to an object of type <code>int</code>.  By
-itself it is just an object (= variable) whose value is the reference (= memory
-address) to the entity.</p>
+itself it is an object whose value is the reference (= memory address) to the
+entity.</p>
 <p>Motivation:</p>
 <ul>
 <li>
-<p>memory allocation / shared memory</p>
+<p>Memory allocation / shared memory.</p>
 </li>
 <li>
-<p>protocol buffer parsing</p>
+<p>Protocol buffer parsing.</p>
 </li>
 <li>
-<p>pointer arithmetics</p>
+<p>Pointer arithmetics.</p>
 </li>
 <li>
-<p>the value stored in a pointer variable is the address of the memory storing
-the given pointer type</p>
+<p>The value stored in a pointer identifier is the address of the memory storing
+the given pointer type.</p>
 </li>
 <li>
-<p>declared like this, e.g.</p>
+<p>Declared like this, e.g.</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p; <span class="pl-c"><span class="pl-c">//</span> pointer to an int</span></pre></div>
 <ul>
-<li>note on style:</li>
+<li>Note on style:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> * p;
 <span class="pl-k">int</span> *p;  <span class="pl-c"><span class="pl-c">//</span> preferred in this lecture</span></pre></div>
 <ul>
 <li>
-<p>a pointer is always associated with a type</p>
+<p>A pointer is always associated with a type.</p>
 </li>
 <li>
-<p>to access the object the pointer points to, use a <em>dereference</em> operator <code>*</code>:</p>
+<p>To access a value of the object the pointer points to, use a <em>dereference</em>
+operator <code>*</code>:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, *p);</pre></div>
 <ul>
-<li>the dereference is also used to write a value to the object the pointer
-points to:</li>
+<li>The dereference is also used to write a value to the object the pointer points
+to:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>*p = <span class="pl-c1">5</span>;</pre></div>
 <ul>
-<li>in a declaration, you may assign like this:</li>
+<li>Nn a declaration, you may assign like this:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i = <span class="pl-c1">5</span>;
-<span class="pl-k">int</span> *p = &amp;i;</pre></div>
+<span class="pl-k">int</span> *p = &amp;i;	<span class="pl-c"><span class="pl-c">//</span> assign an address of 'i'</span></pre></div>
 <ul>
-<li>good practice is to prefix pointers with the 'p' letter, e.g.:</li>
+<li>Good practice is to prefix pointers with the 'p' letter, e.g.:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> val;
 <span class="pl-k">int</span> *pval = &amp;val;</pre></div>
 <ul>
 <li>
-<p>the <code>&amp;</code> above is an <em>address-of</em> operator and gets the address of the object
-(i.e. the memory address of where the value is stored)</p>
+<p>The <code>&amp;</code> above is an <em>address-of</em> operator and gets the address of the object
+(i.e. the memory address of where the value is stored).</p>
 </li>
 <li>
-<p>the pointer itself is obviously stored in memory too (it's just another
-variable).  With the declarations above, it looks as follows:</p>
+<p>The pointer itself is obviously stored in memory too (it is just another
+object as already said).  With the declarations above, it looks as follows:</p>
 </li>
 </ul>
 <pre><code>     p
@@ -433,56 +434,58 @@ variable).  With the declarations above, it looks as follows:</p>
 </code></pre>
 <ul>
 <li>
-<p>the size of the pointer depends on the architecture and the way the program
+<p>The size of the pointer depends on the architecture and the way the program
 was compiled (see <code>-m32</code> / <code>-m64</code> command line switches of gcc)</p>
 </li>
 <li>
-<p><code>sizeof (p)</code> will return the amount of memory to store the address of the
-object the pointer points to</p>
+<p><code>sizeof (p)</code> returns the amount of memory to store the address of the
+object the pointer points to.  E.g. on 64 bit architecture, the pointer size
+is usually 8 bytes.</p>
 </li>
 <li>
-<p><code>sizeof (*p)</code> will return the amount needed to store the object the pointer
-points to</p>
+<p><code>sizeof (*p)</code> returns the amount needed to store the object the pointer
+points to.  If a pointer points to an <code>int</code>, then <code>sizeof (*p)</code> will be
+usually 4 bytes.</p>
 </li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program to print:</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Write a program to print:</p>
 <ul>
-<li>address of the pointer</li>
-<li>the address where it points to</li>
-<li>the value of the pointed to variable</li>
+<li>Address of the pointer.</li>
+<li>The address where it points to.</li>
+<li>The value of the pointed to variable.</li>
 </ul>
 <p>Use the <code>%p</code> formatting for the first two.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-basics.c">ptr-basics.c</a></p>
 <h2><a id="user-content-null-pointer" class="anchor" aria-hidden="true" href="#null-pointer"><span aria-hidden="true" class="octicon octicon-link"></span></a>Null pointer</h2>
 <ul>
-<li>the real danger with pointers is that invalid memory access results in a crash
-(the program is terminated by kernel)</li>
-<li>can assign a number directly to a pointer (that should trigger a warning
-though.  We will get to casting and how to fix that later).</li>
+<li>The real danger with pointers is that invalid memory access usually results in
+a crash where the program is terminated by the kernel.</li>
+<li>We can assign a number directly to a pointer even that should trigger a
+warning.  We will get to casting and how to fix that later.</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">0x1234</span>;</pre></div>
 <ul>
 <li>
-<p>zero pointer value cast to <code>void *</code> is called <em>a null pointer constant</em> and is
+<p>Zero pointer value cast to <code>void *</code> is called <em>a null pointer constant</em> and is
 also defined as a macro <code>NULL</code>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C specification.</a>
 If a null pointer constant is converted to a pointer type such a pointer is
 called a <em>null pointer</em> and it is guaranteed in C not to point to any object
-or function.  In other words, dereferencing a null pointer is guaranteed to
+or a function.  In other words, dereferencing a null pointer is guaranteed to
 terminate the program.</p>
 <ul>
 <li>
-<p>we will talk about <code>void</code> later but it is <strong>a type that has no
+<p>We will talk about <code>void</code> later but it is <strong>a type that has no
 values</strong>.  A pointer to such a type can never be dereferenced (as that
 would give us a value of the type but we just defined such a value
 does not exist).</p>
 </li>
 <li>
-<p>this is because zero address is left unmapped on purpose, or a page
+<p>This is because zero address is left unmapped on purpose, or a page
 that cannot be accessed maps to the address.</p>
 </li>
 <li>
-<p>the C specification says that the macro <code>NULL</code> must be defined in
+<p>The C specification says that the macro <code>NULL</code> must be defined in
 <code>&lt;stddef.h&gt;</code></p>
 </li>
 </ul>
@@ -503,13 +506,13 @@ main.c:8:24: warning: dereferencing ‘void *’ pointer
       |                        ^~
 main.c:8:24: error: invalid use of void expression
 </code></pre>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create null pointer (i.e. assign <code>0</code> to a pointer) to a non-void type
-(say integer) and try to read from and/or write to it (i.e. dereference such a
-pointer).</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Create a null pointer (i.e. assign <code>0</code> to a pointer) to a non-void type
+(say an <code>int</code>) and try to read from and/or write to it, i.e. dereference such a
+pointer.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-ptr.c">null-ptr.c</a></p>
 <h2><a id="user-content-basic-operations" class="anchor" aria-hidden="true" href="#basic-operations"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic operations</h2>
 <ul>
-<li>notice the difference:</li>
+<li>Note the difference:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> i;
 <span class="pl-k">int</span> *p = &amp;i;</pre></div>
@@ -520,53 +523,51 @@ pointer).</p>
 <span class="pl-c"><span class="pl-c">//</span> set value of the pointer (i.e. the address where it points to).</span>
 p = &amp;i;</pre></div>
 <ul>
-<li>operator precedence gotcha:</li>
+<li>Operator precedence gotcha:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>*p		<span class="pl-c"><span class="pl-c">//</span> value of the pointed to variable</span>
 *p + <span class="pl-c1">1</span>		<span class="pl-c"><span class="pl-c">//</span> the value + 1</span>
 *(p + <span class="pl-c1">1</span>)	<span class="pl-c"><span class="pl-c">//</span> the value on the address + 1 (see below for what it means)</span></pre></div>
 <ul>
-<li>pointers of the same type can be assigned to one another</li>
+<li>Pointers of the same type can be assigned to one another.</li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">13</span>;
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p = <span class="pl-c1">13</span>;	<span class="pl-c"><span class="pl-c">//</span> probably will trigger a warning</span>
 <span class="pl-k">int</span> *p2 = p;</pre></div>
 <ul>
-<li>note that the <code>&amp;</code> address-of operator is possible to use only on objects that
-may be assigned values.  The following is invalid then:</li>
+<li>Note that the <code>&amp;</code> address-of operator is possible to use only on objects that
+may be assigned values to.  The following is invalid then:</li>
 </ul>
-<div class="highlight highlight-source-c"><pre>p = &amp;(i + <span class="pl-c1">1</span>);	<span class="pl-c"><span class="pl-c">//</span> we cannot assign to (i + 1)</span></pre></div>
+<div class="highlight highlight-source-c"><pre>p = &amp;(i + <span class="pl-c1">1</span>);	<span class="pl-c"><span class="pl-c">//</span> we cannot assign to (i + 1) like this: "(i + 1) = 1;"</span></pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-lvalue.c">ptr-lvalue.c</a></p>
 <ul>
-<li>store value to the address pointed to by the pointer:</li>
+<li>Store value to the address pointed to by a pointer:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>*p = <span class="pl-c1">1</span>;</pre></div>
 <h2><a id="user-content-changing-pointers" class="anchor" aria-hidden="true" href="#changing-pointers"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers:</h2>
-<p>Pointers can be moved forward and backward</p>
+<p>Pointers can be moved forward and backward:</p>
 <div class="highlight highlight-source-c"><pre>p = p + <span class="pl-c1">1</span>;
 p++;
 p--;</pre></div>
 <p><strong>The pointer is moved by the amount of underlying data type when using
 arithmetics.</strong></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> create a pointer to an <code>int</code>, print it out, create a new pointer
-that points to <code>p + 1</code>. See what is the difference between the 2 pointers.</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Create a pointer to an <code>int</code>, print its value, create a new pointer
+that points to <code>p + 1</code>. See what is the difference between the 2 pointers.  To
+print a pointer value, use the <code>%p</code> conversion specifier.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ptr-diff.c">ptr-diff.c</a></p>
 <h2><a id="user-content-operator-gotchas" class="anchor" aria-hidden="true" href="#operator-gotchas"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator gotchas</h2>
 <ul>
-<li>
-<code>*</code> has bigger precedence than <code>+</code> so:</li>
+<li>The <code>*</code> dereference operator has bigger precedence than <code>+</code>:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>i = *p + <span class="pl-c1">1</span>;</pre></div>
-<p>is equal to</p>
+<p>is equal to:</p>
 <div class="highlight highlight-source-c"><pre>i = (*p) + <span class="pl-c1">1</span>;</pre></div>
 <ul>
-<li>postfix <code>++</code> has higher precedence than <code>*</code>:</li>
+<li>Postfix <code>++</code> has higher precedence than <code>*</code>:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre>i = *p++;</pre></div>
-<p>is evaluated as <code>*(p++)</code> but it still does this</p>
+<p>is evaluated as <code>*(p++)</code> but it still does the following because <code>++</code> is used in
+postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</p>
 <div class="highlight highlight-source-c"><pre>i = *p; p++;</pre></div>
-<ul>
-<li>because <code>++</code> is used in postfix mode, ie. the value of expression <code>p++</code> is <code>p</code>:</li>
-</ul>
 <h1><a id="user-content-err-family-of-functions" class="anchor" aria-hidden="true" href="#err-family-of-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <code>err</code>() family of functions</h1>
 <ul>
