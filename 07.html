@@ -130,15 +130,16 @@ test other sizes.  This is for 12, for example:</p>
 <div class="highlight highlight-source-c"><pre>y = sqrt(MYRAD * MYRAD - x * x);</pre></div>
 <p>Obviously, there are more ways how to do it.</p>
 <ul>
-<li>the easiest way is to use a two-dimensional array and go through the <code>x</code> axis
+<li>The easiest way is to use a two-dimensional array and go through the <code>x</code> axis
 and fill the corresponding <code>y</code> value before printing out the array line by
 line.
 <ul>
-<li>to print the array, instead of printing it a character by character, we can
-also use array lines as strings if we terminate each line first with a <code>\0</code>.</li>
+<li>To print the array, instead of printing it a character by character,
+we can also use array lines as strings if we terminate each line first
+with a <code>\0</code>.</li>
 </ul>
 </li>
-<li>you could print the output line by line, that is, figure out what to print on
+<li>You could print the output line by line, that is, figure out what to print on
 each line.  You do not need a two-dimensional array then, and speaking of
 which, not even an array at all.</li>
 </ul>
@@ -146,7 +147,7 @@ which, not even an array at all.</li>
 <code>memset()</code> from <code>string.h</code> to set a piece of memory to a specific byte (=
 character).</p>
 <p>On Linux and possibly other systems, you will need to link with the math library
-to get the <code>sqrt()</code> function code, ie:</p>
+to get the <code>sqrt()</code> function code, i.e:</p>
 <pre><code>$ gcc -lm warm-up.c
 </code></pre>
 <p>An extension: fill the circle up.</p>
@@ -177,8 +178,7 @@ to get the <code>sqrt()</code> function code, ie:</p>
         *********
             *
 </code></pre>
-<p>Solution:
-<g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/circle.c">circle.c</a></p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/circle.c">circle.c</a></p>
 <p>A simplified solution:
 <g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/circle-simplified.c">circle-simplified.c</a></p>
 <h1><a id="user-content-file-api" class="anchor" aria-hidden="true" href="#file-api"><span aria-hidden="true" class="octicon octicon-link"></span></a>File API</h1>
