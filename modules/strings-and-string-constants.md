@@ -8,14 +8,14 @@ character is part of the string.
 - A *string literal* is a sequence of zero or more characters enclosed in
   double-quotes, as in `"xxx"`.  It is also called a *string constant*.
 
-	- do not confuse it with a *character constant*, e.g. `'A'`, as it uses
+	- Do not confuse it with a *character constant*, e.g. `'A'`, as it uses
 	  single quotes.  In contrast to Python, for example, single and double
 	  quotes are two different things in C.
 
-- **a string constant internally initializes an array of characters, with a null
+- **A string constant internally initializes an array of characters, with a null
   character appended.**
 
-- that also means that a string literal may include multiple null characters,
+- That also means that a string literal may include multiple null characters,
   thus defining multiple strings.  Note that a *string literal* and a *string*
   are two different things even that people mostly both call a string.
 
@@ -33,11 +33,11 @@ $ ./a.out
 hello
 ```
 
-- `'\0'` is just a special case of octal representation `'\ooo'`,
+- The `'\0'` is just a special case of octal representation `'\ooo'`,
   called *octal escape sequence*, where `o` is an octal figure (0-7).  You can
   use any ASCII character like that.
 
-	- the full syntax is `'\o'`, `'\oo'`, or `'\ooo'`.  `\6` is another
+	- The full syntax is `'\o'`, `'\oo'`, or `'\ooo'`.  `\6` is another
 	  example of an octal character sequence while `\8` is illegal.
 
 ```C
@@ -63,8 +63,8 @@ Z
 a	b
 ```
 
-- a string constant may be used to initialize a `char` array and usually that is
-  how the string initialization is used (in contrast to `{ 'a', 'b', ... }`)
+- A string constant may be used to initialize a `char` array and usually that is
+  how the string initialization is used (in contrast to `{ 'a', 'b', ... }`).
 
 ```C
 int
@@ -82,7 +82,7 @@ $ ./a.out
 hello, world.
 ```
 
-- remember that if `{}` is used for the initialization, **you must add the
+- Remember that if `{}` is used for the initialization, **you must add the
   terminating zero yourself** unless you use the size of the array and the
   string was shorter (in which case the rest would be initialized to zero as
   usual):
@@ -91,8 +91,8 @@ hello, world.
 char s[] = { 'h', 'e', 'l', 'l', 'o', '\0' };
 ```
 
-- so, the following is still a propertly terminated string but do not use it
-  like that
+- So, the following is still a properly terminated string but do not use it like
+  that, it is confusing:
 
 ```C
 char s[10] = { 'h', 'e', 'l', 'l', 'o' };
@@ -103,12 +103,13 @@ Anyway, you would probably never do it this way.  Just use `= "hello"`.
 #source array-fill.c
 #source array-fill2.c
 
-- string is printed via `printf()` as `%s`
+- We already know that a string is printed via `printf()` using the `%s`
+  conversion specifier:
 
 ```C
 printf("%s\n", "hello, world");
 ```
 
-- experiment with what `%5s` and `%.5s` do (use any reasonable number)
+- Experiment with what `%5s` and `%.5s` do (use any reasonable number)
 
 #source string-format.c
