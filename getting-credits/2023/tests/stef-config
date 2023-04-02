@@ -1,0 +1,55 @@
+#
+# If you only need to run the test suite, DO NOT CHANGE THIS FILE.
+#
+# To overwrite the settings to fit your development environment, use a local env
+# file defined in STEF_CONFIG_LOCAL below.
+#
+
+# Directly supported variables by STEF.
+STEF_TESTSUITE_NAME="NPRG099 Tar Unit Tests"
+STEF_CONFIGURE=./configure.sh
+# Export it as it is used in unconfigure.sh.
+export STEF_UNCONFIGURE=./unconfigure.sh
+#STEF_UNCONFIGURE_ALWAYS=true
+# Set this to non-empty value to never remove the temporary files.
+#STEF_UNCONFIGURE_NEVER=true
+STEF_CONFIG_LOCAL=./test-config.local
+# Executables needed to run the test suite.  May be defined anywhere in this
+# file, in $STEF_CONFIG_LOCAL, or just exported to the shell environment before
+# running the tests.  Each must be an absolute path.
+STEF_EXECUTABLE_LOCAL_VARS="GCC GNUTAR"
+STEF_REGFILE_LOCAL_VARS=${STEF_REGFILE_LOCAL_VARS:-"MYTAR_C"}
+
+# Change this in $STEF_CONFIG_LOCAL or export it in the shell.
+STEF=${STEF:-"set-me-to-location-of-stef.sh-see-README"}
+
+# Test suite specific, used by configure/unconfigure.
+export configvar=config.var
+export tarfile=archive.tar
+export tarwithdir=archive-with-dir.tar
+export emptydir=empty-dir
+export partial=partial.tar
+export onezeroblockmissing=one-zero-block-missing.tar
+export twozeroblocksmissing=two-zero-blocks-missing.tar
+
+# You either set and export MYTAR to the mytar binary before running the test
+# suite, or set it in $STEF_CONFIG_LOCAL.
+export MYTARNAME=mytar
+# If MYGNUTAR is set, the test suite will skip building the mytar binary from
+# source code and will run with the specific tar binary.  Set it to GNU tar to
+# make sure your test environment is properly set.  All tests must pass in that
+# configuration.
+#
+#export MYGNUTAR=$(which gnutar)
+export MYTAR=${MYGNUTAR:-$(pwd)/$MYTARNAME}
+
+# You either set and export MYTAR_C to your mytar.c before running the test
+# suite, or set it in $STEF_CONFIG_LOCAL.
+export MYTAR_C=${MYTAR_C:-"set-me-to-mytar.c-see-README"}
+
+# You either set and export GNUTAR to the GNU tar binary path before running the
+# test suite, or set it in $STEF_CONFIG_LOCAL.
+export GNUTAR=${GNUTAR:-"set-me-to-GNU-tar-binary-see-README"}
+
+# You can change it to anything that supports gcc basic options (e.g. clang).
+export GCC=$(which gcc)
