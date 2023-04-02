@@ -1,4 +1,4 @@
-## Integer conversion rank
+# Integer conversion rank
 
 See *6.3.1.1 Boolean, characters, and integers* for the full list.
 

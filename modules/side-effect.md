@@ -1,4 +1,4 @@
-## Side effect
+# Side effect
 
 C99, *5.1.2.3 Program execution*:
 
