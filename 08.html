@@ -537,7 +537,7 @@ static storage duration (ie. will be initialized to 0).</p>
 <li>Compared (for that one has to implement a comparator function).</li>
 <li>Incremented (obviously).</li>
 </ul>
-<h2><a id="user-content-wrench-animals-as-structures" class="anchor" aria-hidden="true" href="#wrench-animals-as-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> animals as structures</h2>
+<h2><a id="user-content-wrench-animals-as-structures" class="anchor" aria-hidden="true" href="#wrench-animals-as-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Animals as structures</h2>
 <p>Define array of structures of this type:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> animal {
 	<span class="pl-k">char</span> name[NAME_MAX];	<span class="pl-c"><span class="pl-c">//</span> max filename length should be sufficient</span>
@@ -558,7 +558,7 @@ header file(s).)</p>
 <p>In the <code>main()</code> program (first program argument will specify the <code>min</code> parameter
 for the function) pass an array of structures to the function and report the
 result.</p>
-<p>Note: will need:</p>
+<p>Note: you will need:</p>
 <ul>
 <li>
 <code>limits.h</code> for the <code>NAME_MAX</code> definition</li>
@@ -583,15 +583,13 @@ link them together.</p>
 </code></pre>
 <p>The compiler will do the compilation of the individual object files and then
 call the linker to contruct the binary (named <code>a.out</code>).</p>
-<p>Or as follows:</p>
+<p>Or as follows which is closer to what would be done using a Makefile:</p>
 <pre><code>cc -c struct-animals.c animal_minlegs.c
 cc -o animals struct-animals.o animal_minlegs.o
 </code></pre>
-<p>which is closer to what would be done using a Makefile.</p>
 <p>Technically, <code>animals.h</code> contains code, however, given it is included in a <code>.c</code>
 file it is not necessary to compile it individually.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> use the code from previous task and implement (in separate <code>.c</code>
-file)</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Use the code from previous task and implement (in separate <code>.c</code> file)</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">static</span> <span class="pl-c1">size_t</span> <span class="pl-en">getlegs</span>(<span class="pl-k">struct</span> animal *);</pre></div>
 <p>That will return number of legs for a given animal.</p>
 <h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
