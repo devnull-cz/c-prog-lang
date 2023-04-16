@@ -80,6 +80,11 @@ unsigned.  This is called an *implicit type conversion*.  There is also
 *explicit type conversion* (called *casting*) which we will deal with later in
 #module arithmetic-promotion-and-conversions.md *Arithmetic/integer promotion and conversion* section.
 
+To learn more about the implicit conversion, e.g. what the specification says
+exactly about assigning a `double` value to an `int`, see the *6.3 Conversions*
+section of the
+#module c99-standard.md C99 specification
+
 I suggest you try these out with `printf("%zu", ...)`. The `%zu` format string
 (see the `printf` manual page in section 3 on Unix systems) matches the return
 type of the `sizeof` operand.  The exact unsigned numeric type of what `sizeof`
