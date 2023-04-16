@@ -100,10 +100,11 @@ struct {
 } foo;
 ```
 
-Now initialize the members of `foo` with `1, 2, 3`, `"BBB"` and address of
-`bar`, respectively and `val` in `bar` with `42`.  Use designated initializers.
+Write code to initialize the members of `foo` with `1, 2, 3`, `"BBB"` and
+address of `bar`, respectively and `val` in `bar` with `42`.  Use designated
+initializers.
 
-Write these expressions to get:
+Write expressions to get:
 
   - The address of `a`
   - The address of `b`
