@@ -206,15 +206,18 @@ initializers.</p>
 <p>Use as few brackets as possible.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-op-precedence.c">struct-op-precedence.c</a></p>
 <h1><a id="user-content-pointer-addressing" class="anchor" aria-hidden="true" href="#pointer-addressing"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer addressing</h1>
-<p>We already know that the same as with arrays, it is possible to subscript
-pointers:</p>
+<p>We already know that as with arrays, it is possible to use the array subscript
+operator <code>[]</code> on pointers, too:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">10</span>];
 <span class="pl-k">int</span> *p = a;
 
 p[<span class="pl-c1">0</span>] = ...</pre></div>
-<p>This just goes directly from the standard: <code>p[x]</code> is equivalent to <code>*(p + x)</code>.
-And remember that incrementing a pointer or an array expression goes by
-increments of the element type size.</p>
+<p>That goes directly from the standard:</p>
+<blockquote>
+<p><code>p[x]</code> is equivalent to <code>*(p + x)</code>.</p>
+</blockquote>
+<p>Remember that incrementing a pointer or an array expression goes by increments
+of the element type size.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">2</span>] = { <span class="pl-c1">1</span>, <span class="pl-c1">222</span> };
 
 <span class="pl-c"><span class="pl-c">/*</span> Will print 222. <span class="pl-c">*/</span></span>
