@@ -123,9 +123,11 @@ the evaluation is decided based on their associativity.</p>
 associativity. Therefore, they will be evaluated as</p>
 <div class="highlight highlight-source-c"><pre>(<span class="pl-c1">8</span> / <span class="pl-c1">2</span>) % <span class="pl-c1">3</span></pre></div>
 <h2><a id="user-content-examples" class="anchor" aria-hidden="true" href="#examples"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
-<p><code>*p++</code> is <code>*(p++)</code> as <code>++</code> is of higher priority than <code>*</code>.  However, the value
-of the expression is still <code>*p</code> though as the dereference operator is applied on
-<code>p</code> since that is the value of <code>p++</code>.</p>
+<p><code>*p++</code> is <code>*(p++)</code> as suffix <code>++</code> is of higher priority than <code>*</code>.  However, the
+value of the expression is still <code>*p</code> though as the dereference operator is
+applied on <code>p</code> since that is the value of <code>p++</code>.</p>
+<p>Note that suffix <code>++</code> and <code>--</code> has higher priority than prefix <code>++</code> and <code>--</code>,
+and also has different associativity.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: determine the outcome of these expressions/declarations:</p>
 <ul>
 <li><code>*p++</code></li>
