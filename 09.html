@@ -152,7 +152,11 @@ If we add another function:</p>
 
 <span class="pl-k">int</span> x = foo() + bar() + another();</pre></div>
 <p>then the expression will become <code>(foo() + bar()) + another()</code> however the order
-in which <code>foo()</code> and <code>bar()</code> will be called is still undefined.</p>
+in which <code>foo()</code> and <code>bar()</code> will be called is still not specified.  Remember -
+<em>unspecified</em> means the implementation (= compiler) is free to choose which
+argument will be processes first and generally should not document the decision.
+More on that in
+:#module types-of-behavior.md types of behavior.</p>
 <h2><a id="user-content-common-gotchas" class="anchor" aria-hidden="true" href="#common-gotchas"><span aria-hidden="true" class="octicon octicon-link"></span></a>Common gotchas</h2>
 <h3><a id="user-content--or--versus-" class="anchor" aria-hidden="true" href="#-or--versus-"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <code>==</code> or <code>!=</code> versus <code>=</code>
@@ -166,9 +170,10 @@ than <code>=</code>.</p>
 <code>&amp;</code> or <code>*</code> versus <code>-&gt;</code> or <code>.</code>
 </h3>
 <p><code>-&gt;</code> and <code>.</code> (structure member access) have higher precedence than <code>&amp;</code> (address
-of) and <code>*</code> (dereference)</p>
+of) and <code>*</code> (dereference).  So, <code>*somestruct-&gt;p_member</code> dereferences the pointer
+<code>p_member</code>.</p>
 <h1><a id="user-content-wrench-operator-precedence-and-structures" class="anchor" aria-hidden="true" href="#wrench-operator-precedence-and-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Operator precedence and structures</h1>
-<p>consider the following structures:</p>
+<p>Consider the following structures:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> bar {
 	<span class="pl-k">int</span> val;
 } bar;
@@ -180,21 +185,21 @@ of) and <code>*</code> (dereference)</p>
 } foo;</pre></div>
 <p>Now initialize the members of <code>foo</code> with <code>1, 2, 3</code>, <code>"BBB"</code> and address of
 <code>bar</code>, respectively and <code>val</code> in <code>bar</code> with <code>42</code>.  Use designated initializers.</p>
-<p>write these expressions to get:</p>
+<p>Write these expressions to get:</p>
 <ul>
-<li>the address of <code>a</code>
+<li>The address of <code>a</code>
 </li>
-<li>the address of <code>b</code>
+<li>The address of <code>b</code>
 </li>
-<li>the address of the second element of <code>a</code>
+<li>The address of the second element of <code>a</code>
 </li>
-<li>the address of the 3rd character from string <code>b</code>
+<li>The address of the 3rd character from string <code>b</code>
 </li>
-<li>the 3rd character from string <code>b</code>
+<li>The 3rd character from string <code>b</code>
 </li>
-<li>value of <code>val</code> in <code>bar</code> using <code>foo</code>
+<li>Value of <code>val</code> in <code>bar</code> using <code>foo</code>
 </li>
-<li>address of <code>val</code> in <code>bar</code> using <code>foo</code>
+<li>Address of <code>val</code> in <code>bar</code> using <code>foo</code>
 </li>
 </ul>
 <p>Use as few brackets as possible.</p>
