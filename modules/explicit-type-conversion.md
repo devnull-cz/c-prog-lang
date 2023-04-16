@@ -1,6 +1,8 @@
 # Explicit type conversion
 
-We already saw an implicit conversion when working with integer types.
+We already saw an implicit conversion when working with integer types, see the
+#module arithmetic-type-conversions.md module on conversions
+which also mentions the 6.3 spec section with all the details.
 
 Casting is an explicit type conversion:
 
