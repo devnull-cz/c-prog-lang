@@ -105,15 +105,15 @@ This is about **converting integers only**.
 
 There are three parts when converting integers:
 
-1. assigning an integer to another integer while the source value fits into
+1. Assigning an integer to another integer while the source value fits into
 the target -> the result is specified by
 #module c99-standard.md the standard.
 The result is the same value.
 
-2. assigning any integer to an **unsigned** integer -> result specified by the
+2. Assigning any integer to an **unsigned** integer -> result specified by the
 standard, see below.
 
-3. assigning an integer to a **signed** integer and the value does **not** fit.
+3. Assigning an integer to a **signed** integer and the value does **not** fit.
 The standard says the result is *implementation-defined*.  It means the
 implementation (i.e. the compiler) must choose how to behave in such a situation
 and **must** document it.  See [the standard](/modules/c99-standard.md), section
