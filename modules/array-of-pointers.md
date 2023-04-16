@@ -1,6 +1,6 @@
 # Array of pointers
 
-See also what we already know about
+Remember what we know about
 #module program-arguments.md program arguments.
 
 ```C
@@ -22,5 +22,8 @@ following array of `char` pointers (it is the same as if we did `char *p = a`).
 ```C
 char *a[] = { "hello", "world", "!" };
 ```
+
+Modifying such strings is an undefined operation as they are read-only by the
+specification.  Code doing so and compiled by GCC or Clang will crash.
 
 #source array-of-ptrs.c
