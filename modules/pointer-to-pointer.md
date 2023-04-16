@@ -37,14 +37,15 @@ foo(int **p, size_t idx)
 }
 ```
 
-Clearly, this works fine in a situation when `pp` is indeed a pointer to an
-array of `int` pointers.  Now what if someone passes a pointer to a pointer to
-an `int` array?
+We can legally pass in any pointer to a pointer to an `int`.  Clearly, that
+works fine in a situation when the object being passed in is indeed a pointer to
+an array of `int` pointers.  Now what if someone passes in a pointer to a
+pointer to an `int` array?
 
 Note that in both situations, `ppa` and `ppb` **properly fit the declaration**
 `int **p`.  **The difference is in semantics - is the actual array in the first
 or the second indirection?** And that is a piece of information that must be
-provided upfront.
+provided upfront by whoever wrote the function accepting such an argument.
 
 ```
     +-------+     +-------+     +-------+
