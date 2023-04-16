@@ -10,7 +10,7 @@ int *p = a;
 p[0] = ...
 ```
 
-This just goes directly from the standard:
+That goes directly from the standard:
 
 >`p[x]` is equivalent to `*(p + x)`.
 
