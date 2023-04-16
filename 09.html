@@ -264,13 +264,14 @@ So, <code>int *p[]</code> can be passed as an argument to an <code>int **p</code
 {
         <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, **(p + idx));
 }</pre></div>
-<p>Clearly, this works fine in a situation when <code>pp</code> is indeed a pointer to an
-array of <code>int</code> pointers.  Now what if someone passes a pointer to a pointer to
-an <code>int</code> array?</p>
+<p>We can legally pass in any pointer to a pointer to an <code>int</code>.  Clearly, that
+works fine in a situation when the object being passed in is indeed a pointer to
+an array of <code>int</code> pointers.  Now what if someone passes in a pointer to a
+pointer to an <code>int</code> array?</p>
 <p>Note that in both situations, <code>ppa</code> and <code>ppb</code> <strong>properly fit the declaration</strong>
 <code>int **p</code>.  <strong>The difference is in semantics - is the actual array in the first
 or the second indirection?</strong> And that is a piece of information that must be
-provided upfront.</p>
+provided upfront by whoever wrote the function accepting such an argument.</p>
 <pre><code>    +-------+     +-------+     +-------+
  i  |   42  |   j |   7   |   k |   99  |
     +-------+     +-------+     +-------+
