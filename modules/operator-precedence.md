@@ -32,8 +32,8 @@ and also has different associativity.
   - `int *p[2]`
   - `int (*p)[3]`
 
-#source src/pointer-to-array-type-difference.c
-see this code on why the array size is significant in the last example.
+#source pointer-to-array-type-difference.c
+shows why the array size is significant in the last example.
 
 ## Operand evaluation order
 
