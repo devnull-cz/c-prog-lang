@@ -320,17 +320,17 @@ argument (= <code>char</code>) is just put to a 32-bit register.</p>
 <p>There are three parts when converting integers:</p>
 <ol>
 <li>
-<p>assigning an integer to another integer while the source value fits into
+<p>Assigning an integer to another integer while the source value fits into
 the target -&gt; the result is specified by
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">the standard.</a>
 The result is the same value.</p>
 </li>
 <li>
-<p>assigning any integer to an <strong>unsigned</strong> integer -&gt; result specified by the
+<p>Assigning any integer to an <strong>unsigned</strong> integer -&gt; result specified by the
 standard, see below.</p>
 </li>
 <li>
-<p>assigning an integer to a <strong>signed</strong> integer and the value does <strong>not</strong> fit.
+<p>Assigning an integer to a <strong>signed</strong> integer and the value does <strong>not</strong> fit.
 The standard says the result is <em>implementation-defined</em>.  It means the
 implementation (i.e. the compiler) must choose how to behave in such a situation
 and <strong>must</strong> document it.  See <a href="/modules/c99-standard.md">the standard</a>, section
