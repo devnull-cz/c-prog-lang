@@ -294,6 +294,9 @@ ppa |   a   |                        pb |   b  |   ?  :
 <ul>
 <li>What is the difference in accessing the values?  I.e. what will <code>**(x + 1)</code>
 and <code>*(*x + 1)</code> do when <code>x</code> is <code>ppa</code> or <code>ppb</code>?</li>
+<li>Semantically, we could also pass in a pointer to an array of pointers to
+arrays of <code>int</code>s, which would have arrays on both levels in the above ASCII
+chart, and would still match the <code>int **p</code> declaration.</li>
 <li>The following source code closely follows the ASCII art schema above.  Please
 study the code and make sure you understand the output completely.  Which
 address from the program output corresponds to the value of <code>?</code> above?</li>
