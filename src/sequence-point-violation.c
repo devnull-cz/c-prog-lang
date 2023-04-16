@@ -1,5 +1,7 @@
 /*
- * See C99, 6.5 Expressions, para 2, for more information.
+ * Example on sequence point violations.
+ *
+ * See C99, 6.5 Expressions, paragraph 2, for more information.
  */
 int
 main(void)
