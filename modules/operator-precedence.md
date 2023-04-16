@@ -19,9 +19,12 @@ associativity. Therefore, they will be evaluated as
 ```
 ## Examples
 
-`*p++` is `*(p++)` as `++` is of higher priority than `*`.  However, the value
-of the expression is still `*p` though as the dereference operator is applied on
-`p` since that is the value of `p++`.
+`*p++` is `*(p++)` as suffix `++` is of higher priority than `*`.  However, the
+value of the expression is still `*p` though as the dereference operator is
+applied on `p` since that is the value of `p++`.
+
+Note that suffix `++` and `--` has higher priority than prefix `++` and `--`,
+and also has different associativity.
 
 :wrench: Task: determine the outcome of these expressions/declarations:
   - `*p++`
