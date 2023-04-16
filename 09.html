@@ -339,12 +339,13 @@ The problem manifests itself when we have and need to reference more than one
 number (or more than one, as in the PAM situation above, <code>msg</code> structures).</p>
 <h1><a id="user-content-changing-pointers" class="anchor" aria-hidden="true" href="#changing-pointers"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing pointers</h1>
 <ul>
-<li>in order to change the value of a pointer in a function, it has to be passed
-as a pointer to a pointer
+<li>In order to change the value of a pointer in a function, it has to be passed
+as a pointer to a pointer.
 <ul>
-<li>this makes sense, because the storage address of a plain pointer is not
-known to the function, and therefore we must pass in its address so that we
-can change the object the address points to by dereferencing the address.</li>
+<li>This makes sense, because the storage address of a plain pointer is
+not known to the function, and therefore we must pass in its address
+so that we can change the object the address points to by
+dereferencing the address.</li>
 </ul>
 </li>
 </ul>
