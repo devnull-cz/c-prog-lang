@@ -70,6 +70,9 @@ ppa |   a   |                        pb |   b  |   ?  :
 
 - What is the difference in accessing the values?  I.e. what will `**(x + 1)`
   and `*(*x + 1)` do when `x` is `ppa` or `ppb`?
+- Semantically, we could also pass in a pointer to an array of pointers to
+  arrays of `int`s, which would have arrays on both levels in the above ASCII
+  chart, and would still match the `int **p` declaration.
 - The following source code closely follows the ASCII art schema above.  Please
   study the code and make sure you understand the output completely.  Which
   address from the program output corresponds to the value of `?` above?
