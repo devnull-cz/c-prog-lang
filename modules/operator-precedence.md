@@ -59,7 +59,11 @@ int x = foo() + bar() + another();
 ```
 
 then the expression will become `(foo() + bar()) + another()` however the order
-in which `foo()` and `bar()` will be called is still undefined.
+in which `foo()` and `bar()` will be called is still not specified.  Remember -
+*unspecified* means the implementation (= compiler) is free to choose which
+argument will be processes first and generally should not document the decision.
+More on that in
+:#module types-of-behavior.md types of behavior.
 
 ## Common gotchas
 
@@ -77,11 +81,12 @@ than `=`.
 ### `&` or `*` versus `->` or `.`
 
 `->` and `.` (structure member access) have higher precedence than `&` (address
-of) and `*` (dereference)
+of) and `*` (dereference).  So, `*somestruct->p_member` dereferences the pointer
+`p_member`.
 
 # :wrench: Operator precedence and structures
 
-consider the following structures:
+Consider the following structures:
 
 ```C
 struct bar {
@@ -98,14 +103,15 @@ struct {
 Now initialize the members of `foo` with `1, 2, 3`, `"BBB"` and address of
 `bar`, respectively and `val` in `bar` with `42`.  Use designated initializers.
 
-write these expressions to get:
-  - the address of `a`
-  - the address of `b`
-  - the address of the second element of `a`
-  - the address of the 3rd character from string `b`
-  - the 3rd character from string `b`
-  - value of `val` in `bar` using `foo`
-  - address of `val` in `bar` using `foo`
+Write these expressions to get:
+
+  - The address of `a`
+  - The address of `b`
+  - The address of the second element of `a`
+  - The address of the 3rd character from string `b`
+  - The 3rd character from string `b`
+  - Value of `val` in `bar` using `foo`
+  - Address of `val` in `bar` using `foo`
 
 Use as few brackets as possible.
 
