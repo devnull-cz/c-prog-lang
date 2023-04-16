@@ -223,7 +223,7 @@ of the element type size.</p>
 <span class="pl-c"><span class="pl-c">/*</span> Will print 222. <span class="pl-c">*/</span></span>
 <span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, *(a + <span class="pl-c1">1</span>));</pre></div>
 <h1><a id="user-content-array-of-pointers" class="anchor" aria-hidden="true" href="#array-of-pointers"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array of pointers</h1>
-<p>See also what we already know about
+<p>Remember what we know about
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/program-arguments.md">program arguments.</a></p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">/*</span></span>
 <span class="pl-c"> * [] is of higher precedence than *, so the following means:</span>
@@ -237,6 +237,8 @@ not recommended.</p>
 literal is internally an array of <code>char</code>s, so we can use it to initialize the
 following array of <code>char</code> pointers (it is the same as if we did <code>char *p = a</code>).</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *a[] = { <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>!<span class="pl-pds">"</span></span> };</pre></div>
+<p>Modifying such strings is an undefined operation as they are read-only by the
+specification.  Code doing so and compiled by GCC or Clang will crash.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-of-ptrs.c">array-of-ptrs.c</a></p>
 <h1><a id="user-content-pointer-to-a-pointer" class="anchor" aria-hidden="true" href="#pointer-to-a-pointer"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer to a pointer</h1>
 <p>We know that a pointer points to an object (unless its a null pointer or of type
