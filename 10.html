@@ -199,7 +199,7 @@ casted to the common structure.</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> A a;
 
-<span class="pl-k">if</span> (func((<span class="pl-k">struct</span> Common *)a) == -<span class="pl-c1">1</span>) {
+<span class="pl-k">if</span> (func((<span class="pl-k">struct</span> Common *)&amp;a) == -<span class="pl-c1">1</span>) {
 	...</pre></div>
 <p>This is possible since all the structures have the same member on the same
 offset (that is offset 0).  However, note that you need to cast properly to
