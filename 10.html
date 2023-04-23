@@ -116,13 +116,13 @@ memory area of a specified size or a null pointer if the allocation failed -
 always check that!  (even on Linux where it seems it can never fail - to be
 prepared for change in a configuration and also for portability to systems with
 more conservative memory allocation).</p>
-<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span>	<span class="pl-en">ARRLEN</span>	<span class="pl-c1">20</span>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span>	<span class="pl-en">NUM_ELEMS</span>	<span class="pl-c1">20</span>
 <span class="pl-k">int</span> *p;
 
-<span class="pl-k">if</span> ((p = malloc(ARRLEN * <span class="pl-k">sizeof</span> (<span class="pl-k">int</span>))) == <span class="pl-c1">NULL</span>)
+<span class="pl-k">if</span> ((p = malloc(NUM_ELEMS * <span class="pl-k">sizeof</span> (<span class="pl-k">int</span>))) == <span class="pl-c1">NULL</span>)
 	<span class="pl-en">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>malloc<span class="pl-pds">"</span></span>);
 p[<span class="pl-c1">0</span>] = <span class="pl-c1">99</span>;
-p[ARRLEN - <span class="pl-c1">1</span>] = <span class="pl-c1">77</span>;</pre></div>
+p[NUM_ELEMS - <span class="pl-c1">1</span>] = <span class="pl-c1">77</span>;</pre></div>
 <p>The prototype for <code>malloc</code> is as follows:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> *<span class="pl-en">malloc</span>(<span class="pl-c1">size_t</span> size);</pre></div>
 <p>Note that as <code>malloc</code> returns <code>void *</code>, there is no need to explicitly type its
