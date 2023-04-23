@@ -131,7 +131,7 @@ result when assigned to a pointer, see
 That is, do not use:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> *p;
 
-p = (<span class="pl-k">int</span> *)malloc(<span class="pl-c1">16</span>);</pre></div>
+p = (<span class="pl-k">int</span> *)malloc(<span class="pl-c1">16</span>);	<span class="pl-c"><span class="pl-c">//</span> unnecessary cast</span></pre></div>
 <p>See <code>man malloc</code> for more memory allocation related functions.</p>
 <p>The C runtime does not have a garbage collector so all heap allocated memory
 has to be explicitly freed via <code>free</code>() after it is no longer needed.</p>
