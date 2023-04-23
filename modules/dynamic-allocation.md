@@ -15,13 +15,13 @@ prepared for change in a configuration and also for portability to systems with
 more conservative memory allocation).
 
 ```C
-#define	ARRLEN	20
+#define	NUM_ELEMS	20
 int *p;
 
-if ((p = malloc(ARRLEN * sizeof (int))) == NULL)
+if ((p = malloc(NUM_ELEMS * sizeof (int))) == NULL)
 	err(1, "malloc");
 p[0] = 99;
-p[ARRLEN - 1] = 77;
+p[NUM_ELEMS - 1] = 77;
 ```
 
 The prototype for `malloc` is as follows:
