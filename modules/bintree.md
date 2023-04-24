@@ -20,4 +20,4 @@ count the nodes and print the number to standard output.
 
 Variant: add a function pointer to each node that will be called on visit.
 The number stored in the node will be the sole argument of this function
-Use that to traverse the tree.
+Use that to traverse the tree and free the memory in the process.
