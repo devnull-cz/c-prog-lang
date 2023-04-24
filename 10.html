@@ -210,9 +210,6 @@ pointer to the <code>Common</code> struct.  This pointer then needs to be casted
 caller according to its first member.</p>
 <p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
 definitions as an example on how this is done in practice.</p>
-<h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
-<p>Note that home assignments are entirely voluntary but writing code is the only
-way to learn a programming language.</p>
 <h1><a id="user-content-wrench-linked-list" class="anchor" aria-hidden="true" href="#wrench-linked-list"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Linked list</h1>
 <p>Declare a structure that will form a simple linked list and will hold an integer
 as a value.  The program will be run with a single argument specifying how many
@@ -238,6 +235,29 @@ $ ./a.out 10
 0
 </code></pre>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linked-list-free.c">linked-list-free.c</a></p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> binary tree from binary representation</p>
+<p>Write a program that creates a binary tree with N + 1 nodes, where N
+is specified as command line argument.</p>
+<p>Each node, besides root (that will be created always), will contain an integer
+and will be created like this: take a binary representation
+of the number in sequence {0, 1, ..., N - 1} and traverse the pre-existing
+tree using this representation until a NULL node pointer is found.
+0 means left child, 1 means right child.</p>
+<p>For example for 5 (101 in binary), the tree will be created as follows:</p>
+<ol>
+<li>create root node</li>
+<li>create right node, descend</li>
+<li>create left node, descend</li>
+<li>create right node, descend, put the number in</li>
+</ol>
+<p>Once the tree is populated, traverse the tree (whatever method works)
+count the nodes and print the number to standard output.</p>
+<p>Variant: add a function pointer to each node that will be called on visit.
+The number stored in the node will be the sole argument of this function
+Use that to traverse the tree.</p>
+<h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
+<p>Note that home assignments are entirely voluntary but writing code is the only
+way to learn a programming language.</p>
 <h1><a id="user-content-command-line-option-parsing" class="anchor" aria-hidden="true" href="#command-line-option-parsing"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command line option parsing</h1>
 <p>Implement a command line parser ala getopt(3). The global variable <code>myoptarg</code>
 will be set if an option has an argument to mimic the <code>optarg</code> set by getopt().</p>
