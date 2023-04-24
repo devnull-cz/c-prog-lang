@@ -1,5 +1,4 @@
-
-:wrench: binary tree from binary representation
+## :wrench: binary tree from binary representation
 
 Write a program that creates a binary tree with N + 1 nodes, where N
 is specified as command line argument.
