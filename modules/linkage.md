@@ -35,17 +35,19 @@ main(void)
 }
 ```
 
-Use `extern` keyword for objects that are defined in a different compilation
-unit.
+Use the `extern` keyword to declare objects that are defined in a different
+compilation unit (= file).
 
 Example:
 
-	$ cc linkage.c ext.c
-	Undefined symbols for architecture x86_64:
-	  "_si", referenced from:
-	      _main in linkage-917564.o
-	ld: symbol(s) not found for architecture x86_64
-	clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+$ cc linkage.c ext.c
+Undefined symbols for architecture x86_64:
+  "_si", referenced from:
+      _main in linkage-917564.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
 
 #source linkage.c
 #source ext.c
