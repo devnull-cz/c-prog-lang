@@ -14,7 +14,8 @@
 
 #source fn-static-object.c
 
-This source code example also shows how to use `goto`.  More on that later.
+This source code example also shows how to use a `goto` statement.  More on that
+later.
 
 #source block-static-object.c
 
