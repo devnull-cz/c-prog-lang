@@ -1,23 +1,24 @@
 # Pointer to a structure and type casting
 
-- pointers to structures are often used to achieve common interface for
-  different types
-
-  - e.g.
+Pointers to structures are often used to achieve common interface for different
+types that all need to be passed as arugments to a function.  Consider this:
 
 ```C
-struct Common { int type; };
+struct common { int type; };
 struct A      { int type; char data[8]; };	// type == 1
 struct B      { int type; char data[16]; };	// type == 2
 ```
 
-- then a function can be declared like so:
+We have a `common` structure with the only structure member present in all
+structures, `type`.  A function can be then declared as follows:
 
 ```C
-int func(struct Common *c);
+int func(struct common *c);
 ```
 
-- internally it can do e.g.:
+However, the function needs to process additional members for structures `A`,
+`B`, etc.  So, internally it may cast the argument to the specific structure
+based on their common structure member, `type`:
 
 ```C
 if (c->type == 1) {
@@ -29,13 +30,14 @@ if (c->type == 1) {
 }
 ```
 
-- and the `func` is used like this, i.e. the non-Common argument is always
-  casted to the common structure.
+And the `func` is used like this, i.e. the non-`common` argument is always
+casted to the `common` structure so that the compiler knows we know what we are
+doing:
 
 ```C
 struct A a;
 
-if (func((struct Common *)&a) == -1) {
+if (func((struct common *)&a) == -1) {
 	...
 ```
 
@@ -46,7 +48,7 @@ avoid warnings.  See the code below.
 #source struct-common.c
 
 A function may also allocate an `A` or `B` structure and return its address as a
-pointer to the `Common` struct.  This pointer then needs to be casted in the
+pointer to the `common` struct.  This pointer then needs to be casted in the
 caller according to its first member.
 
 See `struct sockaddr`, `struct sockaddr_in` and `struct sockaddr_in6`
