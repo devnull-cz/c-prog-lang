@@ -1,3 +1,8 @@
+/*
+ * Use as:
+ *
+ *	$ cc linkage.c ext.c
+ */
 #include <stdio.h>
 
 extern int i;
