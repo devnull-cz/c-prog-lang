@@ -465,9 +465,9 @@ C99, it is allowed and optional.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/missing-comma-in-initializer.c">missing-comma-in-initializer.c</a></p>
 <h1><a id="user-content-enumeration-constant" class="anchor" aria-hidden="true" href="#enumeration-constant"><span aria-hidden="true" class="octicon octicon-link"></span></a>Enumeration constant</h1>
 <p>We already know integer constants, character and string constants, a
-floating-point constant, constant expression (an expression that involves only
-constants).</p>
-<p>There is one other kind of constant, the <em>enumeration constant</em>.  An
+floating-point constant, and a constant expression (an expression that involves
+only constants).</p>
+<p>There is one other kind of a constant, the <em>enumeration constant</em>.  An
 <em>enumeration</em> is a list of constant integer values, as in:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> boolean { NO, YES};</pre></div>
 <p>The first name has value <code>0</code>, the next one <code>1</code>, etc.  You can use explicit
@@ -528,10 +528,10 @@ be distinct, e.g.:</p>
 <p>The reason is that the enum is known to the compiler and may be included into
 debug symbols.  So, when debugging, you might, if the compiler/debugger support
 it, see <code>XXX_LIST</code> instead of just <code>0</code>.  In the latter case, as the compiler
-only see the numbers when compiling the code (macros were replaced by numbers in
+only sees the numbers when compiling the code (macros were replaced by numbers in
 teh preprocessor phase), you will never see any symbolic names.  So, seeing the
 symbols instead of common numbers <code>0</code> or <code>1</code> is really helping.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> convert the binary tree implementation to use enum to store the data
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Convert the binary tree implementation to use enum to store the data
 type.</p>
 <h1><a id="user-content-the-const-keyword" class="anchor" aria-hidden="true" href="#the-const-keyword"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>const</code> keyword</h1>
 <p><code>const</code> is a <em>qualifier</em> that may be applied to the declaration of any variable.
