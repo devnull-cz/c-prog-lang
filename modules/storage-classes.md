@@ -1,20 +1,20 @@
 # Storage classes
 
-- there are two storage classes - *automatic* and *static*
-- the storage class determines the lifetime of the storage associated with the
-  identified object
-- declaration within a block creates an automatic object.  Its storage is valid
+- There are two storage classes - *automatic* and *static*.
+- The storage class determines the lifetime of the storage associated with the
+  identified object.
+- Declaration within a block creates an automatic object.  Its storage is valid
   only within the very same block.
-- only one storage class specifier may be given in a declaration
-- objects declared outside of any block is always of the static storage class
+- Only one storage class specifier may be given in a declaration.
+- Objects declared outside of any block are always of the static storage class
   (e.g. global variables).
-- static local objects (e.g. `static int i;`) retain their value upon reentry to
+- Static local objects (e.g. `static int i;`) retain their value upon reentry to
   functions and blocks.
-- you can initialize a static object.  The initialization happens just once.
+- You can initialize a static object.  The initialization happens just once.
 
 #source fn-static-object.c
 
-This one also shows how to use `goto`.  More on that later.
+This source code example also shows how to use `goto`.  More on that later.
 
 #source block-static-object.c
 
@@ -29,7 +29,7 @@ main(void)
 }
 ```
 
-You can also verify that as mentioned above, global variables can be only in the
+You can also verify that as mentioned above, global variables may be only in the
 static storage class:
 
 ```C
@@ -39,6 +39,9 @@ auto int j;
 int main(void)
 {
 }
+```
+
+```
 $ cc main.c
 main.c:1:10: error: illegal storage class on file-scoped variable
 auto int j;

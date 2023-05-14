@@ -2,7 +2,7 @@
 
 - Define a structure for a binary tree using the `structure node_s` name.
 - Each node of the tree can store either an `int` or a string (`char[]` of
-  arbitrary size)
+  arbitrary size).
 - There is the member `type` of an `int` type.  That determines the data type
   stored in the node, e.g. `0` for `int`, `1` for `char[]`.
 - Build a tree using a bunch of nodes (can be totally unbalanced).
