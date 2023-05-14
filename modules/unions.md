@@ -1,12 +1,13 @@
 # Unions
 
-- similar to structures however have different semantics
-	- stores its members in the same memory location
-	- allows for different "views" of the same data
-- usually combined with structures
-- handy for efficient data storage or HW programming
+- Unions resemble structures but they have a different semantics.
+	- Unions store its members in the same memory location.
+	- This allows for different "views" of the same data.
+- They are usually combined with structures.
+- Handy for efficient data storage or HW programming.
 
-consider this declaration:
+Consider this declaration:
+
 ```C
 union foo {
 	unsigned short i; // 2 bytes
@@ -16,9 +17,10 @@ union foo {
 	} bytes;
 };
 ```
-  - the `sizeof(union foo)` will be that of its largest member
-  - modify a value of `i` and it will be reflected in the low/high values
-    because `i` and `bytes` share the same location
+
+- The `sizeof(union foo)` will be that of its largest member.
+- Modify a value of `i` and it will be reflected in the low/high values because
+  `i` and `bytes` share the same location
 
 ```
 		0             high memory addresses
@@ -29,17 +31,17 @@ union foo {
                 +-------------+
 ```
 
-- union can be part of a structure, #source union-in-struct.c
+- Union can be part of a structure, #source union-in-struct.c
   and vice versa #source struct-in-union.c
-- union can be "anonymous" (e.g. no name inside of a structure), however this is
-  non-standard just like for structures
+- Union can be "anonymous" (e.g. no name inside of a structure), however this is
+  non-standard just like for structures.
 
-:wrench: Task: use the above declaration to find out if the program is running
-on big or little endian system (least significant byte is stored on lowest
-address). The program will print either "big endian" or "little endian" to
+:wrench: Use the above declaration to find out if the program is running on a
+big or little endian system (least significant byte is stored on lowest
+address).  The program will print either "big endian" or "little endian" to the
 standard output.
 
 #solution union-lowhigh.c
 
-:wrench: take the binary tree implementation and convert it to use `union`
-to store the data
+:wrench: Take the binary tree implementation and convert it to use a union to
+store the data.
