@@ -51,7 +51,7 @@ char *strncpy(char *dest, const char *src, size_t n);
 ...
 ```
 
-:wrench: `const`
+:wrench: Verify how `const` works
 
 The following is a `const` pointer to a `const` character.  So, you can neither
 do `*p = ...` nor `p = ...`.  Verify.
