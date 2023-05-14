@@ -425,13 +425,14 @@ that to traverse the tree and free the memory in the process.</p>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
 <h1><a id="user-content-command-line-option-parsing" class="anchor" aria-hidden="true" href="#command-line-option-parsing"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command line option parsing</h1>
-<p>Implement a command line parser ala getopt(3). The global variable <code>myoptarg</code>
-will be set if an option has an argument to mimic the <code>optarg</code> set by getopt().</p>
+<p>Implement a command line parser working the same as <code>getopt</code>(3).  The global
+variable <code>myoptarg</code> will be set if an option has an argument to mimic the
+<code>optarg</code> set by <code>getopt</code>().  Choose a useful subset of what <code>getopt</code> offers.</p>
 <p>Note: call the function <code>mygetopt()</code> not to intermingle with the standard
 library's <code>getopt()</code>.  Implement the "POSIXly correct solution", i.e. stop once
 non-option argument is encountered (i.e. one not starting with <code>-</code>) or after the
 <code>--</code> option is reached.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> bonus task: implement <code>myoptind</code>/<code>myopterr</code>/<code>myoptopt</code> variables</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Bonus task: implement <code>myoptind</code>/<code>myopterr</code>/<code>myoptopt</code> variables</p>
 <p>See the following code on how to use <code>getopt</code>(3):</p>
 <p><a href="https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c">https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c</a></p>
 
