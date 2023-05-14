@@ -2,8 +2,8 @@
 
 The memory automatically allocated for local variables and function parameters
 is allocated in an area called a *stack*. There is an area called a *heap* to
-allocate memory that lasts after the function returns. This is also called
-*dynamic allocation*.
+allocate memory that lasts after the function returns. That is also called
+a *dynamic allocation*.
 
 The allocator in the standard C library offers the
 `malloc`()/`calloc`()/`free`()/...  APIs for heap allocation.
@@ -49,7 +49,7 @@ has to be explicitly freed via `free`() after it is no longer needed.
 :wrench: write a program that takes at least 2 arguments.  First argument
 specifies a dimension of an array of `int`s, the rest are the `int`s to fill
 out the array.  To allocate memory for the array, use `malloc`.  When filling
-out the array , ignore extra arguments.  If you have less arguments, use zero
+out the array, ignore extra arguments.  If you have less arguments, use zero
 for the remaining array elements.  At the end, print out the array.  To convert
 a string to an integer, use `atoi` and assume numbers are correctly entered.
 

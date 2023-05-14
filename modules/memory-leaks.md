@@ -4,18 +4,19 @@ If memory allocated on the heap is not freed, it creates a resource leak called
 a *memory leak* as the allocator deems such memory used even that your code no
 longer uses it.
 
-Depending on the size this might cause the problem of running out of memory
-later on, and then `malloc`/`calloc` can start returning a null pointer.
+Depending on its size(s) this might cause a problem of running out of memory
+later on, and then `malloc`/`calloc` can start returning a null pointer as an
+indication of allocation failure(s).
 
 The leaks can be checked using static or dynamic analyzers.
 
-:wrench: write a program that takes all arguments that follow `argv[0]`,
+:wrench: Write a program that takes all arguments that follow `argv[0]`,
 concatenates them (without the terminating `NUL` character) into one string
 dynamically allocated via `malloc`() and prints this string to the standard
 output.
 
-  - the concatenation can be done either by hand (try that first) or `strncat()`
-    (try that afterwards)
+	- The concatenation can be done either by hand (try that first) or
+	  using `strncat()` (try that afterwards).
 
 #source argv-concat.c
 
