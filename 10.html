@@ -282,8 +282,8 @@ occurence of a single character.</p>
 <h1><a id="user-content-heapdynamic-allocation-mallocfree" class="anchor" aria-hidden="true" href="#heapdynamic-allocation-mallocfree"><span aria-hidden="true" class="octicon octicon-link"></span></a>heap/dynamic allocation: malloc()/free()</h1>
 <p>The memory automatically allocated for local variables and function parameters
 is allocated in an area called a <em>stack</em>. There is an area called a <em>heap</em> to
-allocate memory that lasts after the function returns. This is also called
-<em>dynamic allocation</em>.</p>
+allocate memory that lasts after the function returns. That is also called
+a <em>dynamic allocation</em>.</p>
 <p>The allocator in the standard C library offers the
 <code>malloc</code>()/<code>calloc</code>()/<code>free</code>()/...  APIs for heap allocation.</p>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji> The <code>malloc</code>/<code>calloc</code> functions return a pointer to a
@@ -313,7 +313,7 @@ has to be explicitly freed via <code>free</code>() after it is no longer needed.
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes at least 2 arguments.  First argument
 specifies a dimension of an array of <code>int</code>s, the rest are the <code>int</code>s to fill
 out the array.  To allocate memory for the array, use <code>malloc</code>.  When filling
-out the array , ignore extra arguments.  If you have less arguments, use zero
+out the array, ignore extra arguments.  If you have less arguments, use zero
 for the remaining array elements.  At the end, print out the array.  To convert
 a string to an integer, use <code>atoi</code> and assume numbers are correctly entered.</p>
 <pre><code>./a.out 10 1 2 3 7 8 999 7 7 7 9 9 9 10 11
@@ -324,17 +324,17 @@ a string to an integer, use <code>atoi</code> and assume numbers are correctly e
 <p>If memory allocated on the heap is not freed, it creates a resource leak called
 a <em>memory leak</em> as the allocator deems such memory used even that your code no
 longer uses it.</p>
-<p>Depending on the size this might cause the problem of running out of memory
-later on, and then <code>malloc</code>/<code>calloc</code> can start returning a null pointer.</p>
+<p>Depending on its size(s) this might cause a problem of running out of memory
+later on, and then <code>malloc</code>/<code>calloc</code> can start returning a null pointer as an
+indication of allocation failure(s).</p>
 <p>The leaks can be checked using static or dynamic analyzers.</p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> write a program that takes all arguments that follow <code>argv[0]</code>,
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Write a program that takes all arguments that follow <code>argv[0]</code>,
 concatenates them (without the terminating <code>NUL</code> character) into one string
 dynamically allocated via <code>malloc</code>() and prints this string to the standard
 output.</p>
-<ul>
-<li>the concatenation can be done either by hand (try that first) or <code>strncat()</code>
-(try that afterwards)</li>
-</ul>
+<pre><code>- The concatenation can be done either by hand (try that first) or
+  using `strncat()` (try that afterwards).
+</code></pre>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-concat.c">argv-concat.c</a></p>
 <p>You can then put the string processing in a loop and comment out the <code>free</code>()
 call on the allocated memory.  Then check with <code>top -s 1</code> on Linux, macOS, or
