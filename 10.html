@@ -342,25 +342,17 @@ any other Unix-like system (or use any other suitable system monitoring tool)
 that the memory size of the running program quickly increases.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-concat-nofree.c">argv-concat-nofree.c</a></p>
 <h1><a id="user-content-pointer-to-a-structure-and-type-casting" class="anchor" aria-hidden="true" href="#pointer-to-a-structure-and-type-casting"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pointer to a structure and type casting</h1>
-<ul>
-<li>
-<p>pointers to structures are often used to achieve common interface for
-different types</p>
-<ul>
-<li>e.g.</li>
-</ul>
-</li>
-</ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> Common { <span class="pl-k">int</span> type; };
+<p>Pointers to structures are often used to achieve common interface for different
+types that all need to be passed as arugments to a function.  Consider this:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> common { <span class="pl-k">int</span> type; };
 <span class="pl-k">struct</span> A      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">8</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 1</span>
 <span class="pl-k">struct</span> B      { <span class="pl-k">int</span> type; <span class="pl-k">char</span> data[<span class="pl-c1">16</span>]; };	<span class="pl-c"><span class="pl-c">//</span> type == 2</span></pre></div>
-<ul>
-<li>then a function can be declared like so:</li>
-</ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">func</span>(<span class="pl-k">struct</span> Common *c);</pre></div>
-<ul>
-<li>internally it can do e.g.:</li>
-</ul>
+<p>We have a <code>common</code> structure with the only structure member present in all
+structures, <code>type</code>.  A function can be then declared as follows:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">func</span>(<span class="pl-k">struct</span> common *c);</pre></div>
+<p>However, the function needs to process additional members for structures <code>A</code>,
+<code>B</code>, etc.  So, internally it may cast the argument to the specific structure
+based on their common structure member, <code>type</code>:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (c-&gt;type == <span class="pl-c1">1</span>) {
 	<span class="pl-k">struct</span> A *ap = (<span class="pl-k">struct</span> A *)c;
 	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">7</span>] = <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>;
@@ -368,20 +360,19 @@ different types</p>
 	<span class="pl-k">struct</span> B *bp = (<span class="pl-k">struct</span> B *)c;
 	ap-&gt;<span class="pl-smi">data</span>[<span class="pl-c1">15</span>] = <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>;
 }</pre></div>
-<ul>
-<li>and the <code>func</code> is used like this, i.e. the non-Common argument is always
-casted to the common structure.</li>
-</ul>
+<p>And the <code>func</code> is used like this, i.e. the non-<code>common</code> argument is always
+casted to the <code>common</code> structure so that the compiler knows we know what we are
+doing:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> A a;
 
-<span class="pl-k">if</span> (func((<span class="pl-k">struct</span> Common *)&amp;a) == -<span class="pl-c1">1</span>) {
+<span class="pl-k">if</span> (func((<span class="pl-k">struct</span> common *)&amp;a) == -<span class="pl-c1">1</span>) {
 	...</pre></div>
 <p>This is possible since all the structures have the same member on the same
 offset (that is offset 0).  However, note that you need to cast properly to
 avoid warnings.  See the code below.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-common.c">struct-common.c</a></p>
 <p>A function may also allocate an <code>A</code> or <code>B</code> structure and return its address as a
-pointer to the <code>Common</code> struct.  This pointer then needs to be casted in the
+pointer to the <code>common</code> struct.  This pointer then needs to be casted in the
 caller according to its first member.</p>
 <p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
 definitions as an example on how this is done in practice.</p>
