@@ -1,17 +1,17 @@
 # :wrench: Linked list
 
-Declare a structure that will form a simple linked list and will hold an integer
-as a value.  The program will be run with a single argument specifying how many
-items the list will have.
+Declare a structure that forms a simple linked list and holds an integer as a
+value.  The program is executed with a single argument specifying how many items
+the list will have.
 
-Allocate a new structure and insert into the head (global variable).  Each new
-item will have its value incremented by one.
+Allocate a new structure and insert values into the head (global variable).
+Each new list item will have its value incremented by one.
 
 Aside from the value itself, each node needs to hold a pointer to the next
 structure in the list.  The last node has the next pointer set as `NULL`.
 
-Once the list is complete, print its value by traversing its items from head to
-end.
+Once the list is completed, print its value by traversing its items from the
+head to its end.
 
 ```
 $ ./a.out
