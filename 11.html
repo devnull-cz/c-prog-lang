@@ -290,16 +290,16 @@ by the node based on the type of data in each node.</li>
 </ul>
 <h1><a id="user-content-unions" class="anchor" aria-hidden="true" href="#unions"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unions</h1>
 <ul>
-<li>similar to structures however have different semantics
+<li>Unions resemble structures but they have a different semantics.
 <ul>
-<li>stores its members in the same memory location</li>
-<li>allows for different "views" of the same data</li>
+<li>Unions store its members in the same memory location.</li>
+<li>This allows for different "views" of the same data.</li>
 </ul>
 </li>
-<li>usually combined with structures</li>
-<li>handy for efficient data storage or HW programming</li>
+<li>They are usually combined with structures.</li>
+<li>Handy for efficient data storage or HW programming.</li>
 </ul>
-<p>consider this declaration:</p>
+<p>Consider this declaration:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">union</span> foo {
 	<span class="pl-k">unsigned</span> <span class="pl-k">short</span> i; <span class="pl-c"><span class="pl-c">//</span> 2 bytes</span>
 	<span class="pl-k">struct</span> {
@@ -308,9 +308,9 @@ by the node based on the type of data in each node.</li>
 	} bytes;
 };</pre></div>
 <ul>
-<li>the <code>sizeof(union foo)</code> will be that of its largest member</li>
-<li>modify a value of <code>i</code> and it will be reflected in the low/high values
-because <code>i</code> and <code>bytes</code> share the same location</li>
+<li>The <code>sizeof(union foo)</code> will be that of its largest member.</li>
+<li>Modify a value of <code>i</code> and it will be reflected in the low/high values because
+<code>i</code> and <code>bytes</code> share the same location</li>
 </ul>
 <pre><code>		0             high memory addresses
 		+-------------+
@@ -320,19 +320,19 @@ because <code>i</code> and <code>bytes</code> share the same location</li>
                 +-------------+
 </code></pre>
 <ul>
-<li>union can be part of a structure, <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/union-in-struct.c">union-in-struct.c</a>
+<li>Union can be part of a structure, <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/union-in-struct.c">union-in-struct.c</a>
 and vice versa <g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-in-union.c">struct-in-union.c</a>
 </li>
-<li>union can be "anonymous" (e.g. no name inside of a structure), however this is
-non-standard just like for structures</li>
+<li>Union can be "anonymous" (e.g. no name inside of a structure), however this is
+non-standard just like for structures.</li>
 </ul>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Task: use the above declaration to find out if the program is running
-on big or little endian system (least significant byte is stored on lowest
-address). The program will print either "big endian" or "little endian" to
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Use the above declaration to find out if the program is running on a
+big or little endian system (least significant byte is stored on lowest
+address).  The program will print either "big endian" or "little endian" to the
 standard output.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/union-lowhigh.c">union-lowhigh.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and convert it to use <code>union</code>
-to store the data</p>
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Take the binary tree implementation and convert it to use a union to
+store the data.</p>
 <h1><a id="user-content-storage-classes" class="anchor" aria-hidden="true" href="#storage-classes"><span aria-hidden="true" class="octicon octicon-link"></span></a>Storage classes</h1>
 <ul>
 <li>there are two storage classes - <em>automatic</em> and <em>static</em>
