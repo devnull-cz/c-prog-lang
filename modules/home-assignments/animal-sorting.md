@@ -5,11 +5,10 @@ You may remember
 
 Use the same structure for this assignment.
 
-:wrench: Task: sort the array by number of legs, print it out to standard
-output.
+:wrench: Sort the array by number of legs, print it out to standard output.
 
-:wrench: Task: sort the array by the animal name. Print it out to standard
-output.  Use `strcmp()` to do the comparison of names.
+:wrench: Sort the array by the animal name. Print it out to standard output.
+Use `strcmp()` to do the comparison of names.
 
 Make the comparison functions static.
 
@@ -20,9 +19,8 @@ will use to compare two array elements.
 Make the program to accept an argument (0 or 1) and run the sorting function
 based on that.
 
-code:
-  - #solution animal-sort.c
-  - #solution animals.h
-  - #solution animal.h
+- #solution animal-sort.c
+- #solution animals.h
+- #solution animal.h
 
-Bonus: sort the animals based on both name and number of legs.
+Bonus: Sort the animals based on both name and number of legs.
