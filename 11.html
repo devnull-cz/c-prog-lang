@@ -608,6 +608,7 @@ array a;</pre></div>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/typedef.c">typedef.c</a></p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Take the binary tree implementation and use <code>typedef</code> for the node
 structure itself and also fot the callback.</p>
+<h1><a id="user-content-this-comes-from-2022s-lesson-12" class="anchor" aria-hidden="true" href="#this-comes-from-2022s-lesson-12"><span aria-hidden="true" class="octicon octicon-link"></span></a>This comes from 2022's lesson 12.</h1>
 <h1><a id="user-content-variable-namespace-and-scope" class="anchor" aria-hidden="true" href="#variable-namespace-and-scope"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variable namespace and scope</h1>
 <p>Identifiers fall into several namespaces that do not interfere with one
 another.</p>
@@ -621,6 +622,154 @@ another.</p>
 <p>The "individual" part means each structure or union has its own namespace.  So,
 you can have two different structures, each using the same member names.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/identifier-namespace.c">identifier-namespace.c</a></p>
+<h1><a id="user-content-this-comes-from-2022s-lesson-13-which-we-do-not-have-time-for-this-year" class="anchor" aria-hidden="true" href="#this-comes-from-2022s-lesson-13-which-we-do-not-have-time-for-this-year"><span aria-hidden="true" class="octicon octicon-link"></span></a>This comes from 2022's lesson 13 which we do not have time for this year.</h1>
+<h1><a id="user-content-goto-statement" class="anchor" aria-hidden="true" href="#goto-statement"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<code>goto</code> statement</h1>
+<p>Any statement may be preceded by a prefix that declares an identifier as a label
+name.  Labels by themselves do not alter the flow of control.</p>
+<p>Within the same function, you can jump to a label via the <em>goto</em> statement.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span> **argv)
+{
+	<span class="pl-k">if</span> (argc == <span class="pl-c1">1</span>)
+		<span class="pl-k">goto</span> err;
+	<span class="pl-c"><span class="pl-c">/*</span> Process arguments here. <span class="pl-c">*/</span></span>
+	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);
+err:
+	<span class="pl-c1">errx</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>missing arguments<span class="pl-pds">"</span></span>);
+	<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
+}</pre></div>
+<p>Use of <code>goto</code> in C is often frowned upon unless it is used to jump to an
+error/clean-up section or break from structured code.
+While even that use is questioned by some, large number of major projects (Linux
+kernel code, OpenSSH, OpenSSL, etc.) use it that way.  We strongly believe such
+use simplifies the code if done well.</p>
+<p>Consider the following code <strong>with conditionals that do not nest</strong>.  It leads to
+code duplication (or large amount of indentation to fix that):</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">myfn</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c"><span class="pl-c">/*</span> declarations ommited <span class="pl-c">*/</span></span>
+
+	<span class="pl-k">if</span> ((p = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
+		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
+	<span class="pl-k">if</span> ((p2 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>) {
+		<span class="pl-c1">free</span>(p);
+		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
+	}
+	<span class="pl-k">if</span> ((p3 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>) {
+		<span class="pl-c1">free</span>(p);
+		<span class="pl-c1">free</span>(p2);
+		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
+	}
+	<span class="pl-k">if</span> ((p4 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>) {
+		<span class="pl-c1">free</span>(p);
+		<span class="pl-c1">free</span>(p2);
+		<span class="pl-c1">free</span>(p3);
+		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
+	}
+	<span class="pl-c"><span class="pl-c">/*</span> etc... <span class="pl-c">*/</span></span>
+
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Success.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+	<span class="pl-c1">free</span>(p);
+	<span class="pl-c1">free</span>(p2);
+	<span class="pl-c1">free</span>(p3);
+	<span class="pl-c1">free</span>(p4);
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);
+}</pre></div>
+<p>With the conservative use of <code>goto</code>, we can simplify the code as follows:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span>
+<span class="pl-en">myfn</span>(<span class="pl-k">void</span>)
+{
+	<span class="pl-c"><span class="pl-c">/*</span> declarations ommited <span class="pl-c">*/</span></span>
+
+	<span class="pl-k">int</span> ret = <span class="pl-c1">1</span>;
+
+	<span class="pl-k">if</span> ((p = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
+		<span class="pl-k">return</span> (<span class="pl-c1">1</span>);
+	<span class="pl-k">if</span> ((p2 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
+		<span class="pl-k">goto</span> err;
+	<span class="pl-k">if</span> ((p3 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
+		<span class="pl-k">goto</span> err2;
+	<span class="pl-k">if</span> ((p4 = <span class="pl-c1">malloc</span>(<span class="pl-c1">16</span>)) == <span class="pl-c1">NULL</span>)
+		<span class="pl-k">goto</span> err3;
+	<span class="pl-c"><span class="pl-c">/*</span> etc... <span class="pl-c">*/</span></span>
+
+	<span class="pl-c"><span class="pl-c">/*</span> Getting here means all went fine. <span class="pl-c">*/</span></span>
+	ret = <span class="pl-c1">0</span>;
+	<span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Success.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+
+	<span class="pl-c1">free</span>(p4);
+err3:
+	<span class="pl-c1">free</span>(p3);
+err2:
+	<span class="pl-c1">free</span>(p2);
+err:
+	<span class="pl-c1">free</span>(p);
+	<span class="pl-k">return</span> (ret);
+}</pre></div>
+<p>The good thing is that you clean up at one common place at the end of the
+function.  If there is something new that needs to be cleaned up after the code
+is modified, you add it to the clean-up section.  In the former example, you
+would have to check all error paths and modify those one by one.</p>
+<p><strong>We support reasonable use of <code>goto</code> for the clean-up and structured code
+breaks</strong>.  If used wisely, it leads to cleaner code and saves lots of
+indentation.  Also note that the <code>break</code> and <code>continue</code> statements are jumps as
+well, and imagine how to structure your code without it.</p>
+<h1><a id="user-content-switch-statement" class="anchor" aria-hidden="true" href="#switch-statement"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<code>switch</code> statement</h1>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">switch</span> (expression) {
+	<span class="pl-k">case</span> constant1:
+		<span class="pl-c"><span class="pl-c">//</span> statements</span>
+		<span class="pl-k">break</span>;
+	<span class="pl-k">case</span> constant2:
+		<span class="pl-c"><span class="pl-c">//</span> statements</span>
+		<span class="pl-k">break</span>;
+	.
+	.
+	.
+	<span class="pl-k">default</span>:
+		<span class="pl-c"><span class="pl-c">//</span> default statements</span>
+}</pre></div>
+<p>Each <code>case</code> is a label.  For that reason, you must <code>break</code> unless you want to
+code fall through.  The reason for that is historical and time showed it was not
+the right decision.</p>
+<p>Very often used for command line option processing.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> opt;
+
+<span class="pl-k">while</span> ((opt = getopt(argc, argv, <span class="pl-s"><span class="pl-pds">"</span>c:<span class="pl-pds">"</span></span>)) != -<span class="pl-c1">1</span>) {
+	<span class="pl-k">switch</span> (opt) {
+	<span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>:
+		<span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">		 * optarg should be copied since it might be</span>
+<span class="pl-c">		 * overwritten by another option or freed by getopt()</span>
+<span class="pl-c">		 <span class="pl-c">*/</span></span>
+		<span class="pl-k">if</span> ((code = <span class="pl-c1">strdup</span>(<span class="pl-c1">optarg</span>)) == <span class="pl-c1">NULL</span>)
+			<span class="pl-c1">err</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>cannot alloc memory for -c optarg<span class="pl-pds">"</span></span>);
+		<span class="pl-k">break</span>;
+	<span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>?<span class="pl-pds">'</span></span>:
+		<span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>unknown option: '<span class="pl-c1">%c</span>'<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">optopt</span>);
+		<span class="pl-c1">usage</span>(argv0);
+		<span class="pl-k">break</span>;
+	}
+}</pre></div>
+<p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/switch.c">switch.c</a></p>
+<p>Also note that "any statement may be <strong>preceded</strong> by... a label".  As <code>case</code> is
+a label as well (only valid within the <code>switch</code> statement though), you cannot
+have a declaration right after the <code>case</code> label, because declaration is not a
+statement. Similarly, you also cannot have a label right before a closing <code>}</code>.
+So, a <em>null statement</em> to the rescue:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">switch</span> (c) {
+<span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>:
+	;	<span class="pl-c"><span class="pl-c">/*</span> must be here as a declaration is not a statement. <span class="pl-c">*/</span></span>
+	<span class="pl-k">int</span> a;
+	<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>
+<span class="pl-k">default</span>:
+	;	<span class="pl-c"><span class="pl-c">/*</span> must be here as the closing '}' is not a statement. <span class="pl-c">*/</span></span>
+}</pre></div>
+<p>The other alternative would be to move the first statement that follows the
+variable declaration before it.</p>
 <h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
