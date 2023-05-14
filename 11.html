@@ -574,18 +574,16 @@ do <code>*p = ...</code> nor <code>p = ...</code>.  Verify.</p>
 <p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Take the binary tree implementation and use the <code>const</code> keyword where
 it makes sense.</p>
 <h1><a id="user-content-the-typedef-keyword" class="anchor" aria-hidden="true" href="#the-typedef-keyword"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>typedef</code> keyword</h1>
-<ul>
-<li>note that a <code>char</code>, signed and unsigned integer types, and the floating types
-are collectively called <em>basic types</em>.</li>
-<li>then you have <em>derived types</em> - an array type, a structure, a union, a
-function type, a pointer type.</li>
-</ul>
+<p>Note that a <code>char</code>, signed and unsigned integer types, and the floating types
+are collectively called <em>basic types</em>.</p>
+<p>We also have <em>derived types</em> - an array type, a structure, a union, a function
+type, and a pointer type.</p>
 <p>With <code>typedef</code>, you create new data type <strong>names</strong> for <strong>existing</strong> types.  Note
 that you <strong>never</strong> create new data <strong>types</strong> with <code>typedef</code>.  In other words,
-with <code>typedef</code>, you create synonyms to existing types.</p>
+with <code>typedef</code>, you create synonyms to the existing types.</p>
 <p><code>typedef</code> is most commonly used for derived types but many type names provided
-by the C standard itself are based on even basic types.  For example, <code>size_t</code>,
-see its definition in <code>/usr/include/sys/types.h</code>.</p>
+by the C standard itself are based on basic types.  For example, <code>size_t</code>, see
+its definition in <code>/usr/include/sys/types.h</code>.</p>
 <p>You can also create new type names using type names you created before, see
 below.</p>
 <p><code>typedef</code> is used as follows:</p>
@@ -608,7 +606,7 @@ array a;</pre></div>
 <span class="pl-c1">mystruct_t</span> y;</pre></div>
 <p><code>x</code> and <code>y</code> are of the same type.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/typedef.c">typedef.c</a></p>
-<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> take the binary tree implementation and use <code>typedef</code> for the node
+<p><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Take the binary tree implementation and use <code>typedef</code> for the node
 structure itself and also fot the callback.</p>
 <h1><a id="user-content-variable-namespace-and-scope" class="anchor" aria-hidden="true" href="#variable-namespace-and-scope"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variable namespace and scope</h1>
 <p>Identifiers fall into several namespaces that do not interfere with one
