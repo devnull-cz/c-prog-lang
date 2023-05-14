@@ -377,15 +377,15 @@ caller according to its first member.</p>
 <p>See <code>struct sockaddr</code>, <code>struct sockaddr_in</code> and <code>struct sockaddr_in6</code>
 definitions as an example on how this is done in practice.</p>
 <h1><a id="user-content-wrench-linked-list" class="anchor" aria-hidden="true" href="#wrench-linked-list"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Linked list</h1>
-<p>Declare a structure that will form a simple linked list and will hold an integer
-as a value.  The program will be run with a single argument specifying how many
-items the list will have.</p>
-<p>Allocate a new structure and insert into the head (global variable).  Each new
-item will have its value incremented by one.</p>
+<p>Declare a structure that forms a simple linked list and holds an integer as a
+value.  The program is executed with a single argument specifying how many items
+the list will have.</p>
+<p>Allocate a new structure and insert values into the head (global variable).
+Each new list item will have its value incremented by one.</p>
 <p>Aside from the value itself, each node needs to hold a pointer to the next
 structure in the list.  The last node has the next pointer set as <code>NULL</code>.</p>
-<p>Once the list is complete, print its value by traversing its items from head to
-end.</p>
+<p>Once the list is completed, print its value by traversing its items from the
+head to its end.</p>
 <pre><code>$ ./a.out
 a.out: usage: ./a.out &lt;num&gt;
 $ ./a.out 10
