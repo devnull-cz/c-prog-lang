@@ -275,7 +275,7 @@
 <ul>
 <li>Define a structure for a binary tree using the <code>structure node_s</code> name.</li>
 <li>Each node of the tree can store either an <code>int</code> or a string (<code>char[]</code> of
-arbitrary size)</li>
+arbitrary size).</li>
 <li>There is the member <code>type</code> of an <code>int</code> type.  That determines the data type
 stored in the node, e.g. <code>0</code> for <code>int</code>, <code>1</code> for <code>char[]</code>.</li>
 <li>Build a tree using a bunch of nodes (can be totally unbalanced).
@@ -335,21 +335,20 @@ standard output.</p>
 store the data.</p>
 <h1><a id="user-content-storage-classes" class="anchor" aria-hidden="true" href="#storage-classes"><span aria-hidden="true" class="octicon octicon-link"></span></a>Storage classes</h1>
 <ul>
-<li>there are two storage classes - <em>automatic</em> and <em>static</em>
-</li>
-<li>the storage class determines the lifetime of the storage associated with the
-identified object</li>
-<li>declaration within a block creates an automatic object.  Its storage is valid
+<li>There are two storage classes - <em>automatic</em> and <em>static</em>.</li>
+<li>The storage class determines the lifetime of the storage associated with the
+identified object.</li>
+<li>Declaration within a block creates an automatic object.  Its storage is valid
 only within the very same block.</li>
-<li>only one storage class specifier may be given in a declaration</li>
-<li>objects declared outside of any block is always of the static storage class
+<li>Only one storage class specifier may be given in a declaration.</li>
+<li>Objects declared outside of any block are always of the static storage class
 (e.g. global variables).</li>
-<li>static local objects (e.g. <code>static int i;</code>) retain their value upon reentry to
+<li>Static local objects (e.g. <code>static int i;</code>) retain their value upon reentry to
 functions and blocks.</li>
-<li>you can initialize a static object.  The initialization happens just once.</li>
+<li>You can initialize a static object.  The initialization happens just once.</li>
 </ul>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fn-static-object.c">fn-static-object.c</a></p>
-<p>This one also shows how to use <code>goto</code>.  More on that later.</p>
+<p>This source code example also shows how to use <code>goto</code>.  More on that later.</p>
 <p><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/block-static-object.c">block-static-object.c</a></p>
 <p>Local variables are implicitly automatic but you could use the <code>auto</code> keyword
 (noone does that though):</p>
@@ -358,19 +357,20 @@ functions and blocks.</li>
 {
 	<span class="pl-k">auto</span> <span class="pl-k">int</span> i;
 }</pre></div>
-<p>You can also verify that as mentioned above, global variables can be only in the
+<p>You can also verify that as mentioned above, global variables may be only in the
 static storage class:</p>
 <div class="highlight highlight-source-c"><pre>$ cat main.c
 <span class="pl-k">auto</span> <span class="pl-k">int</span> j;
 
 <span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-}
-$ cc main.c
-main.c:<span class="pl-c1">1</span>:<span class="pl-c1">10</span>: error: illegal storage class on file-scoped variable
-<span class="pl-k">auto</span> <span class="pl-k">int</span> j;
+}</pre></div>
+<pre><code>$ cc main.c
+main.c:1:10: error: illegal storage class on file-scoped variable
+auto int j;
          ^
-<span class="pl-c1">1</span> error generated.</pre></div>
+1 error generated.
+</code></pre>
 <h1><a id="user-content-static-variables-and-functions" class="anchor" aria-hidden="true" href="#static-variables-and-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static variables and functions</h1>
 <ul>
 <li>
