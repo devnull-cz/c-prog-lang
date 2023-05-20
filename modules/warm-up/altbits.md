@@ -8,4 +8,4 @@ The answer from the program will be yes/no.
 Start with naive/straightforward implementation, i.e. traverse all the bits
 (O(n) time) and use bit operations/arithmetics.
 
-Note: this can be done in O(1) time using some tricks
+Note: this can be done in O(1) time by comparing the value with 2 constants.
