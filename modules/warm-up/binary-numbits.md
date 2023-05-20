@@ -7,3 +7,5 @@ Then rewrite
 using the acquired number.
 
 Note: be careful about little vs big endian
+
+#solution numchars-for-binary.c
