@@ -378,6 +378,21 @@ Usually the value it is <em>sign-extended</em>, i.e. filled with 1's.</p>
 
 lights = lights | LIGHT_YELLOW;	<span class="pl-c"><span class="pl-c">//</span> turn on yellow light</span>
 lights = lights &amp; ~LIGHT_RED;	<span class="pl-c"><span class="pl-c">//</span> turn off red light</span></pre></div>
+<p>Another common case is to use an integer type to store multiple kinds of
+information, with mask to extract the parts. Here, a <code>ungisned short</code> type
+stores the byte value and associated flags:</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">define</span>	<span class="pl-en">VALUE_MASK</span>	<span class="pl-c1">0xff</span>
+#<span class="pl-k">define</span>	<span class="pl-en">FLAG_MASK</span>	<span class="pl-c1">0xff00</span>
+
+#<span class="pl-k">define</span>	<span class="pl-en">ONE</span>		<span class="pl-c1">0x0100</span>
+#<span class="pl-k">define</span>	<span class="pl-en">TWO</span>		<span class="pl-c1">0x0200</span>
+
+<span class="pl-k">unsigned</span> <span class="pl-k">short</span> n = <span class="pl-c1">16</span> | ONE | TWO;
+
+<span class="pl-k">if</span> ((n &amp; FLAG_MASK) &amp; ONE)
+	<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>ONE<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+
+<span class="pl-en">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%hhu</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, n &amp; VALUE_MASK);</pre></div>
 <h2><a id="user-content-binary-operators-and-integer-promotion" class="anchor" aria-hidden="true" href="#binary-operators-and-integer-promotion"><span aria-hidden="true" class="octicon octicon-link"></span></a>Binary operators and integer promotion</h2>
 <p>When working with bitwise operators, operands are promoted the same way
 as we learned in
