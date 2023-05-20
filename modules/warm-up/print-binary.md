@@ -1,6 +1,4 @@
-## Print binary representation of positive number
-
-:wrench: Task
+## :wrench: Print binary representation of positive number
 
 Print `argv[1]` in binary (assume it is a correct positive decimal number
 that will fit `unsigned int`) to standard output.
