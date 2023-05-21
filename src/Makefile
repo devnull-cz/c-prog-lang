@@ -21,6 +21,8 @@ OS=macos
 endif
 
 OBJDIR=objs
+
+# These sources lead to warnings or errors.
 BLACKLIST=const-not-really-a-const.c \
 	ternary.c \
 	array-var-not-modifiable.c \
@@ -32,7 +34,9 @@ BLACKLIST=const-not-really-a-const.c \
 	printf.c \
 	error.c \
 	integer-conversion-assignment.c \
-	ptr-lvalue.c
+	ptr-lvalue.c \
+	pointer-to-array-type-difference.c
+
 SRCS_ORIG=$(shell git ls-files '*.c')
 SRCS=$(filter-out $(BLACKLIST),$(SRCS_ORIG))
 OBJS=$(SRCS:c=o)
