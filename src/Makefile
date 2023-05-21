@@ -35,7 +35,8 @@ BLACKLIST=const-not-really-a-const.c \
 	error.c \
 	integer-conversion-assignment.c \
 	ptr-lvalue.c \
-	pointer-to-array-type-difference.c
+	pointer-to-array-type-difference.c \
+	print-int-as-double.c
 
 SRCS_ORIG=$(shell git ls-files '*.c')
 SRCS=$(filter-out $(BLACKLIST),$(SRCS_ORIG))
