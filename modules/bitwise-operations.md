@@ -101,6 +101,8 @@ That means:
 
 :wrench: Task: count 1 bits in a number (`argv[1]`).
 
+#solution count-1-bits.c
+
 ```
 $ ./a.out 337
 4
