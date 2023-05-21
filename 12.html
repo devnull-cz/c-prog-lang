@@ -424,12 +424,13 @@ integers.</p>
 <p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitdiff.c">bitdiff.c</a></p>
 <p>Sub-task for home: flip those bits and verify that the numbers are the same.</p>
 <h2><a id="user-content-wrench-alternating-bits-detection" class="anchor" aria-hidden="true" href="#wrench-alternating-bits-detection"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> alternating bits detection</h2>
-<p>Task: detect if binary representation of an <code>int</code> has alternating bits
+<p>Task: detect if binary representation of an <code>unsigned int</code> has alternating bits
 in the whole width of the type.  (e.g. <code>01010101</code> if the type was <code>char</code>).</p>
-<p>The answer from the program will be yes/no.</p>
+<p>The answer from the program will be yes/no (printed to standard output).</p>
 <p>Start with naive/straightforward implementation, i.e. traverse all the bits
 (O(n) time) and use bit operations/arithmetics.</p>
 <p>Note: this can be done in O(1) time by comparing the value with 2 constants.</p>
+<p><g-emoji class="g-emoji" alias="key" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f511.png">🔑</g-emoji> <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/altbits.c">altbits.c</a></p>
 <h2><a id="user-content-wrench-number-of-bits-for-binary-representation" class="anchor" aria-hidden="true" href="#wrench-number-of-bits-for-binary-representation"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji> Number of bits for binary representation</h2>
 <p>Given an <code>int</code> (assume 4 bytes) with a positive value, use bit operators to find
 out how many bits (and bytes) will be needed to represent the number in binary.
