@@ -2,8 +2,8 @@
 #include <stddef.h>
 
 struct foo {
-        unsigned short a : 15;
-        short b : 2;
+	unsigned short a : 15;
+	short b : 2;
 };
 
 int
