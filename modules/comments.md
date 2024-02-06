@@ -24,7 +24,7 @@
            do_something()
   ```
 
-- Pick a reasonble style and stick to it.  Mising one line comments using both
+- Pick a reasonble style and stick to it.  Mixing one line comments using both
   `//` and `/* */` is not the best style.
 
 - In general, you can always figure out what the code does, it is just a matter
