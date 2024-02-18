@@ -67,7 +67,7 @@
 	- #source arithmetics.c
 
 - save for an assignment, anywhere you can use a variable, you can use an
-  expression
+  expression (e.g. you cannot do `i + 1 = j`)
 	```C
 	printf("%d\n", 100 * 2);
 	```
