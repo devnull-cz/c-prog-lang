@@ -122,18 +122,19 @@ There are a few options:
 MFF UK unix login/password to get in.  We assume you will know the minimum
 needed to use the system.  Start a few terminals and that is all you need.  The
 compiler is <tt>gcc</tt>.  See below for a few editor options.
-<li>Linux machines in the Malá Strana lab are also remotely accessible via SSH
-with your unix MFF UK login.  To log in, use e.g. <code>ssh
-yourname@u-pl3.ms.mff.cuni.cz</code>.  You can also check <code>ssh -M</code> as
-that might come in handy to speed up multiple logins.  There seem to be
-<tt>u-pl</tt> machines from 1 to 37.  Pick any of those, your home directory is
-mounted on all.  You can use <a href="https://putty.org">PuTTY</a> client on
-Windows.  Windows 10 already have OpenSSH.  Then see the item above.
-<li>Use your laptop with a GNU C (<code>gcc</code>) compiler installed, or any
-other modern C compiler.  Any Linux distro, (Free|Net|Open)BSD, or a macOS
-machine will do but you may need to install the compiler there.  On macOS, just
-run <tt>cc</tt> and follow the instructions there.
-<li>Install a C compiler on your Windows laptop.
+<li>Some Linux machines in the Malá Strana from the Rotunda lab are still
+remotely accessible via SSH with your unix MFF UK login.  To log in, use e.g.
+<code>ssh yourname@u-pl1.ms.mff.cuni.cz</code>.  You can also check <code>ssh
+-M</code> as that might come in handy to speed up multiple logins.  Presently,
+due to the Rotunda lab ongoing reconstruction, there are
+to be <tt>u-pl1</tt> and <tt>u-pl10</tt> machines available to remote login.
+Pick any of those, your home directory is mounted on all.  You can use <a
+href="https://putty.org">PuTTY</a> client on Windows.  Windows 10 already have
+OpenSSH.  Then see the item above.  <li>Use your laptop with a GNU C
+(<code>gcc</code>) compiler installed, or any other modern C compiler.  Any
+Linux distro, (Free|Net|Open)BSD, or a macOS machine will do but you may need to
+install the compiler there.  On macOS, just run <tt>cc</tt> and follow the
+instructions there.  <li>Install a C compiler on your Windows laptop.
 <li>Various combinations of the above in a virtual machine (e.g.  open source <a
 href="https://www.virtualbox.org/">VirtualBox</a> runs on many platforms).
 </ol>
@@ -218,10 +219,9 @@ deadline will not be accepted.
 
 <p>Tests to verify your implementation will be provided with the assignment.
 <b>You must pass all the tests</b> before handing over your solution.  We will
-build your code and verify the tests on one of the Linux machines
-<code>u-pl</code>N in the <a
-href="http://www.ms.mff.cuni.cz/labs/index.html.en">MFF UK lab at Mal&aacute;
-Strana</a>, see the <a href="#developmentenvironment">Development
+build your code and verify the tests on <code>u-pl1.ms.mff.cuni.cz</code>
+machine in the <a href="http://www.ms.mff.cuni.cz/labs/index.html.en">MFF UK lab
+at Mal&aacute; Strana</a>, see the <a href="#developmentenvironment">Development
 Environment</a> section above. If your code does not pass all the tests there,
 the submission will not be accepted.
 
