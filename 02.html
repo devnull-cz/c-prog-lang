@@ -761,7 +761,8 @@ $ ./a.out
 <ul>
 <li>When compiled in 64 bits, it is still as incorrect as before but it will
 probably print <code>13</code> anyway as <code>13</code> is assigned to a 64 bit register (because
-of x64 ABI).  So, if you use that code successfully in 64 bits you might be
+of commonly used calling convention on <a href="https://en.wikipedia.org/wiki/X86-64" rel="nofollow">x86-64</a>).
+So, if you use that code successfully in 64 bits you might be
 surprised if the code is then compiled in 32 bits and "suddenly gets broken".
 It was broken from the very beginning.</li>
 </ul>
