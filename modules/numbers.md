@@ -89,11 +89,13 @@ unsigned long long ull;
 - You can use `long int` and `long long int` or just `long` and `long long`,
   respectively.  The latter is mostly used in C.
 
-- `char` and `short int` is converted to `int` in variadic functions (we will
+- `char` and `short int` are converted to `int` in variadic functions (we will
   talk more about integer conversions later in semester).  That is why the
   following is correct as the compiler will first convert variable `c` to `int`
-  type, then put it on the stack (Intel x32 passing argument convention) or in a
-  register (Intel x64 convention).
+  type, then put it on the stack (common argument passing convention on
+  [IA-32](https://en.wikipedia.org/wiki/IA-32))
+  or in a register up to certain number of arguments (common x86-64
+  [calling convention](https://en.wikipedia.org/wiki/X86_calling_conventions)).
 
 ```C
 /* OK */
