@@ -39,7 +39,7 @@ printf("%f\n", pi);
 
 - See also *5.2.4.2 Numerical limits*
 #module c99-standard.md in the C spec.
-  For example, `int` must be at least 4 bytes but the C spec does not prevent it
+  For example, `int` must be at least 2 bytes but the C spec does not prevent it
   from being 8 bytes in the future.
 
 - `char`s and `short`s are automatically converted to `int` if used as arguments
