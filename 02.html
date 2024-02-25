@@ -701,11 +701,13 @@ word.</li>
 respectively.  The latter is mostly used in C.</p>
 </li>
 <li>
-<p><code>char</code> and <code>short int</code> is converted to <code>int</code> in variadic functions (we will
+<p><code>char</code> and <code>short int</code> are converted to <code>int</code> in variadic functions (we will
 talk more about integer conversions later in semester).  That is why the
 following is correct as the compiler will first convert variable <code>c</code> to <code>int</code>
-type, then put it on the stack (Intel x32 passing argument convention) or in a
-register (Intel x64 convention).</p>
+type, then put it on the stack (common argument passing convention on
+<a href="https://en.wikipedia.org/wiki/IA-32" rel="nofollow">IA-32</a>)
+or in a register up to certain number of arguments (common x86-64
+<a href="https://en.wikipedia.org/wiki/X86_calling_conventions" rel="nofollow">calling convention</a>).</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-c">/* OK */</span>
