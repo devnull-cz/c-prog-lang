@@ -914,13 +914,13 @@ main.c:6:17: error: invalid digit "9" in octal constant
       |                 ^~~
 </code></pre>
 <ul>
-<li>If you use a larger number than fits within a byte as an argument for the <code>%c</code>
+<li>If you use a larger number than one that fits within a byte as an argument for the <code>%c</code>
 conversion, the higher bits are trimmed.  The rule here is that the <code>int</code>
 argument is converted within <code>printf</code> to <code>unsigned char</code> (not just <code>char</code>!),
 then printed as a character (= letter).  More on the integer conversion in
 upcoming lectures.  See also
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/numbers.md">Numbers</a>
-on why you never pass a <code>char</code> nor <code>short</code> to a variadic function.
+on what happens with <code>char</code> or <code>short</code> when passed as argument to a variadic function.
 <ul>
 <li>also note the existence of <code>h</code> and <code>hh</code> modifiers.  See the printf()
 man page for more information.</li>
