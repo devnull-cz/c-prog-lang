@@ -819,6 +819,52 @@ constants.</li>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s">"\110\x6F\154\x61"</span>);	<span class="pl-c">// Used in a string literal.</span>
 <span class="pl-en">printf</span>(<span class="pl-s">"%c\n"</span>, <span class="pl-c1">'\x21'</span>);		<span class="pl-c">// Used in a character constant.</span>
 <span class="pl-c">// -&gt; Hola!</span></pre></div>
+<h1><a id="user-content-getchar" class="anchor" aria-hidden="true" tabindex="-1" href="#getchar"><span aria-hidden="true" class="octicon octicon-link"></span></a>getchar()</h1>
+<ul>
+<li>
+<code>getchar</code> function reads one character from the process standard input and
+returns its value as an <code>int</code>.
+<ul>
+<li>When it reaches end of input (for example, by pressing <code>Ctrl-D</code> in the
+terminal), it returns <code>EOF</code>
+</li>
+<li>
+<code>EOF</code> is a define, usually set as <code>-1</code>.  That is why <code>getchar</code> returns
+an <code>int</code> instead of a <code>char</code> as it needs an extra value for <code>EOF</code>.</li>
+<li>
+<code>getchar</code> needs <code>#include &lt;stdio.h&gt;</code>
+</li>
+<li>You can verify that <code>EOF</code> is part of <code>&lt;stdio&gt;</code>, search for "getchar"
+here: <a href="https://pubs.opengroup.org/onlinepubs/9699919799" rel="nofollow">https://pubs.opengroup.org/onlinepubs/9699919799</a>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="user-content-wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out" class="anchor" aria-hidden="true" tabindex="-1" href="#wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out"><span aria-hidden="true" class="octicon octicon-link"></span></a>🔧 Task: write code that will read characters from a terminal and prints them out.</h3>
+<p>It should work like this:</p>
+<pre><code>$ cat /etc/passwd | ./a.out &gt; passwd
+$ diff passwd /etc/passwd
+$ echo $?
+0
+</code></pre>
+<ul>
+<li>Remember, we said above that an assignment is just an expression, so it has a
+value.  So, you can do the following:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> ((<span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-en">getchar</span>()) <span class="pl-c1">==</span> <span class="pl-c1">EOF</span>)
+	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
+<p>instead of:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-en">getchar</span>();
+<span class="pl-k">if</span> (<span class="pl-s1">c</span> <span class="pl-c1">==</span> <span class="pl-c1">EOF</span>)
+	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
+<p>However, do <strong>not</strong> abuse it as you may create a hard to read code.  Note the
+parentheses around the assignment.  The <code>=</code> operator has a lower priority than
+the <code>==</code> operator.  If the parens are not used, the following would happen:</p>
+<p><code>if (c = getchar() == EOF)</code> would be evaluated as:</p>
+<p><code>if (c = (getchar() == EOF))</code>, meaning that <code>c</code> would be either <code>0</code> or <code>1</code> based
+on whether we read a character or the terminal input is closed.</p>
+<p>We will learn more about operator priority later in the semester.</p>
+<p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/getchar.c">getchar.c</a></p>
 <h1><a id="user-content-the-sizeof-operator" class="anchor" aria-hidden="true" tabindex="-1" href="#the-sizeof-operator"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>sizeof</code> operator</h1>
 <ul>
 <li>The <code>sizeof</code> operator computes the byte size of its argument which is either
@@ -960,52 +1006,6 @@ except for non-printable characters print <code>NP</code> (non-printable).</p>
 78 x	79 y	7a z	7b {	7c |	7d }	7e ~	7f NP	
 </code></pre>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ascii-hex.c">ascii-hex.c</a></p>
-<h1><a id="user-content-getchar" class="anchor" aria-hidden="true" tabindex="-1" href="#getchar"><span aria-hidden="true" class="octicon octicon-link"></span></a>getchar()</h1>
-<ul>
-<li>
-<code>getchar</code> function reads one character from the process standard input and
-returns its value as an <code>int</code>.
-<ul>
-<li>When it reaches end of input (for example, by pressing <code>Ctrl-D</code> in the
-terminal), it returns <code>EOF</code>
-</li>
-<li>
-<code>EOF</code> is a define, usually set as <code>-1</code>.  That is why <code>getchar</code> returns
-an <code>int</code> instead of a <code>char</code> as it needs an extra value for <code>EOF</code>.</li>
-<li>
-<code>getchar</code> needs <code>#include &lt;stdio.h&gt;</code>
-</li>
-<li>You can verify that <code>EOF</code> is part of <code>&lt;stdio&gt;</code>, search for "getchar"
-here: <a href="https://pubs.opengroup.org/onlinepubs/9699919799" rel="nofollow">https://pubs.opengroup.org/onlinepubs/9699919799</a>
-</li>
-</ul>
-</li>
-</ul>
-<h3><a id="user-content-wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out" class="anchor" aria-hidden="true" tabindex="-1" href="#wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out"><span aria-hidden="true" class="octicon octicon-link"></span></a>🔧 Task: write code that will read characters from a terminal and prints them out.</h3>
-<p>It should work like this:</p>
-<pre><code>$ cat /etc/passwd | ./a.out &gt; passwd
-$ diff passwd /etc/passwd
-$ echo $?
-0
-</code></pre>
-<ul>
-<li>Remember, we said above that an assignment is just an expression, so it has a
-value.  So, you can do the following:</li>
-</ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> ((<span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-en">getchar</span>()) <span class="pl-c1">==</span> <span class="pl-c1">EOF</span>)
-	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
-<p>instead of:</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-en">getchar</span>();
-<span class="pl-k">if</span> (<span class="pl-s1">c</span> <span class="pl-c1">==</span> <span class="pl-c1">EOF</span>)
-	<span class="pl-k">return</span> (<span class="pl-c1">0</span>);</pre></div>
-<p>However, do <strong>not</strong> abuse it as you may create a hard to read code.  Note the
-parentheses around the assignment.  The <code>=</code> operator has a lower priority than
-the <code>==</code> operator.  If the parens are not used, the following would happen:</p>
-<p><code>if (c = getchar() == EOF)</code> would be evaluated as:</p>
-<p><code>if (c = (getchar() == EOF))</code>, meaning that <code>c</code> would be either <code>0</code> or <code>1</code> based
-on whether we read a character or the terminal input is closed.</p>
-<p>We will learn more about operator priority later in the semester.</p>
-<p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/getchar.c">getchar.c</a></p>
 <h1><a id="user-content-wrench-home-assignment" class="anchor" aria-hidden="true" tabindex="-1" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a>🔧 Home assignment</h1>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
