@@ -620,9 +620,9 @@ type <code>int</code> <strong>if they fit</strong> in.
 bytes of storage.  However, an <code>int</code> may be stored in only two bytes as
 well.  The range would be [-2^15, 2^15 - 1] then.  You will likely never
 encounter such old platforms unless you look for them.</li>
-<li>A larger number will automatically become a <code>long int</code>, then a <code>long long int</code> if the number literal does not fit a (signed) <code>long</code>.  That means one
-cannot use a decimal constant of <code>2^64</code> in the code and expect it to hold
-such a value:</li>
+<li>A larger number will automatically become a <code>long int</code>, then a <code>long long int</code> if the number literal does not fit a (signed) <code>long</code>.  That means if
+an <code>unsigned long long</code> type is stored in 8 bytes, one cannot use a decimal
+constant of <code>2^64</code> in the code and expect it to hold such a value:</li>
 </ul>
 </li>
 </ul>
@@ -647,7 +647,8 @@ would probably get <code>0</code>.  More on that later.</p>
 <li>
 <p>Hexadecimal numbers start with <code>0x</code> or <code>0X</code>.  Eg. <code>0xFF</code>, <code>0Xaa</code>, <code>0x13f</code>,
 etc.  In contrast to decimal constants, one can use a hexa constant for
-<code>2^64</code>, which is <code>0xFFFFFFFFFFFFFFFF</code>.  More on that later.</p>
+<code>2^64</code>, which is <code>0xFFFFFFFFFFFFFFFF</code>, even if <code>unsigned long long</code> is stored
+in 8 bytes.  More on that later.</p>
 </li>
 <li>
 <p>Octal numbers start with <code>0</code>.  Eg. <code>010</code> is 8 in decimal.  Also remember the
@@ -681,11 +682,11 @@ can use:</li>
 (usually 8 bytes, and can not be less).  It also depends on whether your
 binary is compiled in 32 or 64 bits.</p>
 <ul>
-<li>🔧 see what code emits your compiler by default (i.e. without
+<li>🔧 See what code your compiler emits by default (i.e. without
 using either <code>-m32</code> or <code>-m64</code> options)
 <ul>
-<li>use the <code>file</code> command to display the information about the
-binary</li>
+<li>Use the <code>file</code> command to display the information about the
+binary.</li>
 </ul>
 </li>
 </ul>
@@ -693,8 +694,8 @@ binary</li>
 <li>
 <p>See also <em>5.2.4.2 Numerical limits</em>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C spec.</a>
-For example, <code>int</code> must be at least 2 bytes but the C spec does not prevent it
-from being 8 bytes in the future.</p>
+For example, an <code>int</code> must be at least 2 bytes but the C spec does not prevent
+it from being 8 bytes in the future.</p>
 </li>
 <li>
 <p><code>char</code>s and <code>short</code>s are automatically converted to <code>int</code> if used as arguments
@@ -702,15 +703,16 @@ in variadic functions, and also if used as operands in many operators.  More
 on that later.</p>
 </li>
 <li>
-<p>As <code>'X'</code> is <code>int</code> but within 0-127 (see above on the ASCII standard), it is
-OK to do the following as it will fit even when <code>char</code> is signed:</p>
+<p>As <code>'X'</code> is an <code>int</code> but within 0-127 (see above on the ASCII standard), it is
+OK to do the following as it is guaranteed to fit even when the <code>char</code> type is
+signed:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">'A'</span>;</pre></div>
 <ul>
 <li>In <code>printf</code>, you need to use the same type of an argument as is expected by
 the conversion specified.  Note that e.g. integers and floating point numbers
-have different representation, and printing a integer as an double (and vice
+have different representation, and printing an integer as a double (and vice
 versa) will lead to unexpected consequences.  More on that later.</li>
 </ul>
 <pre><code>printf("%f\n", 1);
@@ -821,7 +823,7 @@ $ ./a.out
 <ul>
 <li>
 <p>You can explicitly specify integer constants with different integer types
-using suffices</p>
+using suffices:</p>
 <ul>
 <li>
 <code>13L</code> and <code>13l</code> is a <code>long</code>
