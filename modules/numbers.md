@@ -98,9 +98,10 @@ $ ./a.out
 ## Signedness
 
 - Each integer type has a `signed` and `unsigned` variant.  By default, the
-  numeric types are signed aside from `char` which depends on the implementation
-  (of the C compiler).  If you need an unsigned type, use `unsigned` reserved
-  word.
+  numeric types are signed aside from the `char` which depends on the
+  implementation (of the C compiler).  If you need an unsigned type, use the
+  `unsigned` reserved word.  If you need to ensure a signed `char`, use `signed
+  char` explicitly.
 
 ```C
 signed int si;	// not used though, just use 'int si'

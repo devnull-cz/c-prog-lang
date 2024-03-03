@@ -26,12 +26,12 @@ printf("%zu\n", sizeof (13));
 // --> 4
 ```
 
-  - you may see code using `%u`, `%lu`, `%llu` for `sizeof` values.  However,
+  - You may see code using `%u`, `%lu`, `%llu` for `sizeof` values.  However,
     that will only work based on a specific compiler and the architecture and
     may not work using a different combination.  Always use `%zu` for arguments
     of type `size_t`.
 
-- the expression within the `sizeof` operator is **never** *evaluated* (the
+- The expression within the `sizeof` operator is **never** *evaluated* (the
   compiler should warn you about such code).  **Only the size in bytes needed to
   store the value if evaluated is returned.**
 
@@ -68,6 +68,8 @@ printf("%zu\n", sizeof (c + 1));
 // --> 4
 printf("%zu\n", sizeof (+c));
 // --> 4
+printf("%zu\n", sizeof (++c));
+// --> 1
 ```
 
 The `sizeof` operator is usually evaluated during compilation time however
