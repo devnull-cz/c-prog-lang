@@ -26,7 +26,7 @@ It simply cannot work, right?  **Oh, wait..., it does!?!**
 
 ```
 $ cc why-it-works.c
-$ ./a.out 
+$ ./a.out
 100
 ```
 
@@ -39,8 +39,8 @@ and see.
 
 Before I begin, let me give you more information:
 
-- It depends on a system and its version, and a compiler and its version
-	- you can also try the `clang` compiler later on the same machine
+- It depends on a system and its version, and a compiler and its version.
+	- You can also try the `clang` compiler later on the same machine.
 - Will be using `gcc` which defaults to generate 64 bit binaries on the Linux
   distro installed on u-pl3.ms.mff.cuni.cz (and other machines in the lab).
 - 64 bit binaries on x86 use [X86-64 ABI](https://en.wikipedia.org/wiki/X86-64)
