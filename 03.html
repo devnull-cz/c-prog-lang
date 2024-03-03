@@ -653,8 +653,8 @@ zero (<code>\0</code>).  The NUL belongs to the string though.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-s1">foo</span>[] <span class="pl-c1">=</span> { <span class="pl-c1">'b'</span>, <span class="pl-c1">'a'</span>, <span class="pl-c1">'r'</span>, <span class="pl-c1">'\0'</span> };
 
 <span class="pl-en">printf</span>(<span class="pl-s">"%zu\n"</span>, <span class="pl-k">sizeof</span> (<span class="pl-s1">foo</span>));		<span class="pl-c">// prints 4</span></pre></div>
-<p>Using <code>'\0'</code> suggests it is a terminating null character but it is just a zero
-byte.  So, you could use <code>0</code>, as follows, but it is not generally used:</p>
+<p>Using <code>'\0'</code> suggests it is a terminating null character but it is still just a
+zero byte.  So, you could use <code>0</code>, as follows, but it is not generally used:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-s1">foo</span>[] <span class="pl-c1">=</span> { <span class="pl-c1">'b'</span>, <span class="pl-c1">'a'</span>, <span class="pl-c1">'r'</span>, <span class="pl-c1">0</span> };</pre></div>
 <ul>
 <li>To print a string via <code>printf</code>(), you use the <code>%s</code> conversion specifier:</li>
