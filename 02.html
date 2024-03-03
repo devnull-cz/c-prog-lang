@@ -613,18 +613,41 @@ on its own, you can use those macros if you include <code>&lt;stdbool.h&gt;</cod
 <p>See 👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bool.c">bool.c</a></p>
 <div class="markdown-heading"><h1 class="heading-element">Numbers and types</h1><a id="user-content-numbers-and-types" class="anchor-element" aria-label="Permalink: Numbers and types" href="#numbers-and-types"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>
-<p>For example, the 1, 7, and 20000 integer literals are always integers of type
-<code>int</code> <strong>if they fit</strong> in</p>
+<li>For example, the <code>1</code>, <code>7</code>, and <code>20000</code> integer literals are always integers of
+type <code>int</code> <strong>if they fit</strong> in.
 <ul>
-<li>the range of an <code>int</code> is [-2^31, 2^31 - 1] on 32/64 bit CPUs</li>
-<li>bigger number will become <code>long</code>, then <code>unsigned long long</code>
+<li>The range of an <code>int</code> is [-2^31, 2^31 - 1] on 32/64 bit CPUs, that means 4
+bytes of storage.  However, an <code>int</code> may be stored in only two bytes as
+well.  The range would be [-2^15, 2^15 - 1] then.  You will likely never
+encounter such old platforms unless you look for them.</li>
+<li>A larger number will automatically become a <code>long int</code>, then a <code>long long int</code> if the number literal does not fit a (signed) <code>long</code>.  That means one
+cannot use a decimal constant of <code>2^64</code> in the code and expect it to hold
+such a value:</li>
+</ul>
 </li>
 </ul>
+<pre><code>$ cat main.c
+int
+main(void)
+{
+	unsigned long long ull = 18446744073709551616;
+}
+
+$ gcc -Wall -Wextra -Wno-unused main.c
+main.c: In function ‘main’:
+main.c:4:34: warning: integer constant is too large for its type
+    4 |         unsigned long long ull = 18446744073709551616;
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+</code></pre>
+<ul>
+<li>
+<p>If you printed <code>ull</code> (using <code>%llu</code> as for <code>unsigned long long int</code>), you
+would probably get <code>0</code>.  More on that later.</p>
 </li>
 <li>
 <p>Hexadecimal numbers start with <code>0x</code> or <code>0X</code>.  Eg. <code>0xFF</code>, <code>0Xaa</code>, <code>0x13f</code>,
-etc.</p>
+etc.  In contrast to decimal constants, one can use a hexa constant for
+<code>2^64</code>, which is <code>0xFFFFFFFFFFFFFFFF</code>.  More on that later.</p>
 </li>
 <li>
 <p>Octal numbers start with <code>0</code>.  Eg. <code>010</code> is 8 in decimal.  Also remember the
