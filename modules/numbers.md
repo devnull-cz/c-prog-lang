@@ -1,11 +1,37 @@
 # Numbers and types
 
-- For example, the 1, 7, and 20000 integer literals are always integers of type
-  `int` **if they fit** in
-  - the range of an `int` is [-2^31, 2^31 - 1] on 32/64 bit CPUs
-  - bigger number will become `long`, then `unsigned long long`
+- For example, the `1`, `7`, and `20000` integer literals are always integers of
+  type `int` **if they fit** in.
+  - The range of an `int` is [-2^31, 2^31 - 1] on 32/64 bit CPUs, that means 4
+    bytes of storage.  However, an `int` may be stored in only two bytes as
+    well.  The range would be [-2^15, 2^15 - 1] then.  You will likely never
+    encounter such old platforms unless you look for them.
+  - A larger number will automatically become a `long int`, then a `long long
+    int` if the number literal does not fit a (signed) `long`.  That means one
+    cannot use a decimal constant of `2^64` in the code and expect it to hold
+    such a value:
+
+```
+$ cat main.c
+int
+main(void)
+{
+	unsigned long long ull = 18446744073709551616;
+}
+
+$ gcc -Wall -Wextra -Wno-unused main.c
+main.c: In function ‘main’:
+main.c:4:34: warning: integer constant is too large for its type
+    4 |         unsigned long long ull = 18446744073709551616;
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+```
+
+  - If you printed `ull` (using `%llu` as for `unsigned long long int`), you
+    would probably get `0`.  More on that later.
+
 - Hexadecimal numbers start with `0x` or `0X`.  Eg. `0xFF`, `0Xaa`, `0x13f`,
-  etc.
+  etc.  In contrast to decimal constants, one can use a hexa constant for
+  `2^64`, which is `0xFFFFFFFFFFFFFFFF`.  More on that later.
 - Octal numbers start with `0`.  Eg. `010` is 8 in decimal.  Also remember the
   Unix file mask (umask), eg. `0644`.
 
