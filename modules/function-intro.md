@@ -137,7 +137,7 @@ main(void)
 }
 ```
 
-Local variables are stored on stack.
+Local variables are stored on a stack or in registers.
 
 Argument passing depends on bitness and architecture. E.g. 32-bit x86 puts them
 on the stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on a
