@@ -11,6 +11,11 @@
 set -e
 set -x
 
+if [[ -z $GRIP_PASSWORD ]]; then
+	echo "GRIP_PASSWORD must be non-empty"
+	exit 1
+fi
+
 cd gh-pages
 
 # Convert Markdown to HTML.
