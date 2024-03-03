@@ -724,9 +724,9 @@ $ ./a.out
 <div class="markdown-heading"><h2 class="heading-element">Signedness</h2><a id="user-content-signedness" class="anchor-element" aria-label="Permalink: Signedness" href="#signedness"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>Each integer type has a <code>signed</code> and <code>unsigned</code> variant.  By default, the
-numeric types are signed aside from <code>char</code> which depends on the implementation
-(of the C compiler).  If you need an unsigned type, use <code>unsigned</code> reserved
-word.</li>
+numeric types are signed aside from the <code>char</code> which depends on the
+implementation (of the C compiler).  If you need an unsigned type, use the
+<code>unsigned</code> reserved word.  If you need to ensure a signed <code>char</code>, use <code>signed char</code> explicitly.</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">signed <span class="pl-smi">int</span></span> <span class="pl-s1">si</span>;	<span class="pl-c">// not used though, just use 'int si'</span>
 <span class="pl-smi">unsigned <span class="pl-smi">int</span></span> <span class="pl-s1">ui</span>;
@@ -934,13 +934,13 @@ right way to do it:</li>
 <span class="pl-c">// --&gt; 4</span></pre></div>
 <ul>
 <li>
-<p>you may see code using <code>%u</code>, <code>%lu</code>, <code>%llu</code> for <code>sizeof</code> values.  However,
+<p>You may see code using <code>%u</code>, <code>%lu</code>, <code>%llu</code> for <code>sizeof</code> values.  However,
 that will only work based on a specific compiler and the architecture and
 may not work using a different combination.  Always use <code>%zu</code> for arguments
 of type <code>size_t</code>.</p>
 </li>
 <li>
-<p>the expression within the <code>sizeof</code> operator is <strong>never</strong> <em>evaluated</em> (the
+<p>The expression within the <code>sizeof</code> operator is <strong>never</strong> <em>evaluated</em> (the
 compiler should warn you about such code).  <strong>Only the size in bytes needed to
 store the value if evaluated is returned.</strong></p>
 </li>
@@ -972,7 +972,9 @@ why the following is going to print <code>1 4 4</code>:</li>
 <span class="pl-en">printf</span>(<span class="pl-s">"%zu\n"</span>, <span class="pl-k">sizeof</span> (<span class="pl-s1">c</span> <span class="pl-c1">+</span> <span class="pl-c1">1</span>));
 <span class="pl-c">// --&gt; 4</span>
 <span class="pl-en">printf</span>(<span class="pl-s">"%zu\n"</span>, <span class="pl-k">sizeof</span> (<span class="pl-c1">+</span><span class="pl-s1">c</span>));
-<span class="pl-c">// --&gt; 4</span></pre></div>
+<span class="pl-c">// --&gt; 4</span>
+<span class="pl-en">printf</span>(<span class="pl-s">"%zu\n"</span>, <span class="pl-k">sizeof</span> (<span class="pl-c1">++</span><span class="pl-s1">c</span>));
+<span class="pl-c">// --&gt; 1</span></pre></div>
 <p>The <code>sizeof</code> operator is usually evaluated during compilation time however
 this is not universally true.  For Variable Length Arrays (VLAs) it has to
 happen during runtime.  The VLAs will be explained later.</p>
