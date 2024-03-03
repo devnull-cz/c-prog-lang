@@ -495,7 +495,8 @@ the <code>-E</code> option of the compiler.</p>
 <p>Every expression has a value.</p>
 </li>
 <li>
-<p>A logical expression has value 0 or 1, and its type is always <code>int</code>.</p>
+<p>A logical expression has a value of either <code>0</code> or <code>1</code>, and its type is always
+an <code>int</code>.</p>
 </li>
 </ul>
 <pre><code>1 &gt; 10	... 0
@@ -512,22 +513,22 @@ printf("%d\n", 100 == 101);
 <p>Even constants are expressions (more on that later), e.g. <code>1</code>.</p>
 </li>
 <li>
-<p>As the <code>while</code> statement is defined as (C99 6.8.5):</p>
+<p>As the <code>while</code> statement is defined in C99 6.8.5 as follows:</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">while</span> (<span class="pl-s1">expression</span>) <span class="pl-s1">statement</span></pre></div>
 <p>...and given that a constant is also an expression, a neverending <code>while</code> loop
 can be written for example as follows.  It is because it will loop until the
-expression becomes 0.  That is never, in this case.</p>
+expression becomes 0.  That is never happening in this case.</p>
 <pre><code>while (1) {
 	...
 }
 </code></pre>
-<p>You could also write <code>while (2)</code> or <code>while (1000)</code> and it would still be a
-neverending loop but that is not how it is usually used.</p>
+<p>You could also write <code>while (2)</code>, <code>while (1000)</code>, or <code>while (-1)</code>  and it would
+still be a neverending loop but that is not how C programmers do it.</p>
 <ul>
 <li>Note that the <code>statement</code> from the spec definition can be a code block as you
-can see above, more on that later.</li>
+can see in the example code above, more on that later.</li>
 </ul>
 <div class="markdown-heading"><h1 class="heading-element">The <code>break</code> statement</h1><a id="user-content-the-break-statement" class="anchor-element" aria-label="Permalink: The break statement" href="#the-break-statement"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
