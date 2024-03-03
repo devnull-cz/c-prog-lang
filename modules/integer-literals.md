@@ -33,7 +33,7 @@ main.c:6:17: error: invalid digit "9" in octal constant
   upcoming lectures.  See also
 #module numbers.md Numbers
   on what happens with `char` or `short` when passed as argument to a variadic function.
-	- also note the existence of `h` and `hh` modifiers.  See the printf()
+	- Also note the existence of `h` and `hh` modifiers.  See the printf()
 	  man page for more information.
 
 ```C
