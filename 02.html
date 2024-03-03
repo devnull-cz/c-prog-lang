@@ -410,26 +410,32 @@ fence principle</a>.</p>
 </li>
 </ul>
 <div class="markdown-heading"><h1 class="heading-element">Preprocessor</h1><a id="user-content-preprocessor" class="anchor-element" aria-label="Permalink: Preprocessor" href="#preprocessor"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>The main purposes of the preprocessor are: string replacement, file inclusion,
+general code template expansion (macros), and managing conditional compilation.</p>
 <ul>
-<li>defines:
+<li>
+<p>String replacement:</p>
 <ul>
-<li>basic defines: <code>#define FOO</code> or <code>#define FOO 1</code>
+<li>Basic defines: <code>#define FOO</code> or <code>#define FOO 1</code>
 </li>
+<li>A define without a value is still meaningful for conditional compilation.</li>
 </ul>
 </li>
-<li>includes:
+<li>
+<p>Including files:</p>
 <ul>
 <li>
 <code>#include "foo.h"</code> (start in current directory and then continue the
 search in system paths) or <code>#include &lt;foo/bar.h&gt;</code> (just system paths)
 <ul>
-<li>some compilers display the include search paths (e.g. clang with <code>-v</code>)</li>
-<li>use the <code>-I</code> compiler option to add search paths to the list</li>
+<li>Some compilers display the include search paths (e.g. clang with <code>-v</code>).</li>
+<li>Use the <code>-I</code> compiler option to add search paths to the list.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>conditional compilation:
+<li>
+<p>Conditional compilation:</p>
 <ul>
 <li>
 <code>#if</code>, <code>#ifdef</code>, <code>#ifndef</code>, <code>#else</code>, <code>#endif</code>
@@ -442,31 +448,35 @@ search in system paths) or <code>#include &lt;foo/bar.h&gt;</code> (just system 
 </li>
 </ul>
 </li>
-<li>also useful for <em>header guards</em> (to avoid including same header file
-multiple times)
+<li>Also useful for <em>header guards</em> (to avoid including same header file
+multiple times):
 <div class="highlight highlight-source-c"><pre><span class="pl-k">#ifndef</span> <span class="pl-c1">FOO_H</span>
 <span class="pl-k">#define</span> <span class="pl-c1">FOO_H</span>
 ...
 <span class="pl-k">#endif</span></pre></div>
 </li>
-<li>can be used e.g. for debug code:
+<li>Can be used e.g. for debug code:
 <div class="highlight highlight-source-c"><pre><span class="pl-k">#ifdef</span> <span class="pl-c1">DEBUG</span>
 ... <span class="pl-c">// here can be anything (where valid):</span>
     <span class="pl-c">// statements, variable declarations/definitions, function definitions, ...</span>
 <span class="pl-k">#endif</span></pre></div>
 <ul>
-<li>then the compiler can be run with <code>-DDEBUG</code> to enable the code</li>
+<li>Then the compiler can be run with <code>-DDEBUG</code> to enable the code.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>macros: for more complicated code snippets, e.g. <code>#define IS_ZERO(a)  a == 0</code>
+<li>
+<p>Macros: for more complicated code snippets, e.g. <code>#define IS_ZERO(a)  a == 0</code></p>
 <ul>
-<li>the argument will be replaced with whatever is given</li>
-<li>use parens for <code>#define</code> to prevent problems with macro expansion
+<li>
+<p>The argument will be replaced with whatever is given.</p>
+</li>
+<li>
+<p>Use parens for <code>#define</code> to prevent problems with macro expansion:</p>
 <ul>
 <li><code>#define	X	(1 + 1)</code></li>
-<li>same for more complicated macros:
+<li>Same for more complicated macros:
 <code>#define MUL(a, b)  ((a) * (b))</code>
 </li>
 </ul>
