@@ -1,25 +1,26 @@
 # Comments
 
-- `/* one line comment */`
+- `/* One line comment */`
 
-- multi line comment:
+- Multiline comment:
 ```
   /*
-   * multi line comment.  Follow the C style.
-   * multi line comment.  Follow the C style.
+   * Multiline comment.  Follow the C style.
+   * Multiline comment.  Follow the C style.
    */
 ```
-- `// one line comment from C99+`
+- `// One line comment from C99+`
 
-- use comments sparingly
-  - not very useful:
+- Use comments sparingly.
+  - Not very useful:
   ```C
-  /* increment i */
+  /* Increment i */
   ++i;
   ```
-  - produce meaningful comments, not like this:
+
+  - Produce meaningful comments, not like this:
   ```C
-  /* probably makes sense, but maybe not */
+  /* Probably makes sense, but maybe not */
   if (...)
            do_something()
   ```
