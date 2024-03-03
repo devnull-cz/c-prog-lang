@@ -16,7 +16,7 @@ cd gh-pages
 year=$( ls -1 /tmp/notes | sort -n | tail -1 )
 cd /tmp/notes/$year
 for mdfile in *.md; do
-	grip --pass "$GH_PAGES_TOKEN" --export "$mdfile"
+	grip --pass "$GRIP_PASSWORD" --export "$mdfile"
 done
 
 # Construct index page for the notes.
