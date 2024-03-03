@@ -48,4 +48,4 @@ jobs:
     - name: Generate and push HTML files
       run: ./master/dev/html.sh
       env:
-        GRIP_PASSWORD: ${{ vars.GRIP_PASSWORD }}
+        GRIP_PASSWORD: ${{ secrets.GRIP_PASSWORD }}
