@@ -13,11 +13,6 @@ set -x
 
 cd gh-pages
 
-if [[ -z $GRIP_PASSWORD ]]; then
-	echo "Need non-empty 'GRIP_PASSWORD' environment variable"
-	exit 1
-fi
-
 # Convert Markdown to HTML.
 year=$( ls -1 /tmp/notes | sort -n | tail -1 )
 cd /tmp/notes/$year
