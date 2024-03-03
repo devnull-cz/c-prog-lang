@@ -592,7 +592,7 @@ changed in the caller:</p>
 	<span class="pl-en">printf</span>(<span class="pl-s">"%d\n"</span>, <span class="pl-en">myfn</span>(<span class="pl-s1">i</span>, <span class="pl-s1">i</span>));	<span class="pl-c">// will print 9</span>
 	<span class="pl-en">printf</span>(<span class="pl-s">"%d\n"</span>, <span class="pl-s1">i</span>);		<span class="pl-c">// will print 3</span>
 }</pre></div>
-<p>Local variables are stored on stack.</p>
+<p>Local variables are stored on a stack or in registers.</p>
 <p>Argument passing depends on bitness and architecture. E.g. 32-bit x86 puts them
 on the stack, 64-bit x64 ABI puts first 6 arguments to registers, the rest on a
 the stack.</p>
