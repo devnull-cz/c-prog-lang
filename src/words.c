@@ -10,15 +10,19 @@ main(void)
 
 	while ((c = getchar()) != EOF) {
 		/* Use library function (hence the ctype.h include above) */
-		if (!isspace(c))
-			word = 1;
-		else {
+		if (isspace(c)) {
 			if (word == 1) {
 				cnt++;
 				word = 0;
 			}
+		} else {
+			word = 1;
 		}
 	}
+
+	/* No newline at the end of input. */
+	if (word)
+		++cnt;
 
 	printf("cnt = %d\n", cnt);
 }

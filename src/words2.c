@@ -14,5 +14,8 @@ main(void)
 		inword = 1;
 	}
 
+	if (inword == 1)
+		++words;
+
 	printf("%d\n", words);
 }
