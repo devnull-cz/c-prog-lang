@@ -5,12 +5,18 @@
 # Assumes:
 #   - set of Markdown files created in /tmp/notes/<year>/ by expand.sh
 #   - master branch checkout with the docs/index.html file
+#   - functional (non-expired) personal access token set as the GRIP_PASSWORD variable for Github Actions
 #
 
 set -e
 set -x
 
 cd gh-pages
+
+if [[ -z $GRIP_PASSWORD ]]; then
+	echo "Need non-empty 'GRIP_PASSWORD' environment variable"
+	exit 1
+fi
 
 # Convert Markdown to HTML.
 year=$( ls -1 /tmp/notes | sort -n | tail -1 )
