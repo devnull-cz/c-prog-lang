@@ -30,7 +30,7 @@ code: #source ternary-assign.c
 ## :wrench: `toupper()` using ternary operator
 
 Rewrite the
-#module toupper.md convert small characters to upper case
+#module home-assignments/toupper.md convert small characters to upper case
 program from last time using a function that utilizes the ternary operator
 (single line of code)
 
