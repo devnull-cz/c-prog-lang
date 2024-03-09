@@ -1,7 +1,7 @@
 # Negative numbers
 
-Negative numbers are usually stored in [two's complement](https://en.wikipedia.org/wiki/Two's_complement)
-(however, that is implementation defined by C99).
+The way negative numbers are stored is implementation defined in C99.
+They are **usually** stored in [two's complement](https://en.wikipedia.org/wiki/Two's_complement) format.
 
 In short, you take an absolute value, create one's complement (inverting the
 digits in binary representation) and add 1.  There are several advantages of
