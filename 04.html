@@ -534,8 +534,8 @@ program from last time using a function that utilizes the ternary operator
 ternary operator.  Do not use any macros (in case you know those).</p>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/3max.c">3max.c</a></p>
 <div class="markdown-heading"><h1 class="heading-element">Negative numbers</h1><a id="user-content-negative-numbers" class="anchor" aria-label="Permalink: Negative numbers" href="#negative-numbers"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Negative numbers are usually stored in <a href="https://en.wikipedia.org/wiki/Two's_complement" rel="nofollow">two's complement</a>
-(however, that is implementation defined by C99).</p>
+<p>The way negative numbers are stored is implementation defined in C99.
+They are <strong>usually</strong> stored in <a href="https://en.wikipedia.org/wiki/Two's_complement" rel="nofollow">two's complement</a> format.</p>
 <p>In short, you take an absolute value, create one's complement (inverting the
 digits in binary representation) and add 1.  There are several advantages of
 this representation, one is that there is only 1 zero (not negative and positive
