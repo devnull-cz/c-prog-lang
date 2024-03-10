@@ -18,7 +18,8 @@ char s[] = "hello, world";
 printf("Length of \"%s\": %zu\n", s, strlen(s));
 ```
 
-Note that to include a literal `"` in a string, you just escape it.
+Note that to include a literal `"` in a string, it is necessary to escape it
+with the backslash.
 
 ## Checking empty string
 
