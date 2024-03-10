@@ -350,19 +350,6 @@ changed in the array itself (consequence of pointer conversion).</p>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">short</span> <span class="pl-s1">uppper</span>[] <span class="pl-c1">=</span> { <span class="pl-c1">'A'</span>, <span class="pl-c1">'B'</span>, ... };</pre></div>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper-table.c">toupper-table.c</a></p>
-<div class="markdown-heading"><h2 class="heading-element">A trivial grep</h2><a id="user-content-a-trivial-grep" class="anchor" aria-label="Permalink: A trivial grep" href="#a-trivial-grep"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🔧 Write code to implement <code>grep *word*</code></p>
-<pre><code>$ cat /etc/passwd | ./a.out root
-root:x:0:0::/root:/bin/bash
-</code></pre>
-<p>Assume a reasonable maximum line width, e.g. 1024 bytes including the newline.
-Print an error and exit with 1 (i.e. <code>return (1)</code> from <code>main</code>) when hitting a
-line that crosses that limit.  Test that it works as expected!</p>
-<p>Note that it is generally better to fail rather then silently choose what to do
-on situations like that.  For example, just ignoring the rest of the line after
-the 1024 byte limit which might be very confusing for users.</p>
-<p>Solution: TBD.  You can send us your solution so that we use it here.  Do it as
-simple as possible.</p>
 <div class="markdown-heading"><h1 class="heading-element">String length</h1><a id="user-content-string-length" class="anchor" aria-label="Permalink: String length" href="#string-length"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>We know that we can use <code>sizeof</code> to get a length of a character array including
 the terminating <code>'\0'</code> character.  There is a more generic way to get a string
