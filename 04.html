@@ -726,10 +726,9 @@ sequence point before the actual call.</p>
 argument expression is evaluated after the first agument is processed, or
 before.  So, based on the compiler you use, you may either call the function
 with <code>(1, 2)</code> or <code>(2, 2)</code>.</p>
-<pre><code>int i = 1;
+<div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span>;
 
-myfn(i, ++i);
-</code></pre>
+<span class="pl-en">myfn</span>(<span class="pl-s1">i</span>, <span class="pl-c1">++</span><span class="pl-s1">i</span>);</pre></div>
 <div class="markdown-heading"><h1 class="heading-element">Compiler warnings</h1><a id="user-content-compiler-warnings" class="anchor" aria-label="Permalink: Compiler warnings" href="#compiler-warnings"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>Each compiler has its own set of warnings that usually give a clue that
