@@ -33,7 +33,8 @@
 
 Go through the programs written so far and run the compiler using the `-Wall -Wextra` options.
   - What kind of problems have you discovered?  How to fix those?
-    - See e.g. #source whole-array.c example above (where only `-Wextra` gives some clue)
+
+See e.g. #source whole-array.c example above (where only `-Wextra` gives some clue)
 
 Explore the compiler documentation for more helpful options.  Over the time you
 will find a set of warning options that will serve you well.
