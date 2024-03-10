@@ -21,7 +21,9 @@ main(void)
 	c = 'a';
 	while (i < sizeof (table) / sizeof (table[0])) {
 		table[i] = c - ('a' - 'A');
-		// printf("%c -> %c\n", c, table[i]);
+#ifdef DEBUG
+		printf("%c -> %c\n", c, table[i]);
+#endif
 		i++;
 		c++;
 	}
