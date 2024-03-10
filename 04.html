@@ -377,7 +377,8 @@ that is the same type as the operator <code>sizeof</code> uses.  So, remember to
 <span class="pl-smi">char</span> <span class="pl-s1">s</span>[] <span class="pl-c1">=</span> <span class="pl-s">"hello, world"</span>;
 
 <span class="pl-en">printf</span>(<span class="pl-s">"Length of \"%s\": %zu\n"</span>, <span class="pl-s1">s</span>, <span class="pl-en">strlen</span>(<span class="pl-s1">s</span>));</pre></div>
-<p>Note that to include a literal <code>"</code> in a string, you just escape it.</p>
+<p>Note that to include a literal <code>"</code> in a string, it is necessary to escape it
+with the backslash.</p>
 <div class="markdown-heading"><h2 class="heading-element">Checking empty string</h2><a id="user-content-checking-empty-string" class="anchor" aria-label="Permalink: Checking empty string" href="#checking-empty-string"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><code>strlen()</code> can be used to check if string is empty, however if not, it will
 incur performance penalty as it has to go through all the characters.</p>
