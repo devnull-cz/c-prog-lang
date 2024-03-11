@@ -359,7 +359,14 @@ contain given fixed string (as opposed to a regular exception).
 program will match a single string which is hard-coded in the program
 in the form of (boundless) array (<code>char needle[] = "foobar";</code>).
 The program will use <code>getchar()</code> to read the characters from the standard input.</p>
-<p>Sample program run:</p>
+<p>Sample program run (with the search string hard-coded as <code>bash</code>):</p>
+<pre><code>$ cat /etc/passwd | ./a.out
+root:x:0:0:root:/root:/bin/bash
+foo:x:1000:1000:Foo,,,:/home/foo:/bin/bash
+backu:x:1001:1001:backup,,,:/home/backu:/bin/bash
+perforce:x:133:141:Perforce Admin:/opt/perforce:/bin/bash
+</code></pre>
+<p>compared to the fgrep(1) utility:</p>
 <pre><code>$ fgrep bash /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 foo:x:1000:1000:Foo,,,:/home/foo:/bin/bash
