@@ -350,6 +350,33 @@ changed in the array itself (consequence of pointer conversion).</p>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">short</span> <span class="pl-s1">uppper</span>[] <span class="pl-c1">=</span> { <span class="pl-c1">'A'</span>, <span class="pl-c1">'B'</span>, ... };</pre></div>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper-table.c">toupper-table.c</a></p>
+<div class="markdown-heading"><h2 class="heading-element">A trivial fgrep</h2><a id="user-content-a-trivial-fgrep" class="anchor" aria-label="Permalink: A trivial fgrep" href="#a-trivial-fgrep"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>There are multiple variants of the grep(1) Unix utility. One of them is
+<code>fgrep</code> aka <code>grep -F</code> that prints the lines received on standard input which
+contain given fixed string (as opposed to a regular exception).
+<code>fgrep</code> can match multiple strings.</p>
+<p>🔧 Write code to implement part of the <code>fgrep</code> functionality where the
+program will match a single string which is hard-coded in the program
+in the form of (boundless) array (<code>char needle[] = "foobar";</code>).
+The program will use <code>getchar()</code> to read the characters from the standard input.</p>
+<p>Sample program run:</p>
+<pre><code>$ fgrep bash /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+foo:x:1000:1000:Foo,,,:/home/foo:/bin/bash
+backu:x:1001:1001:backup,,,:/home/backu:/bin/bash
+perforce:x:133:141:Perforce Admin:/opt/perforce:/bin/bash
+</code></pre>
+<p>Assume a reasonable maximum line width, e.g. 1024 bytes including the newline.
+Print an error and exit with 1 (i.e. <code>return (1)</code> from <code>main</code>) when hitting a
+line that crosses that limit.  Test that it works as expected!</p>
+<p>The line limit is enforced to make the program simple, i.e. prevent using huge
+amounts of memory and avoid memory reallocation.</p>
+<p>Note that it is generally better to fail rather then silently choose what to do
+on situations like that.  For example, just ignoring the rest of the line after
+the 1024 byte limit which might be very confusing for users.</p>
+<p>Write tests (as a home assignment), watch out for corner cases.</p>
+<p>Solution: TBD. You can send us your solution so that we use it here.  Do it as
+simple as possible.</p>
 <div class="markdown-heading"><h1 class="heading-element">String length</h1><a id="user-content-string-length" class="anchor" aria-label="Permalink: String length" href="#string-length"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>We know that we can use <code>sizeof</code> to get a length of a character array including
 the terminating <code>'\0'</code> character.  There is a more generic way to get a string
