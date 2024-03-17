@@ -555,12 +555,16 @@ program from last time using a function that utilizes the ternary operator
 ternary operator.  Do not use any macros (in case you know those).</p>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/3max.c">3max.c</a></p>
 <div class="markdown-heading"><h1 class="heading-element">Negative numbers</h1><a id="user-content-negative-numbers" class="anchor" aria-label="Permalink: Negative numbers" href="#negative-numbers"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>The way negative numbers are stored is implementation defined in C99.
-They are <strong>usually</strong> stored in <a href="https://en.wikipedia.org/wiki/Two's_complement" rel="nofollow">two's complement</a> format.</p>
-<p>In short, you take an absolute value, create one's complement (inverting the
-digits in binary representation) and add 1.  There are several advantages of
-this representation, one is that there is only 1 zero (not negative and positive
-zero if we used the highest bit to track the sign).  That is why a <code>signed char</code>, for example, can hold -128 to 127, and not just -127 to 127.</p>
+<p>The way negative numbers are stored is implementation defined in C99.  In our
+world, they are <strong>usually</strong> stored in <a href="https://en.wikipedia.org/wiki/Two's_complement" rel="nofollow">two's
+complement</a> format.  However,
+the other allowable options are one's complement and sign and magnitude.</p>
+<p>In short, to get two's complement, you take an absolute value, create one's
+complement (inverting the digits in binary representation) and add 1.  There are
+several advantages of this representation, one is that there is only 1 zero (no
+negative and positive zero if we used the highest bit to track the sign).  That
+is why a <code>signed char</code>, for example, can hold -128 to 127, and not just -127 to
+127.</p>
 <p>For a <code>char</code>:</p>
 <pre><code> 10000000	-128
  ........
@@ -667,8 +671,8 @@ expect because <code>1U</code> is converted to a <code>long</code> because a <co
 values an <code>unsigned int</code>.</p>
 <p>However, if both types are 4 bytes, the relational expression is false!  The
 reason is that in this case, as both types has the same <em>integer conversion
-rank</em> (C99 6.3.1.1), the signed is converted to unsigned.  See <em>6.3.1.8 Usual
-arithmetic conversions</em>, paragraph <em>1</em>, for the details.</p>
+rank</em> (C99 6.3.1.1), the signed number is converted to an unsigned.  See
+<em>6.3.1.8 Usual arithmetic conversions</em>, paragraph <em>1</em>, for the details.</p>
 <p>Two's complement representation of -1 in 4 bytes is:</p>
 <pre><code>(1) take absolute value of 1	00000000.00000000.00000000.00000001
 (2) one's complement		11111111.11111111.11111111.11111110
