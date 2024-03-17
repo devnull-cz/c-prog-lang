@@ -5,8 +5,10 @@ main(void)
 {
 	unsigned char a = 0xff;
 	/*
-	 * This will probably wrap around and is implementation defined by the
-	 * spec.
+	 * Assigning a value that does not fit into a signed integer is
+	 * implementation defined by the spec but it will likely work the same
+	 * way as assigning a non-fitting value into an unsigned integer, i.e.
+	 * it will wrap around.
 	 */
 	signed char b = 0xff;
 
@@ -20,5 +22,5 @@ main(void)
 	 */
 	printf("a: %hhu, b: %hhd\n", a, b);
 	printf("a: %08x, b: %08x\n", a, b);
-	printf("c: %d\n", c);
+	printf("c = (a == b): %d\n", c);
 }
