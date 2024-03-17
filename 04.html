@@ -689,10 +689,11 @@ on architectures that detect it. This is a consequence of hardware handling
 rather than the language.</p>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/crashme.c">crashme.c</a></p>
 <ul>
-<li>run with <code>-INT_MIN</code> (see <code>limits.h</code>) and <code>-1</code>.  <code>INT_MIN</code> is usually
+<li>Run with <code>-INT_MIN</code> (see <code>limits.h</code>) and <code>-1</code>.  <code>INT_MIN</code> is usually
 <code>-2147483648</code>. The program would normally yield <code>2147483648</code> (positive number)
 however that would be <code>INT_MAX + 1</code>.</li>
-<li>works in 64-bit mode as well due to int being passed in 32-bit registers</li>
+<li>Should crash in 64-bit mode as well due to an <code>int</code> being passed in a 32-bit
+register.</li>
 </ul>
 <pre><code>$ cc -m64 crashme.c
 $ ./a.out 2147483648 -1
