@@ -470,9 +470,9 @@ the same size as an <code>int</code>, and <code>unsigned short</code> is used).<
 bring the operands into a common type <strong>before</strong> the operator is applied.  For
 example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-s1">i</span>;
-<span class="pl-smi">unsigned long long</span> <span class="pl-s1">ll</span>;
+<span class="pl-smi">unsigned long long</span> <span class="pl-s1">ull</span>;
 
-<span class="pl-s1">i</span> <span class="pl-c1">+</span> <span class="pl-s1">ll</span>;		<span class="pl-c">// type of the result is unsigned long long and 'i'</span>
+<span class="pl-s1">i</span> <span class="pl-c1">+</span> <span class="pl-s1">ull</span>;	<span class="pl-c">// type of the result is unsigned long long and 'i'</span>
 		<span class="pl-c">// is converted to unsigned long long BEFORE '+' is</span>
 		<span class="pl-c">// applied.  See below what happens if 'i' contains a</span>
 		<span class="pl-c">// negative number.</span></pre></div>
@@ -750,18 +750,18 @@ variables:</p>
 <span class="pl-c"> * incorporate into the C code, compile, and verify you got it right.</span>
 <span class="pl-c"> */</span>
 
-<span class="pl-smi">unsigned long long</span> <span class="pl-s1">ll</span> <span class="pl-c1">=</span> <span class="pl-c1">-13</span>;            <span class="pl-c">// Use %llu in printf() to verify.</span>
-<span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">999</span>;                    <span class="pl-c">// %d</span>
-<span class="pl-smi">short <span class="pl-smi">int</span></span> <span class="pl-s1">si</span> <span class="pl-c1">=</span> <span class="pl-c1">-1</span>;                      <span class="pl-c">// %hd</span>
-<span class="pl-smi">unsigned <span class="pl-smi">int</span></span><span class="pl-s1"></span> <span class="pl-c1">=</span> <span class="pl-c1">-1</span>;                      <span class="pl-c">// %u</span>
-<span class="pl-smi">unsigned short <span class="pl-smi">int</span></span> <span class="pl-s1">usi</span> <span class="pl-c1">=</span> <span class="pl-c1">999999</span>;        <span class="pl-c">// %hu</span>
-<span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span> ? <span class="pl-c1">-10</span> : <span class="pl-c1">0U</span>;           <span class="pl-c">// %d</span>
-<span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">-1</span> ? <span class="pl-c1">-10</span> : <span class="pl-c1">0U</span>;          <span class="pl-c">// %d</span>
-<span class="pl-smi">long long</span> <span class="pl-s1">ll</span> <span class="pl-c1">=</span> <span class="pl-c1">1U</span> <span class="pl-c1">+</span> <span class="pl-c1">-10</span>;                <span class="pl-c">// %lld</span>
-<span class="pl-smi">unsigned long long</span> <span class="pl-s1">ull</span> <span class="pl-c1">=</span> <span class="pl-c1">1U</span> <span class="pl-c1">+</span> <span class="pl-c1">-10</span>;      <span class="pl-c">// %llu</span>
-<span class="pl-smi">unsigned short <span class="pl-smi">int</span></span> <span class="pl-s1">si</span> <span class="pl-c1">=</span> <span class="pl-c1">INT_MIN</span> <span class="pl-c1">+</span> <span class="pl-c1">13LU</span>; <span class="pl-c">// %hu</span>
-<span class="pl-smi">unsigned short <span class="pl-smi">int</span></span> <span class="pl-s1">si</span> <span class="pl-c1">=</span> <span class="pl-c1">-</span><span class="pl-c1">INT_MAX</span> <span class="pl-c1">+</span> <span class="pl-c1">13U</span>; <span class="pl-c">// %hu</span>
-<span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">129</span>;                    <span class="pl-c">// %d</span>
+<span class="pl-smi">unsigned long long</span> <span class="pl-s1">ull</span> <span class="pl-c1">=</span> <span class="pl-c1">-13</span>;            <span class="pl-c">// Use %llu in printf() to verify.</span>
+<span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">sc</span> <span class="pl-c1">=</span> <span class="pl-c1">999</span>;                    <span class="pl-c">// %d</span>
+<span class="pl-smi">short <span class="pl-smi">int</span></span> <span class="pl-s1">si</span> <span class="pl-c1">=</span> <span class="pl-c1">-1</span>;                       <span class="pl-c">// %hd</span>
+<span class="pl-smi">unsigned <span class="pl-smi">int</span></span> <span class="pl-s1">ui</span> <span class="pl-c1">=</span> <span class="pl-c1">-1</span>;                    <span class="pl-c">// %u</span>
+<span class="pl-smi">unsigned short <span class="pl-smi">int</span></span> <span class="pl-s1">usi</span> <span class="pl-c1">=</span> <span class="pl-c1">999999</span>;         <span class="pl-c">// %hu</span>
+<span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">sc</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span> ? <span class="pl-c1">-10</span> : <span class="pl-c1">0U</span>;           <span class="pl-c">// %d</span>
+<span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">sc</span> <span class="pl-c1">=</span> <span class="pl-c1">-1</span> ? <span class="pl-c1">-10</span> : <span class="pl-c1">0U</span>;          <span class="pl-c">// %d</span>
+<span class="pl-smi">long long</span> <span class="pl-s1">ll</span> <span class="pl-c1">=</span> <span class="pl-c1">1U</span> <span class="pl-c1">+</span> <span class="pl-c1">-10</span>;                 <span class="pl-c">// %lld</span>
+<span class="pl-smi">unsigned long long</span> <span class="pl-s1">ull</span> <span class="pl-c1">=</span> <span class="pl-c1">1U</span> <span class="pl-c1">+</span> <span class="pl-c1">-10</span>;       <span class="pl-c">// %llu</span>
+<span class="pl-smi">unsigned short <span class="pl-smi">int</span></span> <span class="pl-s1">usi</span> <span class="pl-c1">=</span> <span class="pl-c1">INT_MIN</span> <span class="pl-c1">+</span> <span class="pl-c1">13LU</span>; <span class="pl-c">// %hu</span>
+<span class="pl-smi">unsigned short <span class="pl-smi">int</span></span> <span class="pl-s1">usi</span> <span class="pl-c1">=</span> <span class="pl-c1">-</span><span class="pl-c1">INT_MAX</span> <span class="pl-c1">+</span> <span class="pl-c1">13U</span>; <span class="pl-c">// %hu</span>
+<span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">sc</span> <span class="pl-c1">=</span> <span class="pl-c1">129</span>;                    <span class="pl-c">// %d</span>
 
 <span class="pl-c">/* What is printed? */</span>
 <span class="pl-en">printf</span>(<span class="pl-s">"%hhu\n"</span>, <span class="pl-c1">-3</span>);
