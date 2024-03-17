@@ -98,8 +98,8 @@ values an `unsigned int`.
 
 However, if both types are 4 bytes, the relational expression is false!  The
 reason is that in this case, as both types has the same *integer conversion
-rank* (C99 6.3.1.1), the signed is converted to unsigned.  See *6.3.1.8 Usual
-arithmetic conversions*, paragraph *1*, for the details.
+rank* (C99 6.3.1.1), the signed number is converted to an unsigned.  See
+*6.3.1.8 Usual arithmetic conversions*, paragraph *1*, for the details.
 
 Two's complement representation of -1 in 4 bytes is:
 
