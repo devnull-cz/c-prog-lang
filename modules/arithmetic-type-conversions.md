@@ -125,10 +125,11 @@ rather than the language.
 
 #source crashme.c
 
-- run with `-INT_MIN` (see `limits.h`) and `-1`.  `INT_MIN` is usually
+- Run with `-INT_MIN` (see `limits.h`) and `-1`.  `INT_MIN` is usually
   `-2147483648`. The program would normally yield `2147483648` (positive number)
   however that would be `INT_MAX + 1`.
-- works in 64-bit mode as well due to int being passed in 32-bit registers
+- Should crash in 64-bit mode as well due to an `int` being passed in a 32-bit
+  register.
 
 ```
 $ cc -m64 crashme.c
