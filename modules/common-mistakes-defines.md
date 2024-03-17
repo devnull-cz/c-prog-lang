@@ -43,5 +43,5 @@ if (i < = 3) {
 ```
 
 See the
-#module modules/preprocessor.md preprocessor
+#module preprocessor.md preprocessor
 for more information.
