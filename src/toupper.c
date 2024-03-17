@@ -5,7 +5,8 @@ mytoupper(int c)
 {
 	/*
 	 * Note that we assume the C locale.  With other locales, this code may
-	 * not be correct.
+	 * not be correct.  E.g. for Estonian, 'z' is not the last character in
+	 * the alphabet.
 	 */
 	if (c >= 'a' && c <= 'z')
 		return (c - ('a' - 'A'));
