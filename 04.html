@@ -522,10 +522,9 @@ arguments?</li>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/stdarg.c">stdarg.c</a></p>
 <p>We already saw in <a href="/modules/numbers.md">the numbers module</a> that you need to
 match the type of arguments with the type of conversion specifiers.  Why does
-the following work even when built in 32 bits?  We are using an argument of type
-<code>char</code>, which is 1 byte, but the <code>printf</code> functions assumes through the <code>%d</code>
-specifier there are 4 bytes on stack (x32) or in the register (x64).  Yet it
-works.  Why?</p>
+the following work?  We are using an argument of type <code>char</code>, which is 1 byte,
+but the <code>printf</code> functions assumes through the <code>%d</code> specifier there are 4 bytes
+on stack (x32) or in the register (x64).  Yet it works.  Why?</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">13</span>;
 
 <span class="pl-en">printf</span>(<span class="pl-s">"%d"</span>, <span class="pl-s1">c</span>);</pre></div>
