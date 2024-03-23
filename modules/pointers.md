@@ -125,6 +125,7 @@ int *p = 0x1234;
 	  `<stddef.h>`
 
 ```
+$ cat main.c
 int
 main(void)
 {
