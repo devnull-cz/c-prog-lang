@@ -63,7 +63,8 @@ $
 
 #source for.c
 
-:wrench: Print a subset of an ASCII table for characters `a` to `z`:
+:wrench: Print a subset of an ASCII table for characters `a` to `z` using `for`
+cycle:
 
 ```
 $ ./a.out
