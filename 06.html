@@ -440,7 +440,7 @@ while (&lt;predicate&gt;) {
 	&lt;update&gt;
 }
 </code></pre>
-<p>Using the for loop is very often easier and more readable.</p>
+<p>Using the <code>for</code> loop is very often easier and more readable.</p>
 <p>Example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-s1">i</span>;
 <span class="pl-k">for</span> (<span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span>; <span class="pl-s1">i</span> <span class="pl-c1">&lt;</span> <span class="pl-c1">10</span>; <span class="pl-c1">++</span><span class="pl-s1">i</span>) {
@@ -461,13 +461,13 @@ while (&lt;predicate&gt;) {
 The execution then continues with the <code>&lt;predicate&gt;</code> test.  Example:</p>
 </li>
 </ul>
-<pre><code>for (int i = 0; i &lt; 3; ++i) {
-	printf("%d\n", i);
-	continue;
-	putchar('a');
-}
-
-$ ./a.out
+<div class="highlight highlight-source-c"><pre><span class="pl-k">for</span> (<span class="pl-smi">int</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span>; <span class="pl-s1">i</span> <span class="pl-c1">&lt;</span> <span class="pl-c1">3</span>; <span class="pl-c1">++</span><span class="pl-s1">i</span>) {
+	<span class="pl-en">printf</span>(<span class="pl-s">"%d\n"</span>, <span class="pl-s1">i</span>);
+	<span class="pl-k">continue</span>;
+	<span class="pl-en">putchar</span>(<span class="pl-c1">'a'</span>);
+}</pre></div>
+<p>actual output:</p>
+<pre><code>$ ./a.out
 0
 1
 2
