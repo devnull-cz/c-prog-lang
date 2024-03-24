@@ -17,7 +17,7 @@ while (<predicate>) {
 }
 ```
 
-Using the for loop is very often easier and more readable.
+Using the `for` loop is very often easier and more readable.
 
 Example:
 ```C
@@ -42,13 +42,15 @@ for (int i = 0; i < 10; ++i) {
   (i.e. it jumps **at** the enclosing `}`) but the `<update>` part is executed.
   The execution then continues with the `<predicate>` test.  Example:
 
-```
+```C
 for (int i = 0; i < 3; ++i) {
 	printf("%d\n", i);
 	continue;
 	putchar('a');
 }
-
+```
+actual output:
+```
 $ ./a.out
 0
 1
