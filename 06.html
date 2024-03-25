@@ -525,9 +525,6 @@ generates side effects, or that performs a combination thereof."</p>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/side-effect.md">side effects</a>
 (e.g. upon evaluation, an expression <code>printf("foo")</code> sends a string literal to
 the standard output as a side effect).</p>
-<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/expression-statement.c">expression-statement.c</a></p>
-<p>🔧 Make the warning an error with your choice of compiler (would be a
-variant of <code>-W</code> in GCC)</p>
 <div class="markdown-heading"><h1 class="heading-element">Statements</h1><a id="user-content-statements" class="anchor" aria-label="Permalink: Statements" href="#statements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Statements are (list not complete): expressions, selections (<code>if</code>, <code>switch</code> (not
 introduced yet)), <code>{}</code> blocks (known as <em>compounds</em>), iterations (<code>while</code>,
@@ -548,9 +545,11 @@ following is valid code then, and does essentially nothing:</p>
 }</pre></div>
 <p><strong>A declaration is not a statement</strong> (there are subtle consequences, we can show
 them later).</p>
+<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-statement.c">null-statement.c</a>
+👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/compound-statement.c">compound-statement.c</a></p>
 <p>Some statements must end with <code>;</code>.  For example, expression statements.  The
 following are all valid expression statements.  They do not make much sense
-though and may generate a warning about an unused result.</p>
+though and may generate a warning about an unused result in some compilers.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-c">/* this one is not a statement */</span>
 <span class="pl-smi">char</span> <span class="pl-s1">c</span>;
 
@@ -559,8 +558,9 @@ though and may generate a warning about an unused result.</p>
 <span class="pl-c1">1</span> <span class="pl-c1">+</span> <span class="pl-c1">1</span>;
 <span class="pl-c1">1000</span>;
 <span class="pl-s">"hello"</span>;</pre></div>
-<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/null-statement.c">null-statement.c</a>
-👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/compound-statement.c">compound-statement.c</a></p>
+<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/expression-statement.c">expression-statement.c</a></p>
+<p>🔧 Make the warning an error with your choice of compiler (would be a
+variant of <code>-W</code> in GCC)</p>
 <div class="markdown-heading"><h1 class="heading-element">Pointers</h1><a id="user-content-pointers" class="anchor" aria-label="Permalink: Pointers" href="#pointers"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A <em>pointer</em> is a reference to an entity, e.g. to an object of type <code>int</code>.  By
 itself it is an object whose value is the reference (= memory address) to the
