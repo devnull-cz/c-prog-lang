@@ -27,9 +27,12 @@ main(void)
 **A declaration is not a statement** (there are subtle consequences, we can show
 them later).
 
+#source null-statement.c
+#source compound-statement.c
+
 Some statements must end with `;`.  For example, expression statements.  The
 following are all valid expression statements.  They do not make much sense
-though and may generate a warning about an unused result.
+though and may generate a warning about an unused result in some compilers.
 
 ```C
 /* this one is not a statement */
@@ -42,6 +45,7 @@ c;
 "hello";
 ```
 
-#source null-statement.c
-#source compound-statement.c
+#source expression-statement.c
 
+:wrench: Make the warning an error with your choice of compiler (would be a
+variant of `-W` in GCC)

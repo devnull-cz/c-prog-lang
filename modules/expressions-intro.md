@@ -29,8 +29,3 @@ In C99, an expression can produce results (`2 + 2` gets `4`) or generate
 #module side-effect.md side effects
 (e.g. upon evaluation, an expression `printf("foo")` sends a string literal to
 the standard output as a side effect).
-
-#source expression-statement.c
-
-:wrench: Make the warning an error with your choice of compiler (would be a
-variant of `-W` in GCC)
