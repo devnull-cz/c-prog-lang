@@ -1,0 +1,229 @@
+# MFF UK NPRG066 (The C Programming Language) Assignment For Credits
+
+Tar: A GNU tar compatible tape archiver
+=======================================
+
+The goal is to write a tool implementing a very small subset of GNU tar
+functionality.  The key objective is that the subset itself is fully compatible
+with GNU tar.
+
+See http://mff.devnull.cz/c-prog-lang/ for general information on submission,
+deadlines, testing and common testing environment, and other rules.  Please read
+the information there carefully.
+
+Submission tests to verify your implementation
+----------------------------------------------
+See https://github.com/devnull-cz/c-prog-lang/tree/master/getting-credits/2024/tests/README
+
+Always use the latest version of the tests.
+
+General rules
+-------------
+You may not take code written by someone else except of copy/pasting the POSIX
+tar structure from a header file.  No other exceptions.
+
+The code you write must conform to C99.
+
+Tar Specification
+-----------------
+The tar header is defined in the standard:
+
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html#tag_20_92_13_06
+
+You may also check out the GNU tar documentation:
+
+https://www.gnu.org/software/tar/manual/html_node/Standard.html
+https://www.gnu.org/software/tar/manual/html_section/tar_67.html
+
+Phase 1 Implementation
+----------------------
+Implement the -t and -f options.  The tar implementation must be able to list
+GNU tar archives created via the following invocation:
+
+	$ tar -f archive.tar -c <files>
+
+If unsure what is the correct behavior, check how GNU tar behaves on Linux.
+
+- Your implementation must be in one file only, called "mytar.c".  Do not create
+  C header files.  We plan to use software for detecting duplicates so having
+  just one file makes our life easier.
+
+- No warnings allowed with "gcc -Wall -Wextra".
+
+- C stdio file API must be used (it is part of the seminar classes) for
+  manipulating the files.  System calls for processing files is not accepted
+  (e.g. open(), read(), write(), ...).
+
+- The processing of command line arguments must be done manually.  Use of
+  getopt(3) is not allowed.
+
+- Invalid invocation prints some error message and fails (you may use your
+  wording for the messages).  Examples:
+
+	$ ./mytar
+	mytar: need at least one option
+	$ echo $?
+	2
+
+	$ ./mytar -f archive.tar -X
+	mytar: Unknown option: -X
+	$ echo $?
+	2
+
+  For all other error messages and warnings, you must follow the exact wording
+  (as we followed the wording from GNU tar).
+
+- You may assume files under 2Gb.  That is, no extended headers are used.
+
+- Assume only archives exclusively containing regular files.  That is, if you
+  hit any header aside from one for regular files, you report the wrong header
+  (you need to list any previous archived files if there are any) and exit.
+
+  In the following example, we have a directory in the archive.  Given that
+  DIRTYPE is declared in the tar spec as a character constant '5', it is decimal
+  53 which is then reported:
+
+	$ ./mytar -f archive.tar -t
+	mytar: Unsupported header type: 53
+	$ echo $?
+	2
+
+- See the manual page for GNU tar regarding proper exit values.
+
+- Listing works as usual.
+
+	$ touch file1 file2 file3 file4
+	$ tar -f archive.tar -c file*
+	$ ./mytar -f archive.tar -t
+	file1
+	file2
+	file3
+	file4
+
+- You must support file arguments and only list those in the archive.  Note
+  that ordering of the arguments is not relevant and the listing follows
+  ordering in the archive.
+
+	$ ./mytar -f archive.tar -t file4 file1
+	file1
+	file4
+
+- Files not present in the archive are reported to stderr at the end:
+
+	$ ./mytar -f archive.tar -t file6 file4 file1 file5
+	file1
+	file4
+	mytar: file6: Not found in archive
+	mytar: file5: Not found in archive
+	mytar: Exiting with failure status due to previous errors
+	$ echo $?
+	2
+
+- Listing truncated archive (that is, there is not enough data for the listed
+  archived file size in the archive) reports an error.
+
+	$ ./mytar -f partial.tar -t
+	aaa-file
+	mytar: Unexpected EOF in archive
+	mytar: Error is not recoverable: exiting now
+
+- A tar archive finishes with two zero blocks.  Missing both is silently
+  accepted but missing just one emits a warning (but the command still returns
+  0):
+
+	$ ./mytar -f one-zero-block-missing.tar -t
+	aaa-file
+	mytar: A lone zero block at 4
+	$ echo $?
+	0
+
+- No need to collate the options, as shown below.  We will not test it.
+
+	$ ./mytar -tf archive.tar
+
+Phase 2
+-------
+Implement the -x and -v options.  The tar implementation must be able to extract
+GNU tar archives created via the following invocation:
+
+	$ tar -f archive.tar -c <files>
+
+The -v option only takes effect with the -x option, and is silently ignored with
+the -t option.
+
+If unsure what is the correct behavior, check how GNU tar behaves and/or ask on
+our seminar alias.  There might be slight differences but the tests are written
+to cope with them.
+
+- No need to collate the options, as shown below.  We will not test it.
+
+	# No need to support these:
+	$ ./mytar -tf archive.tar
+	$ ./mytar -tvf archive.tar
+	$ ...
+
+	# We are only testing instead these:
+  	$ ./mytar -t -f archive.tar
+  	$ ./mytar -t -v -f archive.tar
+	$ ...
+
+- Recognize and report if a file is not a tar file (use the 'magic' field for
+  that).
+
+	$ ./mytar -x -f mytar.c
+	mytar: This does not look like a tar archive
+	mytar: Exiting with failure status due to previous errors
+	$ echo $?
+	2
+
+- Extract works silently as usual.
+
+	$ ./mytar -x -f archive.tar
+	$ echo $?
+	0
+
+- Extract works verbosely with -v.
+
+	$ ./mytar -v -x -f archive.tar
+	file1
+	file2
+	file3
+	file4
+	$ echo $?
+	0
+
+- Working with truncated archives results in the similar behavior as when
+  listing them but the extract will do as much as possible:
+
+	$ ./mytar -x -f partial.tar
+	mytar: Unexpected EOF in archive
+	mytar: Error is not recoverable: exiting now
+
+- Selective extraction of files works similarly to the listing.
+
+	$ ./mytar -v -x -f archive.tar file2 file4
+	file2
+	file4
+	$ echo $?
+	0
+
+- Listing a truncated archive still lists each file with -v (file2 is
+  truncated in our example, file1 is not):
+
+	$ ./mytar -v -x -f partial.tar
+	file1
+	file2
+	mytar: Unexpected EOF in archive
+	mytar: Error is not recoverable: exiting now
+
+	- also note that the file2 is created and all the data from the archive
+	  pertaining to file2 is still written there.  That is, the tar does as
+	  much as it is possible before bailing out.
+
+- Do not worry about ownership and permissions when extracting files, just
+  create them with fopen().
+
+- If you hit an uknown header type, bail out the same way as with listing the
+  archive.
+
+Please ask questions on the seminar alias if anything is not clear.
