@@ -1,3 +1,2 @@
 mytar: This does not look like a tar archive
-mytar: A lone zero block at 72
 mytar: Exiting with failure status due to previous errors
