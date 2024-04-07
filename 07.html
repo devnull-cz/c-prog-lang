@@ -633,6 +633,8 @@ value of a string is an address of its first character.</p>
 <p>We already know that one can use an array notation with pointers.  So, if you
 <strong>really</strong> wanted, you could do something like this:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s">"%c\n"</span>, <span class="pl-s">"hello, world"</span>[<span class="pl-c1">1</span>]);	<span class="pl-c">// will print `e`</span></pre></div>
+<p>or even this:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s">"%c\n"</span>, <span class="pl-c1">1</span>[<span class="pl-s">"hello, world"</span>]);	<span class="pl-c">// will also print `e`</span></pre></div>
 <div class="markdown-heading"><h2 class="heading-element">Strings and pointers</h2><a id="user-content-strings-and-pointers" class="anchor" aria-label="Permalink: Strings and pointers" href="#strings-and-pointers"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Given that a string constant is a pointer to its first character, we can use it
 like this:</p>
