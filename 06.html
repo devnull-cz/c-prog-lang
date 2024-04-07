@@ -567,21 +567,14 @@ itself it is an object whose value is the reference (= memory address) to the
 entity.</p>
 <p>Motivation:</p>
 <ul>
-<li>
-<p>Memory allocation / shared memory.</p>
-</li>
-<li>
-<p>Protocol buffer parsing.</p>
-</li>
-<li>
-<p>Pointer arithmetics.</p>
-</li>
-<li>
-<p>The value stored in a pointer identifier is the address of the memory storing
-the given pointer type.</p>
-</li>
-<li>
-<p>Declared like this, e.g.</p>
+<li>Memory allocation / shared memory.</li>
+<li>Protocol buffer parsing.</li>
+<li>Pointer arithmetics.</li>
+<li>The value stored in a pointer object is the memory address storing the given
+pointer type.
+<ul>
+<li>Declared as follows, for example:</li>
+</ul>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-c1">*</span><span class="pl-s1">p</span>; <span class="pl-c">// pointer to an int</span></pre></div>
