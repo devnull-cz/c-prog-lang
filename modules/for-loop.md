@@ -17,7 +17,7 @@ while (<predicate>) {
 }
 ```
 
-Using the `for` loop is very often easier and more readable.
+Using the `for` loop is often easier and more readable than a while loop.
 
 Example:
 ```C
