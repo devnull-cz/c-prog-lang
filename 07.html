@@ -440,11 +440,14 @@ it fail on your system?</p>
 <div class="markdown-heading"><h2 class="heading-element">I/O</h2><a id="user-content-io" class="anchor" aria-label="Permalink: I/O" href="#io"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>
-<code>fprintf</code> - <code>printf</code> to a stream</li>
+<code>fprintf</code> works like <code>printf</code> but prints to a specific stream</li>
 <li>
 <code>fscanf</code>
-- Basically parses text input from a stream according to format string
-- Except the format string all the parameters must be pointers</li>
+<ul>
+<li>Basically parses text input from a stream according to format string</li>
+<li>After the format string, all argument must be pointers.</li>
+</ul>
+</li>
 <li>
 <code>fputs</code>/<code>fgets</code> - send/read string to/from a stream</li>
 </ul>
