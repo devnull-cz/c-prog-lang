@@ -9,16 +9,17 @@ Instead of writing:
 
 ```C
 if (error) {
-	fprintf(stderr, "Error occured: %s\n", strerror(errno));
+	fprintf(stderr, "Error: %s\n", strerror(errno));
 	exit(1);
 }
 ```
 
-Use the following:
+Use the following.  It will append ": " string and then the error message
+itself, based on the value of `errno`.
 
 ```C
 if (error)
-     err(1, "Error occured: ");
+     err(1, "Error");
 ```
 
 - Notice that a newline is inserted automatically at the end of the error
