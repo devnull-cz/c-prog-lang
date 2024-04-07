@@ -50,7 +50,7 @@ int *p = &i;	// assign an address of 'i'
 - Good practice is to prefix pointers with the 'p' letter, e.g.:
 
 ```C
-int val;
+int val = 5;
 int *pval = &val;
 ```
 
@@ -61,10 +61,10 @@ int *pval = &val;
   object as already said).  With the declarations above, it looks as follows:
 
 ```
-     p
+     pval
      +---------------+
      |     addr2     |
-     +---------------+        i
+     +---------------+        val
      ^                        +-------+
      |                        | 5     |
    addr1                      +-------+
