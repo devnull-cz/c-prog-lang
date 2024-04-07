@@ -39,9 +39,9 @@ printf("%c\n", p[1]);   // will print 'e'
 
 :heavy\_exclamation\_mark: Pointer initialized with a string literal **may not**
 be changed in the same way as an array.  The internal array created and
-initialized from the string literal is in read-only by the specification.
-Writing to it is an undefined behavior.  Writing to it with `gcc` and `clang`
-will crash the program.  However, for example, [Oracle Developer
+initialized from the string literal is read-only by the specification.  Writing
+to it is an undefined behavior.  Writing to it with `gcc` and `clang` will crash
+the program.  However, for example, [Oracle Developer
 Studio](https://www.oracle.com/application-development/technologies/developerstudio.html)
 used to put such arrays into read-write memory by default in older versions.
 So, working code compiled with an older version of that compiler and modifying
