@@ -12,8 +12,8 @@ of statements and declarations.  Blocks can be nested.  Blocks inside a function
 body can be used for variable reuse but should be used for that with care, if at
 all.
 
-A semicolon is not used after a compound statement but it is allowed.  The
-following is valid code then, and does essentially nothing:
+A semicolon is usually not used after a compound statement but it is allowed.
+The following is valid code and essentially does nothing:
 
 ```C
 int
