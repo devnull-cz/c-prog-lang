@@ -28,5 +28,5 @@ $ ./a.out
 8
 ```
 
-The `sizeof (*p)` is equivalent to `sizeof (int)` as that is what the type of
-`*p` is.
+Here the `sizeof (*p)` is equivalent to `sizeof (int)` as that is what the type
+of `*p` is.
