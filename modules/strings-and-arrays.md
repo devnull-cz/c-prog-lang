@@ -18,6 +18,12 @@ We already know that one can use an array notation with pointers.  So, if you
 printf("%c\n", "hello, world"[1]);	// will print `e`
 ```
 
+or even this:
+
+```C
+printf("%c\n", 1["hello, world"]);	// will also print `e`
+```
+
 ## Strings and pointers
 
 Given that a string constant is a pointer to its first character, we can use it
