@@ -95,4 +95,5 @@ $ ./a.out
 #solution circle.c
 
 A simplified solution:
+
 #solution circle-simplified.c
