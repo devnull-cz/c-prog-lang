@@ -1,6 +1,8 @@
 # File API
 
-Part of the standard since C90.
+Part of
+#module c99-standard.md the standard
+since C90.
 
 ## Opening/closing
 
@@ -13,7 +15,6 @@ Part of the standard since C90.
 		  read for append).
 	  - Write mode `w` creates the file if it does not exist, and truncates
 	    it if it does exist.
-#module c99-standard.md the standard)
 	- The `fclose` closes the handle
 		  - Important to avoid resource leak (`fopen` can allocate both
 		    memory and file descriptor).
