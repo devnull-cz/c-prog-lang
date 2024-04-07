@@ -645,9 +645,9 @@ printf("%c\n", p[1]);   // will print 'e'
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-notation-with-ptr.c">array-notation-with-ptr.c</a></p>
 <p>❗ Pointer initialized with a string literal <strong>may not</strong>
 be changed in the same way as an array.  The internal array created and
-initialized from the string literal is in read-only by the specification.
-Writing to it is an undefined behavior.  Writing to it with <code>gcc</code> and <code>clang</code>
-will crash the program.  However, for example, <a href="https://www.oracle.com/application-development/technologies/developerstudio.html" rel="nofollow">Oracle Developer
+initialized from the string literal is read-only by the specification.  Writing
+to it is an undefined behavior.  Writing to it with <code>gcc</code> and <code>clang</code> will crash
+the program.  However, for example, <a href="https://www.oracle.com/application-development/technologies/developerstudio.html" rel="nofollow">Oracle Developer
 Studio</a>
 used to put such arrays into read-write memory by default in older versions.
 So, working code compiled with an older version of that compiler and modifying
