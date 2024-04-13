@@ -206,6 +206,7 @@ de-reference operator on `foo`.
 ## Structure initialization
 
 Can initialize a structure in its definition using the initiator list of values.
+
 You must either follow the ordering of members:
 
 ```C
@@ -220,7 +221,7 @@ struct foo_s foo = { 1, 'C', "hello world" };
 
 #source struct-init.c
 
-- or use *designated initializers* from C99:
+or use *designated initializers* from C99:
 
 ```C
 struct foo_s foo = {
