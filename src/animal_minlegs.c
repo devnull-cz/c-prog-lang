@@ -1,3 +1,10 @@
+/*
+ * Technically, this file does not have to include the header file which
+ * contains the prototype of the function defined here, however it is a
+ * good practice, because in case the function signature changes only here
+ * and not in the header file, the (modern) compiler will fail the compilation
+ * of this file.
+ */
 #include "animal_minlegs.h"
 
 size_t
