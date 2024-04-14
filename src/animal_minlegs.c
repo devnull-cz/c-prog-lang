@@ -1,3 +1,7 @@
+#include <stddef.h>
+
+#include "animal.h"
+
 /*
  * Technically, this file does not have to include the header file which
  * contains the prototype of the function defined here, however it is a
