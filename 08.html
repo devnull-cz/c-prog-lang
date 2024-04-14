@@ -10415,6 +10415,14 @@ de-reference operator on <code>foo</code>.</p>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-access.c">struct-access.c</a></p>
 <p>🔧 now if <code>a</code> was a pointer to integer, how would the code change?</p>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/struct-access-ptr.c">struct-access-ptr.c</a></p>
+<div class="markdown-heading"><h3 class="heading-element">🔧 Getting offset of a member</h3><a id="user-content-wrench-getting-offset-of-a-member" class="anchor" aria-label="Permalink: :wrench: Getting offset of a member" href="#wrench-getting-offset-of-a-member"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Write a macro (or start with a function with hardcoded values) that will print
+the offset of the specified member of a given structure.</p>
+<div class="highlight highlight-source-c"><pre>      offsetof(<span class="pl-k">struct</span> <span class="pl-smi">X</span>, <span class="pl-c1">a</span>)</pre></div>
+<p>Hint: exploit the fact that pointer can be assigned an integer (0) + use pointer
+arithmetics</p>
+<p>Note: <code>offsetof()</code> is a standard macro available since ANSI C via <code>stddef.h</code>.</p>
+<p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/offsetof.c">offsetof.c</a></p>
 <div class="markdown-heading"><h2 class="heading-element">Structure initialization</h2><a id="user-content-structure-initialization" class="anchor" aria-label="Permalink: Structure initialization" href="#structure-initialization"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Can initialize a structure in its definition using the initiator list of values.</p>
 <p>You must either follow the ordering of members:</p>
