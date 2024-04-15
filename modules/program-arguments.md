@@ -155,19 +155,16 @@ precedence so they are evaluated based on associativity which is right-to-left.
 int
 main(int argc, char **argv)
 {
-	printf("%s\n", ++*++argv);
-}
-
-int
-main(int argc, char **argv)
-{
 	printf("%s\n", argv[1]);
 	printf("%s\n", ++*++argv);
 	printf("%s\n", argv[0]);
 	printf("%s\n", ++*++argv);
 	printf("%s\n", argv[0]);
 }
+```
 
+now with extra dereference:
+```C
 int
 main(int argc, char **argv)
 {
