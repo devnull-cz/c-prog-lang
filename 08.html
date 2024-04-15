@@ -10180,20 +10180,14 @@ precedence so they are evaluated based on associativity which is right-to-left.<
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span>
 <span class="pl-en">main</span>(<span class="pl-smi">int</span> <span class="pl-s1">argc</span>, <span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-c1">*</span><span class="pl-s1">argv</span>)
 {
-	<span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-c1">++</span><span class="pl-c1">*</span><span class="pl-c1">++</span><span class="pl-s1">argv</span>);
-}
-
-<span class="pl-smi">int</span>
-<span class="pl-en">main</span>(<span class="pl-smi">int</span> <span class="pl-s1">argc</span>, <span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-c1">*</span><span class="pl-s1">argv</span>)
-{
 	<span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-s1">argv</span>[<span class="pl-c1">1</span>]);
 	<span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-c1">++</span><span class="pl-c1">*</span><span class="pl-c1">++</span><span class="pl-s1">argv</span>);
 	<span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-s1">argv</span>[<span class="pl-c1">0</span>]);
 	<span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-c1">++</span><span class="pl-c1">*</span><span class="pl-c1">++</span><span class="pl-s1">argv</span>);
 	<span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-s1">argv</span>[<span class="pl-c1">0</span>]);
-}
-
-<span class="pl-smi">int</span>
+}</pre></div>
+<p>now with extra dereference:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span>
 <span class="pl-en">main</span>(<span class="pl-smi">int</span> <span class="pl-s1">argc</span>, <span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-c1">*</span><span class="pl-s1">argv</span>)
 {
 	<span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-c1">*</span><span class="pl-c1">++</span><span class="pl-c1">*</span><span class="pl-c1">++</span><span class="pl-s1">argv</span>);
@@ -10352,7 +10346,7 @@ a word in memory).</li>
 have 4 members).</p>
 <ul>
 <li>Assume this is being compiled on 64-bit machine.</li>
-<li>For efficiency the access to the pointer should be aligned to its
+<li>Agiain, for efficiency the access to the pointer should be aligned to its
 size.</li>
 <li>If in doubt, draw a picture.</li>
 </ul>
@@ -10370,6 +10364,8 @@ programmer.</li>
 <p>Note: gcc/Clang has the <code>-fpack-struct</code> option that will condense the members at
 the expense of speed when accessing them.  Use only when you know what you are
 doing as it may not be safe on all architectures.</p>
+<p>There is also attribute (or preprocessor <code>pragma</code>) than can be used on per
+structure basis.</p>
 <p>Link: <a href="http://www.catb.org/esr/structure-packing/" rel="nofollow">http://www.catb.org/esr/structure-packing/</a></p>
 <div class="markdown-heading"><h2 class="heading-element">Structure members</h2><a id="user-content-structure-members" class="anchor" aria-label="Permalink: Structure members" href="#structure-members"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Members are accessed via 2 operators: <code>.</code> and <code>-&gt;</code></p>
@@ -10421,6 +10417,8 @@ the offset of the specified member of a given structure.</p>
 <div class="highlight highlight-source-c"><pre>      offsetof(<span class="pl-k">struct</span> <span class="pl-smi">X</span>, <span class="pl-c1">a</span>)</pre></div>
 <p>Hint: exploit the fact that pointer can be assigned an integer (0) + use pointer
 arithmetics</p>
+<p>The macro is useful for debugging (mapping disassembly to C code based on
+literal offsets) and also when working with <em>flexible array member</em>.</p>
 <p>Note: <code>offsetof()</code> is a standard macro available since ANSI C via <code>stddef.h</code>.</p>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/offsetof.c">offsetof.c</a></p>
 <div class="markdown-heading"><h2 class="heading-element">Structure initialization</h2><a id="user-content-structure-initialization" class="anchor" aria-label="Permalink: Structure initialization" href="#structure-initialization"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
