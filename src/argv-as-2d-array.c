@@ -18,5 +18,7 @@ main(int argc, char **argv)
 	assert(strlen(argv[2]) > 3);
 
 	printf("%c\n", argv[2][3]);
+
+	// decay into pointers
 	printf("%c\n", *(*(argv + 2) + 3));
 }
