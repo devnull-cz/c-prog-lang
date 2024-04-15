@@ -126,7 +126,7 @@ struct X { int a; char b; int c; };
 - What if `char *d` is added at the end of the data structure?  (i.e. it will
   have 4 members).
 	- Assume this is being compiled on 64-bit machine.
-	- For efficiency the access to the pointer should be aligned to its
+	- Agiain, for efficiency the access to the pointer should be aligned to its
 	  size.
 	- If in doubt, draw a picture.
 
@@ -144,6 +144,9 @@ struct X { int a; char b; int c; };
 Note: gcc/Clang has the `-fpack-struct` option that will condense the members at
 the expense of speed when accessing them.  Use only when you know what you are
 doing as it may not be safe on all architectures.
+
+There is also attribute (or preprocessor `pragma`) than can be used on per
+structure basis.
 
 Link: http://www.catb.org/esr/structure-packing/
 
@@ -214,6 +217,9 @@ the offset of the specified member of a given structure.
 
 Hint: exploit the fact that pointer can be assigned an integer (0) + use pointer
 arithmetics
+
+The macro is useful for debugging (mapping disassembly to C code based on
+literal offsets) and also when working with *flexible array member*.
 
 Note: `offsetof()` is a standard macro available since ANSI C via `stddef.h`.
 
