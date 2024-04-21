@@ -81,7 +81,7 @@ printf("%d\n", *pi);	// will print 99
 printf("%d\n", *p);	// dereferencing (void *), will error out when compiled
 ```
 
-:wrench: Verify that a staticly allocated 2D array is stored in one piece of
+:wrench: Verify that a staticaly allocated 2D array is stored in one piece of
 memory, row by row.
 
 Hint: you need to recast a 2D array to a 1D array, then print it as a
