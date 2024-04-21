@@ -1,11 +1,9 @@
 #include <stdio.h>
 
 int
-main(int argc, char *argv[])
+main(int argc, char **argv)
 {
-	char **p = argv;
-
-	do {
-		printf("%p '%s'\n", *p, *p);
-	} while (*++p != NULL);
+	while (*argv++ != NULL) {
+		printf("'%s'\n", *(argv - 1));
+	}
 }

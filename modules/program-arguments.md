@@ -86,8 +86,10 @@ Some `printf()` implementations barf on a null pointer when printing via the
 `%s` format string.
 
 Code:
+- #solution argv-do-while.c
 - #solution argv-while.c
 - #solution argv-for.c
+- #solution argv-for-v2.c
 - #solution argv-nodash.c
 - #solution print-argv-recursively.c
 
