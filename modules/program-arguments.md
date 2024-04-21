@@ -93,6 +93,7 @@ Code:
 
 Also see:
 - #solution argv-while.c
+- #solution argv-while-v2.c
 - #solution argv-for-v2.c
 
 ## :wrench: Print command line arguments (part II.)
