@@ -62,7 +62,9 @@ Bus Error (core dumped)
 #source bus-error.c
 
 Now see the following code and figure out what is going to happen.
-:wrench: #source ptr-cast.c
+
+:wrench:
+#source ptr-cast.c
 
 Note that `void *` is a special pointer that cannot be dereferenced.  You can
 always assign any pointer to a `(void *)` pointer without any need for casting,
