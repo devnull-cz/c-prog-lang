@@ -79,7 +79,7 @@ ppa |   a   |                        pb |   b  |   ?  :
 
 #source ptr-ptr-array.c
 
-Example output: 
+Example output:
 
 ```
 $ ./a.out
@@ -113,6 +113,7 @@ https://unixpapa.com/incnote/pam.html:
 
 The situation when one prompt is passed only is similar to what happens when the
 function `first`() in
+
 #source ptr-ptr-array.c
 is called for `ppa` and `ppb`: we see `42` in both cases (element `[0][0]`).
 The problem manifests itself when we have and need to reference more than one
