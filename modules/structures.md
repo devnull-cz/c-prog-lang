@@ -126,7 +126,7 @@ struct X { int a; char b; int c; };
 - What if `char *d` is added at the end of the data structure?  (i.e. it will
   have 4 members).
 	- Assume this is being compiled on 64-bit machine.
-	- Agiain, for efficiency the access to the pointer should be aligned to its
+	- Again, for efficiency the access to the pointer should be aligned to its
 	  size.
 	- If in doubt, draw a picture.
 
