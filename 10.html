@@ -10175,6 +10175,44 @@ non-option argument is encountered (i.e. one not starting with <code>-</code>) o
 <p>🔧 Bonus task: implement <code>myoptind</code>/<code>myopterr</code>/<code>myoptopt</code> variables</p>
 <p>See the following code on how to use <code>getopt</code>(3):</p>
 <p><a href="https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c">https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c</a></p>
+<div class="markdown-heading"><h2 class="heading-element">Create and traverse path tree</h2><a id="user-content-create-and-traverse-path-tree" class="anchor" aria-label="Permalink: Create and traverse path tree" href="#create-and-traverse-path-tree"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>In memory, build a tree of paths, where each node is a path element. The tree
+starts with root '/', the non-leaf nodes are directories, the leaves are files.
+The three can look e.g. like this:</p>
+<pre><code>	 "/"
+       /  |   \
+      /   |     \
+  "foo/" "f.txt"  "bar/"
+  /   \
+"a.c" "b.c"
+</code></pre>
+<p>Populate the tree with given paths and print the leaves (no particular order),
+one per line.  Then free the allocated memory.</p>
+<p>Each node can have constant number of children.</p>
+<p>Possible input:</p>
+<div class="highlight highlight-source-c"><pre>	<span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-s1">paths</span>[] <span class="pl-c1">=</span> { <span class="pl-s">"/beverages/coffee/espresso.java"</span>,
+			<span class="pl-s">"/beverages/alcohol/beer.c"</span>,
+			<span class="pl-s">"/food/healthy/vegetarian/salad.txt"</span>,
+			<span class="pl-s">"/food/healthy/fruit/blueberries.hs"</span>,
+			<span class="pl-s">"/food/unhealthy/cake.md"</span> };</pre></div>
+<p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/dirtree.c">dirtree.c</a></p>
+<p>bonus tasks:</p>
+<ul>
+<li>print also non-leaf nodes via depth first, with each node indented based on
+its tree depth.  E.g:</li>
+</ul>
+<pre><code>    $ ./a.out
+    /
+    	foo/
+		a.c
+		b.c
+	f.txt
+	bar/
+</code></pre>
+<ul>
+<li>remove the limitation for the constant number of children</li>
+<li>print full paths of all files in the tree (hint: backpointers)</li>
+</ul>
 
                       </article>
                     </div>
