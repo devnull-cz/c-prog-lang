@@ -10070,12 +10070,14 @@ a string to an integer, use <code>atoi</code> and assume numbers are correctly e
 to heap allocated memory which is freed at some point of time and the
 pointer is still used to access the memory afterwards. In the meantime some other part
 of the program could have allocated piece(s) of the free'd memory.</li>
+<li>the way to detect/prevent this is to set the pointer to <code>NULL</code> after freeing it</li>
 </ul>
 </li>
 <li>double free: free already free'd buffer
 <ul>
 <li>can corrupt internal heap allocator structures if it does not
 track the state of memory chunks</li>
+<li>use static/dynamic analysis and/or heap allocator with the ability to detect this</li>
 </ul>
 </li>
 </ul>
