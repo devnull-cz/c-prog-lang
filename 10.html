@@ -10060,7 +10060,26 @@ a string to an integer, use <code>atoi</code> and assume numbers are correctly e
 1 2 3 7 8 999 7 7 7 9 
 </code></pre>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/allocate-and-fill-out-array.c">allocate-and-fill-out-array.c</a></p>
-<div class="markdown-heading"><h1 class="heading-element">Memory leaks</h1><a id="user-content-memory-leaks" class="anchor" aria-label="Permalink: Memory leaks" href="#memory-leaks"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">Dynamic allocation induced problems</h1><a id="user-content-dynamic-allocation-induced-problems" class="anchor" aria-label="Permalink: Dynamic allocation induced problems" href="#dynamic-allocation-induced-problems"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">Correctness</h2><a id="user-content-correctness" class="anchor" aria-label="Permalink: Correctness" href="#correctness"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>use after free: read/write memory that is part of memory chunk that was free'd
+<ul>
+<li>
+<em>dangling pointer</em> is often the cause of this; e.g. a structure contains pointer
+to heap allocated memory which is freed at some point of time and the
+pointer is still used to access the memory afterwards. In the meantime some other part
+of the program could have allocated piece(s) of the free'd memory.</li>
+</ul>
+</li>
+<li>double free: free already free'd buffer
+<ul>
+<li>can corrupt internal heap allocator structures if it does not
+track the state of memory chunks</li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Memory leaks</h2><a id="user-content-memory-leaks" class="anchor" aria-label="Permalink: Memory leaks" href="#memory-leaks"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>If memory allocated on the heap is not freed, it creates a resource leak called
 a <em>memory leak</em> as the allocator deems such memory used even that your code no
 longer uses it.</p>
@@ -10072,9 +10091,8 @@ indication of allocation failure(s).</p>
 concatenates them (without the terminating <code>NUL</code> character) into one string
 dynamically allocated via <code>malloc</code>() and prints this string to the standard
 output.</p>
-<pre><code>- The concatenation can be done either by hand (try that first) or
-  using `strncat()` (try that afterwards).
-</code></pre>
+<p>The concatenation can be done either by hand (try that first) or
+using <code>strncat()</code> (try that afterwards).</p>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/argv-concat.c">argv-concat.c</a></p>
 <p>You can then put the string processing in a loop and comment out the <code>free</code>()
 call on the allocated memory.  Then check with <code>top -s 1</code> on Linux, macOS, or
