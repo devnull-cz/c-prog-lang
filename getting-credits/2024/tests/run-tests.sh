@@ -7,5 +7,5 @@
 [[ -x $STEF ]] || { echo "STEF variable value '$STEF' not an executable" \
     "script." >&2 && exit 1; }
 
-command -v stdbuf && prefix="stdbuf -o0"
+command -v stdbuf >/dev/null && prefix="stdbuf -o0"
 $prefix $STEF ${@}
