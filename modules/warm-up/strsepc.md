@@ -10,6 +10,7 @@ which behaves like strsep(3) except that it searches only for the first
 occurence of a single character.
 
 Try to use `strsep`() first
+
 #source strsep.c
 
 #solution strsepc.c
