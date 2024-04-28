@@ -1,4 +1,17 @@
-# Memory leaks
+# Dynamic allocation induced problems
+
+## Correctness
+
+- use after free: read/write memory that is part of memory chunk that was free'd
+  - *dangling pointer* is often the cause of this; e.g. a structure contains pointer
+    to heap allocated memory which is freed at some point of time and the
+    pointer is still used to access the memory afterwards. In the meantime some other part
+    of the program could have allocated piece(s) of the free'd memory.
+- double free: free already free'd buffer
+  - can corrupt internal heap allocator structures if it does not
+    track the state of memory chunks
+
+## Memory leaks
 
 If memory allocated on the heap is not freed, it creates a resource leak called
 a *memory leak* as the allocator deems such memory used even that your code no
