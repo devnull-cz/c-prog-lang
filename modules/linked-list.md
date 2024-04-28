@@ -30,3 +30,5 @@ $ ./a.out 10
 ```
 
 #solution linked-list-free.c
+
+After the list is printed, free it. Make sure there are no memory leaks.
