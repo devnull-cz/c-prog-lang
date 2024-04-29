@@ -2,7 +2,7 @@
 #include <string.h>
 
 static void
-print_hex(char *ident, char *str, char *end)
+print_hex(const char *ident, char *str, char *end)
 {
 	printf("%-10s", ident);
 	for (char *p = str; p < end; p++)
