@@ -10081,6 +10081,7 @@ track the state of memory chunks</li>
 </ul>
 </li>
 </ul>
+<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/use-after-free.c">use-after-free.c</a></p>
 <div class="markdown-heading"><h2 class="heading-element">Memory leaks</h2><a id="user-content-memory-leaks" class="anchor" aria-label="Permalink: Memory leaks" href="#memory-leaks"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>If memory allocated on the heap is not freed, it creates a resource leak called
 a <em>memory leak</em> as the allocator deems such memory used even that your code no
@@ -10166,10 +10167,11 @@ $ ./a.out 10
 <p>Write a program that creates a binary tree with N + 1 nodes, where N
 is specified as a command line argument.</p>
 <p>Each node, besides the root (that is always created), will contain an
-integer and will be created like this: take a binary representation of the
+integer member and will be created like this: take a binary representation of the
 number in the sequence {0, 1, ..., N - 1} and traverse the pre-existing tree
 using this representation until a <code>NULL</code> node pointer is found.  0 means the
 left child, 1 means the right one.</p>
+<p>Only the leaf nodes actually contain the number.</p>
 <p>For example, for 5 (101 in binary), the tree will be created as follows:</p>
 <ol>
 <li>create root node</li>
@@ -10180,7 +10182,7 @@ left child, 1 means the right one.</p>
 <p>Once the tree is populated, traverse the tree (choose your method), count the
 nodes and print the number to the standard output.</p>
 <p>Variant: add a function pointer to each node that will be called on its visit.
-The number stored in the node will be the sole argument of this function.i  Use
+The number stored in the node will be the sole argument of this function. Use
 that to traverse the tree and free the memory in the process.</p>
 <div class="markdown-heading"><h1 class="heading-element">🔧 Home assignment</h1><a id="user-content-wrench-home-assignment" class="anchor" aria-label="Permalink: :wrench: Home assignment" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Note that home assignments are entirely voluntary but writing code is the only
