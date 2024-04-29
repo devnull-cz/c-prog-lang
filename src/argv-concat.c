@@ -16,7 +16,7 @@ main(int argc, char *argv[])
 		err(1, "malloc");
 	char *origstr = str;
 
-#if 0
+#if STRNCAT
 	for (int i = 1; i < argc; i++)
 		strncat(str, argv[i], strlen(argv[i]));
 #endif
