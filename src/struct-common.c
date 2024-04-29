@@ -4,6 +4,7 @@ struct Common { int type; };
 struct A      { int type; char data[8]; };  // type == 1
 struct B      { int type; char data[16]; }; // type == 2
 
+// Return the type of the real/underlying structure.
 size_t
 func(struct Common *c) {
 	int r = -1;
