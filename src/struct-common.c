@@ -4,7 +4,7 @@ struct Common { int type; };
 struct A      { int type; char data[8]; };  // type == 1
 struct B      { int type; char data[16]; }; // type == 2
 
-int
+size_t
 func(struct Common *c) {
 	int r = -1;
 
@@ -23,6 +23,6 @@ main(void)
 	struct A a = { .type = 1 };
 	struct B b = { .type = 2 };
 
-	printf("%d\n", func((struct Common *)&a));
-	printf("%d\n", func((struct Common *)&b));
+	(void) printf("%zu\n", func((struct Common *)&a));
+	(void) printf("%zu\n", func((struct Common *)&b));
 }
