@@ -13,6 +13,8 @@
     track the state of memory chunks
   - use static/dynamic analysis and/or heap allocator with the ability to detect this
 
+#source use-after-free.c
+
 ## Memory leaks
 
 If memory allocated on the heap is not freed, it creates a resource leak called
