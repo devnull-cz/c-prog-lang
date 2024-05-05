@@ -1,9 +1,9 @@
 # heap/dynamic allocation: malloc()/free()
 
 The memory automatically allocated for local variables and function parameters
-is allocated in an area called a *stack*. There is an area called a *heap* to
-allocate memory that lasts after the function returns. That is also called
-a *dynamic allocation*.
+is allocated in an area called a *stack*. There is also an area called a *heap*
+to allocate memory that lasts after the function returns. That is also called a
+*dynamic allocation*.
 
 The allocator in the standard C library offers the
 `malloc`()/`calloc`()/`free`()/...  APIs for heap allocation.
