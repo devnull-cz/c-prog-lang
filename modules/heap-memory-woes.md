@@ -2,16 +2,19 @@
 
 ## Correctness
 
-- use after free: read/write memory that is part of memory chunk that was free'd
-  - *dangling pointer* is often the cause of this; e.g. a structure contains pointer
-    to heap allocated memory which is freed at some point of time and the
-    pointer is still used to access the memory afterwards. In the meantime some other part
-    of the program could have allocated piece(s) of the free'd memory.
-  - the way to detect/prevent this is to set the pointer to `NULL` after freeing it
-- double free: free already free'd buffer
-  - can corrupt internal heap allocator structures if it does not
-    track the state of memory chunks
-  - use static/dynamic analysis and/or heap allocator with the ability to detect this
+- Use after free: read/write memory that is part of memory chunk that was free'd
+  - *Dangling pointer* is often the cause of this; e.g. a structure contains a
+    pointer to heap allocated memory which is freed at some point of time and
+    the pointer is still used to access the memory afterwards, and expected data
+    could be found in there, or not - in the meantime some other part of the
+    program could have allocated piece(s) of the free'd memory.
+  - The way to detect/prevent this is to set the pointer to `NULL` after freeing
+    it.
+- Double free: free already free'd buffer
+  - Can corrupt internal heap allocator structures if it does not track the
+    state of memory chunks
+  - Use static/dynamic analysis and/or heap allocator with the ability to detect
+    this
 
 #source use-after-free.c
 
