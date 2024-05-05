@@ -1,4 +1,4 @@
-# Internal vs external linkage
+# Internal vs external linkage for objects
 
 Static objects with the keyword `static` are of internal *linkage*, meaning they
 are not visible from other compilation units.  Static objects without the
