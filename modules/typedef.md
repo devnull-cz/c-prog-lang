@@ -57,4 +57,4 @@ mystruct_t y;
 #source typedef.c
 
 :wrench: Take the binary tree implementation and use `typedef` for the node
-structure itself and also fot the callback.
+structure itself and also for the callback.
