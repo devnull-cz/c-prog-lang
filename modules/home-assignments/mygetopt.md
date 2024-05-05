@@ -13,4 +13,4 @@ non-option argument is encountered (i.e. one not starting with `-`) or after the
 
 See the following code on how to use `getopt`(3):
 
-https://github.com/devnull-cz/unix-linux-prog-in-c-src/blob/master/getopt/getopt.c
+#source getopt.c
