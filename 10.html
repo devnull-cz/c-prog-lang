@@ -10050,34 +10050,37 @@ That is, do not use:</p>
 <p>See <code>man malloc</code> for more memory allocation related functions.</p>
 <p>The C runtime does not have a garbage collector so all heap allocated memory
 has to be explicitly freed via <code>free</code>() after it is no longer needed.</p>
-<p>🔧 write a program that takes at least 2 arguments.  First argument
+<p>🔧 Write a program that takes at least 2 arguments.  First argument
 specifies a dimension of an array of <code>int</code>s, the rest are the <code>int</code>s to fill
 out the array.  To allocate memory for the array, use <code>malloc</code>.  When filling
 out the array, ignore extra arguments.  If you have less arguments, use zero
 for the remaining array elements.  At the end, print out the array.  To convert
 a string to an integer, use <code>atoi</code> and assume numbers are correctly entered.</p>
 <pre><code>./a.out 10 1 2 3 7 8 999 7 7 7 9 9 9 10 11
-1 2 3 7 8 999 7 7 7 9 
+1 2 3 7 8 999 7 7 7 9
 </code></pre>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/allocate-and-fill-out-array.c">allocate-and-fill-out-array.c</a></p>
 <div class="markdown-heading"><h1 class="heading-element">Dynamic allocation induced problems</h1><a id="user-content-dynamic-allocation-induced-problems" class="anchor" aria-label="Permalink: Dynamic allocation induced problems" href="#dynamic-allocation-induced-problems"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="markdown-heading"><h2 class="heading-element">Correctness</h2><a id="user-content-correctness" class="anchor" aria-label="Permalink: Correctness" href="#correctness"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>use after free: read/write memory that is part of memory chunk that was free'd
+<li>Use after free: read/write memory that is part of memory chunk that was free'd
 <ul>
 <li>
-<em>dangling pointer</em> is often the cause of this; e.g. a structure contains pointer
-to heap allocated memory which is freed at some point of time and the
-pointer is still used to access the memory afterwards. In the meantime some other part
-of the program could have allocated piece(s) of the free'd memory.</li>
-<li>the way to detect/prevent this is to set the pointer to <code>NULL</code> after freeing it</li>
+<em>Dangling pointer</em> is often the cause of this; e.g. a structure contains a
+pointer to heap allocated memory which is freed at some point of time and
+the pointer is still used to access the memory afterwards, and expected data
+could be found in there, or not - in the meantime some other part of the
+program could have allocated piece(s) of the free'd memory.</li>
+<li>The way to detect/prevent this is to set the pointer to <code>NULL</code> after freeing
+it.</li>
 </ul>
 </li>
-<li>double free: free already free'd buffer
+<li>Double free: free already free'd buffer
 <ul>
-<li>can corrupt internal heap allocator structures if it does not
-track the state of memory chunks</li>
-<li>use static/dynamic analysis and/or heap allocator with the ability to detect this</li>
+<li>Can corrupt internal heap allocator structures if it does not track the
+state of memory chunks</li>
+<li>Use static/dynamic analysis and/or heap allocator with the ability to detect
+this</li>
 </ul>
 </li>
 </ul>
