@@ -10226,7 +10226,10 @@ specified.  For example:</p>
 	<span class="pl-c1">OCT</span>,
 	<span class="pl-c1">NOV</span>,
 	<span class="pl-c1">DEC</span>,
-};</pre></div>
+};
+
+<span class="pl-c">/* See how you define a variable of an enum. */</span>
+<span class="pl-k">enum</span> <span class="pl-smi">months</span> <span class="pl-s1">mymonth</span> <span class="pl-c1">=</span> <span class="pl-c1">FEB</span>;</pre></div>
 <p>You could also do as follows:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">enum</span> <span class="pl-smi">weird</span> {
 	<span class="pl-s1">one</span> <span class="pl-c1">=</span> <span class="pl-c1">3</span>,
@@ -10237,7 +10240,9 @@ specified.  For example:</p>
 	<span class="pl-s1">six</span>,		<span class="pl-c">// 2</span>
 	<span class="pl-s1">seven</span> <span class="pl-c1">=</span> <span class="pl-c1">-1</span>,
 	...
-}</pre></div>
+}
+
+<span class="pl-s1">enum</span> <span class="pl-smi">weird</span> <span class="pl-s1">myweird</span> <span class="pl-c1">=</span> <span class="pl-s1">six</span>;</pre></div>
 <p>The list consists of <em>enumerators</em>.  I.e. both <code>JAN = 1</code> and <code>FEB</code> are
 enumerators.  When used in code, <code>JAN</code>, <code>FEB</code>, <code>MAR</code> etc. are enumeration
 constants.  The values of enumeration constants must fit an <code>int</code>.  However,
