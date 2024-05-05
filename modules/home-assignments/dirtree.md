@@ -26,13 +26,14 @@ char *paths[] = {
     "/beverages/alcohol/beer.c",
     "/food/healthy/vegetarian/salad.txt",
     "/food/healthy/fruit/blueberries.hs",
-    "/food/unhealthy/cake.md" };
+    "/food/unhealthy/cake.md"
+};
 ```
 
 #solution dirtree.c
 
-bonus tasks:
-  - print also non-leaf nodes via depth first, with each node indented based on
+Bonus tasks:
+  - Print also non-leaf nodes via depth first, with each node indented based on
     its tree depth.  E.g:
 
 ```
@@ -45,5 +46,5 @@ f.txt
 bar/
 ```
 
-  - remove the limitation for the constant number of children
-  - print full paths of all files in the tree (hint: backpointers)
+  - Remove the limitation for the constant number of children.
+  - Print full paths of all files in the tree (hint: backpointers)
