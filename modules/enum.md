@@ -30,6 +30,9 @@ enum months {
 	NOV,
 	DEC,
 };
+
+/* See how you define a variable of an enum. */
+enum months mymonth = FEB;
 ```
 
 You could also do as follows:
@@ -45,6 +48,8 @@ enum weird {
 	seven = -1,
 	...
 }
+
+enum weird myweird = six;
 ```
 
 The list consists of *enumerators*.  I.e. both `JAN = 1` and `FEB` are
