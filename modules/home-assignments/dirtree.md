@@ -19,12 +19,14 @@ one per line.  Then free the allocated memory.
 Each node can have constant number of children.
 
 Possible input:
+
 ```C
-	char *paths[] = { "/beverages/coffee/espresso.java",
-			"/beverages/alcohol/beer.c",
-			"/food/healthy/vegetarian/salad.txt",
-			"/food/healthy/fruit/blueberries.hs",
-			"/food/unhealthy/cake.md" };
+char *paths[] = {
+    "/beverages/coffee/espresso.java",
+    "/beverages/alcohol/beer.c",
+    "/food/healthy/vegetarian/salad.txt",
+    "/food/healthy/fruit/blueberries.hs",
+    "/food/unhealthy/cake.md" };
 ```
 
 #solution dirtree.c
@@ -34,13 +36,13 @@ bonus tasks:
     its tree depth.  E.g:
 
 ```
-    $ ./a.out
-    /
-    	foo/
-		a.c
-		b.c
-	f.txt
-	bar/
+$ ./a.out
+/
+foo/
+	a.c
+	b.c
+f.txt
+bar/
 ```
 
   - remove the limitation for the constant number of children
