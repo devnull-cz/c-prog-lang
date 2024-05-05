@@ -10121,9 +10121,9 @@ initialization of a static variable within a function is done only once.</p>
 <p>🔧 Take the binary tree implementation and use the <code>static</code> keyword where
 it makes sense.</p>
 <div class="markdown-heading"><h1 class="heading-element">Internal vs external linkage</h1><a id="user-content-internal-vs-external-linkage" class="anchor" aria-label="Permalink: Internal vs external linkage" href="#internal-vs-external-linkage"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Static objects with the keyword <code>static</code> are of internal linkage, meaning they
-are not seen from other compilation units.  Static objects without the keyword
-<code>static</code> are implicitly external.</p>
+<p>Static objects with the keyword <code>static</code> are of internal <em>linkage</em>, meaning they
+are not visible from other compilation units.  Static objects without the
+keyword <code>static</code> are implicitly of external linkage.</p>
 <p>Note that global variables in always in the static storage class, and the
 following global variable is visible only from within the file where it is
 defined because of the <code>static</code> keyword:</p>
@@ -10156,8 +10156,8 @@ Undefined symbols for architecture x86_64:
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </code></pre>
-<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linkage.c">linkage.c</a>
-👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ext.c">ext.c</a></p>
+<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/linkage.c">linkage.c</a></p>
+<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/ext.c">ext.c</a></p>
 <p>Also note that each object must have exactly one definition.  For objects with
 internal linkage, this rule applies separately to each translation unit, because
 internally-linked objects are unique to a translation unit.</p>
