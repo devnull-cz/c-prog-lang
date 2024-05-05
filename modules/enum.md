@@ -95,11 +95,11 @@ is so much better than this:
 ```
 
 The reason is that the enum is known to the compiler and may be included into
-debug symbols.  So, when debugging, you might, if the compiler/debugger support
+debug symbols.  So, when debugging, you might, if the compiler/debugger supports
 it, see `XXX_LIST` instead of just `0`.  In the latter case, as the compiler
-only sees the numbers when compiling the code (macros were replaced by numbers in
-teh preprocessor phase), you will never see any symbolic names.  So, seeing the
-symbols instead of common numbers `0` or `1` is really helping.
+only sees the numbers when compiling the code (macros were replaced by numbers
+in the preprocessor phase), you will never see any symbolic names.  So, seeing
+the symbols instead of common numbers `0` or `1` is really helping.
 
 :wrench: Convert the binary tree implementation to use enum to store the data
 type.

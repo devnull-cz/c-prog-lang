@@ -4,7 +4,8 @@
 It specifies its value cannot be changed.  If you apply `const` to an array, the
 array elements cannot be modified.
 
-Note that the verb *qualify* here means *to limit the strength or meaning of*.
+Note that the verb *qualify* here means *to limit the strength or meaning of*,
+see https://dictionary.cambridge.org/dictionary/english/qualify
 
 You can initialize the variable declared with the `const` qualifier.
 
