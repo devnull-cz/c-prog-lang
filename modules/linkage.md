@@ -1,8 +1,8 @@
 # Internal vs external linkage
 
-Static objects with the keyword `static` are of internal linkage, meaning they
-are not seen from other compilation units.  Static objects without the keyword
-`static` are implicitly external.
+Static objects with the keyword `static` are of internal *linkage*, meaning they
+are not visible from other compilation units.  Static objects without the
+keyword `static` are implicitly of external linkage.
 
 Note that global variables in always in the static storage class, and the
 following global variable is visible only from within the file where it is
@@ -50,6 +50,7 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 
 #source linkage.c
+
 #source ext.c
 
 Also note that each object must have exactly one definition.  For objects with
