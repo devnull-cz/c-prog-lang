@@ -10014,13 +10014,14 @@
 <ul>
 <li>Define a structure for a binary tree using the <code>structure node_s</code> name.</li>
 <li>Each node of the tree can store either an <code>int</code> or a string (<code>char[]</code> of
-arbitrary size).</li>
-<li>There is the member <code>type</code> of an <code>int</code> type.  That determines the data type
-stored in the node, e.g. <code>0</code> for <code>int</code>, <code>1</code> for <code>char[]</code>.</li>
+some fixed size).</li>
+<li>There is a member <code>t</code> of an <code>int</code> type.  That determines the data type stored
+in the node, e.g. <code>0</code> for <code>int</code>, <code>1</code> for <code>char[]</code>.</li>
 <li>Build a tree using a bunch of nodes (can be totally unbalanced).
 <ul>
-<li>Can be statically initialized (or generated randomly however this will
-probably take more time to do and might require allocation on the heap).</li>
+<li>Can be statically initialized using local variables (or generated
+randomly however this will probably take more time to do and might
+require allocation on the heap).</li>
 </ul>
 </li>
 <li>Implement a function to perform the depth-first traversal that accepts a
