@@ -10266,18 +10266,19 @@ be distinct, e.g.:</p>
 <span class="pl-k">#define</span>	<span class="pl-c1">XXX_EXTRACT</span>	1
 <span class="pl-k">#define</span>	<span class="pl-c1">XXX_CREATE</span>	2</pre></div>
 <p>The reason is that the enum is known to the compiler and may be included into
-debug symbols.  So, when debugging, you might, if the compiler/debugger support
+debug symbols.  So, when debugging, you might, if the compiler/debugger supports
 it, see <code>XXX_LIST</code> instead of just <code>0</code>.  In the latter case, as the compiler
-only sees the numbers when compiling the code (macros were replaced by numbers in
-teh preprocessor phase), you will never see any symbolic names.  So, seeing the
-symbols instead of common numbers <code>0</code> or <code>1</code> is really helping.</p>
+only sees the numbers when compiling the code (macros were replaced by numbers
+in the preprocessor phase), you will never see any symbolic names.  So, seeing
+the symbols instead of common numbers <code>0</code> or <code>1</code> is really helping.</p>
 <p>🔧 Convert the binary tree implementation to use enum to store the data
 type.</p>
 <div class="markdown-heading"><h1 class="heading-element">The <code>const</code> keyword</h1><a id="user-content-the-const-keyword" class="anchor" aria-label="Permalink: The const keyword" href="#the-const-keyword"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><code>const</code> is a <em>qualifier</em> that may be applied to the declaration of any variable.
 It specifies its value cannot be changed.  If you apply <code>const</code> to an array, the
 array elements cannot be modified.</p>
-<p>Note that the verb <em>qualify</em> here means <em>to limit the strength or meaning of</em>.</p>
+<p>Note that the verb <em>qualify</em> here means <em>to limit the strength or meaning of</em>,
+see <a href="https://dictionary.cambridge.org/dictionary/english/qualify" rel="nofollow">https://dictionary.cambridge.org/dictionary/english/qualify</a></p>
 <p>You can initialize the variable declared with the <code>const</code> qualifier.</p>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/const.c">const.c</a></p>
 <p>Using <code>const</code> will not really make the storage constant, you just cannot use
