@@ -41,3 +41,5 @@ foo.a++; // will wrap around to 0 since this is unsigned
 ```
 
 #source bitfield-wraparound.c
+
+#source bitfield-bitwise-ops.c
