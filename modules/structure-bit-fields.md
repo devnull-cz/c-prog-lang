@@ -26,7 +26,8 @@ struct foo {
 
 #source bitfield.c
 
-- the integer values will behave as expected, e.g.
+- the integer values will behave as expected w.r.t. underflow/overflow and
+integer conversions/manipulations, e.g.
 
 ```C
 struct foo_s {
