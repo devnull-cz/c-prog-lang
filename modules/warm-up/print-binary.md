@@ -7,6 +7,8 @@ for hexa and 'o' for octal).  Limit the input to positive `int`s.
 
 Do not use bit operators even if you know how to (ie. do NOT use `>>` etc.)
 
+Implement the functionality in `void binprint(int)` and call it from `main()`.
+
 To verify, use bc(1) with `obase=2`.  E.g.:
 
 ```
