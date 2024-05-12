@@ -50,7 +50,11 @@ $(OBJDIR)/int-to-ptr.o: CFLAGS_EXTRA=-Wno-int-conversion -Wno-unused-variable
 $(OBJDIR)/cast-double.o: CFLAGS_EXTRA=-Wno-format
 $(OBJDIR)/struct-anon.o: CFLAGS_EXTRA=-Wno-c11-extensions -Wno-pedantic
 $(OBJDIR)/array-literal.o: CFLAGS_EXTRA=-Wno-sign-compare
+ifeq ($(CC), gcc)
+$(OBJDIR)/argv-do-while.o: CFLAGS_EXTRA=-Wno-error=unused-parameter
+else ifeq ($(CC), clang)
 $(OBJDIR)/argv-do-while.o: CFLAGS_EXTRA=-Wno-error=unused-parameter -Wno-error=format-pedantic
+endif
 $(OBJDIR)/argv-for-v2.o: CFLAGS_EXTRA=-Wno-error=unused-parameter
 $(OBJDIR)/argv-while-v2.o: CFLAGS_EXTRA=-Wno-error=unused-parameter
 $(OBJDIR)/plus-deref-plus-deref-argv.o: CFLAGS_EXTRA=-Wno-format \
