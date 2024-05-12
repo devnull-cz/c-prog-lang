@@ -4,7 +4,7 @@ Static objects with the keyword `static` are of internal *linkage*, meaning they
 are not visible from other compilation units.  Static objects without the
 keyword `static` are implicitly of external linkage.
 
-Note that global variables in always in the static storage class, and the
+Note that global variables are always in the static storage class, and the
 following global variable is visible only from within the file where it is
 defined because of the `static` keyword:
 
