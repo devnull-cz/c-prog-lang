@@ -10514,7 +10514,8 @@ features have to be used (<code>#pragma</code>'s etc.)</li>
 </ul>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/bitfield.c">bitfield.c</a></p>
 <ul>
-<li>the integer values will behave as expected, e.g.</li>
+<li>the integer values will behave as expected w.r.t. underflow/overflow and
+integer conversions/manipulations, e.g.</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> <span class="pl-smi">foo_s</span> {
 	<span class="pl-smi">unsigned <span class="pl-smi">int</span></span> <span class="pl-c1">a</span> : <span class="pl-c1">3</span>;
