@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <err.h>
 
-
+/* Assumes function from print-in-binary.c */
 extern void binprint(int n);
 
 static int
