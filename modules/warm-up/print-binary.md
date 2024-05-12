@@ -4,6 +4,7 @@ Print `argv[1]` in binary (assume it is a correct positive decimal number
 that will fit `unsigned int`) to standard output.
 Note that `printf`(3) does not have a conversion specifier for it (unlike 'x'
 for hexa and 'o' for octal).  Limit the input to positive `int`s.
+
 Do not use bit operators even if you know how to (ie. do NOT use `>>` etc.)
 
 To verify, use bc(1) with `obase=2`.  E.g.:
@@ -41,5 +42,3 @@ E4
 ```
 
 #solution print-in-binary.c
-
-
