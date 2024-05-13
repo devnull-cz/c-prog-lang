@@ -29,6 +29,8 @@ So,
 ((338 & 978) == 272).	// == is of higher prority than &
 ```
 
+When shifting to the left, the lower bits are filled with zeroes.
+
 When shifting to the right, it depends on the signedness of the number.
 For unsigned values the upper bits are filled with zeroes.
 If the number is signed and negative (i.e. starts with bit 1 in two's complement
