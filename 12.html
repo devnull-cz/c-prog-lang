@@ -10184,6 +10184,7 @@ E4
 <p>So,</p>
 <pre><code>((338 &amp; 978) == 272).	// == is of higher prority than &amp;
 </code></pre>
+<p>When shifting to the left, the lower bits are filled with zeroes.</p>
 <p>When shifting to the right, it depends on the signedness of the number.
 For unsigned values the upper bits are filled with zeroes.
 If the number is signed and negative (i.e. starts with bit 1 in two's complement
@@ -10209,7 +10210,7 @@ Usually the value it is <em>sign-extended</em>, i.e. filled with 1's.</p>
 <span class="pl-s1">lights</span> <span class="pl-c1">=</span> <span class="pl-s1">lights</span> | <span class="pl-c1">LIGHT_YELLOW</span>;	<span class="pl-c">// turn on yellow light</span>
 <span class="pl-s1">lights</span> <span class="pl-c1">=</span> <span class="pl-s1">lights</span> <span class="pl-c1">&amp;</span> ~<span class="pl-c1">LIGHT_RED</span>;	<span class="pl-c">// turn off red light</span></pre></div>
 <p>Another common case is to use an integer type to store multiple kinds of
-information, with mask to extract the parts. Here, a <code>ungisned short</code> type
+information, with mask to extract the parts. Here, a <code>unsigned short</code> type
 stores the byte value and associated flags:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">#define</span>	<span class="pl-c1">VALUE_MASK</span>	0xff
 <span class="pl-k">#define</span>	<span class="pl-c1">FLAG_MASK</span>	0xff00
@@ -10341,7 +10342,8 @@ were not changed.</p>
 <p>To save time the files are usually compiled individually and then linked into
 the binary using a <em>runtime linker</em> (sometimes called a <em>link editor</em>, or just a
 <em>linker</em>), a program usually called <code>ld</code>. This program also takes care of adding
-dependencies on dynamic libraries to the resulting binary.</p>
+dependencies on dynamic libraries to the resulting binary, performing
+relocations (for relative addressing), etc.</p>
 <p>It works like this (assuming all source code files changed):</p>
 <pre><code>cc -c foo.c
 cc -c bar.c
