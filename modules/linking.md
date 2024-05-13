@@ -13,7 +13,8 @@ were not changed.
 To save time the files are usually compiled individually and then linked into
 the binary using a _runtime linker_ (sometimes called a _link editor_, or just a
 *linker*), a program usually called `ld`. This program also takes care of adding
-dependencies on dynamic libraries to the resulting binary.
+dependencies on dynamic libraries to the resulting binary, performing
+relocations (for relative addressing), etc.
 
 It works like this (assuming all source code files changed):
 
