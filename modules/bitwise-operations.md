@@ -62,7 +62,7 @@ lights = lights & ~LIGHT_RED;	// turn off red light
 ```
 
 Another common case is to use an integer type to store multiple kinds of
-information, with mask to extract the parts. Here, a `ungisned short` type
+information, with mask to extract the parts. Here, a `unsigned short` type
 stores the byte value and associated flags:
 
 ```C
