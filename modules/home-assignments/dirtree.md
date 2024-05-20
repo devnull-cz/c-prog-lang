@@ -32,9 +32,10 @@ char *paths[] = {
 
 #solution dirtree.c
 
-Bonus tasks:
-  - Print also non-leaf nodes via depth first traversal, with each node indented based on
-    its tree depth.  E.g:
+### Bonus tasks
+
+- Print also non-leaf nodes via depth first traversal, with each node indented based on
+  its tree depth.  E.g:
 
 ```
 $ ./a.out
@@ -47,5 +48,5 @@ bar/
 	c.c
 ```
 
-  - Remove the limitation for the constant number of children.
-  - Print full paths of all files in the tree (hint: backpointers)
+- Remove the limitation for the constant number of children.
+- Print full paths of all files in the tree (hint: backpointers)
