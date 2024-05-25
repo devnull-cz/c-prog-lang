@@ -80,11 +80,16 @@ echo "$input" | while read fname source bs count; do
 	fi
 done
 
-inputfiles=$(echo "$input" | awk '{ print $1 }' | LC_ALL=C sort)
-printf "export inputfiles=\"$inputfiles\"\n\n" >> $configvar
+readarray -t inputfiles < <(echo "$input" | awk '{ print $1 }' | LC_ALL=C sort)
+echo "declare -a inputfiles" >> $configvar
+typeset -i i=0
+for entry in ${inputfiles[@]}; do
+	echo "inputfiles[$i]=\"$entry\"" >> $configvar
+	(( i = i + 1 ))
+done
 
 echo "Creating a GNU tar archive '$tarfile'."
-$GNUTAR -c -f $tarfile $inputfiles
+$GNUTAR -c -f "$tarfile" ${inputfiles[@]}
 (($? != 0)) && echo "$GNUTAR failed." && exit 1
 
 # aaa-file has $aaafileblocks blocks, so put a header and half of aaa-file's

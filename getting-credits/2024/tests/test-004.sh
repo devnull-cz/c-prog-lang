@@ -7,10 +7,8 @@
 source $configvar
 cd $tmpdir
 
-first=$(echo "$inputfiles" | head -1)
-third=$(echo "$inputfiles" | head -3 | tail -1)
-seventh=$(echo "$inputfiles" | head -7 | tail -1)
-last=$(echo "$inputfiles" | tail -1)
+typeset -i last=${#inputfiles[@]}
 
-$MYTAR -t -f $tarfile $seventh $last $third $first
+$MYTAR -t -f "$tarfile" \
+    ${inputfiles[6]} ${inputfiles[$last - 1]} ${inputfiles[2]} ${inputfiles[0]}
 (($? == 0)) || exit 1

@@ -6,16 +6,14 @@
 source $configvar
 cd $tmpdir
 
-first=$(echo "$inputfiles" | head -1)
-third=$(echo "$inputfiles" | head -3 | tail -1)
-seventh=$(echo "$inputfiles" | head -7 | tail -1)
-last=$(echo "$inputfiles" | tail -1)
+typeset -i last=${#inputfiles[@]}
 
 tmp2=tmp-$(basename $0)
 mkdir $tmp2 || { echo "mkdir failed" && exit 1; }
 cd $tmp2
 
-$MYTAR -x -v -f ../$tarfile $first $third $seventh $last
+$MYTAR -x -v -f "../$tarfile" \
+    ${inputfiles[0]} ${inputfiles[2]} ${inputfiles[6]} ${inputfiles[$last - 1]}
 (($? == 0)) || exit 1
 
 for i in $(/bin/ls -1 *); do
