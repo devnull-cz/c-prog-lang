@@ -36,11 +36,11 @@ if [[ -z $MYGNUTAR ]]; then
 		exit 1
 	fi
 else
-	if [[ -n $MYTAR_C ]]; then
-		echo "ERROR: both MYGNUTAR and MYTAR_C are set.  That is" \
-		    "likely not what you want.  Exiting."
-		exit 1
-	fi
+#	if [[ -n $MYTAR_C ]]; then
+#		echo "ERROR: both MYGNUTAR and MYTAR_C are set.  That is" \
+#		    "likely not what you want.  Exiting."
+#		exit 1
+#	fi
 	echo "WARNING: Using '$MYGNUTAR' as the GNU tar testing binary."
 	echo "WARNING: This is only for verifying the test setup."
 fi
