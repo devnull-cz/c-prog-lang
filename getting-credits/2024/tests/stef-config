@@ -45,7 +45,8 @@ export MYTAR=${MYGNUTAR:-$(pwd)/$MYTARNAME}
 
 # You either set and export MYTAR_C to your mytar.c before running the test
 # suite, or set it in $STEF_CONFIG_LOCAL.
-export MYTAR_C=${MYTAR_C:-"set-me-to-mytar.c-see-README"}
+export mytar_c_def_value="set-me-to-mytar.c-see-README"
+export MYTAR_C=${MYTAR_C:-$mytar_c_def_value}
 
 # You either set and export GNUTAR to the GNU tar binary path before running the
 # test suite, or set it in $STEF_CONFIG_LOCAL.
