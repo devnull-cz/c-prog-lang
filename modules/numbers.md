@@ -224,10 +224,13 @@ printf("%ld", 13LL);
 // --> ??
 ```
 
-- Escape sequences `\ooo` and `\xhh` (not `\Xhh`) are character sized bit
+## Escape sequences
+
+- *escape sequences* `\ooo` and `\xhh` (not `\Xhh`) are character sized bit
   patterns, either specified as octal or hexadecimal numbers, and representing a
-  single character.  They can be used both in string and character constants
-  constants.
+  single character.  They can be used both in string and character constants.
+	- see *5.2.1 Character sets* and *6.4.4.4 Character constants* for more
+	  information
 
 ```C
 printf("\110\x6F\154\x61");	// Used in a string literal.
