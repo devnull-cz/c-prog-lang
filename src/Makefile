@@ -97,7 +97,7 @@ $(OBJDIR)/assert.o: CFLAGS_EXTRA=-Wno-unused-parameter
 $(OBJDIR)/my-assert.o: CFLAGS_EXTRA=-Wno-unused-parameter
 $(OBJDIR)/argv-for.o: CFLAGS_EXTRA=-Wno-format-pedantic
 $(OBJDIR)/buf-overflow.o: CFLAGS_EXTRA=-Wno-builtin-memcpy-chk-size \
-	-Wno-sizeof-pointer-memaccess
+	-Wno-sizeof-pointer-memaccess -Wno-stringop-overflow
 $(OBJDIR)/derived-types.o: CFLAGS_EXTRA=-Wno-incompatible-pointer-types
 $(OBJDIR)/ptr_plus_plus.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-unused-value -Wno-format
@@ -137,7 +137,7 @@ $(OBJDIR)/sequence-point-violation.o: CFLAGS_EXTRA=-Wno-unsequenced \
 	-Wno-uninitialized -Wno-sequence-point
 $(OBJDIR)/ptr-cast.o: CFLAGS_EXTRA=-Wno-incompatible-pointer-types
 $(OBJDIR)/complex-declaration.o: CFLAGS_EXTRA=-Wno-missing-braces \
-	-Wno-tautological-compare
+	-Wno-tautological-compare -Wno-array-compare
 $(OBJDIR)/passing-arrays.o: CFLAGS_EXTRA=-Wno-incompatible-pointer-types \
 	-Wno-uninitialized -Wno-unused-parameter
 $(OBJDIR)/whole-array.o: CFLAGS_EXTRA=-Wno-sign-compare
@@ -156,6 +156,7 @@ $(OBJDIR)/int-promotion.o: CFLAGS_EXTRA=-Wno-overflow
 $(OBJDIR)/divbyzero.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/divminus.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/typedef.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
+$(OBJDIR)/use-after-free.o: CFLAGS_EXTRA=-Wno-use-after-free
 
 all: $(DIROBJS)
 

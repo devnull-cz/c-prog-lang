@@ -19,7 +19,11 @@
 #include <assert.h>
 #include <stdio.h>
 
-#define	STRLEN	16
+/*
+ * %d may occupy up to 10 characters, plus ', ' and the newline.  Set it to less
+ * to see a format truncation warning with newer compilers.
+ */
+#define	STRLEN	(10 + 10 + 3)
 
 int
 main(int argc, char **argv)
