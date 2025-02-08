@@ -19,9 +19,12 @@ main(void)
 	/*
 	 * Another sequence point violation.  This one relates to the second
 	 * sentence in paragraph 2: "Furthermore, the prior value shall be read
-	 * only to determine the value to be stored".  That means that if the
-	 * object is read (used), it must be used to compute the resulting
-	 * value.  The use of 'a' as an index below violates that rule.
+	 * only to determine the value to be stored".
+	 *
+	 * That means that iff the object is modified in between two sequence
+	 * points, reading its value must be used to compute the resulting (new)
+	 * value.  The use of 'a' as an index violates that rule -> 'a' is read
+	 * but NOT to compute the a's new value.
 	 */
 	b[a] = a++;
 
