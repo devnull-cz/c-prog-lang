@@ -45,3 +45,8 @@
   https://devnull-cz.github.io/unix-linux-prog-in-c/cstyle.html
 - Source code files are in
   https://github.com/devnull-cz/c-prog-lang/tree/master/src
+- Clone the github repo using:
+
+```
+git clone https://github.com/devnull-cz/c-prog-lang.git
+```
