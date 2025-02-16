@@ -10,7 +10,8 @@
   [TIOBE\_index on wikipedia](https://en.wikipedia.org/wiki/TIOBE_index), direct
   link to the current [TIOBE\_index](https://www.tiobe.com/tiobe-index/)
 - C89, C99, C11 (ie. 2011), C17 (only fixes issues found in C11) standards,
-  and upcoming C23.  Due to time constraints, we will focus on C99.
+  and current C23 (published at October 31, 2024).  Due to time constraints, we
+  will focus on C99.
 - Why it's worth learning C?
 	- Helps with better understanding of computers
 	- Lingua franca of programming
