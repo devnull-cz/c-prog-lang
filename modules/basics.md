@@ -85,11 +85,18 @@
 	- #source float.c
 	- see the optional minimum field width and precision
 	- experiment!!!
+	- assigning a float to an integer will strip it of the precision part.
+	  The following just prints `3`.
+
+	```C
+	int i = 3.14;
+	printf("%d\n", i);
+	```
 
 - :wrench: print out a table for inch to centimeter conversion for 1-9 inches,
   use `int`s only (not `float`s)
 	- #source inches-to-cm.c
-	- use `\t` escape sequence for printf to print tabelators
+	- use `\t` escape sequence for `printf` to print tabelators
 	- like this:
 	```C
 	printf("\tX\tY\n");
@@ -111,7 +118,7 @@
 - :wrench: use floats for the conversion code
 	- #source inches-to-cm2.c
 		- '\t' in a string will print a tab
-		- `5` is the minimum field width 
+		- `5` is the minimum field width
 		- `.2` is the precision
 		- see the printf(3) man page for details
 	- example output:
@@ -128,8 +135,25 @@
 	9	22.86
 	```
 
-- :wrench: print fahrenheit to centigrade table.  Use floats.
+- :wrench: print a fahrenheit to centigrade table.  Use floats.
 	- the formula to convert F to C is: (F - 32) × 5/9.  E.g. 72F is 22.22C.
+	- remember that working with integer constants always results in getting
+	  an integer (i.e. assigning `0` to `f`), and the following prints
+	  `0.000000`
+	```C
+	float f = 1 / 3;
+
+	printf("%f\n", f);
+	```
+	- one needs to involve the arithmetic conversion which finds the
+	  smallest common type, in this case, the real type.
+
+	```C
+	float f = 1 / 3.0;
+
+	printf("%f\n", f);
+	```
+
 	- #source fahr-to-cent.c
 	- example output:
 	```
