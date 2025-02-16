@@ -1,6 +1,6 @@
 # Introduction
 
-- All information on http://mff.devnull.cz/c-prog-lang
+- All information on https://devnull-cz.github.io/c-prog-lang/
 	- see the References section for recommended materials
 - Make sure you DO SUBSCRIBE TO THE MAILING LIST (see the seminar http page
   above).
