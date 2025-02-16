@@ -11540,7 +11540,11 @@ expression (e.g. you cannot do <code>i + 1 = j</code>)</p>
 </li>
 <li>see the optional minimum field width and precision</li>
 <li>experiment!!!</li>
+<li>assigning a float to an integer will strip it of the precision part.
+The following just prints <code>3</code>.</li>
 </ul>
+<div class="highlight highlight-source-c"><pre> <span class="pl-smi">int</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">3.14</span>;
+ <span class="pl-en">printf</span>(<span class="pl-s">"%d\n"</span>, <span class="pl-s1">i</span>);</pre></div>
 </li>
 <li>
 <p>🔧 print out a table for inch to centimeter conversion for 1-9 inches,
@@ -11548,7 +11552,7 @@ use <code>int</code>s only (not <code>float</code>s)</p>
 <ul>
 <li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/inches-to-cm.c">inches-to-cm.c</a>
 </li>
-<li>use <code>\t</code> escape sequence for printf to print tabelators</li>
+<li>use <code>\t</code> escape sequence for <code>printf</code> to print tabelators</li>
 <li>like this:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre> <span class="pl-en">printf</span>(<span class="pl-s">"\tX\tY\n"</span>);</pre></div>
@@ -11595,9 +11599,25 @@ use <code>int</code>s only (not <code>float</code>s)</p>
 </code></pre>
 </li>
 <li>
-<p>🔧 print fahrenheit to centigrade table.  Use floats.</p>
+<p>🔧 print a fahrenheit to centigrade table.  Use floats.</p>
 <ul>
 <li>the formula to convert F to C is: (F - 32) × 5/9.  E.g. 72F is 22.22C.</li>
+<li>remember that working with integer constants always results in getting
+an integer (i.e. assigning <code>0</code> to <code>f</code>), and the following prints
+<code>0.000000</code>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre> <span class="pl-smi">float</span> <span class="pl-s1">f</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span> / <span class="pl-c1">3</span>;
+
+ <span class="pl-en">printf</span>(<span class="pl-s">"%f\n"</span>, <span class="pl-s1">f</span>);</pre></div>
+<ul>
+<li>one needs to involve the arithmetic conversion which finds the
+smallest common type, in this case, the real type.</li>
+</ul>
+<div class="highlight highlight-source-c"><pre> <span class="pl-smi">float</span> <span class="pl-s1">f</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span> / <span class="pl-c1">3.0</span>;
+
+ <span class="pl-en">printf</span>(<span class="pl-s">"%f\n"</span>, <span class="pl-s1">f</span>);</pre></div>
+<ul>
 <li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/fahr-to-cent.c">fahr-to-cent.c</a>
 </li>
 <li>example output:</li>
