@@ -6,6 +6,6 @@ main(int argc, char *argv[])
 	(void)argc;
 
 	do {
-		printf("%p '%s'\n", *argv, *argv);
+		printf("%p '%s'\n", (void *)*argv, *argv);
 	} while (*++argv != NULL);
 }
