@@ -141,8 +141,13 @@ endif
 $(OBJDIR)/sequence-point-violation.o: CFLAGS_EXTRA=-Wno-unsequenced \
 	-Wno-uninitialized -Wno-sequence-point
 $(OBJDIR)/ptr-cast.o: CFLAGS_EXTRA=-Wno-incompatible-pointer-types
+ifeq ($(CC), gcc)
 $(OBJDIR)/complex-declaration.o: CFLAGS_EXTRA=-Wno-missing-braces \
 	-Wno-tautological-compare -Wno-array-compare
+else
+$(OBJDIR)/complex-declaration.o: CFLAGS_EXTRA=-Wno-missing-braces \
+	-Wno-tautological-compare
+endif
 $(OBJDIR)/passing-arrays.o: CFLAGS_EXTRA=-Wno-incompatible-pointer-types \
 	-Wno-uninitialized -Wno-unused-parameter
 $(OBJDIR)/whole-array.o: CFLAGS_EXTRA=-Wno-sign-compare
