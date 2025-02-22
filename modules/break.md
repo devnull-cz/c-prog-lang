@@ -1,6 +1,6 @@
 # The `break` statement
 
-- The `break` statement will cause a jump out of a most inner while loop (well,
+- The `break` statement will cause a jump out of a most inner `while` loop (well,
   any kind of loop but we only introduced the `while` loop so far).
 
 ```
