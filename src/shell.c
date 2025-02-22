@@ -8,7 +8,7 @@
 #define BUFSIZE 1024
 
 char
-*shReadLine()
+*shReadLine(void)
 {
 	int bufsize = BUFSIZE;
 	int position = 0;
@@ -76,7 +76,7 @@ char
 
 
 void
-shStart()
+shStart(void)
 {
 	char *line;
 	char **args;
