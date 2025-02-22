@@ -22,7 +22,10 @@ endif
 
 OBJDIR=objs
 
-# These sources lead to warnings or errors.
+#
+# These sources lead to warnings or errors. These are filtered out,
+# i.e. not compiled.
+#
 BLACKLIST=const-not-really-a-const.c \
 	ternary.c \
 	array-var-not-modifiable.c \
@@ -167,6 +170,7 @@ $(OBJDIR)/divbyzero.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/divminus.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/typedef.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/use-after-free.o: CFLAGS_EXTRA=-Wno-use-after-free
+$(OBJDIR)/func-implicit.o: CFLAGS_EXTRA=-Wno-strict-prototypes
 
 all: $(DIROBJS)
 
