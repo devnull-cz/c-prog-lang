@@ -96,8 +96,13 @@ $(OBJDIR)/empty-array.o: CFLAGS_EXTRA=-Wno-zero-length-array
 $(OBJDIR)/assert.o: CFLAGS_EXTRA=-Wno-unused-parameter
 $(OBJDIR)/my-assert.o: CFLAGS_EXTRA=-Wno-unused-parameter
 $(OBJDIR)/argv-for.o: CFLAGS_EXTRA=-Wno-format-pedantic
+ifeq ($(CC), gcc)
 $(OBJDIR)/buf-overflow.o: CFLAGS_EXTRA=-Wno-builtin-memcpy-chk-size \
 	-Wno-sizeof-pointer-memaccess -Wno-stringop-overflow
+else
+$(OBJDIR)/buf-overflow.o: CFLAGS_EXTRA=-Wno-builtin-memcpy-chk-size \
+	-Wno-sizeof-pointer-memaccess
+endif
 $(OBJDIR)/derived-types.o: CFLAGS_EXTRA=-Wno-incompatible-pointer-types
 $(OBJDIR)/ptr_plus_plus.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-unused-value -Wno-format
