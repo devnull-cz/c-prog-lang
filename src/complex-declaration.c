@@ -1,10 +1,10 @@
 #include <stddef.h>
 
 /* foo and foo2 are compatible types */
-typedef char *(*(**foo[][8])())[];
+typedef char *(*(**foo[][8])(void))[];
 
 typedef char *a_of_p[];
-typedef a_of_p *(**foo2[][8])();
+typedef a_of_p *(**foo2[][8])(void);
 
 int
 main(void)
