@@ -171,6 +171,9 @@ $(OBJDIR)/divminus.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/typedef.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/use-after-free.o: CFLAGS_EXTRA=-Wno-use-after-free
 $(OBJDIR)/func-implicit.o: CFLAGS_EXTRA=-Wno-strict-prototypes
+ifeq ($(CC), clang)
+$(OBJDIR)/shadow-block.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
+endif
 
 all: $(DIROBJS)
 
