@@ -1,5 +1,9 @@
 # Expressions
 
+> An expression is a sequence of operators and operands that specifies computation of a
+> value, or that designates an object or a function, or that generates side effects, or that
+> performs a combination thereof.
+
 - Every expression has a value.
 
 - A logical expression has a value of either `0` or `1`, and its type is always
