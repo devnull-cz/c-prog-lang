@@ -1,6 +1,6 @@
 # Integer constants
 
-- An *integer constant* can be a decimal, octal, or hexadecimal constant. 
+- An *integer constant* can be a decimal, octal, or hexadecimal constant.
 
 - All of these are equal:
 ```C
@@ -29,12 +29,9 @@ main.c:6:17: error: invalid digit "9" in octal constant
 - If you use a larger number than one that fits within a byte as an argument for the `%c`
   conversion, the higher bits are trimmed.  The rule here is that the `int`
   argument is converted within `printf` to `unsigned char` (not just `char`!),
-  then printed as a character (= letter).  More on the integer conversion in
-  upcoming lectures.  See also
-#module numbers.md Numbers
-  on what happens with `char` or `short` when passed as argument to a variadic function.
-	- Also note the existence of `h` and `hh` modifiers.  See the printf()
-	  man page for more information.
+  then printed as a character (= letter).
+  - Also note the existence of `h` and `hh` modifiers.  See the printf(3)
+    man page for more information.
 
 ```C
 printf("%c\n", 65 + 256 + 256 + 256 * 100);
