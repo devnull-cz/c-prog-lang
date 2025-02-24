@@ -206,11 +206,12 @@ $ ./a.out
 - You can explicitly specify integer constants with different integer types
   using suffices:
 
-	- `13L` and `13l` is a `long`
-	- `13LL` and `13ll` is a `long long` (`Ll` and `lL` is illegal)
-	- `13u` and `13U` is an `unsigned int`
-	- `13lu` and `13LU` is an `unsigned long`
-	- `13llu` and `13LLU` is an `unsigned long long`
+  - `13L` and `13l` is a `long`
+  - `13LL` and `13ll` is a `long long` (`Ll` and `lL` is illegal)
+  - `13u` and `13U` is an `unsigned int`
+  - `13lu` and `13LU` is an `unsigned long`
+  - `13llu` and `13LLU` is an `unsigned long long`
+    - or `ull` / `ULL`
 
 - So, `0xFULL` and `0XFULL` is an `unsigned long long` 15 :-)
 
