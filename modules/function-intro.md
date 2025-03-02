@@ -1,6 +1,8 @@
 # Function introduction
 
 Functions can be used to encapsulate some work, for code re-factoring, etc.
+Note that we have mentioned before that C supports [structured
+programming](https://en.wikipedia.org/wiki/Structured_programming).
 
 A function has a single return value and multiple input parameters.
 
