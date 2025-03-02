@@ -4,7 +4,7 @@ A contiguous sequence of non-zero bytes (`char`s) terminated by a zero byte is
 called a *string* (C99 7.1.1).
 
 ```C
-char foo[] = { 'b', 'a', 'r', 0 };
+char foo[] = { 'b', 'a', 'r', '\0' };
 ```
 
 Note that a string does not have to be declared as an array as shown above, it
@@ -17,10 +17,9 @@ length of a string, the string must be sequentially searched for the first NUL.
 
 The string length is the number of bytes preceding the null character.
 
-It also means the size of the array `foo` defined above is **one byte more than
-the number of non-zero characters in the string**.  It is because of the
-terminating zero (`\0`).  The NUL, by the C specification, belongs to the string
-though.
+It also means the size of the array `foo` is **one byte more than the number of
+non-zero characters in the string**.  It is because of the terminating zero
+(`\0`).  The NUL, by the C specification, belongs to the string though.
 
 ```C
 char foo[] = { 'b', 'a', 'r', '\0' };
@@ -28,8 +27,9 @@ char foo[] = { 'b', 'a', 'r', '\0' };
 printf("%zu\n", sizeof (foo));		// prints 4
 ```
 
-Using `'\0'` suggests it is a terminating null character but it is still just a
-zero byte.  So, you could use `0`, as follows, but it is not generally used:
+Using a character constant `'\0'` suggests it is a terminating null character
+but it is still just a zero byte.  So, you could use `0`, as follows, but it is
+not generally used:
 
 ```C
 char foo[] = { 'b', 'a', 'r', 0 };
