@@ -11554,6 +11554,10 @@ test.c:4:2: note: previous implicit declaration is here
 	^
 1 warning and 1 error generated.
 </code></pre>
+<p>Note that in the case above there was also an error as a function declared
+implicitly is deeped to return an <code>int</code>.  However, as the compiler later finds
+the actual function definition returning nothing (<code>void</code>), it may (or may not)
+report an error.</p>
 <p>Parameter names may be omitted in prototypes, i.e.:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-en">myfn</span>(<span class="pl-smi">int</span>, <span class="pl-smi">int</span>);</pre></div>
 <p>A variable defined in function parameters or locally within the function
