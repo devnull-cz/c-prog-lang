@@ -11776,7 +11776,7 @@ $ objdump -d a.out
 
     115a:	90                   	nop
     115b:	5d                   	pop    %rbp
-    115c:	c3                   	retq   
+    115c:	c3                   	retq
 
 000000000000115d &lt;main&gt;:
     115d:	55                   	push   %rbp
@@ -11796,15 +11796,16 @@ $ objdump -d a.out
 	- x86 64 ABI expects the function return value in the register eax, so
 	  we just put it to the input register esi representing the 2nd argument
 	  for the printf() function.
-	- and, given that we happened to have the right value in eax, the code
-	  looks like it works.
+	- and, given that we happened to have the right value in eax as it was
+	  used as a general purpose regirster in the function binary code, our
+	  main.c code "works".
 
     1172:	48 8d 3d 8b 0e 00 00 	lea    0xe8b(%rip),%rdi        # 2004 &lt;_IO_stdin_used+0x4&gt;
     1179:	b8 00 00 00 00       	mov    $0x0,%eax
     117e:	e8 bd fe ff ff       	callq  1040 &lt;printf@plt&gt;
     1183:	b8 00 00 00 00       	mov    $0x0,%eax
     1188:	5d                   	pop    %rbp
-    1189:	c3                   	retq   
+    1189:	c3                   	retq
     118a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
 </code></pre>
 <p>What if we increment variable <code>n</code>, does it change anything?</p>
@@ -11814,8 +11815,8 @@ $ objdump -d a.out
 	<span class="pl-smi">int</span> <span class="pl-s1">n</span> <span class="pl-c1">=</span> <span class="pl-s1">n1</span> <span class="pl-c1">+</span> <span class="pl-s1">n2</span>;
 	<span class="pl-c1">++</span><span class="pl-s1">n</span>;
 }</pre></div>
-<pre><code>$ gcc main.c 
-./a.out 
+<pre><code>$ gcc main.c
+./a.out
 100
 </code></pre>
 <p>Apparently not, let's see the disassembled code:</p>
@@ -11901,11 +11902,12 @@ $ ./a.out
 <li>Ideally, if possible, test on different architectures (like x86, SPARC, ARM,
 etc).</li>
 <li>Using different compilers and different systems may help as well.  For
-example, if you develop in a Linux distro with <code>gcc</code>, testing it also on a
-macOS laptop would be worth it (C compiler in macOS Xcode IDE is <code>clang</code>).</li>
+example, if you develop on a Linux distro with <code>gcc</code>, testing it also on a
+macOS laptop would be worth it (C compiler in macOS Xcode IDE is <code>clang</code>).
+And what is more, recent MacBook generations are ARM based.</li>
 <li>If something magically stops working that did work before, be ready for
-breakage like this.  Even something that has worked for ages does not
-necessarily means the code must have been correct.</li>
+a possible breakage like this.  Even something that has worked for ages does
+not necessarily mean the code must have been correct to begin with.</li>
 <li>Always use <code>-Wall -Wextra</code> GCC options when building your code.  More on that
 later in the seminar.  See that <code>clang</code> warns by default which is a good
 thing.</li>
