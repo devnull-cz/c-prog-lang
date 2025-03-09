@@ -16,7 +16,7 @@ void fn(int n, int m)
 - #source array-variable-length.c
 
 - :heavy\_exclamation\_mark: Note that it generates more code which might be
-  avoided with a choosing a reasonable constant, if possible.  Also see [a rant
+  avoided by choosing a reasonable constant, if possible.  Also see [a rant
   from Linus](https://lkml.org/lkml/2018/3/7/621).
 
 ## K&R
