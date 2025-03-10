@@ -27,8 +27,9 @@ For a `char`:
  01111111	 127
 ```
 
-On Unix systems the shell reports the -1 return value as 255 in `echo $?`.  Even
-though the `main()` returns integer (4 bytes), the calling program (shell) gets
-just the low 8 bits and interprets them as unsigned quantity.
+On Unix systems the shell reports the -1 return value as 255 in `echo $?`.
+Even though the `main()` returns integer (usually 4 bytes),
+the calling program (shell) gets just the low 8 bits and interprets them as
+unsigned quantity.
 
 #source return-1.c
