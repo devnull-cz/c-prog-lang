@@ -39,6 +39,6 @@ program from last time using a function that utilizes the ternary operator
 ## :wrench: Min/max of 3 integer values
 
 Write an expression that returns maximum of 3 integers `i`, `j`, `k` using
-ternary operator.  Do not use any macros (in case you know those).
+ternary operator.  Do not use any preprocessor macros.
 
 #solution 3max.c
