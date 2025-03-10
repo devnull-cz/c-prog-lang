@@ -11853,7 +11853,7 @@ program from last time using a function that utilizes the ternary operator
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/toupper-ternary.c">toupper-ternary.c</a></p>
 <div class="markdown-heading"><h2 class="heading-element">🔧 Min/max of 3 integer values</h2><a id="user-content-wrench-minmax-of-3-integer-values" class="anchor" aria-label="Permalink: :wrench: Min/max of 3 integer values" href="#wrench-minmax-of-3-integer-values"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Write an expression that returns maximum of 3 integers <code>i</code>, <code>j</code>, <code>k</code> using
-ternary operator.  Do not use any macros (in case you know those).</p>
+ternary operator.  Do not use any preprocessor macros.</p>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/3max.c">3max.c</a></p>
 <div class="markdown-heading"><h1 class="heading-element">Negative numbers</h1><a id="user-content-negative-numbers" class="anchor" aria-label="Permalink: Negative numbers" href="#negative-numbers"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>The way negative numbers are stored is implementation defined in C99.  In our
@@ -11879,9 +11879,10 @@ is why a <code>signed char</code>, for example, can hold -128 to 127, and not ju
  ........
  01111111	 127
 </code></pre>
-<p>On Unix systems the shell reports the -1 return value as 255 in <code>echo $?</code>.  Even
-though the <code>main()</code> returns integer (4 bytes), the calling program (shell) gets
-just the low 8 bits and interprets them as unsigned quantity.</p>
+<p>On Unix systems the shell reports the -1 return value as 255 in <code>echo $?</code>.
+Even though the <code>main()</code> returns integer (usually 4 bytes),
+the calling program (shell) gets just the low 8 bits and interprets them as
+unsigned quantity.</p>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/return-1.c">return-1.c</a></p>
 <div class="markdown-heading"><h1 class="heading-element">Arithmetic type conversions</h1><a id="user-content-arithmetic-type-conversions" class="anchor" aria-label="Permalink: Arithmetic type conversions" href="#arithmetic-type-conversions"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>In (very) general, if <em>binary</em> operators have operands of different types, the
