@@ -1,0 +1,19 @@
+name: Check unused modules
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - modules/**
+    - input/**
+    - dev/check-unused-modules.sh
+    - .github/workflows/unused.yml
+jobs:
+  job1:
+    name: unused module check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout master branch
+      uses: actions/checkout@v4
+    - name: Check unused modules
+      run: ./dev/check-unused-modules.sh
