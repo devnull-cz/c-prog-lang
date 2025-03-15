@@ -77,14 +77,14 @@ small-file	/dev/urandom	512	1
 file2.zero	/dev/zero	512	0
 file3.zero	/dev/zero	512	0
 another-file2	/dev/urandom	512	50
-$largefile	/dev/urandom	1024	9216000000 This takes a few minutes"
+$largefile	/dev/urandom	1024	9000000 This takes a few minutes"
 
 echo "Creating files:"
 echo "$input" | while read fname source bs count comment; do
 	printf "  $fname"
 	[[ -n $comment ]] && printf " ($comment)"
 	printf "\n"
-	dd if=$source of=$fname bs=$bs count=$count 2>/dev/null
+	dd if=$source of=$fname bs=$bs count=$count
 	if (($? != 0)); then
 		echo "ERROR: dd on '$fname'."
 		exit 1
@@ -132,5 +132,12 @@ printf "$onezeroblockmissing 1\n$twozeroblocksmissing 0\n" | \
 	(($? != 0)) && echo "dd failed with zero blocks." && exit 1
 	echo "  $filename"
     done
+
+echo "Creating an archive with $largefile.  May take a few minutes."
+typeset large_archive=${largefile}.tar
+$GNUTAR -c -f ${largefile}.tar $largefile
+(($? != 0)) && echo "$GNUTAR failed." && exit 1
+printf "export largefile=$largefile\n" >> $configvar
+printf "export large_archive=$large_archive\n" >> $configvar
 
 exit 0
