@@ -84,7 +84,7 @@ echo "$input" | while read fname source bs count comment; do
 	printf "  $fname"
 	[[ -n $comment ]] && printf " ($comment)"
 	printf "\n"
-	dd if=$source of=$fname bs=$bs count=$count
+	dd if=$source of=$fname bs=$bs count=$count status=progress
 	if (($? != 0)); then
 		echo "ERROR: dd on '$fname'."
 		exit 1
