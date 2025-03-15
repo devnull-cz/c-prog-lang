@@ -77,7 +77,7 @@ small-file	/dev/urandom	512	1
 file2.zero	/dev/zero	512	0
 file3.zero	/dev/zero	512	0
 another-file2	/dev/urandom	512	50
-$largefile	/dev/uradom	1024	9216000000 This takes a few minutes"
+$largefile	/dev/urandom	1024	9216000000 This takes a few minutes"
 
 echo "Creating files:"
 echo "$input" | while read fname source bs count comment; do
