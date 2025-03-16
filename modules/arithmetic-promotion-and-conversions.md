@@ -77,7 +77,7 @@ printf("%zu\n", sizeof (c));
 
 Consult the `printf` man page if unsure about printf conversions and modifiers.
 
-Integer promotion also happens in arguments of variadic functions (eg.
+*Integer promotion also happens in arguments of variadic functions* (eg.
 `printf`).  That is why the following works as expected:
 
 ```C
