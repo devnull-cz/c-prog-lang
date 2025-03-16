@@ -11906,9 +11906,21 @@ implementation</a></p>
 <p>So, with <code>gcc</code> (and probably any other compilers you might meet today), this
 means the wrap-around rule is applied for signed integers as well.  However, let
 us repeat that the following is an example of implementation-defined behavior
-tied to the gcc compiler.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-smi">signed <span class="pl-smi">char</span></span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">128</span>;	<span class="pl-c">// 128 - 256, ie. -128 will be in 'c'.  Might surprise</span>
-			<span class="pl-c">// one, right?</span></pre></div>
+tied to the gcc compiler.  Note that by default, gcc has <code>char</code> signed.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">128</span>;	<span class="pl-c">// 128 - 256, ie. -128 will be in 'c'.  Might surprise</span>
+		<span class="pl-c">// one, right?</span></pre></div>
+<p>And this may be equally confusing until one understands how it works:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">128</span>;
+
+<span class="pl-en">printf</span>(<span class="pl-s">"%x\n"</span>, <span class="pl-s1">c</span>);</pre></div>
+<p>Compile and run.  As <code>printf</code> is a variadic function, <em>integer promotion</em> is
+performed on its integer arguments.  So, as <code>c</code> is actually -128, converted to
+a 4 byte <code>signed int</code> yields <code>11111111111111111111111110000000</code> as its binary
+representation, using the two's complement.  And as the <code>%x</code> modifier prints an
+<strong>unsigned</strong> <code>int</code> as hexa, <em>Rule 2</em> is applied to convert it to an <code>unsigned int</code>, and that results in a much larger number printed:</p>
+<pre><code>$ ./a.out
+ffffff80
+</code></pre>
 <p><code>printf</code>'s <code>hh</code> modifier is for printing a <code>char</code> (as a number, do not confuse
 it with the <code>c</code> modifier which prints a character), <code>h</code> for a <code>short</code>.  Note
 that <code>i</code> is first converted to an <code>int</code> if it is not already, as arguments of
