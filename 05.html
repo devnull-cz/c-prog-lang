@@ -12027,9 +12027,9 @@ $ ./a.out
 -1
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">Signed numbers</h2><a id="user-content-signed-numbers" class="anchor" aria-label="Permalink: Signed numbers" href="#signed-numbers"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>The spec does <strong>not</strong> say how signed numbers are internally stored.  That is
-just an implementation detail.  There are other ways to do it than via the two's
-complement.  See <a href="https://en.wikipedia.org/wiki/Signed_number_representations" rel="nofollow">Signed number
+<p>The C99 spec does <strong>not</strong> say how signed numbers are internally stored.  That is
+just an implementation detail for it.  There are other ways to do it than via
+the two's complement.  See <a href="https://en.wikipedia.org/wiki/Signed_number_representations" rel="nofollow">Signed number
 representations</a>.</p>
 <p>However, gcc, clang, and all other compilers you probably ever meet use two's
 complement, as documented on <a href="https://gcc.gnu.org/onlinedocs/gcc/Integers-implementation.html" rel="nofollow">Integers
@@ -12042,6 +12042,8 @@ implementation</a></p>
 	GCC supports only two's complement integer types, and
 	all bit patterns are ordinary values.
 </code></pre>
+<p>Note that in contrast to the previous C standards, the C23 specification
+requires two's complement to represent negative integers.</p>
 <div class="markdown-heading"><h1 class="heading-element">🔧 Assignment to practice your knowledge</h1><a id="user-content-wrench-assignment-to-practice-your-knowledge" class="anchor" aria-label="Permalink: :wrench: Assignment to practice your knowledge" href="#wrench-assignment-to-practice-your-knowledge"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Try to figure out using bc(1) and what you have just learned what will be in the
 variables:</p>
