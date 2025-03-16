@@ -11808,7 +11808,7 @@ for to review the knowledge.</p>
 (usually 4 or 8 bytes) matches the implementation, ie. whatever <code>size_t</code> is):</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s">"%zu\n"</span>, <span class="pl-k">sizeof</span> (<span class="pl-s1">c</span>));</pre></div>
 <p>Consult the <code>printf</code> man page if unsure about printf conversions and modifiers.</p>
-<p>Integer promotion also happens in arguments of variadic functions (eg.
+<p><em>Integer promotion also happens in arguments of variadic functions</em> (eg.
 <code>printf</code>).  That is why the following works as expected:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-s1">c</span> <span class="pl-c1">=</span> <span class="pl-c1">'A'</span>;
 <span class="pl-en">printf</span>(<span class="pl-s">"%c"</span>, <span class="pl-s1">c</span>);</pre></div>
