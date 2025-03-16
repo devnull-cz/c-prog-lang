@@ -64,7 +64,6 @@ printf "export tarfile=$tarfile\n\n" >> $configvar
 
 # Do not change aaa-file size, see below.
 typeset aaafile=aaa-file
-typeset largefile=random-9G
 typeset -i aaafileblocks=20
 typeset -i aaafilepartialblocks=$(($aaafileblocks / 2))
 typeset input="\
@@ -76,15 +75,18 @@ hello-world	/dev/urandom	1024	10
 small-file	/dev/urandom	512	1
 file2.zero	/dev/zero	512	0
 file3.zero	/dev/zero	512	0
-another-file2	/dev/urandom	512	50
-$largefile	/dev/urandom	1024	9000000 This takes a few minutes"
+another-file2	/dev/urandom	512	50"
+
+dd_out=$(dd --help 2>/dev/null)
+typeset status
+[[ $dd_out == *GNU*coreutils* ]] && status="status=progress"
 
 echo "Creating files:"
 echo "$input" | while read fname source bs count comment; do
 	printf "  $fname"
 	[[ -n $comment ]] && printf " ($comment)"
 	printf "\n"
-	dd if=$source of=$fname bs=$bs count=$count status=progress
+	dd if=$source of=$fname bs=$bs count=$count $status
 	if (($? != 0)); then
 		echo "ERROR: dd on '$fname'."
 		exit 1
@@ -93,10 +95,6 @@ done
 
 readarray -t inputfiles < <(echo "$input" | awk '{ print $1 }' | LC_ALL=C sort)
 echo "declare -a inputfiles" >> $configvar
-
-# This is hacky a bit.  We should put a flag in 'input' to exclude a file from
-# the tarball.  We do not want $largefile in there.
-unset inputfiles[$((${#inputfiles[@]} - 1))]
 
 typeset -i i=0
 for entry in ${inputfiles[@]}; do
@@ -133,9 +131,15 @@ printf "$onezeroblockmissing 1\n$twozeroblocksmissing 0\n" | \
 	echo "  $filename"
     done
 
-echo "Creating an archive with $largefile.  May take a few minutes."
+typeset largefile=/tmp/random-9G
+typeset LARGEFILE_SIZE=${LARGEFILE_SIZE:-1000000}
+echo "Creating a large file $largefile.  May take a minute."
+dd if=/dev/urandom of=$largefile bs=1024 count=$LARGEFILE_SIZE $status
+(($? != 0)) && echo "dd(1) failed." && exit 1
+
+echo "Creating an archive with $largefile.  May take a minute."
 typeset large_archive=${largefile}.tar
-$GNUTAR -c -f ${largefile}.tar $largefile
+$GNUTAR -c -v -f ${largefile}.tar $largefile
 (($? != 0)) && echo "$GNUTAR failed." && exit 1
 printf "export largefile=$largefile\n" >> $configvar
 printf "export large_archive=$large_archive\n" >> $configvar
