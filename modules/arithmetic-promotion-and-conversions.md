@@ -231,15 +231,20 @@ $ ./a.out
 ffffff80
 ```
 
-`printf`'s `hh` modifier is for printing a `char` (as a number, do not confuse
-it with the `c` modifier which prints a character), `h` for a `short`.  Note
-that `i` is first converted to an `int` if it is not already, as arguments of
-variadic functions goes through *integer promotion*, as we already know.  Then,
-it is converted to a `char` **inside** `printf`.
+`printf`'s `hh` modifier is for printing either a signed or unsigned `char` (as
+a number, do not confuse it with the `c` modifier which prints a character), `h`
+for an unsigned or signed `short`.  Note that `i` below is first converted to an
+`int` if it is not already, as arguments of variadic functions goes through
+*integer promotion*, as we already know.  Then, it is converted to a `char`
+**inside** `printf`.
 
 ```C
 /* This will print 1 if compiled with gcc. */
 int i = 257;
+/*
+ * As 'd' is signed, this is for a signed char.  'hhu' would be for an unsigned
+ * char.
+ */
 printf("%hhd\n", i);
 ```
 
