@@ -11698,20 +11698,23 @@ contiguous memory.</p>
 <ul>
 <li>As with the 1-dimensional array, the most "significant" dimension of the array
 may be omitted <strong>if statically initialized</strong>, but nothing below, i.e. these
-are fine:</li>
+are fine.  We only initialize the first element in the last dimension.</li>
 </ul>
-<pre><code>int a[][5] = { 0 };
-int a[][3][6] = { 0 };
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-s1">a</span>[][<span class="pl-c1">5</span>] <span class="pl-c1">=</span> { { <span class="pl-c1">0</span> } };
+<span class="pl-smi">int</span> <span class="pl-s1">a</span>[][<span class="pl-c1">3</span>][<span class="pl-c1">6</span>] <span class="pl-c1">=</span> { { { <span class="pl-c1">0</span> } } };</pre></div>
+<p>Note that it is legal to omit the curly bracket hierarchy, and do as follows,
+which it what is normally used when zeroing our an array, and what we will use
+as well:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-s1">a</span>[][<span class="pl-c1">5</span>] <span class="pl-c1">=</span> { <span class="pl-c1">0</span> };
+<span class="pl-smi">int</span> <span class="pl-s1">a</span>[][<span class="pl-c1">3</span>][<span class="pl-c1">6</span>] <span class="pl-c1">=</span> { <span class="pl-c1">0</span> };</pre></div>
 <p>However these are not:</p>
-<pre><code>int a[5][6][] = { 0 };
-int a[5][][8] = { 0 };
-</code></pre>
+<div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-s1">a</span>[<span class="pl-c1">5</span>][<span class="pl-c1">6</span>][] <span class="pl-c1">=</span> { <span class="pl-c1">0</span> };
+<span class="pl-smi">int</span> <span class="pl-s1">a</span>[<span class="pl-c1">5</span>][][<span class="pl-c1">8</span>] <span class="pl-c1">=</span> { <span class="pl-c1">0</span> };</pre></div>
 <ul>
 <li>
 <p>The reason is that if you do not specify how many "lines" are there in memory,
-it is OK as that can be recognized from the initializer but you always need
-to know the "length" of the "line" so that you can store them one by one.</p>
+it is OK as that can be recognized from the initializer but you always need to
+know the "length" of the "line" so that you can store them one by one.</p>
 </li>
 <li>
 <p>See above for <code>a[2][4][3]</code> and its memory layout.  We can easily add a new
