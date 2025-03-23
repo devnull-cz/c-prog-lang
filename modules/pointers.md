@@ -193,7 +193,7 @@ p = &(i + 1);	// we cannot assign to (i + 1) like this: "(i + 1) = 1;"
 *p = 1;
 ```
 
-## Changing pointers:
+## Changing pointer values:
 
 Pointers can be moved forward and backward:
 
