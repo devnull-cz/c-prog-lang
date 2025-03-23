@@ -13133,28 +13133,22 @@ warning.  We will get to casting and how to fix that later.</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span> <span class="pl-c1">*</span><span class="pl-s1">p</span> <span class="pl-c1">=</span> <span class="pl-c1">0x1234</span>;</pre></div>
 <ul>
-<li>
-<p>Zero pointer value cast to <code>void *</code> is called <em>a null pointer constant</em> and is
+<li>Zero pointer value cast to <code>void *</code> is called <em>a null pointer constant</em> and is
 also defined as a macro <code>NULL</code>
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">in the C specification.</a>
 If a null pointer constant is converted to a pointer type such a pointer is
 called a <em>null pointer</em> and it is guaranteed in C not to point to any object
 or a function.  In other words, dereferencing a null pointer is guaranteed to
-terminate the program.</p>
+terminate the program.
 <ul>
-<li>
-<p>We will talk about <code>void</code> later but it is <strong>a type that has no
+<li>We will talk about <code>void</code> later but it is <strong>a type that has no
 values</strong>.  A pointer to such a type can never be dereferenced (as that
 would give us a value of the type but we just defined such a value
-does not exist).</p>
-</li>
-<li>
-<p>This is because zero address is left unmapped on purpose, or a page
-that cannot be accessed maps to the address.</p>
-</li>
-<li>
-<p>The C specification says that the macro <code>NULL</code> must be defined in
-<code>&lt;stddef.h&gt;</code></p>
+does not exist).</li>
+<li>This is because zero address is left unmapped on purpose, or a page
+that cannot be accessed maps to the address.</li>
+<li>The C specification says that the macro <code>NULL</code> must be defined in
+<code>&lt;stddef.h&gt;</code>
 </li>
 </ul>
 </li>
@@ -13212,7 +13206,7 @@ may be assigned values to.  The following is invalid then:</li>
 <li>Store value to the address pointed to by a pointer:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-c1">*</span><span class="pl-s1">p</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span>;</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">Changing pointers:</h2><a id="user-content-changing-pointers" class="anchor" aria-label="Permalink: Changing pointers:" href="#changing-pointers"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">Changing pointer values:</h2><a id="user-content-changing-pointer-values" class="anchor" aria-label="Permalink: Changing pointer values:" href="#changing-pointer-values"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Pointers can be moved forward and backward:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-s1">p</span> <span class="pl-c1">=</span> <span class="pl-s1">p</span> <span class="pl-c1">+</span> <span class="pl-c1">1</span>;
 <span class="pl-s1">p</span><span class="pl-c1">++</span>;
