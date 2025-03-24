@@ -167,11 +167,11 @@ All tests passed.
 For the phase 2 tests, example output (number of tests may increase):
 
 # == 8< ==
-$ ./run-tests.sh 
+$ ./run-tests.sh
 === [ NPRG099 Tar Unit Tests ] ===
 Checking configuration sanity.
 Checking existence of executables provided by the following variables: GCC GNUTAR
-Checking existence of regular files provided by the following variables:  
+Checking existence of regular files provided by the following variables:
 
 --- [ Configuration Start ] ---
 WARNING: Using '/opt/local/bin/gnutar' as the GNU tar testing binary.

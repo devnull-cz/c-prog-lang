@@ -73,8 +73,8 @@ If unsure what is the correct behavior, check how GNU tar behaves on Linux.
   For all other error messages and warnings, you must follow the exact wording
   (as we followed the wording from GNU tar).
 
-- You must support files over 8G using the star extension.  That extension was
-  accepted also by GNU tar.  The star man page reads:
+- You must support files over 8G using the star(1) extension.  That extension
+  was accepted also by GNU tar.  The star man page reads:
 
 	Star implements a vendor specific (and thus non-POSIX) extension
 	to put bigger numbers into the numeric fields. This is done by

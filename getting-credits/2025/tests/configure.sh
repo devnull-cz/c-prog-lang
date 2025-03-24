@@ -48,7 +48,7 @@ fi
 
 tmpdir=$(mktemp -d dir.XXXXX)
 (($? != 0)) && echo "mktemp failed." && exit 1
-echo "Created temporary directory '$tmpdir'."
+echo "Created temporary directory './$tmpdir'."
 
 # We want the config in the test root directory.
 configvar=$(pwd)/$configvar
@@ -86,7 +86,7 @@ echo "$input" | while read fname source bs count comment; do
 	printf "  $fname"
 	[[ -n $comment ]] && printf " ($comment)"
 	printf "\n"
-	dd if=$source of=$fname bs=$bs count=$count $status
+	dd if=$source of=$fname bs=$bs count=$count 2>/dev/null
 	if (($? != 0)); then
 		echo "ERROR: dd on '$fname'."
 		exit 1
@@ -131,17 +131,31 @@ printf "$onezeroblockmissing 1\n$twozeroblocksmissing 0\n" | \
 	echo "  $filename"
     done
 
-typeset largefile=/tmp/random-9G
-typeset LARGEFILE_SIZE=${LARGEFILE_SIZE:-1000000}
-echo "Creating a large file $largefile.  May take a minute."
+typeset myname
+myname=$(id -un)
+(($? != 0)) && echo "id(1) failed." && exit 1
+typeset large_dir=/tmp/c-prog-lang--$myname
+mkdir -p $large_dir || { echo "mkdir failed"; exit 1; }
+
+typeset largefile=large-random-data
+# Configuration variable.
+typeset LARGEFILE_SIZE=${LARGEFILE_SIZE:-9000000}
+printf "%s\n%s\n%s\n" \
+    "Creating large file '$large_dir/${largefile}'" \
+    "  Size in 1KiB: $LARGEFILE_SIZE (set LARGEFILE_SIZE to overwrite)." \
+    "  May take a minute:"
+cd $large_dir
 dd if=/dev/urandom of=$largefile bs=1024 count=$LARGEFILE_SIZE $status
 (($? != 0)) && echo "dd(1) failed." && exit 1
 
-echo "Creating an archive with $largefile.  May take a minute."
+printf "%s\n%s\n" "Creating an archive with $large_dir/${largefile}." \
+    "  May take a minute:"
 typeset large_archive=${largefile}.tar
-$GNUTAR -c -v -f ${largefile}.tar $largefile
+$GNUTAR -c -v -f $large_archive $largefile
 (($? != 0)) && echo "$GNUTAR failed." && exit 1
+printf "export large_dir=$large_dir\n" >> $configvar
 printf "export largefile=$largefile\n" >> $configvar
 printf "export large_archive=$large_archive\n" >> $configvar
+printf "export large_extract_dir=$large_dir/c-prog-lang\n" >> $configvar
 
 exit 0
