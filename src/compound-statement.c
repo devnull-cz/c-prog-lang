@@ -18,6 +18,7 @@ main(void)
 
 	/*
 	 * This 'i' is not related to the 'i' variable used in the block above.
+	 * It is in different scope.
 	 */
 	++i;
 
