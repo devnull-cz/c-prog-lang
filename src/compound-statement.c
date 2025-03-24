@@ -9,7 +9,7 @@ main(void)
 		/* variable declaration with initialization */
 		int i = 8;
 
-		/* 
+		/*
 		 * expression statement (note that a function call is just an
 		 * expression in C).
 		 */
