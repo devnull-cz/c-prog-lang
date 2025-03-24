@@ -13,7 +13,7 @@ the information there carefully.
 
 Submission tests to verify your implementation
 ----------------------------------------------
-See https://github.com/devnull-cz/c-prog-lang/tree/master/getting-credits/2024/tests/README
+See https://github.com/devnull-cz/c-prog-lang/tree/master/getting-credits/2025/tests/README
 
 Always use the latest version of the tests.
 
