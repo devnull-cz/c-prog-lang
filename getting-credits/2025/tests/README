@@ -38,6 +38,7 @@ export MYTAR_C="/data/repos/mytar/mytar.c"
 # to the system GNU tar.  See the example output below for more information.
 #
 # Example:
+###unset MYTAR_C
 ###export MYGNUTAR="$(which gnutar)"
 
 # When you have set STEF, GNUTAR, and MYTAR_C (or MYGNUTAR instead, see below),
@@ -79,6 +80,16 @@ Creating 'partial.tar' truncated in the middle of an archived file.
 Creating archives with missing ending zero block(s):
   one-zero-block-missing.tar
   two-zero-blocks-missing.tar
+Creating a large file /tmp/c-prog-lang--pechanec/large-random-data.
+  Size in 1KiB: 9000000 (set LARGEFILE_SIZE to overwrite).
+  May take a minute:
+9195199488 bytes (9.2 GB, 8.6 GiB) copied, 48 s, 192 MB/s
+9000000+0 records in
+9000000+0 records out
+9216000000 bytes (9.2 GB, 8.6 GiB) copied, 48.1088 s, 192 MB/s
+Creating an archive with /tmp/c-prog-lang--pechanec/large-random-data.
+  May take a minute:
+large-random-data
 --- [ Configuration End ] ---
 
 --- [ Running tests ] ---
@@ -141,6 +152,16 @@ Creating 'partial.tar' truncated in the middle of an archived file.
 Creating archives with missing ending zero block(s):
   one-zero-block-missing.tar
   two-zero-blocks-missing.tar
+Creating a large file /tmp/c-prog-lang--pechanec/large-random-data.
+  Size in 1KiB: 9000000 (set LARGEFILE_SIZE to overwrite).
+  May take a minute:
+9195199488 bytes (9.2 GB, 8.6 GiB) copied, 48 s, 192 MB/s
+9000000+0 records in
+9000000+0 records out
+9216000000 bytes (9.2 GB, 8.6 GiB) copied, 48.1088 s, 192 MB/s
+Creating an archive with /tmp/c-prog-lang--pechanec/large-random-data.
+  May take a minute:
+large-random-data
 --- [ Configuration End ] ---
 
 --- [ Running tests ] ---
@@ -199,6 +220,16 @@ Creating a truncated file from aaa-file.
 Creating archives with missing ending zero block(s):
   one-zero-block-missing.tar
   two-zero-blocks-missing.tar
+Creating a large file /tmp/c-prog-lang--pechanec/large-random-data.
+  Size in 1KiB: 9000000 (set LARGEFILE_SIZE to overwrite).
+  May take a minute:
+9195199488 bytes (9.2 GB, 8.6 GiB) copied, 48 s, 192 MB/s
+9000000+0 records in
+9000000+0 records out
+9216000000 bytes (9.2 GB, 8.6 GiB) copied, 48.1088 s, 192 MB/s
+Creating an archive with /tmp/c-prog-lang--pechanec/large-random-data.
+  May take a minute:
+large-random-data
 --- [ Configuration End ] ---
 
 --- [ Running tests ] ---
@@ -231,6 +262,7 @@ Creating archives with missing ending zero block(s):
   029	PASS
   030	PASS
   031	PASS
+  032	PASS
 --- [ Tests finished ] ---
 
 --- [ Unconfiguration Start ] ---
