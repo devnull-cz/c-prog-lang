@@ -165,7 +165,7 @@ endif
 ifeq ($(CC), gcc)
 $(OBJDIR)/typedef.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 endif
-$(OBJDIR)/int-promotion.o: CFLAGS_EXTRA=-Wno-overflow
+$(OBJDIR)/solutions/int-promotion.o: CFLAGS_EXTRA=-Wno-overflow
 $(OBJDIR)/divbyzero.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/divminus.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 $(OBJDIR)/typedef.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
