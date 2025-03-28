@@ -15,6 +15,7 @@ var markdownInclude = require('markdown-include');
 
 var BASE_LINK = "https://github.com/devnull-cz/c-prog-lang/blob/master/"
 var SRC_LINK = BASE_LINK + "src/";
+var SOLUTIONS_LINK = SRC_LINK + "solutions/";
 var MODULE_LINK = BASE_LINK + "modules/";
 
 markdownInclude.registerPlugin({
@@ -31,7 +32,7 @@ markdownInclude.registerPlugin({
 	replace: function (tag) {
 		var res = tag.split("#solution ");
 		var file = res[1];
-		return res[0] + ':key: [' + file + "](" + SRC_LINK + file + ")";
+		return res[0] + ':key: [' + file + "](" + SOLUTIONS_LINK + file + ")";
 	}
 });
 
