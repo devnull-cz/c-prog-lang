@@ -80,25 +80,25 @@ $(OBJDIR)/tasks/string-to-array-copy.o: CFLAGS_EXTRA=\
 	-Wno-implicit-function-declaration -Wno-format
 $(OBJDIR)/static-func.o: CFLAGS_EXTRA=-Wno-unused-function
 $(OBJDIR)/cast-intptr.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
-$(OBJDIR)/print-argv-recursively.o: CFLAGS_EXTRA=-Wno-unused-parameter
+$(OBJDIR)/solutions/print-argv-recursively.o: CFLAGS_EXTRA=-Wno-unused-parameter
 $(OBJDIR)/3d-array.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
 $(OBJDIR)/solutions/2d-array.o: CFLAGS_EXTRA=-Wno-sign-compare
 $(OBJDIR)/struct-designated-init.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-format
 $(OBJDIR)/expression-statement.o: CFLAGS_EXTRA=-Wno-unused-value
 $(OBJDIR)/ptr-ptr-array.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
-$(OBJDIR)/argv-nodash.o: CFLAGS_EXTRA=-Wno-format-pedantic
+$(OBJDIR)/solutions/argv-nodash.o: CFLAGS_EXTRA=-Wno-format-pedantic
 $(OBJDIR)/bitwise-vs-logical.o: CFLAGS_EXTRA=-Wno-parentheses
-$(OBJDIR)/argv-while.o: CFLAGS_EXTRA=-Wno-format-pedantic \
+$(OBJDIR)/solutions/argv-while.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-unused-parameter
 $(OBJDIR)/random.o: CFLAGS_EXTRA=-Wno-sign-compare
 $(OBJDIR)/plus-deref-plus-argv.o: CFLAGS_EXTRA=-Wno-unused-parameter
-$(OBJDIR)/struct-op-precedence.o: CFLAGS_EXTRA=-Wno-format-pedantic \
+$(OBJDIR)/solutions/struct-op-precedence.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-format
 $(OBJDIR)/empty-array.o: CFLAGS_EXTRA=-Wno-zero-length-array
 $(OBJDIR)/assert.o: CFLAGS_EXTRA=-Wno-unused-parameter
 $(OBJDIR)/my-assert.o: CFLAGS_EXTRA=-Wno-unused-parameter
-$(OBJDIR)/argv-for.o: CFLAGS_EXTRA=-Wno-format-pedantic
+$(OBJDIR)/solutions/argv-for.o: CFLAGS_EXTRA=-Wno-format-pedantic
 ifeq ($(CC), gcc)
 $(OBJDIR)/buf-overflow.o: CFLAGS_EXTRA=-Wno-builtin-memcpy-chk-size \
 	-Wno-sizeof-pointer-memaccess -Wno-stringop-overflow
@@ -114,15 +114,15 @@ ifeq ($(CC), gcc)
 $(OBJDIR)/arithmetics.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 endif
 $(OBJDIR)/struct-reference.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
-$(OBJDIR)/null-ptr.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
-$(OBJDIR)/ptr-basics.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
+$(OBJDIR)/solutions/null-ptr.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
+$(OBJDIR)/solutions/ptr-basics.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
 $(OBJDIR)/string-literal-address.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-format
 $(OBJDIR)/prefix-ptr-inc.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-format
 $(OBJDIR)/uintptr.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
 $(OBJDIR)/ptr-change.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
-$(OBJDIR)/ptr-diff.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
+$(OBJDIR)/solutions/ptr-diff.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
 $(OBJDIR)/printf-format.o: CFLAGS_EXTRA=-Wno-format
 $(OBJDIR)/wrong-modifier.o: CFLAGS_EXTRA=-Wno-format
 $(OBJDIR)/fmt-string-invalid.o: CFLAGS_EXTRA=-Wno-format
