@@ -82,7 +82,7 @@ $(OBJDIR)/static-func.o: CFLAGS_EXTRA=-Wno-unused-function
 $(OBJDIR)/cast-intptr.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
 $(OBJDIR)/print-argv-recursively.o: CFLAGS_EXTRA=-Wno-unused-parameter
 $(OBJDIR)/3d-array.o: CFLAGS_EXTRA=-Wno-format-pedantic -Wno-format
-$(OBJDIR)/2d-array.o: CFLAGS_EXTRA=-Wno-sign-compare
+$(OBJDIR)/solutions/2d-array.o: CFLAGS_EXTRA=-Wno-sign-compare
 $(OBJDIR)/struct-designated-init.o: CFLAGS_EXTRA=-Wno-format-pedantic \
 	-Wno-format
 $(OBJDIR)/expression-statement.o: CFLAGS_EXTRA=-Wno-unused-value
