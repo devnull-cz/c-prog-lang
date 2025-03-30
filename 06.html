@@ -12772,8 +12772,8 @@
                         <div class="markdown-heading"><h1 class="heading-element">Strings and String Constants</h1><a id="user-content-strings-and-string-constants" class="anchor" aria-label="Permalink: Strings and String Constants" href="#strings-and-string-constants"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>We already know what a
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/string.md">string</a>
-is.  It is an array of non-null characters terminated by a null byte.  The null
-character is part of the string.</p>
+is.  It is a sequence of non-null characters terminated by a null byte.  The
+null character is part of the string.</p>
 <ul>
 <li>
 <p>A <em>character string literal</em> is a sequence of zero or more characters enclosed
@@ -12787,7 +12787,7 @@ quotes are two different things in C.</li>
 </li>
 <li>
 <p><strong>A string constant internally initializes an array of characters, with a null
-character appended.</strong></p>
+character appended.</strong>  See C99, 6.4.5 String literals, paragraph 5.</p>
 </li>
 <li>
 <p>That also means that a string literal may include multiple null characters,
@@ -12893,14 +12893,16 @@ with a single conversion specification like this:</li>
 </code></pre>
 <ul>
 <li>Your code must not have <code>x</code> in it.  The only string literal allowed in your
-code must be <code>"%s\n"</code> in <code>printf</code>.</li>
+code must be <code>"%s\n"</code> in <code>printf</code>.  If you use <code>grep</code> on your code, its output
+must be empty as follows:</li>
 </ul>
 <pre><code>$ grep x main.c
 $
 $ grep '".*"' main.c | grep -v 'printf.*%s'
 $
 </code></pre>
-<p>Expected output follows (<code>&lt;tab&gt;</code> means a literal tabelator character):</p>
+<p>When you compile your code, the expected output follows (<code>&lt;tab&gt;</code> means a literal
+tabelator character):</p>
 <pre><code>hello
 world
 &lt;tab&gt;x
