@@ -46,7 +46,7 @@ if (fclose(fp) != 0)
 fprintf(stderr, "Error: %s\n", "some error");
 ```
 
-:wrench: Write a code that opens the same file in an cycle (until `fopen()`
+:wrench: Write code that opens the same file in an cycle (until `fopen()`
 fails) without calling `fclose()` on the handle. After how many iterations does
 it fail on your system?
 
@@ -115,6 +115,10 @@ fclose(fp);
 ```
 
 #source read-file.c
+
+:wrench: Write code that opens a file of your choosing, reads it byte by byte,
+and prints it out to the standard output using `putchar`.  Do not cut-n-paste
+any code from the above, do write it.
 
 :wrench: Note that you could read more characters at a time.  However, keep in
 mind the 2nd argument is the size of the element read, and the 3rd argument is
