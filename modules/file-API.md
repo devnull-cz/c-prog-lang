@@ -8,7 +8,10 @@ since C90.
 
 - The `fopen("path", "mode")` opens a file and returns a pointer to an opaque
   `FILE` type.  That pointer serves as a handle.
-	- Getting `NULL` means an error.
+	- An "opaque type" means it is something the programmer does not need
+	  (and should not need) to care what the type actually is.  In this
+	  case, it is not relevant what `FILE` actually is.
+	- Function returns `NULL` on error.
 	- The `mode` argument controls the behavior: read (`r`), write (`w`),
 	  append (`a`).
 		- The `+` adds the other mode (write for read and vice versa,
@@ -33,14 +36,14 @@ if (fclose(fp) != 0)
 
 - The `b` binary mode usually does not have any effect.
 - The `freopen` can be used to associate the standard streams (`stderr`,
-  `stdin`, or `stdout`) with a file
+  `stdin`, or `stdout`) with a file.
 	- That means e.g. reading the standard input would automatically read
 	  from a specific file, if you wanted that.
 	- `printf(...)` is equivalent to `fprintf(stdout, ...)`.  However, you
-	  can print directly to `stderr` with `fprintf`.
+	  can also print directly to `stderr` with `fprintf`.
 
 ```C
-fprintf(stderr, "Error happened: %s\n", "some error");
+fprintf(stderr, "Error: %s\n", "some error");
 ```
 
 :wrench: Write a code that opens the same file in an cycle (until `fopen()`
@@ -120,18 +123,28 @@ the same as `&a[0]`.  For example:
 
 ```C
 char a[16];
+/*
+ * Do not use "16" instead of nelem below to avoid changing more than one place
+ * when you replace 16 with anything else.
+ */
+size_t nelem = sizeof (a) / sizeof (a[0]);
 ...
-while ((n = fread(a, sizeof (a[0]), sizeof (a) / sizeof (a[0]), fp)) > 0) {
-	/* Process the bytes here. */
 
-	/* If we read less elements than requested, we hit end of file or error. */
-	if (n < (sizeof (a) / sizeof (a[0])))
+while ((n = fread(a, sizeof (a[0]), nelem, fp)) > 0) {
+	/* Process the bytes here. */
+	/* ... */
+
+	/*
+	 * If we read less elements than requested, we hit an end of file or
+	 * error.
+	 */
+	if (n < nelem)
 		break;
 }
 ```
 
 What could happen if reading bytes into character array and the 2nd and 3rd
-arguments are swapped ?
+arguments are swapped?
 
 #source read-file2.c
 
