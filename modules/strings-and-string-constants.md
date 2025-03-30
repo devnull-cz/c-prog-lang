@@ -5,8 +5,9 @@ We already know what a
 is.  It is an array of non-null characters terminated by a null byte.  The null
 character is part of the string.
 
-- A *string literal* is a sequence of zero or more characters enclosed in
-  double-quotes, as in `"xxx"`.  It is also called a *string constant*.
+- A *character string literal* is a sequence of zero or more characters enclosed
+  in double-quotes, as in `"xxx"`.  It is also called a *string constant*.  We
+  may often call it just a *string literal*.
 
 	- Do not confuse it with a *character constant*, e.g. `'A'`, as it uses
 	  single quotes.  In contrast to Python, for example, single and double
@@ -113,3 +114,12 @@ printf("%s\n", "hello, world");
 - Experiment with what `%5s` and `%.5s` do (use any reasonable number)
 
 #source string-format.c
+
+- To include a double quote in a string literal, you must escape it with `\`.
+  You may or may not escape a single quote within a string literal (C99, 6.4.5
+  String literals, paragraph 3).  The following must produce the same output:
+
+```C
+printf("%s\n", "\"'");
+printf("%s\n", "\"\'");
+```
