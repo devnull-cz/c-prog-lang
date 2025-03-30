@@ -2,8 +2,8 @@
 
 We already know what a
 #module string.md string
-is.  It is an array of non-null characters terminated by a null byte.  The null
-character is part of the string.
+is.  It is a sequence of non-null characters terminated by a null byte.  The
+null character is part of the string.
 
 - A *character string literal* is a sequence of zero or more characters enclosed
   in double-quotes, as in `"xxx"`.  It is also called a *string constant*.  We
@@ -14,7 +14,7 @@ character is part of the string.
 	  quotes are two different things in C.
 
 - **A string constant internally initializes an array of characters, with a null
-  character appended.**
+  character appended.**  See C99, 6.4.5 String literals, paragraph 5.
 
 - That also means that a string literal may include multiple null characters,
   thus defining multiple strings.  Note that a *string literal* and a *string*

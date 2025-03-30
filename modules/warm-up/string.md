@@ -8,7 +8,8 @@ printf("%s\n", str);
 ```
 
 - Your code must not have `x` in it.  The only string literal allowed in your
-  code must be `"%s\n"` in `printf`.
+  code must be `"%s\n"` in `printf`.  If you use `grep` on your code, its output
+  must be empty as follows:
 
 ```
 $ grep x main.c
@@ -17,7 +18,8 @@ $ grep '".*"' main.c | grep -v 'printf.*%s'
 $
 ```
 
-Expected output follows (`<tab>` means a literal tabelator character):
+When you compile your code, the expected output follows (`<tab>` means a literal
+tabelator character):
 
 ```
 hello
