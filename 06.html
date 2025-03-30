@@ -12776,8 +12776,9 @@ is.  It is an array of non-null characters terminated by a null byte.  The null
 character is part of the string.</p>
 <ul>
 <li>
-<p>A <em>string literal</em> is a sequence of zero or more characters enclosed in
-double-quotes, as in <code>"xxx"</code>.  It is also called a <em>string constant</em>.</p>
+<p>A <em>character string literal</em> is a sequence of zero or more characters enclosed
+in double-quotes, as in <code>"xxx"</code>.  It is also called a <em>string constant</em>.  We
+may often call it just a <em>string literal</em>.</p>
 <ul>
 <li>Do not confuse it with a <em>character constant</em>, e.g. <code>'A'</code>, as it uses
 single quotes.  In contrast to Python, for example, single and double
@@ -12875,6 +12876,13 @@ conversion specifier:</li>
 <li>Experiment with what <code>%5s</code> and <code>%.5s</code> do (use any reasonable number)</li>
 </ul>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/string-format.c">string-format.c</a></p>
+<ul>
+<li>To include a double quote in a string literal, you must escape it with <code>\</code>.
+You may or may not escape a single quote within a string literal (C99, 6.4.5
+String literals, paragraph 3).  The following must produce the same output:</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-s">"\"'"</span>);
+<span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>, <span class="pl-s">"\"\'"</span>);</pre></div>
 <div class="markdown-heading"><h1 class="heading-element">Warm-up</h1><a id="user-content-warm-up" class="anchor" aria-label="Permalink: Warm-up" href="#warm-up"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="markdown-heading"><h2 class="heading-element">Create a special string</h2><a id="user-content-create-a-special-string" class="anchor" aria-label="Permalink: Create a special string" href="#create-a-special-string"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
