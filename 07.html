@@ -12864,7 +12864,10 @@ since C90.</p>
 <li>The <code>fopen("path", "mode")</code> opens a file and returns a pointer to an opaque
 <code>FILE</code> type.  That pointer serves as a handle.
 <ul>
-<li>Getting <code>NULL</code> means an error.</li>
+<li>An "opaque type" means it is something the programmer does not need
+(and should not need) to care what the type actually is.  In this
+case, it is not relevant what <code>FILE</code> actually is.</li>
+<li>Function returns <code>NULL</code> on error.</li>
 <li>The <code>mode</code> argument controls the behavior: read (<code>r</code>), write (<code>w</code>),
 append (<code>a</code>).
 <ul>
@@ -12893,17 +12896,17 @@ memory and file descriptor).</li>
 <ul>
 <li>The <code>b</code> binary mode usually does not have any effect.</li>
 <li>The <code>freopen</code> can be used to associate the standard streams (<code>stderr</code>,
-<code>stdin</code>, or <code>stdout</code>) with a file
+<code>stdin</code>, or <code>stdout</code>) with a file.
 <ul>
 <li>That means e.g. reading the standard input would automatically read
 from a specific file, if you wanted that.</li>
 <li>
 <code>printf(...)</code> is equivalent to <code>fprintf(stdout, ...)</code>.  However, you
-can print directly to <code>stderr</code> with <code>fprintf</code>.</li>
+can also print directly to <code>stderr</code> with <code>fprintf</code>.</li>
 </ul>
 </li>
 </ul>
-<div class="highlight highlight-source-c"><pre><span class="pl-en">fprintf</span>(<span class="pl-s1">stderr</span>, <span class="pl-s">"Error happened: %s\n"</span>, <span class="pl-s">"some error"</span>);</pre></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-en">fprintf</span>(<span class="pl-s1">stderr</span>, <span class="pl-s">"Error: %s\n"</span>, <span class="pl-s">"some error"</span>);</pre></div>
 <p>🔧 Write a code that opens the same file in an cycle (until <code>fopen()</code>
 fails) without calling <code>fclose()</code> on the handle. After how many iterations does
 it fail on your system?</p>
@@ -12971,16 +12974,26 @@ mind the 2nd argument is the size of the element read, and the 3rd argument is
 how many elements we read in one call.  Remember that using an array name <code>a</code> is
 the same as <code>&amp;a[0]</code>.  For example:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-s1">a</span>[<span class="pl-c1">16</span>];
+<span class="pl-c">/*</span>
+<span class="pl-c"> * Do not use "16" instead of nelem below to avoid changing more than one place</span>
+<span class="pl-c"> * when you replace 16 with anything else.</span>
+<span class="pl-c"> */</span>
+<span class="pl-smi">size_t</span> <span class="pl-s1">nelem</span> <span class="pl-c1">=</span> <span class="pl-k">sizeof</span> (<span class="pl-s1">a</span>) / <span class="pl-k">sizeof</span> (<span class="pl-s1">a</span>[<span class="pl-c1">0</span>]);
 ...
-<span class="pl-k">while</span> ((<span class="pl-s1">n</span> <span class="pl-c1">=</span> <span class="pl-en">fread</span>(<span class="pl-s1">a</span>, <span class="pl-k">sizeof</span> (<span class="pl-s1">a</span>[<span class="pl-c1">0</span>]), <span class="pl-k">sizeof</span> (<span class="pl-s1">a</span>) / <span class="pl-k">sizeof</span> (<span class="pl-s1">a</span>[<span class="pl-c1">0</span>]), <span class="pl-s1">fp</span>)) <span class="pl-c1">&gt;</span> <span class="pl-c1">0</span>) {
-	<span class="pl-c">/* Process the bytes here. */</span>
 
-	<span class="pl-c">/* If we read less elements than requested, we hit end of file or error. */</span>
-	<span class="pl-k">if</span> (<span class="pl-s1">n</span> <span class="pl-c1">&lt;</span> (<span class="pl-k">sizeof</span> (<span class="pl-s1">a</span>) / <span class="pl-k">sizeof</span> (<span class="pl-s1">a</span>[<span class="pl-c1">0</span>])))
+<span class="pl-k">while</span> ((<span class="pl-s1">n</span> <span class="pl-c1">=</span> <span class="pl-en">fread</span>(<span class="pl-s1">a</span>, <span class="pl-k">sizeof</span> (<span class="pl-s1">a</span>[<span class="pl-c1">0</span>]), <span class="pl-s1">nelem</span>, <span class="pl-s1">fp</span>)) <span class="pl-c1">&gt;</span> <span class="pl-c1">0</span>) {
+	<span class="pl-c">/* Process the bytes here. */</span>
+	<span class="pl-c">/* ... */</span>
+
+	<span class="pl-c">/*</span>
+<span class="pl-c">	 * If we read less elements than requested, we hit an end of file or</span>
+<span class="pl-c">	 * error.</span>
+<span class="pl-c">	 */</span>
+	<span class="pl-k">if</span> (<span class="pl-s1">n</span> <span class="pl-c1">&lt;</span> <span class="pl-s1">nelem</span>)
 		<span class="pl-k">break</span>;
 }</pre></div>
 <p>What could happen if reading bytes into character array and the 2nd and 3rd
-arguments are swapped ?</p>
+arguments are swapped?</p>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/read-file2.c">read-file2.c</a></p>
 <p>Check manual page for <code>fread</code>() and ignore for now that the 1st argument is
 of type <code>void *</code>, we will get there later.  As mentioned above, you can safely
