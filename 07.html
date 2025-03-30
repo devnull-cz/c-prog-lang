@@ -12907,7 +12907,7 @@ can also print directly to <code>stderr</code> with <code>fprintf</code>.</li>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">fprintf</span>(<span class="pl-s1">stderr</span>, <span class="pl-s">"Error: %s\n"</span>, <span class="pl-s">"some error"</span>);</pre></div>
-<p>🔧 Write a code that opens the same file in an cycle (until <code>fopen()</code>
+<p>🔧 Write code that opens the same file in an cycle (until <code>fopen()</code>
 fails) without calling <code>fclose()</code> on the handle. After how many iterations does
 it fail on your system?</p>
 <p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/solutions/fopen-leak.c">fopen-leak.c</a></p>
@@ -12969,6 +12969,9 @@ optimization, and also just accept now that we can assign any pointer to a <code
 
 <span class="pl-en">fclose</span>(<span class="pl-s1">fp</span>);</pre></div>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/read-file.c">read-file.c</a></p>
+<p>🔧 Write code that opens a file of your choosing, reads it byte by byte,
+and prints it out to the standard output using <code>putchar</code>.  Do not cut-n-paste
+any code from the above, do write it.</p>
 <p>🔧 Note that you could read more characters at a time.  However, keep in
 mind the 2nd argument is the size of the element read, and the 3rd argument is
 how many elements we read in one call.  Remember that using an array name <code>a</code> is
