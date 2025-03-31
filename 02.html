@@ -12854,31 +12854,44 @@ the past century.</li>
 <p><code>// One line comment from C99+</code></p>
 </li>
 <li>
-<p>Use comments sparingly.</p>
-<ul>
-<li>Not very useful:</li>
+<p>Use comments sparingly.  Not useful:</p>
+</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-c">/* Increment i */</span>
-<span class="pl-c1">++</span><span class="pl-s1">i</span>;</pre></div>
+<span class="pl-c1">++</span><span class="pl-s1">i</span>;
+
+<span class="pl-c">/* Printing assertion */</span>
+<span class="pl-en">print_assertion</span>();</pre></div>
 <ul>
 <li>Produce meaningful comments, not like this:</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-c">/* Probably makes sense, but maybe not */</span>
 <span class="pl-k">if</span> (...)
-         <span class="pl-en">do_something</span>()</pre></div>
-</li>
+	<span class="pl-en">do_something</span>()</pre></div>
+<ul>
 <li>
 <p>Pick a reasonble style and stick to it.  Mixing one line comments using both
 <code>//</code> and <code>/* */</code> is not the best style.</p>
 </li>
 <li>
-<p>In general, you can always figure out what the code does, it is just a matter
+<p>Including another <code>/*</code> comment sequence within a <code>/*</code> comment is allowed but
+it does not introduce another comment.  A comment contents is only examined to
+find the terminating <code>*/</code> sequence.  C99, 6.4.9 Comments, paragraph 1.</p>
+</li>
+<li>
+<p>Likely not much useful but the following is a valid comment as well.</p>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-c">//\</span>
+<span class="pl-c">this is a comment \</span>
+<span class="pl-c">and this is still part of it</span></pre></div>
+<ul>
+<li>In general, you can always figure out what the code does, it is just a matter
 of time to get there, but it may be impossible to figure out why the code
 works that way.  The reason might be historical, related to some other
 decisions or existing code, purely random, or something else.  If not clear,
 commenting code on the <strong>why</strong> is extremely important.  See also <a href="https://en.wikipedia.org/wiki/G._K._Chesterton" rel="nofollow">Chesterton's
-fence principle</a>.</p>
-</li>
+fence principle</a>.</li>
 </ul>
 <div class="markdown-heading"><h1 class="heading-element">Preprocessor</h1><a id="user-content-preprocessor" class="anchor" aria-label="Permalink: Preprocessor" href="#preprocessor"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>The main purposes of the preprocessor are: string replacement, file inclusion,
