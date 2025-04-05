@@ -197,7 +197,7 @@ foo->b = 'C';
 
 #source struct-reference.c
 
-:wrench: Write the above assignments to the members `a` and `b` using a
+:wrench: Write the above assignments to the members `a` and `b` using the
 de-reference operator on `foo`.
 
 #solution struct-access.c
