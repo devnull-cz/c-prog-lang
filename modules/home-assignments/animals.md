@@ -16,9 +16,8 @@ be printed to standard output.
 Note: does the original structure change if the structure returned from the
 function was modified within the function?  How to fix this ?
 
-Code:
-
-#solution animal\_maxlegs.c
-#solution maxlegs.c
-#solution animals.h
-#solution animal.h
+Solutions:
+  - #solution animal\_maxlegs.c
+  - #solution maxlegs.c
+  - #solution animals.h
+  - #solution animal.h
