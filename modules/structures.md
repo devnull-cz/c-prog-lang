@@ -313,7 +313,7 @@ Note: you will need:
 - `limits.h` for the `NAME_MAX` definition
 - `stddef.h` for `size_t` (as per C99, §7.17)
 
-Code:
+Solution:
 - #solution struct-animals.c
 - #solution animal\_minlegs.c
 - #solution animal.h
