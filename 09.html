@@ -12912,7 +12912,12 @@ literal is internally an array of <code>char</code>s, so we can use it to initia
 following array of <code>char</code> pointers (it is the same as if we did <code>char *p = a</code>).</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-s1">a</span>[] <span class="pl-c1">=</span> { <span class="pl-s">"hello"</span>, <span class="pl-s">"world"</span>, <span class="pl-s">"!"</span> };</pre></div>
 <p>Modifying such strings is an undefined operation as they are read-only by the
-specification.  Code doing so and compiled by GCC or Clang will crash.</p>
+specification (6.4.5 paragraph 6: <em>If the program attempts to modify such an
+array, the behavior is undefined</em>).  Code doing so and compiled by GCC or Clang
+will crash.</p>
+<p>Note that (informative) Annex J in the C99 spec lists modifying a string literal
+as a known portability issue.  See <em>J.2 Undefined behavior</em> and look for "The
+program attempts to modify a string literal".</p>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/array-of-ptrs.c">array-of-ptrs.c</a></p>
 <div class="markdown-heading"><h1 class="heading-element">Pointer to a pointer</h1><a id="user-content-pointer-to-a-pointer" class="anchor" aria-label="Permalink: Pointer to a pointer" href="#pointer-to-a-pointer"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>We know that a pointer points to an object (unless its a null pointer or of type
