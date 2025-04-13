@@ -24,6 +24,12 @@ char *a[] = { "hello", "world", "!" };
 ```
 
 Modifying such strings is an undefined operation as they are read-only by the
-specification.  Code doing so and compiled by GCC or Clang will crash.
+specification (6.4.5 paragraph 6: *If the program attempts to modify such an
+array, the behavior is undefined*).  Code doing so and compiled by GCC or Clang
+will crash.
+
+Note that (informative) Annex J in the C99 spec lists modifying a string literal
+as a known portability issue.  See *J.2 Undefined behavior* and look for "The
+program attempts to modify a string literal".
 
 #source array-of-ptrs.c
