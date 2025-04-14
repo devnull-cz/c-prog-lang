@@ -19,9 +19,9 @@ main(void)
 
 	/*
 	 * Print the consequtive memory as a one-dimensional array. Note that
-	 * "a" is just a pointer so you can re-type it to a pointer type of its
-	 * aggregate (or subaggregate) member.  That means strict aliasing rules
-	 * are followed.
+	 * the value of 'a' is an address so you can re-type it to a pointer
+	 * type of its aggregate (or subaggregate) member.  That means strict
+	 * aliasing rules are followed.
 	 *
 	 * We could also do:
 	 *
