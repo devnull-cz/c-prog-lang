@@ -27,4 +27,13 @@ main(int argc, char *argv[])
 	for (struct item *p = head; p != NULL; p = p->next) {
 		printf("%d\n", p->value);
 	}
+
+	struct item *p = head;
+	while (p != NULL) {
+		struct item *next = p->next;
+		printf("freeing %d\n", p->value);
+		free(p);
+		p = next;
+	}
+	head = NULL;
 }
