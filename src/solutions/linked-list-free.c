@@ -16,7 +16,7 @@ main(int argc, char *argv[])
 		errx(1, "usage: %s <num>", *argv);
 
 	for (int i = 0; i < atoi(argv[1]); i++) {
-		struct item *p = (struct item *)malloc(sizeof (struct item));
+		struct item *p = malloc(sizeof (struct item));
 		if (p == NULL)
 			err(1, "malloc");
 		p->value = i;
