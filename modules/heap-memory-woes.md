@@ -38,7 +38,7 @@ output.
 The concatenation can be done either by hand (try that first) or
 using `strncat()` (try that afterwards).
 
-#source argv-concat.c
+#solution argv-concat.c
 
 You can then put the string processing in a loop and comment out the `free`()
 call on the allocated memory.  Then check with `top -s 1` on Linux, macOS, or
