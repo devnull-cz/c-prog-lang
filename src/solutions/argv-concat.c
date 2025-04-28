@@ -19,8 +19,7 @@ main(int argc, char *argv[])
 #if STRNCAT
 	for (int i = 1; i < argc; i++)
 		strncat(str, argv[i], strlen(argv[i]));
-#endif
-
+#else
 	for (int i = 1; i < argc; i++) {
 		for (size_t j = 0; j < strlen(argv[i]); j++) {
 			printf("%c\n", argv[i][j]);
@@ -28,6 +27,7 @@ main(int argc, char *argv[])
 		}
 	}
 	*str = '\0';
+#endif
 
 	printf("'%s'\n", origstr);
 	free(origstr);
