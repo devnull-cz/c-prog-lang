@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Simple test for handling of files (file descriptor leaks).
 #

@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Directories (actually, headers for non-files) are not supported.
 

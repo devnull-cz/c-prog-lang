@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Listing test with specific file arguments.  Use different ordering in argv
 # from the ordering in the archive.  However, the files should still be listed

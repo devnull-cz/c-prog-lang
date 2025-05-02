@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Listing truncated archive reports an error.
 

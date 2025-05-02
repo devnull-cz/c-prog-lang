@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # One zero block missing triggers a warning but exit is still 0.
 

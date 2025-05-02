@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Another extract test.  Now check the contents of the files.
 

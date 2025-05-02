@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Make sure tar with no options but an argument exits with 2.
 

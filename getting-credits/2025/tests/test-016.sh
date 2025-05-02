@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Make sure some specific functions are not used as those are no allowed.
 # Hopefully no one is gonna write its own.

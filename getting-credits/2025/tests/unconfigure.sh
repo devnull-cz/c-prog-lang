@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ -z $STEF_UNCONFIGURE ]]; then
 	echo "This script may be run only under the STEF framework."

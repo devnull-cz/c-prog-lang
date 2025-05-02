@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Extracting truncated archive reports an error.  Check the file content.
 

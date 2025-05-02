@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Simple extra test, see test-019.sh.  Use the -v option now.
 

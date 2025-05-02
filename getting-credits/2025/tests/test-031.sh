@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # One zero block missing triggers a warning but files are extracted and exit is
 # expected 0.  Check the file content.

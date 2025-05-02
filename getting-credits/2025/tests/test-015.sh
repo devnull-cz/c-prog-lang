@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # No warnings when building the mytar binary.
 

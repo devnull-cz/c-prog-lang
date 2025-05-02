@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # The tar implementation can extract 8GB+ file.
 #

@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # Extract test with specific file arguments.  Follow the same ordering in argv
 # as in the archive.  Check the contents now.

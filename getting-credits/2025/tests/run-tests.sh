@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 [[ -n $MYGNUTAR ]] && export STEF_REGFILE_LOCAL_VARS=" "
 

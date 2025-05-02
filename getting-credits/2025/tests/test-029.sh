@@ -1,4 +1,4 @@
-#/bin/bash
+#/usr/bin/env bash
 #
 # The assignment says files up to 2 GiB are supported. Test archive
 # creation/extraction with a 1 GiB file and check the file contents as well.
