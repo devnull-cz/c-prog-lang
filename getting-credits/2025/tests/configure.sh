@@ -31,7 +31,7 @@ if [[ -z $MYGNUTAR ]]; then
 	# Build the binary that will be used by the test suite.
 	echo "Building the '$MYTARNAME' binary ($MYTAR)."
 	echo "Source: $MYTAR_C"
-	$GCC -Wall -Wextra -std=c99 -o $MYTAR $MYTAR_C
+	$GCC -g -Wall -Wextra -std=c99 -o $MYTAR $MYTAR_C
 	if (($? != 0)); then
 		echo "Could not build $MYTARNAME."
 		exit 1
