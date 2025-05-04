@@ -9,6 +9,8 @@
 # is set and exported before running the tests, the unconfigure phase is
 # expected to remove all temporary files/directories.
 
+# The tests assume the openssl command is available in the $PATH.
+
 # Before running the tests via "./run-tests.sh", you need to set the "STEF"
 # variable in your shell to the "stef.sh" script.  Get it here:
 # https://github.com/devnull-cz/stef
