@@ -27,8 +27,8 @@ export STEF="/data/repos/stef/stef.sh"
 # should be set to /opt/local/bin/gnutar.  However, it still may work
 # differently than Linux tar.  That is why you MUST pass the tests on one of the
 # available u-pl<N> machine in the MFF UK lab (remotely accessible) that serve
-# as our common environment.  See http://mff.devnull.cz/c-prog-lang for more
-# information.
+# as our common environment.  See https://devnull-cz.github.io/c-prog-lang/
+# for more information.
 #
 # Example:
 export GNUTAR="$(which tar)"
