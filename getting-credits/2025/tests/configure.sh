@@ -46,6 +46,11 @@ else
 	echo "WARNING: This is only for verifying the test setup."
 fi
 
+if ! $GNUTAR --version | grep 'GNU tar' >/dev/null; then
+	echo "$GNUTAR is not GNU tar"
+	exit 1
+fi
+
 tmpdir=$(mktemp -d dir.XXXXX)
 (($? != 0)) && echo "mktemp failed." && exit 1
 echo "Created temporary directory './$tmpdir'."
