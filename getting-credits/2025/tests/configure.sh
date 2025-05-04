@@ -139,14 +139,14 @@ mkdir -p $large_dir || { echo "mkdir failed"; exit 1; }
 
 typeset largefile=large-random-data
 # Configuration variable.
-typeset LARGEFILE_SIZE=${LARGEFILE_SIZE:-9000000}
+typeset LARGEFILE_SIZE=${LARGEFILE_SIZE:-9216000000}
 printf "%s\n%s\n%s\n" \
     "Creating large file '$large_dir/${largefile}'" \
-    "  Size in 1KiB: $LARGEFILE_SIZE (set LARGEFILE_SIZE to overwrite)." \
+    "  Size in bytes: $LARGEFILE_SIZE (set LARGEFILE_SIZE to overwrite)." \
     "  May take a minute:"
 cd $large_dir
-dd if=/dev/urandom of=$largefile bs=1024 count=$LARGEFILE_SIZE $status
-(($? != 0)) && echo "dd(1) failed." && exit 1
+time openssl rand -out "$largefile" $LARGEFILE_SIZE
+(($? != 0)) && echo "openssl(1) failed." && exit 1
 
 printf "%s\n%s\n" "Creating an archive with $large_dir/${largefile}." \
     "  May take a minute:"
