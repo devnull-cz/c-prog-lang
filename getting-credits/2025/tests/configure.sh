@@ -51,6 +51,15 @@ if ! $GNUTAR --version | grep 'GNU tar' >/dev/null; then
 	exit 1
 fi
 
+#
+# The openssl command is needed for creating large random file below
+# and also in some of the tests.
+#
+if ! command -v openssl >/dev/null; then
+	echo "openssl command not found"
+	exit 1
+fi
+
 tmpdir=$(mktemp -d dir.XXXXX)
 (($? != 0)) && echo "mktemp failed." && exit 1
 echo "Created temporary directory './$tmpdir'."
