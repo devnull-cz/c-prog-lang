@@ -10,6 +10,6 @@ main(void)
 	struct mystruct_s *p = &s;
 	mystruct_t *p2;
 
-	/* No error nor warning.  The pointers are of the same type. */
+	/* No error or warning.  The pointers are of the same type. */
 	p2 = p;
 }
