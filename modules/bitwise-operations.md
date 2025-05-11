@@ -66,7 +66,7 @@ information, with mask to extract the parts. Here, a `unsigned short` type
 stores the byte value and associated flags:
 
 ```C
-#define	VALUE_MASK	0xff
+#define	VALUE_MASK	0x00ff  // same as 0xff yet more readable
 #define	FLAG_MASK	0xff00
 
 #define	ONE		0x0100
