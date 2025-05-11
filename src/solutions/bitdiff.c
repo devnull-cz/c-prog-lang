@@ -9,7 +9,7 @@ void
 binprint(int n)
 {
 	char a[sizeof (int) * 8];
-	int i = 1;
+	size_t i = 1;
 
 	assert(n >= 0);
 	(void) memset(a, '0', sizeof (a));
