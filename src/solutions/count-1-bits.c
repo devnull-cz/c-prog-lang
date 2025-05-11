@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include <err.h>
 
 int
@@ -13,6 +14,7 @@ main(int argc, char *argv[])
 		errx(1, "usage: %s <positive_num>", argv[0]);
 
 	int i = atoi(argv[1]);
+	assert(i > 0);
 	printf("0x%x\n", i);
 	unsigned int ones = 0;
 
