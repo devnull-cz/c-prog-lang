@@ -1,9 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
+#include <string.h>
 #include <err.h>
 
-/* Assumes function from print-in-binary.c */
-extern void binprint(int n);
+/* from print-in-binary.c */
+void
+binprint(int n)
+{
+	char a[sizeof (int) * 8];
+	int i = 1;
+
+	assert(n >= 0);
+	(void) memset(a, '0', sizeof (a));
+	a[sizeof (a) - 1] = '\0';
+
+	while (n > 0) {
+		if (n % 2 == 1)
+			a[sizeof (a) - i - 1] = '1';
+		if ((n = n / 2) > 0)
+			++i;
+	}
+
+	printf("%8s\n", a + sizeof (a) - i - 1);
+}
 
 static int
 count_bits(int n)
