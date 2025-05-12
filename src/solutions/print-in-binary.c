@@ -22,7 +22,8 @@ main(int argc, char **argv)
 	assert(argc == 2);
 
 	char a[sizeof (int) * 8];
-	size_t i = 1, n = atoi(argv[1]);
+	size_t i = 1;
+	int n = atoi(argv[1]);
 
 	assert(n >= 0);
 	(void) memset(a, '0', sizeof (a));
