@@ -8,5 +8,5 @@ evaluation of expressions such as `(a & b == c & d)` is counter intuitive.
 In this case modern compilers (clang) will actually warn about missing
 parentheses.
 
-You can read the explaination by Dennis Ritchie here:
+You can read the explanation by Dennis Ritchie here:
 http://www.lysator.liu.se/c/dmr-on-or.html
