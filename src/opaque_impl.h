@@ -1,9 +1,9 @@
 /*
  * This is supposed to be a private header file, not shipped with the library
- * built from foo.c.
+ * built from opaque.c.
  */
 
-struct foo {
+struct opaque {
 	int x;
 	int y;
 };
