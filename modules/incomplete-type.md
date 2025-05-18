@@ -88,5 +88,5 @@ main(void)
 
 This feature of the C language can be used to represent opaque handles, and
 those can be used to solve the
-#module non-transparent-handles.md problem with non-transparent handles
+#module transparent-handles.md problem with transparent handles
 .
