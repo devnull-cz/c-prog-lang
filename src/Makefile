@@ -176,6 +176,9 @@ $(OBJDIR)/func-implicit.o: CFLAGS_EXTRA=-Wno-strict-prototypes
 ifeq ($(CC), clang)
 $(OBJDIR)/shadow-block.o: CFLAGS_EXTRA=-Wno-unused-but-set-variable
 endif
+ifeq ($(CC), gcc)
+$(OBJDIR)/print-in-binary..o: CFLAGS_EXTRA=-Wno-type-limits
+endif
 
 all: $(DIROBJS)
 
