@@ -64,7 +64,7 @@ main(void)
 ```
 
 :eye:
-  - #source foo.h
-  - #source foo\_impl.h
-  - #source foo.c
-  - #source foo-consumer.c
+  - #source opaque.h
+  - #source opaque\_impl.h
+  - #source opaque.c
+  - #source opaque-consumer.c
