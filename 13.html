@@ -19863,29 +19863,29 @@ header file along with API that consumes it without revealing what the structure
 actually contains.  The reason to do that is not to allow a programmer to depend
 (= use) on the structure members, thus allowing to change the structure innards
 anytime.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-c">/* Forward declaration in foo.h */</span>
-<span class="pl-k">struct</span> <span class="pl-smi">foo</span>;
+<div class="highlight highlight-source-c"><pre><span class="pl-c">/* Forward declaration in opaque.h */</span>
+<span class="pl-k">struct</span> <span class="pl-smi">opaque</span>;
 
 <span class="pl-smi">void</span>
-<span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> <span class="pl-smi">foo</span> <span class="pl-c1">*</span><span class="pl-s1">f</span>);</pre></div>
+<span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> <span class="pl-smi">opaque</span> <span class="pl-c1">*</span><span class="pl-s1">f</span>);</pre></div>
 <p>The file implementing <code>do_stuff()</code> <strong>will cast the opaque structure object to
 an internal structure type</strong>.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-c">/* in foo_impl.h not provided to the consumers */</span>
-<span class="pl-k">struct</span> <span class="pl-smi">foo_impl</span> {
+<div class="highlight highlight-source-c"><pre><span class="pl-c">/* in opaque_impl.h not provided to the consumers */</span>
+<span class="pl-k">struct</span> <span class="pl-smi">opaque_impl</span> {
     <span class="pl-smi">int</span> <span class="pl-c1">x</span>;
     <span class="pl-smi">int</span> <span class="pl-c1">y</span>;
 };
 
 <span class="pl-c">/* library implementation code */</span>
 <span class="pl-smi">void</span>
-<span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> <span class="pl-smi">foo</span> <span class="pl-c1">*</span><span class="pl-s1">f</span>)
+<span class="pl-en">do_stuff</span>(<span class="pl-k">struct</span> <span class="pl-smi">opaque</span> <span class="pl-c1">*</span><span class="pl-s1">f</span>)
 {
-	<span class="pl-k">struct</span> <span class="pl-smi">foo_impl</span> <span class="pl-c1">*</span><span class="pl-s1">fi</span> <span class="pl-c1">=</span> (<span class="pl-k">struct</span> <span class="pl-smi">foo_impl</span> <span class="pl-c1">*</span>)<span class="pl-s1">f</span>;
+	<span class="pl-k">struct</span> <span class="pl-smi">opaque_impl</span> <span class="pl-c1">*</span><span class="pl-s1">fi</span> <span class="pl-c1">=</span> (<span class="pl-k">struct</span> <span class="pl-smi">opaque_impl</span> <span class="pl-c1">*</span>)<span class="pl-s1">f</span>;
 
 	<span class="pl-s1">fi</span><span class="pl-c1">-&gt;</span><span class="pl-c1">x</span> <span class="pl-c1">=</span> ...
 	<span class="pl-s1">fi</span><span class="pl-c1">-&gt;</span><span class="pl-c1">y</span> <span class="pl-c1">=</span> ...
 }</pre></div>
-<p>Then any <code>.c</code> file that includes <code>foo.h</code> can work with the structure
+<p>Then any <code>.c</code> file that includes <code>opaque.h</code> can work with the structure
 (by passing it to <code>do_stuff()</code>) however cannot access its members directly.
 The structure is usable only via a pointer. Thus, the library has to provide
 a function to allocate a structure and return the pointer to it
@@ -19893,29 +19893,29 @@ a function to allocate a structure and return the pointer to it
 inside the structure.</p>
 <p>This is handy for libraries so they are free to change the layout of structures
 without breaking the consumers.</p>
-<p>The consumer of the library then <code>#include</code>s only <code>foo.h</code> but it does not have
-access to <code>foo_impl.h</code>.</p>
+<p>The consumer of the library then <code>#include</code>s only <code>opaque.h</code> but it does not have
+access to <code>opaque_impl.h</code>.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">#include</span> <span class="pl-s">&lt;stdio.h&gt;</span>
 
-<span class="pl-k">#include</span> <span class="pl-s">"foo.h"</span>
+<span class="pl-k">#include</span> <span class="pl-s">"opaque.h"</span>
 
 <span class="pl-smi">int</span>
 <span class="pl-en">main</span>(<span class="pl-smi">void</span>)
 {
-	<span class="pl-k">struct</span> <span class="pl-smi">foo</span> <span class="pl-c1">*</span><span class="pl-s1">h</span>;
+	<span class="pl-k">struct</span> <span class="pl-smi">opaque</span> <span class="pl-c1">*</span><span class="pl-s1">h</span>;
 
-	<span class="pl-s1">h</span> <span class="pl-c1">=</span> <span class="pl-en">getFoo</span>();
+	<span class="pl-s1">h</span> <span class="pl-c1">=</span> <span class="pl-en">getOpaque</span>();
 	<span class="pl-en">doStuff</span>(<span class="pl-s1">h</span>);
 }</pre></div>
 <p>👁️</p>
 <ul>
-<li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo.h">foo.h</a>
+<li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/opaque.h">opaque.h</a>
 </li>
-<li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo_impl.h">foo_impl.h</a>
+<li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/opaque_impl.h">opaque_impl.h</a>
 </li>
-<li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo.c">foo.c</a>
+<li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/opaque.c">opaque.c</a>
 </li>
-<li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/foo-consumer.c">foo-consumer.c</a>
+<li>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/opaque-consumer.c">opaque-consumer.c</a>
 </li>
 </ul>
 <div class="markdown-heading"><h1 class="heading-element">🔧 Home assignment</h1><a id="user-content-wrench-home-assignment" class="anchor" aria-label="Permalink: :wrench: Home assignment" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
