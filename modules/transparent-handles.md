@@ -86,8 +86,8 @@ struct ml_hndl {
 
 Unless the consumer code is recompiled after the change, which may not happen as
 it could be some 3rd party software bought by the customer years ago, the debug
-print is now incorrect as it only prints the first 4 bytes of the structure, not
-8.
+print (and any manipulation with the `ml_id` member really) is now incorrect
+as it only prints the first 4 bytes of the structure, not 8.
 
 There are ways to mitigate that:
 
