@@ -71,6 +71,8 @@ will compile and run fine.
 ```C
 #include <stdio.h>
 
+struct x;
+
 struct x *
 myfn(struct x *p)
 {
