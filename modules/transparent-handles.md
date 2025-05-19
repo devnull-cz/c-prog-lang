@@ -65,9 +65,11 @@ and available to the consumer)?
 int
 main(void)
 {
+	struct ml_hndl *h;
+
 	/* ... */
 
-	print_debug("[Debug] handle ID: %d\n", h->md_id);
+	print_debug("[Debug] handle ID: %d\n", h->ml_id);
 
 	/* ... */
 }
