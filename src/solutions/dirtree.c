@@ -35,7 +35,7 @@ typedef struct node_s node_t;
 
 node_t *root;
 
-
+// search within the node, do not recurse.
 node_t *
 get_child_node(node_t *n, char *str)
 {
@@ -81,6 +81,7 @@ add_child(node_t *parent, node_t *child)
 	parent->children[parent->num_child++] = child;
 }
 
+// construct the sub-tree by breaking the path into elements.
 void
 add(char *path)
 {
@@ -103,6 +104,7 @@ add(char *path)
 				n = nn;
 			} else {
 				node_t *new_node = alloc_node(pelem);
+				assert(new_node != NULL);
 				add_child(n, new_node);
 				n = new_node;
 			}
