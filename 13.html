@@ -19755,9 +19755,11 @@ and available to the consumer)?</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">int</span>
 <span class="pl-en">main</span>(<span class="pl-smi">void</span>)
 {
+	<span class="pl-k">struct</span> <span class="pl-smi">ml_hndl</span> <span class="pl-c1">*</span><span class="pl-s1">h</span>;
+
 	<span class="pl-c">/* ... */</span>
 
-	<span class="pl-en">print_debug</span>(<span class="pl-s">"[Debug] handle ID: %d\n"</span>, <span class="pl-s1">h</span><span class="pl-c1">-&gt;</span><span class="pl-c1">md_id</span>);
+	<span class="pl-en">print_debug</span>(<span class="pl-s">"[Debug] handle ID: %d\n"</span>, <span class="pl-s1">h</span><span class="pl-c1">-&gt;</span><span class="pl-c1">ml_id</span>);
 
 	<span class="pl-c">/* ... */</span>
 }</pre></div>
