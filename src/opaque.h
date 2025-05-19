@@ -7,5 +7,5 @@ struct opaque;
 
 typedef struct opaque *opaque_t;
 
-void doStuff(struct opaque *f);
-struct opaque *getOpaque(void);
+void doStuff(opaque_t f);
+opaque_t getOpaque(void);
