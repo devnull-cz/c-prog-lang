@@ -157,6 +157,7 @@ typeset LARGEFILE_SIZE=${LARGEFILE_SIZE:-9216000000}
 printf "%s\n%s\n%s\n" \
     "Creating large file '$large_dir/${largefile}' with openssl rand" \
     "  Size in bytes: $LARGEFILE_SIZE (set LARGEFILE_SIZE to overwrite)." \
+    "  Make take a minute:"
 cd $large_dir
 time openssl rand -out "$largefile" $LARGEFILE_SIZE
 (($? != 0)) && echo "openssl(1) failed." && exit 1
@@ -164,7 +165,7 @@ time openssl rand -out "$largefile" $LARGEFILE_SIZE
 printf "%s\n%s\n" "Creating an archive with $large_dir/${largefile}." \
     "  May take a minute:"
 typeset large_archive=${largefile}.tar
-$GNUTAR -c -v -f $large_archive $largefile
+time $GNUTAR -c -v -f $large_archive $largefile
 (($? != 0)) && echo "$GNUTAR failed." && exit 1
 printf "export large_dir=$large_dir\n" >> $configvar
 printf "export largefile=$largefile\n" >> $configvar
