@@ -157,7 +157,7 @@ typeset LARGEFILE_SIZE=${LARGEFILE_SIZE:-9216000000}
 printf "%s\n%s\n%s\n" \
     "Creating large file '$large_dir/${largefile}' with openssl rand" \
     "  Size in bytes: $LARGEFILE_SIZE (set LARGEFILE_SIZE to overwrite)." \
-    "  Make take a minute:"
+    "  May take a minute:"
 cd $large_dir
 time openssl rand -out "$largefile" $LARGEFILE_SIZE
 (($? != 0)) && echo "openssl(1) failed." && exit 1
