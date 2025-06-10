@@ -1,6 +1,6 @@
 #/usr/bin/env bash
 #
-# Simple extra test.  Will only test the extraction created the right files,
+# Simple extract test.  Will only test the extraction created the right files,
 # does not diff the contents - that is another unit test.
 
 source $configvar
