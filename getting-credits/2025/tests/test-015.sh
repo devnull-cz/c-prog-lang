@@ -8,4 +8,4 @@
 source $configvar
 cd $tmpdir
 
-$GCC -Wall -Wextra $MYTAR_C
+$GCC -Wall -Wextra -Werror $MYTAR_C
