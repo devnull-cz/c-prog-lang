@@ -1,0 +1,10 @@
+mytar: aaa-file: Cannot open: Permission denied
+mytar: another-file2: Cannot open: Permission denied
+mytar: empty.data: Cannot open: Permission denied
+mytar: file.zero: Cannot open: Permission denied
+mytar: file1.random: Cannot open: Permission denied
+mytar: file2.zero: Cannot open: Permission denied
+mytar: file3.zero: Cannot open: Permission denied
+mytar: hello-world: Cannot open: Permission denied
+mytar: small-file: Cannot open: Permission denied
+mytar: Exiting with failure status due to previous errors
