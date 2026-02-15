@@ -6,6 +6,12 @@
   above).
 - Getting credits - see the seminar web page above.
 - What is C.
+	- general purpose
+	- imperative
+		- in contrast to *declarative*
+	- structured programming
+	- uses lexical scope
+		- in contrast to *dynamic scope*
 - Popularity of C:
   [TIOBE\_index on wikipedia](https://en.wikipedia.org/wiki/TIOBE_index), direct
   link to the current [TIOBE\_index](https://www.tiobe.com/tiobe-index/)
