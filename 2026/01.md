@@ -25,8 +25,8 @@
 	  kernel
 	  ([Darwin](https://en.wikipedia.org/wiki/Darwin_(operating_system)),
 	  also see [PureDarwin](http://www.puredarwin.org/)),
-	  major parts of Windows kernel, OpenSSH, OpenSSL,
-	  Apache, NGINX, cURL, etc. etc.)
+	  major parts of Windows kernel, Free/Net/OpenBSD kernels, OpenSSH,
+	  OpenSSL, GnuTLS, Apache, NGINX, cURL, etc. etc.)
 	- Based on the previous, C programmers will be needed virtually for ever
 	- Fast, very portable
 		- However, now at the expense of having very complex compilers
