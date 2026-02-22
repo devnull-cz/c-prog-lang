@@ -11,7 +11,8 @@ general code template expansion (macros), and managing conditional compilation.
   - `#include "foo.h"` (start in current directory and then continue the
     search in system paths) or `#include <foo/bar.h>` (just system paths)
     - Some compilers display the include search paths (e.g. clang with `-v`).
-    - Use the `-I` compiler option to add search paths to the list.
+    - Use the `-I` compiler option to **prepend** search paths to the list
+      of system include paths.
 
 - Conditional compilation:
   - `#if`, `#ifdef`, `#ifndef`, `#else`, `#endif`
