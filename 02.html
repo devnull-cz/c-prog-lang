@@ -248,7 +248,8 @@ general code template expansion (macros), and managing conditional compilation.<
 search in system paths) or <code>#include &lt;foo/bar.h&gt;</code> (just system paths)
 <ul>
 <li>Some compilers display the include search paths (e.g. clang with <code>-v</code>).</li>
-<li>Use the <code>-I</code> compiler option to add search paths to the list.</li>
+<li>Use the <code>-I</code> compiler option to <strong>prepend</strong> search paths to the list
+of system include paths.</li>
 </ul>
 </li>
 </ul>
@@ -483,10 +484,10 @@ Unix file mask (umask), eg. <code>0644</code>.</p>
 <li>
 <p><code>'A'</code> is called <em>a character constant</em> and is always of type <code>int</code>.  See <code>man ascii</code> for their numeric values.  The ASCII standard defines characters with
 values 0-127.</p>
-</li>
-<li>
-<p>Note when we say a <em>character</em>, we mean a value that represents a character
-from the ASCII table.  A character is not the same thing as <code>char</code>.</p>
+<ul>
+<li>Note when we say a <em>character</em>, we mean a value that represents a character
+from the ASCII table.  A character is not the same thing as <code>char</code>.</li>
+</ul>
 </li>
 <li>
 <p>Types <code>float</code>, <code>double</code></p>
