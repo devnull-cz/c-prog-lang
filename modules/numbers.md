@@ -44,8 +44,8 @@ main.c:4:34: warning: integer constant is too large for its type
   ascii` for their numeric values.  The ASCII standard defines characters with
   values 0-127.
 
-- Note when we say a *character*, we mean a value that represents a character
-  from the ASCII table.  A character is not the same thing as `char`.
+  - Note when we say a *character*, we mean a value that represents a character
+    from the ASCII table.  A character is not the same thing as `char`.
 
 - Types `float`, `double`
 	- If you `man 3 printf`, you can see that `%f` is of type `double`.  You
