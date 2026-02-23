@@ -140,11 +140,12 @@ short sh = 32768;
 printf("%d\n", sh);
 ```
 
-## Modifiers for printf()
+## Length modifiers for printf()
 
 - `l` for `long`, eg. `long l; printf("%ld\n", l);`
 - `ll` for `long long`, eg. `long long ll; printf("%lld\n", ll);`
 
+The length modifiers are applied with conversion specifiers, such as:
 - `u` is unsigned, `x` is unsigned hexa, `X` is unsigned HEXA
 
 ```C
