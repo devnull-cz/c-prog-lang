@@ -167,8 +167,15 @@ printf("%X\n", u);
   all!
 
 ```
-/* DEFINITELY NOT OK.  Remember, 13 is of the "int" type. */
-printf("%lld\n", 13);
+$ cat not-ok.c
+#include <stdio.h>
+
+int
+main(void)
+{
+	/* DEFINITELY NOT OK.  Remember, 13 is of the "int" type. */
+	printf("%lld\n", 13);
+}
 
 $ cc -m32 wrong-modifier.c
 wrong-modifier.c:6:19: warning: format specifies type 'long
