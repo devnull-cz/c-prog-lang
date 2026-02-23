@@ -1,6 +1,6 @@
 # getchar()
 
-- `getchar` function reads one character from the process standard input and
+- `getchar` function reads one character from the standard input and
   returns its value as an `int`.
 	- When it reaches end of input (for example, by pressing `Ctrl-D` in the
 	  terminal), it returns `EOF`
