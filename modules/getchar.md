@@ -12,7 +12,7 @@
 
 ### :wrench: Task: write code that will read characters from a terminal and prints them out.
 
-It should work like this:
+It should work like this (assuming the resulting binary is called `a.out`):
 
 ```
 $ cat /etc/passwd | ./a.out > passwd
