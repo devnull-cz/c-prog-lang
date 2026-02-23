@@ -587,17 +587,19 @@ or in a register up to certain number of arguments (common x86-64
 <span class="pl-c">/* OK */</span>
 <span class="pl-smi">short</span> <span class="pl-s1">sh</span> <span class="pl-c1">=</span> <span class="pl-c1">32768</span>;
 <span class="pl-en">printf</span>(<span class="pl-s">"%d\n"</span>, <span class="pl-s1">sh</span>);</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">Modifiers for printf()</h2><a id="user-content-modifiers-for-printf" class="anchor" aria-label="Permalink: Modifiers for printf()" href="#modifiers-for-printf"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">Length modifiers for printf()</h2><a id="user-content-length-modifiers-for-printf" class="anchor" aria-label="Permalink: Length modifiers for printf()" href="#length-modifiers-for-printf"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>
-<p><code>l</code> for <code>long</code>, eg. <code>long l; printf("%ld\n", l);</code></p>
+<code>l</code> for <code>long</code>, eg. <code>long l; printf("%ld\n", l);</code>
 </li>
 <li>
-<p><code>ll</code> for <code>long long</code>, eg. <code>long long ll; printf("%lld\n", ll);</code></p>
+<code>ll</code> for <code>long long</code>, eg. <code>long long ll; printf("%lld\n", ll);</code>
 </li>
+</ul>
+<p>The length modifiers are applied with conversion specifiers, such as:</p>
+<ul>
 <li>
-<p><code>u</code> is unsigned, <code>x</code> is unsigned hexa, <code>X</code> is unsigned HEXA</p>
-</li>
+<code>u</code> is unsigned, <code>x</code> is unsigned hexa, <code>X</code> is unsigned HEXA</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">unsigned <span class="pl-smi">int</span></span> <span class="pl-s1">u</span> <span class="pl-c1">=</span> <span class="pl-c1">13</span>;
 <span class="pl-en">printf</span>(<span class="pl-s">"%u\n"</span>, <span class="pl-s1">u</span>);
@@ -615,8 +617,15 @@ or in a register up to certain number of arguments (common x86-64
 the stack but <code>printf</code> will take 8 bytes.  Older compilers may not warn you at
 all!</li>
 </ul>
-<pre><code>/* DEFINITELY NOT OK.  Remember, 13 is of the "int" type. */
-printf("%lld\n", 13);
+<pre><code>$ cat not-ok.c
+#include &lt;stdio.h&gt;
+
+int
+main(void)
+{
+	/* DEFINITELY NOT OK.  Remember, 13 is of the "int" type. */
+	printf("%lld\n", 13);
+}
 
 $ cc -m32 wrong-modifier.c
 wrong-modifier.c:6:19: warning: format specifies type 'long
@@ -702,7 +711,7 @@ information</li>
 <div class="markdown-heading"><h1 class="heading-element">getchar()</h1><a id="user-content-getchar" class="anchor" aria-label="Permalink: getchar()" href="#getchar"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>
-<code>getchar</code> function reads one character from the process standard input and
+<code>getchar</code> function reads one character from the standard input and
 returns its value as an <code>int</code>.
 <ul>
 <li>When it reaches end of input (for example, by pressing <code>Ctrl-D</code> in the
@@ -721,7 +730,7 @@ here: <a href="https://pubs.opengroup.org/onlinepubs/9699919799" rel="nofollow">
 </li>
 </ul>
 <div class="markdown-heading"><h3 class="heading-element">🔧 Task: write code that will read characters from a terminal and prints them out.</h3><a id="user-content-wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out" class="anchor" aria-label="Permalink: :wrench: Task: write code that will read characters from a terminal and prints them out." href="#wrench-task-write-code-that-will-read-characters-from-a-terminal-and-prints-them-out"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>It should work like this:</p>
+<p>It should work like this (assuming the resulting binary is called <code>a.out</code>):</p>
 <pre><code>$ cat /etc/passwd | ./a.out &gt; passwd
 $ diff passwd /etc/passwd
 $ echo $?
