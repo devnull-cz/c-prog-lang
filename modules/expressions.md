@@ -24,6 +24,12 @@ printf("%d\n", 100 == 101);
 
 - As the `while` statement is defined in C99 6.8.5 as follows:
 
+- *side effect* is calling a function that prints a string, for example.  That
+  means, while computing a value of an expression `printf("hello\n")`, and here
+  the expression value was a return value the function returned, the side effect
+  was to print the string.  We will get to side effects later.
+
+
 ```C
 while (expression) statement
 ```
