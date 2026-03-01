@@ -338,12 +338,6 @@ printf("%d\n", 100 == 101);
 <li>
 <p>As the <code>while</code> statement is defined in C99 6.8.5 as follows:</p>
 </li>
-<li>
-<p><em>side effect</em> is calling a function that prints a string, for example.  That
-means, while computing a value of an expression <code>printf("hello\n")</code>, and here
-the expression value was a return value the function returned, the side effect
-was to print the string.  We will get to side effects later.</p>
-</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">while</span> (<span class="pl-s1">expression</span>) <span class="pl-s1">statement</span></pre></div>
 <p>...and given that a constant is also an expression, a neverending <code>while</code> loop
@@ -356,8 +350,16 @@ expression becomes 0.  That is never happening in this case.</p>
 <p>You could also write <code>while (2)</code>, <code>while (1000)</code>, or <code>while (-1)</code>  and it would
 still be a neverending loop but that is not how C programmers do it.</p>
 <ul>
-<li>Note that the <code>statement</code> from the spec definition can be a code block as you
-can see in the example code above, more on that later.</li>
+<li>
+<p>Note that the <code>statement</code> from the spec definition can be a code block as you
+can see in the example code above, more on that later.</p>
+</li>
+<li>
+<p>a <em>side effect</em> is calling a function that prints a string, for example.  That
+means, while computing a value of an expression <code>printf("hello\n")</code>, and here
+the expression value was a return value the function returned, the side effect
+was to print the string.  We will get to side effects later.</p>
+</li>
 </ul>
 <div class="markdown-heading"><h1 class="heading-element">The <code>break</code> statement</h1><a id="user-content-the-break-statement" class="anchor" aria-label="Permalink: The break statement" href="#the-break-statement"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
