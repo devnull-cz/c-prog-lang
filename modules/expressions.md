@@ -24,12 +24,6 @@ printf("%d\n", 100 == 101);
 
 - As the `while` statement is defined in C99 6.8.5 as follows:
 
-- *side effect* is calling a function that prints a string, for example.  That
-  means, while computing a value of an expression `printf("hello\n")`, and here
-  the expression value was a return value the function returned, the side effect
-  was to print the string.  We will get to side effects later.
-
-
 ```C
 while (expression) statement
 ```
@@ -49,3 +43,10 @@ still be a neverending loop but that is not how C programmers do it.
 
 - Note that the `statement` from the spec definition can be a code block as you
   can see in the example code above, more on that later.
+
+- a *side effect* is calling a function that prints a string, for example.  That
+  means, while computing a value of an expression `printf("hello\n")`, and here
+  the expression value was a return value the function returned, the side effect
+  was to print the string.  We will get to side effects later.
+
+
