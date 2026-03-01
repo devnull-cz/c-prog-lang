@@ -472,9 +472,11 @@ main.c:4:34: warning: integer constant is too large for its type
 </code></pre>
 <ul>
 <li>
-<p>However, if you printed <code>ull</code> (using <code>%llu</code> as for <code>unsigned long long int</code>), you will likely get <code>18446744073709551615</code> but that is because the
-number was first converted to <code>-1</code> to fit the range (that is not
-guaranteed), then back to <code>18446744073709551615</code>.  More on that later in
+<p>However, if you use the <code>ull</code> conversion, (i.e. using <code>%llu</code> as for
+<code>unsigned long long int</code>), you will likely get <code>18446744073709551615</code> but
+that is because the number was first converted to <code>-1</code> to fit the range
+(that is not guaranteed though), then back to <code>18446744073709551615</code>.  More
+on that later in
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/arithmetic-promotion-and-conversions.md">Arithmetic conversions.</a></p>
 </li>
 <li>
