@@ -338,6 +338,12 @@ printf("%d\n", 100 == 101);
 <li>
 <p>As the <code>while</code> statement is defined in C99 6.8.5 as follows:</p>
 </li>
+<li>
+<p><em>side effect</em> is calling a function that prints a string, for example.  That
+means, while computing a value of an expression <code>printf("hello\n")</code>, and here
+the expression value was a return value the function returned, the side effect
+was to print the string.  We will get to side effects later.</p>
+</li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">while</span> (<span class="pl-s1">expression</span>) <span class="pl-s1">statement</span></pre></div>
 <p>...and given that a constant is also an expression, a neverending <code>while</code> loop
