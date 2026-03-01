@@ -12,7 +12,7 @@ Not allowing to return an array is done for efficiency as copying the whole
 array (by value) would be too expensive.
 
 - Watch for array sizes if used within functions.
-- Arrays as local variable may significantly increase the stack size (and a
+- Arrays as a local variable may significantly increase the stack size (and a
   stack size is limited in threaded environments).
 
 #source func-large-array.c
