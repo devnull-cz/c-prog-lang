@@ -59,10 +59,10 @@ A function call is an expression so you can use it as such:
 printf("%d\n", return_a_number());
 ```
 
-The default return value type is an `int` but a compiler will warn if it is
-missing.  You should always specify the type in
-#module c99-standard.md C99+
-. You may use `void` which means the function returns no value.
+The default return value type for a function is an `int` but the compiler will
+likely warn you if it is missing.  You should always specify the type in
+#module c99-standard.md C99+.
+You may use `void` which means the function returns no value.
 
 Write your function declarations at the beginning of a C file or include those
 into a separate header file.
