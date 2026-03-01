@@ -339,10 +339,10 @@ calling the function (you can check it out for yourself).  So, always use
 }</pre></div>
 <p>A function call is an expression so you can use it as such:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-en">printf</span>(<span class="pl-s">"%d\n"</span>, <span class="pl-en">return_a_number</span>());</pre></div>
-<p>The default return value type is an <code>int</code> but a compiler will warn if it is
-missing.  You should always specify the type in
-<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">C99+</a>
-. You may use <code>void</code> which means the function returns no value.</p>
+<p>The default return value type for a function is an <code>int</code> but the compiler will
+likely warn you if it is missing.  You should always specify the type in
+<a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/c99-standard.md">C99+.</a>
+You may use <code>void</code> which means the function returns no value.</p>
 <p>Write your function declarations at the beginning of a C file or include those
 into a separate header file.</p>
 <p>If a compiler hits a function whose prototype is unknown, warnings are issued.
