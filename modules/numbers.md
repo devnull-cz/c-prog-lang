@@ -27,10 +27,11 @@ main.c:4:34: warning: integer constant is too large for its type
       |                                  ^~~~~~~~~~~~~~~~~~~~
 ```
 
-  - However, if you printed `ull` (using `%llu` as for `unsigned long long
-    int`), you will likely get `18446744073709551615` but that is because the
-    number was first converted to `-1` to fit the range (that is not
-    guaranteed), then back to `18446744073709551615`.  More on that later in
+  - However, if you use the `ull` conversion, (i.e. using `%llu` as for
+    `unsigned long long int`), you will likely get `18446744073709551615` but
+    that is because the number was first converted to `-1` to fit the range
+    (that is not guaranteed though), then back to `18446744073709551615`.  More
+    on that later in
 #module arithmetic-promotion-and-conversions.md Arithmetic conversions.
 
 - Hexadecimal numbers start with `0x` or `0X`.  Eg. `0xFF`, `0Xaa`, `0x13f`,
