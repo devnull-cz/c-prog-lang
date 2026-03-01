@@ -146,8 +146,8 @@ printf("%d\n", sh);
 - `l` for `long`, eg. `long l; printf("%ld\n", l);`
 - `ll` for `long long`, eg. `long long ll; printf("%lld\n", ll);`
 
-The length modifiers are applied with conversion specifiers, such as:
-- `u` is unsigned, `x` is unsigned hexa, `X` is unsigned HEXA
+The length modifiers are applied with several conversion specifiers, not just
+`d`, such as `u` as unsigned, `x` as unsigned hexa, and `X` as unsigned HEXA.
 
 ```C
 unsigned int u = 13;
