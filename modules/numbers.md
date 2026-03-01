@@ -150,17 +150,17 @@ The length modifiers are applied with several conversion specifiers, not just
 `d`, such as `u` as unsigned, `x` as unsigned hexa, and `X` as unsigned HEXA.
 
 ```C
-unsigned int u = 13;
+unsigned int u = 10;
 printf("%u\n", u);
 
-unsigned long long llu = 13;
+unsigned long long llu = 10;
 printf("%llu\n", llu);
 
-unsigned int u = 13;
+unsigned int u = 10;
 printf("%x\n", u);
-// --> d
+// --> a
 printf("%X\n", u);
-// --> D
+// --> A
 ```
 
 - The following is a problem though if compiled in 32 bits as you put 4 bytes on
