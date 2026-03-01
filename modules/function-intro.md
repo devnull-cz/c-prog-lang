@@ -67,7 +67,8 @@ You may use `void` which means the function returns no value.
 Write your function declarations at the beginning of a C file or include those
 into a separate header file.
 
-If a compiler hits a function whose prototype is unknown, warnings are issued.
+If a compiler hits a function whose prototype is unknown, a warning is issued,
+and possibly even an error.
 Remember #source hello-world1.c
 ? See also here:
 
