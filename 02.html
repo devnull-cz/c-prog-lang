@@ -606,17 +606,17 @@ or in a register up to certain number of arguments (common x86-64
 </ul>
 <p>The length modifiers are applied with several conversion specifiers, not just
 <code>d</code>, such as <code>u</code> as unsigned, <code>x</code> as unsigned hexa, and <code>X</code> as unsigned HEXA.</p>
-<div class="highlight highlight-source-c"><pre><span class="pl-smi">unsigned <span class="pl-smi">int</span></span> <span class="pl-s1">u</span> <span class="pl-c1">=</span> <span class="pl-c1">13</span>;
+<div class="highlight highlight-source-c"><pre><span class="pl-smi">unsigned <span class="pl-smi">int</span></span> <span class="pl-s1">u</span> <span class="pl-c1">=</span> <span class="pl-c1">10</span>;
 <span class="pl-en">printf</span>(<span class="pl-s">"%u\n"</span>, <span class="pl-s1">u</span>);
 
-<span class="pl-smi">unsigned long long</span> <span class="pl-s1">llu</span> <span class="pl-c1">=</span> <span class="pl-c1">13</span>;
+<span class="pl-smi">unsigned long long</span> <span class="pl-s1">llu</span> <span class="pl-c1">=</span> <span class="pl-c1">10</span>;
 <span class="pl-en">printf</span>(<span class="pl-s">"%llu\n"</span>, <span class="pl-s1">llu</span>);
 
-<span class="pl-smi">unsigned <span class="pl-smi">int</span></span> <span class="pl-s1">u</span> <span class="pl-c1">=</span> <span class="pl-c1">13</span>;
+<span class="pl-smi">unsigned <span class="pl-smi">int</span></span> <span class="pl-s1">u</span> <span class="pl-c1">=</span> <span class="pl-c1">10</span>;
 <span class="pl-en">printf</span>(<span class="pl-s">"%x\n"</span>, <span class="pl-s1">u</span>);
-<span class="pl-c">// --&gt; d</span>
+<span class="pl-c">// --&gt; a</span>
 <span class="pl-en">printf</span>(<span class="pl-s">"%X\n"</span>, <span class="pl-s1">u</span>);
-<span class="pl-c">// --&gt; D</span></pre></div>
+<span class="pl-c">// --&gt; A</span></pre></div>
 <ul>
 <li>The following is a problem though if compiled in 32 bits as you put 4 bytes on
 the stack but <code>printf</code> will take 8 bytes.  Older compilers may not warn you at
