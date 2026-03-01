@@ -27,9 +27,9 @@ char foo[] = { 'b', 'a', 'r', '\0' };
 printf("%zu\n", sizeof (foo));		// prints 4
 ```
 
-Using a character constant `'\0'` suggests it is a terminating null character
-but it is still just a zero byte.  So, you could use `0`, as follows, but it is
-not generally used:
+Using an (octal) character constant `'\0'` suggests it is a terminating null
+character but it is still just a zero byte.  So, you could use `0`, as follows,
+but it is not generally used:
 
 ```C
 char foo[] = { 'b', 'a', 'r', 0 };
