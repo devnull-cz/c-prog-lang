@@ -436,9 +436,11 @@ You will probably not use such a compiler/platform combination, ever.</li>
 </ul>
 <p>The <strong>most operations</strong> from the above sentence means all binary operators.  A
 ternary operator as well.  And even some unary operators.</p>
-<p><code>sizeof (1)</code> is 4 because 1 is an <code>int</code>.  However, if a number does not fit to
-an <code>int</code>, a higher type will be used.  For example, <code>4294967296</code> (2^32 =
-<code>UINT_MAX + 1</code>) will be stored in 8 bytes, so <code>sizeof (4294967296)</code> is 8.</p>
+<p><code>sizeof (1)</code> is 4 because 1 is an <code>int</code> (assuming common architectures
+and implementations where <code>int</code> is stored in 4 bytes such as x86).
+However, if a number does not fit to an <code>int</code>, a higher type will be used.
+For example, <code>4294967296</code> (2^32 = <code>UINT_MAX + 1</code>) will be stored in 8 bytes,
+so <code>sizeof (4294967296)</code> is 8.</p>
 <p>Does it sound confusing?  Do not worry, we will give you specific rules later in
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/arithmetic-promotion-and-conversions.md"><em>Arithmetic/integer promotion and conversion</em> section.</a></p>
 <p>🔧 Verify that numbers that do not fit in an <code>int</code> will have a size of 8
