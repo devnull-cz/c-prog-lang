@@ -45,9 +45,11 @@ runtime fast (on x86 32-bit arithmetics can be much faster than when using
 The **most operations** from the above sentence means all binary operators.  A
 ternary operator as well.  And even some unary operators.
 
-`sizeof (1)` is 4 because 1 is an `int`.  However, if a number does not fit to
-an `int`, a higher type will be used.  For example, `4294967296` (2^32 =
-`UINT_MAX + 1`) will be stored in 8 bytes, so `sizeof (4294967296)` is 8.
+`sizeof (1)` is 4 because 1 is an `int` (assuming common architectures
+and implementations where `int` is stored in 4 bytes such as x86).
+However, if a number does not fit to an `int`, a higher type will be used.
+For example, `4294967296` (2^32 = `UINT_MAX + 1`) will be stored in 8 bytes,
+so `sizeof (4294967296)` is 8.
 
 Does it sound confusing?  Do not worry, we will give you specific rules later in
 #module arithmetic-promotion-and-conversions.md *Arithmetic/integer promotion and conversion* section.
