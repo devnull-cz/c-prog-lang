@@ -113,7 +113,6 @@
 <p>Rewrite the
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/home-assignments/toupper.md">convert small characters to upper case</a>
 program using a function.</p>
-<p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/solutions/toupper.c">toupper.c</a></p>
 <div class="markdown-heading"><h3 class="heading-element">Implementation notes</h3><a id="user-content-implementation-notes" class="anchor" aria-label="Permalink: Implementation notes" href="#implementation-notes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>There is a <code>toupper()</code> library function from C99 so use a different name, say
@@ -159,7 +158,8 @@ changed in the array itself (consequence of pointer conversion).</p>
 </li>
 </ul>
 <div class="highlight highlight-source-c"><pre><span class="pl-smi">short</span> <span class="pl-s1">uppper</span>[] <span class="pl-c1">=</span> { <span class="pl-c1">'A'</span>, <span class="pl-c1">'B'</span>, ... };</pre></div>
-<p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/solutions/toupper-table.c">toupper-table.c</a></p>
+<p>🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/solutions/toupper.c">toupper.c</a>
+🔑 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/solutions/toupper-table.c">toupper-table.c</a></p>
 <div class="markdown-heading"><h2 class="heading-element">A trivial fgrep</h2><a id="user-content-a-trivial-fgrep" class="anchor" aria-label="Permalink: A trivial fgrep" href="#a-trivial-fgrep"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>There are multiple variants of the grep(1) Unix utility. One of them is
 <code>fgrep</code> aka <code>grep -F</code> that prints the lines received on standard input which
