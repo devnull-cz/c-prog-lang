@@ -4,8 +4,6 @@ Rewrite the
 #module home-assignments/toupper.md convert small characters to upper case
 program using a function.
 
-#solution toupper.c
-
 ### Implementation notes
 
 - There is a `toupper()` library function from C99 so use a different name, say
@@ -44,4 +42,5 @@ void func(int array[], size_t size);
 short uppper[] = { 'A', 'B', ... };
 ```
 
+#solution toupper.c
 #solution toupper-table.c
