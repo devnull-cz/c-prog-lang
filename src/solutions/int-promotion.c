@@ -1,3 +1,8 @@
+/*
+ * Due to an undefined behavior explanined below, it is prudent to compile
+ * this program with -fwrapv to make this behave as expected for this case.
+ */
+
 #include <stdio.h>
 
 int
