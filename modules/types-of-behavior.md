@@ -1,6 +1,9 @@
 # Types of behavior in C
 
-From C99, Annex J.
+Note that the C99 Annex J (informational) has a list of all unspecified and
+undefined behaviours as defined in the specification.
+
+The types of behavior are defined as follows.
 
 ## 3. Terms, definitions, and symbols
 

@@ -32,4 +32,7 @@ Even though the `main()` returns integer (usually 4 bytes),
 the calling program (shell) gets just the low 8 bits and interprets them as
 unsigned quantity.
 
+Note that in contrast to the previous C standards, the C23 specification
+requires two's complement to represent negative integers.
+
 #source return-1.c

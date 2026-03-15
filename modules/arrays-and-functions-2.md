@@ -40,7 +40,9 @@ soon.
 
 ## Function is not an object
 
-Like an array, function is not a first class object (i.e. no "functor" like in
-functional languages).
+Like an array, function is not a basic type (i.e. no "functor" like in
+functional languages), it is a *derived type*, see
+#module arrays-and-functions.md Arrays and functions
+for more information.
 
 - That said, there are pointers to functions (more on these later).
