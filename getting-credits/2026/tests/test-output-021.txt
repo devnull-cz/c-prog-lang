@@ -1,0 +1,9 @@
+aaa-file
+another-file2
+empty.data
+file.zero
+file1.random
+file2.zero
+file3.zero
+hello-world
+small-file

@@ -1,0 +1,3 @@
+aaa-file
+mytar: Unexpected EOF in archive
+mytar: Error is not recoverable: exiting now

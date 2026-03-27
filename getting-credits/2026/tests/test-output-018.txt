@@ -1,0 +1,2 @@
+mytar: This does not look like a tar archive
+mytar: Exiting with failure status due to previous errors

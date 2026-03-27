@@ -1,0 +1,8 @@
+aaa-file
+empty.data
+file3.zero
+small-file
+mytar: nonexistent1: Not found in archive
+mytar: nonexistent2: Not found in archive
+mytar: nonexistent3: Not found in archive
+mytar: Exiting with failure status due to previous errors
