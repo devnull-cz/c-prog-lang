@@ -149,19 +149,20 @@ echo "Creating archives with missing ending zero block(s):"
 printf "$onezeroblockmissing 1\n$twozeroblocksmissing 0\n" | \
     while read filename n; do
 	dd if=$tarfile of=$filename count=$((aaafileblocks + 1)) >/dev/null 2>&1
-	(($? != 0)) && echo "dd failed." && exit 1
+	(($? != 0)) && echo "dd on '$filename' failed." && exit 1
 	dd if=/dev/zero of=$filename seek=$((aaafileblocks + 1)) \
 	    count=$n >/dev/null 2>&1
-	(($? != 0)) && echo "dd failed with zero blocks." && exit 1
+	(($? != 0)) && echo "dd on '$filename' failed with zero blocks." && \
+	    exit 1
 	echo "  $filename"
     done
 
 typeset myname
 myname=$(id -un)
-(($? != 0)) && echo "id(1) failed." && exit 1
+(($? != 0)) && echo "id(1) -un failed." && exit 1
 typeset large_dir=${LARGEFILE_DIR:-/tmp/c-prog-lang--$myname}
 # The -p option makes it succeed if the dir already exists.
-mkdir -p $large_dir || { echo "mkdir failed"; exit 1; }
+mkdir -p $large_dir || { echo "mkdir -p '$large_dir' failed"; exit 1; }
 
 typeset largefile=large-random-data
 # Configuration variable.
@@ -172,15 +173,17 @@ printf "%s\n%s\n%s\n" \
     "  Filesize in bytes: $LARGEFILE_SIZE (use LARGEFILE_SIZE to overwrite)." \
     "  May take a minute:"
 cd $large_dir
-time openssl rand -out "$largefile" $LARGEFILE_SIZE
-(($? != 0)) && echo "openssl(1) failed." && exit 1
+typeset ocmd="openssl rand -out '$largefile' $LARGEFILE_SIZE"
+eval time $ocmd
+(($? != 0)) && echo "Command '$ocmd' failed." && exit 1
 
 typeset large_archive=${largefile}.tar
 printf "%s\n%s\n" "Creating an archive with $large_dir/${largefile}." \
     "  Tarball: $(pwd)/$large_archive" \
     "  May take a minute:"
-time $GNUTAR -c -v -f $large_archive $largefile
-(($? != 0)) && echo "$GNUTAR failed." && exit 1
+typeset gcmd="$GNUTAR -c -v -f $large_archive '$largefile'"
+eval time $gcmd
+(($? != 0)) && echo "Command '$gcmd' failed." && exit 1
 printf "export large_dir=$large_dir\n" >> $configvar
 printf "export largefile=$largefile\n" >> $configvar
 printf "export large_archive=$large_archive\n" >> $configvar

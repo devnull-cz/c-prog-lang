@@ -43,14 +43,14 @@ export GNUTAR=$(which tar)
 export MYTAR_C=/data/repos/mytar/mytar.c
 
 #
-# The test creates o large file, ~9G in size, then it creates a tar archive
-# from it.  By default, it uses /tmp/c-prog-lang--$(id -un) directory.  If
-# there is not enough space available in it (~18G), or you may want to use a
-# different directory for whatever reason, so set LARGEFILE_DIR.   The test
-# suite will try to create the directory.  The test is expected to remove the
-# large files when cleaning up.
+# The test creates one large file, ~9G in size, and puts it into a tar archive.
+# By default, it uses /tmp/c-prog-lang--$(id -un) directory.  If there is not
+# enough space available in it (~18G) or if you want to use a different
+# directory for whatever reason, set LARGEFILE_DIR to an absolute path.  The
+# test suite will try to create the directory and all its parents as well (using
+# 'mkdir -p').  The test is expected to remove the large files when cleaning up.
 #
-export LARGEFILE_DIR=
+#export LARGEFILE_DIR=/data/mff/c-prog-lang/tmp
 
 #
 # In order to verify your testing environment is set up correctly, set MYGNUTAR
