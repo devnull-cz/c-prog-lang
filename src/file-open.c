@@ -5,8 +5,11 @@
 static void
 file_read(char *file, size_t len)
 {
-	// No error check or error reporting, grr.
 	FILE *fp = fopen(file, "r");
+
+	if (fp == NULL) {
+		err(1, "fopen");
+	}
 
 	char *mem = calloc(len, sizeof (char));
 	fread(mem, sizeof (char), len, fp);
