@@ -131,7 +131,7 @@ count, print a meaningful usage and exit.
 
 #solution usage.c
 
-## :wrench: Print the n-th character of the r-th argument (count from 0)
+## :wrench: From the r-th argument, print the n-th character (count from 0)
 
 Usage: `./a.out <r> <n> [args]`
 
