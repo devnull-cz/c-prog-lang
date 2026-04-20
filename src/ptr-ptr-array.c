@@ -24,7 +24,6 @@ main(void)
 	printf(" &k = %p (%d)\n", &k, k);
 	printf("  a = %p\n", a);
 
-
 	int b[] = { i, j, k };
 	int *pb = b;
 	int **ppb = &pb;
