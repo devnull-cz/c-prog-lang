@@ -161,7 +161,7 @@ If we add another function:</p>
 <p>then the expression will become <code>(foo() + bar()) + another()</code> however the order
 in which <code>foo()</code> and <code>bar()</code> will be called is still not specified.  Remember -
 <em>unspecified</em> means the implementation (= compiler) is free to choose which
-argument will be processes first and generally should not document the decision.
+argument will be processed first and generally should not document the decision.
 More on that in
 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/modules/types-of-behavior.md">types of behavior.</a></p>
 <div class="markdown-heading"><h2 class="heading-element">Common gotchas</h2><a id="user-content-common-gotchas" class="anchor" aria-label="Permalink: Common gotchas" href="#common-gotchas"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -173,14 +173,14 @@ More on that in
     ...</pre></div>
 <p>needs to be bracketed this way because <code>==</code> and <code>!=</code> is of higher precedence
 than <code>=</code>.</p>
+<div class="markdown-heading"><h2 class="heading-element">Operator precedence and structures</h2><a id="user-content-operator-precedence-and-structures" class="anchor" aria-label="Permalink: Operator precedence and structures" href="#operator-precedence-and-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="markdown-heading"><h3 class="heading-element">
 <code>&amp;</code> or <code>*</code> versus <code>-&gt;</code> or <code>.</code>
 </h3><a id="user-content--or--versus---or-" class="anchor" aria-label="Permalink: &amp; or * versus -&gt; or ." href="#-or--versus---or-"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><code>-&gt;</code> and <code>.</code> (structure member access) have higher precedence than <code>&amp;</code> (address
 of) and <code>*</code> (dereference).  So, <code>*somestruct-&gt;p_member</code> dereferences the pointer
 <code>p_member</code>.</p>
-<div class="markdown-heading"><h1 class="heading-element">🔧 Operator precedence and structures</h1><a id="user-content-wrench-operator-precedence-and-structures" class="anchor" aria-label="Permalink: :wrench: Operator precedence and structures" href="#wrench-operator-precedence-and-structures"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Consider the following structures:</p>
+<p>🔧 Consider the following structures:</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> <span class="pl-smi">bar</span> {
 	<span class="pl-smi">int</span> <span class="pl-c1">val</span>;
 } <span class="pl-s1">bar</span>;
