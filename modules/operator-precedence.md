@@ -61,7 +61,7 @@ int x = foo() + bar() + another();
 then the expression will become `(foo() + bar()) + another()` however the order
 in which `foo()` and `bar()` will be called is still not specified.  Remember -
 *unspecified* means the implementation (= compiler) is free to choose which
-argument will be processes first and generally should not document the decision.
+argument will be processed first and generally should not document the decision.
 More on that in
 #module types-of-behavior.md types of behavior.
 
