@@ -78,15 +78,15 @@ if ((c = getchar()) != 0)
 needs to be bracketed this way because `==` and `!=` is of higher precedence
 than `=`.
 
+## Operator precedence and structures
+
 ### `&` or `*` versus `->` or `.`
 
 `->` and `.` (structure member access) have higher precedence than `&` (address
 of) and `*` (dereference).  So, `*somestruct->p_member` dereferences the pointer
 `p_member`.
 
-# :wrench: Operator precedence and structures
-
-Consider the following structures:
+:wrench: Consider the following structures:
 
 ```C
 struct bar {
