@@ -58,9 +58,22 @@ case 'a':
 	int a;
 	/* ... */
 default:
-	;	/* must be here as the closing '}' is not a statement. */
+	;	/* If the default is present and empty, the ';' must be here as
+		   the closing '}' is not a statement. */
 }
 ```
 
-The other alternative would be to move the first statement that follows the
-variable declaration before it.
+Alternatively, you can use a block:
+
+```C
+switch (c) {
+case 'a': {
+	int a;
+	/* ... */
+}
+...
+}
+```
+
+You can also move the first statement that follows the variable declaration
+before it, if possible.
