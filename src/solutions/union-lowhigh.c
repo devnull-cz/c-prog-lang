@@ -16,8 +16,9 @@ main(void)
 	printf("size = %zu bytes\n", sizeof (bar));
 	printf("low: %x high: %x\n", bar.bytes.low, bar.bytes.high);
 
-	if (bar.bytes.low == 1)
+	if (bar.bytes.low == 1) {
 		printf("big endian\n");
-	else
+	} else {
 		printf("little endian\n");
+	}
 }
