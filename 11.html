@@ -581,6 +581,23 @@ So, a <em>null statement</em> to the rescue:</p>
 }</pre></div>
 <p>You can also move the first statement that follows the variable declaration
 before it, if possible.</p>
+<div class="markdown-heading"><h1 class="heading-element">A C switch puzzle</h1><a id="user-content-a-c-switch-puzzle" class="anchor" aria-label="Permalink: A C switch puzzle" href="#a-c-switch-puzzle"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-c"><pre><span class="pl-c">/*</span>
+<span class="pl-c"> * Will 17 or 13 be printed?</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">#include</span> <span class="pl-s">&lt;stdio.h&gt;</span>
+
+<span class="pl-smi">int</span>
+<span class="pl-en">main</span>(<span class="pl-smi">void</span>)
+{
+        <span class="pl-smi">int</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">17</span>;
+
+        <span class="pl-k">switch</span> (<span class="pl-c1">1</span>) {
+        <span class="pl-smi">int</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">13</span>;
+        <span class="pl-k">case</span> <span class="pl-c1">1</span>:
+                <span class="pl-en">printf</span>(<span class="pl-s">"%d\n"</span>, <span class="pl-s1">i</span>);
+        }
+}</pre></div>
 <div class="markdown-heading"><h1 class="heading-element">🔧 Home assignment</h1><a id="user-content-wrench-home-assignment" class="anchor" aria-label="Permalink: :wrench: Home assignment" href="#wrench-home-assignment"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Note that home assignments are entirely voluntary but writing code is the only
 way to learn a programming language.</p>
