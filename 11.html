@@ -412,6 +412,41 @@ do <code>*p = ...</code> nor <code>p = ...</code>.  Verify.</p>
 <div class="highlight highlight-source-c"><pre><span class="pl-k">const</span> <span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-k">const</span> <span class="pl-s1">p</span>;</pre></div>
 <p>🔧 Take the binary tree implementation and use the <code>const</code> keyword where
 it makes sense.</p>
+<div class="markdown-heading"><h1 class="heading-element">The <code>typedef</code> keyword</h1><a id="user-content-the-typedef-keyword" class="anchor" aria-label="Permalink: The typedef keyword" href="#the-typedef-keyword"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Note that a <code>char</code>, signed and unsigned integer types, and the floating types
+are collectively called <em>basic types</em>.</p>
+<p>We also have <em>derived types</em> - an array type, a structure, a union, a function
+type, and a pointer type.</p>
+<p>With <code>typedef</code>, you create new data type <strong>names</strong> for <strong>existing</strong> types.  Note
+that you <strong>never</strong> create new data <strong>types</strong> with <code>typedef</code>.  In other words,
+with <code>typedef</code>, you create synonyms to the existing types.</p>
+<p><code>typedef</code> is most commonly used for derived types but many type names provided
+by the C standard itself are based on basic types.  For example, <code>size_t</code>, see
+its definition in <code>/usr/include/sys/types.h</code>.</p>
+<p>You can also create new type names using type names you created before, see
+below.</p>
+<p><code>typedef</code> is used as follows:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-smi">int</span> <span class="pl-smi">myint</span>;
+<span class="pl-k">typedef</span> <span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-smi">mycharptr</span>;
+
+<span class="pl-smi">mycharptr</span> <span class="pl-s1">p</span> <span class="pl-c1">=</span> <span class="pl-s">"my string"</span>;</pre></div>
+<p><code>typedef</code> is great to create complex type names in small steps.  As we will
+see next.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-c1">*</span><span class="pl-smi">array</span>[<span class="pl-c1">10</span>];
+<span class="pl-smi">array</span> <span class="pl-s1">a</span>;</pre></div>
+<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/derived-types.c">derived-types.c</a></p>
+<p>The convention is to add <code>_t</code> to a new type name.  For example:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">typedef</span> <span class="pl-k">struct</span> <span class="pl-smi">mystruct_s</span> {
+	<span class="pl-smi">int</span> <span class="pl-c1">a</span>;
+	<span class="pl-smi">char</span> <span class="pl-c1">c</span>;
+} <span class="pl-smi">mystruct_t</span>;</pre></div>
+<p>And you can use it like this:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> <span class="pl-smi">mystruct_s</span> <span class="pl-s1">x</span>;
+<span class="pl-smi">mystruct_t</span> <span class="pl-s1">y</span>;</pre></div>
+<p><code>x</code> and <code>y</code> are of the same type.</p>
+<p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/typedef.c">typedef.c</a></p>
+<p>🔧 Take the binary tree implementation and use <code>typedef</code> for the node
+structure itself and also for the callback.</p>
 <div class="markdown-heading"><h1 class="heading-element">Variable namespace and scope</h1><a id="user-content-variable-namespace-and-scope" class="anchor" aria-label="Permalink: Variable namespace and scope" href="#variable-namespace-and-scope"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Identifiers fall into several namespaces that do not interfere with one
 another.</p>
