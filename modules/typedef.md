@@ -54,7 +54,7 @@ mystruct_t y;
 
 `x` and `y` are of the same type.
 
-#source typedef.c
+#source typedef-struct.c
 
 :wrench: Take the binary tree implementation from the
 #module bintree.md binary tree task
