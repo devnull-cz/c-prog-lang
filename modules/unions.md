@@ -28,7 +28,7 @@ union foo {
 		|      i      |
 		+-------------+
 		| low  | high |
-                +-------------+
+		+-------------+
 ```
 
 - Union can be part of a structure, #source union-in-struct.c
