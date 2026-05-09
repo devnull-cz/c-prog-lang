@@ -11,8 +11,8 @@ that you **never** create new data **types** with `typedef`.  In other words,
 with `typedef`, you create synonyms to the existing types.
 
 `typedef` is most commonly used for derived types but many type names provided
-by the C standard itself are based on basic types.  For example, `size_t`, see
-its definition in `/usr/include/sys/types.h`.
+by the C standard itself are based on basic types.  For example, see
+type names in the `/usr/include/sys/` directory on Unix systems.
 
 You can also create new type names using type names you created before, see
 below.
