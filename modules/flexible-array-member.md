@@ -47,8 +47,4 @@ assert(p != NULL);
 p->itm_plen = payload_len * sizeof (p->itm_payload[0]);
 ```
 
-- with this approach the overall structure alignment might be lost
-  - i.e. it is necessary to set the payload length according to the size
-    of the structure if you want to maintain the alignment
-
 #source flexible-array-member.c
