@@ -479,14 +479,6 @@ this.  Since C99 this can be done properly using this technique.</p>
 <span class="pl-s1">p</span> <span class="pl-c1">=</span> <span class="pl-en">malloc</span>(<span class="pl-k">sizeof</span> (<span class="pl-k">struct</span> <span class="pl-smi">item</span>) <span class="pl-c1">+</span> <span class="pl-s1">payload_len</span> <span class="pl-c1">*</span> <span class="pl-k">sizeof</span> (<span class="pl-s1">p</span><span class="pl-c1">-&gt;</span><span class="pl-c1">itm_payload</span>[<span class="pl-c1">0</span>]));
 <span class="pl-en">assert</span>(<span class="pl-s1">p</span> <span class="pl-c1">!=</span> <span class="pl-c1">NULL</span>);
 <span class="pl-s1">p</span><span class="pl-c1">-&gt;</span><span class="pl-c1">itm_plen</span> <span class="pl-c1">=</span> <span class="pl-s1">payload_len</span> <span class="pl-c1">*</span> <span class="pl-k">sizeof</span> (<span class="pl-s1">p</span><span class="pl-c1">-&gt;</span><span class="pl-c1">itm_payload</span>[<span class="pl-c1">0</span>]);</pre></div>
-<ul>
-<li>with this approach the overall structure alignment might be lost
-<ul>
-<li>i.e. it is necessary to set the payload length according to the size
-of the structure if you want to maintain the alignment</li>
-</ul>
-</li>
-</ul>
 <p>👀 <a href="https://github.com/devnull-cz/c-prog-lang/blob/master/src/flexible-array-member.c">flexible-array-member.c</a></p>
 <div class="markdown-heading"><h1 class="heading-element">Structure bit fields</h1><a id="user-content-structure-bit-fields" class="anchor" aria-label="Permalink: Structure bit fields" href="#structure-bit-fields"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
