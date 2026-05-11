@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 typedef struct mystruct_s {
-        int a;
-        char c;
+	int a;
+	char c;
 } mystruct_t;
 
 int
@@ -15,5 +15,5 @@ main(void)
 	/* No error or warning.  The pointers are of the same type. */
 	p2 = p;
 
-	printf("%p\n", p2);
+	printf("%p\n", (void *)p2);
 }
