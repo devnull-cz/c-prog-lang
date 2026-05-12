@@ -167,15 +167,24 @@ mkdir -p $large_dir || { echo "mkdir -p '$large_dir' failed"; exit 1; }
 typeset largefile=large-random-data
 # Configuration variable.
 typeset LARGEFILE_SIZE=${LARGEFILE_SIZE:-9216000000}
-printf "%s\n%s\n%s\n" \
+printf "%s\n%s\n%s\n%s" \
     "Creating large file with openssl rand" \
     "  File: '$large_dir/$largefile' (use LARGEFILE_DIR to overwrite)." \
     "  Filesize in bytes: $LARGEFILE_SIZE (use LARGEFILE_SIZE to overwrite)." \
-    "  May take a minute:"
+    "  May take a minute: "
 cd $large_dir
-typeset ocmd="openssl rand -out '$largefile' $LARGEFILE_SIZE"
-eval time $ocmd
-(($? != 0)) && echo "Command '$ocmd' failed." && exit 1
+rm -f ${largefile}
+for i in $( seq 1 10 ); do
+    (( single_size = LARGEFILE_SIZE / 10 ))
+    typeset ocmd="openssl rand -out '${largefile}.${i}' $single_size"
+    eval $ocmd
+    (($? != 0)) && echo "Command '$ocmd' failed." && exit 1
+    cat ${largefile}.${i} >> $largefile
+    (($? != 0)) && echo "cat command failed." && exit 1
+    rm -f ${largefile}.${i}
+    echo -n .
+done
+echo
 
 typeset large_archive=${largefile}.tar
 printf "%s\n%s\n" "Creating an archive with $large_dir/${largefile}." \
